@@ -4,7 +4,6 @@
   "type": "registry:ui",
   "title": "Spinner",
   "description": "A StyleX Spinner component.",
-  "registryDependencies": ["field"],
   "files": [
     {
       "file": "spinner.tsx",

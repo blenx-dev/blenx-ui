@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "../../theme/contract.stylex";
-import { spacing } from "../../theme/spacing.stylex";
+import { spacing } from "../../theme/theme.stylex";
 
 export const inputStyles = stylex.create({
   label: {

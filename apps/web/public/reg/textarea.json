@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "A StyleX Textarea component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/theme.json"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/Textarea/textarea.tsx",
+      "content": "\"use client\";\n\nimport { mergeProps } from \"@base-ui/react\";\nimport { Field as FieldPrimitive } from \"@base-ui/react/field\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type * as React from \"react\";\nimport { textareaStyles } from \"./textarea.styles\";\n\nexport type TextareaProps = React.ComponentPropsWithoutRef<\"textarea\"> &\n  React.RefAttributes<HTMLTextAreaElement> & {\n    size?: \"sm\" | \"default\" | \"lg\" | number;\n  };\n\nexport function Textarea({ size = \"default\", ref, ...props }: TextareaProps): React.ReactElement {\n  const shellProps = stylex.props(textareaStyles.shell);\n  const textareaProps = {\n    ...props,\n    ...stylex.props(\n      textareaStyles.textarea,\n      size === \"sm\" && textareaStyles.textareaSm,\n      size === \"lg\" && textareaStyles.textareaLg,\n    ),\n  };\n\n  return (\n    <span {...shellProps} data-size={size} data-slot=\"textarea-control\">\n      <FieldPrimitive.Control\n        ref={ref}\n        value={props.value}\n        defaultValue={props.defaultValue}\n        disabled={props.disabled}\n        id={props.id}\n        name={props.name}\n        render={(defaultProps: React.ComponentProps<\"textarea\">) => (\n          <textarea\n            ref={ref}\n            {...mergeProps(defaultProps, textareaProps)}\n            data-slot=\"textarea\"\n            {...props}\n          />\n        )}\n      />\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "app/components/ui/Textarea/textarea.tsx"
+    },
+    {
+      "path": "packages/ui/src/components/Textarea/textarea.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"../../theme/contract.stylex\";\n\nexport const textareaStyles = stylex.create({\n  shell: {\n    display: \"inline-flex\",\n    width: \"100%\",\n    position: \"relative\",\n    borderStyle: \"solid\",\n    borderWidth: 1,\n    borderColor: theme.border,\n    borderRadius: theme.borderRadius,\n    backgroundColor: theme.surface,\n    color: theme.contentPrimary,\n    boxShadow: \"0 1px 2px rgba(0,0,0,0.04)\",\n    boxSizing: \"border-box\",\n    outline: \"none\",\n    transitionProperty: \"box-shadow, border-color\",\n    transitionDuration: \"150ms\",\n    \":has(:focus-visible)\": {\n      borderColor: theme.borderStrong,\n      boxShadow: `0 0 0 3px ${theme.borderStrong}`,\n    },\n    \":has([aria-invalid])\": {\n      borderColor: theme.sentimentNegative,\n    },\n    \":has([aria-invalid]:focus-visible)\": {\n      boxShadow: `0 0 0 3px ${theme.sentimentNegative}`,\n    },\n    \":has(:disabled)\": {\n      opacity: 0.64,\n    },\n  },\n  textarea: {\n    fieldSizing: \"content\",\n    minHeight: \"70px\",\n    width: \"100%\",\n    borderRadius: \"inherit\",\n    borderWidth: 0,\n    paddingTop: \"calc(12px - 1px)\",\n    paddingBottom: \"calc(12px - 1px)\",\n    paddingLeft: \"calc(12px - 1px)\",\n    paddingRight: \"calc(12px - 1px)\",\n    fontSize: \"16px\",\n    lineHeight: 1.5,\n    outline: \"none\",\n    resize: \"none\",\n    color: theme.contentPrimary,\n    backgroundColor: \"transparent\",\n  },\n  textareaSm: {\n    minHeight: \"66px\",\n    paddingTop: \"calc(8px - 1px)\",\n    paddingBottom: \"calc(8px - 1px)\",\n    paddingLeft: \"calc(10px - 1px)\",\n    paddingRight: \"calc(10px - 1px)\",\n  },\n  textareaLg: {\n    minHeight: \"74px\",\n    paddingTop: \"calc(16px - 1px)\",\n    paddingBottom: \"calc(16px - 1px)\",\n  },\n});\n",
+      "type": "registry:file",
+      "target": "app/components/ui/Textarea/textarea.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

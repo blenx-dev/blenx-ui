@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stack",
+  "title": "Stack",
+  "description": "A StyleX Stack component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/box.json",
+    "http://localhost:3001/reg/theme.json"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/Stack/stack.tsx",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport type { BoxProps } from \"../Box/box\";\nimport { Box } from \"../Box/box\";\nimport {\n  stackAlignStyles,\n  stackDirectionStyles,\n  stackGapStyles,\n  stackJustifyStyles,\n  stackWrapStyles,\n} from \"./stack.styles\";\n\ntype StackDirection = keyof typeof stackDirectionStyles;\ntype StackGap = keyof typeof stackGapStyles;\ntype StackAlign = keyof typeof stackAlignStyles;\ntype StackJustify = keyof typeof stackJustifyStyles;\n\nexport type StackProps = Omit<BoxProps, \"display\"> & {\n  direction?: StackDirection;\n  gap?: StackGap;\n  align?: StackAlign;\n  justify?: StackJustify;\n  wrap?: boolean;\n};\n\nexport function Stack({\n  direction,\n  gap = \"medium\",\n  align,\n  justify,\n  wrap,\n  style,\n  ...props\n}: StackProps) {\n  const resolvedDirection = direction ?? \"column\";\n  const resolvedStyles = stylex.props(\n    stackDirectionStyles[resolvedDirection],\n    stackGapStyles[gap],\n    align && stackAlignStyles[align],\n    justify && stackJustifyStyles[justify],\n    wrap && stackWrapStyles.true,\n    style,\n  );\n  return <Box display=\"flex\" {...resolvedStyles} {...props} />;\n}\n\ntype VStackProps = Omit<StackProps, \"direction\">;\n\nexport function VStack(props: VStackProps) {\n  return <Stack direction=\"column\" {...props} />;\n}\n\ntype HStackProps = Omit<StackProps, \"direction\">;\n\nexport function HStack(props: HStackProps) {\n  return <Stack direction=\"row\" {...props} />;\n}\n",
+      "type": "registry:ui",
+      "target": "app/components/ui/Stack/stack.tsx"
+    },
+    {
+      "path": "packages/ui/src/components/Stack/stack.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { spacing } from \"../../theme/theme.stylex\";\n\nexport const stackDirectionStyles = stylex.create({\n  column: { flexDirection: \"column\" },\n  row: { flexDirection: \"row\" },\n});\n\nexport const stackGapStyles = stylex.create({\n  none: { gap: 0 },\n  xxsmall: { gap: spacing.xxsmall },\n  xsmall: { gap: spacing.xsmall },\n  small: { gap: spacing.small },\n  medium: { gap: spacing.medium },\n  large: { gap: spacing.large },\n  xlarge: { gap: spacing.xlarge },\n  xxlarge: { gap: spacing.xxlarge },\n  xxxlarge: { gap: spacing.xxxlarge },\n  huge: { gap: spacing.huge },\n  massive: { gap: spacing.massive },\n});\n\nexport const stackAlignStyles = stylex.create({\n  start: { alignItems: \"flex-start\" },\n  center: { alignItems: \"center\" },\n  end: { alignItems: \"flex-end\" },\n  stretch: { alignItems: \"stretch\" },\n  baseline: { alignItems: \"baseline\" },\n});\n\nexport const stackJustifyStyles = stylex.create({\n  start: { justifyContent: \"flex-start\" },\n  center: { justifyContent: \"center\" },\n  end: { justifyContent: \"flex-end\" },\n  between: { justifyContent: \"space-between\" },\n  around: { justifyContent: \"space-around\" },\n  evenly: { justifyContent: \"space-evenly\" },\n  stretch: { justifyContent: \"stretch\" },\n});\n\nexport const stackWrapStyles = stylex.create({\n  true: { flexWrap: \"wrap\" },\n});\n",
+      "type": "registry:file",
+      "target": "app/components/ui/Stack/stack.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

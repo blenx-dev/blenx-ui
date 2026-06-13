@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "surface",
+  "title": "Surface",
+  "description": "A StyleX Surface component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/box.json",
+    "http://localhost:3001/reg/theme.json"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/Surface/surface.tsx",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport type { BoxProps } from \"../Box/box\";\nimport { Box } from \"../Box/box\";\nimport { surfaceInteractiveStyles, surfaceVariantStyles } from \"./surface.styles\";\n\ntype SurfaceVariant = keyof typeof surfaceVariantStyles;\ntype SurfaceProps = BoxProps & {\n  variant?: SurfaceVariant;\n  interactive?: boolean;\n};\n\nfunction Surface({ variant = \"default\", interactive, style, ...props }: SurfaceProps) {\n  const resolvedStyles = stylex.props(\n    surfaceVariantStyles[variant],\n    interactive && surfaceInteractiveStyles.base,\n    style,\n  );\n  return <Box {...props} {...resolvedStyles} />;\n}\n\nexport type { SurfaceProps, SurfaceVariant };\nexport { Surface };\n",
+      "type": "registry:ui",
+      "target": "app/components/ui/Surface/surface.tsx"
+    },
+    {
+      "path": "packages/ui/src/components/Surface/surface.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"../../theme/contract.stylex\";\n\nexport const surfaceVariantStyles = stylex.create({\n  default: {\n    backgroundColor: theme.surface,\n    borderRadius: theme.borderRadius,\n  },\n  outline: {\n    backgroundColor: theme.surface,\n    borderWidth: 1,\n    borderStyle: \"solid\",\n    borderColor: theme.border,\n  },\n  raised: {\n    backgroundColor: theme.surfaceRaised,\n    boxShadow: theme.shadowMd,\n  },\n  sunken: {\n    backgroundColor: theme.surfaceSubtle,\n  },\n});\n\nexport const surfaceInteractiveStyles = stylex.create({\n  base: {\n    cursor: \"pointer\",\n    \":hover\": {\n      backgroundColor: theme.surfaceHover,\n    },\n    \":focus-visible\": {\n      outline: `2px solid ${theme.focusRing}`,\n      outlineOffset: \"2px\",\n    },\n  },\n});\n",
+      "type": "registry:file",
+      "target": "app/components/ui/Surface/surface.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

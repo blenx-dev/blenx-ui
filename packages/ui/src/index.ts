@@ -38,6 +38,4 @@ export * from "./components/ToggleGroup/toggle-group";
 
 // Theme tokens
 export { theme } from "./theme/contract.stylex";
-export { borderRadius } from "./theme/radius.stylex";
-export { spacing } from "./theme/spacing.stylex";
-export { fontSize, fonts, fontWeight, letterSpacing, lineHeight } from "./theme/typography.stylex";
+export { borderRadius, spacing, fontSize, fonts, fontWeight, letterSpacing, lineHeight } from "./theme/tokens.stylex";

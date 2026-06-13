@@ -4,7 +4,7 @@ import { join } from "path";
 const UI_DIR = "packages/ui/src/components";
 const THEME_DIR = "packages/ui/src/theme";
 const OUTPUT = "packages/registry/registry.json";
-const REGISTRY_URL = process.env.REGISTRY_URL || "http://localhost:3001";
+const REGISTRY_URL = process.env.REGISTRY_URL || "http://localhost:3001/reg";
 
 const items = [];
 
@@ -24,6 +24,7 @@ items.push({
   files: themeFiles,
 });
 
+const themeRegistryUrl = `${REGISTRY_URL}/theme.json`;
 // Scan component folders
 const components = readdirSync(UI_DIR);
 
@@ -39,10 +40,11 @@ for (const component of components) {
     type,
     target,
   }));
-
-  const registryDependencies = (meta.registryDependencies || []).map((dep: string) =>
+  const itemRegistryDependencies = (meta.registryDependencies || []).map((dep: string) =>
     dep.startsWith("http") ? dep : `${REGISTRY_URL}/${dep}.json`,
   );
+
+  const registryDependencies = [...itemRegistryDependencies, themeRegistryUrl]
 
   items.push({
     ...meta,

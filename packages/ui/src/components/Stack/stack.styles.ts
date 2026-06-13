@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { spacing } from "../../theme/spacing.stylex";
+import { spacing } from "../../theme/theme.stylex";
 
 export const stackDirectionStyles = stylex.create({
   column: { flexDirection: "column" },

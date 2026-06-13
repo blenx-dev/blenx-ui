@@ -1,4 +1,3 @@
-import { Toaster } from "@blenx-ui/ui/components/sonner";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
@@ -6,7 +5,7 @@ import Header from "../components/header";
 
 import appCss from "../index.css?url";
 
-export interface RouterAppContext {}
+export interface RouterAppContext { }
 
 export const Route = createRootRouteWithContext<RouterAppContext>()({
   head: () => ({
@@ -44,7 +43,6 @@ function RootDocument() {
           <Header />
           <Outlet />
         </div>
-        <Toaster richColors />
         <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>
