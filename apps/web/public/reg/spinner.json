@@ -16,13 +16,13 @@
       "path": "packages/ui/src/components/Spinner/spinner.tsx",
       "content": "import { SpinnerIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport { spinnerStyles } from \"./spinner.styles\";\nimport type { PropsWithStylex } from \"@blenx-ui/ui/utils/stylex.utils\";\n\ntype Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;\n\nexport function Spinner({ style, ...props }: Props): React.ReactElement {\n  return (\n    <SpinnerIcon\n      aria-label=\"Loading\"\n      role=\"status\"\n      {...stylex.props(spinnerStyles.spinner, style)}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:ui",
-      "target": "app/components/ui/Spinner/spinner.tsx"
+      "target": "@ui/Spinner/spinner.tsx"
     },
     {
       "path": "packages/ui/src/components/Spinner/spinner.styles.ts",
       "content": "import * as stylex from \"@stylexjs/stylex\";\n\nexport const spin = stylex.keyframes({\n  from: {\n    transform: \"rotate(0deg)\",\n  },\n  to: {\n    transform: \"rotate(360deg)\",\n  },\n});\n\nexport const spinnerStyles = stylex.create({\n  spinner: {\n    animationName: spin,\n    animationDuration: \"1s\",\n    animationIterationCount: \"infinite\",\n    animationTimingFunction: \"linear\",\n  },\n});\n",
       "type": "registry:file",
-      "target": "app/components/ui/Spinner/spinner.styles.ts"
+      "target": "@ui/Spinner/spinner.styles.ts"
     }
   ],
   "type": "registry:ui"

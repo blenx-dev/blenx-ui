@@ -16,13 +16,13 @@
       "path": "packages/ui/src/components/Breadcrumbs/breadcrumbs.tsx",
       "content": "import { mergeProps, useRender } from \"@base-ui/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type { PropsWithStylex } from \"../../utils/stylex.utils\";\nimport { breadcrumbsStyles } from \"./breadcrumbs.styles\";\n\ntype Props = PropsWithStylex<useRender.ComponentProps<\"nav\">>;\n\nexport default function Breadcrumbs({ style, render, ...props }: Props) {\n  const sx = stylex.props(breadcrumbsStyles.root, style);\n  const merged = mergeProps(props, sx);\n  return useRender({ defaultTagName: \"nav\", props: merged, render });\n}\n",
       "type": "registry:ui",
-      "target": "app/components/ui/Breadcrumbs/breadcrumbs.tsx"
+      "target": "@ui/Breadcrumbs/breadcrumbs.tsx"
     },
     {
       "path": "packages/ui/src/components/Breadcrumbs/breadcrumbs.styles.ts",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { mediaQueries, spacing, theme } from \"../../theme/contract.stylex\";\n\nexport const breadcrumbsStyles = stylex.create({\n  root: {\n    display: \"flex\",\n    alignItems: \"center\",\n    gap: spacing.xsmall,\n    color: {\n      default: theme.contentSecondary,\n      [mediaQueries.dark]: theme.contentSecondary,\n    },\n    fontSize: 14,\n  },\n});\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { mediaQueries, spacing, theme } from \"@blenx-ui/ui/lib/theme/contract.stylex\";\n\nexport const breadcrumbsStyles = stylex.create({\n  root: {\n    display: \"flex\",\n    alignItems: \"center\",\n    gap: spacing.xsmall,\n    color: {\n      default: theme.contentSecondary,\n      [mediaQueries.dark]: theme.contentSecondary,\n    },\n    fontSize: 14,\n  },\n});\n",
       "type": "registry:file",
-      "target": "app/components/ui/Breadcrumbs/breadcrumbs.styles.ts"
+      "target": "@ui/Breadcrumbs/breadcrumbs.styles.ts"
     }
   ],
   "type": "registry:ui"

@@ -9,12 +9,12 @@
     {
       "file": "combobox.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/Combobox/combobox.tsx"
+      "target": "@ui/Combobox/combobox.tsx"
     },
     {
       "file": "combobox.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/Combobox/combobox.styles.ts"
+      "target": "@ui/Combobox/combobox.styles.ts"
     }
   ]
 }

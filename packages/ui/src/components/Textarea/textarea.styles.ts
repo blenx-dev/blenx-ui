@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "../../theme/contract.stylex";
+import { theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const textareaStyles = stylex.create({
   shell: {

@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 
 const UI_DIR = "packages/ui/src/components";
-const THEME_DIR = "packages/ui/src/theme";
+const THEME_DIR = "packages/ui/src/lib/theme";
 const OUTPUT = "packages/registry/registry.json";
 const REGISTRY_URL = process.env.REGISTRY_URL || "http://localhost:3001/reg";
 
@@ -12,7 +12,7 @@ const items = [];
 const themeFiles = readdirSync(THEME_DIR).map((file) => ({
   path: `${THEME_DIR}/${file}`,
   type: "registry:file",
-  target: `app/lib/theme/${file}`,
+  target: `@lib/theme/${file}`,
 }));
 
 items.push({
@@ -61,5 +61,8 @@ const registry = {
   items,
 };
 
-writeFileSync(OUTPUT, JSON.stringify(registry, null, 2));
+const content = JSON.stringify(registry, null, 2)
+const modifiedContent = content.replaceAll("@blenx-ui/ui/", "@")
+console.log(`🔍 Building registry with ${items.length} items...`, modifiedContent);
+writeFileSync(OUTPUT, modifiedContent);
 console.log(`✔ registry.json built with ${items.length} items`);

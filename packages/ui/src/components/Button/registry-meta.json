@@ -4,17 +4,19 @@
   "type": "registry:ui",
   "title": "Button",
   "description": "A StyleX button component.",
-  "registryDependencies": ["spinner"],
+  "registryDependencies": [
+    "spinner"
+  ],
   "files": [
     {
       "file": "button.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/Button/button.tsx"
+      "target": "registry/default/Button/button.tsx"
     },
     {
       "file": "button.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/Button/button.styles.ts"
+      "target": "registry/default/Button/button.styles.ts"
     }
   ]
 }

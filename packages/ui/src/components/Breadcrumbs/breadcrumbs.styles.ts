@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { mediaQueries, spacing, theme } from "../../theme/contract.stylex";
+import { mediaQueries, spacing, theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const breadcrumbsStyles = stylex.create({
   root: {

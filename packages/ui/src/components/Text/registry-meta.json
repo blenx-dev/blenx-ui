@@ -8,12 +8,12 @@
     {
       "file": "text.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/Text/text.tsx"
+      "target": "@ui/Text/text.tsx"
     },
     {
       "file": "text.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/Text/text.styles.ts"
+      "target": "@ui/Text/text.styles.ts"
     }
   ]
 }

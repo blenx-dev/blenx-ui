@@ -15,19 +15,19 @@
       ],
       "files": [
         {
-          "path": "packages/ui/src/theme/contract.stylex.ts",
+          "path": "packages/ui/src/lib/theme/contract.stylex.ts",
           "type": "registry:file",
-          "target": "app/lib/theme/contract.stylex.ts"
+          "target": "@lib/theme/contract.stylex.ts"
         },
         {
-          "path": "packages/ui/src/theme/theme.stylex.ts",
+          "path": "packages/ui/src/lib/theme/theme.stylex.ts",
           "type": "registry:file",
-          "target": "app/lib/theme/theme.stylex.ts"
+          "target": "@lib/theme/theme.stylex.ts"
         },
         {
-          "path": "packages/ui/src/theme/tokens.stylex.ts",
+          "path": "packages/ui/src/lib/theme/tokens.stylex.ts",
           "type": "registry:file",
-          "target": "app/lib/theme/tokens.stylex.ts"
+          "target": "@lib/theme/tokens.stylex.ts"
         }
       ]
     },
@@ -46,12 +46,12 @@
         {
           "path": "packages/ui/src/components/AlertDialog/alert-dialog.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/AlertDialog/alert-dialog.tsx"
+          "target": "@ui/AlertDialog/alert-dialog.tsx"
         },
         {
           "path": "packages/ui/src/components/AlertDialog/alert-dialog.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/AlertDialog/alert-dialog.styles.ts"
+          "target": "@ui/AlertDialog/alert-dialog.styles.ts"
         }
       ],
       "dependencies": [
@@ -75,12 +75,12 @@
         {
           "path": "packages/ui/src/components/Autocomplete/autocomplete.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Autocomplete/autocomplete.tsx"
+          "target": "@ui/Autocomplete/autocomplete.tsx"
         },
         {
           "path": "packages/ui/src/components/Autocomplete/autocomplete.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Autocomplete/autocomplete.styles.ts"
+          "target": "@ui/Autocomplete/autocomplete.styles.ts"
         }
       ],
       "dependencies": [
@@ -99,12 +99,12 @@
         {
           "path": "packages/ui/src/components/Avatar/avatar.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Avatar/avatar.tsx"
+          "target": "@ui/Avatar/avatar.tsx"
         },
         {
           "path": "packages/ui/src/components/Avatar/avatar.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Avatar/avatar.styles.ts"
+          "target": "@ui/Avatar/avatar.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -126,12 +126,12 @@
         {
           "path": "packages/ui/src/components/Badge/badge.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Badge/badge.tsx"
+          "target": "@ui/Badge/badge.tsx"
         },
         {
           "path": "packages/ui/src/components/Badge/badge.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Badge/badge.styles.ts"
+          "target": "@ui/Badge/badge.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -153,12 +153,12 @@
         {
           "path": "packages/ui/src/components/Box/box.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Box/box.tsx"
+          "target": "@ui/Box/box.tsx"
         },
         {
           "path": "packages/ui/src/components/Box/box.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Box/box.styles.ts"
+          "target": "@ui/Box/box.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -180,12 +180,12 @@
         {
           "path": "packages/ui/src/components/Breadcrumbs/breadcrumbs.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Breadcrumbs/breadcrumbs.tsx"
+          "target": "@ui/Breadcrumbs/breadcrumbs.tsx"
         },
         {
           "path": "packages/ui/src/components/Breadcrumbs/breadcrumbs.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Breadcrumbs/breadcrumbs.styles.ts"
+          "target": "@ui/Breadcrumbs/breadcrumbs.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -211,12 +211,12 @@
         {
           "path": "packages/ui/src/components/Button/button.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Button/button.tsx"
+          "target": "registry/default/Button/button.tsx"
         },
         {
           "path": "packages/ui/src/components/Button/button.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Button/button.styles.ts"
+          "target": "registry/default/Button/button.styles.ts"
         }
       ],
       "dependencies": [
@@ -239,12 +239,12 @@
         {
           "path": "packages/ui/src/components/Calendar/calendar.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Calendar/calendar.tsx"
+          "target": "@ui/Calendar/calendar.tsx"
         },
         {
           "path": "packages/ui/src/components/Calendar/calendar.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Calendar/calendar.styles.ts"
+          "target": "@ui/Calendar/calendar.styles.ts"
         }
       ],
       "dependencies": [
@@ -267,12 +267,12 @@
         {
           "path": "packages/ui/src/components/Card/card.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Card/card.tsx"
+          "target": "@ui/Card/card.tsx"
         },
         {
           "path": "packages/ui/src/components/Card/card.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Card/card.styles.ts"
+          "target": "@ui/Card/card.styles.ts"
         }
       ],
       "dependencies": [
@@ -299,7 +299,7 @@
         {
           "path": "packages/ui/src/components/ColorPicker/color-picker.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/ColorPicker/color-picker.tsx"
+          "target": "@ui/ColorPicker/color-picker.tsx"
         }
       ],
       "dependencies": [
@@ -322,12 +322,12 @@
         {
           "path": "packages/ui/src/components/ColorSwatch/color-swatch.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/ColorSwatch/color-swatch.tsx"
+          "target": "@ui/ColorSwatch/color-swatch.tsx"
         },
         {
           "path": "packages/ui/src/components/ColorSwatch/color-swatch.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/ColorSwatch/color-swatch.styles.ts"
+          "target": "@ui/ColorSwatch/color-swatch.styles.ts"
         }
       ],
       "dependencies": [
@@ -351,12 +351,12 @@
         {
           "path": "packages/ui/src/components/Combobox/combobox.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Combobox/combobox.tsx"
+          "target": "@ui/Combobox/combobox.tsx"
         },
         {
           "path": "packages/ui/src/components/Combobox/combobox.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Combobox/combobox.styles.ts"
+          "target": "@ui/Combobox/combobox.styles.ts"
         }
       ],
       "dependencies": [
@@ -379,12 +379,12 @@
         {
           "path": "packages/ui/src/components/Container/container.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Container/container.tsx"
+          "target": "@ui/Container/container.tsx"
         },
         {
           "path": "packages/ui/src/components/Container/container.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Container/container.styles.ts"
+          "target": "@ui/Container/container.styles.ts"
         }
       ],
       "dependencies": [
@@ -410,7 +410,7 @@
         {
           "path": "packages/ui/src/components/DatePicker/date-picker.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/DatePicker/date-picker.tsx"
+          "target": "@ui/DatePicker/date-picker.tsx"
         }
       ],
       "dependencies": [
@@ -434,12 +434,12 @@
         {
           "path": "packages/ui/src/components/Dialog/dialog.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Dialog/dialog.tsx"
+          "target": "@ui/Dialog/dialog.tsx"
         },
         {
           "path": "packages/ui/src/components/Dialog/dialog.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Dialog/dialog.styles.ts"
+          "target": "@ui/Dialog/dialog.styles.ts"
         }
       ],
       "dependencies": [
@@ -463,12 +463,12 @@
         {
           "path": "packages/ui/src/components/Drawer/drawer.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Drawer/drawer.tsx"
+          "target": "@ui/Drawer/drawer.tsx"
         },
         {
           "path": "packages/ui/src/components/Drawer/drawer.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Drawer/drawer.styles.ts"
+          "target": "@ui/Drawer/drawer.styles.ts"
         }
       ],
       "dependencies": [
@@ -492,12 +492,12 @@
         {
           "path": "packages/ui/src/components/Field/field.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Field/field.tsx"
+          "target": "@ui/Field/field.tsx"
         },
         {
           "path": "packages/ui/src/components/Field/field.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Field/field.styles.ts"
+          "target": "@ui/Field/field.styles.ts"
         }
       ],
       "dependencies": [
@@ -520,12 +520,12 @@
         {
           "path": "packages/ui/src/components/Grid/grid.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Grid/grid.tsx"
+          "target": "@ui/Grid/grid.tsx"
         },
         {
           "path": "packages/ui/src/components/Grid/grid.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Grid/grid.styles.ts"
+          "target": "@ui/Grid/grid.styles.ts"
         }
       ],
       "dependencies": [
@@ -544,12 +544,12 @@
         {
           "path": "packages/ui/src/components/Input/input.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Input/input.tsx"
+          "target": "@ui/Input/input.tsx"
         },
         {
           "path": "packages/ui/src/components/Input/input.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Input/input.styles.ts"
+          "target": "@ui/Input/input.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -571,12 +571,12 @@
         {
           "path": "packages/ui/src/components/InputGroup/input-group.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/InputGroup/input-group.tsx"
+          "target": "@ui/InputGroup/input-group.tsx"
         },
         {
           "path": "packages/ui/src/components/InputGroup/input-group.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/InputGroup/input-group.styles.ts"
+          "target": "@ui/InputGroup/input-group.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -598,12 +598,12 @@
         {
           "path": "packages/ui/src/components/Menu/menu.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Menu/menu.tsx"
+          "target": "@ui/Menu/menu.tsx"
         },
         {
           "path": "packages/ui/src/components/Menu/menu.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Menu/menu.styles.ts"
+          "target": "@ui/Menu/menu.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -625,12 +625,12 @@
         {
           "path": "packages/ui/src/components/Popover/popover.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Popover/popover.tsx"
+          "target": "@ui/Popover/popover.tsx"
         },
         {
           "path": "packages/ui/src/components/Popover/popover.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Popover/popover.styles.ts"
+          "target": "@ui/Popover/popover.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -652,12 +652,12 @@
         {
           "path": "packages/ui/src/components/ScrollArea/scroll-area.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/ScrollArea/scroll-area.tsx"
+          "target": "@ui/ScrollArea/scroll-area.tsx"
         },
         {
           "path": "packages/ui/src/components/ScrollArea/scroll-area.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/ScrollArea/scroll-area.styles.ts"
+          "target": "@ui/ScrollArea/scroll-area.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -683,7 +683,7 @@
         {
           "path": "packages/ui/src/components/SegmentedControl/segmented-control.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/SegmentedControl/segmented-control.tsx"
+          "target": "@ui/SegmentedControl/segmented-control.tsx"
         }
       ],
       "dependencies": [
@@ -706,12 +706,12 @@
         {
           "path": "packages/ui/src/components/Select/select.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Select/select.tsx"
+          "target": "@ui/Select/select.tsx"
         },
         {
           "path": "packages/ui/src/components/Select/select.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Select/select.styles.ts"
+          "target": "@ui/Select/select.styles.ts"
         }
       ],
       "dependencies": [
@@ -734,12 +734,12 @@
         {
           "path": "packages/ui/src/components/Separator/separator.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Separator/separator.tsx"
+          "target": "@ui/Separator/separator.tsx"
         },
         {
           "path": "packages/ui/src/components/Separator/separator.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Separator/separator.styles.ts"
+          "target": "@ui/Separator/separator.styles.ts"
         }
       ],
       "dependencies": [
@@ -758,12 +758,12 @@
         {
           "path": "packages/ui/src/components/Spinner/spinner.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Spinner/spinner.tsx"
+          "target": "@ui/Spinner/spinner.tsx"
         },
         {
           "path": "packages/ui/src/components/Spinner/spinner.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Spinner/spinner.styles.ts"
+          "target": "@ui/Spinner/spinner.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -789,12 +789,12 @@
         {
           "path": "packages/ui/src/components/Stack/stack.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Stack/stack.tsx"
+          "target": "@ui/Stack/stack.tsx"
         },
         {
           "path": "packages/ui/src/components/Stack/stack.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Stack/stack.styles.ts"
+          "target": "@ui/Stack/stack.styles.ts"
         }
       ],
       "dependencies": [
@@ -817,12 +817,12 @@
         {
           "path": "packages/ui/src/components/Surface/surface.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Surface/surface.tsx"
+          "target": "@ui/Surface/surface.tsx"
         },
         {
           "path": "packages/ui/src/components/Surface/surface.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Surface/surface.styles.ts"
+          "target": "@ui/Surface/surface.styles.ts"
         }
       ],
       "dependencies": [
@@ -845,12 +845,12 @@
         {
           "path": "packages/ui/src/components/Switch/switch.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Switch/switch.tsx"
+          "target": "@ui/Switch/switch.tsx"
         },
         {
           "path": "packages/ui/src/components/Switch/switch.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Switch/switch.styles.ts"
+          "target": "@ui/Switch/switch.styles.ts"
         }
       ],
       "dependencies": [
@@ -869,12 +869,12 @@
         {
           "path": "packages/ui/src/components/Tabs/tabs.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Tabs/tabs.tsx"
+          "target": "@ui/Tabs/tabs.tsx"
         },
         {
           "path": "packages/ui/src/components/Tabs/tabs.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Tabs/tabs.styles.ts"
+          "target": "@ui/Tabs/tabs.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -896,12 +896,12 @@
         {
           "path": "packages/ui/src/components/Text/text.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Text/text.tsx"
+          "target": "@ui/Text/text.tsx"
         },
         {
           "path": "packages/ui/src/components/Text/text.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Text/text.styles.ts"
+          "target": "@ui/Text/text.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -923,12 +923,12 @@
         {
           "path": "packages/ui/src/components/Textarea/textarea.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Textarea/textarea.tsx"
+          "target": "@ui/Textarea/textarea.tsx"
         },
         {
           "path": "packages/ui/src/components/Textarea/textarea.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Textarea/textarea.styles.ts"
+          "target": "@ui/Textarea/textarea.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -950,12 +950,12 @@
         {
           "path": "packages/ui/src/components/Toggle/toggle.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/Toggle/toggle.tsx"
+          "target": "@ui/Toggle/toggle.tsx"
         },
         {
           "path": "packages/ui/src/components/Toggle/toggle.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/Toggle/toggle.styles.ts"
+          "target": "@ui/Toggle/toggle.styles.ts"
         }
       ],
       "registryDependencies": [
@@ -981,12 +981,12 @@
         {
           "path": "packages/ui/src/components/ToggleGroup/toggle-group.tsx",
           "type": "registry:ui",
-          "target": "app/components/ui/ToggleGroup/toggle-group.tsx"
+          "target": "@ui/ToggleGroup/toggle-group.tsx"
         },
         {
           "path": "packages/ui/src/components/ToggleGroup/toggle-group.styles.ts",
           "type": "registry:file",
-          "target": "app/components/ui/ToggleGroup/toggle-group.styles.ts"
+          "target": "@ui/ToggleGroup/toggle-group.styles.ts"
         }
       ],
       "dependencies": [

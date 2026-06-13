@@ -2,12 +2,26 @@
   "extends": "@blenx-ui/config/tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "types": [],
     "paths": {
-      "@blenx-ui/ui/*": ["./src/*"]
+      "@blenx-ui/ui/*": [
+        "./src/*"
+      ],
+      "#lib/*": [
+        "./src/lib/*"
+      ],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

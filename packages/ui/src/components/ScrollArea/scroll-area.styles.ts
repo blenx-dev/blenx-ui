@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { spacing, theme } from "../../theme/contract.stylex";
+import { spacing, theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const scrollAreaStyles = stylex.create({
   root: {

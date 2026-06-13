@@ -8,12 +8,12 @@
     {
       "file": "input-group.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/InputGroup/input-group.tsx"
+      "target": "@ui/InputGroup/input-group.tsx"
     },
     {
       "file": "input-group.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/InputGroup/input-group.styles.ts"
+      "target": "@ui/InputGroup/input-group.styles.ts"
     }
   ]
 }

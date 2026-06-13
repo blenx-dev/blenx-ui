@@ -8,12 +8,12 @@
     {
       "file": "badge.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/Badge/badge.tsx"
+      "target": "@ui/Badge/badge.tsx"
     },
     {
       "file": "badge.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/Badge/badge.styles.ts"
+      "target": "@ui/Badge/badge.styles.ts"
     }
   ]
 }

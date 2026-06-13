@@ -6,7 +6,7 @@ import {
   fontWeight,
   spacing,
   theme,
-} from "../../theme/contract.stylex";
+} from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const popoverStyles = stylex.create({
   backdrop: {

@@ -9,12 +9,12 @@
     {
       "file": "drawer.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/Drawer/drawer.tsx"
+      "target": "@ui/Drawer/drawer.tsx"
     },
     {
       "file": "drawer.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/Drawer/drawer.styles.ts"
+      "target": "@ui/Drawer/drawer.styles.ts"
     }
   ]
 }

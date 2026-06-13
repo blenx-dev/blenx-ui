@@ -4,7 +4,6 @@ import stylex from "@stylexjs/unplugin";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isLadle = process.argv[1]?.includes("ladle");
 
@@ -30,6 +29,11 @@ const dtsPlugin = dts({
 
 export default defineConfig({
   plugins: [stylexPlugin, ...(isLadle ? [] : [viteReact(), dtsPlugin])],
+  resolve: {
+    alias: {
+      "@blenx-ui/ui": path.resolve(__dirname, "./src/"),
+    }
+  },
   build: isLadle
     ? undefined
     : {

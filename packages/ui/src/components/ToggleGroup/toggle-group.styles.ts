@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { borderRadius, spacing } from "../../theme/contract.stylex";
+import { borderRadius, spacing } from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const toggleGroupStyles = stylex.create({
   groupBase: {

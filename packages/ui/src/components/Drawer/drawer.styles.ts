@@ -7,7 +7,7 @@ import {
   mediaQueries,
   spacing,
   theme,
-} from "../../theme/contract.stylex";
+} from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const drawerStyles = stylex.create({
   swipeArea: {

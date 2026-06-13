@@ -7,7 +7,7 @@ import {
   spacing,
   theme,
   zIndex,
-} from "../../theme/contract.stylex";
+} from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const menuStyles = stylex.create({
   trigger: {

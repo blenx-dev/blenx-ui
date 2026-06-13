@@ -9,12 +9,12 @@
     {
       "file": "color-swatch.tsx",
       "type": "registry:ui",
-      "target": "app/components/ui/ColorSwatch/color-swatch.tsx"
+      "target": "@ui/ColorSwatch/color-swatch.tsx"
     },
     {
       "file": "color-swatch.styles.ts",
       "type": "registry:file",
-      "target": "app/components/ui/ColorSwatch/color-swatch.styles.ts"
+      "target": "@ui/ColorSwatch/color-swatch.styles.ts"
     }
   ]
 }

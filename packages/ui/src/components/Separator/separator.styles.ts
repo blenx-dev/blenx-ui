@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { fontSize, fontWeight, spacing, theme } from "../../theme/contract.stylex";
+import { fontSize, fontWeight, spacing, theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
 
 export const separatorStyles = stylex.create({
   base: {

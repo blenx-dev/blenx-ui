@@ -16,13 +16,13 @@
       "path": "packages/ui/src/components/Badge/badge.tsx",
       "content": "import { mergeProps, useRender } from \"@base-ui/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport { borderRadiusStyles } from \"../../utils/layouts.styles\";\nimport type { PropsWithStylex } from \"../../utils/stylex.utils\";\nimport { badgeStyles, badgeVariantStyles } from \"./badge.styles\";\n\ntype Props = PropsWithStylex<useRender.ComponentProps<\"span\">> & {\n  variant?: keyof typeof badgeVariantStyles;\n  radius?: keyof typeof borderRadiusStyles;\n};\n\nexport function Badge({ variant = \"default\", radius, style, render, ...props }: Props) {\n  const sx = stylex.props(\n    badgeStyles.root,\n    badgeVariantStyles[variant],\n    radius && borderRadiusStyles[radius],\n    style,\n  );\n  const merged = mergeProps(props, sx);\n  return useRender({ defaultTagName: \"span\", props: merged, render });\n}\n",
       "type": "registry:ui",
-      "target": "app/components/ui/Badge/badge.tsx"
+      "target": "@ui/Badge/badge.tsx"
     },
     {
       "path": "packages/ui/src/components/Badge/badge.styles.ts",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { spacing, theme } from \"../../theme/contract.stylex\";\nexport const badgeStyles = stylex.create({\n  root: {\n    display: \"inline-block\",\n    padding: spacing.xsmall,\n    borderRadius: theme.borderRadius,\n    backgroundColor: theme.surfaceRaised,\n    color: theme.contentPrimary,\n    fontSize: 12,\n    lineHeight: 1.2,\n  },\n  primary: {\n    backgroundColor: theme.primary,\n    color: theme.contentOnPrimary,\n  },\n  secondary: {\n    backgroundColor: theme.secondary,\n    color: theme.contentPrimary,\n  },\n});\nexport const badgeVariantStyles = stylex.create({\n  default: {\n    backgroundColor: theme.surfaceRaised,\n    color: theme.contentPrimary,\n  },\n  primary: {\n    backgroundColor: theme.primary,\n    color: theme.contentOnPrimary,\n  },\n  secondary: {\n    backgroundColor: theme.secondary,\n    color: theme.contentPrimary,\n  },\n});\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { spacing, theme } from \"@blenx-ui/ui/lib/theme/contract.stylex\";\nexport const badgeStyles = stylex.create({\n  root: {\n    display: \"inline-block\",\n    padding: spacing.xsmall,\n    borderRadius: theme.borderRadius,\n    backgroundColor: theme.surfaceRaised,\n    color: theme.contentPrimary,\n    fontSize: 12,\n    lineHeight: 1.2,\n  },\n  primary: {\n    backgroundColor: theme.primary,\n    color: theme.contentOnPrimary,\n  },\n  secondary: {\n    backgroundColor: theme.secondary,\n    color: theme.contentPrimary,\n  },\n});\nexport const badgeVariantStyles = stylex.create({\n  default: {\n    backgroundColor: theme.surfaceRaised,\n    color: theme.contentPrimary,\n  },\n  primary: {\n    backgroundColor: theme.primary,\n    color: theme.contentOnPrimary,\n  },\n  secondary: {\n    backgroundColor: theme.secondary,\n    color: theme.contentPrimary,\n  },\n});\n",
       "type": "registry:file",
-      "target": "app/components/ui/Badge/badge.styles.ts"
+      "target": "@ui/Badge/badge.styles.ts"
     }
   ],
   "type": "registry:ui"
