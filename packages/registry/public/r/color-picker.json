@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-picker",
+  "title": "Color Picker",
+  "description": "A StyleX color picker component.",
+  "dependencies": ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+  "registryDependencies": [
+    "http://localhost:3001/button.json",
+    "http://localhost:3001/color-swatch.json",
+    "http://localhost:3001/field.json",
+    "http://localhost:3001/popover.json",
+    "http://localhost:3001/stack.json"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/ColorPicker/color-picker.tsx",
+      "content": "import { CaretDownIcon } from \"@phosphor-icons/react\";\nimport { useRef, useState } from \"react\";\nimport { HexAlphaColorPicker, HexColorInput } from \"react-colorful\";\nimport { Button } from \"../Button/button\";\nimport { ColorSwatch } from \"../ColorSwatch/color-swatch\";\nimport { Field, FieldLabel } from \"../Field/field\";\nimport { Input } from \"../Input/input\";\nimport {\n  Popover,\n  PopoverArrow,\n  PopoverCompound,\n  PopoverPopup,\n  PopoverPositioner,\n  PopoverTrigger,\n} from \"../Popover/popover\";\nimport { VStack } from \"../Stack/stack\";\nimport { Text } from \"../Text/text\";\n\ntype Props = {\n  value: string;\n  onChange: (color: string) => void;\n  label?: string;\n};\n\nexport function ColorPicker({ value, onChange, label }: Props) {\n  const [open, setOpen] = useState(false);\n  const triggerRef = useRef<HTMLButtonElement>(null);\n\n  return (\n    <Field>\n      <Popover open={open} onOpenChange={setOpen}>\n        {label && (\n          <FieldLabel\n            onClick={() => {\n              triggerRef.current?.click();\n              triggerRef.current?.focus();\n            }}\n          >\n            {label}\n          </FieldLabel>\n        )}\n        <PopoverTrigger ref={triggerRef} render={<Button type=\"button\" variant=\"outline\" />}>\n          <ColorSwatch color={value} size={20} />\n          <Text variant=\"body2\">{value}</Text>\n          <CaretDownIcon />\n        </PopoverTrigger>\n        <PopoverCompound.Portal>\n          <PopoverPositioner sideOffset={6} side=\"bottom\" align=\"start\">\n            <PopoverPopup>\n              <PopoverArrow />\n              <VStack gap=\"xsmall\">\n                <HexAlphaColorPicker color={value} onChange={onChange} />\n                <Input\n                  size=\"sm\"\n                  render={<HexColorInput color={value} onChange={onChange} prefixed />}\n                />\n              </VStack>\n            </PopoverPopup>\n          </PopoverPositioner>\n        </PopoverCompound.Portal>\n      </Popover>\n    </Field>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "app/components/ui/ColorPicker/color-picker.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

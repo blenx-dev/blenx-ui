@@ -24,7 +24,10 @@
     "build": "turbo build",
     "check-types": "turbo check-types",
     "dev:web": "turbo -F web dev",
-    "check": "oxlint && oxfmt --write"
+    "check": "oxlint && oxfmt --write",
+    "registry:gen": "ts-node packages/registry/build.ts",
+    "registry:build": "bun registry:gen && shadcn build packages/registry/registry.json --output packages/registry/public/r",
+    "registry:dev": "bun registry:build && serve packages/registry/public/r -p 3001"
   },
   "dependencies": {
     "@blenx-ui/env": "workspace:*",
@@ -37,6 +40,8 @@
     "lefthook": "^2.1.9",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.68.0",
+    "shadcn": "^4.11.0",
+    "ts-node": "^10.9.2",
     "turbo": "^2.9.16",
     "typescript": "catalog:"
   },

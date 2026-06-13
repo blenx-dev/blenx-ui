@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "type": "registry:ui",
+  "title": "Spinner",
+  "description": "A StyleX Spinner component.",
+  "registryDependencies": ["field"],
+  "files": [
+    {
+      "file": "spinner.tsx",
+      "type": "registry:ui",
+      "target": "app/components/ui/Spinner/spinner.tsx"
+    },
+    {
+      "file": "spinner.styles.ts",
+      "type": "registry:file",
+      "target": "app/components/ui/Spinner/spinner.styles.ts"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "box",
+  "title": "Box",
+  "description": "Box component from Blenx UI.",
+  "dependencies": ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "packages/ui/src/components/Box/box.tsx",
+      "content": "import { mergeProps } from \"@base-ui/react/merge-props\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport {\n  borderRadiusStyles,\n  displayStyles,\n  marginXStyles,\n  marginYStyles,\n  overflowStyles,\n  paddingXStyles,\n  paddingYStyles,\n  positionStyles,\n} from \"../../utils/layouts.styles\";\nimport type { _BaseDivProps } from \"../../utils/stylex.utils\";\nimport { boxStyles } from \"./box.styles\";\n\ntype BoxDisplay = keyof typeof displayStyles;\ntype BoxSpacing = keyof typeof paddingXStyles;\ntype BoxOverflow = keyof typeof overflowStyles;\ntype BoxPosition = keyof typeof positionStyles;\n\ntype BoxProps = _BaseDivProps & {\n  display?: BoxDisplay;\n\n  fullWidth?: boolean;\n  fullHeight?: boolean;\n  grow?: boolean;\n  shrink?: boolean;\n\n  padding?: BoxSpacing;\n  paddingX?: BoxSpacing;\n  paddingY?: BoxSpacing;\n  margin?: BoxSpacing;\n  marginX?: BoxSpacing;\n  marginY?: BoxSpacing;\n  radius?: keyof typeof borderRadiusStyles;\n  withBorder?: boolean;\n\n  overflow?: BoxOverflow;\n  position?: BoxPosition;\n\n  style?: stylex.StyleXStyles;\n};\n\nfunction Box({\n  render,\n  display,\n  fullWidth,\n  fullHeight,\n  grow,\n  shrink,\n  padding,\n  paddingX,\n  paddingY,\n  margin,\n  marginX,\n  marginY,\n  overflow,\n  position,\n  radius,\n  style,\n  withBorder,\n  ...props\n}: BoxProps) {\n  const stylexProps = stylex.props(\n    boxStyles.root,\n    display && displayStyles[display],\n    fullWidth && boxStyles.fullWidth,\n    fullHeight && boxStyles.fullHeight,\n    grow && boxStyles.grow,\n    shrink && boxStyles.shrink,\n\n    overflow && overflowStyles[overflow],\n    position && positionStyles[position],\n    radius && borderRadiusStyles[radius],\n    withBorder && boxStyles.withBorder,\n    padding && paddingXStyles[padding],\n    padding && paddingYStyles[padding],\n    paddingX && paddingXStyles[paddingX],\n    paddingY && paddingYStyles[paddingY],\n    margin && marginXStyles[margin],\n    margin && marginYStyles[margin],\n    marginX && marginXStyles[marginX],\n    marginY && marginYStyles[marginY],\n    style,\n  );\n  const mergedProps = mergeProps(props, stylexProps);\n  return useRender({\n    defaultTagName: \"div\",\n    props: mergedProps,\n    render,\n  });\n}\n\nexport type { BoxProps };\nexport { Box };\n",
+      "type": "registry:ui",
+      "target": "app/components/ui/Box/box.tsx"
+    },
+    {
+      "path": "packages/ui/src/components/Box/box.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"../../theme/contract.stylex\";\n\nexport const boxStyles = stylex.create({\n  root: {\n    boxSizing: \"border-box\",\n  },\n  withBorder: {\n    borderWidth: \"1px\",\n    borderStyle: \"solid\",\n    borderRadius: theme.borderRadius,\n    borderColor: theme.border,\n  },\n  fullWidth: {\n    width: \"100%\",\n  },\n  fullHeight: {\n    height: \"100%\",\n  },\n  grow: {\n    flexGrow: 1,\n    minWidth: 0,\n  },\n  shrink: {\n    flexShrink: 0,\n  },\n});\n",
+      "type": "registry:file",
+      "target": "app/components/ui/Box/box.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

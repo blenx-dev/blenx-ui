@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "A StyleX Switch component.",
+  "dependencies": ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+  "registryDependencies": ["http://localhost:3001/box.json"],
+  "files": [
+    {
+      "path": "packages/ui/src/components/Switch/switch.tsx",
+      "content": "import { Switch as SwitchPrimitive } from \"@base-ui/react/switch\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport { switchStyles } from \"./switch.styles\";\n\ntype Props = Omit<SwitchPrimitive.Root.Props, \"style\"> & {\n  style?: stylex.StyleXStyles;\n};\n\nexport function Switch({ style, ...props }: Props) {\n  const rootProps = stylex.props(switchStyles.root, style);\n  return (\n    <SwitchPrimitive.Root\n      {...props}\n      {...rootProps}\n      render={(rootProps, { checked, disabled }) => (\n        <span\n          {...rootProps}\n          {...stylex.props(\n            switchStyles.root,\n            checked && switchStyles.rootChecked,\n            disabled && switchStyles.rootDisabled,\n            style,\n          )}\n        >\n          <SwitchPrimitive.Thumb\n            {...stylex.props(switchStyles.thumb, checked && switchStyles.thumbChecked)}\n          />\n        </span>\n      )}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "app/components/ui/Switch/switch.tsx"
+    },
+    {
+      "path": "packages/ui/src/components/Switch/switch.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { borderRadius, spacing, theme } from \"../../theme/contract.stylex\";\n\nexport const switchStyles = stylex.create({\n  root: {\n    width: spacing.xxlarge,\n    height: spacing.large,\n    display: \"inline-flex\",\n    alignItems: \"center\",\n    padding: spacing.xxsmall,\n    borderRadius: borderRadius.full,\n    backgroundColor: theme.border,\n    cursor: \"pointer\",\n    transitionProperty: \"background-color\",\n    transitionDuration: \"150ms\",\n    \":focus-visible\": {\n      outlineWidth: 2,\n      outlineStyle: \"solid\",\n      outlineColor: theme.borderStrong,\n    },\n  },\n  rootChecked: {\n    backgroundColor: theme.primary,\n  },\n  rootDisabled: {\n    cursor: \"not-allowed\",\n    opacity: 0.35,\n  },\n  thumb: {\n    width: spacing.large,\n    height: spacing.large,\n    borderRadius: borderRadius.full,\n    backgroundColor: theme.primary,\n    transitionProperty: \"transform, background-color\",\n    transitionDuration: \"150ms\",\n    transform: \"translateX(0)\",\n  },\n  thumbChecked: {\n    backgroundColor: theme.surface,\n    transform: `translateX(${spacing.large})`,\n  },\n});\n",
+      "type": "registry:file",
+      "target": "app/components/ui/Switch/switch.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}
