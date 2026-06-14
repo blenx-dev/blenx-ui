@@ -1,60 +1,67 @@
 import { createFileRoute } from "@tanstack/react-router";
+import DocsLayout from "../../components/docs-layout";
 
 export const Route = createFileRoute("/docs/installation")({
   component: InstallationDoc,
 });
 
-const vars = {
-  surfaceSubtle: "var(--surfaceSubtle)",
-  contentPrimary: "var(--contentPrimary)",
-  contentSecondary: "var(--contentSecondary)",
-  mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-};
-
 const s = {
-  section: { marginBottom: "32px" },
+  section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
   code: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "4px",
-    paddingInline: "4px",
-    fontFamily: vars.mono,
-    fontSize: "14px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-small)",
+    paddingInline: "var(--space-1)",
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
   } as React.CSSProperties,
   pre: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "8px",
-    padding: "16px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-medium)",
+    padding: "var(--space-4)",
     overflowX: "auto",
-    fontFamily: vars.mono,
-    fontSize: "14px",
-    lineHeight: 1.5,
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-normal)",
     margin: 0,
   } as React.CSSProperties,
   list: {
     listStyle: "disc",
-    paddingInlineStart: "24px",
+    paddingInlineStart: "var(--space-6)",
     margin: 0,
   } as React.CSSProperties,
-  li: { fontSize: "14px", lineHeight: 1.75 } as React.CSSProperties,
+  li: {
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-relaxed)",
+  } as React.CSSProperties,
 };
 
 function InstallationDoc() {
   return (
-    <div
-      style={{ maxWidth: "768px", margin: "0 auto", paddingInline: "16px", paddingBlock: "32px" }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        <h1 style={{ fontSize: "36px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}>
+    <DocsLayout>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
+        <h1
+          style={{
+            fontSize: "var(--font-size-display)",
+            fontWeight: "var(--font-weight-bold)",
+            margin: 0,
+            color: "var(--contentPrimary)",
+          }}
+        >
           Installation
         </h1>
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               Prerequisites
-            </h3>
+            </h2>
             <ul style={s.list}>
               <li style={s.li}>React 19+</li>
               <li style={s.li}>@stylexjs/stylex</li>
@@ -68,13 +75,24 @@ function InstallationDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               1. Configure the Registry
-            </h3>
-            <p style={{ fontSize: "14px", color: vars.contentSecondary, margin: 0 }}>
+            </h2>
+            <p
+              style={{
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
+                margin: 0,
+              }}
+            >
               Add the Blenx UI registry to your project's{" "}
               <code style={s.code}>components.json</code>:
             </p>
@@ -104,12 +122,17 @@ function InstallationDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               2. Install a Component
-            </h3>
+            </h2>
             <pre style={s.pre}>
               <code>{`# Using the registry URL directly
 npx shadcn@latest add http://localhost:3001/reg/button.json
@@ -123,13 +146,24 @@ npx shadcn@latest add @blenx-ui/button`}</code>
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               3. Required Dependencies
-            </h3>
-            <p style={{ fontSize: "14px", color: vars.contentSecondary, margin: 0 }}>
+            </h2>
+            <p
+              style={{
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
+                margin: 0,
+              }}
+            >
               Each component may require installing additional packages:
             </p>
             <pre style={s.pre}>
@@ -142,13 +176,24 @@ npx shadcn@latest add @blenx-ui/button`}</code>
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               4. Configure Stylex
-            </h3>
-            <p style={{ fontSize: "14px", color: vars.contentSecondary, margin: 0 }}>
+            </h2>
+            <p
+              style={{
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
+                margin: 0,
+              }}
+            >
               Your bundler must be configured with the Stylex plugin. Components use atomic CSS via
               Stylex, which requires a build-time transform.
             </p>
@@ -165,6 +210,6 @@ export default defineConfig({
           </div>
         </section>
       </div>
-    </div>
+    </DocsLayout>
   );
 }

@@ -1,9 +1,17 @@
-import { Loader2 } from "lucide-react";
-
 export default function Loader() {
   return (
-    <div className="flex h-full items-center justify-center pt-8">
-      <Loader2 className="animate-spin" />
+    <div
+      style={{
+        display: "flex",
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: "var(--space-8)",
+        color: "var(--contentSecondary)",
+        fontSize: "var(--font-size-small)",
+      }}
+    >
+      Loading...
     </div>
   );
 }

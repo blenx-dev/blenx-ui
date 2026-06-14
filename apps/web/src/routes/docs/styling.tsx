@@ -1,81 +1,80 @@
 import { createFileRoute } from "@tanstack/react-router";
+import DocsLayout from "../../components/docs-layout";
 
 export const Route = createFileRoute("/docs/styling")({
   component: StylingDoc,
 });
 
-const vars = {
-  surfaceSubtle: "var(--surfaceSubtle)",
-  contentPrimary: "var(--contentPrimary)",
-  contentSecondary: "var(--contentSecondary)",
-  mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-};
-
 const s = {
-  section: { marginBottom: "32px" },
+  section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
   code: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "4px",
-    paddingInline: "4px",
-    fontFamily: vars.mono,
-    fontSize: "14px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-small)",
+    paddingInline: "var(--space-1)",
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
   } as React.CSSProperties,
   pre: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "8px",
-    padding: "16px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-medium)",
+    padding: "var(--space-4)",
     overflowX: "auto",
-    fontFamily: vars.mono,
-    fontSize: "14px",
-    lineHeight: 1.5,
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-normal)",
     margin: 0,
   } as React.CSSProperties,
   list: {
     listStyle: "disc",
-    paddingInlineStart: "24px",
+    paddingInlineStart: "var(--space-6)",
     margin: 0,
   } as React.CSSProperties,
-  li: { fontSize: "14px", lineHeight: 1.75 } as React.CSSProperties,
+  li: {
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-relaxed)",
+  } as React.CSSProperties,
+  paragraph: {
+    fontSize: "var(--font-size-small)",
+    color: "var(--contentSecondary)",
+    margin: 0,
+    lineHeight: "var(--leading-relaxed)",
+  } as React.CSSProperties,
 };
 
 function StylingDoc() {
   return (
-    <div
-      style={{ maxWidth: "768px", margin: "0 auto", paddingInline: "16px", paddingBlock: "32px" }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        <h1 style={{ fontSize: "36px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}>
+    <DocsLayout>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
+        <h1
+          style={{
+            fontSize: "var(--font-size-display)",
+            fontWeight: "var(--font-weight-bold)",
+            margin: 0,
+            color: "var(--contentPrimary)",
+          }}
+        >
           Styling with Stylex
         </h1>
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Why Stylex?
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Why Stylex?
+            </h2>
+            <p style={s.paragraph}>
               Blenx UI uses <strong>Stylex</strong> as its styling engine. Stylex is a CSS-in-JS
               library developed by Meta that compiles to atomic CSS at build time. Unlike runtime
               CSS-in-JS solutions, Stylex produces tiny, deterministic stylesheets with zero runtime
               overhead.
             </p>
-            <p
-              style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
-                margin: 0,
-                lineHeight: 1.625,
-              }}
-            >
+            <p style={s.paragraph}>
               This means all styling is resolved at build time, resulting in minimal bundle size and
               excellent runtime performance. The tradeoff is that Stylex requires bundler plugin
               configuration and does not support CSS Cascade layers or traditional stylesheet
@@ -87,20 +86,18 @@ function StylingDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Design Tokens
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Design Tokens
+            </h2>
+            <p style={s.paragraph}>
               The design system is driven by CSS variables defined via{" "}
               <code style={s.code}>stylex.defineVars</code>:
             </p>
@@ -117,15 +114,12 @@ function StylingDoc() {
   // ...
 });`}</code>
             </pre>
-            <p
-              style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
-                margin: 0,
-                lineHeight: 1.625,
-              }}
-            >
-              Theme tokens support automatic light/dark mode via media queries.
+            <p style={s.paragraph}>
+              Theme tokens support automatic light/dark mode via media queries. See{" "}
+              <a href="/docs/theming" style={{ color: "var(--primary)", textDecoration: "underline" }}>
+                Theming
+              </a>{" "}
+              for details on customizing them.
             </p>
           </div>
         </section>
@@ -133,20 +127,18 @@ function StylingDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Style Composition
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Style Composition
+            </h2>
+            <p style={s.paragraph}>
               Components compose styles using <code style={s.code}>stylex.props()</code>, which
               merges multiple style definitions and applies them as atomic classes:
             </p>
@@ -164,12 +156,17 @@ function StylingDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               Key Constraints
-            </h3>
+            </h2>
             <ul style={s.list}>
               <li style={s.li}>
                 Stylex does not support <code style={s.code}>@media</code> queries in{" "}
@@ -192,6 +189,6 @@ function StylingDoc() {
           </div>
         </section>
       </div>
-    </div>
+    </DocsLayout>
   );
 }

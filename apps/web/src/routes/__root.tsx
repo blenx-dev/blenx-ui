@@ -1,6 +1,5 @@
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { Grid } from "@blenx-ui/ui";
 import Header from "../components/header";
 
 import appCss from "../index.css?url";
@@ -23,6 +22,19 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
     ],
     links: [
       {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=DM+Mono&display=swap",
+      },
+      {
         rel: "stylesheet",
         href: appCss,
       },
@@ -38,17 +50,13 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body
-        style={{
-          margin: 0,
-          padding: 0,
-          fontFamily: '"DM Sans", system-ui, -apple-system, sans-serif',
-        }}
-      >
-        <Grid>
+      <body>
+        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
           <Header />
-          <Outlet />
-        </Grid>
+          <main style={{ flex: 1 }}>
+            <Outlet />
+          </main>
+        </div>
         <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>

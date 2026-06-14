@@ -1,97 +1,89 @@
 import { createFileRoute } from "@tanstack/react-router";
+import DocsLayout from "../../components/docs-layout";
 
 export const Route = createFileRoute("/docs/limitations")({
   component: LimitationsDoc,
 });
 
-const vars = {
-  surfaceSubtle: "var(--surfaceSubtle)",
-  contentPrimary: "var(--contentPrimary)",
-  contentSecondary: "var(--contentSecondary)",
-  mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-};
-
 const s = {
-  section: { marginBottom: "32px" },
+  section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
   code: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "4px",
-    paddingInline: "4px",
-    fontFamily: vars.mono,
-    fontSize: "14px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-small)",
+    paddingInline: "var(--space-1)",
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
   } as React.CSSProperties,
   pre: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "8px",
-    padding: "16px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-medium)",
+    padding: "var(--space-4)",
     overflowX: "auto",
-    fontFamily: vars.mono,
-    fontSize: "14px",
-    lineHeight: 1.5,
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-normal)",
     margin: 0,
   } as React.CSSProperties,
   list: {
     listStyle: "disc",
-    paddingInlineStart: "24px",
+    paddingInlineStart: "var(--space-6)",
     margin: 0,
   } as React.CSSProperties,
-  li: { fontSize: "14px", lineHeight: 1.75 } as React.CSSProperties,
+  li: {
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-relaxed)",
+  } as React.CSSProperties,
+  paragraph: {
+    fontSize: "var(--font-size-small)",
+    color: "var(--contentSecondary)",
+    margin: 0,
+    lineHeight: "var(--leading-relaxed)",
+  } as React.CSSProperties,
 };
 
 function LimitationsDoc() {
   return (
-    <div
-      style={{ maxWidth: "768px", margin: "0 auto", paddingInline: "16px", paddingBlock: "32px" }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        <h1 style={{ fontSize: "36px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}>
+    <DocsLayout>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
+        <h1
+          style={{
+            fontSize: "var(--font-size-display)",
+            fontWeight: "var(--font-weight-bold)",
+            margin: 0,
+            color: "var(--contentPrimary)",
+          }}
+        >
           Limitations
         </h1>
-        <p style={{ fontSize: "14px", color: vars.contentSecondary, margin: 0, lineHeight: 1.625 }}>
+        <p style={s.paragraph}>
           Blenx UI makes specific technology choices that come with important constraints. Review
           these before adopting the library.
         </p>
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Monorepo Not Supported for Consumers
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Monorepo Not Supported for Consumers
+            </h2>
+            <p style={s.paragraph}>
               The shadcn registry model copies source files directly into your project. The copied
               files use import aliases (<code style={s.code}>@/components</code>,{" "}
               <code style={s.code}>@/lib</code>, etc.) that assume a flat project structure.
             </p>
-            <p
-              style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
-                margin: 0,
-                lineHeight: 1.625,
-              }}
-            >
+            <p style={s.paragraph}>
               If you are using a monorepo (Turborepo, Nx, Rush, pnpm workspaces), the installed
               component files and their relative imports may not resolve correctly across package
               boundaries. Each consuming application must independently configure its own alias
               resolution and Stylex plugin.
             </p>
-            <p
-              style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
-                margin: 0,
-                lineHeight: 1.625,
-              }}
-            >
+            <p style={s.paragraph}>
               <strong>Recommendation:</strong> Install components into a single application package,
               not into a shared UI package within your monorepo.
             </p>
@@ -101,20 +93,18 @@ function LimitationsDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Stylex Build Requirement
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Stylex Build Requirement
+            </h2>
+            <p style={s.paragraph}>
               Stylex is a build-time CSS-in-JS solution. Every consumer project must:
             </p>
             <ul style={s.list}>
@@ -128,14 +118,7 @@ function LimitationsDoc() {
                 styled-components, Emotion)
               </li>
             </ul>
-            <p
-              style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
-                margin: 0,
-                lineHeight: 1.625,
-              }}
-            >
+            <p style={s.paragraph}>
               Without proper Stylex configuration, components will render without styles.
             </p>
           </div>
@@ -144,20 +127,18 @@ function LimitationsDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Base UI Version Lock
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Base UI Version Lock
+            </h2>
+            <p style={s.paragraph}>
               Blenx UI depends on specific <code style={s.code}>@base-ui/react</code> APIs. The
               library is tested against <strong>Base UI React ^1.5.0</strong>. Upgrading Base UI may
               break component behavior. If you need a newer Base UI version, test all components
@@ -169,20 +150,18 @@ function LimitationsDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              No Tailwind CSS Support
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              No Tailwind CSS Support
+            </h2>
+            <p style={s.paragraph}>
               This project deliberately chose Stylex over Tailwind CSS. The registry components ship
               with their own Stylex styles. If your project uses Tailwind, the two can coexist, but
               components will use Stylex classes, not Tailwind utilities. You cannot override
@@ -195,20 +174,18 @@ function LimitationsDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Phosphor Icons
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Phosphor Icons
+            </h2>
+            <p style={s.paragraph}>
               The library uses <code style={s.code}>@phosphor-icons/react</code> for all
               iconography. If you prefer a different icon set, you will need to replace icon imports
               in the installed component source files manually.
@@ -219,20 +196,18 @@ function LimitationsDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Framework Compatibility
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Framework Compatibility
+            </h2>
+            <p style={s.paragraph}>
               Components are built with React 19+ and are not tested with:
             </p>
             <ul style={s.list}>
@@ -246,20 +221,18 @@ function LimitationsDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              CSS Custom Properties Theming
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              CSS Custom Properties Theming
+            </h2>
+            <p style={s.paragraph}>
               Theme tokens are implemented as Stylex CSS variables. While this enables efficient
               light/dark mode switching, it means theme customization is limited to CSS variable
               overrides. You cannot use JavaScript-level theme switching without updating component
@@ -275,6 +248,6 @@ function LimitationsDoc() {
           </div>
         </section>
       </div>
-    </div>
+    </DocsLayout>
   );
 }

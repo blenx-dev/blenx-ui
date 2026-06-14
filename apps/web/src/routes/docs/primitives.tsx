@@ -1,81 +1,76 @@
 import { createFileRoute } from "@tanstack/react-router";
+import DocsLayout from "../../components/docs-layout";
 
 export const Route = createFileRoute("/docs/primitives")({
   component: PrimitivesDoc,
 });
 
-const vars = {
-  border: "var(--border)",
-  surfaceSubtle: "var(--surfaceSubtle)",
-  contentPrimary: "var(--contentPrimary)",
-  contentSecondary: "var(--contentSecondary)",
-  mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-};
-
 const s = {
-  section: { marginBottom: "32px" },
+  section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
   code: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "4px",
-    paddingInline: "4px",
-    fontFamily: vars.mono,
-    fontSize: "14px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-small)",
+    paddingInline: "var(--space-1)",
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
   } as React.CSSProperties,
   pre: {
-    backgroundColor: vars.surfaceSubtle,
-    borderRadius: "8px",
-    padding: "16px",
+    backgroundColor: "var(--surfaceSubtle)",
+    borderRadius: "var(--radius-medium)",
+    padding: "var(--space-4)",
     overflowX: "auto",
-    fontFamily: vars.mono,
-    fontSize: "14px",
-    lineHeight: 1.5,
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--font-size-small)",
+    lineHeight: "var(--leading-normal)",
     margin: 0,
   } as React.CSSProperties,
   card: {
-    borderRadius: "8px",
-    border: `1px solid ${vars.border}`,
-    padding: "16px",
+    borderRadius: "var(--radius-medium)",
+    border: "1px solid var(--border)",
+    padding: "var(--space-4)",
+  } as React.CSSProperties,
+  paragraph: {
+    fontSize: "var(--font-size-small)",
+    color: "var(--contentSecondary)",
+    margin: 0,
+    lineHeight: "var(--leading-relaxed)",
   } as React.CSSProperties,
 };
 
 function PrimitivesDoc() {
   return (
-    <div
-      style={{ maxWidth: "768px", margin: "0 auto", paddingInline: "16px", paddingBlock: "32px" }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        <h1 style={{ fontSize: "36px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}>
+    <DocsLayout>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
+        <h1
+          style={{
+            fontSize: "var(--font-size-display)",
+            fontWeight: "var(--font-weight-bold)",
+            margin: 0,
+            color: "var(--contentPrimary)",
+          }}
+        >
           Primitives with Base UI
         </h1>
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Why Base UI?
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Why Base UI?
+            </h2>
+            <p style={s.paragraph}>
               Blenx UI is built on <strong>Base UI React</strong> (
               <code style={s.code}>@base-ui/react</code>), a headless component library from the
               creators of Material UI. Base UI provides unstyled, accessible primitives that handle
               behavior, keyboard navigation, focus management, and ARIA attributes.
             </p>
-            <p
-              style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
-                margin: 0,
-                lineHeight: 1.625,
-              }}
-            >
+            <p style={s.paragraph}>
               Each Blenx UI component wraps a Base UI primitive with Stylex styling. This separation
               keeps the behavioral logic framework-agnostic while allowing full control over visual
               presentation.
@@ -86,12 +81,17 @@ function PrimitivesDoc() {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               Component Architecture
-            </h3>
+            </h2>
             <pre style={s.pre}>
               <code>{`// Base UI handles behavior and accessibility
 import { useRender } from "@base-ui/react/use-render";
@@ -113,100 +113,147 @@ export function Button({ render, ...props }) {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
+              style={{
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
+                margin: 0,
+                color: "var(--contentPrimary)",
+              }}
             >
               Key Primitives Used
-            </h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+            </h2>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "var(--space-3)",
+              }}
+            >
               <div style={s.card}>
                 <p
                   style={{
-                    fontSize: "14px",
-                    fontWeight: 500,
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: "var(--font-weight-medium)",
                     margin: 0,
-                    color: vars.contentPrimary,
+                    color: "var(--contentPrimary)",
                   }}
                 >
                   Dialog
                 </p>
-                <p style={{ fontSize: "12px", color: vars.contentSecondary, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "var(--font-size-xsmall)",
+                    color: "var(--contentSecondary)",
+                    margin: 0,
+                  }}
+                >
                   @base-ui/react/dialog
                 </p>
               </div>
               <div style={s.card}>
                 <p
                   style={{
-                    fontSize: "14px",
-                    fontWeight: 500,
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: "var(--font-weight-medium)",
                     margin: 0,
-                    color: vars.contentPrimary,
+                    color: "var(--contentPrimary)",
                   }}
                 >
                   Popover
                 </p>
-                <p style={{ fontSize: "12px", color: vars.contentSecondary, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "var(--font-size-xsmall)",
+                    color: "var(--contentSecondary)",
+                    margin: 0,
+                  }}
+                >
                   @base-ui/react/popover
                 </p>
               </div>
               <div style={s.card}>
                 <p
                   style={{
-                    fontSize: "14px",
-                    fontWeight: 500,
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: "var(--font-weight-medium)",
                     margin: 0,
-                    color: vars.contentPrimary,
+                    color: "var(--contentPrimary)",
                   }}
                 >
                   Select, Menu, Combobox, Autocomplete
                 </p>
-                <p style={{ fontSize: "12px", color: vars.contentSecondary, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "var(--font-size-xsmall)",
+                    color: "var(--contentSecondary)",
+                    margin: 0,
+                  }}
+                >
                   various Base UI modules
                 </p>
               </div>
               <div style={s.card}>
                 <p
                   style={{
-                    fontSize: "14px",
-                    fontWeight: 500,
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: "var(--font-weight-medium)",
                     margin: 0,
-                    color: vars.contentPrimary,
+                    color: "var(--contentPrimary)",
                   }}
                 >
                   Field, Input, Switch, Toggle
                 </p>
-                <p style={{ fontSize: "12px", color: vars.contentSecondary, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "var(--font-size-xsmall)",
+                    color: "var(--contentSecondary)",
+                    margin: 0,
+                  }}
+                >
                   form primitives
                 </p>
               </div>
               <div style={s.card}>
                 <p
                   style={{
-                    fontSize: "14px",
-                    fontWeight: 500,
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: "var(--font-weight-medium)",
                     margin: 0,
-                    color: vars.contentPrimary,
+                    color: "var(--contentPrimary)",
                   }}
                 >
                   ScrollArea, Tabs, Separator, Avatar
                 </p>
-                <p style={{ fontSize: "12px", color: vars.contentSecondary, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "var(--font-size-xsmall)",
+                    color: "var(--contentSecondary)",
+                    margin: 0,
+                  }}
+                >
                   layout and media
                 </p>
               </div>
               <div style={s.card}>
                 <p
                   style={{
-                    fontSize: "14px",
-                    fontWeight: 500,
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: "var(--font-weight-medium)",
                     margin: 0,
-                    color: vars.contentPrimary,
+                    color: "var(--contentPrimary)",
                   }}
                 >
                   useRender, mergeProps
                 </p>
-                <p style={{ fontSize: "12px", color: vars.contentSecondary, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "var(--font-size-xsmall)",
+                    color: "var(--contentSecondary)",
+                    margin: 0,
+                  }}
+                >
                   composition utilities
                 </p>
               </div>
@@ -217,20 +264,18 @@ export function Button({ render, ...props }) {
         <hr style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }} />
 
         <section style={s.section}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h3
-              style={{ fontSize: "24px", fontWeight: 700, margin: 0, color: vars.contentPrimary }}
-            >
-              Extending with <code style={s.code}>render</code>
-            </h3>
-            <p
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h2
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-xxlarge)",
+                fontWeight: "var(--font-weight-bold)",
                 margin: 0,
-                lineHeight: 1.625,
+                color: "var(--contentPrimary)",
               }}
             >
+              Extending with <code style={s.code}>render</code>
+            </h2>
+            <p style={s.paragraph}>
               Every component supports a <code style={s.code}>render</code> prop that lets you
               override the rendered HTML element. This makes the library highly composable:
             </p>
@@ -246,6 +291,6 @@ export function Button({ render, ...props }) {
           </div>
         </section>
       </div>
-    </div>
+    </DocsLayout>
   );
 }

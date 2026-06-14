@@ -1,29 +1,34 @@
 import { Link } from "@tanstack/react-router";
 
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/docs", label: "Docs" },
-  { to: "/docs/installation", label: "Install" },
-  { to: "/docs/styling", label: "Styling" },
-  { to: "/docs/primitives", label: "Primitives" },
-  { to: "/docs/limitations", label: "Limitations" },
-] as const;
-
 const linkStyle: React.CSSProperties = {
   textDecoration: "none",
   color: "var(--contentSecondary)",
   lineHeight: 1,
-  paddingBlock: "4px",
+  paddingBlock: "var(--space-1)",
+  fontSize: "var(--font-size-small)",
 };
 
-const linkActiveStyle: React.CSSProperties = {
+const logoStyle: React.CSSProperties = {
+  textDecoration: "none",
   color: "var(--contentPrimary)",
-  fontWeight: 600,
+  fontWeight: "var(--font-weight-bold)",
+  fontSize: "var(--font-size-large)",
+  letterSpacing: "var(--tracking-tight)",
+  lineHeight: 1,
 };
 
 export default function Header() {
   return (
-    <div style={{ paddingInline: "16px", paddingBlock: "8px" }}>
+    <div
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: "var(--z-sticky)",
+        backgroundColor: "var(--background)",
+        paddingInline: "var(--space-4)",
+        paddingBlock: "var(--space-3)",
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -32,15 +37,17 @@ export default function Header() {
           justifyContent: "space-between",
         }}
       >
-        <nav style={{ display: "flex", gap: "24px" }}>
-          {links.map(({ to, label }) => {
-            return (
-              <Link key={to} to={to} style={linkStyle} activeProps={{ style: linkActiveStyle }}>
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
+        <Link to="/" style={logoStyle}>
+          Blenx UI
+        </Link>
+        <a
+          href="https://github.com/blenx-dev/blenx-ui"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          GitHub &rarr;
+        </a>
       </div>
       <hr style={{ border: "none", borderTop: "1px solid var(--border)" }} />
     </div>

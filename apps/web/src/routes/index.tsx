@@ -4,70 +4,61 @@ export const Route = createFileRoute("/")({
   component: HomeComponent,
 });
 
-const vars = {
-  bg: "var(--background)",
-  surface: "var(--surface)",
-  border: "var(--border)",
-  surfaceSubtle: "var(--surfaceSubtle)",
-  surfaceHover: "var(--surfaceHover)",
-  contentPrimary: "var(--contentPrimary)",
-  contentSecondary: "var(--contentSecondary)",
-  mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-};
-
 const sectionStyle: React.CSSProperties = {
-  borderRadius: "8px",
-  border: `1px solid ${vars.border}`,
-  padding: "16px",
+  borderRadius: "var(--radius-medium)",
+  border: "1px solid var(--border)",
+  padding: "var(--space-4)",
 };
 
 const codeBlockStyle: React.CSSProperties = {
-  backgroundColor: vars.surfaceSubtle,
-  borderRadius: "8px",
-  padding: "16px",
+  backgroundColor: "var(--surfaceSubtle)",
+  borderRadius: "var(--radius-medium)",
+  padding: "var(--space-4)",
   overflowX: "auto",
-  fontFamily: vars.mono,
-  fontSize: "14px",
-  lineHeight: 1.5,
+  fontFamily: "var(--font-mono)",
+  fontSize: "var(--font-size-small)",
+  lineHeight: "var(--leading-normal)",
   margin: 0,
 };
 
 const listStyle: React.CSSProperties = {
   listStyle: "disc",
-  paddingInlineStart: "24px",
+  paddingInlineStart: "var(--space-6)",
   margin: 0,
 };
 
 const listItemStyle: React.CSSProperties = {
-  fontSize: "14px",
-  lineHeight: 1.75,
+  fontSize: "var(--font-size-small)",
+  lineHeight: "var(--leading-relaxed)",
 };
 
 function HomeComponent() {
   return (
-    <div style={{ maxWidth: "768px", margin: "0 auto", paddingInline: "16px" }}>
-      <div style={{ paddingBlock: "64px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+    <div
+      style={{
+        maxWidth: "768px",
+        margin: "0 auto",
+        paddingInline: "var(--space-4)",
+      }}
+    >
+      <div style={{ paddingBlock: "var(--space-16)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
           <h1
             style={{
-              fontFamily: '"DM Sans", system-ui, sans-serif',
-              fontSize: "36px",
-              lineHeight: 1.2,
-              fontWeight: 700,
-              letterSpacing: "-0.04em",
+              fontSize: "var(--font-size-display)",
+              fontWeight: "var(--font-weight-bold)",
+              letterSpacing: "var(--tracking-tight)",
               margin: 0,
-              color: vars.contentPrimary,
+              color: "var(--contentPrimary)",
             }}
           >
             Blenx UI
           </h1>
           <p
             style={{
-              fontFamily: '"DM Sans", system-ui, sans-serif',
-              fontSize: "16px",
-              lineHeight: 1.5,
+              fontSize: "var(--font-size-medium)",
               margin: 0,
-              color: vars.contentSecondary,
+              color: "var(--contentSecondary)",
             }}
           >
             A design system of React components built with Stylex and Base UI. Distributed via the
@@ -77,22 +68,21 @@ function HomeComponent() {
       </div>
 
       <div style={sectionStyle}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
           <h4
             style={{
-              fontFamily: '"DM Sans", system-ui, sans-serif',
-              fontSize: "18px",
-              fontWeight: 600,
+              fontSize: "var(--font-size-large)",
+              fontWeight: "var(--font-weight-semibold)",
               margin: 0,
-              color: vars.contentPrimary,
+              color: "var(--contentPrimary)",
             }}
           >
             Getting Started
           </h4>
           <p
             style={{
-              fontSize: "14px",
-              color: vars.contentSecondary,
+              fontSize: "var(--font-size-small)",
+              color: "var(--contentSecondary)",
               margin: 0,
             }}
           >
@@ -104,15 +94,14 @@ function HomeComponent() {
         </div>
       </div>
 
-      <div style={{ ...sectionStyle, marginTop: "16px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      <div style={{ ...sectionStyle, marginTop: "var(--space-4)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
           <h4
             style={{
-              fontFamily: '"DM Sans", system-ui, sans-serif',
-              fontSize: "18px",
-              fontWeight: 600,
+              fontSize: "var(--font-size-large)",
+              fontWeight: "var(--font-weight-semibold)",
               margin: 0,
-              color: vars.contentPrimary,
+              color: "var(--contentPrimary)",
             }}
           >
             Prerequisites
@@ -129,18 +118,17 @@ function HomeComponent() {
         style={{
           border: "none",
           borderTop: "1px solid var(--borderSubtle)",
-          margin: "24px 0",
+          margin: "var(--space-6) 0",
         }}
       />
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
         <h3
           style={{
-            fontFamily: '"DM Sans", system-ui, sans-serif',
-            fontSize: "24px",
-            fontWeight: 700,
+            fontSize: "var(--font-size-xxlarge)",
+            fontWeight: "var(--font-weight-bold)",
             margin: 0,
-            color: vars.contentPrimary,
+            color: "var(--contentPrimary)",
           }}
         >
           Documentation
@@ -149,34 +137,34 @@ function HomeComponent() {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "16px",
+            gap: "var(--space-4)",
           }}
         >
           <Link
             to="/docs/installation"
             style={{
               display: "block",
-              borderRadius: "8px",
-              border: `1px solid ${vars.border}`,
-              padding: "16px",
+              borderRadius: "var(--radius-medium)",
+              border: "1px solid var(--border)",
+              padding: "var(--space-4)",
               textDecoration: "none",
               color: "inherit",
             }}
           >
             <h5
               style={{
-                fontSize: "16px",
-                fontWeight: 600,
-                margin: "0 0 4px",
-                color: vars.contentPrimary,
+                fontSize: "var(--font-size-medium)",
+                fontWeight: "var(--font-weight-semibold)",
+                margin: "0 0 var(--space-1)",
+                color: "var(--contentPrimary)",
               }}
             >
               Installation &rarr;
             </h5>
             <p
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
                 margin: 0,
               }}
             >
@@ -187,27 +175,27 @@ function HomeComponent() {
             to="/docs/styling"
             style={{
               display: "block",
-              borderRadius: "8px",
-              border: `1px solid ${vars.border}`,
-              padding: "16px",
+              borderRadius: "var(--radius-medium)",
+              border: "1px solid var(--border)",
+              padding: "var(--space-4)",
               textDecoration: "none",
               color: "inherit",
             }}
           >
             <h5
               style={{
-                fontSize: "16px",
-                fontWeight: 600,
-                margin: "0 0 4px",
-                color: vars.contentPrimary,
+                fontSize: "var(--font-size-medium)",
+                fontWeight: "var(--font-weight-semibold)",
+                margin: "0 0 var(--space-1)",
+                color: "var(--contentPrimary)",
               }}
             >
               Styling &rarr;
             </h5>
             <p
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
                 margin: 0,
               }}
             >
@@ -218,27 +206,27 @@ function HomeComponent() {
             to="/docs/primitives"
             style={{
               display: "block",
-              borderRadius: "8px",
-              border: `1px solid ${vars.border}`,
-              padding: "16px",
+              borderRadius: "var(--radius-medium)",
+              border: "1px solid var(--border)",
+              padding: "var(--space-4)",
               textDecoration: "none",
               color: "inherit",
             }}
           >
             <h5
               style={{
-                fontSize: "16px",
-                fontWeight: 600,
-                margin: "0 0 4px",
-                color: vars.contentPrimary,
+                fontSize: "var(--font-size-medium)",
+                fontWeight: "var(--font-weight-semibold)",
+                margin: "0 0 var(--space-1)",
+                color: "var(--contentPrimary)",
               }}
             >
               Primitives &rarr;
             </h5>
             <p
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
                 margin: 0,
               }}
             >
@@ -249,27 +237,27 @@ function HomeComponent() {
             to="/docs/limitations"
             style={{
               display: "block",
-              borderRadius: "8px",
-              border: `1px solid ${vars.border}`,
-              padding: "16px",
+              borderRadius: "var(--radius-medium)",
+              border: "1px solid var(--border)",
+              padding: "var(--space-4)",
               textDecoration: "none",
               color: "inherit",
             }}
           >
             <h5
               style={{
-                fontSize: "16px",
-                fontWeight: 600,
-                margin: "0 0 4px",
-                color: vars.contentPrimary,
+                fontSize: "var(--font-size-medium)",
+                fontWeight: "var(--font-weight-semibold)",
+                margin: "0 0 var(--space-1)",
+                color: "var(--contentPrimary)",
               }}
             >
               Limitations &rarr;
             </h5>
             <p
               style={{
-                fontSize: "14px",
-                color: vars.contentSecondary,
+                fontSize: "var(--font-size-small)",
+                color: "var(--contentSecondary)",
                 margin: 0,
               }}
             >
