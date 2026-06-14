@@ -1,2 +1,4 @@
 [install]
 linker = "isolated"
+[serve.static]
+plugins = ["@stylexjs/unplugin/bun"]

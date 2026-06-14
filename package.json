@@ -26,7 +26,7 @@
     "dev:web": "turbo -F web dev",
     "check": "oxlint && oxfmt --write",
     "registry:gen": "ts-node packages/registry/build.ts",
-    "registry:build": "bun registry:gen && shadcn build packages/registry/registry.json --output apps/web/public/reg",
+    "registry:build": "bun registry:gen && shadcn build packages/registry/registry.json --output apps/web/public/reg && bun packages/registry/clean.ts",
     "registry:dev": "bun registry:build && serve packages/registry/public/r -p 3001"
   },
   "dependencies": {

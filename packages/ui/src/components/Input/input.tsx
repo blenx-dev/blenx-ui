@@ -5,7 +5,7 @@ import * as stylex from "@stylexjs/stylex";
 import type * as React from "react";
 import { useId } from "react";
 import { inputStyles } from "./input.styles";
-import type { PropsWithStylex } from "@/utils/stylex.utils";
+import type { PropsWithStylex } from "#/utils/stylex.utils";
 
 type InputSize = "sm" | "default" | "lg";
 type _BaseInputProps = Omit<InputPrimitive.Props & React.RefAttributes<HTMLInputElement>, "size">;

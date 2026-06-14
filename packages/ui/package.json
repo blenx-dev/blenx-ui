@@ -11,6 +11,9 @@
     "./theme/contract.stylex": "./src/lib/theme/contract.stylex.ts",
     "./theme/tokens.stylex": "./src/lib/theme/tokens.stylex.ts"
   },
+  "imports": {
+    "#/*": "./src/*"
+  },
   "scripts": {
     "build": "vite build",
     "check-types": "tsc --noEmit",

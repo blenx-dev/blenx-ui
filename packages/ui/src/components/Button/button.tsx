@@ -1,8 +1,8 @@
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import * as stylex from "@stylexjs/stylex";
-import { borderRadiusStyles } from "@/utils/layouts.styles";
-import type { PropsWithStylex } from "@/utils/stylex.utils";
+import { borderRadiusStyles } from "#/utils/layouts.styles";
+import type { PropsWithStylex } from "#/utils/stylex.utils";
 import { Spinner } from "../Spinner/spinner";
 import { buttonSizes, buttonStyles, buttonVariantStyles } from "./button.styles";
 

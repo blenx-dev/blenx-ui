@@ -4,7 +4,7 @@ import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import { popoverStyles } from "./popover.styles";
-import type { PropsWithStylex } from "@/utils/stylex.utils";
+import type { PropsWithStylex } from "#/utils/stylex.utils";
 
 export const PopoverCreateHandle: typeof PopoverPrimitive.createHandle =
   PopoverPrimitive.createHandle;

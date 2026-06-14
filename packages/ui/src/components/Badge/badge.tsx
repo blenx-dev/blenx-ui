@@ -1,7 +1,7 @@
 import { mergeProps, useRender } from "@base-ui/react";
 import * as stylex from "@stylexjs/stylex";
-import { borderRadiusStyles } from "@/utils/layouts.styles";
-import type { PropsWithStylex } from "@/utils/stylex.utils";
+import { borderRadiusStyles } from "#/utils/layouts.styles";
+import type { PropsWithStylex } from "#/utils/stylex.utils";
 import { badgeStyles, badgeVariantStyles } from "./badge.styles";
 
 type Props = PropsWithStylex<useRender.ComponentProps<"span">> & {

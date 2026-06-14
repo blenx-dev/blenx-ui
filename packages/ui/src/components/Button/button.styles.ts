@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { fontSize, theme, spacing } from "@/lib/theme/theme.stylex";
+import { fontSize, theme, spacing } from "#/lib/theme/theme.stylex";
 
 export const buttonSizes = stylex.create({
   xsmall: {

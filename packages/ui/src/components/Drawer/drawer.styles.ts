@@ -7,7 +7,7 @@ import {
   mediaQueries,
   spacing,
   theme,
-} from "@/lib/theme/contract.stylex";
+} from "#/lib/theme/contract.stylex";
 
 export const drawerStyles = stylex.create({
   swipeArea: {

@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { borderRadius, borderWidth, spacing, theme } from "@/lib/theme/contract.stylex";
+import { borderRadius, borderWidth, spacing, theme } from "#/lib/theme/contract.stylex";
 
 export const dialogStyles = stylex.create({
   backdrop: {

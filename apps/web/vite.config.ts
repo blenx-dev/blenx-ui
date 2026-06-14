@@ -16,8 +16,8 @@ export default defineConfig({
       dev: process.env.NODE_ENV === "development",
       runtimeInjection: process.env.NODE_ENV === "development",
       aliases: {
-        "@": path.join(__dirname, "src"),
-        "@around-me/ui": path.join(__dirname, "../../packages/ui/src"),
+        "@/*": [path.join(__dirname, "src/*")],
+        "#/*": [path.join(__dirname, "../../packages/ui/src/*")]
       },
       unstable_moduleResolution: {
         type: "commonJS",

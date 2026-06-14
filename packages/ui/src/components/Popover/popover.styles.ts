@@ -6,7 +6,7 @@ import {
   fontWeight,
   spacing,
   theme,
-} from "@/lib/theme/contract.stylex";
+} from "#/lib/theme/contract.stylex";
 
 export const popoverStyles = stylex.create({
   backdrop: {

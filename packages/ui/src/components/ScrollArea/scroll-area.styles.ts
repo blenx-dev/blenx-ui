@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { spacing, theme } from "@/lib/theme/contract.stylex";
+import { spacing, theme } from "#/lib/theme/contract.stylex";
 
 export const scrollAreaStyles = stylex.create({
   root: {
