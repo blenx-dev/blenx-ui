@@ -1,4 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
+import * as stylex from "@stylexjs/stylex";
+import { Container, Text, VStack } from "@blenx-ui/ui";
+import { theme, fontSize, spacing, lineHeight, fontWeight, borderRadius } from "@blenx-ui/ui/theme/theme.stylex";
 
 interface SidebarSection {
   title: string;
@@ -30,54 +33,33 @@ const sections: SidebarSection[] = [
   },
 ];
 
-const sidebarStyle: React.CSSProperties = {
-  width: "220px",
-  flexShrink: 0,
-  paddingInline: "var(--space-4)",
-  paddingBlock: "var(--space-8)",
-  borderRight: "1px solid var(--border)",
-  position: "sticky",
-  top: 0,
-  alignSelf: "start",
-  height: "100vh",
-  overflowY: "auto",
-};
+const styles = stylex.create({
+  link: {
+    display: "block",
+    fontSize: fontSize.small,
+    color: theme.contentSecondary,
+    textDecoration: "none",
+    paddingBlock: spacing["1"],
+    paddingInline: spacing["2"],
+    borderRadius: borderRadius.small,
+    lineHeight: lineHeight.normal,
+  },
+  linkActive: {
+    color: theme.contentPrimary,
+    fontWeight: fontWeight.medium,
+    backgroundColor: theme.surfaceSubtle,
+  },
+});
 
-const sectionTitleStyle: React.CSSProperties = {
-  fontSize: "var(--font-size-xsmall)",
-  fontWeight: "var(--font-weight-semibold)",
-  color: "var(--contentDisabled)",
-  textTransform: "uppercase",
-  letterSpacing: "var(--tracking-wide)",
-  marginBottom: "var(--space-2)",
-  marginTop: "var(--space-5)",
-};
-
-const linkStyle: React.CSSProperties = {
-  display: "block",
-  fontSize: "var(--font-size-small)",
-  color: "var(--contentSecondary)",
-  textDecoration: "none",
-  paddingBlock: "var(--space-1)",
-  paddingInline: "var(--space-2)",
-  borderRadius: "var(--radius-small)",
-  lineHeight: "var(--leading-normal)",
-};
-
-const activeLinkStyle: React.CSSProperties = {
-  color: "var(--contentPrimary)",
-  fontWeight: "var(--font-weight-medium)",
-  backgroundColor: "var(--surfaceSubtle)",
-};
-
-export default function DocsSidebar() {
+function DocsSidebar() {
   const { pathname } = useLocation();
 
   return (
-    <nav style={sidebarStyle}>
+    <Container size="xxs">
+    <VStack render={<nav />} >
       {sections.map((section) => (
         <div key={section.title}>
-          <p style={sectionTitleStyle}>{section.title}</p>
+          <Text>{section.title}</Text>
           {section.links.map((link) => {
             const isActive =
               link.to === "/docs"
@@ -87,14 +69,20 @@ export default function DocsSidebar() {
               <Link
                 key={link.to}
                 to={link.to}
-                style={{ ...linkStyle, ...(isActive ? activeLinkStyle : {}) }}
+                {...stylex.props(styles.link, isActive && styles.linkActive)}
               >
+                <Text variant="body3">
+
                 {link.label}
+                </Text>
               </Link>
             );
           })}
         </div>
       ))}
-    </nav>
+      </VStack>
+    </Container>
   );
 }
+
+export { DocsSidebar };
