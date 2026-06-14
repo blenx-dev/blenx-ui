@@ -13,7 +13,7 @@
     "http://localhost:3001/reg/calendar.json",
     "http://localhost:3001/reg/field.json",
     "http://localhost:3001/reg/popover.json",
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {

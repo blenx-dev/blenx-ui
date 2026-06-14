@@ -1,25 +1,23 @@
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import * as stylex from "@stylexjs/stylex";
-import { borderRadiusStyles } from "../../utils/layouts.styles";
-import type { PropsWithStylex } from "../../utils/stylex.utils";
-import type { BoxProps } from "../Box/box";
+import { borderRadiusStyles } from "@/utils/layouts.styles";
+import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { Spinner } from "../Spinner/spinner";
 import { buttonSizes, buttonStyles, buttonVariantStyles } from "./button.styles";
 
 type _BaseUIButtonProps = PropsWithStylex<useRender.ComponentProps<"button">>;
 
-export interface ButtonProps extends _BaseUIButtonProps {
+type ButtonProps = PropsWithStylex<_BaseUIButtonProps> & {
   variant?: keyof typeof buttonVariantStyles;
   size?: keyof typeof buttonSizes;
   disabled?: boolean;
   loading?: boolean;
   radius?: keyof typeof borderRadiusStyles;
   fullWidth?: boolean;
-  style?: BoxProps["style"];
 }
 
-export function Button({
+function Button({
   children,
   variant = "primary",
   size = "medium",
@@ -64,4 +62,11 @@ export function Button({
     props: mergeProps<"button">(defaultProps, props),
     render,
   });
+}
+
+export {
+  Button
+}
+export type {
+  ButtonProps
 }

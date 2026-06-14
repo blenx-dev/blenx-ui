@@ -10,7 +10,7 @@
   ],
   "registryDependencies": [
     "http://localhost:3001/reg/box.json",
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "path": "packages/ui/src/components/Surface/surface.styles.ts",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@blenx-ui/ui/lib/theme/contract.stylex\";\n\nexport const surfaceVariantStyles = stylex.create({\n  default: {\n    backgroundColor: theme.surface,\n    borderRadius: theme.borderRadius,\n  },\n  outline: {\n    backgroundColor: theme.surface,\n    borderWidth: 1,\n    borderStyle: \"solid\",\n    borderColor: theme.border,\n  },\n  raised: {\n    backgroundColor: theme.surfaceRaised,\n    boxShadow: theme.shadowMd,\n  },\n  sunken: {\n    backgroundColor: theme.surfaceSubtle,\n  },\n});\n\nexport const surfaceInteractiveStyles = stylex.create({\n  base: {\n    cursor: \"pointer\",\n    \":hover\": {\n      backgroundColor: theme.surfaceHover,\n    },\n    \":focus-visible\": {\n      outline: `2px solid ${theme.focusRing}`,\n      outlineOffset: \"2px\",\n    },\n  },\n});\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\n\nexport const surfaceVariantStyles = stylex.create({\n  default: {\n    backgroundColor: theme.surface,\n    borderRadius: theme.borderRadius,\n  },\n  outline: {\n    backgroundColor: theme.surface,\n    borderWidth: 1,\n    borderStyle: \"solid\",\n    borderColor: theme.border,\n  },\n  raised: {\n    backgroundColor: theme.surfaceRaised,\n    boxShadow: theme.shadowMd,\n  },\n  sunken: {\n    backgroundColor: theme.surfaceSubtle,\n  },\n});\n\nexport const surfaceInteractiveStyles = stylex.create({\n  base: {\n    cursor: \"pointer\",\n    \":hover\": {\n      backgroundColor: theme.surfaceHover,\n    },\n    \":focus-visible\": {\n      outline: `2px solid ${theme.focusRing}`,\n      outlineOffset: \"2px\",\n    },\n  },\n});\n",
       "type": "registry:file",
       "target": "@ui/Surface/surface.styles.ts"
     }

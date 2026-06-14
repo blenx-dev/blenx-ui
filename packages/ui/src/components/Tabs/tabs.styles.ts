@@ -7,7 +7,7 @@ import {
   fontWeight,
   spacing,
   theme,
-} from "@blenx-ui/ui/lib/theme/contract.stylex";
+} from "@/lib/theme/contract.stylex";
 
 export const tabsStyles = stylex.create({
   root: {

@@ -11,12 +11,12 @@
     {
       "file": "button.tsx",
       "type": "registry:ui",
-      "target": "registry/default/Button/button.tsx"
+      "target": "@ui/Button/button.tsx"
     },
     {
       "file": "button.styles.ts",
       "type": "registry:file",
-      "target": "registry/default/Button/button.styles.ts"
+      "target": "@ui/Button/button.styles.ts"
     }
   ]
 }

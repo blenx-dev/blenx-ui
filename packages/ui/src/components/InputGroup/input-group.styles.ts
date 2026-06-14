@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { borderRadius, fontSize, spacing, theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
+import { borderRadius, fontSize, spacing, theme } from "@/lib/theme/contract.stylex";
 
 export const inputGroupStyles = stylex.create({
   group: {

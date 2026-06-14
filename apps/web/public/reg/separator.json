@@ -10,7 +10,7 @@
   ],
   "registryDependencies": [
     "http://localhost:3001/reg/field.json",
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "path": "packages/ui/src/components/Separator/separator.styles.ts",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { fontSize, fontWeight, spacing, theme } from \"@blenx-ui/ui/lib/theme/contract.stylex\";\n\nexport const separatorStyles = stylex.create({\n  base: {\n    boxSizing: \"border-box\",\n    flexShrink: 0,\n    backgroundColor: \"currentColor\",\n  },\n\n  horizontal: {\n    flexGrow: 1,\n    height: 1,\n  },\n  vertical: {\n    width: 1,\n    height: \"100%\",\n  },\n\n  subtle: {\n    color: theme.borderSubtle,\n  },\n  strong: {\n    color: theme.borderStrong,\n  },\n\n  withLabel: {\n    backgroundColor: \"transparent\",\n    display: \"flex\",\n    alignItems: \"center\",\n    gap: spacing.small,\n    width: \"100%\",\n    \"::before\": {\n      content: '\"\"',\n      flex: 1,\n      height: 1,\n      backgroundColor: \"currentColor\",\n      opacity: 1,\n    },\n    \"::after\": {\n      content: '\"\"',\n      flex: 1,\n      height: 1,\n      backgroundColor: \"currentColor\",\n      opacity: 1,\n    },\n  },\n\n  label: {\n    paddingLeft: spacing.xsmall,\n    paddingRight: spacing.xsmall,\n    color: theme.contentSecondary,\n    fontSize: fontSize.xsmall,\n    fontWeight: fontWeight.medium,\n    lineHeight: 1.2,\n    whiteSpace: \"nowrap\",\n  },\n});\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { fontSize, fontWeight, spacing, theme } from \"@/lib/theme/contract.stylex\";\n\nexport const separatorStyles = stylex.create({\n  base: {\n    boxSizing: \"border-box\",\n    flexShrink: 0,\n    backgroundColor: \"currentColor\",\n  },\n\n  horizontal: {\n    flexGrow: 1,\n    height: 1,\n  },\n  vertical: {\n    width: 1,\n    height: \"100%\",\n  },\n\n  subtle: {\n    color: theme.borderSubtle,\n  },\n  strong: {\n    color: theme.borderStrong,\n  },\n\n  withLabel: {\n    backgroundColor: \"transparent\",\n    display: \"flex\",\n    alignItems: \"center\",\n    gap: spacing.small,\n    width: \"100%\",\n    \"::before\": {\n      content: '\"\"',\n      flex: 1,\n      height: 1,\n      backgroundColor: \"currentColor\",\n      opacity: 1,\n    },\n    \"::after\": {\n      content: '\"\"',\n      flex: 1,\n      height: 1,\n      backgroundColor: \"currentColor\",\n      opacity: 1,\n    },\n  },\n\n  label: {\n    paddingLeft: spacing.xsmall,\n    paddingRight: spacing.xsmall,\n    color: theme.contentSecondary,\n    fontSize: fontSize.xsmall,\n    fontWeight: fontWeight.medium,\n    lineHeight: 1.2,\n    whiteSpace: \"nowrap\",\n  },\n});\n",
       "type": "registry:file",
       "target": "@ui/Separator/separator.styles.ts"
     }

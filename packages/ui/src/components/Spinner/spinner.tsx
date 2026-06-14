@@ -2,7 +2,7 @@ import { SpinnerIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import { spinnerStyles } from "./spinner.styles";
-import type { PropsWithStylex } from "@blenx-ui/ui/utils/stylex.utils";
+import type { PropsWithStylex } from "@/utils/stylex.utils";
 
 type Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;
 

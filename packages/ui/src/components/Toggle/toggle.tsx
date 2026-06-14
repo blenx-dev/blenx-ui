@@ -2,7 +2,7 @@
 
 import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import * as stylex from "@stylexjs/stylex";
-import type { PropsWithStylex } from "../../utils/stylex.utils";
+import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { toggleStyles } from "./toggle.styles";
 
 export type ToggleVariant = "default" | "outline";

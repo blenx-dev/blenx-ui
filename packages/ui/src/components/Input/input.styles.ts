@@ -1,6 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
-import { spacing } from "../../lib/theme/theme.stylex";
+import { spacing, theme } from "@/lib/theme/theme.stylex";
 
 export const inputStyles = stylex.create({
   label: {

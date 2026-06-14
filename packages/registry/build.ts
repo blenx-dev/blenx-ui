@@ -1,30 +1,69 @@
-import { readdirSync, readFileSync, writeFileSync, existsSync } from "fs";
-import { join } from "path";
+import {
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+  existsSync,
+  statSync,
+} from "fs";
+import { join, relative } from "path";
 
 const UI_DIR = "packages/ui/src/components";
-const THEME_DIR = "packages/ui/src/lib/theme";
+const LIB_DIR = "packages/ui/src/lib";
+const UTILS_DIR = "packages/ui/src/utils";
+
 const OUTPUT = "packages/registry/registry.json";
 const REGISTRY_URL = process.env.REGISTRY_URL || "http://localhost:3001/reg";
 
 const items = [];
 
-// Scan theme folder first
-const themeFiles = readdirSync(THEME_DIR).map((file) => ({
-  path: `${THEME_DIR}/${file}`,
-  type: "registry:file",
-  target: `@lib/theme/${file}`,
-}));
+function getFilesRecursive(dir: string): string[] {
+  const entries = readdirSync(dir);
 
+  return entries.flatMap((entry) => {
+    const fullPath = join(dir, entry);
+
+    if (statSync(fullPath).isDirectory()) {
+      return getFilesRecursive(fullPath);
+    }
+
+    return [fullPath];
+  });
+}
+
+function buildRegistryFiles(
+  sourceDir: string,
+  targetPrefix: string,
+): Array<{
+  path: string;
+  type: string;
+  target: string;
+}> {
+  return getFilesRecursive(sourceDir).map((file) => ({
+    path: file,
+    type: "registry:file",
+    target: join(
+      targetPrefix,
+      relative(sourceDir, file).replaceAll("\\", "/"),
+    ),
+  }));
+}
 items.push({
-  name: "theme",
+  name: "shared",
   type: "registry:lib",
-  title: "Theme",
-  description: "Base theme contracts and utils.",
-  dependencies: ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
-  files: themeFiles,
+  title: "Shared",
+  description: "Shared libraries, theme and utilities.",
+  dependencies: [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react",
+  ],
+  files: [
+    ...buildRegistryFiles(LIB_DIR, "@lib"),
+    ...buildRegistryFiles(UTILS_DIR, "@utils"),
+  ],
 });
 
-const themeRegistryUrl = `${REGISTRY_URL}/theme.json`;
+const themeRegistryUrl = `${REGISTRY_URL}/shared.json`;
 // Scan component folders
 const components = readdirSync(UI_DIR);
 
@@ -62,7 +101,6 @@ const registry = {
 };
 
 const content = JSON.stringify(registry, null, 2)
-const modifiedContent = content.replaceAll("@blenx-ui/ui/", "@")
-console.log(`🔍 Building registry with ${items.length} items...`, modifiedContent);
-writeFileSync(OUTPUT, modifiedContent);
+console.log(`🔍 Building registry with ${items.length} items...`);
+writeFileSync(OUTPUT, content);
 console.log(`✔ registry.json built with ${items.length} items`);

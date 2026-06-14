@@ -4,10 +4,10 @@
   "homepage": "https://blenx-ui.com",
   "items": [
     {
-      "name": "theme",
+      "name": "shared",
       "type": "registry:lib",
-      "title": "Theme",
-      "description": "Base theme contracts and utils.",
+      "title": "Shared",
+      "description": "Shared libraries, theme and utilities.",
       "dependencies": [
         "@stylexjs/stylex",
         "@phosphor-icons/react",
@@ -28,6 +28,16 @@
           "path": "packages/ui/src/lib/theme/tokens.stylex.ts",
           "type": "registry:file",
           "target": "@lib/theme/tokens.stylex.ts"
+        },
+        {
+          "path": "packages/ui/src/utils/layouts.styles.ts",
+          "type": "registry:file",
+          "target": "@utils/layouts.styles.ts"
+        },
+        {
+          "path": "packages/ui/src/utils/stylex.utils.ts",
+          "type": "registry:file",
+          "target": "@utils/stylex.utils.ts"
         }
       ]
     },
@@ -40,7 +50,7 @@
       "registryDependencies": [
         "http://localhost:3001/reg/button.json",
         "http://localhost:3001/reg/scroll-area.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -69,7 +79,7 @@
       "registryDependencies": [
         "http://localhost:3001/reg/input.json",
         "http://localhost:3001/reg/scroll-area.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -108,7 +118,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -135,7 +145,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -162,7 +172,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -189,7 +199,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -205,18 +215,18 @@
       "description": "A StyleX button component.",
       "registryDependencies": [
         "http://localhost:3001/reg/spinner.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
           "path": "packages/ui/src/components/Button/button.tsx",
           "type": "registry:ui",
-          "target": "registry/default/Button/button.tsx"
+          "target": "@ui/Button/button.tsx"
         },
         {
           "path": "packages/ui/src/components/Button/button.styles.ts",
           "type": "registry:file",
-          "target": "registry/default/Button/button.styles.ts"
+          "target": "@ui/Button/button.styles.ts"
         }
       ],
       "dependencies": [
@@ -233,7 +243,7 @@
       "description": "A StyleX button component.",
       "registryDependencies": [
         "http://localhost:3001/reg/button.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -261,7 +271,7 @@
       "description": "A StyleX button component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -293,7 +303,7 @@
         "http://localhost:3001/reg/field.json",
         "http://localhost:3001/reg/popover.json",
         "http://localhost:3001/reg/stack.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -316,7 +326,7 @@
       "description": "A StyleX button component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -345,7 +355,7 @@
       "registryDependencies": [
         "http://localhost:3001/reg/input.json",
         "http://localhost:3001/reg/scroll-area.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -373,7 +383,7 @@
       "description": "A StyleX Container component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -404,7 +414,7 @@
         "http://localhost:3001/reg/calendar.json",
         "http://localhost:3001/reg/field.json",
         "http://localhost:3001/reg/popover.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -428,7 +438,7 @@
       "registryDependencies": [
         "http://localhost:3001/reg/button.json",
         "http://localhost:3001/reg/scroll-area.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -457,7 +467,7 @@
       "registryDependencies": [
         "http://localhost:3001/reg/button.json",
         "http://localhost:3001/reg/scroll-area.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -486,7 +496,7 @@
       "registryDependencies": [
         "http://localhost:3001/reg/button.json",
         "http://localhost:3001/reg/scroll-area.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -514,7 +524,7 @@
       "description": "A StyleX Grid component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -553,7 +563,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -580,7 +590,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -607,7 +617,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -634,7 +644,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -661,7 +671,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -677,7 +687,7 @@
       "description": "A StyleX SegmentedControl component.",
       "registryDependencies": [
         "http://localhost:3001/reg/toggle.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -700,7 +710,7 @@
       "description": "A StyleX Select component.",
       "registryDependencies": [
         "http://localhost:3001/reg/field.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -728,7 +738,7 @@
       "description": "A StyleX Separator component.",
       "registryDependencies": [
         "http://localhost:3001/reg/field.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -767,7 +777,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -783,7 +793,7 @@
       "description": "A StyleX Stack component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -811,7 +821,7 @@
       "description": "A StyleX Surface component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -839,7 +849,7 @@
       "description": "A StyleX Switch component.",
       "registryDependencies": [
         "http://localhost:3001/reg/box.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {
@@ -878,7 +888,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -905,7 +915,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -932,7 +942,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -959,7 +969,7 @@
         }
       ],
       "registryDependencies": [
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "dependencies": [
         "@stylexjs/stylex",
@@ -975,7 +985,7 @@
       "description": "A StyleX ToggleGroup component.",
       "registryDependencies": [
         "http://localhost:3001/reg/toggle.json",
-        "http://localhost:3001/reg/theme.json"
+        "http://localhost:3001/reg/shared.json"
       ],
       "files": [
         {

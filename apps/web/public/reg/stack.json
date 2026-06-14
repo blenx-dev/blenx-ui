@@ -10,7 +10,7 @@
   ],
   "registryDependencies": [
     "http://localhost:3001/reg/box.json",
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "path": "packages/ui/src/components/Stack/stack.styles.ts",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { spacing } from \"../../lib/theme/theme.stylex\";\n\nexport const stackDirectionStyles = stylex.create({\n  column: { flexDirection: \"column\" },\n  row: { flexDirection: \"row\" },\n});\n\nexport const stackGapStyles = stylex.create({\n  none: { gap: 0 },\n  xxsmall: { gap: spacing.xxsmall },\n  xsmall: { gap: spacing.xsmall },\n  small: { gap: spacing.small },\n  medium: { gap: spacing.medium },\n  large: { gap: spacing.large },\n  xlarge: { gap: spacing.xlarge },\n  xxlarge: { gap: spacing.xxlarge },\n  xxxlarge: { gap: spacing.xxxlarge },\n  huge: { gap: spacing.huge },\n  massive: { gap: spacing.massive },\n});\n\nexport const stackAlignStyles = stylex.create({\n  start: { alignItems: \"flex-start\" },\n  center: { alignItems: \"center\" },\n  end: { alignItems: \"flex-end\" },\n  stretch: { alignItems: \"stretch\" },\n  baseline: { alignItems: \"baseline\" },\n});\n\nexport const stackJustifyStyles = stylex.create({\n  start: { justifyContent: \"flex-start\" },\n  center: { justifyContent: \"center\" },\n  end: { justifyContent: \"flex-end\" },\n  between: { justifyContent: \"space-between\" },\n  around: { justifyContent: \"space-around\" },\n  evenly: { justifyContent: \"space-evenly\" },\n  stretch: { justifyContent: \"stretch\" },\n});\n\nexport const stackWrapStyles = stylex.create({\n  true: { flexWrap: \"wrap\" },\n});\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { spacing } from \"@/lib/theme/theme.stylex\";\n\nexport const stackDirectionStyles = stylex.create({\n  column: { flexDirection: \"column\" },\n  row: { flexDirection: \"row\" },\n});\n\nexport const stackGapStyles = stylex.create({\n  none: { gap: 0 },\n  xxsmall: { gap: spacing.xxsmall },\n  xsmall: { gap: spacing.xsmall },\n  small: { gap: spacing.small },\n  medium: { gap: spacing.medium },\n  large: { gap: spacing.large },\n  xlarge: { gap: spacing.xlarge },\n  xxlarge: { gap: spacing.xxlarge },\n  xxxlarge: { gap: spacing.xxxlarge },\n  huge: { gap: spacing.huge },\n  massive: { gap: spacing.massive },\n});\n\nexport const stackAlignStyles = stylex.create({\n  start: { alignItems: \"flex-start\" },\n  center: { alignItems: \"center\" },\n  end: { alignItems: \"flex-end\" },\n  stretch: { alignItems: \"stretch\" },\n  baseline: { alignItems: \"baseline\" },\n});\n\nexport const stackJustifyStyles = stylex.create({\n  start: { justifyContent: \"flex-start\" },\n  center: { justifyContent: \"center\" },\n  end: { justifyContent: \"flex-end\" },\n  between: { justifyContent: \"space-between\" },\n  around: { justifyContent: \"space-around\" },\n  evenly: { justifyContent: \"space-evenly\" },\n  stretch: { justifyContent: \"stretch\" },\n});\n\nexport const stackWrapStyles = stylex.create({\n  true: { flexWrap: \"wrap\" },\n});\n",
       "type": "registry:file",
       "target": "@ui/Stack/stack.styles.ts"
     }

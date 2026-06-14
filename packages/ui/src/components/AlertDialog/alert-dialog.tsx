@@ -6,7 +6,7 @@ import { useRender } from "@base-ui/react/use-render";
 import { XIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
-import type { _BaseDivProps, PropsWithStylex } from "../../utils/stylex.utils";
+import type { _BaseDivProps, PropsWithStylex } from "@/utils/stylex.utils";
 import { Button } from "../Button/button";
 import { ScrollArea } from "../ScrollArea/scroll-area";
 import { alertDialogStyles } from "./alert-dialog.styles";

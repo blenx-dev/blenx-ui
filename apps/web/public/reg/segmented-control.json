@@ -10,7 +10,7 @@
   ],
   "registryDependencies": [
     "http://localhost:3001/reg/toggle.json",
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {

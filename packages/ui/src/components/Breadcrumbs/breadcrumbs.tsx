@@ -1,6 +1,6 @@
 import { mergeProps, useRender } from "@base-ui/react";
 import * as stylex from "@stylexjs/stylex";
-import type { PropsWithStylex } from "../../utils/stylex.utils";
+import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { breadcrumbsStyles } from "./breadcrumbs.styles";
 
 type Props = PropsWithStylex<useRender.ComponentProps<"nav">>;

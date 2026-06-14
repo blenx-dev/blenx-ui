@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { dataRuleQueries, fontSize, fontWeight, spacing, theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
+import { dataRuleQueries, fontSize, fontWeight, spacing, theme } from "@/lib/theme/contract.stylex";
 
 export const toggleStyles = stylex.create({
   base: {

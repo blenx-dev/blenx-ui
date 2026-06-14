@@ -8,7 +8,7 @@ import {
   spacing,
   theme,
   zIndex,
-} from "@blenx-ui/ui/lib/theme/contract.stylex";
+} from "@/lib/theme/contract.stylex";
 
 export const comboboxStyles = stylex.create({
   inputGroup: {

@@ -9,12 +9,12 @@
     "@base-ui/react"
   ],
   "registryDependencies": [
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {
       "path": "packages/ui/src/components/Spinner/spinner.tsx",
-      "content": "import { SpinnerIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport { spinnerStyles } from \"./spinner.styles\";\nimport type { PropsWithStylex } from \"@blenx-ui/ui/utils/stylex.utils\";\n\ntype Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;\n\nexport function Spinner({ style, ...props }: Props): React.ReactElement {\n  return (\n    <SpinnerIcon\n      aria-label=\"Loading\"\n      role=\"status\"\n      {...stylex.props(spinnerStyles.spinner, style)}\n      {...props}\n    />\n  );\n}\n",
+      "content": "import { SpinnerIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport { spinnerStyles } from \"./spinner.styles\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\n\ntype Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;\n\nexport function Spinner({ style, ...props }: Props): React.ReactElement {\n  return (\n    <SpinnerIcon\n      aria-label=\"Loading\"\n      role=\"status\"\n      {...stylex.props(spinnerStyles.spinner, style)}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/Spinner/spinner.tsx"
     },

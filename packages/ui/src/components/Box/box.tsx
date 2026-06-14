@@ -10,8 +10,8 @@ import {
   paddingXStyles,
   paddingYStyles,
   positionStyles,
-} from "../../utils/layouts.styles";
-import type { _BaseDivProps } from "../../utils/stylex.utils";
+} from "@/utils/layouts.styles";
+import type { _BaseDivProps } from "@/utils/stylex.utils";
 import { boxStyles } from "./box.styles";
 
 type BoxDisplay = keyof typeof displayStyles;

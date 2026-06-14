@@ -1,6 +1,6 @@
 import { mergeProps, useRender } from "@base-ui/react";
 import * as stylex from "@stylexjs/stylex";
-import type { _BaseDivProps, PropsWithStylex } from "../../utils/stylex.utils";
+import type { _BaseDivProps, PropsWithStylex } from "@/utils/stylex.utils";
 import { cardPaddingStyles, cardSectionStyles, cardStyles, cardTextStyles } from "./card.styles";
 
 type Props = _BaseDivProps & {

@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { fontSize, fontWeight, spacing, theme } from "@blenx-ui/ui/lib/theme/contract.stylex";
+import { fontSize, fontWeight, spacing, theme } from "@/lib/theme/contract.stylex";
 
 export const cardStyles = stylex.create({
   base: {

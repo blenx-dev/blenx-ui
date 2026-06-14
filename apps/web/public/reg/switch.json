@@ -10,7 +10,7 @@
   ],
   "registryDependencies": [
     "http://localhost:3001/reg/box.json",
-    "http://localhost:3001/reg/theme.json"
+    "http://localhost:3001/reg/shared.json"
   ],
   "files": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "path": "packages/ui/src/components/Switch/switch.styles.ts",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { borderRadius, spacing, theme } from \"@blenx-ui/ui/lib/theme/contract.stylex\";\n\nexport const switchStyles = stylex.create({\n  root: {\n    width: spacing.xxlarge,\n    height: spacing.large,\n    display: \"inline-flex\",\n    alignItems: \"center\",\n    padding: spacing.xxsmall,\n    borderRadius: borderRadius.full,\n    backgroundColor: theme.border,\n    cursor: \"pointer\",\n    transitionProperty: \"background-color\",\n    transitionDuration: \"150ms\",\n    \":focus-visible\": {\n      outlineWidth: 2,\n      outlineStyle: \"solid\",\n      outlineColor: theme.borderStrong,\n    },\n  },\n  rootChecked: {\n    backgroundColor: theme.primary,\n  },\n  rootDisabled: {\n    cursor: \"not-allowed\",\n    opacity: 0.35,\n  },\n  thumb: {\n    width: spacing.large,\n    height: spacing.large,\n    borderRadius: borderRadius.full,\n    backgroundColor: theme.primary,\n    transitionProperty: \"transform, background-color\",\n    transitionDuration: \"150ms\",\n    transform: \"translateX(0)\",\n  },\n  thumbChecked: {\n    backgroundColor: theme.surface,\n    transform: `translateX(${spacing.large})`,\n  },\n});\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { borderRadius, spacing, theme } from \"@/lib/theme/contract.stylex\";\n\nexport const switchStyles = stylex.create({\n  root: {\n    width: spacing.xxlarge,\n    height: spacing.large,\n    display: \"inline-flex\",\n    alignItems: \"center\",\n    padding: spacing.xxsmall,\n    borderRadius: borderRadius.full,\n    backgroundColor: theme.border,\n    cursor: \"pointer\",\n    transitionProperty: \"background-color\",\n    transitionDuration: \"150ms\",\n    \":focus-visible\": {\n      outlineWidth: 2,\n      outlineStyle: \"solid\",\n      outlineColor: theme.borderStrong,\n    },\n  },\n  rootChecked: {\n    backgroundColor: theme.primary,\n  },\n  rootDisabled: {\n    cursor: \"not-allowed\",\n    opacity: 0.35,\n  },\n  thumb: {\n    width: spacing.large,\n    height: spacing.large,\n    borderRadius: borderRadius.full,\n    backgroundColor: theme.primary,\n    transitionProperty: \"transform, background-color\",\n    transitionDuration: \"150ms\",\n    transform: \"translateX(0)\",\n  },\n  thumbChecked: {\n    backgroundColor: theme.surface,\n    transform: `translateX(${spacing.large})`,\n  },\n});\n",
       "type": "registry:file",
       "target": "@ui/Switch/switch.styles.ts"
     }
