@@ -15,7 +15,7 @@ type ButtonProps = PropsWithStylex<_BaseUIButtonProps> & {
   loading?: boolean;
   radius?: keyof typeof borderRadiusStyles;
   fullWidth?: boolean;
-}
+};
 
 function Button({
   children,
@@ -38,9 +38,7 @@ function Button({
     children: (
       <>
         {children}
-        {loading && (
-          <Spinner style={buttonStyles.spinner} data-slot="button-loading-indicator" />
-        )}
+        {loading && <Spinner style={buttonStyles.spinner} data-slot="button-loading-indicator" />}
       </>
     ),
     ...stylex.props(
@@ -64,9 +62,5 @@ function Button({
   });
 }
 
-export {
-  Button
-}
-export type {
-  ButtonProps
-}
+export { Button };
+export type { ButtonProps };

@@ -3,11 +3,7 @@
   "name": "theme",
   "title": "Theme",
   "description": "Base theme contracts and utils.",
-  "dependencies": [
-    "@stylexjs/stylex",
-    "@phosphor-icons/react",
-    "@base-ui/react"
-  ],
+  "dependencies": ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
   "files": [
     {
       "path": "packages/ui/src/lib/theme/contract.stylex.ts",

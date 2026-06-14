@@ -1,30 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
-
-const REGISTRY_DIR = resolve(
-  import.meta.dirname,
-  "../../../../../../packages/registry/public/r",
-);
+import { readFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 export const Route = createFileRoute("/api/r/$")({
   server: {
     handlers: {
       GET: async ({ params }) => {
-        const filePath = resolve(REGISTRY_DIR, params._splat ?? "registry.json");
+        const __dirname = dirname(fileURLToPath(import.meta.url));
+        const registryDir = resolve(__dirname, "../../../../public/reg");
+        const name = (params._splat ?? "registry.json").replace(/\.json$/, "");
+        const filePath = resolve(registryDir, `${name}.json`);
 
-        if (!filePath.startsWith(REGISTRY_DIR)) {
+        if (!filePath.startsWith(registryDir)) {
           return new Response("Forbidden", { status: 403 });
         }
 
         try {
-          const content = await readFile(filePath, "utf-8");
-          const ext = filePath.endsWith(".json") ? "application/json" : "text/plain";
+          const content = readFileSync(filePath, "utf-8");
           return new Response(content, {
-            headers: { "Content-Type": ext },
+            headers: { "Content-Type": "application/json" },
           });
         } catch {
-          return new Response("Not Found", { status: 404 });
+          return new Response(`Not Found: ${filePath}`, { status: 404 });
         }
       },
     },

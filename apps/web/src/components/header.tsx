@@ -1,23 +1,48 @@
 import { Link } from "@tanstack/react-router";
 
-export default function Header() {
-  const links = [{ to: "/", label: "Home" }] as const;
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/docs", label: "Docs" },
+  { to: "/docs/installation", label: "Install" },
+  { to: "/docs/styling", label: "Styling" },
+  { to: "/docs/primitives", label: "Primitives" },
+  { to: "/docs/limitations", label: "Limitations" },
+] as const;
 
+const linkStyle: React.CSSProperties = {
+  textDecoration: "none",
+  color: "var(--contentSecondary)",
+  lineHeight: 1,
+  paddingBlock: "4px",
+};
+
+const linkActiveStyle: React.CSSProperties = {
+  color: "var(--contentPrimary)",
+  fontWeight: 600,
+};
+
+export default function Header() {
   return (
-    <div>
-      <div className="flex flex-row items-center justify-between px-2 py-1">
-        <nav className="flex gap-4 text-lg">
+    <div style={{ paddingInline: "16px", paddingBlock: "8px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <nav style={{ display: "flex", gap: "24px" }}>
           {links.map(({ to, label }) => {
             return (
-              <Link key={to} to={to}>
+              <Link key={to} to={to} style={linkStyle} activeProps={{ style: linkActiveStyle }}>
                 {label}
               </Link>
             );
           })}
         </nav>
-        <div className="flex items-center gap-2"></div>
       </div>
-      <hr />
+      <hr style={{ border: "none", borderTop: "1px solid var(--border)" }} />
     </div>
   );
 }

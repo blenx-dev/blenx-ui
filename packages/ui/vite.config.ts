@@ -32,7 +32,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@blenx-ui/ui": path.resolve(__dirname, "./src/"),
-    }
+    },
   },
   build: isLadle
     ? undefined

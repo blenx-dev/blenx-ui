@@ -1,11 +1,11 @@
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-
+import { Grid } from "@blenx-ui/ui";
 import Header from "../components/header";
 
 import appCss from "../index.css?url";
 
-export interface RouterAppContext { }
+export interface RouterAppContext {}
 
 export const Route = createRootRouteWithContext<RouterAppContext>()({
   head: () => ({
@@ -18,7 +18,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "My App",
+        title: "Blenx UI",
       },
     ],
     links: [
@@ -34,15 +34,21 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 
 function RootDocument() {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body>
-        <div className="grid h-svh grid-rows-[auto_1fr]">
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+          fontFamily: '"DM Sans", system-ui, -apple-system, sans-serif',
+        }}
+      >
+        <Grid>
           <Header />
           <Outlet />
-        </div>
+        </Grid>
         <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>

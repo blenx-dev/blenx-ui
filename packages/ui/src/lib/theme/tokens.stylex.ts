@@ -60,7 +60,6 @@ export const letterSpacing = stylex.defineVars({
 
 export const spacing = stylex.defineVars({
   none: "0px",
-
   xxsmall: "4px",
   xsmall: "8px",
   small: "12px",

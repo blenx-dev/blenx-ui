@@ -1,1 +1,99 @@
+:root {
+  --primary: #243142;
+  --primarySubtle: #3a4a5d;
+  --secondary: #c9822a;
 
+  --background: #f7f4ee;
+  --backgroundSubtle: #ece8e0;
+
+  --surface: #ffffff;
+  --surfaceSubtle: #ece8e0;
+  --surfaceRaised: #fefcfa;
+  --surfaceHover: #e8e6de;
+  --surfaceOverlay: rgba(0, 0, 0, 0.4);
+
+  --border: #d6dde5;
+  --borderSubtle: #e7ebf0;
+  --borderStrong: #b8c2cf;
+  --borderRadius: 8px;
+
+  --contentPrimary: #223042;
+  --contentSecondary: #5a6878;
+  --contentDisabled: #a9b2bd;
+  --contentAccent: #243142;
+  --contentOnPrimary: #ffffff;
+  --contentInverse: #f7f4ee;
+
+  --sentimentNegative: #d63031;
+  --sentimentNegativeSubtle: #ffeaea;
+  --sentimentPositive: #27ae60;
+  --sentimentPositiveSubtle: #eafaf1;
+  --sentimentWarning: #f39c12;
+  --sentimentWarningSubtle: #fef9e7;
+  --sentimentInfo: #2980b9;
+  --sentimentInfoSubtle: #ebf5fb;
+
+  --focusRing: #4a90d9;
+
+  --shadowSm: 0 1px 3px rgba(36, 49, 66, 0.08), 0 1px 2px rgba(36, 49, 66, 0.04);
+  --shadowMd: 0 4px 12px rgba(36, 49, 66, 0.1), 0 2px 4px rgba(36, 49, 66, 0.06);
+  --shadowLg: 0 8px 24px rgba(36, 49, 66, 0.12), 0 4px 8px rgba(36, 49, 66, 0.06);
+  --shadowXl: 0 20px 48px rgba(36, 49, 66, 0.15), 0 8px 16px rgba(36, 49, 66, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #f2f5f8;
+    --primarySubtle: #5a6678;
+    --secondary: #e1a24e;
+
+    --background: #303846;
+    --backgroundSubtle: #232a34;
+
+    --surface: #2f3845;
+    --surfaceSubtle: #232a34;
+    --surfaceRaised: #384250;
+    --surfaceHover: #3d4856;
+    --surfaceOverlay: rgba(0, 0, 0, 0.6);
+
+    --border: #4a5563;
+    --borderSubtle: #3b4451;
+    --borderStrong: #647184;
+    --borderRadius: 8px;
+
+    --contentPrimary: #f2f5f8;
+    --contentSecondary: #a9b4c0;
+    --contentDisabled: #697584;
+    --contentAccent: #e1a24e;
+    --contentOnPrimary: #303846;
+    --contentInverse: #243142;
+
+    --sentimentNegative: #ff7675;
+    --sentimentNegativeSubtle: #3d1a1a;
+    --sentimentPositive: #55efc4;
+    --sentimentPositiveSubtle: #1a3d2b;
+    --sentimentWarning: #fdcb6e;
+    --sentimentWarningSubtle: #3d3010;
+    --sentimentInfo: #74b9ff;
+    --sentimentInfoSubtle: #0d2a3d;
+
+    --focusRing: #6db3f2;
+
+    --shadowSm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadowMd: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadowLg: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.25);
+    --shadowXl: 0 20px 48px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

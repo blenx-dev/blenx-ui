@@ -1,10 +1,4 @@
-import {
-  readdirSync,
-  readFileSync,
-  writeFileSync,
-  existsSync,
-  statSync,
-} from "fs";
+import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from "fs";
 import { join, relative } from "path";
 
 const UI_DIR = "packages/ui/src/components";
@@ -41,10 +35,7 @@ function buildRegistryFiles(
   return getFilesRecursive(sourceDir).map((file) => ({
     path: file,
     type: "registry:file",
-    target: join(
-      targetPrefix,
-      relative(sourceDir, file).replaceAll("\\", "/"),
-    ),
+    target: join(targetPrefix, relative(sourceDir, file).replaceAll("\\", "/")),
   }));
 }
 items.push({
@@ -52,15 +43,8 @@ items.push({
   type: "registry:lib",
   title: "Shared",
   description: "Shared libraries, theme and utilities.",
-  dependencies: [
-    "@stylexjs/stylex",
-    "@phosphor-icons/react",
-    "@base-ui/react",
-  ],
-  files: [
-    ...buildRegistryFiles(LIB_DIR, "@lib"),
-    ...buildRegistryFiles(UTILS_DIR, "@utils"),
-  ],
+  dependencies: ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+  files: [...buildRegistryFiles(LIB_DIR, "@lib"), ...buildRegistryFiles(UTILS_DIR, "@utils")],
 });
 
 const themeRegistryUrl = `${REGISTRY_URL}/shared.json`;
@@ -83,7 +67,7 @@ for (const component of components) {
     dep.startsWith("http") ? dep : `${REGISTRY_URL}/${dep}.json`,
   );
 
-  const registryDependencies = [...itemRegistryDependencies, themeRegistryUrl]
+  const registryDependencies = [...itemRegistryDependencies, themeRegistryUrl];
 
   items.push({
     ...meta,
@@ -100,7 +84,7 @@ const registry = {
   items,
 };
 
-const content = JSON.stringify(registry, null, 2)
+const content = JSON.stringify(registry, null, 2);
 console.log(`🔍 Building registry with ${items.length} items...`);
 writeFileSync(OUTPUT, content);
 console.log(`✔ registry.json built with ${items.length} items`);

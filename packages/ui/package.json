@@ -3,19 +3,13 @@
   "version": "0.0.2",
   "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
+      "import": "./src/index.ts",
       "default": "./src/index.ts"
     },
-    "./theme/contract.stylex": "./src/theme/contract.stylex.ts",
-    "./theme": "./src/theme/index.stylex.ts",
-    "./theme/spacing.stylex": "./src/theme/spacing.stylex.ts",
-    "./theme/radius.stylex": "./src/theme/radius.stylex.ts",
-    "./theme/typography.stylex": "./src/theme/typography.stylex.ts"
+    "./theme/contract.stylex": "./src/lib/theme/contract.stylex.ts",
+    "./theme/tokens.stylex": "./src/lib/theme/tokens.stylex.ts"
   },
   "scripts": {
     "build": "vite build",
