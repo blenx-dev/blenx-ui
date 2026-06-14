@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { DocsSidebar } from "./docs-sidebar";
-import { Box, Container, HStack } from "@blenx-ui/ui";
+import { Box, Container, HStack } from "@blenx-dev/ui";
 
 
 function DocsLayout({ children }: { children: ReactNode }) {

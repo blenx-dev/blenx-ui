@@ -1,4 +1,4 @@
-// ─── Design System: @around-me/ui ───────────────────────────────────────────
+// ─── Design System: @blenx-dev/ui ───────────────────────────────────────────
 // Components
 export * from "./components/AlertDialog/alert-dialog";
 export * from "./components/Autocomplete/autocomplete";

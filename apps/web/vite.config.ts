@@ -9,6 +9,12 @@ export default defineConfig({
   },
   resolve: {
     tsconfigPaths: true,
+    alias: {
+      "@/*": path.join(__dirname, "src/*"),
+      "#/*": path.join(__dirname, "../../packages/ui/src/*"),
+      "@blenx-dev/ui/*": path.join(__dirname, "../../packages/ui/src/*"),
+      "@blenx-dev/ui/theme/*": path.join(__dirname, "../../packages/ui/src/lib/theme/*")
+    }
   },
   plugins: [
     stylex.vite({
@@ -18,7 +24,8 @@ export default defineConfig({
       aliases: {
         "@/*": [path.join(__dirname, "src/*")],
         "#/*": [path.join(__dirname, "../../packages/ui/src/*")],
-        "@blenx-ui/ui/*": [path.join(__dirname, "../../packages/ui/src/*")]
+        "@blenx-dev/ui/*": [path.join(__dirname, "../../packages/ui/src/*")],
+        "@blenx-dev/ui/theme/*": [path.join(__dirname, "../../packages/ui/src/lib/theme/*")]
       },
       unstable_moduleResolution: {
         type: "commonJS",

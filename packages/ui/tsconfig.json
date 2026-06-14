@@ -1,5 +1,5 @@
 {
-  "extends": "@blenx-ui/config/tsconfig.base.json",
+  "extends": "@blenx-dev/config/tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],

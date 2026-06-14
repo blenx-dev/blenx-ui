@@ -105,8 +105,8 @@ for (const component of components) {
 
 const registry = {
   $schema: "https://ui.shadcn.com/schema/registry.json",
-  name: "blenx-ui",
-  homepage: "https://blenx-ui.com",
+  name: "blenx-dev",
+  homepage: "https://blenx-dev.com",
   items,
 };
 

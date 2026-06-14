@@ -110,7 +110,7 @@ function InstallationDoc() {
     "hooks": "@/hooks"
   },
   "registries": {
-    "blenx-ui": {
+    "blenx-dev": {
       "baseUrl": "http://localhost:3001/reg"
     }
   }
@@ -138,7 +138,7 @@ function InstallationDoc() {
 npx shadcn@latest add http://localhost:3001/reg/button.json
 
 # Or using the configured registry name
-npx shadcn@latest add @blenx-ui/button`}</code>
+npx shadcn@latest add @blenx-dev/button`}</code>
             </pre>
           </div>
         </section>

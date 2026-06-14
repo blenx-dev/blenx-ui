@@ -34,7 +34,7 @@ export default defineConfig({
   plugins: [stylexPlugin, ...(isLadle ? [] : [viteReact(), dtsPlugin])],
   resolve: {
     alias: {
-      "@blenx-ui/ui": path.resolve(__dirname, "./src/"),
+      "@blenx-dev/ui": path.resolve(__dirname, "./src/"),
       "#": path.resolve(__dirname, "./src/")
     },
   },

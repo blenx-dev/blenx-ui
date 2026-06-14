@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import * as stylex from "@stylexjs/stylex";
-import { Container, Text, VStack } from "@blenx-ui/ui";
-import { theme, fontSize, spacing, lineHeight, fontWeight, borderRadius } from "@blenx-ui/ui/theme/theme.stylex";
+import { Container, Text, VStack } from "@blenx-dev/ui";
+import { theme, fontSize, spacing, lineHeight, fontWeight, borderRadius } from "@blenx-dev/ui/theme/theme.stylex";
 
 interface SidebarSection {
   title: string;

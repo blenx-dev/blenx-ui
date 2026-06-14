@@ -41,7 +41,7 @@ export default function Header() {
           Blenx UI
         </Link>
         <a
-          href="https://github.com/blenx-dev/blenx-ui"
+          href="https://github.com/blenx-dev/blenx-dev"
           target="_blank"
           rel="noopener noreferrer"
           style={linkStyle}

@@ -1,271 +1,123 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import * as stylex from "@stylexjs/stylex";
+import { Container, VStack, Text, Surface, Separator, Box, Grid } from "@blenx-dev/ui/index";
+import { fontSize, spacing, fonts } from "@blenx-dev/ui/theme/theme.stylex";
+
+const styles = stylex.create({
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: spacing["4"],
+  },
+  docLink: {
+    display: "block",
+    textDecoration: "none",
+    color: "inherit",
+  },
+  list: {
+    listStyle: "disc",
+    paddingInlineStart: spacing["6"],
+    margin: 0,
+  },
+  code: {
+    fontFamily: fonts.mono,
+    fontSize: fontSize.small,
+  },
+  gettingStartedMargin: {
+    marginTop: spacing["4"],
+  },
+});
+
+const docLinks = [
+  {
+    to: "/docs/installation",
+    title: "Installation \u2192",
+    desc: "Configure your project and install components.",
+  },
+  {
+    to: "/docs/styling",
+    title: "Styling \u2192",
+    desc: "How Stylex works in Blenx UI.",
+  },
+  {
+    to: "/docs/primitives",
+    title: "Primitives \u2192",
+    desc: "Base UI component architecture.",
+  },
+  {
+    to: "/docs/limitations",
+    title: "Limitations \u2192",
+    desc: "Important constraints and tradeoffs.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
 });
 
-const sectionStyle: React.CSSProperties = {
-  borderRadius: "var(--radius-medium)",
-  border: "1px solid var(--border)",
-  padding: "var(--space-4)",
-};
-
-const codeBlockStyle: React.CSSProperties = {
-  backgroundColor: "var(--surfaceSubtle)",
-  borderRadius: "var(--radius-medium)",
-  padding: "var(--space-4)",
-  overflowX: "auto",
-  fontFamily: "var(--font-mono)",
-  fontSize: "var(--font-size-small)",
-  lineHeight: "var(--leading-normal)",
-  margin: 0,
-};
-
-const listStyle: React.CSSProperties = {
-  listStyle: "disc",
-  paddingInlineStart: "var(--space-6)",
-  margin: 0,
-};
-
-const listItemStyle: React.CSSProperties = {
-  fontSize: "var(--font-size-small)",
-  lineHeight: "var(--leading-relaxed)",
-};
-
 function HomeComponent() {
   return (
-    <div
-      style={{
-        maxWidth: "768px",
-        margin: "0 auto",
-        paddingInline: "var(--space-4)",
-      }}
-    >
-      <div style={{ paddingBlock: "var(--space-16)" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          <h1
-            style={{
-              fontSize: "var(--font-size-display)",
-              fontWeight: "var(--font-weight-bold)",
-              letterSpacing: "var(--tracking-tight)",
-              margin: 0,
-              color: "var(--contentPrimary)",
-            }}
-          >
-            Blenx UI
-          </h1>
-          <p
-            style={{
-              fontSize: "var(--font-size-medium)",
-              margin: 0,
-              color: "var(--contentSecondary)",
-            }}
-          >
+    <Container size="md">
+      <Box padding='medium'>
+        <VStack gap="small">
+          <Text variant="h1">Blenx UI</Text>
+          <Text variant="body1" color="secondary">
             A design system of React components built with Stylex and Base UI. Distributed via the
             shadcn registry model.
-          </p>
-        </div>
-      </div>
+          </Text>
+        </VStack>
+      </Box>
 
-      <div style={sectionStyle}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          <h4
-            style={{
-              fontSize: "var(--font-size-large)",
-              fontWeight: "var(--font-weight-semibold)",
-              margin: 0,
-              color: "var(--contentPrimary)",
-            }}
-          >
-            Getting Started
-          </h4>
-          <p
-            style={{
-              fontSize: "var(--font-size-small)",
-              color: "var(--contentSecondary)",
-              margin: 0,
-            }}
-          >
+      <Surface variant="outline" padding="medium">
+        <VStack gap="small">
+          <Text variant="h4">Getting Started</Text>
+          <Text variant="body2" color="secondary">
             Install individual components directly into your project.
-          </p>
-          <pre style={codeBlockStyle}>
-            <code>npx shadcn@latest add http://localhost:3001/reg/button.json</code>
-          </pre>
-        </div>
+          </Text>
+          <Surface variant="sunken" padding="medium">
+            <code {...stylex.props(styles.code)}>
+              npx shadcn@latest add http://localhost:3001/reg/button.json
+            </code>
+          </Surface>
+        </VStack>
+      </Surface>
+
+      <div {...stylex.props(styles.gettingStartedMargin)}>
+        <Surface variant="outline" padding="medium">
+          <VStack gap="small">
+            <Text variant="h4">Prerequisites</Text>
+            <ul {...stylex.props(styles.list)}>
+              {["Base UI", "Stylex bundler plugin", "TypeScript"].map((item) => (
+                <li key={item}>
+                  <Text variant="body2" color="secondary" render={<span />}>
+                    {item}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+          </VStack>
+        </Surface>
       </div>
 
-      <div style={{ ...sectionStyle, marginTop: "var(--space-4)" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
-          <h4
-            style={{
-              fontSize: "var(--font-size-large)",
-              fontWeight: "var(--font-weight-semibold)",
-              margin: 0,
-              color: "var(--contentPrimary)",
-            }}
-          >
-            Prerequisites
-          </h4>
-          <ul style={listStyle}>
-            <li style={listItemStyle}>React 19+</li>
-            <li style={listItemStyle}>Stylex bundler plugin</li>
-            <li style={listItemStyle}>TypeScript</li>
-          </ul>
-        </div>
-      </div>
+      <Separator tone="subtle" />
 
-      <hr
-        style={{
-          border: "none",
-          borderTop: "1px solid var(--borderSubtle)",
-          margin: "var(--space-6) 0",
-        }}
-      />
-
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-        <h3
-          style={{
-            fontSize: "var(--font-size-xxlarge)",
-            fontWeight: "var(--font-weight-bold)",
-            margin: 0,
-            color: "var(--contentPrimary)",
-          }}
-        >
-          Documentation
-        </h3>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "var(--space-4)",
-          }}
-        >
-          <Link
-            to="/docs/installation"
-            style={{
-              display: "block",
-              borderRadius: "var(--radius-medium)",
-              border: "1px solid var(--border)",
-              padding: "var(--space-4)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <h5
-              style={{
-                fontSize: "var(--font-size-medium)",
-                fontWeight: "var(--font-weight-semibold)",
-                margin: "0 0 var(--space-1)",
-                color: "var(--contentPrimary)",
-              }}
-            >
-              Installation &rarr;
-            </h5>
-            <p
-              style={{
-                fontSize: "var(--font-size-small)",
-                color: "var(--contentSecondary)",
-                margin: 0,
-              }}
-            >
-              Configure your project and install components.
-            </p>
-          </Link>
-          <Link
-            to="/docs/styling"
-            style={{
-              display: "block",
-              borderRadius: "var(--radius-medium)",
-              border: "1px solid var(--border)",
-              padding: "var(--space-4)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <h5
-              style={{
-                fontSize: "var(--font-size-medium)",
-                fontWeight: "var(--font-weight-semibold)",
-                margin: "0 0 var(--space-1)",
-                color: "var(--contentPrimary)",
-              }}
-            >
-              Styling &rarr;
-            </h5>
-            <p
-              style={{
-                fontSize: "var(--font-size-small)",
-                color: "var(--contentSecondary)",
-                margin: 0,
-              }}
-            >
-              How Stylex works in Blenx UI.
-            </p>
-          </Link>
-          <Link
-            to="/docs/primitives"
-            style={{
-              display: "block",
-              borderRadius: "var(--radius-medium)",
-              border: "1px solid var(--border)",
-              padding: "var(--space-4)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <h5
-              style={{
-                fontSize: "var(--font-size-medium)",
-                fontWeight: "var(--font-weight-semibold)",
-                margin: "0 0 var(--space-1)",
-                color: "var(--contentPrimary)",
-              }}
-            >
-              Primitives &rarr;
-            </h5>
-            <p
-              style={{
-                fontSize: "var(--font-size-small)",
-                color: "var(--contentSecondary)",
-                margin: 0,
-              }}
-            >
-              Base UI component architecture.
-            </p>
-          </Link>
-          <Link
-            to="/docs/limitations"
-            style={{
-              display: "block",
-              borderRadius: "var(--radius-medium)",
-              border: "1px solid var(--border)",
-              padding: "var(--space-4)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <h5
-              style={{
-                fontSize: "var(--font-size-medium)",
-                fontWeight: "var(--font-weight-semibold)",
-                margin: "0 0 var(--space-1)",
-                color: "var(--contentPrimary)",
-              }}
-            >
-              Limitations &rarr;
-            </h5>
-            <p
-              style={{
-                fontSize: "var(--font-size-small)",
-                color: "var(--contentSecondary)",
-                margin: 0,
-              }}
-            >
-              Important constraints and tradeoffs.
-            </p>
-          </Link>
-        </div>
-      </div>
-    </div>
+      <VStack gap="medium">
+        <Text variant="h2">Documentation</Text>
+        <Grid {...stylex.props(styles.grid)}>
+          {docLinks.map((link) => (
+            <Link key={link.to} to={link.to} {...stylex.props(styles.docLink)}>
+              <Surface variant="outline" padding="medium" interactive>
+                <VStack gap="xxsmall">
+                  <Text variant="h5">{link.title}</Text>
+                  <Text variant="body2" color="secondary">
+                    {link.desc}
+                  </Text>
+                </VStack>
+              </Surface>
+            </Link>
+          ))}
+        </Grid>
+      </VStack>
+    </Container>
   );
 }

@@ -7,17 +7,17 @@ This project follows the conventions in `stylex-authoring.md`.
 Use barrel imports for components. The package's `exports` field resolves these to the pre-built dist bundle (no Stylex source processing needed):
 
 ```tsx
-import { Container, Text, Surface, VStack, HStack, Separator, Box } from "@blenx-ui/ui";
-import { Spinner } from "@blenx-ui/ui";
+import { Container, Text, Surface, VStack, HStack, Separator, Box } from "@blenx-dev/ui";
+import { Spinner } from "@blenx-dev/ui";
 ```
 
 ## Import Pattern for Theme Tokens
 
-Import theme tokens from `@blenx-ui/ui/theme/` — these resolve to source files via tsconfig paths for type safety and Stylex processing:
+Import theme tokens from `@blenx-dev/ui/theme/` — these resolve to source files via tsconfig paths for type safety and Stylex processing:
 
 ```tsx
-import { theme } from "@blenx-ui/ui/theme/contract.stylex";
-import { fontSize, spacing, lineHeight, fontWeight, fonts, letterSpacing, borderRadius } from "@blenx-ui/ui/theme/tokens.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { fontSize, spacing, lineHeight, fontWeight, fonts, letterSpacing, borderRadius } from "@blenx-dev/ui/theme/tokens.stylex";
 ```
 
 Use these token vars in `stylex.create()` instead of CSS `var(--xxx)` strings. Only use `var(--xxx)` when a token is not defined (e.g. animation names).

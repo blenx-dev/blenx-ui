@@ -1,5 +1,5 @@
 {
-  "name": "@blenx-ui/ui",
+  "name": "@blenx-dev/ui",
   "version": "0.0.1",
   "type": "module",
   "main": "./dist/index.js",
@@ -9,21 +9,9 @@
     "access": "public"
   },
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./theme/contract.stylex": {
-      "types": "./dist/lib/theme/contract.stylex.d.ts",
-      "import": "./dist/lib/theme/contract.stylex.js",
-      "default": "./dist/lib/theme/contract.stylex.js"
-    },
-    "./theme/tokens.stylex": {
-      "types": "./dist/lib/theme/tokens.stylex.d.ts",
-      "import": "./dist/lib/theme/tokens.stylex.js",
-      "default": "./dist/lib/theme/tokens.stylex.js"
-    }
+    ".": "./src/index.ts",
+    "./theme/theme.stylex": "./src/lib/theme/theme.stylex.ts",
+    "./theme/tokens.stylex": "./src/lib/theme/tokens.stylex.ts"
   },
   "files": [
     "dist"

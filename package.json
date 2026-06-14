@@ -1,5 +1,5 @@
 {
-  "name": "blenx-ui",
+  "name": "blenx-dev",
   "private": true,
   "workspaces": {
     "packages": [
@@ -30,12 +30,12 @@
     "registry:dev": "bun registry:build && serve packages/registry/public/r -p 3001"
   },
   "dependencies": {
-    "@blenx-ui/env": "workspace:*",
+    "@blenx-dev/env": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@blenx-ui/config": "workspace:*",
+    "@blenx-dev/config": "workspace:*",
     "@types/node": "catalog:",
     "lefthook": "^2.1.9",
     "oxfmt": "^0.53.0",
