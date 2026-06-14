@@ -10,6 +10,7 @@
   "dependencies": {
     "@blenx-ui/env": "workspace:*",
     "@blenx-ui/ui": "workspace:*",
+    "@stylexjs/stylex": "0.18.3",
     "@stylexjs/unplugin": "^0.18.3",
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-query": "^5.99.0",

@@ -26,6 +26,7 @@
       "dependencies": {
         "@blenx-ui/env": "workspace:*",
         "@blenx-ui/ui": "workspace:*",
+        "@stylexjs/stylex": "0.18.3",
         "@stylexjs/unplugin": "^0.18.3",
         "@tailwindcss/vite": "^4.2.2",
         "@tanstack/react-query": "^5.99.0",
@@ -74,7 +75,7 @@
     },
     "packages/ui": {
       "name": "@blenx-ui/ui",
-      "version": "0.0.2",
+      "version": "0.0.1",
       "dependencies": {
         "@base-ui/react": "^1.5.0",
         "@phosphor-icons/react": "^2.1.10",

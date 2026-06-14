@@ -1,28 +1,19 @@
 import type { ReactNode } from "react";
-import DocsSidebar from "./docs-sidebar";
+import { DocsSidebar } from "./docs-sidebar";
+import { Box, Container, HStack } from "@blenx-ui/ui";
 
-export default function DocsLayout({ children }: { children: ReactNode }) {
+
+function DocsLayout({ children }: { children: ReactNode }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        maxWidth: "1080px",
-        margin: "0 auto",
-        width: "100%",
-      }}
-    >
-      <DocsSidebar />
-      <div
-        style={{
-          flex: 1,
-          minWidth: 0,
-          paddingInline: "var(--space-8)",
-          paddingBlock: "var(--space-8)",
-        }}
-      >
-        {children}
-      </div>
-    </div>
+    <Container paddingX='xxlarge'>
+      <HStack gap='xxlarge'>
+        <DocsSidebar />
+        <Box grow>
+          {children}
+        </Box>
+      </HStack>
+    </Container>
   );
 }
+
+export { DocsLayout };
