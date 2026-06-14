@@ -11,6 +11,9 @@ const stylexPlugin = stylex.vite({
   useCSSLayers: true,
   dev: isLadle,
   runtimeInjection: true,
+  aliases: {
+    "#/*": [path.join(__dirname, "src/*")]
+  },
   unstable_moduleResolution: {
     type: "commonJS",
     rootDir: path.join(__dirname, "../.."),
@@ -32,6 +35,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@blenx-ui/ui": path.resolve(__dirname, "./src/"),
+      "#": path.resolve(__dirname, "./src/")
     },
   },
   build: isLadle
@@ -39,9 +43,12 @@ export default defineConfig({
     : {
         outDir: "dist",
         lib: {
-          entry: "src/index.ts",
-          formats: ["es"],
-          fileName: "index",
+          entry: {
+            index: "src/index.ts",
+            "lib/theme/contract.stylex": "src/lib/theme/contract.stylex.ts",
+            "lib/theme/tokens.stylex": "src/lib/theme/tokens.stylex.ts"
+          },
+          formats: ["es"]
         },
         rollupOptions: {
           external: [

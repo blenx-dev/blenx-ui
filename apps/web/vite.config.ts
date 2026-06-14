@@ -17,7 +17,8 @@ export default defineConfig({
       runtimeInjection: process.env.NODE_ENV === "development",
       aliases: {
         "@/*": [path.join(__dirname, "src/*")],
-        "#/*": [path.join(__dirname, "../../packages/ui/src/*")]
+        "#/*": [path.join(__dirname, "../../packages/ui/src/*")],
+        "@blenx-ui/ui/*": [path.join(__dirname, "../../packages/ui/src/*")]
       },
       unstable_moduleResolution: {
         type: "commonJS",
