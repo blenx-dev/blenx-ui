@@ -1,15 +1,14 @@
 import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 
-import Loader from "./components/loader";
 import { routeTree } from "./routeTree.gen";
-
+import { Spinner } from "@blenx-ui/ui"
 export const getRouter = () => {
   const router = createTanStackRouter({
     routeTree,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     context: {},
-    defaultPendingComponent: () => <Loader />,
+    defaultPendingComponent: () => <Spinner />,
     defaultNotFoundComponent: () => <div>Not Found</div>,
   });
 
