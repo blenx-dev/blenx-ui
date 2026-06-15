@@ -1,120 +1,44 @@
+import * as stylex from "@stylexjs/stylex";
 import { createFileRoute } from "@tanstack/react-router";
 import { DocsLayout } from "@/components/docs-layout";
+import { Separator, Surface, Text, VStack } from "@/components/ui";
+import { docStyles } from "./docs.styles";
 
 export const Route = createFileRoute("/docs/primitives")({
 	component: PrimitivesDoc,
 });
 
-const s = {
-	section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
-	code: {
-		backgroundColor: "var(--surfaceSubtle)",
-		borderRadius: "var(--radius-small)",
-		paddingInline: "var(--space-1)",
-		fontFamily: "var(--font-mono)",
-		fontSize: "var(--font-size-small)",
-	} as React.CSSProperties,
-	pre: {
-		backgroundColor: "var(--surfaceSubtle)",
-		borderRadius: "var(--radius-medium)",
-		padding: "var(--space-4)",
-		overflowX: "auto",
-		fontFamily: "var(--font-mono)",
-		fontSize: "var(--font-size-small)",
-		lineHeight: "var(--leading-normal)",
-		margin: 0,
-	} as React.CSSProperties,
-	card: {
-		borderRadius: "var(--radius-medium)",
-		border: "1px solid var(--border)",
-		padding: "var(--space-4)",
-	} as React.CSSProperties,
-	paragraph: {
-		fontSize: "var(--font-size-small)",
-		color: "var(--contentSecondary)",
-		margin: 0,
-		lineHeight: "var(--leading-relaxed)",
-	} as React.CSSProperties,
-};
-
 function PrimitivesDoc() {
 	return (
 		<DocsLayout>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "var(--space-8)",
-				}}
-			>
-				<h1
-					style={{
-						fontSize: "var(--font-size-display)",
-						fontWeight: "var(--font-weight-bold)",
-						margin: 0,
-						color: "var(--contentPrimary)",
-					}}
-				>
-					Primitives with Base UI
-				</h1>
+			<div {...stylex.props(docStyles.page)}>
+				<Text variant="h1">Primitives with Base UI</Text>
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Why Base UI?
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Why Base UI?</Text>
+						<Text variant="body2" color="secondary">
 							Blenx UI is built on <strong>Base UI React</strong> (
-							<code style={s.code}>@base-ui/react</code>), a headless component
-							library from the creators of Material UI. Base UI provides
-							unstyled, accessible primitives that handle behavior, keyboard
-							navigation, focus management, and ARIA attributes.
-						</p>
-						<p style={s.paragraph}>
+							<code {...stylex.props(docStyles.code)}>@base-ui/react</code>), a
+							headless component library from the creators of Material UI. Base
+							UI provides unstyled, accessible primitives that handle behavior,
+							keyboard navigation, focus management, and ARIA attributes.
+						</Text>
+						<Text variant="body2" color="secondary">
 							Each Blenx UI component wraps a Base UI primitive with Stylex
 							styling. This separation keeps the behavioral logic
 							framework-agnostic while allowing full control over visual
 							presentation.
-						</p>
-					</div>
-				</section>
+						</Text>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Component Architecture
-						</h2>
-						<pre style={s.pre}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Component Architecture</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
 							<code>{`// Base UI handles behavior and accessibility
 import { useRender } from "@base-ui/react/use-render";
 
@@ -128,197 +52,77 @@ export function Button({ render, ...props }) {
     render,
   });
 }`}</code>
-						</pre>
-					</div>
-				</section>
+						</Surface>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Key Primitives Used
-						</h2>
-						<div
-							style={{
-								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								gap: "var(--space-3)",
-							}}
-						>
-							<div style={s.card}>
-								<p
-									style={{
-										fontSize: "var(--font-size-small)",
-										fontWeight: "var(--font-weight-medium)",
-										margin: 0,
-										color: "var(--contentPrimary)",
-									}}
-								>
-									Dialog
-								</p>
-								<p
-									style={{
-										fontSize: "var(--font-size-xsmall)",
-										color: "var(--contentSecondary)",
-										margin: 0,
-									}}
-								>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Key Primitives Used</Text>
+						<div {...stylex.props(docStyles.cardGrid)}>
+							<div {...stylex.props(docStyles.card)}>
+								<p {...stylex.props(docStyles.cardTitle)}>Dialog</p>
+								<p {...stylex.props(docStyles.cardSubtitle)}>
 									@base-ui/react/dialog
 								</p>
 							</div>
-							<div style={s.card}>
-								<p
-									style={{
-										fontSize: "var(--font-size-small)",
-										fontWeight: "var(--font-weight-medium)",
-										margin: 0,
-										color: "var(--contentPrimary)",
-									}}
-								>
-									Popover
-								</p>
-								<p
-									style={{
-										fontSize: "var(--font-size-xsmall)",
-										color: "var(--contentSecondary)",
-										margin: 0,
-									}}
-								>
+							<div {...stylex.props(docStyles.card)}>
+								<p {...stylex.props(docStyles.cardTitle)}>Popover</p>
+								<p {...stylex.props(docStyles.cardSubtitle)}>
 									@base-ui/react/popover
 								</p>
 							</div>
-							<div style={s.card}>
-								<p
-									style={{
-										fontSize: "var(--font-size-small)",
-										fontWeight: "var(--font-weight-medium)",
-										margin: 0,
-										color: "var(--contentPrimary)",
-									}}
-								>
+							<div {...stylex.props(docStyles.card)}>
+								<p {...stylex.props(docStyles.cardTitle)}>
 									Select, Menu, Combobox, Autocomplete
 								</p>
-								<p
-									style={{
-										fontSize: "var(--font-size-xsmall)",
-										color: "var(--contentSecondary)",
-										margin: 0,
-									}}
-								>
+								<p {...stylex.props(docStyles.cardSubtitle)}>
 									various Base UI modules
 								</p>
 							</div>
-							<div style={s.card}>
-								<p
-									style={{
-										fontSize: "var(--font-size-small)",
-										fontWeight: "var(--font-weight-medium)",
-										margin: 0,
-										color: "var(--contentPrimary)",
-									}}
-								>
+							<div {...stylex.props(docStyles.card)}>
+								<p {...stylex.props(docStyles.cardTitle)}>
 									Field, Input, Switch, Toggle
 								</p>
-								<p
-									style={{
-										fontSize: "var(--font-size-xsmall)",
-										color: "var(--contentSecondary)",
-										margin: 0,
-									}}
-								>
-									form primitives
-								</p>
+								<p {...stylex.props(docStyles.cardSubtitle)}>form primitives</p>
 							</div>
-							<div style={s.card}>
-								<p
-									style={{
-										fontSize: "var(--font-size-small)",
-										fontWeight: "var(--font-weight-medium)",
-										margin: 0,
-										color: "var(--contentPrimary)",
-									}}
-								>
+							<div {...stylex.props(docStyles.card)}>
+								<p {...stylex.props(docStyles.cardTitle)}>
 									ScrollArea, Tabs, Separator, Avatar
 								</p>
-								<p
-									style={{
-										fontSize: "var(--font-size-xsmall)",
-										color: "var(--contentSecondary)",
-										margin: 0,
-									}}
-								>
+								<p {...stylex.props(docStyles.cardSubtitle)}>
 									layout and media
 								</p>
 							</div>
-							<div style={s.card}>
-								<p
-									style={{
-										fontSize: "var(--font-size-small)",
-										fontWeight: "var(--font-weight-medium)",
-										margin: 0,
-										color: "var(--contentPrimary)",
-									}}
-								>
+							<div {...stylex.props(docStyles.card)}>
+								<p {...stylex.props(docStyles.cardTitle)}>
 									useRender, mergeProps
 								</p>
-								<p
-									style={{
-										fontSize: "var(--font-size-xsmall)",
-										color: "var(--contentSecondary)",
-										margin: 0,
-									}}
-								>
+								<p {...stylex.props(docStyles.cardSubtitle)}>
 									composition utilities
 								</p>
 							</div>
 						</div>
-					</div>
-				</section>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Extending with <code style={s.code}>render</code>
-						</h2>
-						<p style={s.paragraph}>
-							Every component supports a <code style={s.code}>render</code> prop
-							that lets you override the rendered HTML element. This makes the
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">
+							Extending with{" "}
+							<code {...stylex.props(docStyles.code)}>render</code>
+						</Text>
+						<Text variant="body2" color="secondary">
+							Every component supports a{" "}
+							<code {...stylex.props(docStyles.code)}>render</code> prop that
+							lets you override the rendered HTML element. This makes the
 							library highly composable:
-						</p>
-						<pre style={s.pre}>
+						</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
 							<code>{`// Render Button as a link
 <Button render={<a href="/page" />}>Go</Button>
 
@@ -326,9 +130,9 @@ export function Button({ render, ...props }) {
 <DialogPrimitive.Close render={<Button size="small" />}>
   <XIcon />
 </DialogPrimitive.Close>`}</code>
-						</pre>
-					</div>
-				</section>
+						</Surface>
+					</VStack>
+				</div>
 			</div>
 		</DocsLayout>
 	);

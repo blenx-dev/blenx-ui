@@ -39,7 +39,6 @@ const config = defineConfig(({ command, mode }) => {
 			nitro({
 				preset: isVercel ? "vercel" : undefined,
 			}),
-			cloudflare({ viteEnvironment: { name: "ssr" } }),
 		],
 	};
 });

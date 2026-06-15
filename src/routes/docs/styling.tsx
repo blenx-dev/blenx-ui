@@ -1,129 +1,49 @@
+import * as stylex from "@stylexjs/stylex";
 import { createFileRoute } from "@tanstack/react-router";
 import { DocsLayout } from "@/components/docs-layout";
+import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
+import { docStyles } from "./docs.styles";
 
 export const Route = createFileRoute("/docs/styling")({
 	component: StylingDoc,
 });
 
-const s = {
-	section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
-	code: {
-		backgroundColor: "var(--surfaceSubtle)",
-		borderRadius: "var(--radius-small)",
-		paddingInline: "var(--space-1)",
-		fontFamily: "var(--font-mono)",
-		fontSize: "var(--font-size-small)",
-	} as React.CSSProperties,
-	pre: {
-		backgroundColor: "var(--surfaceSubtle)",
-		borderRadius: "var(--radius-medium)",
-		padding: "var(--space-4)",
-		overflowX: "auto",
-		fontFamily: "var(--font-mono)",
-		fontSize: "var(--font-size-small)",
-		lineHeight: "var(--leading-normal)",
-		margin: 0,
-	} as React.CSSProperties,
-	list: {
-		listStyle: "disc",
-		paddingInlineStart: "var(--space-6)",
-		margin: 0,
-	} as React.CSSProperties,
-	li: {
-		fontSize: "var(--font-size-small)",
-		lineHeight: "var(--leading-relaxed)",
-	} as React.CSSProperties,
-	paragraph: {
-		fontSize: "var(--font-size-small)",
-		color: "var(--contentSecondary)",
-		margin: 0,
-		lineHeight: "var(--leading-relaxed)",
-	} as React.CSSProperties,
-};
-
 function StylingDoc() {
 	return (
 		<DocsLayout>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "var(--space-8)",
-				}}
-			>
-				<h1
-					style={{
-						fontSize: "var(--font-size-display)",
-						fontWeight: "var(--font-weight-bold)",
-						margin: 0,
-						color: "var(--contentPrimary)",
-					}}
-				>
-					Styling with Stylex
-				</h1>
-
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Why Stylex?
-						</h2>
-						<p style={s.paragraph}>
+			<VStack>
+				<Text variant="h1">Styling with Stylex</Text>
+				<Separator />
+				<Box>
+					<VStack gap="medium">
+						<Text variant="h2">Why Stylex?</Text>
+						<Text variant="body2" color="secondary">
 							Blenx UI uses <strong>Stylex</strong> as its styling engine.
 							Stylex is a CSS-in-JS library developed by Meta that compiles to
 							atomic CSS at build time. Unlike runtime CSS-in-JS solutions,
 							Stylex produces tiny, deterministic stylesheets with zero runtime
 							overhead.
-						</p>
-						<p style={s.paragraph}>
+						</Text>
+						<Text variant="body2" color="secondary">
 							This means all styling is resolved at build time, resulting in
 							minimal bundle size and excellent runtime performance. The
 							tradeoff is that Stylex requires bundler plugin configuration and
 							does not support CSS Cascade layers or traditional stylesheet
 							features.
-						</p>
-					</div>
-				</section>
+						</Text>
+					</VStack>
+				</Box>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Design Tokens
-						</h2>
-						<p style={s.paragraph}>
+				<Box>
+					<VStack gap="medium">
+						<Text variant="h2">Design Tokens</Text>
+						<Text variant="body2" color="secondary">
 							The design system is driven by CSS variables defined via{" "}
-							<code style={s.code}>stylex.defineVars</code>:
-						</p>
-						<pre style={s.pre}>
+							<code {...stylex.props(docStyles.code)}>stylex.defineVars</code>:
+						</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
 							<code>{`export const theme = stylex.defineVars({
   primary: "",
   background: "",
@@ -135,8 +55,8 @@ function StylingDoc() {
   shadowSm: "",
   // ...
 });`}</code>
-						</pre>
-						<p style={s.paragraph}>
+						</Surface>
+						<Text variant="body2" color="secondary">
 							Theme tokens support automatic light/dark mode via media queries.
 							See{" "}
 							<a
@@ -146,96 +66,81 @@ function StylingDoc() {
 								Theming
 							</a>{" "}
 							for details on customizing them.
-						</p>
-					</div>
-				</section>
+						</Text>
+					</VStack>
+				</Box>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Style Composition
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Style Composition</Text>
+						<Text variant="body2" color="secondary">
 							Components compose styles using{" "}
-							<code style={s.code}>stylex.props()</code>, which merges multiple
-							style definitions and applies them as atomic classes:
-						</p>
-						<pre style={s.pre}>
+							<code {...stylex.props(docStyles.code)}>stylex.props()</code>,
+							which merges multiple style definitions and applies them as atomic
+							classes:
+						</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
 							<code>{`const resolved = stylex.props(
   buttonStyles.base,
   variantStyles[variant],
   sizeStyles[size],
   style,          // overrides via prop
 );`}</code>
-						</pre>
-					</div>
-				</section>
+						</Surface>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Key Constraints
-						</h2>
-						<ul style={s.list}>
-							<li style={s.li}>
-								Stylex does not support <code style={s.code}>@media</code>{" "}
-								queries in <code style={s.code}>stylex.create</code> — use{" "}
-								<code style={s.code}>stylex.defineVars</code> with media query
-								overrides.
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Key Constraints</Text>
+						<ul {...stylex.props(docStyles.list)}>
+							<li>
+								<Text variant="body2">
+									Stylex does not support{" "}
+									<code {...stylex.props(docStyles.code)}>@media</code> queries
+									in{" "}
+									<code {...stylex.props(docStyles.code)}>stylex.create</code> —
+									use{" "}
+									<code {...stylex.props(docStyles.code)}>
+										stylex.defineVars
+									</code>{" "}
+									with media query overrides.
+								</Text>
 							</li>
-							<li style={s.li}>
-								Dynamic styles must be defined statically and toggled via
-								conditionals — not created inline.
+							<li>
+								<Text variant="body2">
+									Dynamic styles must be defined statically and toggled via
+									conditionals — not created inline.
+								</Text>
 							</li>
-							<li style={s.li}>
-								CSS custom properties are the primary theming mechanism.
+							<li>
+								<Text variant="body2">
+									CSS custom properties are the primary theming mechanism.
+								</Text>
 							</li>
-							<li style={s.li}>
-								Bundler plugin (<code style={s.code}>@stylexjs/unplugin</code>)
-								is required at build time.
+							<li>
+								<Text variant="body2">
+									Bundler plugin ({" "}
+									<code {...stylex.props(docStyles.code)}>
+										@stylexjs/unplugin
+									</code>
+									) is required at build time.
+								</Text>
 							</li>
-							<li style={s.li}>
-								No runtime style injection — all styles are extracted during
-								build.
+							<li>
+								<Text variant="body2">
+									No runtime style injection — all styles are extracted during
+									build.
+								</Text>
 							</li>
 						</ul>
-					</div>
-				</section>
-			</div>
+					</VStack>
+				</div>
+			</VStack>
 		</DocsLayout>
 	);
 }

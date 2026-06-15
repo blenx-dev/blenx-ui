@@ -1,324 +1,185 @@
+import * as stylex from "@stylexjs/stylex";
 import { createFileRoute } from "@tanstack/react-router";
 import { DocsLayout } from "@/components/docs-layout";
+import { Separator, Surface, Text, VStack } from "@/components/ui";
+import { docStyles } from "./docs.styles";
 
 export const Route = createFileRoute("/docs/limitations")({
 	component: LimitationsDoc,
 });
 
-const s = {
-	section: { marginBottom: "var(--space-8)" } as React.CSSProperties,
-	code: {
-		backgroundColor: "var(--surfaceSubtle)",
-		borderRadius: "var(--radius-small)",
-		paddingInline: "var(--space-1)",
-		fontFamily: "var(--font-mono)",
-		fontSize: "var(--font-size-small)",
-	} as React.CSSProperties,
-	pre: {
-		backgroundColor: "var(--surfaceSubtle)",
-		borderRadius: "var(--radius-medium)",
-		padding: "var(--space-4)",
-		overflowX: "auto",
-		fontFamily: "var(--font-mono)",
-		fontSize: "var(--font-size-small)",
-		lineHeight: "var(--leading-normal)",
-		margin: 0,
-	} as React.CSSProperties,
-	list: {
-		listStyle: "disc",
-		paddingInlineStart: "var(--space-6)",
-		margin: 0,
-	} as React.CSSProperties,
-	li: {
-		fontSize: "var(--font-size-small)",
-		lineHeight: "var(--leading-relaxed)",
-	} as React.CSSProperties,
-	paragraph: {
-		fontSize: "var(--font-size-small)",
-		color: "var(--contentSecondary)",
-		margin: 0,
-		lineHeight: "var(--leading-relaxed)",
-	} as React.CSSProperties,
-};
-
 function LimitationsDoc() {
 	return (
 		<DocsLayout>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "var(--space-8)",
-				}}
-			>
-				<h1
-					style={{
-						fontSize: "var(--font-size-display)",
-						fontWeight: "var(--font-weight-bold)",
-						margin: 0,
-						color: "var(--contentPrimary)",
-					}}
-				>
-					Limitations
-				</h1>
-				<p style={s.paragraph}>
+			<div {...stylex.props(docStyles.page)}>
+				<Text variant="h1">Limitations</Text>
+				<Text variant="body2" color="secondary">
 					Blenx UI makes specific technology choices that come with important
 					constraints. Review these before adopting the library.
-				</p>
+				</Text>
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Monorepo Not Supported for Consumers
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Monorepo Not Supported for Consumers</Text>
+						<Text variant="body2" color="secondary">
 							The shadcn registry model copies source files directly into your
 							project. The copied files use import aliases (
-							<code style={s.code}>@/components</code>,{" "}
-							<code style={s.code}>@/lib</code>, etc.) that assume a flat
-							project structure.
-						</p>
-						<p style={s.paragraph}>
+							<code {...stylex.props(docStyles.code)}>@/components</code>,{" "}
+							<code {...stylex.props(docStyles.code)}>@/lib</code>, etc.) that
+							assume a flat project structure.
+						</Text>
+						<Text variant="body2" color="secondary">
 							If you are using a monorepo (Turborepo, Nx, Rush, pnpm
 							workspaces), the installed component files and their relative
 							imports may not resolve correctly across package boundaries. Each
 							consuming application must independently configure its own alias
 							resolution and Stylex plugin.
-						</p>
-						<p style={s.paragraph}>
+						</Text>
+						<Text variant="body2" color="secondary">
 							<strong>Recommendation:</strong> Install components into a single
 							application package, not into a shared UI package within your
 							monorepo.
-						</p>
-					</div>
-				</section>
+						</Text>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Stylex Build Requirement
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Stylex Build Requirement</Text>
+						<Text variant="body2" color="secondary">
 							Stylex is a build-time CSS-in-JS solution. Every consumer project
 							must:
-						</p>
-						<ul style={s.list}>
-							<li style={s.li}>
-								Install and configure the Stylex bundler plugin (
-								<code style={s.code}>@stylexjs/unplugin</code>)
+						</Text>
+						<ul {...stylex.props(docStyles.list)}>
+							<li>
+								<Text variant="body2">
+									Install and configure the Stylex bundler plugin (
+									<code {...stylex.props(docStyles.code)}>
+										@stylexjs/unplugin
+									</code>
+									)
+								</Text>
 							</li>
-							<li style={s.li}>
-								Use a supported bundler: Vite, Next.js, Webpack, or ESBuild
+							<li>
+								<Text variant="body2">
+									Use a supported bundler: Vite, Next.js, Webpack, or ESBuild
+								</Text>
 							</li>
-							<li style={s.li}>
-								NOT use CSS-in-JS solutions that conflict with atomic class
-								extraction (e.g., styled-components, Emotion)
+							<li>
+								<Text variant="body2">
+									NOT use CSS-in-JS solutions that conflict with atomic class
+									extraction (e.g., styled-components, Emotion)
+								</Text>
 							</li>
 						</ul>
-						<p style={s.paragraph}>
+						<Text variant="body2" color="secondary">
 							Without proper Stylex configuration, components will render
 							without styles.
-						</p>
-					</div>
-				</section>
+						</Text>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Base UI Version Lock
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Base UI Version Lock</Text>
+						<Text variant="body2" color="secondary">
 							Blenx UI depends on specific{" "}
-							<code style={s.code}>@base-ui/react</code> APIs. The library is
-							tested against <strong>Base UI React ^1.5.0</strong>. Upgrading
-							Base UI may break component behavior. If you need a newer Base UI
-							version, test all components thoroughly.
-						</p>
-					</div>
-				</section>
+							<code {...stylex.props(docStyles.code)}>@base-ui/react</code>{" "}
+							APIs. The library is tested against{" "}
+							<strong>Base UI React ^1.5.0</strong>. Upgrading Base UI may break
+							component behavior. If you need a newer Base UI version, test all
+							components thoroughly.
+						</Text>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							No Tailwind CSS Support
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">No Tailwind CSS Support</Text>
+						<Text variant="body2" color="secondary">
 							This project deliberately chose Stylex over Tailwind CSS. The
 							registry components ship with their own Stylex styles. If your
 							project uses Tailwind, the two can coexist, but components will
 							use Stylex classes, not Tailwind utilities. You cannot override
-							component styles with <code style={s.code}>className</code> — use
-							the <code style={s.code}>style</code> prop instead.
-						</p>
-					</div>
-				</section>
+							component styles with{" "}
+							<code {...stylex.props(docStyles.code)}>className</code> — use the{" "}
+							<code {...stylex.props(docStyles.code)}>style</code> prop instead.
+						</Text>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Phosphor Icons
-						</h2>
-						<p style={s.paragraph}>
-							The library uses <code style={s.code}>@phosphor-icons/react</code>{" "}
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Phosphor Icons</Text>
+						<Text variant="body2" color="secondary">
+							The library uses{" "}
+							<code {...stylex.props(docStyles.code)}>
+								@phosphor-icons/react
+							</code>{" "}
 							for all iconography. If you prefer a different icon set, you will
 							need to replace icon imports in the installed component source
 							files manually.
-						</p>
-					</div>
-				</section>
+						</Text>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							Framework Compatibility
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">Framework Compatibility</Text>
+						<Text variant="body2" color="secondary">
 							Components are built with React 19+ and are not tested with:
-						</p>
-						<ul style={s.list}>
-							<li style={s.li}>React Native</li>
-							<li style={s.li}>Vue, Svelte, Solid, or other frameworks</li>
-							<li style={s.li}>Older React versions (&lt;19)</li>
+						</Text>
+						<ul {...stylex.props(docStyles.list)}>
+							<li>
+								<Text variant="body2">React Native</Text>
+							</li>
+							<li>
+								<Text variant="body2">
+									Vue, Svelte, Solid, or other frameworks
+								</Text>
+							</li>
+							<li>
+								<Text variant="body2">
+									Older React versions {"<"}
+									{"19"}
+									{">"}
+								</Text>
+							</li>
 						</ul>
-					</div>
-				</section>
+					</VStack>
+				</div>
 
-				<hr
-					style={{ border: "none", borderTop: "1px solid var(--borderSubtle)" }}
-				/>
+				<Separator tone="subtle" />
 
-				<section style={s.section}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "var(--space-4)",
-						}}
-					>
-						<h2
-							style={{
-								fontSize: "var(--font-size-xxlarge)",
-								fontWeight: "var(--font-weight-bold)",
-								margin: 0,
-								color: "var(--contentPrimary)",
-							}}
-						>
-							CSS Custom Properties Theming
-						</h2>
-						<p style={s.paragraph}>
+				<div {...stylex.props(docStyles.section)}>
+					<VStack gap="medium">
+						<Text variant="h2">CSS Custom Properties Theming</Text>
+						<Text variant="body2" color="secondary">
 							Theme tokens are implemented as Stylex CSS variables. While this
 							enables efficient light/dark mode switching, it means theme
 							customization is limited to CSS variable overrides. You cannot use
 							JavaScript-level theme switching without updating component source
 							code.
-						</p>
-						<pre style={s.pre}>
+						</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
 							<code>{`/* Override theme tokens in your CSS */
 :root {
   --primary: #your-color;
   --background: #your-bg;
 }`}</code>
-						</pre>
-					</div>
-				</section>
+						</Surface>
+					</VStack>
+				</div>
 			</div>
 		</DocsLayout>
 	);
