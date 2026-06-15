@@ -1,6 +1,6 @@
 import { ListIcon, XIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
@@ -44,6 +44,10 @@ const styles = stylex.create({
 		paddingBlock: spacing["1"],
 		fontSize: fontSize.small,
 	},
+	activeLink: {
+		color: theme.contentPrimary,
+		fontWeight: 600,
+	},
 	divider: {
 		border: "none",
 		borderTopWidth: "1px",
@@ -55,6 +59,8 @@ function DocsRouteOption() {
 	const sidebarOpen = useSidebarStore((st) => st.isOpen);
 	const setOpen = useSidebarStore((st) => st.setOpen);
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const { pathname } = useLocation();
+	const isDocsActive = pathname.startsWith("/docs");
 	if (isSmallDevice)
 		return (
 			<Button
@@ -67,12 +73,17 @@ function DocsRouteOption() {
 			</Button>
 		);
 	return (
-		<Link to="/docs" {...stylex.props(styles.link)}>
+		<Link
+			to="/docs"
+			{...stylex.props(styles.link, isDocsActive && styles.activeLink)}
+		>
 			Docs
 		</Link>
 	);
 }
 function Header() {
+	const { pathname } = useLocation();
+	const isThemeBuilderActive = pathname === "/theme-builder";
 	return (
 		<div {...stylex.props(styles.header)}>
 			<div {...stylex.props(styles.inner)}>
@@ -81,6 +92,15 @@ function Header() {
 				</Link>
 				<div {...stylex.props(styles.navLinks)}>
 					<DocsRouteOption />
+					<Link
+						to="/theme-builder"
+						{...stylex.props(
+							styles.link,
+							isThemeBuilderActive && styles.activeLink,
+						)}
+					>
+						Theme Builder
+					</Link>
 					<a
 						href="https://github.com/blenx-dev/blenx-dev"
 						target="_blank"
