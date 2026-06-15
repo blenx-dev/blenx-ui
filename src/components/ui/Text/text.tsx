@@ -8,6 +8,7 @@ import {
 	textColorStyles,
 	textStyles,
 	textTransformStyles,
+	textVarianttyles,
 	textWeightStyles,
 } from "./text.styles";
 
@@ -26,6 +27,7 @@ const variantTag = {
 	creatorNote: "p",
 	p: "p",
 	div: "div",
+	code: "code",
 } as const satisfies Record<string, keyof React.JSX.IntrinsicElements>;
 export type TextVariant = keyof typeof variantTag;
 
@@ -51,8 +53,9 @@ export function Text({
 	...props
 }: Props): React.ReactElement {
 	const sx = stylex.props(
+		textStyles.base,
 		textTransformStyles[transform],
-		textStyles[variant],
+		textVarianttyles[variant],
 		color && textColorStyles[color],
 		align && textAlignStyles[align],
 		weight && textWeightStyles[weight],

@@ -5,6 +5,7 @@ export const boxStyles = stylex.create({
 	root: {
 		boxSizing: "border-box",
 		borderRadius: theme.borderRadius,
+		display: "block",
 	},
 	withBorder: {
 		borderWidth: "1px",

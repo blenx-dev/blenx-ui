@@ -1,8 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Container, Text, VStack } from "@/components/ui";
-import { theme } from "@/lib/theme/contract.stylex";
-import { borderRadius, fontSize, fontWeight, lineHeight, spacing } from "@/lib/theme/tokens.stylex";
+import { Box, Container, Surface, Text, VStack } from "@/components/ui";
 
 interface SidebarSection {
 	title: string;
@@ -35,20 +33,21 @@ const sections: SidebarSection[] = [
 ];
 
 const styles = stylex.create({
-	link: {
-		display: "block",
-		fontSize: fontSize.small,
-		color: theme.contentSecondary,
-		textDecoration: "none",
-		paddingBlock: spacing["1"],
-		paddingInline: spacing["2"],
-		borderRadius: borderRadius.small,
-		lineHeight: lineHeight.normal,
+	sidebar: {
+		position: "sticky",
+		top: 80,
+		alignSelf: "flex-start",
+		flexShrink: 0,
+		overflowY: "auto",
+		maxHeight: "100vh",
 	},
-	linkActive: {
-		color: theme.contentPrimary,
-		fontWeight: fontWeight.medium,
-		backgroundColor: theme.surfaceSubtle,
+	link: {
+		textDecoration: "none",
+	},
+	linkList: {
+		display: "flex",
+		flexDirection: "column",
+		gap: 2,
 	},
 });
 
@@ -56,27 +55,41 @@ function DocsSidebar() {
 	const { pathname } = useLocation();
 
 	return (
-		<Container size="xxs">
+		<Container size="xxs" style={styles.sidebar}>
 			<VStack render={<nav />}>
 				{sections.map((section) => (
-					<div key={section.title}>
-						<Text>{section.title}</Text>
-						{section.links.map((link) => {
-							const isActive =
-								link.to === "/docs"
-									? pathname === "/docs" || pathname === "/docs/"
-									: pathname.startsWith(link.to);
-							return (
-								<Link
-									key={link.to}
-									to={link.to}
-									{...stylex.props(styles.link, isActive && styles.linkActive)}
-								>
-									<Text variant="body3">{link.label}</Text>
-								</Link>
-							);
-						})}
-					</div>
+					<Box key={section.title}>
+						<Text variant="body2" weight="semibold">
+							{section.title}
+						</Text>
+						<VStack gap="xxsmall" paddingY="xxsmall">
+							{section.links.map((link) => {
+								const isActive =
+									link.to === "/docs"
+										? pathname === "/docs" || pathname === "/docs/"
+										: pathname.startsWith(link.to);
+								return (
+									<Surface
+										variant={isActive ? "sunken" : "default"}
+										radius="small"
+										paddingY="xxsmall"
+										paddingX="xsmall"
+										key={link.to}
+										render={
+											<Link {...stylex.props(styles.link)} to={link.to} />
+										}
+									>
+										<Text
+											variant="body2"
+											color={isActive ? "primary" : "secondary"}
+										>
+											{link.label}
+										</Text>
+									</Surface>
+								);
+							})}
+						</VStack>
+					</Box>
 				))}
 			</VStack>
 		</Container>

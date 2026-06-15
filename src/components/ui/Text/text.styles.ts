@@ -1,6 +1,14 @@
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@/lib/theme/contract.stylex";
-import { fontSize, fonts, fontWeight, letterSpacing, lineHeight } from "@/lib/theme/tokens.stylex";
+import {
+	borderRadius,
+	fontSize,
+	fonts,
+	fontWeight,
+	letterSpacing,
+	lineHeight,
+	spacing,
+} from "@/lib/theme/tokens.stylex";
 
 export const textTransformStyles = stylex.create({
 	uppercase: {
@@ -37,8 +45,14 @@ export const textWeightStyles = stylex.create({
 	semibold: { fontWeight: fontWeight.semibold },
 	bold: { fontWeight: fontWeight.bold },
 });
-
 export const textStyles = stylex.create({
+	base: {
+		margin: 0,
+		textDecoration: "none",
+		color: theme.contentAccent,
+	},
+});
+export const textVarianttyles = stylex.create({
 	h1: {
 		fontFamily: fonts.display,
 		fontSize: fontSize.display,
@@ -142,5 +156,15 @@ export const textStyles = stylex.create({
 		lineHeight: lineHeight.normal,
 		fontWeight: fontWeight.regular,
 		margin: 0,
+	},
+	code: {
+		fontFamily: fonts.mono,
+		fontSize: fontSize.small,
+		lineHeight: lineHeight.normal,
+		fontWeight: fontWeight.regular,
+		margin: 0,
+		backgroundColor: theme.backgroundSubtle,
+		padding: spacing["1"],
+		borderRadius: borderRadius["small"],
 	},
 });

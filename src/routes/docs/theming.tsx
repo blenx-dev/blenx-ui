@@ -1,88 +1,11 @@
 import * as stylex from "@stylexjs/stylex";
 import { createFileRoute } from "@tanstack/react-router";
 import { DocsLayout } from "@/components/docs-layout";
-import { Separator, Surface, Text, VStack } from "@/components/ui";
-import { theme } from "@/lib/theme/contract.stylex";
-import { fontSize, fonts, fontWeight, lineHeight, spacing } from "@/lib/theme/tokens.stylex";
+import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
+import { docStyles } from "./docs.styles";
 
-const styles = stylex.create({
-	code: {
-		fontFamily: fonts.mono,
-		fontSize: fontSize.small,
-		lineHeight: lineHeight.normal,
-	},
-	inlineCode: {
-		fontFamily: fonts.mono,
-		fontSize: fontSize.small,
-	},
-	paragraph: {
-		fontSize: fontSize.small,
-		color: theme.contentSecondary,
-		margin: 0,
-		lineHeight: lineHeight.relaxed,
-	},
-	heading3: {
-		fontSize: fontSize.large,
-		fontWeight: fontWeight.semibold,
-		margin: 0,
-		color: theme.contentPrimary,
-		marginTop: spacing["6"],
-		marginBottom: spacing["2"],
-	},
-	section: {
-		marginBottom: spacing["8"],
-	},
-	tableWrapper: {
-		overflowX: "auto",
-	},
-	table: {
-		width: "100%",
-		borderCollapse: "collapse",
-		fontSize: fontSize.small,
-		lineHeight: lineHeight.relaxed,
-	},
-	th: {
-		textAlign: "left",
-		paddingInline: spacing["3"],
-		paddingBlock: spacing["2"],
-		borderBottomWidth: 1,
-		borderBottomStyle: "solid",
-		borderBottomColor: theme.border,
-		fontWeight: fontWeight.semibold,
-		color: theme.contentPrimary,
-		whiteSpace: "nowrap",
-	},
-	td: {
-		paddingInline: spacing["3"],
-		paddingBlock: spacing["2"],
-		borderBottomWidth: 1,
-		borderBottomStyle: "solid",
-		borderBottomColor: theme.borderSubtle,
-		color: theme.contentSecondary,
-		fontFamily: fonts.mono,
-		fontSize: fontSize.xsmall,
-	},
-	tdLabel: {
-		paddingInline: spacing["3"],
-		paddingBlock: spacing["2"],
-		borderBottomWidth: 1,
-		borderBottomStyle: "solid",
-		borderBottomColor: theme.borderSubtle,
-		color: theme.contentSecondary,
-		fontFamily: fonts.mono,
-		fontSize: fontSize.xsmall,
-		fontWeight: fontWeight.medium,
-	},
-	compactP: {
-		fontSize: fontSize.small,
-		color: theme.contentSecondary,
-		margin: 0,
-		lineHeight: lineHeight.relaxed,
-		marginBottom: spacing["2"],
-	},
-	codeBlockMargin: {
-		marginTop: spacing["3"],
-	},
+export const Route = createFileRoute("/docs/theming")({
+	component: ThemingDoc,
 });
 
 const tokenTable = [
@@ -120,48 +43,41 @@ const comparisonRows = [
 	],
 ];
 
-export const Route = createFileRoute("/docs/theming")({
-	component: ThemingDoc,
-});
-
 function ThemingDoc() {
 	return (
 		<DocsLayout>
 			<VStack gap="medium">
 				<Text variant="h1">Theming</Text>
-				<p {...stylex.props(styles.paragraph)}>
+				<Text variant="body1" color="secondary">
 					Blenx UI provides two approaches for customizing the look and feel of
 					your components. The Stylex Contract Theme is the recommended approach
 					for projects already using Stylex.
-				</p>
+				</Text>
 
 				<Separator tone="subtle" />
 
-				<div {...stylex.props(styles.section)}>
+				<Box>
 					<VStack gap="medium">
 						<Text variant="h2">
 							Approach 1: Stylex Contract Theme (Recommended)
 						</Text>
-						<p {...stylex.props(styles.paragraph)}>
+						<Text variant="body1" color="secondary">
 							Create a typed theme using{" "}
-							<code {...stylex.props(styles.inlineCode)}>
-								stylex.createTheme
-							</code>{" "}
-							from the exported theme contract. This gives you full type safety
-							and integrates directly with Stylex's theming system.
-						</p>
-						<p {...stylex.props(styles.paragraph)}>
+							<Text variant="code">stylex.createTheme</Text> from the exported
+							theme contract. This gives you full type safety and integrates
+							directly with Stylex's theming system.
+						</Text>
+						<Text variant="body1" color="secondary">
 							The generated theme is applied via a{" "}
-							<code {...stylex.props(styles.inlineCode)}>className</code> on the
-							root element. All child components using the contract tokens will
-							automatically pick up your custom values.
-						</p>
+							<Text variant="code">className</Text> on the root element. All
+							child components using the contract tokens will automatically pick
+							up your custom values.
+						</Text>
 
-						<h3 {...stylex.props(styles.heading3)}>1. Create a theme file</h3>
-						<Surface variant="sunken" padding="medium">
-							<code
-								{...stylex.props(styles.code)}
-							>{`// styles/my-theme.stylex.ts
+						<Text variant="h3">1. Create a theme file</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
+							<Text variant="code">
+								{`// styles/my-theme.stylex.ts
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@blenx-dev/theme/contract.stylex";
 
@@ -184,14 +100,14 @@ export const myTheme = stylex.createTheme(theme, {
   contentSecondary: "#6B6B80",
 
   focusRing: "#6C63FF",
-});`}</code>
+});`}
+							</Text>
 						</Surface>
 
-						<h3 {...stylex.props(styles.heading3)}>2. Apply to root element</h3>
-						<Surface variant="sunken" padding="medium">
-							<code
-								{...stylex.props(styles.code)}
-							>{`// React — wrap your app root
+						<Text variant="h3">2. Apply to root element</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
+							<Text variant="code">
+								{`// React — wrap your app root
 import * as stylex from "@stylexjs/stylex";
 import { myTheme } from "./styles/my-tokens.stylex";
 
@@ -201,13 +117,12 @@ function App() {
       <YourApp />
     </div>
   );
-}`}</code>
+}`}
+							</Text>
 						</Surface>
-						<div {...stylex.props(styles.codeBlockMargin)}>
-							<Surface variant="sunken" padding="medium">
-								<code
-									{...stylex.props(styles.code)}
-								>{`// Next.js — apply to the body or a layout wrapper
+						<Surface variant="sunken" padding="medium" render={<pre />}>
+							<Text variant="code">
+								{`// Next.js — apply to the body or a layout wrapper
 // app/layout.tsx
 import { myTheme } from "@/styles/my-tokens.stylex";
 
@@ -219,44 +134,43 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}`}</code>
-							</Surface>
-						</div>
+}`}
+							</Text>
+						</Surface>
 
-						<h3 {...stylex.props(styles.heading3)}>Available Imports</h3>
-						<Surface variant="sunken" padding="medium">
-							<code
-								{...stylex.props(styles.code)}
-							>{`// Import the contract for createTheme
+						<Text variant="h3">Available Imports</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
+							<Text variant="code">
+								{`// Import the contract for createTheme
 import { theme } from "@blenx-dev/theme/contract.stylex";
 
 // Or use the convenience re-exports
-import { theme, borderRadius, spacing, fontSize } from "@/lib/theme/tokens.stylex";`}</code>
+import { theme, borderRadius, spacing, fontSize } from "@/lib/theme/tokens.stylex";`}
+							</Text>
 						</Surface>
 					</VStack>
-				</div>
+				</Box>
 
 				<Separator tone="subtle" />
 
-				<div {...stylex.props(styles.section)}>
+				<Box>
 					<VStack gap="medium">
 						<Text variant="h2">Approach 2: CSS Variable Override</Text>
-						<p {...stylex.props(styles.paragraph)}>
+						<Text variant="body2" color="secondary">
 							The simplest approach. Create a CSS file that redeclares any of
 							the theme's CSS custom properties. Your values will take
 							precedence over the defaults through the cascade.
-						</p>
-						<p {...stylex.props(styles.paragraph)}>
+						</Text>
+						<Text variant="body2" color="secondary">
 							This works without any build configuration and can be done
 							entirely in CSS. It is ideal for quick overrides, small tweaks, or
 							projects that do not use Stylex directly.
-						</p>
+						</Text>
 
-						<h3 {...stylex.props(styles.heading3)}>Example</h3>
-						<Surface variant="sunken" padding="medium">
-							<code
-								{...stylex.props(styles.code)}
-							>{`/* my-theme.css — import or link after the component styles */
+						<Text variant="h3">Example</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
+							<Text variant="code">
+								{`/* my-theme.css — import or link after the component styles */
 :root {
   --primary: #1a1a2e;
   --secondary: #e94560;
@@ -274,39 +188,42 @@ import { theme, borderRadius, spacing, fontSize } from "@/lib/theme/tokens.style
     --contentPrimary: #eaeaea;
     --focusRing: #e94560;
   }
-}`}</code>
+}`}
+							</Text>
 						</Surface>
 
-						<h3 {...stylex.props(styles.heading3)}>Available Theme Tokens</h3>
-						<p {...stylex.props(styles.compactP)}>
+						<Text variant="h3">Available Theme Tokens</Text>
+						<Text variant="body2" color="secondary">
 							All semantic color tokens from the theme contract. Override any
 							subset &mdash; the rest fall back to defaults.
-						</p>
-						<div {...stylex.props(styles.tableWrapper)}>
-							<table {...stylex.props(styles.table)}>
+						</Text>
+						<div {...stylex.props(docStyles.tableWrapper)}>
+							<table {...stylex.props(docStyles.table)}>
 								<thead>
 									<tr>
-										<th {...stylex.props(styles.th)}>Token</th>
-										<th {...stylex.props(styles.th)}>Token</th>
-										<th {...stylex.props(styles.th)}>Token</th>
-										<th {...stylex.props(styles.th)}>Token</th>
+										<th {...stylex.props(docStyles.th)}>Token</th>
+										<th {...stylex.props(docStyles.th)}>Token</th>
+										<th {...stylex.props(docStyles.th)}>Token</th>
+										<th {...stylex.props(docStyles.th)}>Token</th>
 									</tr>
 								</thead>
 								<tbody>
 									{tokenTable.map((row) => (
 										<tr key={row.join("")}>
 											{row.map((cell) => (
-												<td key={cell} {...stylex.props(styles.td)}>
+												<td key={cell} {...stylex.props(docStyles.td)}>
 													{cell}
 												</td>
 											))}
 											{row.length < 4
-												? Array.from({ length: 4 - row.length }).map((_) => (
-														<td
-															key={`empty-${row.join("-")}`}
-															{...stylex.props(styles.td)}
-														/>
-													))
+												? Array.from({ length: 4 - row.length }, () => "").map(
+														(i) => (
+															<td
+																key={`td-filler-${row.join("-")}-${i}`}
+																{...stylex.props(docStyles.td)}
+															/>
+														),
+													)
 												: null}
 										</tr>
 									))}
@@ -314,50 +231,52 @@ import { theme, borderRadius, spacing, fontSize } from "@/lib/theme/tokens.style
 							</table>
 						</div>
 
-						<h3 {...stylex.props(styles.heading3)}>Primitive Tokens</h3>
-						<p {...stylex.props(styles.compactP)}>
+						<Text variant="h3">Primitive Tokens</Text>
+						<Text variant="body2" color="secondary">
 							Spacing, typography, radius, and motion tokens are also available
 							for override:
-						</p>
-						<Surface variant="sunken" padding="medium">
-							<code {...stylex.props(styles.code)}>{`:root {
+						</Text>
+						<Surface variant="sunken" padding="medium" render={<pre />}>
+							<Text variant="code">
+								{`:root {
   --radius-medium: 6px;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --space-4: 12px;
   --duration-normal: 150ms;
-}`}</code>
+}`}
+							</Text>
 						</Surface>
 					</VStack>
-				</div>
+				</Box>
 
 				<Separator tone="subtle" />
 
-				<div {...stylex.props(styles.section)}>
+				<Box>
 					<VStack gap="medium">
 						<Text variant="h2">Comparing the Two Approaches</Text>
-						<div {...stylex.props(styles.tableWrapper)}>
-							<table {...stylex.props(styles.table)}>
+						<div {...stylex.props(docStyles.tableWrapper)}>
+							<table {...stylex.props(docStyles.table)}>
 								<thead>
 									<tr>
-										<th {...stylex.props(styles.th)} />
-										<th {...stylex.props(styles.th)}>Stylex Contract</th>
-										<th {...stylex.props(styles.th)}>CSS Override</th>
+										<th {...stylex.props(docStyles.th)} />
+										<th {...stylex.props(docStyles.th)}>Stylex Contract</th>
+										<th {...stylex.props(docStyles.th)}>CSS Override</th>
 									</tr>
 								</thead>
 								<tbody>
 									{comparisonRows.map(([label, stylexVal, cssVal]) => (
 										<tr key={label}>
-											<td {...stylex.props(styles.tdLabel)}>{label}</td>
-											<td {...stylex.props(styles.td)}>{stylexVal}</td>
-											<td {...stylex.props(styles.td)}>{cssVal}</td>
+											<td {...stylex.props(docStyles.tdLabel)}>{label}</td>
+											<td {...stylex.props(docStyles.td)}>{stylexVal}</td>
+											<td {...stylex.props(docStyles.td)}>{cssVal}</td>
 										</tr>
 									))}
 								</tbody>
 							</table>
 						</div>
 					</VStack>
-				</div>
+				</Box>
 			</VStack>
 		</DocsLayout>
 	);

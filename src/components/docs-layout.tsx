@@ -4,7 +4,7 @@ import { DocsSidebar } from "./docs-sidebar";
 
 function DocsLayout({ children }: { children: ReactNode }) {
 	return (
-		<Container paddingX="xxlarge">
+		<Container paddingX="xlarge">
 			<HStack gap="xxlarge">
 				<DocsSidebar />
 				<Box grow>{children}</Box>
