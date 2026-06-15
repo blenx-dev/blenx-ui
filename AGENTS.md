@@ -1,5 +1,10 @@
 # Project Preferences
 
+## Git Workflow
+
+- **All changes must go through a PR.** Never commit or push directly to `main`. Always create a feature branch, push it, and open a pull request.
+- PRs should reference the relevant issue number (e.g., `Closes #N`).
+
 ## StyleX Authoring
 
 Whenever writing or editing StyleX styles, reference `@stylex-authoring.md` for syntax, patterns, and conventions (pseudo-classes, media queries, themes, dynamic styles, etc.).
