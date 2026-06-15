@@ -1,4 +1,3 @@
-import * as stylex from "@stylexjs/stylex";
 import type { ReactNode } from "react";
 import { useMemo } from "react";
 import { theme } from "@/lib/theme/contract.stylex";
@@ -13,49 +12,56 @@ const radiusMap: Record<string, string> = {
 	pill: radiusTokens.full,
 };
 
+function cx(name: string) {
+	return name.slice(4, -1);
+}
+
 export function ThemePreviewProvider({ children }: { children: ReactNode }) {
 	const tokens = useThemeBuilder((s) => s.tokens);
 
-	const themeClass = useMemo(
-		() =>
-			stylex.createTheme(theme, {
-				primary: tokens.primary,
-				primarySubtle: tokens.primarySubtle,
-				secondary: tokens.secondary,
-				background: tokens.background,
-				backgroundSubtle: tokens.backgroundSubtle,
-				surface: tokens.surface,
-				surfaceSubtle: tokens.surfaceSubtle,
-				surfaceRaised: tokens.surfaceRaised,
-				surfaceHover: tokens.surfaceHover,
-				surfaceOverlay: tokens.surfaceOverlay,
-				border: tokens.border,
-				borderSubtle: tokens.borderSubtle,
-				borderStrong: tokens.borderStrong,
-				contentPrimary: tokens.contentPrimary,
-				contentSecondary: tokens.contentSecondary,
-				contentDisabled: tokens.contentDisabled,
-				contentAccent: tokens.contentAccent,
-				contentOnPrimary: tokens.contentOnPrimary,
-				contentInverse: tokens.contentInverse,
-				sentimentNegative: tokens.sentimentNegative,
-				sentimentNegativeSubtle: tokens.sentimentNegativeSubtle,
-				sentimentPositive: tokens.sentimentPositive,
-				sentimentPositiveSubtle: tokens.sentimentPositiveSubtle,
-				sentimentWarning: tokens.sentimentWarning,
-				sentimentWarningSubtle: tokens.sentimentWarningSubtle,
-				sentimentInfo: tokens.sentimentInfo,
-				sentimentInfoSubtle: tokens.sentimentInfoSubtle,
-				focusRing: tokens.focusRing,
-				shadowSm: tokens.shadowSm,
-				shadowMd: tokens.shadowMd,
-				shadowLg: tokens.shadowLg,
-				shadowXl: tokens.shadowXl,
-				fontSize: tokens.baseFontSize,
-				borderRadius: radiusMap[tokens.radius] ?? radiusTokens.medium,
-			}),
-		[tokens],
-	);
+	const cssVars = useMemo(() => {
+		const vars: Record<string, string> = {};
+		const entries: Array<[string, string]> = [
+			[theme.primary, tokens.primary],
+			[theme.primarySubtle, tokens.primarySubtle],
+			[theme.secondary, tokens.secondary],
+			[theme.background, tokens.background],
+			[theme.backgroundSubtle, tokens.backgroundSubtle],
+			[theme.surface, tokens.surface],
+			[theme.surfaceSubtle, tokens.surfaceSubtle],
+			[theme.surfaceRaised, tokens.surfaceRaised],
+			[theme.surfaceHover, tokens.surfaceHover],
+			[theme.surfaceOverlay, tokens.surfaceOverlay],
+			[theme.border, tokens.border],
+			[theme.borderSubtle, tokens.borderSubtle],
+			[theme.borderStrong, tokens.borderStrong],
+			[theme.contentPrimary, tokens.contentPrimary],
+			[theme.contentSecondary, tokens.contentSecondary],
+			[theme.contentDisabled, tokens.contentDisabled],
+			[theme.contentAccent, tokens.contentAccent],
+			[theme.contentOnPrimary, tokens.contentOnPrimary],
+			[theme.contentInverse, tokens.contentInverse],
+			[theme.sentimentNegative, tokens.sentimentNegative],
+			[theme.sentimentNegativeSubtle, tokens.sentimentNegativeSubtle],
+			[theme.sentimentPositive, tokens.sentimentPositive],
+			[theme.sentimentPositiveSubtle, tokens.sentimentPositiveSubtle],
+			[theme.sentimentWarning, tokens.sentimentWarning],
+			[theme.sentimentWarningSubtle, tokens.sentimentWarningSubtle],
+			[theme.sentimentInfo, tokens.sentimentInfo],
+			[theme.sentimentInfoSubtle, tokens.sentimentInfoSubtle],
+			[theme.focusRing, tokens.focusRing],
+			[theme.shadowSm, tokens.shadowSm],
+			[theme.shadowMd, tokens.shadowMd],
+			[theme.shadowLg, tokens.shadowLg],
+			[theme.shadowXl, tokens.shadowXl],
+			[theme.fontSize, tokens.baseFontSize],
+			[theme.borderRadius, radiusMap[tokens.radius] ?? radiusTokens.medium],
+		];
+		for (const [k, v] of entries) {
+			vars[cx(k)] = v;
+		}
+		return vars;
+	}, [tokens]);
 
-	return <div {...stylex.props(themeClass)}>{children}</div>;
+	return <div style={cssVars as React.CSSProperties}>{children}</div>;
 }

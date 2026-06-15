@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ThemeBuilderRouteImport } from './routes/theme-builder'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DocsIndexRouteImport } from './routes/docs/index'
 import { Route as DocsThemingRouteImport } from './routes/docs/theming'
@@ -18,6 +19,11 @@ import { Route as DocsLimitationsRouteImport } from './routes/docs/limitations'
 import { Route as DocsInstallationRouteImport } from './routes/docs/installation'
 import { Route as ApiRSplatRouteImport } from './routes/api/r/$'
 
+const ThemeBuilderRoute = ThemeBuilderRouteImport.update({
+  id: '/theme-builder',
+  path: '/theme-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +67,7 @@ const ApiRSplatRoute = ApiRSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/theme-builder': typeof ThemeBuilderRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/theme-builder': typeof ThemeBuilderRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/theme-builder': typeof ThemeBuilderRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/theme-builder'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/theme-builder'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/theme-builder'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ThemeBuilderRoute: typeof ThemeBuilderRoute
   DocsInstallationRoute: typeof DocsInstallationRoute
   DocsLimitationsRoute: typeof DocsLimitationsRoute
   DocsPrimitivesRoute: typeof DocsPrimitivesRoute
@@ -136,6 +149,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/theme-builder': {
+      id: '/theme-builder'
+      path: '/theme-builder'
+      fullPath: '/theme-builder'
+      preLoaderRoute: typeof ThemeBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ThemeBuilderRoute: ThemeBuilderRoute,
   DocsInstallationRoute: DocsInstallationRoute,
   DocsLimitationsRoute: DocsLimitationsRoute,
   DocsPrimitivesRoute: DocsPrimitivesRoute,
