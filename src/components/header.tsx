@@ -5,24 +5,9 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { Button, Separator, Text } from "./ui";
+import { Box, Button, HStack, Separator, Text } from "./ui";
 
 const styles = stylex.create({
-	header: {
-		position: "sticky",
-		top: 0,
-		zIndex: 200,
-		backgroundColor: theme.background,
-		paddingInline: spacing["4"],
-		paddingBlock: spacing["1"],
-	},
-	inner: {
-		display: "flex",
-		flexDirection: "row",
-		alignItems: "center",
-		marginBottom: spacing.small,
-		justifyContent: "space-between",
-	},
 	logo: {
 		textDecoration: "none",
 		color: theme.contentPrimary,
@@ -87,8 +72,8 @@ function Header() {
 	const isThemeBuilderActive = pathname === "/theme-builder";
 	const isHomeActive = pathname === "/";
 	return (
-		<div {...stylex.props(styles.header)}>
-			<div {...stylex.props(styles.inner)}>
+		<Box>
+			<HStack align="center" justify="between" padding="xxsmall">
 				<Link
 					to="/"
 					{...stylex.props(styles.logo, isHomeActive && styles.activeLink)}
@@ -121,9 +106,9 @@ function Header() {
 						GitHub &rarr;
 					</Button>
 				</div>
-			</div>
+			</HStack>
 			<Separator />
-		</div>
+		</Box>
 	);
 }
 
