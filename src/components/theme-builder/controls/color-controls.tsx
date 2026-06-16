@@ -1,15 +1,5 @@
-import * as stylex from "@stylexjs/stylex";
-import { ColorPicker } from "@/components/ui";
-import { spacing } from "@/lib/theme/tokens.stylex";
+import { ColorPicker, Grid } from "@/components/ui";
 import { useThemeBuilder } from "../theme-builder-context";
-
-const styles = stylex.create({
-	group: {
-		display: "flex",
-		flexDirection: "column",
-		gap: spacing["2"],
-	},
-});
 
 const colorTokens = [
 	{ key: "primary", label: "Primary" },
@@ -30,7 +20,7 @@ export function ColorControls() {
 	const updateTokenDebounced = useThemeBuilder((s) => s.updateTokenDebounced);
 
 	return (
-		<div {...stylex.props(styles.group)}>
+		<Grid columns={2}>
 			{colorTokens.map(({ key, label }) => (
 				<ColorPicker
 					key={key}
@@ -41,6 +31,6 @@ export function ColorControls() {
 					}}
 				/>
 			))}
-		</div>
+		</Grid>
 	);
 }
