@@ -25,6 +25,7 @@ export * from "./Input/input";
 export * from "./InputGroup/input-group";
 export * from "./Menu/menu";
 export * from "./Popover/popover";
+export * from "./Progress/progress";
 export * from "./ScrollArea/scroll-area";
 export * from "./SegmentedControl/segmented-control";
 export * from "./Select/select";
