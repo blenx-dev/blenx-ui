@@ -1,0 +1,106 @@
+import type { StyleXStyles } from "@stylexjs/stylex";
+import * as stylex from "@stylexjs/stylex";
+import type { ReactNode } from "react";
+import { tableStyles } from "./table.styles";
+
+// ─── Types ───────────────────────────────────────────────────────────────────
+
+export interface Column<TData> {
+	/** Unique identifier for the column */
+	key: string;
+	/** Header label */
+	header: ReactNode;
+	/** Render function for the cell */
+	cell: (row: TData) => ReactNode;
+	/** Optional custom width */
+	width?: string;
+	/** Optional text alignment */
+	align?: "left" | "center" | "right";
+}
+
+export interface TableProps<TData> {
+	columnData: Column<TData>[];
+	rowData: TData[];
+	/** Optional stable row key (field name). Defaults to index. */
+	rowKey?: keyof TData & string;
+	/** Optional wrapper box style */
+	style?: StyleXStyles;
+	className?: string;
+}
+
+// ─── Internal styled sub-components ──────────────────────────────────────────
+
+const cellAlignStyles = stylex.create({
+	left: { textAlign: "left" },
+	center: { textAlign: "center" },
+	right: { textAlign: "right" },
+});
+
+/**
+ * A simple styled Table component.
+ *
+ * Takes column definitions and row data and renders a styled HTML table.
+ * No pagination, sorting, or filtering — just a styled presentation layer.
+ *
+ * @example
+ * ```tsx
+ * <Table
+ *   columnData={[
+ *     { key: 'name', header: 'Name', cell: (row) => row.name },
+ *     { key: 'email', header: 'Email', cell: (row) => row.email },
+ *   ]}
+ *   rowData={users}
+ *   rowKey="id"
+ * />
+ * ```
+ */
+export function Table<TData extends Record<string, unknown>>({
+	columnData,
+	rowData,
+	rowKey,
+	style,
+	className,
+}: TableProps<TData>) {
+	return (
+		<div {...stylex.props(tableStyles.wrapper, style)} className={className}>
+			<table {...stylex.props(tableStyles.root)}>
+				<thead {...stylex.props(tableStyles.head)}>
+					<tr>
+						{columnData.map((col) => (
+							<th
+								key={col.key}
+								style={col.width ? { width: col.width } : undefined}
+								{...stylex.props(
+									tableStyles.header,
+									col.align && cellAlignStyles[col.align],
+								)}
+							>
+								{col.header}
+							</th>
+						))}
+					</tr>
+				</thead>
+				<tbody {...stylex.props(tableStyles.body)}>
+					{rowData.map((row, index) => {
+						const key = rowKey ? (row[rowKey] as string) : index.toString();
+						return (
+							<tr key={key} {...stylex.props(tableStyles.row)}>
+								{columnData.map((col) => (
+									<td
+										key={col.key}
+										{...stylex.props(
+											tableStyles.cell,
+											col.align && cellAlignStyles[col.align],
+										)}
+									>
+										{col.cell(row)}
+									</td>
+								))}
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
+	);
+}

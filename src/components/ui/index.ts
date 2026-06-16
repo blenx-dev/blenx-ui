@@ -1,8 +1,9 @@
 // ─── Design System: @/components/ui ───────────────────────────────────────────
 // Components
+
+export * from "./Accordion/accordion";
 export * from "./AlertDialog/alert-dialog";
 export * from "./Autocomplete/autocomplete";
-export * from "./Accordion/accordion";
 export * from "./Avatar/avatar";
 export * from "./Badge/badge";
 export * from "./Box/box";
@@ -31,6 +32,7 @@ export * from "./Spinner/spinner";
 export * from "./Stack/stack";
 export * from "./Surface/surface";
 export * from "./Switch/switch";
+export * from "./Table/table";
 export * from "./Tabs/tabs";
 export * from "./Text/text";
 export * from "./Textarea/textarea";
