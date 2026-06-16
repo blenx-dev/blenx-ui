@@ -34,7 +34,6 @@ export function Toggle({
 }: ToggleProps) {
 	const variantStyle = toggleVariantStyles[variant];
 	const sizeStyle = toggleSizeStyles[size];
-	console.log("radius", radius);
 	return (
 		<TogglePrimitive
 			data-slot="toggle"
