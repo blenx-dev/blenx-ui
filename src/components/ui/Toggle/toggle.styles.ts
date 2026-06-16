@@ -6,7 +6,51 @@ import {
 	fontWeight,
 	spacing,
 } from "@/lib/theme/tokens.stylex";
+export const toggleSizeStyles = stylex.create({
+	sm: {
+		height: spacing.large,
+		minWidth: spacing.large,
+		paddingLeft: spacing.small,
+		paddingRight: spacing.small,
+	},
+	lg: {
+		height: spacing.xlarge,
+		paddingLeft: spacing.medium,
+		paddingRight: spacing.medium,
+	},
+	default: {
+		height: spacing.large,
+		minWidth: 36,
+		paddingLeft: spacing.small,
+		paddingRight: spacing.small,
+	},
+});
 
+export const toggleVariantStyles = stylex.create({
+	default: {
+		borderColor: "transparent",
+		color: theme.contentPrimary,
+		backgroundColor: theme.backgroundSubtle,
+	},
+	outline: {
+		borderColor: {
+			default: theme.border,
+			[dataRuleQueries.dataPressed]: theme.borderStrong,
+		},
+		color: theme.contentPrimary,
+		backgroundColor: theme.backgroundSubtle,
+	},
+});
+
+export const togglePressedStyles = stylex.create({
+	default: {
+		backgroundColor: theme.contentAccent,
+	},
+	outline: {
+		outlineWidth: "0px",
+		backgroundColor: theme.surfaceOverlay,
+	},
+});
 export const toggleStyles = stylex.create({
 	base: {
 		position: "relative",
@@ -39,42 +83,5 @@ export const toggleStyles = stylex.create({
 		flexShrink: 0,
 		width: spacing.medium,
 		height: spacing.medium,
-	},
-	default: {
-		borderColor: "transparent",
-		color: theme.contentPrimary,
-		backgroundColor: theme.backgroundSubtle,
-	},
-	defaultPressed: {
-		backgroundColor: theme.background,
-	},
-	outline: {
-		borderColor: {
-			default: theme.border,
-			[dataRuleQueries.dataPressed]: theme.borderStrong,
-		},
-		color: theme.contentPrimary,
-		backgroundColor: theme.backgroundSubtle,
-	},
-	outlinePressed: {
-		outlineWidth: "0px",
-		backgroundColor: theme.surfaceOverlay,
-	},
-	sm: {
-		height: spacing.large,
-		minWidth: spacing.large,
-		paddingLeft: spacing.small,
-		paddingRight: spacing.small,
-	},
-	defaultSize: {
-		height: spacing.large,
-		minWidth: 36,
-		paddingLeft: spacing.small,
-		paddingRight: spacing.small,
-	},
-	lg: {
-		height: spacing.xlarge,
-		paddingLeft: spacing.medium,
-		paddingRight: spacing.medium,
 	},
 });

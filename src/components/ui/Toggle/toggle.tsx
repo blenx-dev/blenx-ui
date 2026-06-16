@@ -2,8 +2,17 @@
 
 import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import * as stylex from "@stylexjs/stylex";
+import {
+	type BorderRadiusProp,
+	borderRadiusStyles,
+} from "@/utils/layouts.styles";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
-import { toggleStyles } from "./toggle.styles";
+import {
+	togglePressedStyles,
+	toggleSizeStyles,
+	toggleStyles,
+	toggleVariantStyles,
+} from "./toggle.styles";
 
 export type ToggleVariant = "default" | "outline";
 export type ToggleSize = "default" | "sm" | "lg";
@@ -12,43 +21,31 @@ export interface ToggleProps extends PropsWithStylex<TogglePrimitive.Props> {
 	variant?: ToggleVariant;
 	size?: ToggleSize;
 	style?: stylex.StyleXStyles;
+	radius?: BorderRadiusProp;
 }
 
 export function Toggle({
 	children,
 	style,
 	variant = "default",
+	radius,
 	size = "default",
 	...props
 }: ToggleProps) {
-	const variantStyle =
-		variant === "outline" ? toggleStyles.outline : toggleStyles.default;
-	const sizeStyle =
-		size === "sm"
-			? toggleStyles.sm
-			: size === "lg"
-				? toggleStyles.lg
-				: toggleStyles.defaultSize;
-	const toggleProps = stylex.props(
-		toggleStyles.base,
-		variantStyle,
-		sizeStyle,
-		style,
-	);
+	const variantStyle = toggleVariantStyles[variant];
+	const sizeStyle = toggleSizeStyles[size];
+	console.log("radius", radius);
 	return (
 		<TogglePrimitive
-			{...toggleProps}
 			data-slot="toggle"
 			{...props}
 			render={(renderProps, toggleState) => {
-				const pressedStyle =
-					variant === "outline"
-						? toggleStyles.outlinePressed
-						: toggleStyles.defaultPressed;
+				const pressedStyle = togglePressedStyles[variant];
 				const renderStyles = stylex.props(
 					toggleStyles.base,
 					variantStyle,
 					sizeStyle,
+					radius && borderRadiusStyles[radius],
 					toggleState.pressed && pressedStyle,
 					style,
 				);

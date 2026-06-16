@@ -1,3 +1,4 @@
+import type { BorderRadiusProp } from "@/utils/layouts.styles";
 import {
 	ToggleGroup,
 	ToggleGroupItem,
@@ -16,11 +17,13 @@ type SegmentedControlProps<T extends string> = Omit<
 	value: T;
 	onValueChange: (value: T) => void;
 	options: Option<T>[];
+	radius?: BorderRadiusProp;
 };
 export function SegmentedControl<T extends string>({
 	value,
 	onValueChange,
 	options,
+	radius,
 	variant = "outline",
 	...props
 }: SegmentedControlProps<T>) {
@@ -37,7 +40,11 @@ export function SegmentedControl<T extends string>({
 			{...props}
 		>
 			{options.map((option) => (
-				<ToggleGroupItem key={option.value} value={option.value}>
+				<ToggleGroupItem
+					key={option.value}
+					value={option.value}
+					radius={radius}
+				>
 					{option.label}
 				</ToggleGroupItem>
 			))}

@@ -1,124 +1,72 @@
 import { CheckIcon, CopySimpleIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { estimateLanguage, highlightCode } from "@/lib/syntax-highlight";
-import { Button } from "../ui";
-import { Box } from "../ui/Box/box";
-
-const MAX_LINES = 20;
+import { highlightCode } from "@/lib/syntax-highlight";
+import { spacing } from "@/lib/theme/tokens.stylex";
+import { Button, HStack, SegmentedControl, Surface } from "../ui";
 
 const styles = stylex.create({
-	container: {
-		position: "relative",
-		borderRadius: "var(--border-radius-md)",
-		border: "1px solid var(--color-border-subtle)",
-		overflow: "hidden",
-		width: "100%",
-	},
 	header: {
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
-		paddingLeft: "var(--space-3)",
-		paddingRight: "var(--space-2)",
-		paddingTop: "var(--space-1-5)",
-		paddingBottom: "var(--space-1-5)",
-		backgroundColor: "var(--color-surface)",
-		borderBottom: "1px solid var(--color-border-subtle)",
+		paddingLeft: "var(--space-4)",
+		paddingRight: "var(--space-3)",
+		paddingTop: "var(--space-2)",
+		paddingBottom: "var(--space-2)",
+		backgroundColor: "#161b22",
+		borderBottom: "1px solid #30363d",
 	},
 	headerLeft: {
 		display: "flex",
 		alignItems: "center",
-		gap: "var(--space-2)",
+		gap: "var(--space-3)",
 		minWidth: 0,
 	},
 	title: {
 		fontFamily: "var(--font-display)",
 		fontSize: "13px",
-		color: "var(--color-content-secondary)",
+		color: "#8b949e",
 		overflow: "hidden",
 		textOverflow: "ellipsis",
 		whiteSpace: "nowrap",
 		lineHeight: 1.4,
+		fontWeight: 500,
 	},
 	languageBadge: {
 		fontFamily: "var(--font-mono)",
 		fontSize: "11px",
-		padding: "1px 6px",
-		borderRadius: "var(--border-radius-sm)",
-		backgroundColor: "var(--color-surface-sunken)",
-		color: "var(--color-content-secondary)",
+		padding: "2px 8px",
+		borderRadius: "var(--border-radius-full)",
+		backgroundColor: "#21262d",
+		color: "#c9d1d9",
 		textTransform: "uppercase",
 		letterSpacing: "0.5px",
-		fontWeight: 500,
+		fontWeight: 600,
 		lineHeight: "18px",
 		flexShrink: 0,
-	},
-	copyButton: {
-		display: "inline-flex",
-		alignItems: "center",
-		gap: "var(--space-1)",
-		padding: "var(--space-1) var(--space-1-5)",
-		borderRadius: "var(--border-radius-sm)",
-		border: "none",
-		background: "none",
-		cursor: "pointer",
-		fontFamily: "var(--font-display)",
-		fontSize: "12px",
-		color: "var(--color-content-secondary)",
-		transition: "color 0.15s ease",
-		flexShrink: 0,
-		":hover": {
-			color: "var(--color-content-primary)",
-			backgroundColor: "var(--color-surface-sunken)",
-		},
+		border: "1px solid #30363d",
 	},
 	scrollWrapper: {
-		position: "relative",
 		overflowX: "auto",
-		overflowY: "hidden",
-		backgroundColor: "var(--color-surface-sunken)",
-	},
-	collapseOverlay: {
-		position: "absolute",
-		bottom: 0,
-		left: 0,
-		right: 0,
-		height: "80px",
-		background: "linear-gradient(transparent, var(--color-surface-sunken))",
-		pointerEvents: "none",
-	},
-	expandButtonWrapper: {
-		display: "flex",
-		justifyContent: "center",
-		padding: "var(--space-2)",
-		borderTop: "1px solid var(--color-border-subtle)",
-		backgroundColor: "var(--color-surface-sunken)",
-	},
-	expandButton: {
-		display: "inline-flex",
-		alignItems: "center",
-		gap: "var(--space-1)",
-		padding: "var(--space-1) var(--space-3)",
-		borderRadius: "var(--border-radius-sm)",
-		border: "1px solid var(--color-border-subtle)",
-		background: "var(--color-surface)",
-		cursor: "pointer",
-		fontFamily: "var(--font-display)",
-		fontSize: "12px",
-		color: "var(--color-content-secondary)",
-		transition: "all 0.15s ease",
-		":hover": {
-			color: "var(--color-content-primary)",
-			borderColor: "var(--color-border)",
-		},
+		overflowY: "auto",
+		padding: spacing.medium,
+		maxHeight: "80svh",
+		lineHeight: 1.2,
 	},
 });
 
-interface DocCodeViewProps {
+interface CodeFile {
 	code: string;
 	title?: string;
 	language?: string;
+}
+
+interface DocCodeViewProps {
+	code?: string;
+	title?: string;
+	language?: string;
+	files?: CodeFile[];
 }
 
 function escapeHtml(code: string): string {
@@ -128,21 +76,25 @@ function escapeHtml(code: string): string {
 		.replace(/>/g, "&gt;")}</code></pre>`;
 }
 
-function DocCodeView({ code, title, language }: DocCodeViewProps) {
+function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
+	const activeFiles =
+		files || (code != null ? [{ code, title, language }] : []);
+	const [activeIndex, setActiveIndex] = useState(0);
+	const activeFile = activeFiles[activeIndex] || {
+		code: "",
+		title: "",
+		language: "typescript",
+	};
+
 	const [copied, setCopied] = useState(false);
-	const [expanded, setExpanded] = useState(false);
 	const [highlighted, setHighlighted] = useState<string | null>(null);
 	const mountedRef = useRef(true);
 
-	const lines = code.split("\n");
-	const totalLines = lines.length;
-	const showCollapse = totalLines > MAX_LINES;
-
 	useEffect(() => {
 		mountedRef.current = true;
-		const lang = language ?? estimateLanguage(code);
+		const lang = activeFile.language ?? "typescript";
 
-		highlightCode(code, lang).then((html) => {
+		highlightCode(activeFile.code, lang).then((html) => {
 			if (mountedRef.current) {
 				setHighlighted(html);
 			}
@@ -151,65 +103,77 @@ function DocCodeView({ code, title, language }: DocCodeViewProps) {
 		return () => {
 			mountedRef.current = false;
 		};
-	}, [code, language]);
+	}, [activeFile.code, activeFile.language]);
 
 	const handleCopy = useCallback(() => {
-		navigator.clipboard.writeText(code).then(() => {
+		navigator.clipboard.writeText(activeFile.code).then(() => {
 			setCopied(true);
 			setTimeout(() => setCopied(false), 2000);
 		});
-	}, [code]);
+	}, [activeFile.code]);
 
-	const lang = language ?? estimateLanguage(code);
-
-	const displayLines = showCollapse && !expanded ? lines.slice(0, MAX_LINES) : lines;
-	const isCollapsed = showCollapse && !expanded;
-	const displayCode = displayLines.join("\n");
+	const lang = activeFile.language ?? "typescript";
+	const isMultiFile = activeFiles.length > 1;
 
 	return (
-		<Box style={styles.container}>
-			<div {...stylex.props(styles.header)}>
-				<div {...stylex.props(styles.headerLeft)}>
-					{title && <span {...stylex.props(styles.title)}>{title}</span>}
-					<span {...stylex.props(styles.languageBadge)}>{lang}</span>
-				</div>
-				<Button
-					size="xsmall"
-					type="button"
-					variant="soft"
-					{...stylex.props(styles.copyButton)}
-					onClick={handleCopy}
-					aria-label={copied ? "Copied" : "Copy code"}
-				>
-					{copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
-					{copied ? "Copied" : "Copy"}
-				</Button>
-			</div>
-
-			<div {...stylex.props(styles.scrollWrapper)}>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: highlighted ?? escapeHtml(displayCode),
-					}}
-				/>
-				{isCollapsed && <div {...stylex.props(styles.collapseOverlay)} />}
-			</div>
-
-			{showCollapse && (
-				<div {...stylex.props(styles.expandButtonWrapper)}>
+		<Surface variant="sunken">
+			{isMultiFile ? (
+				<Surface variant="raised" radius="none">
+					<HStack justify="between" padding="xxsmall">
+						<SegmentedControl
+							variant="default"
+							value={activeIndex.toString()}
+							radius="xsmall"
+							onValueChange={(value) => {
+								setActiveIndex(Number(value));
+								setHighlighted(null);
+							}}
+							options={activeFiles.map((file, idx) => ({
+								value: `${idx}`,
+								label: file.title || `File ${idx + 1}`,
+							}))}
+						/>
+						<Button
+							type="button"
+							size="xsmall"
+							radius="xsmall"
+							onClick={handleCopy}
+							aria-label={copied ? "Copied" : "Copy code"}
+						>
+							{copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
+							{copied ? "Copied" : "Copy"}
+						</Button>
+					</HStack>
+				</Surface>
+			) : (
+				<div {...stylex.props(styles.header)}>
+					<div {...stylex.props(styles.headerLeft)}>
+						{activeFile.title && (
+							<span {...stylex.props(styles.title)}>{activeFile.title}</span>
+						)}
+						<span {...stylex.props(styles.languageBadge)}>{lang}</span>
+					</div>
 					<Button
-						size="xsmall"
 						type="button"
-						{...stylex.props(styles.expandButton)}
-						onClick={() => setExpanded(!expanded)}
+						onClick={handleCopy}
+						size="xsmall"
+						aria-label={copied ? "Copied" : "Copy code"}
 					>
-						{expanded
-							? "Show less"
-							: `Show ${totalLines - MAX_LINES} more lines`}
+						{copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
+						{copied ? "Copied" : "Copy"}
 					</Button>
 				</div>
 			)}
-		</Box>
+
+			<div {...stylex.props(styles.scrollWrapper)}>
+				<div
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: dangerouslySetInnerHTML
+					dangerouslySetInnerHTML={{
+						__html: highlighted ?? escapeHtml(activeFile.code),
+					}}
+				/>
+			</div>
+		</Surface>
 	);
 }
 

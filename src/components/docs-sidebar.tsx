@@ -1,8 +1,8 @@
 import * as stylex from "@stylexjs/stylex";
-import { Link, useLocation } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { docsQueries } from "@/lib/docs-api";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Box, Surface, Text, VStack } from "@/components/ui";
+import { docsQueries } from "@/lib/docs-api";
 
 interface SidebarSection {
 	title: string;

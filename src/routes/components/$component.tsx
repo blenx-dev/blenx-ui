@@ -1,15 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import type { DocsManifest } from "@/lib/docs-meta";
-import { docsQueries } from "@/lib/docs-api";
-import { DocsLayout } from "@/components/docs-layout";
+import { createFileRoute } from "@tanstack/react-router";
 import { DocAccessibility } from "@/components/docs/doc-accessibility";
 import { DocApiReference } from "@/components/docs/doc-api-reference";
+import { DocCodeView } from "@/components/docs/doc-code-view";
 import { DocDemoRenderer } from "@/components/docs/doc-demo-renderer";
 import { DocInstallation } from "@/components/docs/doc-installation";
 import { DocRelated } from "@/components/docs/doc-related";
-import { DocCodeView } from "@/components/docs/doc-code-view";
+import { DocsLayout } from "@/components/docs-layout";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
+import { docsQueries } from "@/lib/docs-api";
+import type { DocsManifest } from "@/lib/docs-meta";
 
 export const Route = createFileRoute("/components/$component")({
 	loader: async ({ params, context: { queryClient } }) => {
@@ -67,15 +67,15 @@ function ComponentDocPage() {
 
 				<Separator tone="subtle" />
 
-			{doc.registryName && registry?.demo && (
-				<Box>
-					<Text variant="h2">Demo</Text>
-					<Surface padding="medium" variant="sunken">
-						<DocDemoRenderer registryName={doc.registryName} />
-					</Surface>
-					<DocCodeView code={registry.demo} title="Demo Source" />
-				</Box>
-			)}
+				{doc.registryName && registry?.demo && (
+					<Box>
+						<Text variant="h2">Demo</Text>
+						<Surface padding="medium" variant="sunken">
+							<DocDemoRenderer registryName={doc.registryName} />
+						</Surface>
+						<DocCodeView code={registry.demo} title="Demo Source" />
+					</Box>
+				)}
 
 				<Separator tone="subtle" />
 
@@ -90,11 +90,12 @@ function ComponentDocPage() {
 				{doc.examples.length > 0 && (
 					<Box>
 						<Text variant="h2">Examples</Text>
-						{doc.examples.map((example) => (
-							<Box key={example.name}>
-								<DocCodeView code={example.source} title={example.name} />
-							</Box>
-						))}
+						<DocCodeView
+							files={doc.examples.map((example) => ({
+								title: example.name,
+								code: example.source,
+							}))}
+						/>
 					</Box>
 				)}
 
@@ -118,10 +119,10 @@ function ComponentDocPage() {
 				{doc.related && doc.related.length > 0 && (
 					<>
 						<Separator tone="subtle" />
-						<Box>
+						<VStack>
 							<Text variant="h2">Related Components</Text>
 							<DocRelated related={doc.related} />
-						</Box>
+						</VStack>
 					</>
 				)}
 			</VStack>

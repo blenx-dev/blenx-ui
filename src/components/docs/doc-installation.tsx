@@ -61,17 +61,12 @@ function DocInstallation({
 			<Box>
 				<Text variant="h3">Manual Installation</Text>
 				<VStack gap="medium">
-					{files.map((file) => (
-						<Box key={file.target}>
-							<Text variant="code" color="secondary">
-								{cleanTarget(file.target)}
-							</Text>
-							<DocCodeView
-								code={file.content}
-								title={cleanTarget(file.target)}
-							/>
-						</Box>
-					))}
+					<DocCodeView
+						files={files.map((f) => ({
+							code: f.content,
+							title: cleanTarget(f.target),
+						}))}
+					/>
 				</VStack>
 			</Box>
 

@@ -92,3 +92,5 @@ export const positionStyles = stylex.create({
 	fixed: { position: "fixed" },
 	sticky: { position: "sticky" },
 });
+
+export type BorderRadiusProp = keyof typeof borderRadiusStyles;
