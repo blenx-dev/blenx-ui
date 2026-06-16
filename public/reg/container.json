@@ -15,7 +15,7 @@
   "files": [
     {
       "path": "src/components/ui/Container/container.tsx",
-      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport type { BoxProps } from \"../Box/box\";\nimport { Box } from \"../Box/box\";\nimport { containerStyles } from \"./container.styles\";\n\ntype Props = BoxProps & {\n\tsize?: BoxProps[\"maxWidth\"];\n\tcenter?: boolean;\n\tcontent?: \"center\" | \"top\";\n};\n\nexport function Container({\n\tsize,\n\tcenter = true,\n\tcontent = \"top\",\n\tstyle,\n\t...props\n}: Props) {\n\tconst applyCenter = center || content === \"center\";\n\tconst resolvedStyles = stylex.props(\n\t\tapplyCenter && containerStyles.center,\n\t\tcontainerStyles.root,\n\t\tstyle,\n\t);\n\treturn <Box {...props} {...resolvedStyles} />;\n}\n",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport type { BoxProps } from \"../Box/box\";\nimport { Box } from \"../Box/box\";\nimport { containerStyles } from \"./container.styles\";\n\ntype Props = BoxProps & {\n\tsize?: BoxProps[\"maxWidth\"];\n\tcenter?: boolean;\n\tcontent?: \"center\" | \"top\";\n};\n\nexport function Container({\n\tsize,\n\tcenter = true,\n\tcontent = \"top\",\n\tstyle,\n\t...props\n}: Props) {\n\tconst applyCenter = center || content === \"center\";\n\tconst resolvedStyles = stylex.props(\n\t\tapplyCenter && containerStyles.center,\n\t\tcontainerStyles.root,\n\t\tstyle,\n\t);\n\treturn <Box maxWidth={size} {...props} {...resolvedStyles} />;\n}\n",
       "type": "registry:ui",
       "target": "@ui/Container/container.tsx"
     },

@@ -20,6 +20,26 @@
           "target": "@lib/app-theme.stylex.ts"
         },
         {
+          "path": "registry/.temp/src/lib/docs-api.ts",
+          "type": "registry:file",
+          "target": "@lib/docs-api.ts"
+        },
+        {
+          "path": "registry/.temp/src/lib/docs-meta.ts",
+          "type": "registry:file",
+          "target": "@lib/docs-meta.ts"
+        },
+        {
+          "path": "registry/.temp/src/lib/query-client.ts",
+          "type": "registry:file",
+          "target": "@lib/query-client.ts"
+        },
+        {
+          "path": "registry/.temp/src/lib/syntax-highlight.ts",
+          "type": "registry:file",
+          "target": "@lib/syntax-highlight.ts"
+        },
+        {
           "path": "registry/.temp/src/lib/theme/contract.stylex.ts",
           "type": "registry:file",
           "target": "@lib/theme/contract.stylex.ts"
@@ -33,11 +53,6 @@
           "path": "registry/.temp/src/lib/theme/tokens.stylex.ts",
           "type": "registry:file",
           "target": "@lib/theme/tokens.stylex.ts"
-        },
-        {
-          "path": "registry/.temp/src/utils/docs.styles.ts",
-          "type": "registry:file",
-          "target": "@utils/docs.styles.ts"
         },
         {
           "path": "registry/.temp/src/utils/layouts.styles.ts",
@@ -685,7 +700,7 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "field",
+      "name": "grid",
       "type": "registry:ui",
       "title": "Grid",
       "description": "A StyleX Grid component.",

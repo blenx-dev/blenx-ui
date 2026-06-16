@@ -74,10 +74,10 @@ function ComponentDocPage() {
 							<DocDemoRenderer registryName={doc.registryName} />
 						</Surface>
 						<DocCodeView code={registry.demo} title="Demo Source" />
+
+						<Separator />
 					</Box>
 				)}
-
-				<Separator tone="subtle" />
 
 				<DocInstallation
 					registryName={doc.registryName}
