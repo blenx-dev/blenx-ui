@@ -7,7 +7,7 @@ import {
 	spacing,
 } from "@/lib/theme/tokens.stylex";
 
-export const radioStyles = stylex.create({
+export const checkboxStyles = stylex.create({
 	root: {
 		position: "relative",
 		display: "inline-flex",
@@ -22,7 +22,7 @@ export const radioStyles = stylex.create({
 			default: 18,
 			[mediaQueries.sm]: 16,
 		},
-		borderRadius: borderRadius.full,
+		borderRadius: borderRadius.small,
 		borderWidth: borderWidth.thin,
 		borderStyle: "solid",
 		borderColor: theme.border,
@@ -44,33 +44,36 @@ export const radioStyles = stylex.create({
 	group: {
 		display: "flex",
 		flexDirection: "column",
+		alignItems: "flex-start",
 		gap: spacing.small,
 	},
 	indicator: {
-		display: "none",
 		position: "absolute",
 		top: -1,
 		left: -1,
 		right: -1,
 		bottom: -1,
+		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
-		borderRadius: borderRadius.full,
+		borderRadius: borderRadius.small,
+		color: theme.contentOnPrimary,
 	},
 	indicatorChecked: {
-		display: "flex",
 		backgroundColor: theme.primary,
+		color: theme.contentOnPrimary,
 	},
-	dot: {
+	indicatorIndeterminate: {
+		color: theme.contentPrimary,
+	},
+	icon: {
 		width: {
-			default: 8,
-			[mediaQueries.sm]: 6,
+			default: 14,
+			[mediaQueries.sm]: 12,
 		},
 		height: {
-			default: 8,
-			[mediaQueries.sm]: 6,
+			default: 14,
+			[mediaQueries.sm]: 12,
 		},
-		borderRadius: borderRadius.full,
-		backgroundColor: theme.contentOnPrimary,
 	},
 });

@@ -48,9 +48,7 @@ export function WithEllipsis() {
 						<BreadcrumbSeparator />
 					</BreadcrumbItem>
 					<BreadcrumbItem>
-						<BreadcrumbLink href="/category/sub/deep">
-							Deep page
-						</BreadcrumbLink>
+						<BreadcrumbLink href="/category/sub/deep">Deep page</BreadcrumbLink>
 						<BreadcrumbSeparator />
 					</BreadcrumbItem>
 					<BreadcrumbItem>

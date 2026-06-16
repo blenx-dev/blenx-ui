@@ -1,6 +1,6 @@
 export {
-	RadioGroup,
 	Radio,
+	RadioGroup,
 	RadioGroupItem,
 	RadioGroupPrimitive,
 	RadioPrimitive,

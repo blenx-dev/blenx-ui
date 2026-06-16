@@ -7,11 +7,7 @@ import { progressStyles } from "./progress.styles";
 
 type ProgressRootProps = PropsWithStylex<ProgressPrimitive.Root.Props>;
 
-export function Progress({
-	children,
-	style,
-	...props
-}: ProgressRootProps) {
+export function Progress({ children, style, ...props }: ProgressRootProps) {
 	return (
 		<ProgressPrimitive.Root
 			{...stylex.props(progressStyles.root, style)}
@@ -28,10 +24,7 @@ export function Progress({
 
 type ProgressLabelProps = PropsWithStylex<ProgressPrimitive.Label.Props>;
 
-export function ProgressLabel({
-	style,
-	...props
-}: ProgressLabelProps) {
+export function ProgressLabel({ style, ...props }: ProgressLabelProps) {
 	return (
 		<ProgressPrimitive.Label
 			{...stylex.props(progressStyles.label, style)}
@@ -42,10 +35,7 @@ export function ProgressLabel({
 
 type ProgressTrackProps = PropsWithStylex<ProgressPrimitive.Track.Props>;
 
-export function ProgressTrack({
-	style,
-	...props
-}: ProgressTrackProps) {
+export function ProgressTrack({ style, ...props }: ProgressTrackProps) {
 	return (
 		<ProgressPrimitive.Track
 			{...stylex.props(progressStyles.track, style)}
@@ -57,10 +47,7 @@ export function ProgressTrack({
 type ProgressIndicatorProps =
 	PropsWithStylex<ProgressPrimitive.Indicator.Props>;
 
-export function ProgressIndicator({
-	style,
-	...props
-}: ProgressIndicatorProps) {
+export function ProgressIndicator({ style, ...props }: ProgressIndicatorProps) {
 	return (
 		<ProgressPrimitive.Indicator
 			{...stylex.props(progressStyles.indicator, style)}
@@ -71,10 +58,7 @@ export function ProgressIndicator({
 
 type ProgressValueProps = PropsWithStylex<ProgressPrimitive.Value.Props>;
 
-export function ProgressValue({
-	style,
-	...props
-}: ProgressValueProps) {
+export function ProgressValue({ style, ...props }: ProgressValueProps) {
 	return (
 		<ProgressPrimitive.Value
 			{...stylex.props(progressStyles.value, style)}

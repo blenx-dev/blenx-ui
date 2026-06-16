@@ -1,4 +1,3 @@
-import * as stylex from "@stylexjs/stylex";
 import {
 	Alert,
 	Avatar,
@@ -18,6 +17,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
+	Checkbox,
 	Dialog,
 	DialogContent,
 	DialogDescription,
@@ -32,7 +32,6 @@ import {
 	ProgressIndicator,
 	ProgressLabel,
 	ProgressTrack,
-	Radio,
 	RadioGroup,
 	RadioGroupItem,
 	Select,
@@ -41,18 +40,6 @@ import {
 	Textarea,
 	VStack,
 } from "@/components/ui";
-import { theme } from "@/lib/theme/contract.stylex";
-import { fontSize, spacing } from "@/lib/theme/tokens.stylex";
-
-const styles = stylex.create({
-	radioLabel: {
-		display: "flex",
-		alignItems: "center",
-		gap: spacing["1"],
-		fontSize: fontSize.small,
-		color: theme.contentPrimary,
-	},
-});
 
 export function ComponentShowcase() {
 	return (
@@ -128,8 +115,10 @@ export function ComponentShowcase() {
 					</RadioGroup>
 				</HStack>
 				<HStack>
-					<input type="checkbox" />
-					<Text variant="body2">Check me</Text>
+					<Label>
+						<Checkbox />
+						Check me
+					</Label>
 				</HStack>
 			</VStack>
 
