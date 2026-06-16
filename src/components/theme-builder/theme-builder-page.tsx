@@ -100,7 +100,7 @@ function SidebarContent() {
 					<Accordion.Trigger>Colors</Accordion.Trigger>
 				</Accordion.Header>
 				<Accordion.Panel>
-					<ColorControls noSection />
+					<ColorControls />
 				</Accordion.Panel>
 			</Accordion.Item>
 
@@ -109,7 +109,7 @@ function SidebarContent() {
 					<Accordion.Trigger>Typography</Accordion.Trigger>
 				</Accordion.Header>
 				<Accordion.Panel>
-					<TypographyControls noSection />
+					<TypographyControls />
 				</Accordion.Panel>
 			</Accordion.Item>
 
@@ -127,7 +127,7 @@ function SidebarContent() {
 					<Accordion.Trigger>Export</Accordion.Trigger>
 				</Accordion.Header>
 				<Accordion.Panel>
-					<ExportPanel noSection />
+					<ExportPanel />
 				</Accordion.Panel>
 			</Accordion.Item>
 
@@ -136,7 +136,7 @@ function SidebarContent() {
 					<Accordion.Trigger>Theme Variables</Accordion.Trigger>
 				</Accordion.Header>
 				<Accordion.Panel>
-					<TokenTable noSection />
+					<TokenTable />
 				</Accordion.Panel>
 			</Accordion.Item>
 
@@ -145,7 +145,7 @@ function SidebarContent() {
 					<Accordion.Trigger>How It Works</Accordion.Trigger>
 				</Accordion.Header>
 				<Accordion.Panel>
-					<HowItWorks noSection />
+					<HowItWorks />
 				</Accordion.Panel>
 			</Accordion.Item>
 		</Accordion.Root>

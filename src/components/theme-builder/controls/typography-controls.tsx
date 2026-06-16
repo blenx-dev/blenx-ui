@@ -3,7 +3,6 @@ import type { ChangeEvent } from "react";
 import { Select, Text } from "@/components/ui";
 import { spacing } from "@/lib/theme/tokens.stylex";
 import { useThemeBuilder } from "../theme-builder-context";
-import { Section } from "./section";
 
 const styles = stylex.create({
 	sliderRow: {
@@ -46,15 +45,11 @@ const fontWeightOptions = [
 	{ label: "Bold 700", value: "700" },
 ];
 
-interface TypographyControlsProps {
-	noSection?: boolean;
-}
-
-export function TypographyControls({ noSection }: TypographyControlsProps) {
+export function TypographyControls() {
 	const tokens = useThemeBuilder((s) => s.tokens);
 	const updateToken = useThemeBuilder((s) => s.updateToken);
 
-	const content = (
+	return (
 		<>
 			<Select.Wrapper label="Font Family">
 				<Select.Root
@@ -148,8 +143,4 @@ export function TypographyControls({ noSection }: TypographyControlsProps) {
 			</Select.Wrapper>
 		</>
 	);
-
-	if (noSection) return content;
-
-	return <Section title="Typography">{content}</Section>;
 }

@@ -1,9 +1,8 @@
 import * as stylex from "@stylexjs/stylex";
-import { Text } from "@/components/ui";
+import { Box, Text } from "@/components/ui";
 import { spacing } from "@/lib/theme/tokens.stylex";
 import { useThemeBuilder } from "../theme-builder-context";
 import { presets } from "./presets-data";
-import { Section } from "./section";
 
 const styles = stylex.create({
 	grid: {
@@ -46,11 +45,7 @@ const styles = stylex.create({
 	},
 });
 
-interface PresetControlsProps {
-	noSection?: boolean;
-}
-
-export function PresetControls({ noSection }: PresetControlsProps) {
+export function PresetControls() {
 	const tokens = useThemeBuilder((s) => s.tokens);
 	const updateToken = useThemeBuilder((s) => s.updateToken);
 
@@ -92,8 +87,5 @@ export function PresetControls({ noSection }: PresetControlsProps) {
 			})}
 		</div>
 	);
-
-	if (noSection) return content;
-
-	return <Section title="Presets">{content}</Section>;
+	return <Box>{content}</Box>;
 }

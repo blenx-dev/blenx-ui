@@ -1,7 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@/lib/theme/contract.stylex";
-import { borderRadius, fontSize, spacing } from "@/lib/theme/tokens.stylex";
-import { Section } from "../controls/section";
+import { fontSize, spacing } from "@/lib/theme/tokens.stylex";
 import { componentTokenMap } from "../preview/component-token-map";
 import { useThemeBuilder } from "../theme-builder-context";
 
@@ -77,16 +76,12 @@ const displayTokens: Array<{ key: keyof typeof theme; label: string }> = [
 	{ key: "borderRadius", label: "borderRadius" },
 ];
 
-interface TokenTableProps {
-	noSection?: boolean;
-}
-
-export function TokenTable({ noSection }: TokenTableProps) {
+export function TokenTable() {
 	const tokens = useThemeBuilder((s) => s.tokens);
 	const setSelectedToken = useThemeBuilder((s) => s.setSelectedToken);
 	const selectedToken = useThemeBuilder((s) => s.selectedToken);
 
-	const content = (
+	return (
 		<table {...stylex.props(styles.table)}>
 			<thead>
 				<tr>
@@ -135,8 +130,4 @@ export function TokenTable({ noSection }: TokenTableProps) {
 			</tbody>
 		</table>
 	);
-
-	if (noSection) return content;
-
-	return <Section title="Theme Variables">{content}</Section>;
 }

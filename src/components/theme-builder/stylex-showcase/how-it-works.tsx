@@ -1,7 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@/lib/theme/contract.stylex";
 import { borderRadius, fontSize, spacing } from "@/lib/theme/tokens.stylex";
-import { Section } from "../controls/section";
 
 const styles = stylex.create({
 	paragraph: {
@@ -53,12 +52,9 @@ export const customTheme = stylex.createTheme(theme, {
   background: "#...",
 });`;
 
-interface HowItWorksProps {
-	noSection?: boolean;
-}
 
-export function HowItWorks({ noSection }: HowItWorksProps) {
-	const content = (
+export function HowItWorks() {
+	return (
 		<>
 			<p {...stylex.props(styles.paragraph)}>
 				Blenx UI uses <span {...stylex.props(styles.inlineCode)}>StyleX</span>{" "}
@@ -95,8 +91,4 @@ export function HowItWorks({ noSection }: HowItWorksProps) {
 			<pre {...stylex.props(styles.codeBlock)}>{runtimeCode}</pre>
 		</>
 	);
-
-	if (noSection) return content;
-
-	return <Section title="How It Works">{content}</Section>;
 }

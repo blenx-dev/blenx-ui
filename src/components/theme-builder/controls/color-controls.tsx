@@ -2,7 +2,6 @@ import * as stylex from "@stylexjs/stylex";
 import { ColorPicker } from "@/components/ui";
 import { spacing } from "@/lib/theme/tokens.stylex";
 import { useThemeBuilder } from "../theme-builder-context";
-import { Section } from "./section";
 
 const styles = stylex.create({
 	group: {
@@ -26,15 +25,11 @@ const colorTokens = [
 	{ key: "contentSecondary", label: "Text Secondary" },
 ] as const;
 
-interface ColorControlsProps {
-	noSection?: boolean;
-}
-
-export function ColorControls({ noSection }: ColorControlsProps) {
+export function ColorControls() {
 	const tokens = useThemeBuilder((s) => s.tokens);
 	const updateTokenDebounced = useThemeBuilder((s) => s.updateTokenDebounced);
 
-	const content = (
+	return (
 		<div {...stylex.props(styles.group)}>
 			{colorTokens.map(({ key, label }) => (
 				<ColorPicker
@@ -48,8 +43,4 @@ export function ColorControls({ noSection }: ColorControlsProps) {
 			))}
 		</div>
 	);
-
-	if (noSection) return content;
-
-	return <Section title="Colors">{content}</Section>;
 }

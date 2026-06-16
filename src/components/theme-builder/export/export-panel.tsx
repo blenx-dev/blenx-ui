@@ -41,11 +41,7 @@ const styles = stylex.create({
 	},
 });
 
-interface ExportPanelProps {
-	noSection?: boolean;
-}
-
-export function ExportPanel({ noSection }: ExportPanelProps) {
+export function ExportPanel() {
 	const tokens = useThemeBuilder((s) => s.tokens);
 	const resetTokens = useThemeBuilder((s) => s.resetTokens);
 	const [copied, setCopied] = useState("");
@@ -111,7 +107,7 @@ ${themeEntries.join("\n")}
 		setShowReset(false);
 	}, [resetTokens]);
 
-	const content = (
+	return (
 		<>
 			<div {...stylex.props(styles.buttonRow)}>
 				<Button variant="outline" size="small" onClick={generateJSON}>
@@ -166,8 +162,4 @@ ${themeEntries.join("\n")}
 			</AlertDialog>
 		</>
 	);
-
-	if (noSection) return content;
-
-	return <Section title="Export">{content}</Section>;
 }
