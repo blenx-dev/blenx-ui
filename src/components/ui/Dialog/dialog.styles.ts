@@ -27,7 +27,7 @@ export const dialogStyles = stylex.create({
 			display: "grid",
 		},
 	},
-	// viewportShellBottomStickOnMobile: {},
+	viewportShellBottomStickOnMobile: {},
 	popup: {
 		position: "relative",
 		gridRowStart: 2,
@@ -62,7 +62,7 @@ export const dialogStyles = stylex.create({
 				"0 1px 0 rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.02)",
 		},
 	},
-	// popupBottomStickOnMobile: {},
+	popupBottomStickOnMobile: {},
 	closeButton: {
 		position: "absolute",
 		top: spacing.small,

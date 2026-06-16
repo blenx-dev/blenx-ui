@@ -206,9 +206,9 @@ export function ComponentShowcase() {
 			</div>
 
 			{/* Data Display */}
-			<div {...stylex.props(styles.section)}>
-				<h3 {...stylex.props(styles.sectionTitle)}>Data Display</h3>
-				<Card padding="medium">
+			<VStack>
+				<Text variant="h3">Data Display</Text>
+				<Card>
 					<CardHeader>
 						<CardTitle>Card Title</CardTitle>
 						<CardDescription>Card description goes here.</CardDescription>
@@ -228,19 +228,19 @@ export function ComponentShowcase() {
 						</Button>
 					</CardFooter>
 				</Card>
-				<div {...stylex.props(styles.badgeRow)}>
+				<HStack>
 					<Badge variant="default">Default</Badge>
 					<Badge variant="primary">Primary</Badge>
 					<Badge variant="secondary">Secondary</Badge>
-				</div>
+				</HStack>
 				<Avatar size="medium">
 					<AvatarFallback>JD</AvatarFallback>
 				</Avatar>
-			</div>
+			</VStack>
 
 			{/* Overlays */}
-			<div {...stylex.props(styles.section)}>
-				<h3 {...stylex.props(styles.sectionTitle)}>Overlays</h3>
+			<Box>
+				<Text variant="h3">Overlays</Text>
 				<Dialog>
 					<DialogTrigger>
 						<Button variant="outline">Open Dialog</Button>
@@ -260,7 +260,7 @@ export function ComponentShowcase() {
 						</DialogFooter>
 					</DialogContent>
 				</Dialog>
-			</div>
+			</Box>
 		</VStack>
 	);
 }
