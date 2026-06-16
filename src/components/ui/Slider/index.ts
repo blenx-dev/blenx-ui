@@ -1,5 +1,5 @@
 export {
 	Slider,
-	SliderValue,
 	SliderPrimitive,
+	SliderValue,
 } from "./slider";

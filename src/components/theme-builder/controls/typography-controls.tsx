@@ -8,7 +8,6 @@ import {
 } from "@/components/ui";
 import { useThemeBuilder } from "../theme-builder-context";
 
-
 const fontFamilyOptions = [
 	{
 		label: "DM Sans",

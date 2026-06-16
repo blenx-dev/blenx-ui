@@ -1,4 +1,3 @@
-import * as stylex from "@stylexjs/stylex";
 import {
 	Accordion,
 	Box,
@@ -6,21 +5,7 @@ import {
 	Text,
 	VStack,
 } from "@/components/ui";
-import { spacing } from "@/lib/theme/tokens.stylex";
 import { useThemeBuilder } from "../theme-builder-context";
-
-const styles = stylex.create({
-	controlRow: {
-		display: "flex",
-		flexDirection: "column",
-		gap: spacing["1"],
-	},
-	currentValue: {
-		display: "flex",
-		justifyContent: "space-between",
-		alignItems: "center",
-	},
-});
 
 const radiusOptions = [
 	{ value: "none", label: "None" },

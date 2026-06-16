@@ -55,10 +55,10 @@ export function Slider({
 		>
 			{children}
 			<SliderPrimitive.Control
-				className={stylex.props(
-					sliderStyles.control,
-					sliderControlStyles[orientation],
-				).className}
+				className={
+					stylex.props(sliderStyles.control, sliderControlStyles[orientation])
+						.className
+				}
 				data-slot="slider-control"
 			>
 				<SliderPrimitive.Track
@@ -106,10 +106,7 @@ export function SliderValue({
 }: SliderValueProps): React.ReactElement {
 	return (
 		<SliderPrimitive.Value
-			className={[
-				stylex.props(sliderStyles.value, style).className,
-				className,
-			]
+			className={[stylex.props(sliderStyles.value, style).className, className]
 				.filter(Boolean)
 				.join(" ")}
 			data-slot="slider-value"
