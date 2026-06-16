@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "A StyleX Spinner component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Spinner/spinner.tsx",
+      "content": "import { SpinnerIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { spinnerStyles } from \"./spinner.styles\";\n\ntype Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;\n\nexport function Spinner({ style, ...props }: Props): React.ReactElement {\n\treturn (\n\t\t<SpinnerIcon\n\t\t\taria-label=\"Loading\"\n\t\t\trole=\"status\"\n\t\t\t{...stylex.props(spinnerStyles.spinner, style)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/Spinner/spinner.tsx"
+    },
+    {
+      "path": "src/components/ui/Spinner/spinner.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\n\nexport const spin = stylex.keyframes({\n\tfrom: {\n\t\ttransform: \"rotate(0deg)\",\n\t},\n\tto: {\n\t\ttransform: \"rotate(360deg)\",\n\t},\n});\n\nexport const spinnerStyles = stylex.create({\n\tspinner: {\n\t\tanimationName: spin,\n\t\tanimationDuration: \"1s\",\n\t\tanimationIterationCount: \"infinite\",\n\t\tanimationTimingFunction: \"linear\",\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/Spinner/spinner.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

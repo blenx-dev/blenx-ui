@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "segmented-control",
+  "title": "SegmentedControl",
+  "description": "A StyleX SegmentedControl component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/toggle.json",
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/SegmentedControl/segmented-control.tsx",
+      "content": "import {\n\tToggleGroup,\n\tToggleGroupItem,\n\ttype ToggleGroupProps,\n} from \"../ToggleGroup/toggle-group\";\n\ntype Option<T extends string> = {\n\tvalue: T;\n\tlabel: string;\n};\n\ntype SegmentedControlProps<T extends string> = Omit<\n\tToggleGroupProps,\n\t\"value\" | \"onValueChange\"\n> & {\n\tvalue: T;\n\tonValueChange: (value: T) => void;\n\toptions: Option<T>[];\n};\nexport function SegmentedControl<T extends string>({\n\tvalue,\n\tonValueChange,\n\toptions,\n\tvariant = \"outline\",\n\t...props\n}: SegmentedControlProps<T>) {\n\treturn (\n\t\t<ToggleGroup\n\t\t\tvalue={[value]}\n\t\t\tonValueChange={(values) => {\n\t\t\t\tif (values.length === 0) {\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tonValueChange(values[0] as T);\n\t\t\t}}\n\t\t\tvariant={variant}\n\t\t\t{...props}\n\t\t>\n\t\t\t{options.map((option) => (\n\t\t\t\t<ToggleGroupItem key={option.value} value={option.value}>\n\t\t\t\t\t{option.label}\n\t\t\t\t</ToggleGroupItem>\n\t\t\t))}\n\t\t</ToggleGroup>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/SegmentedControl/segmented-control.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

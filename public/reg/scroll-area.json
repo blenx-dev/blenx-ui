@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area",
+  "title": "ScrollArea",
+  "description": "A StyleX Input Group component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/ScrollArea/scroll-area.tsx",
+      "content": "\"use client\";\n\nimport { ScrollArea as ScrollAreaPrimitive } from \"@base-ui/react/scroll-area\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport { scrollAreaStyles } from \"./scroll-area.styles\";\n\ntype ScrollAreaProps = ScrollAreaPrimitive.Root.Props & {\n\tscrollFade?: boolean;\n\tscrollbarGutter?: boolean;\n\tfill?: boolean;\n\tstyle?: stylex.StyleXStyles;\n};\n\nexport function ScrollArea({\n\tchildren,\n\tclassName,\n\tscrollFade = false,\n\tscrollbarGutter = false,\n\tfill = false,\n\tstyle,\n\t...props\n}: ScrollAreaProps): React.ReactElement {\n\tconst rootProps = stylex.props(scrollAreaStyles.root, style as never);\n\treturn (\n\t\t<ScrollAreaPrimitive.Root\n\t\t\tclassName={[rootProps.className, className].filter(Boolean).join(\" \")}\n\t\t\tdata-slot=\"scroll-area-root\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ScrollAreaPrimitive.Viewport\n\t\t\t\tclassName={\n\t\t\t\t\tstylex.props(\n\t\t\t\t\t\tscrollAreaStyles.viewport,\n\t\t\t\t\t\tscrollFade && scrollAreaStyles.viewportFade,\n\t\t\t\t\t\tscrollbarGutter && scrollAreaStyles.viewportGutter,\n\t\t\t\t\t).className\n\t\t\t\t}\n\t\t\t\tdata-slot=\"scroll-area-viewport\"\n\t\t\t>\n\t\t\t\t<ScrollAreaPrimitive.Content\n\t\t\t\t\tclassName={\n\t\t\t\t\t\tstylex.props(fill && scrollAreaStyles.contentFill).className\n\t\t\t\t\t}\n\t\t\t\t\tdata-slot=\"scroll-area-content\"\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</ScrollAreaPrimitive.Content>\n\t\t\t</ScrollAreaPrimitive.Viewport>\n\t\t\t<ScrollBar orientation=\"vertical\" />\n\t\t\t<ScrollBar orientation=\"horizontal\" />\n\t\t\t<ScrollAreaPrimitive.Corner data-slot=\"scroll-area-corner\" />\n\t\t</ScrollAreaPrimitive.Root>\n\t);\n}\n\ntype ScrollBarProps = Omit<ScrollAreaPrimitive.Scrollbar.Props, \"style\"> & {\n\tstyle?: stylex.StyleXStyles;\n};\n\nexport function ScrollBar({\n\tclassName,\n\torientation = \"vertical\",\n\tstyle,\n\t...props\n}: ScrollBarProps): React.ReactElement {\n\tconst scrollbarProps = stylex.props(\n\t\tscrollAreaStyles.scrollbar,\n\t\torientation === \"horizontal\" && scrollAreaStyles.scrollbarHorizontal,\n\t\torientation === \"vertical\" && scrollAreaStyles.scrollbarVertical,\n\t\tstyle,\n\t);\n\treturn (\n\t\t<ScrollAreaPrimitive.Scrollbar\n\t\t\tclassName={[scrollbarProps.className, className]\n\t\t\t\t.filter(Boolean)\n\t\t\t\t.join(\" \")}\n\t\t\tdata-slot=\"scroll-area-scrollbar\"\n\t\t\torientation={orientation}\n\t\t\t{...props}\n\t\t>\n\t\t\t<ScrollAreaPrimitive.Thumb\n\t\t\t\tclassName={stylex.props(scrollAreaStyles.thumb).className}\n\t\t\t\tdata-slot=\"scroll-area-thumb\"\n\t\t\t/>\n\t\t</ScrollAreaPrimitive.Scrollbar>\n\t);\n}\n\nexport { ScrollAreaPrimitive };\n",
+      "type": "registry:ui",
+      "target": "@ui/ScrollArea/scroll-area.tsx"
+    },
+    {
+      "path": "src/components/ui/ScrollArea/scroll-area.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport { spacing } from \"@/lib/theme/tokens.stylex\";\n\nexport const scrollAreaStyles = stylex.create({\n\troot: {\n\t\theight: \"100%\",\n\t\tminHeight: 0,\n\t\tboxSizing: \"border-box\",\n\t},\n\tviewport: {\n\t\theight: \"100%\",\n\t\tborderRadius: theme.borderRadius,\n\t\toutline: \"none\",\n\t\tboxSizing: \"border-box\",\n\t\toverscrollBehaviorY: \"contain\",\n\t\toverscrollBehaviorX: \"contain\",\n\t\t\":focus-visible\": {\n\t\t\tboxShadow: `0 0 0 2px ${theme.borderStrong}`,\n\t\t},\n\t},\n\tviewportFade: {\n\t\t\"--fade-size\": \"1.5rem\",\n\t\tWebkitMaskImage:\n\t\t\t\"linear-gradient(to bottom, transparent, black var(--fade-size), black calc(100% - var(--fade-size)), transparent)\",\n\t\tmaskImage:\n\t\t\t\"linear-gradient(to bottom, transparent, black var(--fade-size), black calc(100% - var(--fade-size)), transparent)\",\n\t},\n\tviewportGutter: {\n\t\tpaddingRight: spacing.small,\n\t\tpaddingBottom: spacing.small,\n\t},\n\tcontentFill: {\n\t\theight: \"100%\",\n\t\twidth: \"100%\",\n\t},\n\tscrollbar: {\n\t\tmargin: spacing.xsmall,\n\t\tdisplay: \"flex\",\n\t\topacity: 0,\n\t\tboxSizing: \"border-box\",\n\t\ttransitionProperty: \"opacity\",\n\t\ttransitionDuration: \"300ms\",\n\t\ttransitionTimingFunction: \"ease\",\n\t\t\"[data-hovering]\": {\n\t\t\topacity: 1,\n\t\t\ttransitionDelay: \"0ms\",\n\t\t\ttransitionDuration: \"100ms\",\n\t\t},\n\t\t\"[data-scrolling]\": {\n\t\t\topacity: 1,\n\t\t\ttransitionDelay: \"0ms\",\n\t\t\ttransitionDuration: \"100ms\",\n\t\t},\n\t},\n\tscrollbarHorizontal: {\n\t\theight: \"6px\",\n\t\tflexDirection: \"column\",\n\t},\n\tscrollbarVertical: {\n\t\twidth: \"6px\",\n\t},\n\tthumb: {\n\t\tposition: \"relative\",\n\t\tflexGrow: 1,\n\t\tborderRadius: theme.borderRadius,\n\t\tbackgroundColor: \"rgba(0, 0, 0, 0.2)\",\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/ScrollArea/scroll-area.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

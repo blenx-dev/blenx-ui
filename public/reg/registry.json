@@ -15,37 +15,37 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/lib/app-theme.stylex.ts",
+          "path": "src/lib/app-theme.stylex.ts",
           "type": "registry:file",
           "target": "@lib/app-theme.stylex.ts"
         },
         {
-          "path": "registry/.temp/src/lib/theme/contract.stylex.ts",
+          "path": "src/lib/theme/contract.stylex.ts",
           "type": "registry:file",
           "target": "@lib/theme/contract.stylex.ts"
         },
         {
-          "path": "registry/.temp/src/lib/theme/theme.stylex.ts",
+          "path": "src/lib/theme/theme.stylex.ts",
           "type": "registry:file",
           "target": "@lib/theme/theme.stylex.ts"
         },
         {
-          "path": "registry/.temp/src/lib/theme/tokens.stylex.ts",
+          "path": "src/lib/theme/tokens.stylex.ts",
           "type": "registry:file",
           "target": "@lib/theme/tokens.stylex.ts"
         },
         {
-          "path": "registry/.temp/src/utils/docs.styles.ts",
+          "path": "src/utils/docs.styles.ts",
           "type": "registry:file",
           "target": "@utils/docs.styles.ts"
         },
         {
-          "path": "registry/.temp/src/utils/layouts.styles.ts",
+          "path": "src/utils/layouts.styles.ts",
           "type": "registry:file",
           "target": "@utils/layouts.styles.ts"
         },
         {
-          "path": "registry/.temp/src/utils/stylex.utils.ts",
+          "path": "src/utils/stylex.utils.ts",
           "type": "registry:file",
           "target": "@utils/stylex.utils.ts"
         }
@@ -66,57 +66,57 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/data-table/data-table.tsx",
+          "path": "src/components/data-table/data-table.tsx",
           "type": "registry:component",
           "target": "@components/data-table/data-table.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-column-toggle.tsx",
+          "path": "src/components/data-table/data-table-column-toggle.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-column-toggle.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-empty.tsx",
+          "path": "src/components/data-table/data-table-empty.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-empty.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-error.tsx",
+          "path": "src/components/data-table/data-table-error.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-error.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-infinite-loader.tsx",
+          "path": "src/components/data-table/data-table-infinite-loader.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-infinite-loader.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-loading.tsx",
+          "path": "src/components/data-table/data-table-loading.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-loading.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-pagination.tsx",
+          "path": "src/components/data-table/data-table-pagination.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-pagination.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/data-table-toolbar.tsx",
+          "path": "src/components/data-table/data-table-toolbar.tsx",
           "type": "registry:file",
           "target": "@components/data-table/data-table-toolbar.tsx"
         },
         {
-          "path": "registry/.temp/src/components/data-table/types.ts",
+          "path": "src/components/data-table/types.ts",
           "type": "registry:file",
           "target": "@ui/data-table/types.ts"
         },
         {
-          "path": "registry/.temp/src/components/data-table/index.ts",
+          "path": "src/components/data-table/index.ts",
           "type": "registry:file",
           "target": "@components/data-table/index.ts"
         },
         {
-          "path": "registry/.temp/src/components/data-table/use-infinite-scroll.ts",
+          "path": "src/components/data-table/use-infinite-scroll.ts",
           "type": "registry:file",
           "target": "@components/data-table/use-infinite-scroll.ts"
         }
@@ -135,12 +135,12 @@
       "description": "A StyleX Accordion component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Accordion/accordion.tsx",
+          "path": "src/components/ui/Accordion/accordion.tsx",
           "type": "registry:ui",
           "target": "@ui/Accordion/accordion.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Accordion/accordion.styles.ts",
+          "path": "src/components/ui/Accordion/accordion.styles.ts",
           "type": "registry:file",
           "target": "@ui/Accordion/accordion.styles.ts"
         }
@@ -165,12 +165,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Alert/alert.tsx",
+          "path": "src/components/ui/Alert/alert.tsx",
           "type": "registry:ui",
           "target": "@ui/Alert/alert.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Alert/alert.styles.ts",
+          "path": "src/components/ui/Alert/alert.styles.ts",
           "type": "registry:file",
           "target": "@ui/Alert/alert.styles.ts"
         }
@@ -194,12 +194,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/AlertDialog/alert-dialog.tsx",
+          "path": "src/components/ui/AlertDialog/alert-dialog.tsx",
           "type": "registry:ui",
           "target": "@ui/AlertDialog/alert-dialog.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/AlertDialog/alert-dialog.styles.ts",
+          "path": "src/components/ui/AlertDialog/alert-dialog.styles.ts",
           "type": "registry:file",
           "target": "@ui/AlertDialog/alert-dialog.styles.ts"
         }
@@ -223,12 +223,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Autocomplete/autocomplete.tsx",
+          "path": "src/components/ui/Autocomplete/autocomplete.tsx",
           "type": "registry:ui",
           "target": "@ui/Autocomplete/autocomplete.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Autocomplete/autocomplete.styles.ts",
+          "path": "src/components/ui/Autocomplete/autocomplete.styles.ts",
           "type": "registry:file",
           "target": "@ui/Autocomplete/autocomplete.styles.ts"
         }
@@ -247,12 +247,12 @@
       "description": "Avatar component from Blenx UI.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Avatar/avatar.tsx",
+          "path": "src/components/ui/Avatar/avatar.tsx",
           "type": "registry:ui",
           "target": "@ui/Avatar/avatar.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Avatar/avatar.styles.ts",
+          "path": "src/components/ui/Avatar/avatar.styles.ts",
           "type": "registry:file",
           "target": "@ui/Avatar/avatar.styles.ts"
         }
@@ -274,12 +274,12 @@
       "description": "Badge component from Blenx UI.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Badge/badge.tsx",
+          "path": "src/components/ui/Badge/badge.tsx",
           "type": "registry:ui",
           "target": "@ui/Badge/badge.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Badge/badge.styles.ts",
+          "path": "src/components/ui/Badge/badge.styles.ts",
           "type": "registry:file",
           "target": "@ui/Badge/badge.styles.ts"
         }
@@ -301,12 +301,12 @@
       "description": "Box component from Blenx UI.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Box/box.tsx",
+          "path": "src/components/ui/Box/box.tsx",
           "type": "registry:ui",
           "target": "@ui/Box/box.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Box/box.styles.ts",
+          "path": "src/components/ui/Box/box.styles.ts",
           "type": "registry:file",
           "target": "@ui/Box/box.styles.ts"
         }
@@ -328,12 +328,12 @@
       "description": "Breadcrumbs component from Blenx UI.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Breadcrumbs/breadcrumbs.tsx",
+          "path": "src/components/ui/Breadcrumbs/breadcrumbs.tsx",
           "type": "registry:ui",
           "target": "@ui/Breadcrumbs/breadcrumbs.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Breadcrumbs/breadcrumbs.styles.ts",
+          "path": "src/components/ui/Breadcrumbs/breadcrumbs.styles.ts",
           "type": "registry:file",
           "target": "@ui/Breadcrumbs/breadcrumbs.styles.ts"
         }
@@ -359,12 +359,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Button/button.tsx",
+          "path": "src/components/ui/Button/button.tsx",
           "type": "registry:ui",
           "target": "@ui/Button/button.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Button/button.styles.ts",
+          "path": "src/components/ui/Button/button.styles.ts",
           "type": "registry:file",
           "target": "@ui/Button/button.styles.ts"
         }
@@ -387,12 +387,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Calendar/calendar.tsx",
+          "path": "src/components/ui/Calendar/calendar.tsx",
           "type": "registry:ui",
           "target": "@ui/Calendar/calendar.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Calendar/calendar.styles.ts",
+          "path": "src/components/ui/Calendar/calendar.styles.ts",
           "type": "registry:file",
           "target": "@ui/Calendar/calendar.styles.ts"
         }
@@ -415,12 +415,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Card/card.tsx",
+          "path": "src/components/ui/Card/card.tsx",
           "type": "registry:ui",
           "target": "@ui/Card/card.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Card/card.styles.ts",
+          "path": "src/components/ui/Card/card.styles.ts",
           "type": "registry:file",
           "target": "@ui/Card/card.styles.ts"
         }
@@ -439,12 +439,12 @@
       "description": "A StyleX Checkbox component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Checkbox/checkbox.tsx",
+          "path": "src/components/ui/Checkbox/checkbox.tsx",
           "type": "registry:ui",
           "target": "@ui/Checkbox/checkbox.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Checkbox/checkbox.styles.ts",
+          "path": "src/components/ui/Checkbox/checkbox.styles.ts",
           "type": "registry:file",
           "target": "@ui/Checkbox/checkbox.styles.ts"
         }
@@ -474,7 +474,7 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/ColorPicker/color-picker.tsx",
+          "path": "src/components/ui/ColorPicker/color-picker.tsx",
           "type": "registry:ui",
           "target": "@ui/ColorPicker/color-picker.tsx"
         }
@@ -497,12 +497,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/ColorSwatch/color-swatch.tsx",
+          "path": "src/components/ui/ColorSwatch/color-swatch.tsx",
           "type": "registry:ui",
           "target": "@ui/ColorSwatch/color-swatch.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/ColorSwatch/color-swatch.styles.ts",
+          "path": "src/components/ui/ColorSwatch/color-swatch.styles.ts",
           "type": "registry:file",
           "target": "@ui/ColorSwatch/color-swatch.styles.ts"
         }
@@ -526,12 +526,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Combobox/combobox.tsx",
+          "path": "src/components/ui/Combobox/combobox.tsx",
           "type": "registry:ui",
           "target": "@ui/Combobox/combobox.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Combobox/combobox.styles.ts",
+          "path": "src/components/ui/Combobox/combobox.styles.ts",
           "type": "registry:file",
           "target": "@ui/Combobox/combobox.styles.ts"
         }
@@ -554,12 +554,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Container/container.tsx",
+          "path": "src/components/ui/Container/container.tsx",
           "type": "registry:ui",
           "target": "@ui/Container/container.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Container/container.styles.ts",
+          "path": "src/components/ui/Container/container.styles.ts",
           "type": "registry:file",
           "target": "@ui/Container/container.styles.ts"
         }
@@ -585,7 +585,7 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/DatePicker/date-picker.tsx",
+          "path": "src/components/ui/DatePicker/date-picker.tsx",
           "type": "registry:ui",
           "target": "@ui/DatePicker/date-picker.tsx"
         }
@@ -609,12 +609,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Dialog/dialog.tsx",
+          "path": "src/components/ui/Dialog/dialog.tsx",
           "type": "registry:ui",
           "target": "@ui/Dialog/dialog.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Dialog/dialog.styles.ts",
+          "path": "src/components/ui/Dialog/dialog.styles.ts",
           "type": "registry:file",
           "target": "@ui/Dialog/dialog.styles.ts"
         }
@@ -638,12 +638,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Drawer/drawer.tsx",
+          "path": "src/components/ui/Drawer/drawer.tsx",
           "type": "registry:ui",
           "target": "@ui/Drawer/drawer.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Drawer/drawer.styles.ts",
+          "path": "src/components/ui/Drawer/drawer.styles.ts",
           "type": "registry:file",
           "target": "@ui/Drawer/drawer.styles.ts"
         }
@@ -667,12 +667,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Field/field.tsx",
+          "path": "src/components/ui/Field/field.tsx",
           "type": "registry:ui",
           "target": "@ui/Field/field.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Field/field.styles.ts",
+          "path": "src/components/ui/Field/field.styles.ts",
           "type": "registry:file",
           "target": "@ui/Field/field.styles.ts"
         }
@@ -695,12 +695,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Grid/grid.tsx",
+          "path": "src/components/ui/Grid/grid.tsx",
           "type": "registry:ui",
           "target": "@ui/Grid/grid.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Grid/grid.styles.ts",
+          "path": "src/components/ui/Grid/grid.styles.ts",
           "type": "registry:file",
           "target": "@ui/Grid/grid.styles.ts"
         }
@@ -719,12 +719,12 @@
       "description": "A StyleX Input component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Input/input.tsx",
+          "path": "src/components/ui/Input/input.tsx",
           "type": "registry:ui",
           "target": "@ui/Input/input.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Input/input.styles.ts",
+          "path": "src/components/ui/Input/input.styles.ts",
           "type": "registry:file",
           "target": "@ui/Input/input.styles.ts"
         }
@@ -746,12 +746,12 @@
       "description": "A StyleX Input Group component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/InputGroup/input-group.tsx",
+          "path": "src/components/ui/InputGroup/input-group.tsx",
           "type": "registry:ui",
           "target": "@ui/InputGroup/input-group.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/InputGroup/input-group.styles.ts",
+          "path": "src/components/ui/InputGroup/input-group.styles.ts",
           "type": "registry:file",
           "target": "@ui/InputGroup/input-group.styles.ts"
         }
@@ -773,12 +773,12 @@
       "description": "A StyleX Input Group component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Menu/menu.tsx",
+          "path": "src/components/ui/Menu/menu.tsx",
           "type": "registry:ui",
           "target": "@ui/Menu/menu.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Menu/menu.styles.ts",
+          "path": "src/components/ui/Menu/menu.styles.ts",
           "type": "registry:file",
           "target": "@ui/Menu/menu.styles.ts"
         }
@@ -800,12 +800,12 @@
       "description": "A StyleX Input Group component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Popover/popover.tsx",
+          "path": "src/components/ui/Popover/popover.tsx",
           "type": "registry:ui",
           "target": "@ui/Popover/popover.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Popover/popover.styles.ts",
+          "path": "src/components/ui/Popover/popover.styles.ts",
           "type": "registry:file",
           "target": "@ui/Popover/popover.styles.ts"
         }
@@ -827,12 +827,12 @@
       "description": "A StyleX Progress component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Progress/progress.tsx",
+          "path": "src/components/ui/Progress/progress.tsx",
           "type": "registry:ui",
           "target": "@ui/Progress/progress.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Progress/progress.styles.ts",
+          "path": "src/components/ui/Progress/progress.styles.ts",
           "type": "registry:file",
           "target": "@ui/Progress/progress.styles.ts"
         }
@@ -854,12 +854,12 @@
       "description": "A StyleX Radio component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Radio/radio.tsx",
+          "path": "src/components/ui/Radio/radio.tsx",
           "type": "registry:ui",
           "target": "@ui/Radio/radio.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Radio/radio.styles.ts",
+          "path": "src/components/ui/Radio/radio.styles.ts",
           "type": "registry:file",
           "target": "@ui/Radio/radio.styles.ts"
         }
@@ -881,12 +881,12 @@
       "description": "A StyleX Input Group component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/ScrollArea/scroll-area.tsx",
+          "path": "src/components/ui/ScrollArea/scroll-area.tsx",
           "type": "registry:ui",
           "target": "@ui/ScrollArea/scroll-area.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/ScrollArea/scroll-area.styles.ts",
+          "path": "src/components/ui/ScrollArea/scroll-area.styles.ts",
           "type": "registry:file",
           "target": "@ui/ScrollArea/scroll-area.styles.ts"
         }
@@ -912,7 +912,7 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/SegmentedControl/segmented-control.tsx",
+          "path": "src/components/ui/SegmentedControl/segmented-control.tsx",
           "type": "registry:ui",
           "target": "@ui/SegmentedControl/segmented-control.tsx"
         }
@@ -935,12 +935,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Select/select.tsx",
+          "path": "src/components/ui/Select/select.tsx",
           "type": "registry:ui",
           "target": "@ui/Select/select.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Select/select.styles.ts",
+          "path": "src/components/ui/Select/select.styles.ts",
           "type": "registry:file",
           "target": "@ui/Select/select.styles.ts"
         }
@@ -963,12 +963,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Separator/separator.tsx",
+          "path": "src/components/ui/Separator/separator.tsx",
           "type": "registry:ui",
           "target": "@ui/Separator/separator.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Separator/separator.styles.ts",
+          "path": "src/components/ui/Separator/separator.styles.ts",
           "type": "registry:file",
           "target": "@ui/Separator/separator.styles.ts"
         }
@@ -987,12 +987,12 @@
       "description": "A StyleX Slider component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Slider/slider.tsx",
+          "path": "src/components/ui/Slider/slider.tsx",
           "type": "registry:ui",
           "target": "@ui/Slider/slider.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Slider/slider.styles.ts",
+          "path": "src/components/ui/Slider/slider.styles.ts",
           "type": "registry:file",
           "target": "@ui/Slider/slider.styles.ts"
         }
@@ -1014,12 +1014,12 @@
       "description": "A StyleX Spinner component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Spinner/spinner.tsx",
+          "path": "src/components/ui/Spinner/spinner.tsx",
           "type": "registry:ui",
           "target": "@ui/Spinner/spinner.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Spinner/spinner.styles.ts",
+          "path": "src/components/ui/Spinner/spinner.styles.ts",
           "type": "registry:file",
           "target": "@ui/Spinner/spinner.styles.ts"
         }
@@ -1041,12 +1041,12 @@
       "description": "A StyleX Splitter component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Splitter/splitter.tsx",
+          "path": "src/components/ui/Splitter/splitter.tsx",
           "type": "registry:ui",
           "target": "@ui/Splitter/splitter.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Splitter/splitter.styles.ts",
+          "path": "src/components/ui/Splitter/splitter.styles.ts",
           "type": "registry:file",
           "target": "@ui/Splitter/splitter.styles.ts"
         }
@@ -1072,12 +1072,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Stack/stack.tsx",
+          "path": "src/components/ui/Stack/stack.tsx",
           "type": "registry:ui",
           "target": "@ui/Stack/stack.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Stack/stack.styles.ts",
+          "path": "src/components/ui/Stack/stack.styles.ts",
           "type": "registry:file",
           "target": "@ui/Stack/stack.styles.ts"
         }
@@ -1100,12 +1100,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Surface/surface.tsx",
+          "path": "src/components/ui/Surface/surface.tsx",
           "type": "registry:ui",
           "target": "@ui/Surface/surface.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Surface/surface.styles.ts",
+          "path": "src/components/ui/Surface/surface.styles.ts",
           "type": "registry:file",
           "target": "@ui/Surface/surface.styles.ts"
         }
@@ -1128,12 +1128,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Switch/switch.tsx",
+          "path": "src/components/ui/Switch/switch.tsx",
           "type": "registry:ui",
           "target": "@ui/Switch/switch.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Switch/switch.styles.ts",
+          "path": "src/components/ui/Switch/switch.styles.ts",
           "type": "registry:file",
           "target": "@ui/Switch/switch.styles.ts"
         }
@@ -1152,12 +1152,12 @@
       "description": "A simple styled table component with column definitions and row rendering.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Table/table.tsx",
+          "path": "src/components/ui/Table/table.tsx",
           "type": "registry:ui",
           "target": "@ui/Table/table.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Table/table.styles.ts",
+          "path": "src/components/ui/Table/table.styles.ts",
           "type": "registry:file",
           "target": "@ui/Table/table.styles.ts"
         }
@@ -1179,12 +1179,12 @@
       "description": "A StyleX Tabs component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Tabs/tabs.tsx",
+          "path": "src/components/ui/Tabs/tabs.tsx",
           "type": "registry:ui",
           "target": "@ui/Tabs/tabs.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Tabs/tabs.styles.ts",
+          "path": "src/components/ui/Tabs/tabs.styles.ts",
           "type": "registry:file",
           "target": "@ui/Tabs/tabs.styles.ts"
         }
@@ -1206,12 +1206,12 @@
       "description": "A StyleX Text component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Text/text.tsx",
+          "path": "src/components/ui/Text/text.tsx",
           "type": "registry:ui",
           "target": "@ui/Text/text.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Text/text.styles.ts",
+          "path": "src/components/ui/Text/text.styles.ts",
           "type": "registry:file",
           "target": "@ui/Text/text.styles.ts"
         }
@@ -1233,12 +1233,12 @@
       "description": "A StyleX Textarea component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Textarea/textarea.tsx",
+          "path": "src/components/ui/Textarea/textarea.tsx",
           "type": "registry:ui",
           "target": "@ui/Textarea/textarea.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Textarea/textarea.styles.ts",
+          "path": "src/components/ui/Textarea/textarea.styles.ts",
           "type": "registry:file",
           "target": "@ui/Textarea/textarea.styles.ts"
         }
@@ -1260,12 +1260,12 @@
       "description": "A StyleX Toggle component.",
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/Toggle/toggle.tsx",
+          "path": "src/components/ui/Toggle/toggle.tsx",
           "type": "registry:ui",
           "target": "@ui/Toggle/toggle.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/Toggle/toggle.styles.ts",
+          "path": "src/components/ui/Toggle/toggle.styles.ts",
           "type": "registry:file",
           "target": "@ui/Toggle/toggle.styles.ts"
         }
@@ -1291,12 +1291,12 @@
       ],
       "files": [
         {
-          "path": "registry/.temp/src/components/ui/ToggleGroup/toggle-group.tsx",
+          "path": "src/components/ui/ToggleGroup/toggle-group.tsx",
           "type": "registry:ui",
           "target": "@ui/ToggleGroup/toggle-group.tsx"
         },
         {
-          "path": "registry/.temp/src/components/ui/ToggleGroup/toggle-group.styles.ts",
+          "path": "src/components/ui/ToggleGroup/toggle-group.styles.ts",
           "type": "registry:file",
           "target": "@ui/ToggleGroup/toggle-group.styles.ts"
         }

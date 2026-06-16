@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "A StyleX button component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/box.json",
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Card/card.tsx",
+      "content": "import { mergeProps, useRender } from \"@base-ui/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type { _BaseDivProps, PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { Surface, type SurfaceProps } from \"../Surface/surface\";\nimport {\n\tcardPaddingStyles,\n\tcardSectionStyles,\n\tcardTextStyles,\n} from \"./card.styles\";\n\ntype CardProps = SurfaceProps;\n\ntype SectionPadding = keyof typeof cardPaddingStyles;\n\ntype CardSectionProps = _BaseDivProps & {\n\tpadding?: SectionPadding;\n};\nfunction Card(props: CardProps) {\n\treturn <Surface padding=\"medium\" withBorder variant=\"sunken\" {...props} />;\n}\nfunction CardHeader({\n\trender,\n\tpadding = \"medium\",\n\tstyle,\n\t...props\n}: CardSectionProps) {\n\tconst stylexProps = stylex.props(\n\t\tcardSectionStyles.base,\n\t\tcardSectionStyles.header,\n\t\tcardPaddingStyles[padding],\n\t\tstyle,\n\t);\n\tconst mergedProps = mergeProps(stylexProps, props);\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\nfunction CardBody({\n\trender,\n\tpadding = \"medium\",\n\tstyle,\n\t...props\n}: CardSectionProps) {\n\tconst stylexProps = stylex.props(\n\t\tcardSectionStyles.base,\n\t\tcardSectionStyles.body,\n\t\tcardPaddingStyles[padding],\n\t\tstyle,\n\t);\n\tconst mergedProps = mergeProps(stylexProps, props);\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\nfunction CardFooter({\n\trender,\n\tpadding = \"medium\",\n\tstyle,\n\t...props\n}: CardSectionProps) {\n\tconst stylexProps = stylex.props(\n\t\tcardSectionStyles.base,\n\t\tcardSectionStyles.footer,\n\t\tcardPaddingStyles[padding],\n\t\tstyle,\n\t);\n\tconst mergedProps = mergeProps(stylexProps, props);\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\ntype CardTitleProps = PropsWithStylex<useRender.ComponentProps<\"h1\">>;\n\nfunction CardTitle({ render, style, ...props }: CardTitleProps) {\n\tconst stylexProps = stylex.props(cardTextStyles.title, style);\n\tconst mergedProps = mergeProps(stylexProps, props);\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\n\ntype CardDescriptionProps = PropsWithStylex<useRender.ComponentProps<\"p\">>;\n\nfunction CardDescription({ render, style, ...props }: CardDescriptionProps) {\n\tconst stylexProps = stylex.props(cardTextStyles.description, style);\n\tconst mergedProps = mergeProps(stylexProps, props);\n\treturn useRender({\n\t\tdefaultTagName: \"div\",\n\t\tprops: mergedProps,\n\t\trender,\n\t});\n}\nexport type {\n\tCardProps,\n\tCardDescriptionProps,\n\tCardSectionProps,\n\tCardTitleProps,\n};\nexport { Card, CardDescription, CardTitle, CardFooter, CardBody, CardHeader };\n",
+      "type": "registry:ui",
+      "target": "@ui/Card/card.tsx"
+    },
+    {
+      "path": "src/components/ui/Card/card.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport { fontSize, fontWeight, spacing } from \"@/lib/theme/tokens.stylex\";\n\nexport const cardStyles = stylex.create({\n\tbase: {\n\t\tbackgroundColor: theme.surface,\n\t\tborderWidth: 1,\n\t\tborderStyle: \"solid\",\n\t\tborderColor: theme.border,\n\t\tborderRadius: theme.borderRadius,\n\t\tboxSizing: \"border-box\",\n\t},\n});\n\nexport const cardPaddingStyles = stylex.create({\n\tsmall: { padding: spacing.small },\n\tmedium: { padding: spacing.medium },\n\tlarge: { padding: spacing.large },\n});\n\nexport const cardSectionStyles = stylex.create({\n\tbase: {\n\t\tboxSizing: \"border-box\",\n\t},\n\theader: {\n\t\tborderBottomWidth: 1,\n\t\tborderBottomStyle: \"solid\",\n\t\tborderBottomColor: theme.borderSubtle,\n\t},\n\tbody: {\n\t\topacity: 1,\n\t},\n\tfooter: {\n\t\tborderTopWidth: 1,\n\t\tborderTopStyle: \"solid\",\n\t\tborderTopColor: theme.borderSubtle,\n\t},\n});\n\nexport const cardTextStyles = stylex.create({\n\ttitle: {\n\t\tmargin: 0,\n\t\tcolor: theme.contentPrimary,\n\t\tfontSize: fontSize.medium,\n\t\tfontWeight: fontWeight.semibold,\n\t\tlineHeight: 1.3,\n\t},\n\tdescription: {\n\t\tmargin: 0,\n\t\tcolor: theme.contentSecondary,\n\t\tfontSize: fontSize.small,\n\t\tlineHeight: 1.5,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/Card/card.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

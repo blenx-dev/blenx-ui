@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "title": "Toggle",
+  "description": "A StyleX Toggle component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Toggle/toggle.tsx",
+      "content": "\"use client\";\n\nimport { Toggle as TogglePrimitive } from \"@base-ui/react/toggle\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { toggleStyles } from \"./toggle.styles\";\n\nexport type ToggleVariant = \"default\" | \"outline\";\nexport type ToggleSize = \"default\" | \"sm\" | \"lg\";\n\nexport interface ToggleProps extends PropsWithStylex<TogglePrimitive.Props> {\n\tvariant?: ToggleVariant;\n\tsize?: ToggleSize;\n\tstyle?: stylex.StyleXStyles;\n}\n\nexport function Toggle({\n\tchildren,\n\tstyle,\n\tvariant = \"default\",\n\tsize = \"default\",\n\t...props\n}: ToggleProps) {\n\tconst variantStyle =\n\t\tvariant === \"outline\" ? toggleStyles.outline : toggleStyles.default;\n\tconst sizeStyle =\n\t\tsize === \"sm\"\n\t\t\t? toggleStyles.sm\n\t\t\t: size === \"lg\"\n\t\t\t\t? toggleStyles.lg\n\t\t\t\t: toggleStyles.defaultSize;\n\tconst toggleProps = stylex.props(\n\t\ttoggleStyles.base,\n\t\tvariantStyle,\n\t\tsizeStyle,\n\t\tstyle,\n\t);\n\treturn (\n\t\t<TogglePrimitive\n\t\t\t{...toggleProps}\n\t\t\tdata-slot=\"toggle\"\n\t\t\t{...props}\n\t\t\trender={(renderProps, toggleState) => {\n\t\t\t\tconst pressedStyle =\n\t\t\t\t\tvariant === \"outline\"\n\t\t\t\t\t\t? toggleStyles.outlinePressed\n\t\t\t\t\t\t: toggleStyles.defaultPressed;\n\t\t\t\tconst renderStyles = stylex.props(\n\t\t\t\t\ttoggleStyles.base,\n\t\t\t\t\tvariantStyle,\n\t\t\t\t\tsizeStyle,\n\t\t\t\t\ttoggleState.pressed && pressedStyle,\n\t\t\t\t\tstyle,\n\t\t\t\t);\n\t\t\t\treturn (\n\t\t\t\t\t<button {...renderProps} {...renderStyles}>\n\t\t\t\t\t\t{children}\n\t\t\t\t\t</button>\n\t\t\t\t);\n\t\t\t}}\n\t\t/>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/Toggle/toggle.tsx"
+    },
+    {
+      "path": "src/components/ui/Toggle/toggle.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport {\n\tdataRuleQueries,\n\tfontSize,\n\tfontWeight,\n\tspacing,\n} from \"@/lib/theme/tokens.stylex\";\n\nexport const toggleStyles = stylex.create({\n\tbase: {\n\t\tposition: \"relative\",\n\t\tdisplay: \"inline-flex\",\n\t\tflexShrink: 0,\n\t\talignItems: \"center\",\n\t\tjustifyContent: \"center\",\n\t\tgap: spacing.small,\n\t\twhiteSpace: \"nowrap\",\n\t\tborderStyle: \"solid\",\n\t\tborderWidth: 1,\n\t\tborderRadius: theme.borderRadius,\n\t\tfontWeight: fontWeight.medium,\n\t\tfontSize: fontSize.small,\n\t\tlineHeight: 1.4,\n\t\tcursor: \"pointer\",\n\t\tuserSelect: \"none\",\n\t\toutline: \"none\",\n\t\tbackgroundColor: \"transparent\",\n\t\ttransition: \"box-shadow 0.15s ease\",\n\t\t\":focus-visible\": {\n\t\t\tboxShadow: `0 0 0 2px ${theme.focusRing}`,\n\t\t},\n\t\t\":disabled\": {\n\t\t\tpointerEvents: \"none\",\n\t\t\topacity: 0.64,\n\t\t},\n\t},\n\ticon: {\n\t\tflexShrink: 0,\n\t\twidth: spacing.medium,\n\t\theight: spacing.medium,\n\t},\n\tdefault: {\n\t\tborderColor: \"transparent\",\n\t\tcolor: theme.contentPrimary,\n\t\tbackgroundColor: theme.backgroundSubtle,\n\t},\n\tdefaultPressed: {\n\t\tbackgroundColor: theme.background,\n\t},\n\toutline: {\n\t\tborderColor: {\n\t\t\tdefault: theme.border,\n\t\t\t[dataRuleQueries.dataPressed]: theme.borderStrong,\n\t\t},\n\t\tcolor: theme.contentPrimary,\n\t\tbackgroundColor: theme.backgroundSubtle,\n\t},\n\toutlinePressed: {\n\t\toutlineWidth: \"0px\",\n\t\tbackgroundColor: theme.surfaceOverlay,\n\t},\n\tsm: {\n\t\theight: spacing.large,\n\t\tminWidth: spacing.large,\n\t\tpaddingLeft: spacing.small,\n\t\tpaddingRight: spacing.small,\n\t},\n\tdefaultSize: {\n\t\theight: spacing.large,\n\t\tminWidth: 36,\n\t\tpaddingLeft: spacing.small,\n\t\tpaddingRight: spacing.small,\n\t},\n\tlg: {\n\t\theight: spacing.xlarge,\n\t\tpaddingLeft: spacing.medium,\n\t\tpaddingRight: spacing.medium,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/Toggle/toggle.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

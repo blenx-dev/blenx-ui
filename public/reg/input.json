@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "A StyleX Input component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Input/input.tsx",
+      "content": "import { Input as InputPrimitive } from \"@base-ui/react/input\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type * as React from \"react\";\nimport { useId } from \"react\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { inputStyles } from \"./input.styles\";\n\ntype InputSize = \"sm\" | \"default\" | \"lg\";\ntype _BaseInputProps = Omit<\n\tInputPrimitive.Props & React.RefAttributes<HTMLInputElement>,\n\t\"size\"\n>;\nexport type InputProps = PropsWithStylex<_BaseInputProps> & {\n\tsize?: InputSize;\n\terror?: string;\n\twrapperStyle?: stylex.StyleXStyles;\n};\n\ntype LabelProps = PropsWithStylex<useRender.ComponentProps<\"label\">> & {\n\tstyle?: stylex.StyleXStyles;\n};\n\nexport function Label({\n\trender,\n\tstyle,\n\t...props\n}: LabelProps): React.ReactElement {\n\tconst defaultProps = {\n\t\t...stylex.props(inputStyles.label, style),\n\t\t\"data-slot\": \"label\",\n\t};\n\n\treturn useRender({\n\t\tdefaultTagName: \"label\",\n\t\tprops: mergeProps<\"label\">(defaultProps, props),\n\t\trender,\n\t});\n}\n\nexport function Input({\n\terror,\n\tstyle,\n\tsize = \"default\",\n\t...props\n}: InputProps) {\n\tconst generatedId = useId();\n\tconst fieldId = props.id ?? generatedId;\n\n\treturn (\n\t\t<InputPrimitive\n\t\t\tid={fieldId}\n\t\t\tdata-slot=\"input\"\n\t\t\t{...stylex.props(\n\t\t\t\tinputStyles.input,\n\t\t\t\tsize === \"sm\" && inputStyles.inputSm,\n\t\t\t\tsize === \"lg\" && inputStyles.inputLg,\n\t\t\t\terror ? inputStyles.inputError : null,\n\t\t\t\tstyle,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/Input/input.tsx"
+    },
+    {
+      "path": "src/components/ui/Input/input.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport { spacing } from \"@/lib/theme/tokens.stylex\";\n\nexport const inputStyles = stylex.create({\n\tlabel: {\n\t\tfontSize: 14,\n\t\tdisplay: \"inline-flex\",\n\t\tgap: 4,\n\t\tlineHeight: 1.4,\n\t\tfontWeight: 400,\n\t\tcolor: theme.contentSecondary,\n\t},\n\n\tlabelSm: {\n\t\tfontSize: 13,\n\t},\n\n\tlabelLg: {\n\t\tfontSize: 15,\n\t},\n\n\tinput: {\n\t\twidth: \"100%\",\n\t\tboxSizing: \"border-box\",\n\t\tpaddingTop: spacing.small,\n\t\tpaddingBottom: spacing.small,\n\t\tpaddingLeft: spacing.medium,\n\t\tpaddingRight: spacing.medium,\n\t\tfontSize: 16,\n\t\tlineHeight: 1.5,\n\t\tcolor: theme.contentPrimary,\n\t\tbackgroundColor: theme.surface,\n\t\tborderWidth: 1,\n\t\tborderStyle: \"solid\",\n\t\tborderColor: theme.border,\n\t\tborderRadius: theme.borderRadius,\n\t\toutline: \"none\",\n\t\t\"::placeholder\": {\n\t\t\tcolor: theme.contentDisabled,\n\t\t},\n\t\t\":disabled\": {\n\t\t\topacity: 0.5,\n\t\t\tcursor: \"not-allowed\",\n\t\t},\n\t\t\":focus-visible\": {\n\t\t\tborderColor: theme.borderStrong,\n\t\t\tboxShadow: `0 0 0 2px ${theme.borderStrong}`,\n\t\t},\n\t\t\":focus-visible[aria-invalid='true']\": {\n\t\t\tborderColor: theme.sentimentNegative,\n\t\t\tboxShadow: `0 0 0 3px ${theme.sentimentNegative}`,\n\t\t},\n\t},\n\tinputSm: {\n\t\tpaddingTop: spacing.xsmall,\n\t\tpaddingBottom: spacing.xsmall,\n\t\tpaddingLeft: spacing.small,\n\t\tpaddingRight: spacing.small,\n\t\tfontSize: 16,\n\t},\n\tinputLg: {\n\t\tpaddingTop: spacing.medium,\n\t\tpaddingBottom: spacing.medium,\n\t\tpaddingLeft: spacing.large,\n\t\tpaddingRight: spacing.large,\n\t\tfontSize: 16,\n\t},\n\n\tinputError: {\n\t\tborderColor: theme.sentimentNegative,\n\t},\n\n\terror: {\n\t\tfontSize: 12,\n\t\tlineHeight: 1.4,\n\t\tcolor: theme.sentimentNegative,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/Input/input.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

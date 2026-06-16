@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Grid",
+  "description": "A StyleX Grid component.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/box.json",
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Grid/grid.tsx",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { Box, type BoxProps } from \"../Box/box\";\nimport { stackGapStyles as gridGapStyles } from \"../Stack/stack.styles\";\nimport {\n\tgridAlignStyles,\n\tgridColumnStyles,\n\tgridJustifyStyles,\n\tgridSpanStyles,\n\tgridStyles,\n} from \"./grid.styles\";\n\ntype SpacingToken = keyof typeof gridGapStyles;\n\nexport type GridProps = BoxProps & {\n\tcolumns?: keyof typeof gridColumnStyles;\n\tgap?: SpacingToken;\n\talign?: \"start\" | \"center\" | \"end\" | \"stretch\";\n\tjustify?: \"start\" | \"center\" | \"end\" | \"stretch\";\n};\n\nexport type GridItemProps = BoxProps & {\n\tspan?: keyof typeof gridSpanStyles;\n};\n\nfunction Grid({\n\tgap: gapProp = \"medium\",\n\tcolumns: columnsProp,\n\talign: alignProp,\n\tjustify: justifyProp,\n\tstyle,\n\t...props\n}: GridProps) {\n\tconst resolvedStyles = stylex.props(\n\t\tcolumnsProp && gridColumnStyles[columnsProp],\n\t\tgridGapStyles[gapProp],\n\t\talignProp && gridAlignStyles[alignProp],\n\t\tjustifyProp && gridJustifyStyles[justifyProp],\n\t\tstyle,\n\t);\n\n\treturn <Box display=\"grid\" {...props} {...resolvedStyles} />;\n}\n\nfunction GridItem({ span: spanProp, style, ...props }: GridItemProps) {\n\tconst resolvedStyles = stylex.props(\n\t\tgridStyles.item,\n\t\tspanProp && gridSpanStyles[spanProp],\n\t\tstyle,\n\t);\n\treturn <Box {...props} {...resolvedStyles} />;\n}\n\nexport { Grid, GridItem };\n",
+      "type": "registry:ui",
+      "target": "@ui/Grid/grid.tsx"
+    },
+    {
+      "path": "src/components/ui/Grid/grid.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\n\nexport const gridColumnStyles = stylex.create({\n\t1: { gridTemplateColumns: \"repeat(1, minmax(0, 1fr))\" },\n\t2: { gridTemplateColumns: \"repeat(2, minmax(0, 1fr))\" },\n\t3: { gridTemplateColumns: \"repeat(3, minmax(0, 1fr))\" },\n\t4: { gridTemplateColumns: \"repeat(4, minmax(0, 1fr))\" },\n\t5: { gridTemplateColumns: \"repeat(5, minmax(0, 1fr))\" },\n\t6: { gridTemplateColumns: \"repeat(6, minmax(0, 1fr))\" },\n\t7: { gridTemplateColumns: \"repeat(7, minmax(0, 1fr))\" },\n\t8: { gridTemplateColumns: \"repeat(8, minmax(0, 1fr))\" },\n\t9: { gridTemplateColumns: \"repeat(9, minmax(0, 1fr))\" },\n\t10: { gridTemplateColumns: \"repeat(10, minmax(0, 1fr))\" },\n\t11: { gridTemplateColumns: \"repeat(11, minmax(0, 1fr))\" },\n\t12: { gridTemplateColumns: \"repeat(12, minmax(0, 1fr))\" },\n});\n\nexport const gridAlignStyles = stylex.create({\n\tstart: { alignItems: \"start\" },\n\tcenter: { alignItems: \"center\" },\n\tend: { alignItems: \"end\" },\n\tstretch: { alignItems: \"stretch\" },\n});\n\nexport const gridJustifyStyles = stylex.create({\n\tstart: { justifyItems: \"start\" },\n\tcenter: { justifyItems: \"center\" },\n\tend: { justifyItems: \"end\" },\n\tstretch: { justifyItems: \"stretch\" },\n});\n\nexport const gridSpanStyles = stylex.create({\n\t1: { gridColumn: \"span 1 / span 1\" },\n\t2: { gridColumn: \"span 2 / span 2\" },\n\t3: { gridColumn: \"span 3 / span 3\" },\n\t4: { gridColumn: \"span 4 / span 4\" },\n\t5: { gridColumn: \"span 5 / span 5\" },\n\t6: { gridColumn: \"span 6 / span 6\" },\n\t7: { gridColumn: \"span 7 / span 7\" },\n\t8: { gridColumn: \"span 8 / span 8\" },\n\t9: { gridColumn: \"span 9 / span 9\" },\n\t10: { gridColumn: \"span 10 / span 10\" },\n\t11: { gridColumn: \"span 11 / span 11\" },\n\t12: { gridColumn: \"span 12 / span 12\" },\n});\n\nexport const gridStyles = stylex.create({\n\titem: {\n\t\tboxSizing: \"border-box\",\n\t\tminWidth: 0,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/Grid/grid.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

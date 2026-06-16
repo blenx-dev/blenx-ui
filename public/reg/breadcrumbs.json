@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumbs",
+  "title": "Breadcrumbs",
+  "description": "Breadcrumbs component from Blenx UI.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Breadcrumbs/breadcrumbs.tsx",
+      "content": "\"use client\";\n\nimport { mergeProps, useRender } from \"@base-ui/react\";\nimport { CaretRightIcon, DotsThreeIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type { ComponentPropsWithoutRef } from \"react\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { breadcrumbsStyles } from \"./breadcrumbs.styles\";\n\ntype NavProps = PropsWithStylex<useRender.ComponentProps<\"nav\">>;\n\nexport function Breadcrumb({ style, render, ...props }: NavProps) {\n\tconst sx = stylex.props(breadcrumbsStyles.root, style);\n\tconst merged = mergeProps(props, sx, { \"aria-label\": \"breadcrumb\" });\n\treturn useRender({ defaultTagName: \"nav\", props: merged, render });\n}\n\ntype OlProps = PropsWithStylex<ComponentPropsWithoutRef<\"ol\">>;\n\nexport function BreadcrumbList({ style, ...props }: OlProps) {\n\treturn <ol {...stylex.props(breadcrumbsStyles.list, style)} {...props} />;\n}\n\ntype LiProps = PropsWithStylex<ComponentPropsWithoutRef<\"li\">>;\n\nexport function BreadcrumbItem({ style, ...props }: LiProps) {\n\treturn <li {...stylex.props(breadcrumbsStyles.item, style)} {...props} />;\n}\n\ntype LinkProps = PropsWithStylex<useRender.ComponentProps<\"a\">>;\n\nexport function BreadcrumbLink({ style, render, ...props }: LinkProps) {\n\tconst defaultProps = {\n\t\t...stylex.props(breadcrumbsStyles.link, style),\n\t};\n\tconst merged = mergeProps(defaultProps, props);\n\treturn useRender({ defaultTagName: \"a\", props: merged, render });\n}\n\ntype SpanProps = PropsWithStylex<ComponentPropsWithoutRef<\"span\">>;\n\nexport function BreadcrumbPage({ style, ...props }: SpanProps) {\n\treturn (\n\t\t<span\n\t\t\t{...stylex.props(breadcrumbsStyles.page, style)}\n\t\t\taria-current=\"page\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport function BreadcrumbSeparator({ children, style, ...props }: LiProps) {\n\treturn (\n\t\t<li\n\t\t\trole=\"presentation\"\n\t\t\taria-hidden=\"true\"\n\t\t\t{...stylex.props(breadcrumbsStyles.separator, style)}\n\t\t\t{...props}\n\t\t>\n\t\t\t{children ?? <CaretRightIcon size={16} />}\n\t\t</li>\n\t);\n}\n\nexport function BreadcrumbEllipsis({ style, ...props }: SpanProps) {\n\treturn (\n\t\t<span\n\t\t\trole=\"presentation\"\n\t\t\t{...stylex.props(breadcrumbsStyles.ellipsis, style)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<DotsThreeIcon size={16} />\n\t\t\t<span {...stylex.props(breadcrumbsStyles.srOnly)}>More</span>\n\t\t</span>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/Breadcrumbs/breadcrumbs.tsx"
+    },
+    {
+      "path": "src/components/ui/Breadcrumbs/breadcrumbs.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport {\n\tduration,\n\tfontSize,\n\tfontWeight,\n\tmediaQueries,\n\tspacing,\n} from \"@/lib/theme/tokens.stylex\";\n\nexport const breadcrumbsStyles = stylex.create({\n\troot: {\n\t\tdisplay: \"flex\",\n\t\talignItems: \"center\",\n\t\tgap: spacing.xsmall,\n\t\tcolor: theme.contentSecondary,\n\t\tfontSize: 14,\n\t},\n\tlist: {\n\t\tdisplay: \"flex\",\n\t\tflexWrap: \"wrap\",\n\t\talignItems: \"center\",\n\t\tgap: {\n\t\t\tdefault: 6,\n\t\t\t[mediaQueries.sm]: 10,\n\t\t},\n\t\tfontSize: fontSize.small,\n\t\tcolor: theme.contentSecondary,\n\t},\n\titem: {\n\t\tdisplay: \"inline-flex\",\n\t\talignItems: \"center\",\n\t\tgap: 6,\n\t},\n\tlink: {\n\t\tcolor: \"inherit\",\n\t\ttextDecoration: \"none\",\n\t\tcursor: \"pointer\",\n\t\ttransitionProperty: \"color\",\n\t\ttransitionDuration: duration.fast,\n\t\ttransitionTimingFunction: \"ease\",\n\t\t\":hover\": {\n\t\t\tcolor: theme.contentPrimary,\n\t\t},\n\t},\n\tpage: {\n\t\tfontWeight: fontWeight.regular,\n\t\tcolor: theme.contentPrimary,\n\t},\n\tseparator: {\n\t\tdisplay: \"inline-flex\",\n\t\talignItems: \"center\",\n\t\topacity: 0.8,\n\t},\n\tellipsis: {\n\t\tdisplay: \"inline-flex\",\n\t\talignItems: \"center\",\n\t},\n\tsrOnly: {\n\t\tposition: \"absolute\",\n\t\twidth: 1,\n\t\theight: 1,\n\t\tpadding: 0,\n\t\tmargin: -1,\n\t\toverflow: \"hidden\",\n\t\tclip: \"rect(0, 0, 0, 0)\",\n\t\twhiteSpace: \"nowrap\",\n\t\tborderWidth: 0,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@ui/Breadcrumbs/breadcrumbs.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}
