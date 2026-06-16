@@ -1,18 +1,12 @@
 import {
-	ArrowDownRight,
-	ArrowUpRight,
-	ChartBar,
-	PencilSimpleLine,
-	TrashSimple,
-	Users,
+	ArrowDownRightIcon,
+	ArrowUpRightIcon,
+	ChartBarIcon,
+	PencilSimpleLineIcon,
+	TrashSimpleIcon,
+	UsersIcon,
 } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@/lib/theme/contract.stylex";
-import {
-	borderRadius,
-	fontSize,
-	spacing,
-} from "@/lib/theme/tokens.stylex";
 import {
 	Avatar,
 	AvatarFallback,
@@ -21,14 +15,15 @@ import {
 	Card,
 	CardBody,
 	CardDescription,
-	CardFooter,
 	CardHeader,
 	CardTitle,
-	Separator,
 	Surface,
+	Table,
 	Text,
 	VStack,
 } from "@/components/ui";
+import { theme } from "@/lib/theme/contract.stylex";
+import { fontSize, spacing } from "@/lib/theme/tokens.stylex";
 
 const styles = stylex.create({
 	kpiGrid: {
@@ -63,28 +58,7 @@ const styles = stylex.create({
 		gap: spacing["1"],
 		marginTop: spacing["1"],
 	},
-	table: {
-		width: "100%",
-		borderCollapse: "collapse",
-		fontSize: fontSize.small,
-	},
-	tableHeader: {
-		textAlign: "left",
-		padding: spacing["2"],
-		color: theme.contentSecondary,
-		fontWeight: 600,
-		fontSize: fontSize.xsmall,
-		borderBottomWidth: 1,
-		borderBottomStyle: "solid",
-		borderBottomColor: theme.borderSubtle,
-	},
-	tableCell: {
-		padding: spacing["2"],
-		color: theme.contentPrimary,
-		borderBottomWidth: 1,
-		borderBottomStyle: "solid",
-		borderBottomColor: theme.borderSubtle,
-	},
+
 	dashboardGrid: {
 		display: "grid",
 		gridTemplateColumns: "1fr 1fr",
@@ -156,12 +130,42 @@ const kpis = [
 ];
 
 const activities = [
-	{ user: "Sarah Chen", action: "Created invoice #INV-024", status: "Completed", date: "2m ago" },
-	{ user: "Marcus Johnson", action: "Updated project settings", status: "Pending", date: "15m ago" },
-	{ user: "Emily Rodriguez", action: "Deleted user account", status: "Failed", date: "1h ago" },
-	{ user: "Alex Kim", action: "Exported revenue report", status: "Completed", date: "2h ago" },
-	{ user: "Lisa Wang", action: "Added team member", status: "Pending", date: "3h ago" },
-	{ user: "James Wilson", action: "Modified subscription plan", status: "Completed", date: "5h ago" },
+	{
+		user: "Sarah Chen",
+		action: "Created invoice #INV-024",
+		status: "Completed",
+		date: "2m ago",
+	},
+	{
+		user: "Marcus Johnson",
+		action: "Updated project settings",
+		status: "Pending",
+		date: "15m ago",
+	},
+	{
+		user: "Emily Rodriguez",
+		action: "Deleted user account",
+		status: "Failed",
+		date: "1h ago",
+	},
+	{
+		user: "Alex Kim",
+		action: "Exported revenue report",
+		status: "Completed",
+		date: "2h ago",
+	},
+	{
+		user: "Lisa Wang",
+		action: "Added team member",
+		status: "Pending",
+		date: "3h ago",
+	},
+	{
+		user: "James Wilson",
+		action: "Modified subscription plan",
+		status: "Completed",
+		date: "5h ago",
+	},
 ];
 
 export function ExampleDashboard() {
@@ -176,7 +180,11 @@ export function ExampleDashboard() {
 						</Text>
 						<div {...stylex.props(styles.kpiValue)}>{kpi.value}</div>
 						<div {...stylex.props(kpi.up ? styles.trendUp : styles.trendDown)}>
-							{kpi.up ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
+							{kpi.up ? (
+								<ArrowUpRightIcon size={14} />
+							) : (
+								<ArrowDownRightIcon size={14} />
+							)}
 							<span>{kpi.trend}</span>
 						</div>
 					</Card>
@@ -187,41 +195,39 @@ export function ExampleDashboard() {
 			<Card padding="medium">
 				<CardHeader>
 					<CardTitle>Recent Activity</CardTitle>
-					<CardDescription>Latest actions across your workspace</CardDescription>
+					<CardDescription>
+						Latest actions across your workspace
+					</CardDescription>
 				</CardHeader>
 				<CardBody>
-					<table {...stylex.props(styles.table)}>
-						<thead>
-							<tr>
-								<th {...stylex.props(styles.tableHeader)}>User</th>
-								<th {...stylex.props(styles.tableHeader)}>Action</th>
-								<th {...stylex.props(styles.tableHeader)}>Status</th>
-								<th {...stylex.props(styles.tableHeader)}>Date</th>
-							</tr>
-						</thead>
-						<tbody>
-							{activities.map((row, i) => (
-								<tr key={i}>
-									<td {...stylex.props(styles.tableCell)}>{row.user}</td>
-									<td {...stylex.props(styles.tableCell)}>{row.action}</td>
-									<td {...stylex.props(styles.tableCell)}>
-										<Badge
-											variant={
-												row.status === "Completed"
-													? "primary"
-													: row.status === "Failed"
-														? "secondary"
-														: "default"
-											}
-										>
-											{row.status}
-										</Badge>
-									</td>
-									<td {...stylex.props(styles.tableCell)}>{row.date}</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
+					<Table
+						columnData={[
+							{ key: "user", header: "User" },
+							{
+								key: "action",
+								header: "Action",
+							},
+							{
+								key: "status",
+								header: "Status",
+								cell: (row) => (
+									<Badge
+										variant={
+											row.status === "Completed"
+												? "primary"
+												: row.status === "Failed"
+													? "secondary"
+													: "default"
+										}
+									>
+										{row.status}
+									</Badge>
+								),
+							},
+							{ key: "date", header: "Date" },
+						]}
+						rowData={activities}
+					/>
 				</CardBody>
 			</Card>
 
@@ -238,9 +244,7 @@ export function ExampleDashboard() {
 								<AvatarFallback>AK</AvatarFallback>
 							</Avatar>
 							<div {...stylex.props(styles.profileInfo)}>
-								<div {...stylex.props(styles.profileName)}>
-									Alex Kumar
-								</div>
+								<div {...stylex.props(styles.profileName)}>Alex Kumar</div>
 								<div {...stylex.props(styles.profileEmail)}>
 									alex@example.com
 								</div>
@@ -251,11 +255,11 @@ export function ExampleDashboard() {
 						</div>
 						<div {...stylex.props(styles.profileActions)}>
 							<Button variant="outline" size="small">
-								<PencilSimpleLine size={14} />
+								<PencilSimpleLineIcon size={14} />
 								Edit
 							</Button>
 							<Button variant="danger" size="small">
-								<TrashSimple size={14} />
+								<TrashSimpleIcon size={14} />
 								Delete
 							</Button>
 						</div>
@@ -263,11 +267,11 @@ export function ExampleDashboard() {
 				</Card>
 
 				{/* Charts */}
-                <Surface variant="outline">
+				<Surface variant="outline">
 					<CardBody>
 						<div {...stylex.props(styles.chartPlaceholder)}>
 							<VStack gap="small" align="center">
-								<ChartBar size={32} />
+								<ChartBarIcon size={32} />
 								<Text variant="body2" color="disabled">
 									Revenue Chart
 								</Text>
@@ -282,7 +286,7 @@ export function ExampleDashboard() {
 					<CardBody>
 						<div {...stylex.props(styles.chartPlaceholder)}>
 							<VStack gap="small" align="center">
-								<Users size={32} />
+								<UsersIcon size={32} />
 								<Text variant="body2" color="disabled">
 									User Growth Chart
 								</Text>
@@ -295,7 +299,7 @@ export function ExampleDashboard() {
 					<CardBody>
 						<div {...stylex.props(styles.chartPlaceholder)}>
 							<VStack gap="small" align="center">
-								<ChartBar size={32} />
+								<ChartBarIcon size={32} />
 								<Text variant="body2" color="disabled">
 									Conversion Funnel
 								</Text>

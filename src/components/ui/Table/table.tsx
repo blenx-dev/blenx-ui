@@ -6,19 +6,19 @@ import { tableStyles } from "./table.styles";
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 export interface Column<TData> {
-	/** Unique identifier for the column */
-	key: string;
-	/** Header label */
-	header: ReactNode;
-	/** Render function for the cell */
-	cell: (row: TData) => ReactNode;
-	/** Optional custom width */
-	width?: string;
-	/** Optional text alignment */
-	align?: "left" | "center" | "right";
-	/** Extra props to spread onto each <td> for this column */
-	cellProps?: Record<string, unknown>;
-}
+		/** Unique identifier for the column */
+		key: keyof TData;
+		/** Header label */
+		header: ReactNode;
+		/** Render function for the cell */
+		cell?: (row: TData) => ReactNode;
+		/** Optional custom width */
+		width?: string;
+		/** Optional text alignment */
+		align?: "left" | "center" | "right";
+		/** Extra props to spread onto each <td> for this column */
+		cellProps?: Record<string, unknown>;
+	}
 
 export interface TableProps<TData> {
 	columnData: Column<TData>[];
@@ -74,6 +74,12 @@ export function Table<TData>({
 	style,
 	className,
 }: TableProps<TData>) {
+	const getCellValue = (col: Column<TData>, row: TData): React.ReactNode => {
+		if (col?.cell) {
+			return col.cell(row);
+		}
+		return row[col.key] as React.ReactNode;
+	};
 	return (
 		<div {...stylex.props(tableStyles.wrapper, style)} className={className}>
 			<table {...stylex.props(tableStyles.root)}>
@@ -81,7 +87,7 @@ export function Table<TData>({
 					<tr>
 						{columnData.map((col) => (
 							<th
-								key={col.key}
+								key={col.key.toString()}
 								style={col.width ? { width: col.width } : undefined}
 								{...stylex.props(
 									tableStyles.header,
@@ -101,14 +107,14 @@ export function Table<TData>({
 							<tr key={key} {...rowProps} {...stylex.props(tableStyles.row)}>
 								{columnData.map((col) => (
 									<td
-										key={col.key}
+										key={col.key.toString()}
 										{...col.cellProps}
 										{...stylex.props(
 											tableStyles.cell,
 											col.align && cellAlignStyles[col.align],
 										)}
 									>
-										{col.cell(row)}
+										{getCellValue(col, row)}
 									</td>
 								))}
 							</tr>

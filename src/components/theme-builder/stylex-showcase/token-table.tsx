@@ -1,8 +1,6 @@
-import * as stylex from "@stylexjs/stylex";
 import type { Column } from "@/components/ui";
-import { Table } from "@/components/ui";
+import { Table, Text } from "@/components/ui";
 import { theme } from "@/lib/theme/contract.stylex";
-import { fontSize } from "@/lib/theme/tokens.stylex";
 import { componentTokenMap } from "../preview/component-token-map";
 import { useThemeBuilder } from "../theme-builder-context";
 
@@ -50,17 +48,6 @@ const displayTokens: Array<{ key: string; label: string }> = [
 	{ key: "borderRadius", label: "borderRadius" },
 ];
 
-const cellStyles = stylex.create({
-	code: {
-		color: theme.contentAccent,
-		fontFamily: '"DM Mono", monospace',
-		fontSize: fontSize.xsmall,
-	},
-	value: {
-		fontFamily: '"DM Mono", monospace',
-		fontSize: fontSize.xsmall,
-	},
-});
 
 export function TokenTable() {
 	const tokens = useThemeBuilder((s) => s.tokens);
@@ -88,23 +75,19 @@ export function TokenTable() {
 			key: "label",
 			header: "Token",
 			cell: (row) => (
-				<span {...stylex.props(cellStyles.code)}>{row.label}</span>
+				<Text variant="body3" color="accent">
+					{row.label}
+				</Text>
 			),
 			cellProps: { "data-token": true },
 		},
 		{
 			key: "value",
 			header: "Value",
-			cell: (row) => (
-				<span {...stylex.props(cellStyles.value)}>{row.value}</span>
-			),
 		},
 		{
 			key: "components",
 			header: "Components",
-			cell: (row) => (
-				<span {...stylex.props(cellStyles.value)}>{row.components}</span>
-			),
 		},
 	];
 
