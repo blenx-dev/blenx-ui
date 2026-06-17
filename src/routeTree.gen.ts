@@ -12,14 +12,17 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThemeBuilderRouteImport } from './routes/theme-builder'
 import { Route as OgRouteImport } from './routes/og'
 import { Route as DocsRouteImport } from './routes/docs'
+import { Route as BlocksRouteImport } from './routes/blocks'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DocsIndexRouteImport } from './routes/docs/index'
+import { Route as BlocksIndexRouteImport } from './routes/blocks/index'
 import { Route as DocsThemingRouteImport } from './routes/docs/theming'
 import { Route as DocsStylingRouteImport } from './routes/docs/styling'
 import { Route as DocsPrimitivesRouteImport } from './routes/docs/primitives'
 import { Route as DocsLimitationsRouteImport } from './routes/docs/limitations'
 import { Route as DocsInstallationRouteImport } from './routes/docs/installation'
 import { Route as DocsDataTableRouteImport } from './routes/docs/data-table'
+import { Route as BlocksApplicationStatesRouteImport } from './routes/blocks/application-states'
 import { Route as DocsComponentsComponentRouteImport } from './routes/docs/components/$component'
 
 const ThemeBuilderRoute = ThemeBuilderRouteImport.update({
@@ -37,6 +40,11 @@ const DocsRoute = DocsRouteImport.update({
   path: '/docs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlocksRoute = BlocksRouteImport.update({
+  id: '/blocks',
+  path: '/blocks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -46,6 +54,11 @@ const DocsIndexRoute = DocsIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DocsRoute,
+} as any)
+const BlocksIndexRoute = BlocksIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlocksRoute,
 } as any)
 const DocsThemingRoute = DocsThemingRouteImport.update({
   id: '/theming',
@@ -77,6 +90,11 @@ const DocsDataTableRoute = DocsDataTableRouteImport.update({
   path: '/data-table',
   getParentRoute: () => DocsRoute,
 } as any)
+const BlocksApplicationStatesRoute = BlocksApplicationStatesRouteImport.update({
+  id: '/application-states',
+  path: '/application-states',
+  getParentRoute: () => BlocksRoute,
+} as any)
 const DocsComponentsComponentRoute = DocsComponentsComponentRouteImport.update({
   id: '/components/$component',
   path: '/components/$component',
@@ -85,15 +103,18 @@ const DocsComponentsComponentRoute = DocsComponentsComponentRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blocks': typeof BlocksRouteWithChildren
   '/docs': typeof DocsRouteWithChildren
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
+  '/blocks/application-states': typeof BlocksApplicationStatesRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
   '/docs/styling': typeof DocsStylingRoute
   '/docs/theming': typeof DocsThemingRoute
+  '/blocks/': typeof BlocksIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/docs/components/$component': typeof DocsComponentsComponentRoute
 }
@@ -101,27 +122,32 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
+  '/blocks/application-states': typeof BlocksApplicationStatesRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
   '/docs/styling': typeof DocsStylingRoute
   '/docs/theming': typeof DocsThemingRoute
+  '/blocks': typeof BlocksIndexRoute
   '/docs': typeof DocsIndexRoute
   '/docs/components/$component': typeof DocsComponentsComponentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blocks': typeof BlocksRouteWithChildren
   '/docs': typeof DocsRouteWithChildren
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
+  '/blocks/application-states': typeof BlocksApplicationStatesRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
   '/docs/styling': typeof DocsStylingRoute
   '/docs/theming': typeof DocsThemingRoute
+  '/blocks/': typeof BlocksIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/docs/components/$component': typeof DocsComponentsComponentRoute
 }
@@ -129,15 +155,18 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blocks'
     | '/docs'
     | '/og'
     | '/theme-builder'
+    | '/blocks/application-states'
     | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
     | '/docs/styling'
     | '/docs/theming'
+    | '/blocks/'
     | '/docs/'
     | '/docs/components/$component'
   fileRoutesByTo: FileRoutesByTo
@@ -145,32 +174,38 @@ export interface FileRouteTypes {
     | '/'
     | '/og'
     | '/theme-builder'
+    | '/blocks/application-states'
     | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
     | '/docs/styling'
     | '/docs/theming'
+    | '/blocks'
     | '/docs'
     | '/docs/components/$component'
   id:
     | '__root__'
     | '/'
+    | '/blocks'
     | '/docs'
     | '/og'
     | '/theme-builder'
+    | '/blocks/application-states'
     | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
     | '/docs/styling'
     | '/docs/theming'
+    | '/blocks/'
     | '/docs/'
     | '/docs/components/$component'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlocksRoute: typeof BlocksRouteWithChildren
   DocsRoute: typeof DocsRouteWithChildren
   OgRoute: typeof OgRoute
   ThemeBuilderRoute: typeof ThemeBuilderRoute
@@ -199,6 +234,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blocks': {
+      id: '/blocks'
+      path: '/blocks'
+      fullPath: '/blocks'
+      preLoaderRoute: typeof BlocksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -212,6 +254,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/docs/'
       preLoaderRoute: typeof DocsIndexRouteImport
       parentRoute: typeof DocsRoute
+    }
+    '/blocks/': {
+      id: '/blocks/'
+      path: '/'
+      fullPath: '/blocks/'
+      preLoaderRoute: typeof BlocksIndexRouteImport
+      parentRoute: typeof BlocksRoute
     }
     '/docs/theming': {
       id: '/docs/theming'
@@ -255,6 +304,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsDataTableRouteImport
       parentRoute: typeof DocsRoute
     }
+    '/blocks/application-states': {
+      id: '/blocks/application-states'
+      path: '/application-states'
+      fullPath: '/blocks/application-states'
+      preLoaderRoute: typeof BlocksApplicationStatesRouteImport
+      parentRoute: typeof BlocksRoute
+    }
     '/docs/components/$component': {
       id: '/docs/components/$component'
       path: '/components/$component'
@@ -264,6 +320,19 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface BlocksRouteChildren {
+  BlocksApplicationStatesRoute: typeof BlocksApplicationStatesRoute
+  BlocksIndexRoute: typeof BlocksIndexRoute
+}
+
+const BlocksRouteChildren: BlocksRouteChildren = {
+  BlocksApplicationStatesRoute: BlocksApplicationStatesRoute,
+  BlocksIndexRoute: BlocksIndexRoute,
+}
+
+const BlocksRouteWithChildren =
+  BlocksRoute._addFileChildren(BlocksRouteChildren)
 
 interface DocsRouteChildren {
   DocsDataTableRoute: typeof DocsDataTableRoute
@@ -291,6 +360,7 @@ const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlocksRoute: BlocksRouteWithChildren,
   DocsRoute: DocsRouteWithChildren,
   OgRoute: OgRoute,
   ThemeBuilderRoute: ThemeBuilderRoute,

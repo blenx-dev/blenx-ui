@@ -56,6 +56,21 @@ function DocsRouteOption() {
 			</Button>
 		);
 }
+function BlocksRouteOption() {
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const { pathname } = useLocation();
+	const isBlocksActive = pathname.startsWith("/blocks");
+	if (!isSmallDevice)
+		return (
+			<Button
+				size="xsmall"
+				variant={isBlocksActive ? "soft" : "ghost"}
+				render={<Link to="/blocks" />}
+			>
+				Blocks
+			</Button>
+		);
+}
 function DocsRouteSidebarOption() {
 	const sidebarOpen = useSidebarStore((st) => st.isOpen);
 	const setOpen = useSidebarStore((st) => st.setOpen);
@@ -94,6 +109,7 @@ function Header() {
 					<div {...stylex.props(styles.navLinks)}>
 						<ClientOnly>
 							<DocsRouteOption />
+							<BlocksRouteOption />
 						</ClientOnly>
 						<Button
 							size="xsmall"

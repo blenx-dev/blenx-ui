@@ -69,7 +69,7 @@ function findComponentFiles(
 
 function readSource(filePath: string): string {
   try {
-    return readFileSync(filePath, "utf-8");
+    return readFileSync(filePath, "utf8");
   } catch {
     return "";
   }
@@ -79,7 +79,7 @@ function findRegistryName(compDir: string): string | null {
   const metaPath = join(compDir, "registry-meta.json");
   if (!existsSync(metaPath)) return null;
   try {
-    const meta = JSON.parse(readFileSync(metaPath, "utf-8"));
+    const meta = JSON.parse(readFileSync(metaPath, "utf8"));
     return meta.name || null;
   } catch {
     return null;
@@ -100,7 +100,7 @@ function build() {
     const dirName = basename(compDir);
     const componentKey = dirName.toLowerCase();
 
-    const meta: DocsMeta = JSON.parse(readFileSync(metaPath, "utf-8"));
+    const meta: DocsMeta = JSON.parse(readFileSync(metaPath, "utf8"));
     const registryName = findRegistryName(compDir) || componentKey;
 
     const demoFiles = findComponentFiles(compDir, /\.demo\.tsx$/);
@@ -111,7 +111,7 @@ function build() {
       const demoSource = readSource(demoPath);
       const registryPath = join(REGISTRY_OUTPUT_DIR, `${registryName}.json`);
       if (existsSync(registryPath)) {
-        const regJson = JSON.parse(readFileSync(registryPath, "utf-8"));
+        const regJson = JSON.parse(readFileSync(registryPath, "utf8"));
         regJson.demo = demoSource;
         writeFileSync(registryPath, JSON.stringify(regJson, null, 2));
       }

@@ -37,5 +37,5 @@ const outputPath = resolve(
 	"../src/components/ui/Grid/responsiveGrid.styles.ts",
 );
 
-writeFileSync(outputPath, lines.join("\n"), "utf-8");
+writeFileSync(outputPath, lines.join("\n"), "utf8");
 console.log(`Generated ${outputPath}`);
