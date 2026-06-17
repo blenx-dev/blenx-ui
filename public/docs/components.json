@@ -1,4 +1,124 @@
 {
+  "contact-01": {
+    "title": "Contact Page",
+    "description": "A contact form page with name, email, subject select, message textarea, success state, and optional contact information sidebar.",
+    "category": "Marketing",
+    "status": "stable",
+    "keywords": [
+      "contact",
+      "form",
+      "support",
+      "message",
+      "email"
+    ],
+    "related": [
+      "Button",
+      "Input",
+      "Textarea",
+      "Card"
+    ],
+    "accessibility": {
+      "keyboard": [
+        "Tab",
+        "Enter"
+      ],
+      "aria": [
+        "form role",
+        "aria-label",
+        "autoComplete"
+      ]
+    },
+    "registryName": "contact-01",
+    "examples": []
+  },
+  "faq-01": {
+    "title": "FAQ Section",
+    "description": "An expandable FAQ accordion with section heading, description, and optional search/filter.",
+    "category": "Marketing",
+    "status": "stable",
+    "keywords": [
+      "faq",
+      "accordion",
+      "questions",
+      "help",
+      "support"
+    ],
+    "related": [
+      "Accordion",
+      "Text"
+    ],
+    "accessibility": {
+      "keyboard": [
+        "Enter",
+        "Space"
+      ],
+      "aria": [
+        "aria-expanded",
+        "aria-controls",
+        "aria-label"
+      ]
+    },
+    "registryName": "faq-01",
+    "examples": []
+  },
+  "hero-01": {
+    "title": "Hero Section",
+    "description": "A marketing hero section with headline, supporting text, dual CTA buttons, and optional image. Supports default, muted, and accent background variants.",
+    "category": "Marketing",
+    "status": "stable",
+    "keywords": [
+      "hero",
+      "marketing",
+      "header",
+      "landing",
+      "cta"
+    ],
+    "related": [
+      "Button",
+      "Text",
+      "Stack"
+    ],
+    "accessibility": {
+      "keyboard": [],
+      "aria": [
+        "image alt text"
+      ]
+    },
+    "registryName": "hero-01",
+    "examples": []
+  },
+  "pricing-01": {
+    "title": "Pricing Page",
+    "description": "A pricing section with monthly/yearly toggle, three plan tiers, feature lists, and prominent CTA for the popular plan.",
+    "category": "Marketing",
+    "status": "stable",
+    "keywords": [
+      "pricing",
+      "plans",
+      "subscription",
+      "billing",
+      "tiers"
+    ],
+    "related": [
+      "Button",
+      "Card",
+      "Badge",
+      "Switch",
+      "Separator"
+    ],
+    "accessibility": {
+      "keyboard": [
+        "Tab",
+        "Enter"
+      ],
+      "aria": [
+        "switch role",
+        "list of features"
+      ]
+    },
+    "registryName": "pricing-01",
+    "examples": []
+  },
   "accordion": {
     "title": "Accordion",
     "description": "A collapsible accordion for showing and hiding content sections. Supports single and multiple item expansion.",

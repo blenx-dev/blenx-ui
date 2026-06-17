@@ -1,3 +1,7 @@
+export { Hero01 } from "./hero-01/hero-01";
+export { Faq01 } from "./faq-01/faq-01";
+export { Pricing01 } from "./pricing-01/pricing-01";
+export { Contact01 } from "./contact-01/contact-01";
 export { Dashboard01 } from "./dashboard-01/dashboard-01";
 export { Profile01 } from "./profile-01/profile-01";
 export { Settings01 } from "./settings-01/settings-01";
