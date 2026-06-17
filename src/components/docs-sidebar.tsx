@@ -90,7 +90,7 @@ function DocsSidebar() {
 			dynamicSections.push({
 				title: group.category,
 				links: group.items.map(([key, data]) => ({
-					to: `/components/${key}`,
+					to: `/docs/components/${key}`,
 					label: data.title,
 				})),
 			});

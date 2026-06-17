@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DocsLayout } from "@/components/docs-layout";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/theming")({
@@ -8,33 +7,32 @@ export const Route = createFileRoute("/docs/theming")({
 
 function ThemingDoc() {
 	return (
-		<DocsLayout>
-			<VStack gap="medium">
-				<Text variant="h1">Theming</Text>
-				<Separator tone="subtle" />
+		<VStack gap="medium">
+			<Text variant="h1">Theming</Text>
+			<Separator tone="subtle" />
 
-				<Box>
-					<VStack gap="medium">
-						<Text variant="h2">
-							Approach 1: Stylex Contract Theme (Recommended)
-						</Text>
-						<Text variant="body1" color="secondary">
-							Create a typed theme using{" "}
-							<Text variant="code">stylex.createTheme</Text> from the exported
-							theme contract. This gives you full type safety and integrates
-							directly with Stylex's theming system.
-						</Text>
-						<Text variant="body1" color="secondary">
-							The generated theme is applied via a{" "}
-							<Text variant="code">className</Text> on the root element. All
-							child components using the contract tokens will automatically pick
-							up your custom values.
-						</Text>
+			<Box>
+				<VStack gap="medium">
+					<Text variant="h2">
+						Approach 1: Stylex Contract Theme (Recommended)
+					</Text>
+					<Text variant="body1" color="secondary">
+						Create a typed theme using{" "}
+						<Text variant="code">stylex.createTheme</Text> from the exported
+						theme contract. This gives you full type safety and integrates
+						directly with Stylex's theming system.
+					</Text>
+					<Text variant="body1" color="secondary">
+						The generated theme is applied via a{" "}
+						<Text variant="code">className</Text> on the root element. All child
+						components using the contract tokens will automatically pick up your
+						custom values.
+					</Text>
 
-						<Text variant="h3">1. Create a theme file</Text>
-						<Surface variant="sunken" padding="medium" render={<pre />}>
-							<Text variant="code">
-								{`// styles/my-theme.stylex.ts
+					<Text variant="h3">1. Create a theme file</Text>
+					<Surface variant="sunken" padding="medium" render={<pre />}>
+						<Text variant="code">
+							{`// styles/my-theme.stylex.ts
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@blenx-dev/theme/contract.stylex";
 
@@ -58,13 +56,13 @@ export const myTheme = stylex.createTheme(theme, {
 
   focusRing: "#6C63FF",
 });`}
-							</Text>
-						</Surface>
+						</Text>
+					</Surface>
 
-						<Text variant="h3">2. Apply to root element</Text>
-						<Surface variant="sunken" padding="medium" render={<pre />}>
-							<Text variant="code">
-								{`// React — wrap your app root
+					<Text variant="h3">2. Apply to root element</Text>
+					<Surface variant="sunken" padding="medium" render={<pre />}>
+						<Text variant="code">
+							{`// React — wrap your app root
 import * as stylex from "@stylexjs/stylex";
 import { myTheme } from "./styles/my-tokens.stylex";
 
@@ -75,11 +73,11 @@ function App() {
     </div>
   );
 }`}
-							</Text>
-						</Surface>
-						<Surface variant="sunken" padding="medium" render={<pre />}>
-							<Text variant="code">
-								{`// Next.js — apply to the body or a layout wrapper
+						</Text>
+					</Surface>
+					<Surface variant="sunken" padding="medium" render={<pre />}>
+						<Text variant="code">
+							{`// Next.js — apply to the body or a layout wrapper
 // app/layout.tsx
 import { myTheme } from "@/styles/my-tokens.stylex";
 
@@ -92,24 +90,23 @@ export default function RootLayout({ children }) {
     </html>
   );
 }`}
-							</Text>
-						</Surface>
+						</Text>
+					</Surface>
 
-						<Text variant="h3">Available Imports</Text>
-						<Surface variant="sunken" padding="medium" render={<pre />}>
-							<Text variant="code">
-								{`// Import the contract for createTheme
+					<Text variant="h3">Available Imports</Text>
+					<Surface variant="sunken" padding="medium" render={<pre />}>
+						<Text variant="code">
+							{`// Import the contract for createTheme
 import { theme } from "@blenx-dev/theme/contract.stylex";
 
 // Or use the convenience re-exports
 import { theme, borderRadius, spacing, fontSize } from "@/lib/theme/tokens.stylex";`}
-							</Text>
-						</Surface>
-					</VStack>
-				</Box>
+						</Text>
+					</Surface>
+				</VStack>
+			</Box>
 
-				<Separator tone="subtle" />
-			</VStack>
-		</DocsLayout>
+			<Separator tone="subtle" />
+		</VStack>
 	);
 }

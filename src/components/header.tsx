@@ -73,7 +73,12 @@ function Header() {
 	const isHomeActive = pathname === "/";
 	return (
 		<Box>
-			<HStack align="center" justify="between" padding="xxsmall">
+			<HStack
+				align="center"
+				justify="between"
+				paddingX="massive"
+				paddingY="xsmall"
+			>
 				<Link
 					to="/"
 					{...stylex.props(styles.logo, isHomeActive && styles.activeLink)}
@@ -96,7 +101,7 @@ function Header() {
 						variant="link"
 						render={
 							<a
-								href="https://github.com/blenx-dev/blenx-dev"
+								href="https://github.com/kupras06/blenx-ui"
 								target="_blank"
 								rel="noopener noreferrer"
 								{...stylex.props(styles.link)}

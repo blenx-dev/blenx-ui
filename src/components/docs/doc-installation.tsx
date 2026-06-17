@@ -46,7 +46,7 @@ function DocInstallation({
 
 	return (
 		<VStack gap="medium">
-			<Box>
+			<VStack gap="xsmall">
 				<Text variant="h3">CLI Installation</Text>
 				<Text variant="body2" color="secondary">
 					Install the component using the shadcn CLI:
@@ -54,11 +54,11 @@ function DocInstallation({
 				<Surface padding="small" variant="sunken">
 					<Text variant="code">{`npx shadcn@latest add "${cliUrl}"`}</Text>
 				</Surface>
-			</Box>
+			</VStack>
 
 			<Separator />
 
-			<Box>
+			<VStack gap="xsmall">
 				<Text variant="h3">Manual Installation</Text>
 				<VStack gap="medium">
 					<DocCodeView
@@ -68,7 +68,7 @@ function DocInstallation({
 						}))}
 					/>
 				</VStack>
-			</Box>
+			</VStack>
 
 			{dependencies.length > 0 && (
 				<Box>

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DocsLayout } from "@/components/docs-layout";
 import { Grid, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/primitives")({
@@ -8,7 +7,7 @@ export const Route = createFileRoute("/docs/primitives")({
 
 function PrimitivesDoc() {
 	return (
-		<DocsLayout>
+		<>
 			<VStack gap="medium">
 				<Text variant="h1">Primitives with Base UI</Text>
 				<Text variant="h2">Why Base UI?</Text>
@@ -111,6 +110,6 @@ export function Button({ render, ...props }) {
 </DialogPrimitive.Close>`}</Text>
 				</Surface>
 			</VStack>
-		</DocsLayout>
+		</>
 	);
 }
