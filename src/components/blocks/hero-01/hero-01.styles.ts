@@ -24,17 +24,19 @@ export const heroStyles = stylex.create({
 	},
 	inner: {
 		display: "flex",
-		flexDirection: "row",
+		flexDirection: {
+			default: "row",
+			[mediaQueries.sm]:"column"
+		},
 		alignItems: "center",
-		gap: spacing.xxxlarge,
+		gap: {
+			default: spacing.xxxlarge,
+			[mediaQueries.sm]:spacing.xlarge,
+		},
 		width: "100%",
 		maxWidth: 1200,
 		marginLeft: "auto",
 		marginRight: "auto",
-		[mediaQueries.sm]: {
-			flexDirection: "column",
-			gap: spacing.xlarge,
-		},
 	},
 	textColumn: {
 		flex: "1 1 50%",
@@ -80,13 +82,13 @@ export const heroStyles = stylex.create({
 		gap: spacing.small,
 		flexWrap: "wrap",
 		marginTop: spacing.small,
-		[mediaQueries.sm]: {
-			width: "100%",
+		width: {
+			[mediaQueries.sm]: "100%"
 		},
 	},
 	actionFullWidth: {
-		[mediaQueries.sm]: {
-			width: "100%",
+		width: {
+			[mediaQueries.sm]: "100%"
 		},
 	},
 });
