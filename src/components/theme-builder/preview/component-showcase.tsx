@@ -44,7 +44,6 @@ import {
 export function ComponentShowcase() {
 	return (
 		<VStack gap="large">
-			{/* Buttons */}
 			<VStack withBorder padding="small">
 				<Text variant="h3">Buttons</Text>
 				<HStack>

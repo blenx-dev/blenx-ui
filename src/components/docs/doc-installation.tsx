@@ -1,4 +1,3 @@
-import * as stylex from "@stylexjs/stylex";
 import { Badge } from "../ui";
 import { Box } from "../ui/Box/box";
 import { Separator } from "../ui/Separator/separator";
@@ -7,20 +6,6 @@ import { Surface } from "../ui/Surface/surface";
 import { Text } from "../ui/Text/text";
 import { DocCodeView } from "./doc-code-view";
 
-const styles = stylex.create({
-	depList: {
-		display: "flex",
-		flexWrap: "wrap",
-		gap: "var(--space-1)",
-	},
-	depChip: {
-		backgroundColor: "var(--color-surface-sunken)",
-		padding: "var(--space-1) var(--space-2)",
-		borderRadius: "var(--border-radius-sm)",
-		fontFamily: "var(--font-mono)",
-		fontSize: "12px",
-	},
-});
 
 interface RegistryFile {
 	target: string;
@@ -76,10 +61,9 @@ function DocInstallation({
 						Dependencies
 					</Text>
 					<HStack>
+						ss
 						{dependencies.map((dep) => (
-							<Badge key={dep} {...stylex.props(styles.depChip)}>
-								{dep}
-							</Badge>
+							<Badge key={dep}>{dep}</Badge>
 						))}
 					</HStack>
 				</Box>

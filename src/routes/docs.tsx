@@ -9,6 +9,7 @@ import {
 	DrawerPanel,
 	DrawerPopup,
 	HStack,
+	ScrollArea,
 } from "@/components/ui";
 import { useSidebarStore } from "@/stores/docs-sidebar";
 
@@ -53,7 +54,9 @@ function DocsLayout() {
 					<RenderSidebarNavs />
 				</ClientOnly>
 				<Box grow>
-					<Outlet />
+					<ScrollArea height={"90svh"}>
+						<Outlet />
+					</ScrollArea>
 				</Box>
 			</HStack>
 		</Container>

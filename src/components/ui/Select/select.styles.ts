@@ -81,7 +81,6 @@ export const selectStyles = stylex.create({
 
 	popup: {
 		boxSizing: "border-box",
-		minWidth: "100%",
 		maxHeight: 300,
 		paddingTop: spacing.xsmall,
 		paddingBottom: spacing.xsmall,
@@ -92,6 +91,8 @@ export const selectStyles = stylex.create({
 		borderRadius: borderRadius.large,
 		boxShadow: theme.shadowLg,
 		zIndex: 1400,
+		minWidth: "var(--anchor-width)",
+		maxWidth: "var(--available-width)",
 		outline: "none",
 		overflowY: "auto",
 		":focus-visible": {

@@ -1,8 +1,13 @@
 import * as stylex from "@stylexjs/stylex";
+import type { CSSProperties } from "react";
 import { theme } from "@/lib/theme/contract.stylex";
 import { spacing } from "@/lib/theme/tokens.stylex";
 
 export const scrollAreaStyles = stylex.create({
+	height: (height: CSSProperties["height"]) => ({
+		height: height,
+		maxHeight: height,
+	}),
 	root: {
 		height: "100%",
 		minHeight: 0,

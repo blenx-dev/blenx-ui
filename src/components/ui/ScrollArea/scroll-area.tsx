@@ -3,45 +3,47 @@
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
+import type { CSSProperties } from "react";
+import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { scrollAreaStyles } from "./scroll-area.styles";
 
-type ScrollAreaProps = ScrollAreaPrimitive.Root.Props & {
+type ScrollAreaProps = PropsWithStylex<ScrollAreaPrimitive.Root.Props> & {
 	scrollFade?: boolean;
 	scrollbarGutter?: boolean;
 	fill?: boolean;
-	style?: stylex.StyleXStyles;
+	height?: CSSProperties["height"];
 };
 
-export function ScrollArea({
+function ScrollArea({
 	children,
-	className,
 	scrollFade = false,
 	scrollbarGutter = false,
 	fill = false,
+	height = 400,
 	style,
 	...props
 }: ScrollAreaProps): React.ReactElement {
-	const rootProps = stylex.props(scrollAreaStyles.root, style as never);
+	const rootProps = stylex.props(
+		scrollAreaStyles.root,
+		style,
+		scrollAreaStyles.height(height),
+	);
 	return (
 		<ScrollAreaPrimitive.Root
-			className={[rootProps.className, className].filter(Boolean).join(" ")}
+			{...rootProps}
 			data-slot="scroll-area-root"
 			{...props}
 		>
 			<ScrollAreaPrimitive.Viewport
-				className={
-					stylex.props(
-						scrollAreaStyles.viewport,
-						scrollFade && scrollAreaStyles.viewportFade,
-						scrollbarGutter && scrollAreaStyles.viewportGutter,
-					).className
-				}
+				{...stylex.props(
+					scrollAreaStyles.viewport,
+					scrollFade && scrollAreaStyles.viewportFade,
+					scrollbarGutter && scrollAreaStyles.viewportGutter,
+				)}
 				data-slot="scroll-area-viewport"
 			>
 				<ScrollAreaPrimitive.Content
-					className={
-						stylex.props(fill && scrollAreaStyles.contentFill).className
-					}
+					{...stylex.props(fill && scrollAreaStyles.contentFill)}
 					data-slot="scroll-area-content"
 				>
 					{children}
@@ -54,12 +56,9 @@ export function ScrollArea({
 	);
 }
 
-type ScrollBarProps = Omit<ScrollAreaPrimitive.Scrollbar.Props, "style"> & {
-	style?: stylex.StyleXStyles;
-};
+type ScrollBarProps = PropsWithStylex<ScrollAreaPrimitive.Scrollbar.Props>;
 
-export function ScrollBar({
-	className,
+function ScrollBar({
 	orientation = "vertical",
 	style,
 	...props
@@ -72,19 +71,18 @@ export function ScrollBar({
 	);
 	return (
 		<ScrollAreaPrimitive.Scrollbar
-			className={[scrollbarProps.className, className]
-				.filter(Boolean)
-				.join(" ")}
+			{...scrollbarProps}
 			data-slot="scroll-area-scrollbar"
 			orientation={orientation}
 			{...props}
 		>
 			<ScrollAreaPrimitive.Thumb
-				className={stylex.props(scrollAreaStyles.thumb).className}
+				{...stylex.props(scrollAreaStyles.thumb)}
 				data-slot="scroll-area-thumb"
 			/>
 		</ScrollAreaPrimitive.Scrollbar>
 	);
 }
 
-export { ScrollAreaPrimitive };
+export { ScrollAreaPrimitive, ScrollArea, ScrollBar };
+export type { ScrollAreaProps, ScrollBarProps };
