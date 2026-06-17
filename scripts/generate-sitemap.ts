@@ -10,7 +10,7 @@ const staticRoutes = [
 function loadComponentRoutes(): string[] {
   try {
     const manifest = JSON.parse(
-      readFileSync("public/docs/components.json", "utf-8"),
+      readFileSync("public/docs/components.json", "utf8"),
     );
     return Object.keys(manifest).map(
       (key) => `/components/${key}`,

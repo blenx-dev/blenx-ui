@@ -52,11 +52,11 @@ function copyAndTransformRecursive(src: string, dest: string) {
     }
   } else {
     if (!existsSync(dirname(dest))) mkdirSync(dirname(dest), { recursive: true });
-    let content = readFileSync(src, "utf-8");
+    let content = readFileSync(src, "utf8");
     if (src.endsWith(".ts") || src.endsWith(".tsx")) {
       content = content.replace(/from\s+"#\//g, 'from "@/').replace(/import\s+"#\//g, 'import "@/');
     }
-    writeFileSync(dest, content, "utf-8");
+    writeFileSync(dest, content, "utf8");
   }
 }
 
@@ -121,7 +121,7 @@ for (const metaPath of registryMetaFiles) {
     relativeComponentDir,
   );
   const meta = JSON.parse(
-    readFileSync(metaPath, "utf-8"),
+    readFileSync(metaPath, "utf8"),
   );
 
   const files = (meta.files || []).map(

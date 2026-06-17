@@ -70,7 +70,7 @@ function DocsSidebar({ onClose }: { onClose?: () => void }) {
 					.filter(
 						([, data]) => data.category === category && category !== "Utility",
 					)
-					.sort(([a], [b]) => a.localeCompare(b));
+					.toSorted(([a], [b]) => a.localeCompare(b));
 
 				if (items.length > 0) {
 					groups.push({ category, items });

@@ -8,10 +8,10 @@ let count = 0;
 for (const file of files) {
   if (file.endsWith(".json")) {
     const fullPath = join(REG_DIR, file);
-    let content = readFileSync(fullPath, "utf-8");
+    const content = readFileSync(fullPath, "utf-8");
     const newContent = content.replaceAll("registry/.temp/", "");
     if (content !== newContent) {
-      writeFileSync(fullPath, newContent, "utf-8");
+      writeFileSync(fullPath, newContent, "utf8");
       count++;
     }
   }
