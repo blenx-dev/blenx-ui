@@ -180,11 +180,11 @@ function DataTableDoc() {
 					Add the DataTable component and its sub-components via the shadcn CLI:
 				</Text>
 				<Surface padding="small" variant="sunken">
-					<Text variant="code">{`npx shadcn@latest add data-table`}</Text>
+					<Text variant="code">npx shadcn@latest add data-table</Text>
 				</Surface>
 				<Text>You also need TanStack Table as a peer dependency:</Text>
 				<Surface padding="small" variant="sunken">
-					<Text variant="code">{`npm install @tanstack/react-table`}</Text>
+					<Text variant="code">npm install @tanstack/react-table</Text>
 				</Surface>
 			</Box>
 

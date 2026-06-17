@@ -5,7 +5,6 @@ import { Surface } from "../ui/Surface/surface";
 import { Text } from "../ui/Text/text";
 import { DocCodeView } from "./doc-code-view";
 
-
 interface RegistryFile {
 	target: string;
 	content: string;

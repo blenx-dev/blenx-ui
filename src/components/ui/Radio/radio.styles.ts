@@ -34,7 +34,7 @@ export const radioStyles = stylex.create({
 			boxShadow: `0 0 0 2px ${theme.focusRing}`,
 		},
 		// "&[aria-invalid]": {
-		// 	borderColor: theme.sentimentNegative,
+		// 	BorderColor: theme.sentimentNegative,
 		// },
 	},
 	rootDisabled: {

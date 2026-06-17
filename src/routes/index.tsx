@@ -88,7 +88,7 @@ function HomeComponent() {
 			<VStack gap="xlarge">
 				{/* Hero Section */}
 				<Container
-					size={"xl"}
+					size="xl"
 					content="center"
 					paddingY="titanic"
 					paddingX="massive"
@@ -114,7 +114,6 @@ function HomeComponent() {
 							radius="none"
 							variant="soft"
 							render={
-								// biome-ignore lint/a11y/useAnchorContent: useAnchorContent
 								<a href={GITHUB_URL} target="_blank" rel="noreferrer" />
 							}
 						>

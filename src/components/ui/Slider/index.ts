@@ -1,5 +1,1 @@
-export {
-	Slider,
-	SliderPrimitive,
-	SliderValue,
-} from "./slider";
+export { Slider, SliderPrimitive, SliderValue } from "./slider";

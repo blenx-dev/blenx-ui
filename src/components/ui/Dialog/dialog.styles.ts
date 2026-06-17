@@ -121,7 +121,7 @@ export const dialogStyles = stylex.create({
 		},
 		// ":has([data-slot='dialog-popup']:has([data-slot='dialog-footer']:not(.border-t))":
 		// 	{
-		// 		paddingBottom: spacing.xsmall,
+		// 		PaddingBottom: spacing.xsmall,
 		// 	},
 	},
 });

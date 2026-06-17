@@ -5,7 +5,7 @@ import { spacing } from "@/lib/theme/tokens.stylex";
 
 export const scrollAreaStyles = stylex.create({
 	height: (height: CSSProperties["height"]) => ({
-		height: height,
+		height,
 		maxHeight: height,
 	}),
 	root: {

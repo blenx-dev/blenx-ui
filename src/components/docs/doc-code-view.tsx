@@ -10,7 +10,6 @@ import {
 	Text,
 } from "../ui";
 
-
 interface CodeFile {
 	code: string;
 	title?: string;
@@ -122,9 +121,9 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
 				</HStack>
 			)}
 
-			<ScrollArea height={"80svh"}>
+			<ScrollArea height="80svh">
 				<div
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: dangerouslySetInnerHTML
+					// Biome-ignore lint/security/noDangerouslySetInnerHtml: dangerouslySetInnerHTML
 					dangerouslySetInnerHTML={{
 						__html: highlighted ?? escapeHtml(activeFile.code),
 					}}

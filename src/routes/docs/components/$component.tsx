@@ -119,6 +119,7 @@ function ComponentDocPage() {
 					</VStack>
 				</VStack>
 			)}
+			<Box />
 		</VStack>
 	);
 }

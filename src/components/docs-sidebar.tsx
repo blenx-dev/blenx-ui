@@ -70,7 +70,7 @@ function DocsSidebar() {
 					.filter(
 						([, data]) => data.category === category && category !== "Utility",
 					)
-					.sort(([a], [b]) => a.localeCompare(b));
+					.toSorted(([a], [b]) => a.localeCompare(b));
 
 				if (items.length > 0) {
 					groups.push({ category, items });
@@ -98,7 +98,7 @@ function DocsSidebar() {
 	}
 	return (
 		<Surface variant="sunken">
-			<ScrollArea height={"90svh"}>
+			<ScrollArea height="90svh">
 				<VStack gap="medium" padding="medium">
 					{sections.map((section) => (
 						<Box key={section.title}>
@@ -142,7 +142,7 @@ function DocsSidebar() {
 							</Text>
 							<VStack gap="xxsmall">
 								{section.links.map((link) => {
-									const isActive = pathname.startsWith(link.to);
+									const isActive = pathname === link.to;
 									return (
 										<Surface
 											variant={isActive ? "outline" : "sunken"}

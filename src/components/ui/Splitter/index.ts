@@ -1,5 +1,1 @@
-export {
-	Splitter,
-	SplitterHandle,
-	SplitterPanel,
-} from "./splitter";
+export { Splitter, SplitterHandle, SplitterPanel } from "./splitter";

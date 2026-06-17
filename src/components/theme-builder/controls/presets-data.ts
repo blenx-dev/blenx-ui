@@ -192,5 +192,5 @@ export const presets: ThemePreset[] = [
 			sentimentInfo: "#5e81ac",
 			focusRing: "#81a1c1",
 		},
-	}
+	},
 ];

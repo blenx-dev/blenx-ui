@@ -17,7 +17,7 @@ export * from "./ColorPicker/color-picker";
 export * from "./ColorSwatch/color-swatch";
 export * from "./Combobox/combobox";
 export * from "./Container/container";
-// export * from "./DatePicker/date-picker";
+// Export * from "./DatePicker/date-picker";
 export * from "./Dialog/dialog";
 export * from "./Drawer/drawer";
 export * from "./Field/field";

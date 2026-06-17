@@ -281,7 +281,7 @@ export function DataTable<TData extends Record<string, unknown>>({
 		() => selectedRowModel.rows.map((r) => r.original),
 		[selectedRowModel.rows],
 	);
-	const rows = table.getRowModel().rows;
+	const {rows} = table.getRowModel();
 	const headerGroups = table.getHeaderGroups();
 
 	const showPagination =

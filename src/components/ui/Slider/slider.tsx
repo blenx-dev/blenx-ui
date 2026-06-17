@@ -75,7 +75,7 @@ export function Slider({
 					{Array.from({ length: _values.length }, (_, index) => (
 						<SliderPrimitive.Thumb
 							index={index}
-							// biome-ignore lint/suspicious/noArrayIndexKey: noArrayIndexKey
+							// Biome-ignore lint/suspicious/noArrayIndexKey: noArrayIndexKey
 							key={index}
 							render={(props, state) => (
 								<div

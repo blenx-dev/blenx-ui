@@ -3,7 +3,6 @@ import { VStack } from "../Stack/stack";
 import { Text } from "../Text/text";
 import { Input } from "./input";
 
-
 function InputDemo() {
 	return (
 		<VStack gap="medium">

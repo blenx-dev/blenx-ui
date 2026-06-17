@@ -62,6 +62,6 @@ export function ThemePreviewProvider({ children }: { children: ReactNode }) {
 		}
 		return vars;
 	}, [tokens]);
-console.log(cssVars);
+	console.log(cssVars);
 	return <div style={cssVars as React.CSSProperties}>{children}</div>;
 }

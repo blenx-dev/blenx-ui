@@ -25,7 +25,7 @@ function DocRelated({ related }: DocRelatedProps) {
 	};
 
 	return (
-		<HStack gap="small" wrap>
+		<HStack gap="small" wrap radius="xsmall">
 			{related.map((name) => (
 				<Badge
 					key={name}

@@ -38,7 +38,7 @@ function InputGroupAddon({
 	);
 
 	return (
-		// biome-ignore lint/a11y/noStaticElementInteractions: div acts as a focus proxy for the inner input
+		// Biome-ignore lint/a11y/noStaticElementInteractions: div acts as a focus proxy for the inner input
 		<div
 			{...addonStyleProps}
 			data-align={align}

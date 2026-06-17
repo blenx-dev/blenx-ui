@@ -25,7 +25,6 @@ export const textTransformStyles = stylex.create({
 	},
 });
 
-
 export const textAlignStyles = stylex.create({
 	left: { textAlign: "left" },
 	center: { textAlign: "center" },

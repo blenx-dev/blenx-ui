@@ -19,7 +19,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 		head: () => ({
 			meta: [
 				{
-					charSet: "utf-8",
+					charSet: "utf8",
 				},
 				{
 					name: "viewport",
@@ -125,7 +125,6 @@ function RootDocument() {
 				<meta name="twitter:image" content="https://blenx-ui.vercel.app/og" />
 				<script
 					type="application/ld+json"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: noDangerouslySetInnerHtml
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({
 							"@context": "https://schema.org",

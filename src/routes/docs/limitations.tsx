@@ -139,7 +139,7 @@ function LimitationsDoc() {
 						<li>
 							<Text variant="body2">
 								Older React versions {"<"}
-								{"19"}
+								19
 								{">"}
 							</Text>
 						</li>

@@ -75,7 +75,7 @@ export function ComponentShowcase() {
 			{/* Forms */}
 			<VStack withBorder padding="small">
 				<Text variant="h3">Forms</Text>
-				<VStack maxWidth={"sm"}>
+				<VStack maxWidth="sm">
 					<Input placeholder="Enter text..." size="default" />
 					<Textarea placeholder="Textarea..." rows={3} />
 					<Select.Root defaultValue="option1">

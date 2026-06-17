@@ -103,7 +103,7 @@ export const mediaQueries = stylex.defineConsts({
 	xl: "@media (min-width: 1280px)",
 	xxl: "@media (min-width: 1536px)",
 	dark: darkMode,
-	darkMode: darkMode,
+	darkMode,
 });
 
 // ─── Primitives ──────────────────────────────────────────────────────────────

@@ -61,7 +61,7 @@ ${themeEntries.join("\n")}
 			setCopied("json");
 			setTimeout(() => setCopied(""), 2000);
 		} catch {
-			// fallback
+			// Fallback
 		}
 	}, [tokens]);
 
@@ -72,7 +72,7 @@ ${themeEntries.join("\n")}
 			setCopied("stylex");
 			setTimeout(() => setCopied(""), 2000);
 		} catch {
-			// fallback
+			// Fallback
 		}
 	}, [generateStyleXCode]);
 

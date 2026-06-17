@@ -150,7 +150,7 @@ interface SelectWrapperProps {
 
 export function SelectWrapper({ label, error, children }: SelectWrapperProps) {
 	return (
-		<Field invalid={!!error}>
+		<Field invalid={Boolean(error)}>
 			{label && <FieldLabel>{label}</FieldLabel>}
 			{children}
 			{error && <FieldError>{error}</FieldError>}

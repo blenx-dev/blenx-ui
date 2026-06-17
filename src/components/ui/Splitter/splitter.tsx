@@ -104,7 +104,7 @@ function calculateSizes(
 				}
 			}
 		} catch {
-			/* ignore */
+			/* Ignore */
 		}
 	}
 
@@ -206,7 +206,7 @@ export function Splitter({
 			try {
 				localStorage.setItem(storageKey, JSON.stringify(sizes));
 			} catch {
-				/* ignore */
+				/* Ignore */
 			}
 		}
 	}, [storageKey, sizes]);

@@ -43,3 +43,10 @@ const { Provider: MyProvider, useStore: useMyStore } = createContext<ReturnType<
 const value = useMyStore((s) => s.value)
 const actions = useMyStore((s) => s.actions)
 ```
+
+## Lint & Format
+
+- **Linting**: `oxlint` via `.oxlintrc.json`.
+- **Formatting**: `oxfmt` via `.oxfmtrc.json` (tabs, double quotes, trailing commas, semicolons).
+- Run `npm run check` before pushing (oxfmt --check + oxlint).
+- Run `npm run check:fix` to auto-fix.

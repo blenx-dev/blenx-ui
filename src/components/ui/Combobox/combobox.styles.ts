@@ -69,8 +69,8 @@ export const comboboxStyles = stylex.create({
 			inset: "-6px",
 		},
 		// "& svg": {
-		// 	pointerEvents: "none",
-		// 	flexShrink: 0,
+		// 	PointerEvents: "none",
+		// 	FlexShrink: 0,
 		// },
 	},
 	adornmentSm: {
@@ -92,7 +92,7 @@ export const comboboxStyles = stylex.create({
 	},
 	adornmentHiddenWhenClear: {
 		// ":has(+ [data-slot='combobox-clear'])": {
-		// 	display: "none",
+		// 	Display: "none",
 		// },
 	},
 	positioner: {
@@ -115,8 +115,8 @@ export const comboboxStyles = stylex.create({
 		transitionProperty: "transform, opacity",
 		transitionDuration: "150ms",
 		// ":is([data-starting-style], [data-ending-style])": {
-		// 	opacity: 0,
-		// 	scale: 0.95,
+		// 	Opacity: 0,
+		// 	Scale: 0.95,
 		// },
 		"::before": {
 			content: '""',
@@ -148,7 +148,7 @@ export const comboboxStyles = stylex.create({
 		display: "flex",
 		flexDirection: "column",
 		// ":not(:first-child)": {
-		// 	marginTop: "6px",
+		// 	MarginTop: "6px",
 		// },
 	},
 	groupLabel: {
@@ -287,8 +287,8 @@ export const comboboxStyles = stylex.create({
 		opacity: 0.8,
 		paddingInlineStart: spacing.small,
 		// "& svg": {
-		// 	pointerEvents: "none",
-		// 	flexShrink: 0,
+		// 	PointerEvents: "none",
+		// 	FlexShrink: 0,
 		// },
 	},
 	chipsStartAddonSm: {
@@ -335,8 +335,8 @@ export const comboboxStyles = stylex.create({
 		lineHeight: 1.2,
 		outline: "none",
 		// "& svg": {
-		// 	pointerEvents: "none",
-		// 	flexShrink: 0,
+		// 	PointerEvents: "none",
+		// 	FlexShrink: 0,
 		// },
 	},
 	chipSm: {
@@ -354,8 +354,8 @@ export const comboboxStyles = stylex.create({
 			opacity: 1,
 		},
 		// "& svg": {
-		// 	pointerEvents: "none",
-		// 	flexShrink: 0,
+		// 	PointerEvents: "none",
+		// 	FlexShrink: 0,
 		// },
 	},
 });

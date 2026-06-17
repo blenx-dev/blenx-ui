@@ -25,7 +25,6 @@ import { HowItWorks, TokenTable } from "./stylex-showcase";
 import { ThemeBuilderProvider, useThemeBuilder } from "./theme-builder-context";
 import { ThemePreviewProvider } from "./theme-provider";
 
-
 function SidebarContent() {
 	return (
 		<Accordion.Root
@@ -47,7 +46,7 @@ function Sidebar({ compact }: { compact: boolean }) {
 
 	if (!compact) {
 		return (
-			<ScrollArea height={"90svh"}>
+			<ScrollArea height="90svh">
 				<SidebarContent />
 			</ScrollArea>
 		);
@@ -56,7 +55,7 @@ function Sidebar({ compact }: { compact: boolean }) {
 	if (!sidebarOpen) return null;
 
 	return (
-		<ScrollArea height={"90svh"}>
+		<ScrollArea height="90svh">
 			<SidebarContent />
 		</ScrollArea>
 	);
@@ -66,7 +65,7 @@ function PreviewPanel({ compact }: { compact: boolean }) {
 	const toggleSidebar = useThemeBuilder((s) => s.toggleSidebar);
 
 	return (
-		<ScrollArea height={"90svh"}>
+		<ScrollArea height="90svh">
 			{compact && (
 				<Button variant="ghost" size="small" onClick={toggleSidebar}>
 					<ListIcon size={16} />
@@ -120,7 +119,7 @@ function ThemeBuilderInner() {
 		<ThemePreviewProvider>
 			<Splitter orientation="horizontal">
 				<Splitter.Panel defaultSize={28} minSize={18} maxSize={50}>
-					<ScrollArea height={"90svh"}>
+					<ScrollArea height="90svh">
 						<SidebarContent />
 					</ScrollArea>
 				</Splitter.Panel>

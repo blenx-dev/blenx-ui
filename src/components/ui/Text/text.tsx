@@ -45,31 +45,31 @@ type Props = PropsWithStylex<
 >;
 
 export function Text({
-		variant = "body1",
-		color,
-		align,
-		weight,
+	variant = "body1",
+	color,
+	align,
+	weight,
+	style,
+	size,
+	render,
+	transform = "none",
+	...props
+}: Props): React.ReactElement {
+	const sx = stylex.props(
+		textStyles.base,
+		textTransformStyles[transform],
+		textVarianttyles[variant],
+		color && colorStyles[color],
+		align && textAlignStyles[align],
+		weight && textWeightStyles[weight],
+		!color && colorStyles.primary,
+		size && fontSizeStyles[size],
 		style,
-		size,
+	);
+	const merged = mergeProps(props, sx);
+	return useRender({
+		defaultTagName: variantTag[variant],
+		props: merged,
 		render,
-		transform = "none",
-		...props
-	}: Props): React.ReactElement {
-		const sx = stylex.props(
-			textStyles.base,
-			textTransformStyles[transform],
-			textVarianttyles[variant],
-			color && colorStyles[color],
-			align && textAlignStyles[align],
-			weight && textWeightStyles[weight],
-			!color && colorStyles.primary,
-			size && fontSizeStyles[size],
-			style,
-		);
-		const merged = mergeProps(props, sx);
-		return useRender({
-			defaultTagName: variantTag[variant],
-			props: merged,
-			render,
-		});
-	}
+	});
+}

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/api/r/$")({
 				}
 
 				try {
-					const content = readFileSync(filePath, "utf-8");
+					const content = readFileSync(filePath, "utf8");
 					return new Response(content, {
 						headers: { "Content-Type": "application/json" },
 					});

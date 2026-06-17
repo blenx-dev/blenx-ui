@@ -68,28 +68,28 @@ export const autoCompleteStyles = stylex.create({
 		transitionProperty: "color, background-color, box-shadow, opacity",
 		transitionDuration: "150ms",
 		// ":hover": {
-		// 	opacity: 1,
+		// 	Opacity: 1,
 		// },
 		// "::after": {
-		// 	content: '""',
-		// 	position: "absolute",
-		// 	inset: "-6px",
+		// 	Content: '""',
+		// 	Position: "absolute",
+		// 	Inset: "-6px",
 		// },
 		// "& svg": {
-		// 	pointerEvents: "none",
-		// 	flexShrink: 0,
+		// 	PointerEvents: "none",
+		// 	FlexShrink: 0,
 		// },
 	},
 	adornmentHiddenWhenClear: {
 		// ":has(+ [data-slot='autocomplete-clear'])": {
-		// 	display: "none",
+		// 	Display: "none",
 		// },
 	},
 	adornmentSmall: {
 		width: "28px",
 		height: "28px",
 		// "::after": {
-		// 	inset: "-8px",
+		// 	Inset: "-8px",
 		// },
 	},
 	adornmentDefault: {
@@ -130,16 +130,16 @@ export const autoCompleteStyles = stylex.create({
 		transitionProperty: "transform, opacity",
 		transitionDuration: "150ms",
 		// ":is([data-starting-style], [data-ending-style])": {
-		// 	opacity: 0,
-		// 	scale: 0.95,
+		// 	Opacity: 0,
+		// 	Scale: 0.95,
 		// },
 		// "::before": {
-		// 	content: '""',
-		// 	pointerEvents: "none",
-		// 	position: "absolute",
-		// 	inset: 0,
-		// 	borderRadius: "inherit",
-		// 	boxShadow:
+		// 	Content: '""',
+		// 	PointerEvents: "none",
+		// 	Position: "absolute",
+		// 	Inset: 0,
+		// 	BorderRadius: "inherit",
+		// 	BoxShadow:
 		// 		"0 1px 0 rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.02)",
 		// },
 	},
@@ -176,13 +176,13 @@ export const autoCompleteStyles = stylex.create({
 		},
 		color: theme.contentSecondary,
 		// ":empty": {
-		// 	display: "none",
+		// 	Display: "none",
 		// },
 	},
 	list: {
 		padding: spacing.xsmall,
 		// ":not(:empty)": {
-		// 	scrollPaddingBlock: spacing.xsmall,
+		// 	ScrollPaddingBlock: spacing.xsmall,
 		// },
 	},
 	status: {
@@ -192,8 +192,8 @@ export const autoCompleteStyles = stylex.create({
 		fontWeight: fontWeight.medium,
 		color: theme.contentSecondary,
 		// ":empty": {
-		// 	margin: 0,
-		// 	padding: 0,
+		// 	Margin: 0,
+		// 	Padding: 0,
 		// },
 	},
 	item: {
@@ -206,15 +206,15 @@ export const autoCompleteStyles = stylex.create({
 		userSelect: "none",
 		outline: "none",
 		// ":hover": {
-		// 	backgroundColor: theme.surfaceHover,
+		// 	BackgroundColor: theme.surfaceHover,
 		// },
 		// ":where([data-disabled])&": {
-		// 	pointerEvents: "none",
-		// 	opacity: 0.64,
+		// 	PointerEvents: "none",
+		// 	Opacity: 0.64,
 		// },
 		// ":where([data-highlighted])&": {
-		// 	backgroundColor: theme.surface,
-		// 	color: theme.contentAccent,
+		// 	BackgroundColor: theme.surface,
+		// 	Color: theme.contentAccent,
 		// },
 		minHeight: {
 			default: "32px",

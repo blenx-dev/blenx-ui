@@ -54,7 +54,7 @@ function DocsLayout() {
 					<RenderSidebarNavs />
 				</ClientOnly>
 				<Box grow>
-					<ScrollArea height={"90svh"}>
+					<ScrollArea height="90svh">
 						<Outlet />
 					</ScrollArea>
 				</Box>

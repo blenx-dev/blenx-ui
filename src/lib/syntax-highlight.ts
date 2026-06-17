@@ -11,7 +11,7 @@ type Lang =
 	| "html"
 	| "md";
 
-const LANGUAGES: Lang[] = [
+const LANGUAGES: Lang[] = new Set([
 	"typescript",
 	"ts",
 	"js",
@@ -21,14 +21,14 @@ const LANGUAGES: Lang[] = [
 	"css",
 	"html",
 	"md",
-];
+]);
 
 export async function highlightCode(
 	code: string,
 	language: string,
 ): Promise<string> {
 	try {
-		const lang = LANGUAGES.includes(language as Lang) ? language : "typescript";
+		const lang = LANGUAGES.has(language as Lang) ? language : "typescript";
 		return codeToHtml(code, {
 			lang,
 			theme: "github-dark",
