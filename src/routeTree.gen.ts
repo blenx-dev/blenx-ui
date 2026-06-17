@@ -22,6 +22,7 @@ import { Route as DocsPrimitivesRouteImport } from './routes/docs/primitives'
 import { Route as DocsLimitationsRouteImport } from './routes/docs/limitations'
 import { Route as DocsInstallationRouteImport } from './routes/docs/installation'
 import { Route as DocsDataTableRouteImport } from './routes/docs/data-table'
+import { Route as BlocksMarketingRouteImport } from './routes/blocks/marketing'
 import { Route as BlocksApplicationStatesRouteImport } from './routes/blocks/application-states'
 import { Route as DocsComponentsComponentRouteImport } from './routes/docs/components/$component'
 
@@ -90,6 +91,11 @@ const DocsDataTableRoute = DocsDataTableRouteImport.update({
   path: '/data-table',
   getParentRoute: () => DocsRoute,
 } as any)
+const BlocksMarketingRoute = BlocksMarketingRouteImport.update({
+  id: '/marketing',
+  path: '/marketing',
+  getParentRoute: () => BlocksRoute,
+} as any)
 const BlocksApplicationStatesRoute = BlocksApplicationStatesRouteImport.update({
   id: '/application-states',
   path: '/application-states',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
   '/blocks/application-states': typeof BlocksApplicationStatesRoute
+  '/blocks/marketing': typeof BlocksMarketingRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
   '/blocks/application-states': typeof BlocksApplicationStatesRoute
+  '/blocks/marketing': typeof BlocksMarketingRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
   '/blocks/application-states': typeof BlocksApplicationStatesRoute
+  '/blocks/marketing': typeof BlocksMarketingRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/og'
     | '/theme-builder'
     | '/blocks/application-states'
+    | '/blocks/marketing'
     | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/og'
     | '/theme-builder'
     | '/blocks/application-states'
+    | '/blocks/marketing'
     | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
@@ -192,6 +203,7 @@ export interface FileRouteTypes {
     | '/og'
     | '/theme-builder'
     | '/blocks/application-states'
+    | '/blocks/marketing'
     | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
@@ -304,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsDataTableRouteImport
       parentRoute: typeof DocsRoute
     }
+    '/blocks/marketing': {
+      id: '/blocks/marketing'
+      path: '/marketing'
+      fullPath: '/blocks/marketing'
+      preLoaderRoute: typeof BlocksMarketingRouteImport
+      parentRoute: typeof BlocksRoute
+    }
     '/blocks/application-states': {
       id: '/blocks/application-states'
       path: '/application-states'
@@ -323,11 +342,13 @@ declare module '@tanstack/react-router' {
 
 interface BlocksRouteChildren {
   BlocksApplicationStatesRoute: typeof BlocksApplicationStatesRoute
+  BlocksMarketingRoute: typeof BlocksMarketingRoute
   BlocksIndexRoute: typeof BlocksIndexRoute
 }
 
 const BlocksRouteChildren: BlocksRouteChildren = {
   BlocksApplicationStatesRoute: BlocksApplicationStatesRoute,
+  BlocksMarketingRoute: BlocksMarketingRoute,
   BlocksIndexRoute: BlocksIndexRoute,
 }
 
