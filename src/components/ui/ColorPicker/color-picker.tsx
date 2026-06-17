@@ -1,5 +1,5 @@
 import { CaretDownIcon } from "@phosphor-icons/react";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { HexAlphaColorPicker, HexColorInput } from "react-colorful";
 import { Button } from "../Button/button";
 import { ColorSwatch } from "../ColorSwatch/color-swatch";
@@ -16,6 +16,8 @@ import {
 import { VStack } from "../Stack/stack";
 import { Text } from "../Text/text";
 
+const HEX_REGEX = /^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
+
 type Props = {
 	value: string;
 	onChange: (color: string) => void;
@@ -24,11 +26,45 @@ type Props = {
 
 export function ColorPicker({ value, onChange, label }: Props) {
 	const [open, setOpen] = useState(false);
+	const [internalValue, setInternalValue] = useState(value);
+	const lastValidRef = useRef(value);
 	const triggerRef = useRef<HTMLButtonElement>(null);
+	const prevValueRef = useRef(value);
+
+	useEffect(() => {
+		if (prevValueRef.current !== value) {
+			prevValueRef.current = value;
+			setInternalValue(value);
+			lastValidRef.current = value;
+		}
+	}, [value]);
+
+	const handleOpenChange = useCallback((nextOpen: boolean) => {
+		if (!nextOpen && triggerRef.current) {
+			triggerRef.current.focus();
+		}
+		setOpen(nextOpen);
+	}, []);
+
+	const handleHexInputChange = useCallback(
+		(newColor: string) => {
+			setInternalValue(newColor);
+			if (HEX_REGEX.test(newColor)) {
+				lastValidRef.current = newColor;
+				onChange(newColor);
+			}
+		},
+		[onChange],
+	);
+
+	const revertToLastValid = useCallback(() => {
+		setInternalValue(lastValidRef.current);
+		onChange(lastValidRef.current);
+	}, [onChange]);
 
 	return (
 		<Field>
-			<Popover open={open} onOpenChange={setOpen}>
+			<Popover open={open} onOpenChange={handleOpenChange}>
 				{label && (
 					<FieldLabel
 						onClick={() => {
@@ -41,6 +77,7 @@ export function ColorPicker({ value, onChange, label }: Props) {
 				)}
 				<PopoverTrigger
 					ref={triggerRef}
+					aria-label={label ? `${label} color picker` : "Color picker"}
 					render={<Button type="button" variant="outline" />}
 				>
 					<ColorSwatch color={value} size={20} />
@@ -52,11 +89,28 @@ export function ColorPicker({ value, onChange, label }: Props) {
 						<PopoverPopup>
 							<PopoverArrow />
 							<VStack gap="xsmall">
-								<HexAlphaColorPicker color={value} onChange={onChange} />
+								<HexAlphaColorPicker
+									color={internalValue}
+									onChange={(color) => {
+										setInternalValue(color);
+										lastValidRef.current = color;
+										onChange(color);
+									}}
+								/>
 								<Input
 									size="sm"
 									render={
-										<HexColorInput color={value} onChange={onChange} prefixed />
+										<HexColorInput
+											color={internalValue}
+											onChange={handleHexInputChange}
+											onBlur={() => {
+												if (!HEX_REGEX.test(internalValue)) {
+													revertToLastValid();
+												}
+											}}
+											prefixed
+											aria-label="Hex color value"
+										/>
 									}
 								/>
 							</VStack>

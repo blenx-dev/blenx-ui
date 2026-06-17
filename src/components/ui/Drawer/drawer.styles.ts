@@ -45,8 +45,14 @@ export const drawerStyles = stylex.create({
 		zIndex: 50,
 		backgroundColor: "rgba(0, 0, 0, 0.32)",
 		backdropFilter: "blur(4px)",
-		transitionProperty: "opacity",
-		transitionDuration: "450ms",
+		transitionProperty: {
+			default: "opacity",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "450ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 		transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
 	},
 	viewport: {
@@ -93,9 +99,15 @@ export const drawerStyles = stylex.create({
 		borderColor: theme.border,
 		outline: "none",
 		willChange: "transform",
-		transitionProperty:
-			"transform, box-shadow, height, background-color, margin, padding",
-		transitionDuration: "450ms",
+		transitionProperty: {
+			default:
+				"transform, box-shadow, height, background-color, margin, padding",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "450ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 		transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
 	},
 	popupDefault: {

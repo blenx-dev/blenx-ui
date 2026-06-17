@@ -9,8 +9,14 @@ export const dialogStyles = stylex.create({
 		zIndex: 50,
 		backgroundColor: "rgba(0, 0, 0, 0.32)",
 		backdropFilter: "blur(4px)",
-		transitionProperty: "opacity, transform",
-		transitionDuration: "200ms",
+		transitionProperty: {
+			default: "opacity, transform",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "200ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 	},
 	viewport: {
 		position: "fixed",
@@ -48,8 +54,14 @@ export const dialogStyles = stylex.create({
 		boxSizing: "border-box",
 		opacity: "calc(1 - var(--nested-dialogs))",
 		outline: "none",
-		transitionProperty: "transform, opacity",
-		transitionDuration: "200ms",
+		transitionProperty: {
+			default: "transform, opacity",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "200ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 		transitionTimingFunction: "ease-in-out",
 		willChange: "transform",
 		"::before": {

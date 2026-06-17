@@ -62,15 +62,14 @@ function ComponentDocPage() {
 			<Separator tone="subtle" />
 
 			{doc.registryName && registry?.demo && (
-				<Box>
+				<VStack marginY="medium">
 					<Text variant="h2">Demo</Text>
 					<Surface padding="medium" variant="sunken">
 						<DocDemoRenderer registryName={doc.registryName} />
 					</Surface>
 					<DocCodeView code={registry.demo} title="Demo Source" />
-
 					<Separator />
-				</Box>
+				</VStack>
 			)}
 
 			<DocInstallation

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
 	ArrowDownRightIcon,
 	ArrowUpRightIcon,
@@ -168,146 +169,140 @@ const activities = [
 	},
 ];
 
-export function ExampleDashboard() {
-	return (
-		<VStack gap="none">
-			{/* KPI Cards */}
-			<div {...stylex.props(styles.kpiGrid)}>
-				{kpis.map((kpi) => (
-					<Card key={kpi.label} padding="medium">
-						<Text variant="caption" color="secondary">
-							{kpi.label}
-						</Text>
-						<div {...stylex.props(styles.kpiValue)}>{kpi.value}</div>
-						<div {...stylex.props(kpi.up ? styles.trendUp : styles.trendDown)}>
-							{kpi.up ? (
-								<ArrowUpRightIcon size={14} />
-							) : (
-								<ArrowDownRightIcon size={14} />
-							)}
-							<span>{kpi.trend}</span>
-						</div>
-					</Card>
-				))}
-			</div>
+export const ExampleDashboard = memo(() => (
+	<VStack gap="none">
+		{/* KPI Cards */}
+		<div {...stylex.props(styles.kpiGrid)}>
+			{kpis.map((kpi) => (
+				<Card key={kpi.label} padding="medium">
+					<Text variant="caption" color="secondary">
+						{kpi.label}
+					</Text>
+					<div {...stylex.props(styles.kpiValue)}>{kpi.value}</div>
+					<div {...stylex.props(kpi.up ? styles.trendUp : styles.trendDown)}>
+						{kpi.up ? (
+							<ArrowUpRightIcon size={14} />
+						) : (
+							<ArrowDownRightIcon size={14} />
+						)}
+						<span>{kpi.trend}</span>
+					</div>
+				</Card>
+			))}
+		</div>
 
-			{/* Activity Table */}
+		{/* Activity Table */}
+		<Card padding="medium">
+			<CardHeader>
+				<CardTitle>Recent Activity</CardTitle>
+				<CardDescription>Latest actions across your workspace</CardDescription>
+			</CardHeader>
+			<CardBody>
+				<Table
+					columnData={[
+						{ key: "user", header: "User" },
+						{
+							key: "action",
+							header: "Action",
+						},
+						{
+							key: "status",
+							header: "Status",
+							cell: (row) => (
+								<Badge
+									variant={
+										row.status === "Completed"
+											? "primary"
+											: row.status === "Failed"
+												? "secondary"
+												: "default"
+									}
+								>
+									{row.status}
+								</Badge>
+							),
+						},
+						{ key: "date", header: "Date" },
+					]}
+					rowData={activities}
+				/>
+			</CardBody>
+		</Card>
+
+		{/* User Profile Card + Charts */}
+		<div {...stylex.props(styles.dashboardGrid)}>
+			{/* Profile */}
 			<Card padding="medium">
 				<CardHeader>
-					<CardTitle>Recent Activity</CardTitle>
-					<CardDescription>
-						Latest actions across your workspace
-					</CardDescription>
+					<CardTitle>User Profile</CardTitle>
 				</CardHeader>
 				<CardBody>
-					<Table
-						columnData={[
-							{ key: "user", header: "User" },
-							{
-								key: "action",
-								header: "Action",
-							},
-							{
-								key: "status",
-								header: "Status",
-								cell: (row) => (
-									<Badge
-										variant={
-											row.status === "Completed"
-												? "primary"
-												: row.status === "Failed"
-													? "secondary"
-													: "default"
-										}
-									>
-										{row.status}
-									</Badge>
-								),
-							},
-							{ key: "date", header: "Date" },
-						]}
-						rowData={activities}
-					/>
+					<div {...stylex.props(styles.profileContent)}>
+						<Avatar size="large">
+							<AvatarFallback>AK</AvatarFallback>
+						</Avatar>
+						<div {...stylex.props(styles.profileInfo)}>
+							<div {...stylex.props(styles.profileName)}>Alex Kumar</div>
+							<div {...stylex.props(styles.profileEmail)}>alex@example.com</div>
+							<Badge variant="primary" radius="full">
+								Admin
+							</Badge>
+						</div>
+					</div>
+					<div {...stylex.props(styles.profileActions)}>
+						<Button variant="outline" size="small">
+							<PencilSimpleLineIcon size={14} />
+							Edit
+						</Button>
+						<Button variant="danger" size="small">
+							<TrashSimpleIcon size={14} />
+							Delete
+						</Button>
+					</div>
 				</CardBody>
 			</Card>
 
-			{/* User Profile Card + Charts */}
-			<div {...stylex.props(styles.dashboardGrid)}>
-				{/* Profile */}
-				<Card padding="medium">
-					<CardHeader>
-						<CardTitle>User Profile</CardTitle>
-					</CardHeader>
-					<CardBody>
-						<div {...stylex.props(styles.profileContent)}>
-							<Avatar size="large">
-								<AvatarFallback>AK</AvatarFallback>
-							</Avatar>
-							<div {...stylex.props(styles.profileInfo)}>
-								<div {...stylex.props(styles.profileName)}>Alex Kumar</div>
-								<div {...stylex.props(styles.profileEmail)}>
-									alex@example.com
-								</div>
-								<Badge variant="primary" radius="full">
-									Admin
-								</Badge>
-							</div>
-						</div>
-						<div {...stylex.props(styles.profileActions)}>
-							<Button variant="outline" size="small">
-								<PencilSimpleLineIcon size={14} />
-								Edit
-							</Button>
-							<Button variant="danger" size="small">
-								<TrashSimpleIcon size={14} />
-								Delete
-							</Button>
-						</div>
-					</CardBody>
-				</Card>
+			{/* Charts */}
+			<Surface variant="outline">
+				<CardBody>
+					<div {...stylex.props(styles.chartPlaceholder)}>
+						<VStack gap="small" align="center">
+							<ChartBarIcon size={32} />
+							<Text variant="body2" color="disabled">
+								Revenue Chart
+							</Text>
+						</VStack>
+					</div>
+				</CardBody>
+			</Surface>
+		</div>
 
-				{/* Charts */}
-				<Surface variant="outline">
-					<CardBody>
-						<div {...stylex.props(styles.chartPlaceholder)}>
-							<VStack gap="small" align="center">
-								<ChartBarIcon size={32} />
-								<Text variant="body2" color="disabled">
-									Revenue Chart
-								</Text>
-							</VStack>
-						</div>
-					</CardBody>
-				</Surface>
-			</div>
+		<div {...stylex.props(styles.dashboardGrid)} style={{ marginTop: 0 }}>
+			<Surface variant="outline">
+				<CardBody>
+					<div {...stylex.props(styles.chartPlaceholder)}>
+						<VStack gap="small" align="center">
+							<UsersIcon size={32} />
+							<Text variant="body2" color="disabled">
+								User Growth Chart
+							</Text>
+						</VStack>
+					</div>
+				</CardBody>
+			</Surface>
 
-			<div {...stylex.props(styles.dashboardGrid)} style={{ marginTop: 0 }}>
-				<Surface variant="outline">
-					<CardBody>
-						<div {...stylex.props(styles.chartPlaceholder)}>
-							<VStack gap="small" align="center">
-								<UsersIcon size={32} />
-								<Text variant="body2" color="disabled">
-									User Growth Chart
-								</Text>
-							</VStack>
-						</div>
-					</CardBody>
-				</Surface>
-
-				<Surface variant="outline">
-					<CardBody>
-						<div {...stylex.props(styles.chartPlaceholder)}>
-							<VStack gap="small" align="center">
-								<ChartBarIcon size={32} />
-								<Text variant="body2" color="disabled">
-									Conversion Funnel
-								</Text>
-							</VStack>
-						</div>
-					</CardBody>
-				</Surface>
-			</div>
-		</VStack>
-	);
-}
+			<Surface variant="outline">
+				<CardBody>
+					<div {...stylex.props(styles.chartPlaceholder)}>
+						<VStack gap="small" align="center">
+							<ChartBarIcon size={32} />
+							<Text variant="body2" color="disabled">
+								Conversion Funnel
+							</Text>
+						</VStack>
+					</div>
+				</CardBody>
+			</Surface>
+		</div>
+	</VStack>
+));
