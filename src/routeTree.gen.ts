@@ -23,6 +23,7 @@ import { Route as DocsLimitationsRouteImport } from './routes/docs/limitations'
 import { Route as DocsInstallationRouteImport } from './routes/docs/installation'
 import { Route as DocsDataTableRouteImport } from './routes/docs/data-table'
 import { Route as BlocksMarketingRouteImport } from './routes/blocks/marketing'
+import { Route as BlocksAuthenticationRouteImport } from './routes/blocks/authentication'
 import { Route as BlocksApplicationStatesRouteImport } from './routes/blocks/application-states'
 import { Route as DocsComponentsComponentRouteImport } from './routes/docs/components/$component'
 
@@ -96,6 +97,11 @@ const BlocksMarketingRoute = BlocksMarketingRouteImport.update({
   path: '/marketing',
   getParentRoute: () => BlocksRoute,
 } as any)
+const BlocksAuthenticationRoute = BlocksAuthenticationRouteImport.update({
+  id: '/authentication',
+  path: '/authentication',
+  getParentRoute: () => BlocksRoute,
+} as any)
 const BlocksApplicationStatesRoute = BlocksApplicationStatesRouteImport.update({
   id: '/application-states',
   path: '/application-states',
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
   '/blocks/application-states': typeof BlocksApplicationStatesRoute
+  '/blocks/authentication': typeof BlocksAuthenticationRoute
   '/blocks/marketing': typeof BlocksMarketingRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
   '/blocks/application-states': typeof BlocksApplicationStatesRoute
+  '/blocks/authentication': typeof BlocksAuthenticationRoute
   '/blocks/marketing': typeof BlocksMarketingRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
@@ -149,6 +157,7 @@ export interface FileRoutesById {
   '/og': typeof OgRoute
   '/theme-builder': typeof ThemeBuilderRoute
   '/blocks/application-states': typeof BlocksApplicationStatesRoute
+  '/blocks/authentication': typeof BlocksAuthenticationRoute
   '/blocks/marketing': typeof BlocksMarketingRoute
   '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/og'
     | '/theme-builder'
     | '/blocks/application-states'
+    | '/blocks/authentication'
     | '/blocks/marketing'
     | '/docs/data-table'
     | '/docs/installation'
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
     | '/og'
     | '/theme-builder'
     | '/blocks/application-states'
+    | '/blocks/authentication'
     | '/blocks/marketing'
     | '/docs/data-table'
     | '/docs/installation'
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '/og'
     | '/theme-builder'
     | '/blocks/application-states'
+    | '/blocks/authentication'
     | '/blocks/marketing'
     | '/docs/data-table'
     | '/docs/installation'
@@ -323,6 +335,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlocksMarketingRouteImport
       parentRoute: typeof BlocksRoute
     }
+    '/blocks/authentication': {
+      id: '/blocks/authentication'
+      path: '/authentication'
+      fullPath: '/blocks/authentication'
+      preLoaderRoute: typeof BlocksAuthenticationRouteImport
+      parentRoute: typeof BlocksRoute
+    }
     '/blocks/application-states': {
       id: '/blocks/application-states'
       path: '/application-states'
@@ -342,12 +361,14 @@ declare module '@tanstack/react-router' {
 
 interface BlocksRouteChildren {
   BlocksApplicationStatesRoute: typeof BlocksApplicationStatesRoute
+  BlocksAuthenticationRoute: typeof BlocksAuthenticationRoute
   BlocksMarketingRoute: typeof BlocksMarketingRoute
   BlocksIndexRoute: typeof BlocksIndexRoute
 }
 
 const BlocksRouteChildren: BlocksRouteChildren = {
   BlocksApplicationStatesRoute: BlocksApplicationStatesRoute,
+  BlocksAuthenticationRoute: BlocksAuthenticationRoute,
   BlocksMarketingRoute: BlocksMarketingRoute,
   BlocksIndexRoute: BlocksIndexRoute,
 }
