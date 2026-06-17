@@ -2,6 +2,7 @@ import { ListIcon, XIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import { ClientOnly, Link, useLocation } from "@tanstack/react-router";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import { GITHUB_URL } from "@/constants";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
@@ -101,7 +102,7 @@ function Header() {
 						variant="link"
 						render={
 							<a
-								href="https://github.com/kupras06/blenx-ui"
+								href={GITHUB_URL}
 								target="_blank"
 								rel="noopener noreferrer"
 								{...stylex.props(styles.link)}

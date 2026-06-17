@@ -31,6 +31,19 @@ export const textAlignStyles = stylex.create({
 	center: { textAlign: "center" },
 	right: { textAlign: "right" },
 });
+export const fontSizeStyles = stylex.create({
+	xxsmall: { fontSize: spacing.xxsmall, lineHeight: lineHeight.tight },
+	xsmall: { fontSize: spacing.xsmall, lineHeight: lineHeight.tight },
+	small: { fontSize: spacing.small, lineHeight: lineHeight.tight },
+	medium: { fontSize: spacing.medium, lineHeight: lineHeight.tight },
+	large: { fontSize: spacing.large, lineHeight: lineHeight.tight },
+	xlarge: { fontSize: spacing.xlarge, lineHeight: lineHeight.tight },
+	xxlarge: { fontSize: spacing.xxlarge, lineHeight: lineHeight.tight },
+	xxxlarge: { fontSize: spacing.xxxlarge, lineHeight: lineHeight.tight },
+	huge: { fontSize: spacing.huge, lineHeight: lineHeight.tight },
+	massive: { fontSize: spacing.massive, lineHeight: lineHeight.tight },
+	titanic: { fontSize: spacing.titanic, lineHeight: lineHeight.tight },
+});
 
 export const textWeightStyles = stylex.create({
 	regular: { fontWeight: fontWeight.regular },

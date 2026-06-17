@@ -5,6 +5,7 @@ import type React from "react";
 import { colorStyles } from "@/utils/base.styles";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
 import {
+	fontSizeStyles,
 	textAlignStyles,
 	textStyles,
 	textTransformStyles,
@@ -19,10 +20,10 @@ const variantTag = {
 	h4: "h4",
 	h5: "h5",
 	h6: "h6",
-	body1: "span",
-	body2: "span",
-	body3: "span",
-	body4: "span",
+	body1: "div",
+	body2: "div",
+	body3: "div",
+	body4: "div",
 	caption: "span",
 	creatorNote: "p",
 	p: "p",
@@ -38,34 +39,37 @@ type Props = PropsWithStylex<
 		align?: keyof typeof textAlignStyles;
 		weight?: keyof typeof textWeightStyles;
 		transform?: keyof typeof textTransformStyles;
+		size?: keyof typeof fontSizeStyles;
 		style?: stylex.StyleXStyles;
 	}
 >;
 
 export function Text({
-	variant = "body1",
-	color,
-	align,
-	weight,
-	style,
-	render,
-	transform = "none",
-	...props
-}: Props): React.ReactElement {
-	const sx = stylex.props(
-		textStyles.base,
-		textTransformStyles[transform],
-		textVarianttyles[variant],
-		color && colorStyles[color],
-		align && textAlignStyles[align],
-		weight && textWeightStyles[weight],
-		!color && colorStyles.primary,
+		variant = "body1",
+		color,
+		align,
+		weight,
 		style,
-	);
-	const merged = mergeProps(props, sx);
-	return useRender({
-		defaultTagName: variantTag[variant],
-		props: merged,
+		size,
 		render,
-	});
-}
+		transform = "none",
+		...props
+	}: Props): React.ReactElement {
+		const sx = stylex.props(
+			textStyles.base,
+			textTransformStyles[transform],
+			textVarianttyles[variant],
+			color && colorStyles[color],
+			align && textAlignStyles[align],
+			weight && textWeightStyles[weight],
+			!color && colorStyles.primary,
+			size && fontSizeStyles[size],
+			style,
+		);
+		const merged = mergeProps(props, sx);
+		return useRender({
+			defaultTagName: variantTag[variant],
+			props: merged,
+			render,
+		});
+	}

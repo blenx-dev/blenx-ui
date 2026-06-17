@@ -34,6 +34,7 @@ export const paddingXStyles = stylex.create({
 	xxxlarge: { paddingLeft: spacing.xxxlarge, paddingRight: spacing.xxxlarge },
 	huge: { paddingLeft: spacing.huge, paddingRight: spacing.huge },
 	massive: { paddingLeft: spacing.massive, paddingRight: spacing.massive },
+	titanic: { paddingLeft: spacing.titanic, paddingRight: spacing.titanic },
 });
 
 export const paddingYStyles = stylex.create({
@@ -48,6 +49,7 @@ export const paddingYStyles = stylex.create({
 	xxxlarge: { paddingTop: spacing.xxxlarge, paddingBottom: spacing.xxxlarge },
 	huge: { paddingTop: spacing.huge, paddingBottom: spacing.huge },
 	massive: { paddingTop: spacing.massive, paddingBottom: spacing.massive },
+	titanic: { paddingTop: spacing.titanic, paddingBottom: spacing.titanic },
 });
 
 export const marginXStyles = stylex.create({
@@ -62,6 +64,7 @@ export const marginXStyles = stylex.create({
 	xxxlarge: { marginLeft: spacing.xxxlarge, marginRight: spacing.xxxlarge },
 	huge: { marginLeft: spacing.huge, marginRight: spacing.huge },
 	massive: { marginLeft: spacing.massive, marginRight: spacing.massive },
+	titanic: { marginLeft: spacing.titanic, marginRight: spacing.titanic },
 });
 
 export const marginYStyles = stylex.create({
@@ -76,6 +79,7 @@ export const marginYStyles = stylex.create({
 	xxxlarge: { marginTop: spacing.xxxlarge, marginBottom: spacing.xxxlarge },
 	huge: { marginTop: spacing.huge, marginBottom: spacing.huge },
 	massive: { marginTop: spacing.massive, marginBottom: spacing.massive },
+	titanic: { marginTop: spacing.titanic, marginBottom: spacing.titanic },
 });
 
 export const overflowStyles = stylex.create({

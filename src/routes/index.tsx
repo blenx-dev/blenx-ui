@@ -7,9 +7,11 @@ import {
 } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { GITHUB_URL } from "@/constants";
 import { fontSize, fonts, spacing } from "@/lib/theme/tokens.stylex";
 import {
 	Box,
+	Button,
 	Container,
 	Grid,
 	HStack,
@@ -20,15 +22,6 @@ import {
 } from "@/ui";
 
 const styles = stylex.create({
-	hero: {
-		paddingTop: spacing["10"],
-		paddingBottom: spacing["8"],
-		textAlign: "center",
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		gap: spacing["4"],
-	},
 	heroTitle: {
 		fontSize: "48px",
 		lineHeight: 1.1,
@@ -93,15 +86,6 @@ const styles = stylex.create({
 		marginTop: spacing["6"],
 		marginBottom: spacing["6"],
 	},
-	featureIcon: {
-		width: "40px",
-		height: "40px",
-		borderRadius: "var(--border-radius-sm)",
-		backgroundColor: "#161b22",
-		border: "1px solid #30363d",
-		color: "#58a6ff",
-		marginBottom: spacing["3"],
-	},
 });
 
 const features = [
@@ -159,36 +143,41 @@ function HomeComponent() {
 		<Container size="lg">
 			<VStack gap="xlarge">
 				{/* Hero Section */}
-				<div {...stylex.props(styles.hero)}>
-					<h1 {...stylex.props(styles.heroTitle)}>
+				<Container
+					size={"xl"}
+					content="center"
+					paddingY="titanic"
+					paddingX="massive"
+				>
+					<Text variant="h1" align="center" style={styles.heroTitle}>
 						Beautifully designed components.
 						<br />
 						Zero Tailwind.
-					</h1>
-					<p {...stylex.props(styles.heroSubtitle)}>
-						A premium, modern React component library engineered for performance
-						and scalability. Built strictly with <strong>StyleX</strong> and
-						headless <strong>Base UI</strong> primitives, giving you complete
-						ownership of your code.
-					</p>
-					<div {...stylex.props(styles.actionRow)}>
-						<Link
-							to="/docs/installation"
-							{...stylex.props(styles.primaryButton)}
-						>
+					</Text>
+					<Box maxWidth={600} margin="massive">
+						<Text variant="body1" size="large" color="secondary" align="center">
+							A premium, modern React component library engineered for
+							performance and scalability. Built strictly with{" "}
+							<strong>StyleX</strong> and headless <strong>Base UI</strong>{" "}
+							primitives, giving you complete ownership of your code.
+						</Text>
+					</Box>
+					<HStack align="center" justify="center" gap="medium">
+						<Button radius="none" render={<Link to="/docs/installation" />}>
 							Get Started <ArrowRightIcon weight="bold" />
-						</Link>
-						<a
-							href="https://github.com"
-							target="_blank"
-							rel="noreferrer"
-							{...stylex.props(styles.secondaryButton)}
+						</Button>
+						<Button
+							radius="none"
+							variant="soft"
+							render={
+								// biome-ignore lint/a11y/useAnchorContent: useAnchorContent
+								<a href={GITHUB_URL} target="_blank" rel="noreferrer" />
+							}
 						>
 							View on GitHub
-						</a>
-					</div>
-				</div>
-
+						</Button>
+					</HStack>
+				</Container>
 				<Separator tone="subtle" />
 
 				{/* Features Grid */}

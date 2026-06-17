@@ -52,14 +52,8 @@ function StylingDoc() {
 					</Surface>
 					<Text variant="body2" color="secondary">
 						Theme tokens support automatic light/dark mode via media queries.
-						See{" "}
-						<a
-							href="/docs/theming"
-							style={{ color: "var(--primary)", textDecoration: "underline" }}
-						>
-							Theming
-						</a>{" "}
-						for details on customizing them.
+						See <a href="/docs/theming">Theming</a> for details on customizing
+						them.
 					</Text>
 				</VStack>
 			</Box>
