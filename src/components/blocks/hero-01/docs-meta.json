@@ -1,0 +1,12 @@
+{
+	"title": "Hero Section",
+	"description": "A marketing hero section with headline, supporting text, dual CTA buttons, and optional image. Supports default, muted, and accent background variants.",
+	"category": "Marketing",
+	"status": "stable",
+	"keywords": ["hero", "marketing", "header", "landing", "cta"],
+	"related": ["Button", "Text", "Stack"],
+	"accessibility": {
+		"keyboard": [],
+		"aria": ["image alt text"]
+	}
+}
