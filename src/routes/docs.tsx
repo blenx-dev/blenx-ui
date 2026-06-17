@@ -3,16 +3,13 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import { DocsSidebar } from "@/components/docs-sidebar";
 import {
 	Box,
-	Button,
 	Container,
-	Drawer,
-	DrawerClose,
-	DrawerPopup,
 	HStack,
 	ScrollArea,
+	Sheet,
+	SheetPopup,
 } from "@/components/ui";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { XIcon } from "@phosphor-icons/react";
 
 export const Route = createFileRoute("/docs")({
 	component: DocsLayout,
@@ -22,16 +19,13 @@ function DrawerSidebar() {
 	const sidebarOpen = useSidebarStore((st) => st.isOpen);
 	const setOpen = useSidebarStore((st) => st.setOpen);
 	return (
-		<Drawer open={sidebarOpen} onOpenChange={setOpen} position="left">
-			<DrawerPopup>
-				<DrawerClose render={<Button variant="secondary" />}>
-					<XIcon />
-				</DrawerClose>
+		<Sheet open={sidebarOpen} onOpenChange={setOpen}>
+			<SheetPopup side="left">
 				<ScrollArea height="100svh">
 					<DocsSidebar onClose={() => setOpen(false)} />
 				</ScrollArea>
-			</DrawerPopup>
-		</Drawer>
+			</SheetPopup>
+		</Sheet>
 	);
 }
 function RenderSidebarNavs() {

@@ -32,6 +32,7 @@ export * from "./ScrollArea/scroll-area";
 export * from "./SegmentedControl/segmented-control";
 export * from "./Select/select";
 export * from "./Separator/separator";
+export * from "./Sheet/sheet";
 export * from "./Slider/slider";
 export * from "./Spinner/spinner";
 export * from "./Splitter/splitter";

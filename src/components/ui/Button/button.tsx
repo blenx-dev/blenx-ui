@@ -27,29 +27,13 @@ function Button({
 	size = "medium",
 	disabled: disabledProp,
 	loading,
-	type = "button",
 	fullWidth,
 	radius,
-	render,
 	style,
 	...props
 }: ButtonProps) {
 	const isDisabled = Boolean(loading || disabledProp);
-	const typeValue = render ? undefined : (type ?? "button");
-
 	const defaultProps = {
-		...props,
-		children: (
-			<>
-				{children}
-				{loading && (
-					<Spinner
-						style={buttonStyles.spinner}
-						data-slot="button-loading-indicator"
-					/>
-				)}
-			</>
-		),
 		...stylex.props(
 			buttonStyles.base,
 			fullWidth && buttonStyles.fullWidth,
@@ -62,9 +46,18 @@ function Button({
 		"data-loading": loading ? "" : undefined,
 		"data-slot": "button",
 		disabled: isDisabled,
-		type: typeValue,
 	};
-	return <ButtonPrimitive {...mergeProps<"button">(defaultProps, props)} />;
+	return (
+		<ButtonPrimitive {...mergeProps<"button">(defaultProps, props)}>
+			{loading && (
+				<Spinner
+					style={buttonStyles.spinner}
+					data-slot="button-loading-indicator"
+				/>
+			)}
+			{children}
+		</ButtonPrimitive>
+	);
 }
 
 export { Button };
