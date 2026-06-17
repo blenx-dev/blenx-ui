@@ -36,20 +36,22 @@ export const emptyStateStyles = stylex.create({
 	},
 	actions: {
 		display: "flex",
-		flexDirection: "row",
+		flexDirection: {
+			default: "row",
+			[mediaQueries.sm]: "column",
+		},
 		alignItems: "center",
 		gap: spacing.small,
 		marginTop: spacing.small,
 		flexWrap: "wrap",
 		justifyContent: "center",
-		[mediaQueries.sm]: {
-			flexDirection: "column",
-			width: "100%",
+		width: {
+			[mediaQueries.sm]: "100%",
 		},
 	},
 	actionFullWidth: {
-		[mediaQueries.sm]: {
-			width: "100%",
+		width: {
+			[mediaQueries.sm]: "100%",
 		},
 	},
 });
