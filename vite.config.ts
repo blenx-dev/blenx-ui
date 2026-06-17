@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import stylex from "@stylexjs/unplugin";
-import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
@@ -34,7 +33,6 @@ const config = defineConfig(({ command, mode }) => {
 			}),
 			tanstackStart(),
 			viteReact(),
-			devtools(),
 			nitro({
 				preset: isVercel ? "vercel" : undefined,
 			}),

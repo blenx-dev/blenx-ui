@@ -1,7 +1,7 @@
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import * as stylex from "@stylexjs/stylex";
-import { bgColorStyles, colorStyles } from "@/utils/base-styles";
+import { bgColorStyles, colorStyles } from "@/utils/base.styles";
 import {
 	borderRadiusStyles,
 	displayStyles,
