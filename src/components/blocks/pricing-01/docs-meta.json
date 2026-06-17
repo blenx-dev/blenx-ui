@@ -1,0 +1,12 @@
+{
+	"title": "Pricing Page",
+	"description": "A pricing section with monthly/yearly toggle, three plan tiers, feature lists, and prominent CTA for the popular plan.",
+	"category": "Marketing",
+	"status": "stable",
+	"keywords": ["pricing", "plans", "subscription", "billing", "tiers"],
+	"related": ["Button", "Card", "Badge", "Switch", "Separator"],
+	"accessibility": {
+		"keyboard": ["Tab", "Enter"],
+		"aria": ["switch role", "list of features"]
+	}
+}
