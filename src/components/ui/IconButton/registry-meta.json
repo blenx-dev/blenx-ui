@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
+	"name": "icon-button",
+	"type": "registry:ui",
+	"title": "IconButton",
+	"description": "IconButton component from Blenx UI.",
+	"registryDependencies": ["icon", "spinner"],
+	"files": [
+		{
+			"file": "icon-button.tsx",
+			"type": "registry:ui",
+			"target": "@ui/IconButton/icon-button.tsx"
+		},
+		{
+			"file": "icon-button.styles.ts",
+			"type": "registry:file",
+			"target": "@ui/IconButton/icon-button.styles.ts"
+		}
+	]
+}

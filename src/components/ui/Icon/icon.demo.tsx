@@ -16,20 +16,20 @@ function IconDemo() {
 			<VStack gap="small">
 				<Text variant="h6">Sizes</Text>
 				<HStack align="center" gap="small">
-					<Icon >
-						<UserIcon size={24}/>
+					<Icon>
+						<UserIcon size={24} />
 					</Icon>
-					<Icon >
-						<UserIcon size={24}/>
+					<Icon>
+						<UserIcon size={24} />
 					</Icon>
-					<Icon >
+					<Icon>
 						<UserIcon />
 					</Icon>
-					<Icon >
-						<UserIcon size={44}/>
+					<Icon>
+						<UserIcon size={44} />
 					</Icon>
-					<Icon >
-						<UserIcon size={64}/>
+					<Icon>
+						<UserIcon size={64} />
 					</Icon>
 				</HStack>
 			</VStack>

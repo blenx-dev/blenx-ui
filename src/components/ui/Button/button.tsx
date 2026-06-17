@@ -5,6 +5,7 @@ import { borderRadiusStyles } from "@/utils/layout.styles";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { Spinner } from "../Spinner/spinner";
 import {
+	buttonIntentStyles,
 	buttonSizes,
 	buttonStyles,
 	buttonVariantStyles,
@@ -12,8 +13,13 @@ import {
 
 type _BaseUIButtonProps = PropsWithStylex<ButtonPrimitive.Props>;
 
+const NEW_VARIANTS = ["solid", "soft", "outline", "ghost", "link"] as const;
+type NewVariant = (typeof NEW_VARIANTS)[number];
+type ButtonIntent = keyof typeof buttonIntentStyles;
+
 type ButtonProps = PropsWithStylex<_BaseUIButtonProps> & {
-	variant?: keyof typeof buttonVariantStyles;
+	variant?: NewVariant;
+	intent?: ButtonIntent;
 	size?: keyof typeof buttonSizes;
 	disabled?: boolean;
 	loading?: boolean;
@@ -23,7 +29,8 @@ type ButtonProps = PropsWithStylex<_BaseUIButtonProps> & {
 
 function Button({
 	children,
-	variant = "primary",
+	variant = "solid",
+	intent,
 	size = "medium",
 	disabled: disabledProp,
 	loading,
@@ -33,12 +40,16 @@ function Button({
 	...props
 }: ButtonProps) {
 	const isDisabled = Boolean(loading || disabledProp);
+	const isNewSystem = Boolean(intent);
+	const resolvedVariant = variant;
+
 	const defaultProps = {
 		...stylex.props(
 			buttonStyles.base,
 			fullWidth && buttonStyles.fullWidth,
-			buttonVariantStyles[variant],
 			buttonSizes[size],
+			buttonVariantStyles[resolvedVariant],
+			isNewSystem && buttonIntentStyles[intent ?? "primary"],
 			radius && borderRadiusStyles[radius],
 			style,
 		),
@@ -61,4 +72,4 @@ function Button({
 }
 
 export { Button };
-export type { ButtonProps };
+export type { ButtonProps, ButtonIntent };

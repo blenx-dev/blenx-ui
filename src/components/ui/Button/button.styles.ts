@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, fonts, spacing } from "@/lib/theme/tokens.stylex";
+import { intentTokens } from "./button-intents.stylex";
 
 export const buttonSizes = stylex.create({
 	xsmall: {
@@ -37,89 +38,145 @@ export const buttonSizes = stylex.create({
 	},
 });
 
-export const buttonVariantStyles = stylex.create({
+export const buttonIntentStyles = stylex.create({
 	primary: {
-		backgroundColor: theme.primary,
-		borderColor: theme.primary,
-		color: theme.contentOnPrimary,
+		[intentTokens.solidBg]: theme.primary,
+		[intentTokens.solidFg]: theme.contentOnPrimary,
+		[intentTokens.solidHoverBg]: theme.primaryHover,
+
+		[intentTokens.softBg]: theme.primarySubtle,
+		[intentTokens.softFg]: theme.primary,
+
+		[intentTokens.softHoverBg]: theme.primarySoftHover,
+
+		[intentTokens.border]: theme.primary,
+		[intentTokens.borderHover]: theme.primaryHover,
+
+		[intentTokens.fg]: theme.primary,
+	},
+	neutral: {
+		[intentTokens.solidBg]: theme.surfaceRaised,
+		[intentTokens.solidFg]: theme.contentPrimary,
+		[intentTokens.solidHoverBg]: theme.surfaceHover,
+
+		[intentTokens.softBg]: theme.backgroundSubtle,
+		[intentTokens.softFg]: theme.contentPrimary,
+
+		[intentTokens.softHoverBg]: theme.surfaceHover,
+
+		[intentTokens.border]: theme.border,
+		[intentTokens.borderHover]: theme.borderStrong,
+
+		[intentTokens.fg]: theme.contentPrimary,
+	},
+	success: {
+		[intentTokens.solidBg]: theme.sentimentPositive,
+		[intentTokens.solidFg]: theme.contentOnPrimary,
+		[intentTokens.solidHoverBg]: theme.sentimentPositiveHover,
+
+		[intentTokens.softBg]: theme.sentimentPositiveSubtle,
+		[intentTokens.softFg]: theme.sentimentPositive,
+
+		[intentTokens.softHoverBg]: theme.sentimentPositiveSoftHover,
+
+		[intentTokens.border]: theme.sentimentPositive,
+		[intentTokens.borderHover]: theme.sentimentPositiveHover,
+
+		[intentTokens.fg]: theme.sentimentPositive,
+	},
+	warning: {
+		[intentTokens.solidBg]: theme.sentimentWarning,
+		[intentTokens.solidFg]: theme.contentInverse,
+		[intentTokens.solidHoverBg]: theme.sentimentWarningHover,
+
+		[intentTokens.softBg]: theme.sentimentWarningSubtle,
+		[intentTokens.softFg]: theme.sentimentWarning,
+
+		[intentTokens.softHoverBg]: theme.sentimentWarningSoftHover,
+
+		[intentTokens.border]: theme.sentimentWarning,
+		[intentTokens.borderHover]: theme.sentimentWarningHover,
+
+		[intentTokens.fg]: theme.sentimentWarning,
+	},
+	danger: {
+		[intentTokens.solidBg]: theme.sentimentNegative,
+		[intentTokens.solidFg]: theme.contentOnPrimary,
+		[intentTokens.solidHoverBg]: theme.sentimentNegativeHover,
+
+		[intentTokens.softBg]: theme.sentimentNegativeSubtle,
+		[intentTokens.softFg]: theme.sentimentNegative,
+
+		[intentTokens.softHoverBg]: theme.sentimentNegativeSoftHover,
+
+		[intentTokens.border]: theme.sentimentNegative,
+		[intentTokens.borderHover]: theme.sentimentNegativeHover,
+
+		[intentTokens.fg]: theme.sentimentNegative,
+	},
+	info: {
+		[intentTokens.solidBg]: theme.sentimentInfo,
+		[intentTokens.solidFg]: theme.contentInverse,
+		[intentTokens.solidHoverBg]: theme.sentimentInfoHover,
+
+		[intentTokens.softBg]: theme.sentimentInfoSubtle,
+		[intentTokens.softFg]: theme.sentimentInfo,
+
+		[intentTokens.softHoverBg]: theme.sentimentInfoSoftHover,
+
+		[intentTokens.border]: theme.sentimentInfo,
+		[intentTokens.borderHover]: theme.sentimentInfoHover,
+
+		[intentTokens.fg]: theme.sentimentInfo,
+	},
+});
+
+export const buttonVariantStyles = stylex.create({
+	solid: {
+		backgroundColor: intentTokens.solidBg,
+		borderColor: intentTokens.border,
+		color: intentTokens.solidFg,
+
 		":hover:not(:disabled)": {
-			backgroundColor: theme.primarySubtle,
-			borderColor: theme.primarySubtle,
+			backgroundColor: intentTokens.solidHoverBg,
+			borderColor: intentTokens.borderHover,
 		},
 	},
-	secondary: {
-		backgroundColor: "transparent",
-		borderColor: theme.border,
-		color: theme.contentAccent,
+	soft: {
+		backgroundColor: intentTokens.softBg,
+		borderColor: "transparent",
+		color: intentTokens.softFg,
+
 		":hover:not(:disabled)": {
-			backgroundColor: theme.backgroundSubtle,
-			borderColor: theme.borderStrong,
-			color: theme.contentPrimary,
+			backgroundColor: intentTokens.softHoverBg,
+		},
+	},
+	outline: {
+		backgroundColor: "transparent",
+		borderColor: intentTokens.border,
+		color: intentTokens.fg,
+
+		":hover:not(:disabled)": {
+			backgroundColor: intentTokens.softBg,
+			borderColor: intentTokens.borderHover,
 		},
 	},
 	ghost: {
 		backgroundColor: "transparent",
 		borderColor: "transparent",
-		color: theme.contentAccent,
+		color: intentTokens.fg,
+
 		":hover:not(:disabled)": {
-			backgroundColor: theme.backgroundSubtle,
-		},
-	},
-	outline: {
-		backgroundColor: "transparent",
-		borderColor: theme.border,
-		color: theme.contentPrimary,
-		":hover:not(:disabled)": {
-			backgroundColor: theme.backgroundSubtle,
-			borderColor: theme.borderStrong,
-		},
-	},
-	"outline-dashed": {
-		borderStyle: "dashed",
-		backgroundColor: "transparent",
-		borderColor: theme.border,
-		color: theme.contentPrimary,
-		":hover:not(:disabled)": {
-			backgroundColor: theme.backgroundSubtle,
-			borderColor: theme.borderStrong,
-		},
-	},
-	soft: {
-		backgroundColor: theme.backgroundSubtle,
-		borderColor: "transparent",
-		color: theme.contentPrimary,
-		":hover:not(:disabled)": {
-			backgroundColor: theme.surfaceRaised,
+			backgroundColor: intentTokens.softBg,
 		},
 	},
 	link: {
 		backgroundColor: "transparent",
 		borderColor: "transparent",
-		color: theme.contentAccent,
-		paddingLeft: 0,
-		paddingRight: 0,
+		color: intentTokens.fg,
+
 		":hover:not(:disabled)": {
 			textDecoration: "underline",
-		},
-	},
-	danger: {
-		backgroundColor: theme.sentimentNegative,
-		borderColor: theme.sentimentNegative,
-		color: theme.contentOnPrimary,
-		":hover:not(:disabled)": {
-			backgroundColor: theme.sentimentNegativeSubtle,
-			borderColor: theme.sentimentNegativeSubtle,
-			color: theme.sentimentNegative,
-		},
-	},
-	success: {
-		backgroundColor: theme.sentimentPositive,
-		borderColor: theme.sentimentPositive,
-		color: theme.contentOnPrimary,
-		":hover:not(:disabled)": {
-			backgroundColor: theme.sentimentPositiveSubtle,
-			borderColor: theme.sentimentPositiveSubtle,
-			color: theme.sentimentPositive,
 		},
 	},
 });

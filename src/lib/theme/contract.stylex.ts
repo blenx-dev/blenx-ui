@@ -42,4 +42,20 @@ export const theme = stylex.defineVars({
 	shadowMd: "",
 	shadowLg: "",
 	shadowXl: "",
+	// Light theme
+
+	primaryHover: "#27272a",
+	primarySoftHover: "#e4e4e7",
+
+	sentimentPositiveHover: "#16a34a",
+	sentimentPositiveSoftHover: "#dcfce7",
+
+	sentimentWarningHover: "#ca8a04",
+	sentimentWarningSoftHover: "#fef9c3",
+
+	sentimentNegativeHover: "#dc2626",
+	sentimentNegativeSoftHover: "#fee2e2",
+
+	sentimentInfoHover: "#2563eb",
+	sentimentInfoSoftHover: "#dbeafe",
 });

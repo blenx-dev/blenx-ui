@@ -58,6 +58,22 @@ const lightValues = {
 	shadowMd: "0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06)",
 	shadowLg: "0 8px 24px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06)",
 	shadowXl: "0 20px 48px rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.08)",
+	// Light theme
+
+	primaryHover: "#27272a",
+	primarySoftHover: "#e4e4e7",
+
+	sentimentPositiveHover: "#16a34a",
+	sentimentPositiveSoftHover: "#dcfce7",
+
+	sentimentWarningHover: "#ca8a04",
+	sentimentWarningSoftHover: "#fef9c3",
+
+	sentimentNegativeHover: "#dc2626",
+	sentimentNegativeSoftHover: "#fee2e2",
+
+	sentimentInfoHover: "#2563eb",
+	sentimentInfoSoftHover: "#dbeafe",
 };
 
 const darkValues = {
@@ -101,6 +117,22 @@ const darkValues = {
 	shadowMd: "0 4px 12px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.2)",
 	shadowLg: "0 8px 24px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.25)",
 	shadowXl: "0 20px 48px rgba(0,0,0,0.5), 0 8px 16px rgba(0,0,0,0.3)",
+	// Dark theme
+
+	primaryHover: "#e4e4e7",
+	primarySoftHover: "#3f3f46",
+
+	sentimentPositiveHover: "#4ade80",
+	sentimentPositiveSoftHover: "#166534",
+
+	sentimentWarningHover: "#facc15",
+	sentimentWarningSoftHover: "#854d0e",
+
+	sentimentNegativeHover: "#f87171",
+	sentimentNegativeSoftHover: "#991b1b",
+
+	sentimentInfoHover: "#60a5fa",
+	sentimentInfoSoftHover: "#1d4ed8",
 };
 const themed = <T>(light: T, dark: T) => ({
 	default: light,
@@ -181,4 +213,43 @@ export const appTheme = stylex.createTheme(theme, {
 	shadowMd: themed(lightValues.shadowMd, darkValues.shadowMd),
 	shadowLg: themed(lightValues.shadowLg, darkValues.shadowLg),
 	shadowXl: themed(lightValues.shadowXl, darkValues.shadowXl),
+
+	primaryHover: themed(lightValues.primaryHover, darkValues.primaryHover),
+	primarySoftHover: themed(
+		lightValues.primarySoftHover,
+		darkValues.primarySoftHover,
+	),
+
+	sentimentPositiveHover: themed(
+		lightValues.sentimentPositiveHover,
+		darkValues.sentimentPositiveHover,
+	),
+	sentimentPositiveSoftHover: themed(
+		lightValues.sentimentPositiveSoftHover,
+		darkValues.sentimentPositiveSoftHover,
+	),
+
+	sentimentWarningHover: themed(
+		lightValues.sentimentWarningHover,
+		darkValues.sentimentWarningHover,
+	),
+	sentimentWarningSoftHover: themed(
+		lightValues.sentimentWarningSoftHover,
+		darkValues.sentimentWarningSoftHover,
+	),
+
+	sentimentNegativeHover: themed(
+		lightValues.sentimentNegativeHover,
+		darkValues.sentimentNegativeHover,
+	),
+	sentimentNegativeSoftHover: themed(lightValues.shadowXl, darkValues.shadowXl),
+
+	sentimentInfoHover: themed(
+		lightValues.sentimentInfoHover,
+		darkValues.sentimentInfoHover,
+	),
+	sentimentInfoSoftHover: themed(
+		lightValues.sentimentInfoSoftHover,
+		darkValues.sentimentInfoSoftHover,
+	),
 });
