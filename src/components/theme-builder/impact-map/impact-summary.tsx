@@ -1,3 +1,4 @@
+import { memo } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { Text } from "@/components/ui";
 import { theme } from "@/lib/theme/contract.stylex";
@@ -53,7 +54,7 @@ const tokenLabels: Record<string, string> = {
 	focusRing: "Focus Ring",
 };
 
-export function ImpactSummary() {
+export const ImpactSummary = memo(() => {
 	const selectedToken = useThemeBuilder((s) => s.selectedToken);
 
 	if (!selectedToken) {
@@ -92,4 +93,4 @@ export function ImpactSummary() {
 			</div>
 		</div>
 	);
-}
+});

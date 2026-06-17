@@ -16,8 +16,14 @@ export const sheetStyles = stylex.create({
 		zIndex: 50,
 		backgroundColor: "rgba(0, 0, 0, 0.32)",
 		backdropFilter: "blur(4px)",
-		transitionProperty: "opacity",
-		transitionDuration: "200ms",
+		transitionProperty: {
+			default: "opacity",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "200ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 		"[data-starting-style]": {
 			opacity: 0,
 		},
@@ -71,8 +77,14 @@ export const sheetStyles = stylex.create({
 		outline: "none",
 		boxShadow: theme.shadowLg,
 		willChange: "translate",
-		transitionProperty: "opacity, translate",
-		transitionDuration: "200ms",
+		transitionProperty: {
+			default: "opacity, translate",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "200ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 		transitionTimingFunction: "ease-in-out",
 		"::before": {
 			content: '""',

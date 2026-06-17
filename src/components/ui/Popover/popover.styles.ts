@@ -34,8 +34,14 @@ export const popoverStyles = stylex.create({
 		boxShadow: theme.shadowLg,
 		outline: "none",
 		transformOrigin: "var(--transform-origin)",
-		transitionProperty: "opacity, scale",
-		transitionDuration: "150ms",
+		transitionProperty: {
+			default: "opacity, scale",
+			"@media (prefers-reduced-motion: reduce)": "none",
+		},
+		transitionDuration: {
+			default: "150ms",
+			"@media (prefers-reduced-motion: reduce)": "0ms",
+		},
 		transitionTimingFunction: "ease",
 		"[data-starting-style]": {
 			opacity: 0,

@@ -43,6 +43,7 @@ function CopyButton({ value }: { value: string }) {
 			type="button"
 			size="xsmall"
 			radius="xsmall"
+			variant={copied ? "success" : "primary"}
 			onClick={handleCopy}
 			aria-label={copied ? "Copied" : "Copy code"}
 		>
@@ -85,29 +86,27 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
 	return (
 		<Surface variant="sunken">
 			{isMultiFile ? (
-				<Surface radius="xsmall">
-					<HStack justify="between" padding="xxsmall">
-						<SegmentedControl
-							variant="default"
-							value={activeIndex.toString()}
-							radius="xsmall"
-							onValueChange={(value) => {
-								setActiveIndex(Number(value));
-								setHighlighted(null);
-							}}
-							options={activeFiles.map((file, idx) => ({
-								value: `${idx}`,
-								label: file.title || `File ${idx + 1}`,
-							}))}
-						/>
-						<CopyButton value={activeFile.code} />
-					</HStack>
-				</Surface>
+				<HStack justify="between" padding="xsmall" align="center">
+					<SegmentedControl
+						variant="default"
+						value={activeIndex.toString()}
+						radius="xsmall"
+						onValueChange={(value) => {
+							setActiveIndex(Number(value));
+							setHighlighted(null);
+						}}
+						options={activeFiles.map((file, idx) => ({
+							value: `${idx}`,
+							label: file.title || `File ${idx + 1}`,
+						}))}
+					/>
+					<CopyButton value={activeFile.code} />
+				</HStack>
 			) : (
-				<HStack justify="between">
-					<HStack>
+				<HStack justify="between" padding="xsmall" align="center">
+					<HStack paddingX="xxsmall" align="center">
 						{activeFile.title && (
-							<Text variant="caption" color="secondary">
+							<Text variant="h5" color="primary">
 								{activeFile.title}
 							</Text>
 						)}
@@ -117,9 +116,8 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
 				</HStack>
 			)}
 
-			<ScrollArea height="80svh">
+			<ScrollArea height="60svh">
 				<div
-					// Biome-ignore lint/security/noDangerouslySetInnerHtml: dangerouslySetInnerHTML
 					dangerouslySetInnerHTML={{
 						__html: highlighted ?? escapeHtml(activeFile.code),
 					}}

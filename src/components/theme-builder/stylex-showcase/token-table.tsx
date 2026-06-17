@@ -83,6 +83,15 @@ export function TokenTable() {
 		{
 			key: "value",
 			header: "Value",
+			cell: (row) => (
+				<Text
+					variant="body3"
+					color="secondary"
+					title={row.value.length > 30 ? row.value : undefined}
+				>
+					{row.value}
+				</Text>
+			),
 		},
 		{
 			key: "components",

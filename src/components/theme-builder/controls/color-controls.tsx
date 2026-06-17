@@ -1,5 +1,6 @@
 import { Accordion, ColorPicker, Grid } from "@/components/ui";
 import { useThemeBuilder } from "../theme-builder-context";
+import type { ThemeTokens } from "../theme-builder-context";
 
 const colorTokens = [
 	{ key: "primary", label: "Primary" },
@@ -15,10 +16,30 @@ const colorTokens = [
 	{ key: "contentSecondary", label: "Text Secondary" },
 ] as const;
 
-export function ColorControls() {
-	const tokens = useThemeBuilder((s) => s.tokens);
+function ColorControlItem({
+	tokenKey,
+	label,
+}: {
+	tokenKey: keyof ThemeTokens;
+	label: string;
+}) {
+	const value = useThemeBuilder(
+		(s) => s.tokens[tokenKey as keyof typeof s.tokens] as string,
+	);
 	const updateTokenDebounced = useThemeBuilder((s) => s.updateTokenDebounced);
 
+	return (
+		<ColorPicker
+			label={label}
+			value={value}
+			onChange={(color) => {
+				updateTokenDebounced(tokenKey, color);
+			}}
+		/>
+	);
+}
+
+export function ColorControls() {
 	return (
 		<Accordion.Item value="colors">
 			<Accordion.Header>
@@ -27,14 +48,7 @@ export function ColorControls() {
 			<Accordion.Panel>
 				<Grid columns={2}>
 					{colorTokens.map(({ key, label }) => (
-						<ColorPicker
-							key={key}
-							label={label}
-							value={tokens[key]}
-							onChange={(color) => {
-								updateTokenDebounced(key, color);
-							}}
-						/>
+						<ColorControlItem key={key} tokenKey={key} label={label} />
 					))}
 				</Grid>
 			</Accordion.Panel>

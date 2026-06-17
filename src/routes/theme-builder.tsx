@@ -1,10 +1,21 @@
+import { lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ThemeBuilderPage } from "@/components/theme-builder/theme-builder-page";
+import { Spinner } from "@/components/ui";
+
+const ThemeBuilderPage = lazy(() =>
+	import("@/components/theme-builder/theme-builder-page").then((m) => ({
+		default: m.ThemeBuilderPage,
+	})),
+);
 
 export const Route = createFileRoute("/theme-builder")({
 	component: ThemeBuilderRoute,
 });
 
 function ThemeBuilderRoute() {
-	return <ThemeBuilderPage />;
+	return (
+		<Suspense fallback={<Spinner />}>
+			<ThemeBuilderPage />
+		</Suspense>
+	);
 }
