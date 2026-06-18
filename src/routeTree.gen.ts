@@ -21,11 +21,11 @@ import { Route as DocsStylingRouteImport } from './routes/docs/styling'
 import { Route as DocsPrimitivesRouteImport } from './routes/docs/primitives'
 import { Route as DocsLimitationsRouteImport } from './routes/docs/limitations'
 import { Route as DocsInstallationRouteImport } from './routes/docs/installation'
-import { Route as DocsDataTableRouteImport } from './routes/docs/data-table'
 import { Route as BlocksMarketingRouteImport } from './routes/blocks/marketing'
 import { Route as BlocksDashboardRouteImport } from './routes/blocks/dashboard'
 import { Route as BlocksAuthenticationRouteImport } from './routes/blocks/authentication'
 import { Route as BlocksApplicationStatesRouteImport } from './routes/blocks/application-states'
+import { Route as DocsComponentsDataTableRouteImport } from './routes/docs/components/data-table'
 import { Route as DocsComponentsComponentRouteImport } from './routes/docs/components/$component'
 
 const ThemeBuilderRoute = ThemeBuilderRouteImport.update({
@@ -88,11 +88,6 @@ const DocsInstallationRoute = DocsInstallationRouteImport.update({
   path: '/installation',
   getParentRoute: () => DocsRoute,
 } as any)
-const DocsDataTableRoute = DocsDataTableRouteImport.update({
-  id: '/data-table',
-  path: '/data-table',
-  getParentRoute: () => DocsRoute,
-} as any)
 const BlocksMarketingRoute = BlocksMarketingRouteImport.update({
   id: '/marketing',
   path: '/marketing',
@@ -113,6 +108,11 @@ const BlocksApplicationStatesRoute = BlocksApplicationStatesRouteImport.update({
   path: '/application-states',
   getParentRoute: () => BlocksRoute,
 } as any)
+const DocsComponentsDataTableRoute = DocsComponentsDataTableRouteImport.update({
+  id: '/components/data-table',
+  path: '/components/data-table',
+  getParentRoute: () => DocsRoute,
+} as any)
 const DocsComponentsComponentRoute = DocsComponentsComponentRouteImport.update({
   id: '/components/$component',
   path: '/components/$component',
@@ -129,7 +129,6 @@ export interface FileRoutesByFullPath {
   '/blocks/authentication': typeof BlocksAuthenticationRoute
   '/blocks/dashboard': typeof BlocksDashboardRoute
   '/blocks/marketing': typeof BlocksMarketingRoute
-  '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
@@ -138,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/blocks/': typeof BlocksIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/docs/components/$component': typeof DocsComponentsComponentRoute
+  '/docs/components/data-table': typeof DocsComponentsDataTableRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -147,7 +147,6 @@ export interface FileRoutesByTo {
   '/blocks/authentication': typeof BlocksAuthenticationRoute
   '/blocks/dashboard': typeof BlocksDashboardRoute
   '/blocks/marketing': typeof BlocksMarketingRoute
-  '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
@@ -156,6 +155,7 @@ export interface FileRoutesByTo {
   '/blocks': typeof BlocksIndexRoute
   '/docs': typeof DocsIndexRoute
   '/docs/components/$component': typeof DocsComponentsComponentRoute
+  '/docs/components/data-table': typeof DocsComponentsDataTableRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -168,7 +168,6 @@ export interface FileRoutesById {
   '/blocks/authentication': typeof BlocksAuthenticationRoute
   '/blocks/dashboard': typeof BlocksDashboardRoute
   '/blocks/marketing': typeof BlocksMarketingRoute
-  '/docs/data-table': typeof DocsDataTableRoute
   '/docs/installation': typeof DocsInstallationRoute
   '/docs/limitations': typeof DocsLimitationsRoute
   '/docs/primitives': typeof DocsPrimitivesRoute
@@ -177,6 +176,7 @@ export interface FileRoutesById {
   '/blocks/': typeof BlocksIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/docs/components/$component': typeof DocsComponentsComponentRoute
+  '/docs/components/data-table': typeof DocsComponentsDataTableRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -190,7 +190,6 @@ export interface FileRouteTypes {
     | '/blocks/authentication'
     | '/blocks/dashboard'
     | '/blocks/marketing'
-    | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
@@ -199,6 +198,7 @@ export interface FileRouteTypes {
     | '/blocks/'
     | '/docs/'
     | '/docs/components/$component'
+    | '/docs/components/data-table'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -208,7 +208,6 @@ export interface FileRouteTypes {
     | '/blocks/authentication'
     | '/blocks/dashboard'
     | '/blocks/marketing'
-    | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
@@ -217,6 +216,7 @@ export interface FileRouteTypes {
     | '/blocks'
     | '/docs'
     | '/docs/components/$component'
+    | '/docs/components/data-table'
   id:
     | '__root__'
     | '/'
@@ -228,7 +228,6 @@ export interface FileRouteTypes {
     | '/blocks/authentication'
     | '/blocks/dashboard'
     | '/blocks/marketing'
-    | '/docs/data-table'
     | '/docs/installation'
     | '/docs/limitations'
     | '/docs/primitives'
@@ -237,6 +236,7 @@ export interface FileRouteTypes {
     | '/blocks/'
     | '/docs/'
     | '/docs/components/$component'
+    | '/docs/components/data-table'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -333,13 +333,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsInstallationRouteImport
       parentRoute: typeof DocsRoute
     }
-    '/docs/data-table': {
-      id: '/docs/data-table'
-      path: '/data-table'
-      fullPath: '/docs/data-table'
-      preLoaderRoute: typeof DocsDataTableRouteImport
-      parentRoute: typeof DocsRoute
-    }
     '/blocks/marketing': {
       id: '/blocks/marketing'
       path: '/marketing'
@@ -367,6 +360,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/blocks/application-states'
       preLoaderRoute: typeof BlocksApplicationStatesRouteImport
       parentRoute: typeof BlocksRoute
+    }
+    '/docs/components/data-table': {
+      id: '/docs/components/data-table'
+      path: '/components/data-table'
+      fullPath: '/docs/components/data-table'
+      preLoaderRoute: typeof DocsComponentsDataTableRouteImport
+      parentRoute: typeof DocsRoute
     }
     '/docs/components/$component': {
       id: '/docs/components/$component'
@@ -398,7 +398,6 @@ const BlocksRouteWithChildren =
   BlocksRoute._addFileChildren(BlocksRouteChildren)
 
 interface DocsRouteChildren {
-  DocsDataTableRoute: typeof DocsDataTableRoute
   DocsInstallationRoute: typeof DocsInstallationRoute
   DocsLimitationsRoute: typeof DocsLimitationsRoute
   DocsPrimitivesRoute: typeof DocsPrimitivesRoute
@@ -406,10 +405,10 @@ interface DocsRouteChildren {
   DocsThemingRoute: typeof DocsThemingRoute
   DocsIndexRoute: typeof DocsIndexRoute
   DocsComponentsComponentRoute: typeof DocsComponentsComponentRoute
+  DocsComponentsDataTableRoute: typeof DocsComponentsDataTableRoute
 }
 
 const DocsRouteChildren: DocsRouteChildren = {
-  DocsDataTableRoute: DocsDataTableRoute,
   DocsInstallationRoute: DocsInstallationRoute,
   DocsLimitationsRoute: DocsLimitationsRoute,
   DocsPrimitivesRoute: DocsPrimitivesRoute,
@@ -417,6 +416,7 @@ const DocsRouteChildren: DocsRouteChildren = {
   DocsThemingRoute: DocsThemingRoute,
   DocsIndexRoute: DocsIndexRoute,
   DocsComponentsComponentRoute: DocsComponentsComponentRoute,
+  DocsComponentsDataTableRoute: DocsComponentsDataTableRoute,
 }
 
 const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)

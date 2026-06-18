@@ -1,6 +1,6 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry-item.json",
-	"name": "toggle-group",
+	"name": "togglegroup",
 	"type": "registry:ui",
 	"title": "ToggleGroup",
 	"description": "A StyleX ToggleGroup component.",

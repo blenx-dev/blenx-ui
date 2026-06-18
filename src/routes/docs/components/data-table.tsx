@@ -9,7 +9,7 @@ import {
 	VStack,
 } from "@/components/ui";
 
-export const Route = createFileRoute("/docs/data-table")({
+export const Route = createFileRoute("/docs/components/data-table")({
 	component: DataTableDoc,
 });
 
