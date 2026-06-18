@@ -88,6 +88,7 @@ function Box({
 			? boxStyles.maxWidth(maxWidth)
 			: null,
 		maxWidth && isBoxSize(maxWidth) ? boxSizeStyles[maxWidth] : null,
+		Boolean(maxWidth) && boxStyles.fullWidth,
 		radius && borderRadiusStyles[radius],
 		style,
 	);

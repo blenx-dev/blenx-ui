@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/Button/button";
 import { Input, Label } from "@/components/ui/Input/input";
 import { Text } from "@/components/ui/Text/text";
@@ -9,7 +8,7 @@ import { Checkbox } from "@/components/ui/Checkbox/checkbox";
 import { Separator } from "@/components/ui/Separator/separator";
 import { Card, CardBody } from "@/components/ui/Card/card";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
-import { loginStyles } from "./login-01.styles";
+import { Container, Field, FieldLabel, HStack, VStack } from "@/components/ui";
 
 type SocialProvider = {
 	provider: string;
@@ -30,7 +29,6 @@ type FormValues = {
 type Props = PropsWithStylex<{
 	title?: string;
 	description?: string;
-	logo?: React.ReactNode;
 	onSubmit?: (values: FormValues) => void;
 	socialProviders?: SocialProvider[];
 	links?: Links;
@@ -39,11 +37,9 @@ type Props = PropsWithStylex<{
 export function Login01({
 	title = "Welcome back",
 	description = "Sign in to your account to continue",
-	logo,
 	onSubmit,
 	socialProviders,
 	links,
-	style,
 }: Props) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -55,26 +51,21 @@ export function Login01({
 	};
 
 	return (
-		<div {...stylex.props(loginStyles.container, style)}>
-			<Card {...stylex.props(loginStyles.card)}>
-				<CardBody {...stylex.props(loginStyles.cardBody)}>
-					<div {...stylex.props(loginStyles.header)}>
-						{logo && <div {...stylex.props(loginStyles.logo)}>{logo}</div>}
-						<Text variant="h3" style={loginStyles.title}>
-							{title}
-						</Text>
-						<Text variant="body2" style={loginStyles.description}>
+		<Container size="2xl" content="center">
+			<Card maxWidth="sm" fullWidth>
+				<CardBody padding="medium">
+					<VStack align="center" gap="small">
+						<Text variant="h3">{title}</Text>
+						<Text variant="body2" color="secondary">
 							{description}
 						</Text>
-					</div>
+					</VStack>
 
-					<form
-						onSubmit={handleSubmit}
-						aria-label="Sign in form"
-						{...stylex.props(loginStyles.form)}
+					<VStack
+						render={<form onSubmit={handleSubmit} aria-label="Sign in form" />}
 					>
-						<div {...stylex.props(loginStyles.fieldGroup)}>
-							<Label htmlFor="login-email">Email</Label>
+						<Field>
+							<FieldLabel htmlFor="login-email">Email</FieldLabel>
 							<Input
 								id="login-email"
 								type="email"
@@ -84,10 +75,10 @@ export function Login01({
 								required
 								autoComplete="email"
 							/>
-						</div>
+						</Field>
 
-						<div {...stylex.props(loginStyles.fieldGroup)}>
-							<Label htmlFor="login-password">Password</Label>
+						<Field>
+							<FieldLabel>Password</FieldLabel>
 							<Input
 								id="login-password"
 								type="password"
@@ -97,13 +88,10 @@ export function Login01({
 								required
 								autoComplete="current-password"
 							/>
-						</div>
+						</Field>
 
-						<div {...stylex.props(loginStyles.checkboxRow)}>
-							<label
-								htmlFor="remember-me"
-								{...stylex.props(loginStyles.checkboxLabel)}
-							>
+						<HStack align="center" justify="between">
+							<Label htmlFor="remember-me">
 								<Checkbox
 									id="remember-me"
 									checked={rememberMe}
@@ -112,57 +100,64 @@ export function Login01({
 									}
 								/>
 								Remember me
-							</label>
+							</Label>
 							{links?.forgotPassword && (
-								<button
+								<Button
 									type="button"
 									onClick={links.forgotPassword.handleClick}
-									{...stylex.props(loginStyles.forgotLink)}
+									variant="link"
+									intent="info"
+									size="xsmall"
 								>
 									{links.forgotPassword.label ?? "Forgot password?"}
-								</button>
+								</Button>
 							)}
-						</div>
+						</HStack>
 
 						<Button type="submit" variant="solid" fullWidth>
 							Sign in
 						</Button>
-					</form>
+					</VStack>
 
 					{socialProviders && socialProviders.length > 0 && (
-						<div {...stylex.props(loginStyles.socialSection)}>
+						<VStack gap="medium">
 							<Separator label="Or continue with" tone="subtle" />
-							<div {...stylex.props(loginStyles.socialButtons)}>
+							<Separator />
+							<Separator label="Or continue with" tone="subtle" />
+							<Separator />
+							<HStack gap="medium">
 								{socialProviders.map((provider) => (
 									<Button
 										key={provider.provider}
 										variant="outline"
 										onClick={provider.handleClick}
-										style={loginStyles.socialButton}
+										fullWidth
 									>
 										{provider.provider}
 									</Button>
 								))}
-							</div>
-						</div>
+							</HStack>
+						</VStack>
 					)}
 
 					{links?.signUp && (
-						<div {...stylex.props(loginStyles.footer)}>
+						<HStack align="center" justify="center">
 							<Text variant="body2" span>
 								Don&apos;t have an account?{" "}
 							</Text>
-							<button
+							<Button
 								type="button"
 								onClick={links.signUp.handleClick}
-								{...stylex.props(loginStyles.footerLink)}
+								variant="link"
+								intent="info"
+								size="xsmall"
 							>
 								{links.signUp.label ?? "Sign up"}
-							</button>
-						</div>
+							</Button>
+						</HStack>
 					)}
 				</CardBody>
 			</Card>
-		</div>
+		</Container>
 	);
 }

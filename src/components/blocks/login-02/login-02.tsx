@@ -1,13 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/Button/button";
-import { Input, Label } from "@/components/ui/Input/input";
+import { Input } from "@/components/ui/Input/input";
 import { Text } from "@/components/ui/Text/text";
 import { Card, CardBody } from "@/components/ui/Card/card";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
-import { login02Styles } from "./login-02.styles";
+import {
+	Box,
+	Container,
+	Field,
+	FieldLabel,
+	Progress,
+	VStack,
+} from "@/components/ui";
+import { ArrowLeftIcon } from "@phosphor-icons/react";
 
 type Props = PropsWithStylex<{
 	title?: string;
@@ -23,7 +30,6 @@ export function Login02({
 	onSubmitEmail,
 	onSubmitPassword,
 	onRequestMagicLink,
-	style,
 }: Props) {
 	const [step, setStep] = useState<"email" | "password" | "confirmation">(
 		"email",
@@ -48,49 +54,40 @@ export function Login02({
 	};
 
 	return (
-		<div {...stylex.props(login02Styles.container, style)}>
-			<Card {...stylex.props(login02Styles.card)}>
-				<CardBody {...stylex.props(login02Styles.cardBody)}>
-					<div {...stylex.props(login02Styles.header)}>
+		<Container content="center" paddingY="huge">
+			<Card maxWidth="sm">
+				<CardBody>
+					<VStack align="center" gap="small">
 						{flow === "password" && (
-							<progress
-								{...stylex.props(login02Styles.stepIndicator)}
+							<Progress
 								value={step === "email" ? 1 : 2}
 								max={2}
 								aria-label="Sign in progress"
-							>
-								<span
-									{...stylex.props(
-										login02Styles.stepDot,
-										step === "email" && login02Styles.stepDotActive,
-									)}
-								/>
-								<span
-									{...stylex.props(
-										login02Styles.stepDot,
-										step === "password" && login02Styles.stepDotActive,
-									)}
-								/>
-							</progress>
+							/>
 						)}
-						<Text variant="h3">{title}</Text>
-						{step === "email" && (
-							<Text variant="body2" style={login02Styles.description}>
-								{flow === "magic-link"
-									? "Enter your email to receive a magic link"
-									: "Enter your email to get started"}
+						<Box>
+							<Text variant="h3" align="center">
+								{title}
 							</Text>
-						)}
-					</div>
+							{step === "email" && (
+								<Text variant="body2" color="secondary">
+									{flow === "magic-link"
+										? "Enter your email to receive a magic link"
+										: "Enter your email to get started"}
+								</Text>
+							)}
+						</Box>
+					</VStack>
 
 					{step === "email" && (
-						<form
-							onSubmit={handleEmailSubmit}
-							aria-label="Enter email"
-							{...stylex.props(login02Styles.form)}
+						<VStack
+							render={
+								<form onSubmit={handleEmailSubmit} aria-label="Enter email" />
+							}
+							gap="medium"
 						>
-							<div {...stylex.props(login02Styles.fieldGroup)}>
-								<Label htmlFor="login2-email">Email</Label>
+							<Field>
+								<FieldLabel htmlFor="login2-email">Email</FieldLabel>
 								<Input
 									id="login2-email"
 									type="email"
@@ -100,80 +97,68 @@ export function Login02({
 									required
 									autoComplete="email"
 								/>
-							</div>
+							</Field>
 							<Button type="submit" variant="solid" intent="primary" fullWidth>
 								{flow === "magic-link" ? "Send magic link" : "Continue"}
 							</Button>
-						</form>
+						</VStack>
 					)}
 
 					{step === "password" && (
-						<form
-							onSubmit={handlePasswordSubmit}
-							aria-label="Enter password"
-							{...stylex.props(login02Styles.form)}
-							aria-live="polite"
-						>
-							<button
-								type="button"
-								onClick={() => setStep("email")}
-								{...stylex.props(login02Styles.backButton)}
-							>
-								<svg
-									width="16"
-									height="16"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									aria-hidden="true"
-								>
-									<path d="M19 12H5" />
-									<path d="m12 19-7-7 7-7" />
-								</svg>
-								{email}
-							</button>
-
-							<div {...stylex.props(login02Styles.fieldGroup)}>
-								<Label htmlFor="login2-password">Password</Label>
-								<Input
-									id="login2-password"
-									type="password"
-									placeholder="Enter your password"
-									value={password}
-									onChange={(e) => setPassword(e.target.value)}
-									required
-									autoComplete="current-password"
+						<VStack
+							render={
+								<form
+									onSubmit={handlePasswordSubmit}
+									aria-label="Enter password"
+									aria-live="polite"
 								/>
-							</div>
+							}
+							align="start"
+							gap="medium"
+						>
+							<Button
+								type="button"
+								variant="ghost"
+								size="xsmall"
+								onClick={() => setStep("email")}
+							>
+								<ArrowLeftIcon />
+								{email}
+							</Button>
+							<Box fullWidth>
+								<Field>
+									<FieldLabel htmlFor="login2-password">Password</FieldLabel>
+									<Input
+										id="login2-password"
+										type="password"
+										placeholder="Enter your password"
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+										required
+										autoComplete="current-password"
+									/>
+								</Field>
+							</Box>
 							<Button type="submit" variant="solid" intent="primary" fullWidth>
 								Sign in
 							</Button>
-						</form>
+						</VStack>
 					)}
 
 					{step === "confirmation" && (
-						<div {...stylex.props(login02Styles.magicLinkText)}>
-							<Text variant="h4" span>
-								Check your inbox
-							</Text>
+						<VStack align="center" marginY="medium">
+							<Text variant="h4">Check your inbox</Text>
 							<Text variant="body2">
 								We&apos;ve sent a magic link to <strong>{email}</strong>. Click
 								the link to sign in instantly.
 							</Text>
-							<Button
-								variant="ghost"
-								onClick={() => setStep("email")}
-								style={login02Styles.magicLinkAction}
-							>
+							<Button variant="ghost" onClick={() => setStep("email")}>
 								Use a different email
 							</Button>
-						</div>
+						</VStack>
 					)}
 				</CardBody>
 			</Card>
-		</div>
+		</Container>
 	);
 }

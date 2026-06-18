@@ -18,11 +18,6 @@
 			"file": "login-02.tsx",
 			"type": "registry:ui",
 			"target": "@blocks/login-02/login-02.tsx"
-		},
-		{
-			"file": "login-02.styles.ts",
-			"type": "registry:file",
-			"target": "@blocks/login-02/login-02.styles.ts"
 		}
 	]
 }

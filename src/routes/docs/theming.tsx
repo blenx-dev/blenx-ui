@@ -18,15 +18,19 @@ function ThemingDoc() {
 					</Text>
 					<Text variant="body1" color="secondary">
 						Create a typed theme using{" "}
-						<Text variant="code" span>stylex.createTheme</Text> from the exported
-						theme contract. This gives you full type safety and integrates
-						directly with Stylex's theming system.
+						<Text variant="code" span>
+							stylex.createTheme
+						</Text>{" "}
+						from the exported theme contract. This gives you full type safety
+						and integrates directly with Stylex's theming system.
 					</Text>
 					<Text variant="body1" color="secondary">
 						The generated theme is applied via a{" "}
-						<Text variant="code" span>className</Text> on the root element. All child
-						components using the contract tokens will automatically pick up your
-						custom values.
+						<Text variant="code" span>
+							className
+						</Text>{" "}
+						on the root element. All child components using the contract tokens
+						will automatically pick up your custom values.
 					</Text>
 
 					<Text variant="h3">1. Create a theme file</Text>

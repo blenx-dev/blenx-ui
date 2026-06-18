@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/Button/button";
-import { Input, Label } from "@/components/ui/Input/input";
+import { Input } from "@/components/ui/Input/input";
 import { Text } from "@/components/ui/Text/text";
 import {
 	Card,
@@ -14,21 +13,25 @@ import {
 import { Switch } from "@/components/ui/Switch/switch";
 import { Separator } from "@/components/ui/Separator/separator";
 import { Tabs, TabsList, TabsTab, TabsPanel } from "@/components/ui/Tabs/tabs";
-import type { PropsWithStylex } from "@/utils/stylex.utils";
-import { settingsStyles } from "./settings-01.styles";
+import {
+	Box,
+	Container,
+	Field,
+	FieldLabel,
+	HStack,
+	VStack,
+} from "@/components/ui";
 
-type Props = PropsWithStylex<{}>;
-
-export function Settings01({ style }: Props) {
+export function Settings01() {
 	const [language, setLanguage] = useState("en");
 	const [timezone, setTimezone] = useState("UTC");
 
 	return (
-		<div {...stylex.props(settingsStyles.container, style)}>
+		<Container size="lg">
 			<Text variant="h3">Settings</Text>
 
 			<Tabs defaultValue="general" variant="underline">
-				<TabsList style={settingsStyles.tabsList}>
+				<TabsList>
 					<TabsTab value="general">General</TabsTab>
 					<TabsTab value="security">Security</TabsTab>
 					<TabsTab value="appearance">Appearance</TabsTab>
@@ -42,24 +45,24 @@ export function Settings01({ style }: Props) {
 							<CardTitle>General</CardTitle>
 						</CardHeader>
 						<CardBody>
-							<div {...stylex.props(settingsStyles.section)}>
-								<div {...stylex.props(settingsStyles.fieldGroup)}>
-									<Label htmlFor="settings-language">Language</Label>
+							<VStack>
+								<Field>
+									<FieldLabel htmlFor="settings-language">Language</FieldLabel>
 									<Input
 										id="settings-language"
 										value={language}
 										onChange={(e) => setLanguage(e.target.value)}
 									/>
-								</div>
-								<div {...stylex.props(settingsStyles.fieldGroup)}>
-									<Label htmlFor="settings-timezone">Timezone</Label>
+								</Field>
+								<Field>
+									<FieldLabel htmlFor="settings-timezone">Timezone</FieldLabel>
 									<Input
 										id="settings-timezone"
 										value={timezone}
 										onChange={(e) => setTimezone(e.target.value)}
 									/>
-								</div>
-							</div>
+								</Field>
+							</VStack>
 						</CardBody>
 					</Card>
 				</TabsPanel>
@@ -70,26 +73,23 @@ export function Settings01({ style }: Props) {
 							<CardTitle>Security</CardTitle>
 						</CardHeader>
 						<CardBody>
-							<div {...stylex.props(settingsStyles.section)}>
-								<Button variant="outline" style={settingsStyles.fitContent}>
-									Change password
-								</Button>
+							<VStack>
+								<Box>
+									<Button variant="outline">Change password</Button>
+								</Box>
 								<Separator />
-								<div {...stylex.props(settingsStyles.switchRow)}>
-									<div {...stylex.props(settingsStyles.switchLabel)}>
+								<HStack align="center" justify="between">
+									<Box>
 										<Text variant="body2" weight="medium">
 											Two-factor authentication
 										</Text>
-										<Text
-											variant="caption"
-											style={settingsStyles.switchDescription}
-										>
+										<Text variant="caption" color="secondary">
 											Add an extra layer of security to your account
 										</Text>
-									</div>
+									</Box>
 									<Switch />
-								</div>
-							</div>
+								</HStack>
+							</VStack>
 						</CardBody>
 					</Card>
 				</TabsPanel>
@@ -100,17 +100,19 @@ export function Settings01({ style }: Props) {
 							<CardTitle>Appearance</CardTitle>
 						</CardHeader>
 						<CardBody>
-							<div {...stylex.props(settingsStyles.section)}>
+							<VStack>
 								<Text variant="body2">Theme preference</Text>
-								<Button variant="outline" style={settingsStyles.fitContent}>
-									Toggle theme
-								</Button>
+								<Box>
+									<Button variant="outline">Toggle theme</Button>
+								</Box>
 								<Separator />
-								<div {...stylex.props(settingsStyles.fieldGroup)}>
-									<Label htmlFor="settings-font-size">Font size</Label>
+								<Field>
+									<FieldLabel htmlFor="settings-font-size">
+										Font size
+									</FieldLabel>
 									<Input id="settings-font-size" defaultValue="Medium" />
-								</div>
-							</div>
+								</Field>
+							</VStack>
 						</CardBody>
 					</Card>
 				</TabsPanel>
@@ -121,36 +123,30 @@ export function Settings01({ style }: Props) {
 							<CardTitle>Notifications</CardTitle>
 						</CardHeader>
 						<CardBody>
-							<div {...stylex.props(settingsStyles.section)}>
-								<div {...stylex.props(settingsStyles.switchRow)}>
-									<div {...stylex.props(settingsStyles.switchLabel)}>
+							<VStack>
+								<HStack justify="between">
+									<Box>
 										<Text variant="body2" weight="medium">
 											Email notifications
 										</Text>
-										<Text
-											variant="caption"
-											style={settingsStyles.switchDescription}
-										>
+										<Text variant="caption" color="secondary">
 											Receive updates and alerts via email
 										</Text>
-									</div>
+									</Box>
 									<Switch defaultChecked />
-								</div>
-								<div {...stylex.props(settingsStyles.switchRow)}>
-									<div {...stylex.props(settingsStyles.switchLabel)}>
+								</HStack>
+								<HStack justify="between">
+									<Box>
 										<Text variant="body2" weight="medium">
 											Push notifications
 										</Text>
-										<Text
-											variant="caption"
-											style={settingsStyles.switchDescription}
-										>
+										<Text variant="caption" color="secondary">
 											Receive push notifications in your browser
 										</Text>
-									</div>
+									</Box>
 									<Switch defaultChecked />
-								</div>
-							</div>
+								</HStack>
+							</VStack>
 						</CardBody>
 					</Card>
 				</TabsPanel>
@@ -161,30 +157,30 @@ export function Settings01({ style }: Props) {
 							<CardTitle>Billing</CardTitle>
 						</CardHeader>
 						<CardBody>
-							<div {...stylex.props(settingsStyles.section)}>
-								<div {...stylex.props(settingsStyles.billingInfo)}>
-									<div {...stylex.props(settingsStyles.planRow)}>
+							<VStack gap="small">
+								<VStack>
+									<HStack justify="between">
 										<Text variant="body2" weight="medium">
 											Current plan
 										</Text>
 										<Text variant="body2">Pro</Text>
-									</div>
-									<div {...stylex.props(settingsStyles.planRow)}>
+									</HStack>
+									<HStack justify="between">
 										<Text variant="body2" weight="medium">
 											Payment method
 										</Text>
 										<Text variant="body2">Visa ending in 4242</Text>
-									</div>
-								</div>
+									</HStack>
+								</VStack>
 								<Separator />
-								<Button variant="outline" style={settingsStyles.fitContent}>
-									Manage subscription
-								</Button>
-							</div>
+								<Box>
+									<Button variant="outline">Manage subscription</Button>
+								</Box>
+							</VStack>
 						</CardBody>
 					</Card>
 				</TabsPanel>
 			</Tabs>
-		</div>
+		</Container>
 	);
 }

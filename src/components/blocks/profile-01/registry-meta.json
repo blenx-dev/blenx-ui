@@ -21,11 +21,6 @@
 			"file": "profile-01.tsx",
 			"type": "registry:ui",
 			"target": "@blocks/profile-01/profile-01.tsx"
-		},
-		{
-			"file": "profile-01.styles.ts",
-			"type": "registry:file",
-			"target": "@blocks/profile-01/profile-01.styles.ts"
 		}
 	]
 }

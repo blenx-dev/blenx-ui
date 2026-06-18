@@ -33,11 +33,12 @@ export const boxStyles = stylex.create({
 
 export const boxSizeStyles = stylex.create({
 	xxs: { maxWidth: 240 },
-  xs: { maxWidth: 320 },
-  sm: { maxWidth: 480 },
-  md: { maxWidth: 640 },
-  lg: { maxWidth: 768 },
-  xl: { maxWidth: 1024 },
-  "2xl": { maxWidth: 1280 },
-  full: { maxWidth: "none" },
+	xs: { maxWidth: 320 },
+	sm: { maxWidth: 480 },
+	md: { maxWidth: 640 },
+	lg: { maxWidth: 768 },
+	xl: { maxWidth: 1024 },
+	"2xl": { maxWidth: 1280 },
+	"3xl": { maxWidth: 1440 },
+	full: { maxWidth: "none" },
 });

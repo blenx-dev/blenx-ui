@@ -7,6 +7,7 @@ export const fieldStyles = stylex.create({
 		flexDirection: "column",
 		alignItems: "flex-start",
 		gap: "8px",
+		flex: 1,
 	},
 	label: {
 		display: "inline-flex",

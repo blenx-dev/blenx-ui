@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/Button/button";
-import { Input, Label } from "@/components/ui/Input/input";
+import { Input } from "@/components/ui/Input/input";
 import { Text } from "@/components/ui/Text/text";
 import {
 	Card,
@@ -12,9 +11,9 @@ import {
 	CardTitle,
 } from "@/components/ui/Card/card";
 import { Switch } from "@/components/ui/Switch/switch";
-import { VStack } from "@/components/ui/Stack/stack";
+import { HStack, VStack } from "@/components/ui/Stack/stack";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
-import { profileStyles } from "./profile-01.styles";
+import { Box, Container, Field, FieldLabel } from "@/components/ui";
 
 type NotificationSetting = {
 	key: string;
@@ -70,7 +69,6 @@ export function Profile01({
 	onUpdateProfile,
 	onUpdateNotifications,
 	onDeleteAccount,
-	style,
 }: Props) {
 	const [user, setUser] = useState<UserData>(initialUser);
 	const [notifications, setNotifications] =
@@ -90,116 +88,105 @@ export function Profile01({
 	};
 
 	return (
-		<div {...stylex.props(profileStyles.container, style)}>
-			<Text variant="h3">Profile</Text>
-
-			<Card>
-				<CardHeader>
-					<CardTitle>Personal Information</CardTitle>
-				</CardHeader>
-				<CardBody>
-					<form
-						onSubmit={handleSaveProfile}
-						{...stylex.props(profileStyles.formSection)}
-					>
-						<div {...stylex.props(profileStyles.formRow)}>
-							<div {...stylex.props(profileStyles.fieldGroup)}>
-								<Label htmlFor="profile-name">Full name</Label>
+		<Container size="lg">
+			<VStack>
+				<Text variant="h3">Profile</Text>
+				<Card>
+					<CardHeader>
+						<CardTitle>Personal Information</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<VStack render={<form onSubmit={handleSaveProfile} />}>
+							<HStack>
+								<Field>
+									<FieldLabel htmlFor="profile-name">Full name</FieldLabel>
+									<Input
+										id="profile-name"
+										value={user.name}
+										onChange={(e) => setUser({ ...user, name: e.target.value })}
+									/>
+								</Field>
+								<Field>
+									<FieldLabel htmlFor="profile-email">Email</FieldLabel>
+									<Input
+										id="profile-email"
+										type="email"
+										value={user.email}
+										onChange={(e) =>
+											setUser({ ...user, email: e.target.value })
+										}
+									/>
+								</Field>
+							</HStack>
+							<Field>
+								<FieldLabel htmlFor="profile-bio">Bio</FieldLabel>
 								<Input
-									id="profile-name"
-									value={user.name}
-									onChange={(e) => setUser({ ...user, name: e.target.value })}
+									id="profile-bio"
+									value={user.bio}
+									onChange={(e) => setUser({ ...user, bio: e.target.value })}
 								/>
-							</div>
-							<div {...stylex.props(profileStyles.fieldGroup)}>
-								<Label htmlFor="profile-email">Email</Label>
-								<Input
-									id="profile-email"
-									type="email"
-									value={user.email}
-									onChange={(e) => setUser({ ...user, email: e.target.value })}
-								/>
-							</div>
-						</div>
-						<div {...stylex.props(profileStyles.fieldGroup)}>
-							<Label htmlFor="profile-bio">Bio</Label>
-							<Input
-								id="profile-bio"
-								value={user.bio}
-								onChange={(e) => setUser({ ...user, bio: e.target.value })}
-							/>
-						</div>
-						<Button
-							type="submit"
-							variant="solid"
-							intent="primary"
-							style={profileStyles.fitContent}
-						>
-							Save changes
-						</Button>
-					</form>
-				</CardBody>
-			</Card>
+							</Field>
+							<Button type="submit" variant="solid" intent="primary">
+								Save changes
+							</Button>
+						</VStack>
+					</CardBody>
+				</Card>
 
-			<Card>
-				<CardHeader>
-					<CardTitle>Notifications</CardTitle>
-				</CardHeader>
-				<CardBody>
-					<VStack gap="small">
-						{notifications.map((setting) => (
-							<div key={setting.key} {...stylex.props(profileStyles.switchRow)}>
-								<div {...stylex.props(profileStyles.switchLabel)}>
-									<Text variant="body2" weight="medium">
-										{setting.title}
-									</Text>
-									<Text
-										variant="caption"
-										style={profileStyles.switchDescription}
-									>
-										{setting.description}
-									</Text>
-								</div>
-								<Switch
-									checked={setting.enabled}
-									onCheckedChange={() => toggleNotification(setting.key)}
-								/>
-							</div>
-						))}
-					</VStack>
-				</CardBody>
-			</Card>
+				<Card>
+					<CardHeader>
+						<CardTitle>Notifications</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<VStack gap="small">
+							{notifications.map((setting) => (
+								<HStack
+									key={setting.key}
+									gap="xsmall"
+									align="center"
+									justify="between"
+									paddingY="small"
+								>
+									<Box>
+										<Text variant="body2" weight="medium">
+											{setting.title}
+										</Text>
+										<Text variant="caption" color="secondary">
+											{setting.description}
+										</Text>
+									</Box>
+									<Switch
+										checked={setting.enabled}
+										onCheckedChange={() => toggleNotification(setting.key)}
+									/>
+								</HStack>
+							))}
+						</VStack>
+					</CardBody>
+				</Card>
 
-			<Card>
-				<CardHeader>
-					<CardTitle>Account</CardTitle>
-				</CardHeader>
-				<CardBody>
-					<VStack gap="medium">
-						<Button variant="outline" style={profileStyles.fitContent}>
-							Change password
-						</Button>
-					</VStack>
-				</CardBody>
-			</Card>
+				<Card>
+					<CardHeader>
+						<CardTitle>Account</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<Button variant="outline">Change password</Button>
+					</CardBody>
+				</Card>
 
-			<div {...stylex.props(profileStyles.dangerZone)}>
-				<Text variant="h5" style={profileStyles.dangerHeader}>
-					Danger Zone
-				</Text>
-				<Text variant="body2">
-					Once you delete your account, there is no going back. Please be
-					certain.
-				</Text>
-				<Button
-					variant="solid"
-					intent="danger"
-					onClick={onDeleteAccount}
-					style={profileStyles.fitContent}
-				>
-					Delete account
-				</Button>
-			</div>
-		</div>
+				<VStack withBorder padding="medium">
+					<Text variant="h5" color="error">
+						Danger Zone
+					</Text>
+					<Text variant="body2">
+						Once you delete your account, there is no going back. Please be
+						certain.
+					</Text>
+					<Button variant="solid" intent="danger" onClick={onDeleteAccount}>
+						Delete account
+					</Button>
+				</VStack>
+			</VStack>
+		</Container>
 	);
 }

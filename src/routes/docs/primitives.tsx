@@ -13,7 +13,9 @@ function PrimitivesDoc() {
 				<Text variant="h2">Why Base UI?</Text>
 				<Text variant="body2" color="secondary">
 					Blenx UI is built on <strong>Base UI React</strong> (
-					<Text variant="code" span>@base-ui/react</Text>
+					<Text variant="code" span>
+						@base-ui/react
+					</Text>
 					), a headless component library from the creators of Material UI. Base
 					UI provides unstyled, accessible primitives that handle behavior,
 					keyboard navigation, focus management, and ARIA attributes.
@@ -52,7 +54,7 @@ export function Button({ render, ...props }) {
 				<Grid columns={2}>
 					<Surface withBorder padding="small">
 						<Text variant="h5">Dialog</Text>
-						<Text variant="body2" color="secondary" >
+						<Text variant="body2" color="secondary">
 							@base-ui/react/dialog
 						</Text>
 					</Surface>
@@ -93,11 +95,17 @@ export function Button({ render, ...props }) {
 
 			<VStack gap="medium" paddingY="medium">
 				<Text variant="h2">
-					Extending with <Text variant="code" size="large" span>render</Text>
+					Extending with{" "}
+					<Text variant="code" size="large" span>
+						render
+					</Text>
 				</Text>
 				<Text variant="body2" color="secondary">
-					Every component supports
-					a <Text variant="code" span>render</Text> prop that lets you override the rendered HTML element. This makes the
+					Every component supports a{" "}
+					<Text variant="code" span>
+						render
+					</Text>{" "}
+					prop that lets you override the rendered HTML element. This makes the
 					library highly composable:
 				</Text>
 				<Surface variant="sunken" padding="medium" render={<pre />}>

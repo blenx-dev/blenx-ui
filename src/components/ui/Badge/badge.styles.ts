@@ -37,4 +37,8 @@ export const badgeVariantStyles = stylex.create({
 		backgroundColor: theme.sentimentNegative,
 		color: theme.contentOnPrimary,
 	},
+	sucess: {
+		backgroundColor: theme.sentimentPositive,
+		color: theme.contentOnPrimary,
+	},
 });

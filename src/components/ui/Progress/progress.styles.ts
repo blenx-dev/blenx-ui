@@ -21,7 +21,7 @@ export const progressStyles = stylex.create({
 		width: "100%",
 		overflow: "hidden",
 		borderRadius: borderRadius.full,
-		backgroundColor: theme.backgroundSubtle,
+		backgroundColor: theme.surface,
 	},
 	indicator: {
 		height: "100%",
