@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/styling")({
@@ -8,11 +9,11 @@ export const Route = createFileRoute("/docs/styling")({
 function StylingDoc() {
 	return (
 		<VStack>
-			<Text variant="h1">Styling with Stylex</Text>
+			<DocHeading variant="h1">Styling with Stylex</DocHeading>
 			<Separator />
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Why Stylex?</Text>
+					<DocHeading variant="h2">Why Stylex?</DocHeading>
 					<Text variant="body2" color="secondary">
 						Blenx UI uses <strong>Stylex</strong> as its styling engine. Stylex
 						is a CSS-in-JS library developed by Meta that compiles to atomic CSS
@@ -32,10 +33,13 @@ function StylingDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Design Tokens</Text>
+					<DocHeading variant="h2">Design Tokens</DocHeading>
 					<Text variant="body2" color="secondary">
 						The design system is driven by CSS variables defined via{" "}
-						<Text variant="code">stylex.defineVars</Text>:
+						<Text variant="code" span>
+							stylex.defineVars
+						</Text>
+						:
 					</Text>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">{`export const theme = stylex.defineVars({
@@ -61,7 +65,7 @@ function StylingDoc() {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium">
-				<Text variant="h2">Style Composition</Text>
+				<DocHeading variant="h2">Style Composition</DocHeading>
 				<Text variant="body2" color="secondary">
 					Components compose styles using{" "}
 					<Text variant="code" span>
@@ -82,7 +86,7 @@ function StylingDoc() {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium">
-				<Text variant="h2">Key Constraints</Text>
+				<DocHeading variant="h2">Key Constraints</DocHeading>
 				<Box render={<ul />}>
 					<li>
 						<Text variant="body2">

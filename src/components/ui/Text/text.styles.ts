@@ -65,6 +65,7 @@ export const textVarianttyles = stylex.create({
 		fontWeight: fontWeight.bold,
 		letterSpacing: letterSpacing.tight,
 		margin: 0,
+		scrollMarginTop: "80px",
 	},
 	h2: {
 		fontFamily: fonts.heading,
@@ -73,6 +74,7 @@ export const textVarianttyles = stylex.create({
 		fontWeight: fontWeight.bold,
 		letterSpacing: letterSpacing.tight,
 		margin: 0,
+		scrollMarginTop: "80px",
 	},
 	h3: {
 		fontFamily: fonts.heading,
@@ -81,6 +83,7 @@ export const textVarianttyles = stylex.create({
 		fontWeight: fontWeight.semibold,
 		letterSpacing: letterSpacing.snug,
 		margin: 0,
+		scrollMarginTop: "80px",
 	},
 	h4: {
 		fontFamily: fonts.heading,
@@ -88,6 +91,7 @@ export const textVarianttyles = stylex.create({
 		lineHeight: lineHeight.tight,
 		fontWeight: fontWeight.semibold,
 		margin: 0,
+		scrollMarginTop: "80px",
 	},
 	h5: {
 		fontFamily: fonts.heading,
@@ -95,6 +99,7 @@ export const textVarianttyles = stylex.create({
 		lineHeight: lineHeight.normal,
 		fontWeight: fontWeight.semibold,
 		margin: 0,
+		scrollMarginTop: "80px",
 	},
 	h6: {
 		fontFamily: fonts.heading,
@@ -102,6 +107,7 @@ export const textVarianttyles = stylex.create({
 		lineHeight: lineHeight.normal,
 		fontWeight: fontWeight.semibold,
 		margin: 0,
+		scrollMarginTop: "80px",
 	},
 	body1: {
 		fontFamily: fonts.body,

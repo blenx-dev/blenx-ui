@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { demoImports } from "@/docs-demo-registry";
+import { DocHeading } from "@/components/docs/doc-heading";
 import {
 	Box,
 	Separator,
@@ -126,7 +127,7 @@ function MarketingPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<Text variant="h1">Marketing Blocks</Text>
+				<DocHeading variant="h1">Marketing Blocks</DocHeading>
 				<Text variant="body2" color="secondary">
 					Marketing page blocks — hero, FAQ, pricing, and contact sections.
 				</Text>
@@ -147,7 +148,7 @@ function MarketingPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<Text variant="h2">{block.label}</Text>
+								<DocHeading variant="h2">{block.label}</DocHeading>
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>

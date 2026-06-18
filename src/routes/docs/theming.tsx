@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/theming")({
@@ -8,14 +9,14 @@ export const Route = createFileRoute("/docs/theming")({
 function ThemingDoc() {
 	return (
 		<VStack gap="medium">
-			<Text variant="h1">Theming</Text>
+			<DocHeading variant="h1">Theming</DocHeading>
 			<Separator tone="subtle" />
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">
+					<DocHeading variant="h2">
 						Approach 1: Stylex Contract Theme (Recommended)
-					</Text>
+					</DocHeading>
 					<Text variant="body1" color="secondary">
 						Create a typed theme using{" "}
 						<Text variant="code" span>
@@ -33,7 +34,7 @@ function ThemingDoc() {
 						will automatically pick up your custom values.
 					</Text>
 
-					<Text variant="h3">1. Create a theme file</Text>
+					<DocHeading variant="h3">1. Create a theme file</DocHeading>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">
 							{`// styles/my-theme.stylex.ts
@@ -63,7 +64,7 @@ export const myTheme = stylex.createTheme(theme, {
 						</Text>
 					</Surface>
 
-					<Text variant="h3">2. Apply to root element</Text>
+					<DocHeading variant="h3">2. Apply to root element</DocHeading>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">
 							{`// React — wrap your app root
@@ -97,7 +98,7 @@ export default function RootLayout({ children }) {
 						</Text>
 					</Surface>
 
-					<Text variant="h3">Available Imports</Text>
+					<DocHeading variant="h3">Available Imports</DocHeading>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">
 							{`// Import the contract for createTheme

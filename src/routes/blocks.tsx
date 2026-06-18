@@ -1,6 +1,7 @@
 import { ClientOnly, createFileRoute, Outlet } from "@tanstack/react-router";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { BlocksSidebar } from "@/components/blocks-sidebar";
+import { DocTOC } from "@/components/docs/doc-toc";
 import {
 	Box,
 	Container,
@@ -54,9 +55,14 @@ function BlocksLayout() {
 				</ClientOnly>
 				<Box grow>
 					<ScrollArea height="90svh">
-						<Outlet />
+						<Box data-doc-content="">
+							<Outlet />
+						</Box>
 					</ScrollArea>
 				</Box>
+				<ClientOnly>
+					<DocTOC />
+				</ClientOnly>
 			</HStack>
 		</Container>
 	);

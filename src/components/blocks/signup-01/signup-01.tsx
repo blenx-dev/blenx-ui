@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button/button";
 import { Input, Label } from "@/components/ui/Input/input";
 import { Text } from "@/components/ui/Text/text";
 import { Checkbox } from "@/components/ui/Checkbox/checkbox";
-import { Card, CardBody,  } from "@/components/ui/Card/card";
+import { Card, CardBody } from "@/components/ui/Card/card";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
 import {
 	Box,

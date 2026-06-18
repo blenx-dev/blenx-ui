@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/installation")({
@@ -8,10 +9,10 @@ export const Route = createFileRoute("/docs/installation")({
 function InstallationDoc() {
 	return (
 		<VStack>
-			<Text variant="h1">Installation</Text>
+			<DocHeading variant="h1">Installation</DocHeading>
 
 			<VStack gap="medium">
-				<Text variant="h2">Prerequisites</Text>
+				<DocHeading variant="h2">Prerequisites</DocHeading>
 				<VStack gap="xxsmall" render={<ul />}>
 					<li>
 						<Text variant="body2">React 19+</Text>
@@ -37,7 +38,7 @@ function InstallationDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">1. Configure the Registry</Text>
+					<DocHeading variant="h2">1. Configure the Registry</DocHeading>
 					<Text variant="body2" color="secondary">
 						Add the Blenx UI registry to your project's{" "}
 						<Text variant="code" span>
@@ -72,7 +73,7 @@ function InstallationDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">2. Install a Component</Text>
+					<DocHeading variant="h2">2. Install a Component</DocHeading>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<code>{`# Using the registry URL directly
 npx shadcn@latest add http://localhost:3001/reg/button.json
@@ -87,7 +88,7 @@ npx shadcn@latest add @blenx-dev/button`}</code>
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">3. Required Dependencies</Text>
+					<DocHeading variant="h2">3. Required Dependencies</DocHeading>
 					<Text variant="body2" color="secondary">
 						Each component may require installing additional packages:
 					</Text>
@@ -102,7 +103,7 @@ npx shadcn@latest add @blenx-dev/button`}</code>
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">4. Configure Stylex</Text>
+					<DocHeading variant="h2">4. Configure Stylex</DocHeading>
 					<Text variant="body2" color="secondary">
 						Your bundler must be configured with the Stylex plugin. Components
 						use atomic CSS via Stylex, which requires a build-time transform.

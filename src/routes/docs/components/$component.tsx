@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { DocAccessibility } from "@/components/docs/doc-accessibility";
 import { DocApiReference } from "@/components/docs/doc-api-reference";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { DocCodeView } from "@/components/docs/doc-code-view";
 import { DocDemoRenderer } from "@/components/docs/doc-demo-renderer";
 import { DocInstallation } from "@/components/docs/doc-installation";
@@ -45,7 +46,7 @@ function ComponentDocPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<Text variant="h1">{doc.title}</Text>
+				<DocHeading variant="h1">{doc.title}</DocHeading>
 				<Text variant="body2" color="secondary">
 					{doc.description}
 				</Text>
@@ -63,7 +64,7 @@ function ComponentDocPage() {
 
 			{doc.registryName && registry?.demo && (
 				<VStack marginY="medium">
-					<Text variant="h2">Demo</Text>
+					<DocHeading variant="h2">Demo</DocHeading>
 					<Surface padding="medium" variant="sunken">
 						<DocDemoRenderer registryName={doc.registryName} />
 					</Surface>
@@ -82,7 +83,7 @@ function ComponentDocPage() {
 
 			{doc.examples.length > 0 && (
 				<VStack>
-					<Text variant="h2">Examples</Text>
+					<DocHeading variant="h2">Examples</DocHeading>
 					<DocCodeView
 						files={doc.examples.map((example) => ({
 							title: example.name,
@@ -100,7 +101,7 @@ function ComponentDocPage() {
 				<VStack gap="medium">
 					<Separator tone="subtle" />
 					<Box>
-						<Text variant="h2">Accessibility</Text>
+						<DocHeading variant="h2">Accessibility</DocHeading>
 						<DocAccessibility
 							keyboard={doc.accessibility.keyboard}
 							aria={doc.accessibility.aria}
@@ -113,7 +114,7 @@ function ComponentDocPage() {
 				<VStack>
 					<Separator tone="subtle" />
 					<VStack>
-						<Text variant="h2">Related Components</Text>
+						<DocHeading variant="h2">Related Components</DocHeading>
 						<DocRelated related={doc.related} />
 					</VStack>
 				</VStack>

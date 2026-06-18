@@ -34,7 +34,7 @@ export function Hero01({
 		<Container>
 			<div {...stylex.props(heroStyles.inner)}>
 				<VStack>
-					<Text variant="h1" maxWidth={"md"}>
+					<Text variant="h1" maxWidth="md">
 						{headline}
 					</Text>
 					{subheadline && (

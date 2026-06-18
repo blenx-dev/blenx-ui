@@ -4,6 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import { colorStyles } from "@/utils/base.styles";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
+import { extractTextFromChildren, slugify } from "@/lib/slug";
 import {
 	fontSizeStyles,
 	textAlignStyles,
@@ -32,6 +33,10 @@ const variantTag = {
 } as const satisfies Record<string, keyof React.JSX.IntrinsicElements>;
 export type TextVariant = keyof typeof variantTag;
 
+const isHeadingVariant = (
+	v: TextVariant,
+): v is "h1" | "h2" | "h3" | "h4" | "h5" | "h6" => v.startsWith("h");
+
 type Props = PropsWithStylex<
 	BoxProps & {
 		variant?: TextVariant;
@@ -55,8 +60,14 @@ export function Text({
 	render,
 	span,
 	transform = "none",
+	children,
+	id: explicitId,
 	...props
 }: Props): React.ReactElement {
+	const headingId = isHeadingVariant(variant)
+		? explicitId || slugify(extractTextFromChildren(children)) || undefined
+		: explicitId;
+
 	const sx = stylex.props(
 		textStyles.base,
 		textTransformStyles[transform],
@@ -68,7 +79,7 @@ export function Text({
 		size && fontSizeStyles[size],
 		style,
 	);
-	const merged = mergeProps(props, sx);
+	const merged = mergeProps({ id: headingId, children, ...props }, sx);
 	if (span) {
 		return useRender({
 			defaultTagName: "span",

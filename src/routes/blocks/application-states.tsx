@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { demoImports } from "@/docs-demo-registry";
+import { DocHeading } from "@/components/docs/doc-heading";
 import {
 	Box,
 	Separator,
@@ -128,7 +129,7 @@ function ApplicationStatesPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<Text variant="h1">Application State Blocks</Text>
+				<DocHeading variant="h1">Application State Blocks</DocHeading>
 				<Text variant="body2" color="secondary">
 					Blocks for communicating application states — empty, loading, and
 					error.
@@ -150,7 +151,7 @@ function ApplicationStatesPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<Text variant="h2">{block.label}</Text>
+								<DocHeading variant="h2">{block.label}</DocHeading>
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>

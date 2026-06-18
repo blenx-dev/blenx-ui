@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/")({
@@ -9,7 +10,7 @@ function DocsHome() {
 	return (
 		<VStack>
 			<VStack gap="small">
-				<Text variant="h1">Blenx UI Docs</Text>
+				<DocHeading variant="h1">Blenx UI Docs</DocHeading>
 				<Text variant="body2" color="secondary">
 					A design system built with Stylex and Base UI, distributed via the
 					shadcn registry model.
@@ -20,7 +21,7 @@ function DocsHome() {
 
 			<VStack>
 				<Box>
-					<Text variant="h2">Quick Start</Text>
+					<DocHeading variant="h2">Quick Start</DocHeading>
 					<Text variant="body2" color="secondary">
 						Install components via the shadcn CLI into your React project:
 					</Text>

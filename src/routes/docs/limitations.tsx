@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { Box, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/limitations")({
@@ -8,7 +9,7 @@ export const Route = createFileRoute("/docs/limitations")({
 function LimitationsDoc() {
 	return (
 		<VStack>
-			<Text variant="h1">Limitations</Text>
+			<DocHeading variant="h1">Limitations</DocHeading>
 			<Text variant="body2" color="secondary">
 				Blenx UI makes specific technology choices that come with important
 				constraints. Review these before adopting the library.
@@ -16,7 +17,9 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Monorepo Not Supported for Consumers</Text>
+					<DocHeading variant="h2">
+						Monorepo Not Supported for Consumers
+					</DocHeading>
 					<Text variant="body2" color="secondary">
 						The shadcn registry model copies source files directly into your
 						project. The copied files use import aliases (
@@ -48,7 +51,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Stylex Build Requirement</Text>
+					<DocHeading variant="h2">Stylex Build Requirement</DocHeading>
 					<Text variant="body2" color="secondary">
 						Stylex is a build-time CSS-in-JS solution. Every consumer project
 						must:
@@ -86,7 +89,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Base UI</Text>
+					<DocHeading variant="h2">Base UI</DocHeading>
 					<Text variant="body2" color="secondary">
 						Blenx UI depends on
 						<Text variant="code" span>
@@ -104,7 +107,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">No Tailwind CSS Support</Text>
+					<DocHeading variant="h2">No Tailwind CSS Support</DocHeading>
 					<Text variant="body2" color="secondary">
 						This project deliberately chose Stylex over Tailwind CSS. The
 						registry components ship with their own Stylex styles. If your
@@ -127,7 +130,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Phosphor Icons</Text>
+					<DocHeading variant="h2">Phosphor Icons</DocHeading>
 					<Text variant="body2" color="secondary">
 						The library uses{" "}
 						<Text variant="code" span>
@@ -144,7 +147,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Framework Compatibility</Text>
+					<DocHeading variant="h2">Framework Compatibility</DocHeading>
 					<Text variant="body2" color="secondary">
 						Components are built with React 19+ and are not tested with:
 					</Text>
@@ -172,7 +175,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">CSS Custom Properties Theming</Text>
+					<DocHeading variant="h2">CSS Custom Properties Theming</DocHeading>
 					<Text variant="body2" color="secondary">
 						Theme tokens are implemented as Stylex CSS variables. While this
 						enables efficient light/dark mode switching, it means theme

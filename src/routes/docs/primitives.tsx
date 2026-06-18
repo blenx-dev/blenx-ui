@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import { Grid, Separator, Surface, Text, VStack } from "@/components/ui";
 
 export const Route = createFileRoute("/docs/primitives")({
@@ -9,8 +10,8 @@ function PrimitivesDoc() {
 	return (
 		<>
 			<VStack gap="medium">
-				<Text variant="h1">Primitives with Base UI</Text>
-				<Text variant="h2">Why Base UI?</Text>
+				<DocHeading variant="h1">Primitives with Base UI</DocHeading>
+				<DocHeading variant="h2">Why Base UI?</DocHeading>
 				<Text variant="body2" color="secondary">
 					Blenx UI is built on <strong>Base UI React</strong> (
 					<Text variant="code" span>
@@ -29,7 +30,7 @@ function PrimitivesDoc() {
 			</VStack>
 
 			<VStack gap="medium" paddingY="medium">
-				<Text variant="h2">Component Architecture</Text>
+				<DocHeading variant="h2">Component Architecture</DocHeading>
 				<Surface variant="sunken" padding="medium" render={<pre />}>
 					<code>{`// Base UI handles behavior and accessibility
 import { useRender } from "@base-ui/react/use-render";
@@ -50,7 +51,7 @@ export function Button({ render, ...props }) {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium" paddingY="medium">
-				<Text variant="h2">Key Primitives Used</Text>
+				<DocHeading variant="h2">Key Primitives Used</DocHeading>
 				<Grid columns={2}>
 					<Surface withBorder padding="small">
 						<Text variant="h5">Dialog</Text>
@@ -94,12 +95,12 @@ export function Button({ render, ...props }) {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium" paddingY="medium">
-				<Text variant="h2">
+				<DocHeading variant="h2">
 					Extending with{" "}
 					<Text variant="code" size="large" span>
 						render
 					</Text>
-				</Text>
+				</DocHeading>
 				<Text variant="body2" color="secondary">
 					Every component supports a{" "}
 					<Text variant="code" span>

@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { demoImports } from "@/docs-demo-registry";
+import { DocHeading } from "@/components/docs/doc-heading";
 import {
 	Box,
 	Separator,
@@ -134,7 +135,7 @@ function AuthenticationPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<Text variant="h1">Authentication Blocks</Text>
+				<DocHeading variant="h1">Authentication Blocks</DocHeading>
 				<Text variant="body2" color="secondary">
 					Authentication page blocks — sign in, sign up, password reset, and
 					email verification.
@@ -156,7 +157,7 @@ function AuthenticationPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<Text variant="h2">{block.label}</Text>
+								<DocHeading variant="h2">{block.label}</DocHeading>
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>

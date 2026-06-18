@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DocHeading } from "@/components/docs/doc-heading";
 import {
 	Box,
 	Grid,
@@ -146,7 +147,7 @@ function DataTableDoc() {
 		<VStack>
 			{/* ─── Header ───────────────────────────────────────── */}
 			<VStack gap="small">
-				<Text variant="h1">DataTable</Text>
+				<DocHeading variant="h1">DataTable</DocHeading>
 				<Text variant="body2" color="secondary">
 					A feature-rich data table built on TanStack Table with sorting,
 					pagination, selection, column visibility, resizing, pinning, infinite
@@ -158,7 +159,7 @@ function DataTableDoc() {
 
 			{/* ─── Features Grid ──────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Features</Text>
+				<DocHeading variant="h2">Features</DocHeading>
 				<Grid columns={5}>
 					{FEATURES.map((f) => (
 						<Box key={f.title} withBorder padding="medium">
@@ -175,7 +176,7 @@ function DataTableDoc() {
 
 			{/* ─── Installation ────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Installation</Text>
+				<DocHeading variant="h2">Installation</DocHeading>
 				<Text>
 					Add the DataTable component and its sub-components via the shadcn CLI:
 				</Text>
@@ -192,7 +193,7 @@ function DataTableDoc() {
 
 			{/* ─── Quick Start ──────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Quick Start</Text>
+				<DocHeading variant="h2">Quick Start</DocHeading>
 				<Text>Basic client-side table with sorting and pagination:</Text>
 				<Surface padding="small" variant="sunken">
 					<Text variant="code">
@@ -230,7 +231,7 @@ function UsersPage() {
 
 			{/* ─── Props ──────────────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Props</Text>
+				<DocHeading variant="h2">Props</DocHeading>
 				<Table
 					color="secondary"
 					columnData={[
@@ -257,15 +258,15 @@ function UsersPage() {
 
 			{/* ─── Modes ──────────────────────────────────────────────── */}
 			<VStack>
-				<Text variant="h2">Modes</Text>
+				<DocHeading variant="h2">Modes</DocHeading>
 
-				<Text variant="h3">Client Mode</Text>
+				<DocHeading variant="h3">Client Mode</DocHeading>
 				<Text>
 					All data is loaded upfront. Pagination, sorting, and filtering happen
 					entirely on the client. This is the default mode.
 				</Text>
 
-				<Text variant="h3">Server Mode</Text>
+				<DocHeading variant="h3">Server Mode</DocHeading>
 				<Text>
 					Pagination, sorting, and filtering callbacks fire so you can fetch
 					data from an API. Pass <Text variant="code">mode="server"</Text> and
@@ -302,7 +303,7 @@ function UsersPage() {
 					</Text>
 				</Surface>
 
-				<Text variant="h3">Infinite Mode</Text>
+				<DocHeading variant="h3">Infinite Mode</DocHeading>
 				<Text>
 					Uses TanStack Query's <Text variant="code">useInfiniteQuery</Text> to
 					append pages as the user scrolls. Supports auto (IntersectionObserver)
@@ -346,7 +347,7 @@ function UsersPage() {
 
 			{/* ─── Features Config ─────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Feature Flags</Text>
+				<DocHeading variant="h2">Feature Flags</DocHeading>
 				<Text>
 					Use the <Text variant="code">features</Text> prop to toggle individual
 					features. All default to <Text variant="code">false</Text> except
@@ -378,7 +379,7 @@ function UsersPage() {
 			{/* ─── Sub-components ─────────────────────────────────────── */}
 			<Box>
 				<Box marginY="medium">
-					<Text variant="h2">Sub-components</Text>
+					<DocHeading variant="h2">Sub-components</DocHeading>
 					<Text variant="body3">
 						DataTable is composed of several sub-components that handle
 						different features. Most render automatically when the corresponding
@@ -442,7 +443,7 @@ function UsersPage() {
 
 			{/* ─── Custom Slots ─────────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Custom Slots</Text>
+				<DocHeading variant="h2">Custom Slots</DocHeading>
 				<Text>
 					Override any built-in state component using the{" "}
 					<Text variant="code">slots</Text> prop:
@@ -474,7 +475,7 @@ function UsersPage() {
 
 			{/* ─── Row Actions ──────────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Row Actions</Text>
+				<DocHeading variant="h2">Row Actions</DocHeading>
 				<Text>
 					Define per-row action buttons with optional icons and disabled state:
 				</Text>
@@ -511,7 +512,7 @@ function UsersPage() {
 
 			{/* ─── Sizes ─────────────────────────────────────────────────── */}
 			<Box>
-				<Text variant="h2">Sizes</Text>
+				<DocHeading variant="h2">Sizes</DocHeading>
 				<Text>
 					Three density options via the <Text variant="code">size</Text> prop:
 				</Text>
