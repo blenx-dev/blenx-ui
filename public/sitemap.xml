@@ -116,6 +116,12 @@
     <loc>https://blenx-ui.vercel.app/components/grid</loc>
   </url>
   <url>
+    <loc>https://blenx-ui.vercel.app/components/icon</loc>
+  </url>
+  <url>
+    <loc>https://blenx-ui.vercel.app/components/iconbutton</loc>
+  </url>
+  <url>
     <loc>https://blenx-ui.vercel.app/components/input</loc>
   </url>
   <url>
@@ -123,6 +129,9 @@
   </url>
   <url>
     <loc>https://blenx-ui.vercel.app/components/menu</loc>
+  </url>
+  <url>
+    <loc>https://blenx-ui.vercel.app/components/otpfield</loc>
   </url>
   <url>
     <loc>https://blenx-ui.vercel.app/components/popover</loc>
