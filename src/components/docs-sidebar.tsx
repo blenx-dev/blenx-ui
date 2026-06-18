@@ -67,7 +67,7 @@ function DocsSidebar({ onClose }: { onClose?: () => void }) {
 		CATEGORY_ORDER.reduce(
 			(groups, category) => {
 				const items = Object.entries(manifest).filter(
-					([, data]) => data.category === category && category !== "Utility",
+					([, data]) => data.category === category,
 				);
 				items.sort(([a], [b]) => a.localeCompare(b));
 

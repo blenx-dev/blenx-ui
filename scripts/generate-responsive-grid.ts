@@ -12,7 +12,7 @@ const MAX_COLUMNS = 12;
 
 const lines: string[] = [
 	'import * as stylex from "@stylexjs/stylex";',
-'import { mediaQueries } from "@/lib/theme/tokens.stylex";',
+	'import { mediaQueries } from "@/lib/theme/tokens.stylex";',
 	"",
 	"export const responsiveGridColumns = stylex.create({",
 ];

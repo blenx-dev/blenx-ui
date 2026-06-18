@@ -56,24 +56,18 @@ function ComponentDocPage() {
 			</VStack>
 
 			{doc.status === "beta" && (
-				<Alert
-					variant="warning"
-					icon={<WarningCircle size={20} />}
-				>
+				<Alert variant="warning" icon={<WarningCircle size={20} />}>
 					<Text variant="body2">
-						<strong>Beta:</strong> This component is stable for most use
-						cases, but the API may change in minor updates.
+						<strong>Beta:</strong> This component is stable for most use cases,
+						but the API may change in minor updates.
 					</Text>
 				</Alert>
 			)}
 			{doc.status === "experimental" && (
-				<Alert
-					variant="error"
-					icon={<Flask size={20} />}
-				>
+				<Alert variant="error" icon={<Flask size={20} />}>
 					<Text variant="body2">
-						<strong>Experimental:</strong> This component is a work in
-						progress. Expect breaking changes and incomplete features.
+						<strong>Experimental:</strong> This component is a work in progress.
+						Expect breaking changes and incomplete features.
 					</Text>
 				</Alert>
 			)}
