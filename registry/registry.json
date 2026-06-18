@@ -124,11 +124,6 @@
           "path": "registry/.temp/src/components/blocks/dashboard-01/dashboard-01.tsx",
           "type": "registry:ui",
           "target": "@blocks/dashboard-01/dashboard-01.tsx"
-        },
-        {
-          "path": "registry/.temp/src/components/blocks/dashboard-01/dashboard-01.styles.ts",
-          "type": "registry:file",
-          "target": "@blocks/dashboard-01/dashboard-01.styles.ts"
         }
       ],
       "dependencies": [
@@ -211,11 +206,6 @@
           "path": "registry/.temp/src/components/blocks/faq-01/faq-01.tsx",
           "type": "registry:ui",
           "target": "@blocks/faq-01/faq-01.tsx"
-        },
-        {
-          "path": "registry/.temp/src/components/blocks/faq-01/faq-01.styles.ts",
-          "type": "registry:file",
-          "target": "@blocks/faq-01/faq-01.styles.ts"
         }
       ],
       "dependencies": [
@@ -245,11 +235,6 @@
           "path": "registry/.temp/src/components/blocks/forgot-password-01/forgot-password-01.tsx",
           "type": "registry:ui",
           "target": "@blocks/forgot-password-01/forgot-password-01.tsx"
-        },
-        {
-          "path": "registry/.temp/src/components/blocks/forgot-password-01/forgot-password-01.styles.ts",
-          "type": "registry:file",
-          "target": "@blocks/forgot-password-01/forgot-password-01.styles.ts"
         }
       ],
       "dependencies": [
