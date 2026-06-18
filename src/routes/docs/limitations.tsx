@@ -20,8 +20,8 @@ function LimitationsDoc() {
 					<Text variant="body2" color="secondary">
 						The shadcn registry model copies source files directly into your
 						project. The copied files use import aliases (
-						<Text variant="code">@/components</Text>,{" "}
-						<Text variant="code">@/lib</Text>, etc.) that assume a flat project
+						<Text variant="code" span>@/components</Text>,{" "}
+						<Text variant="code" span>@/lib</Text>, etc.) that assume a flat project
 						structure.
 					</Text>
 					<Text variant="body2" color="secondary">
@@ -52,7 +52,7 @@ function LimitationsDoc() {
 						<li>
 							<Text variant="body2">
 								Install and configure the Stylex bundler plugin (
-								<Text variant="code">@stylexjs/unplugin</Text>)
+								<Text variant="code" span>@stylexjs/unplugin</Text>)
 							</Text>
 						</li>
 						<li>
@@ -78,10 +78,10 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<Text variant="h2">Base UI Version Lock</Text>
+					<Text variant="h2">Base UI</Text>
 					<Text variant="body2" color="secondary">
-						Blenx UI depends on specific{" "}
-						<Text variant="code">@base-ui/react</Text> APIs. The library is
+						Blenx UI depends on
+						<Text variant="code" span>@base-ui/react</Text> APIs. The library is
 						tested against <strong>Base UI React ^1.5.0</strong>. Upgrading Base
 						UI may break component behavior. If you need a newer Base UI
 						version, test all components thoroughly.
@@ -99,8 +99,8 @@ function LimitationsDoc() {
 						registry components ship with their own Stylex styles. If your
 						project uses Tailwind, the two can coexist, but components will use
 						Stylex classes, not Tailwind utilities. You cannot override
-						component styles with <Text variant="code">className</Text> — use
-						the <Text variant="code">style</Text> prop instead.
+						component styles with <Text variant="code" span>className</Text> — use
+						the <Text variant="code" span>style</Text> prop instead.
 					</Text>
 				</VStack>
 			</Box>
@@ -111,7 +111,7 @@ function LimitationsDoc() {
 				<VStack gap="medium">
 					<Text variant="h2">Phosphor Icons</Text>
 					<Text variant="body2" color="secondary">
-						The library uses <Text variant="code">@phosphor-icons/react</Text>{" "}
+						The library uses <Text variant="code" span>@phosphor-icons/react</Text>{" "}
 						for all iconography. If you prefer a different icon set, you will
 						need to replace icon imports in the installed component source files
 						manually.

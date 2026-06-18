@@ -26,17 +26,18 @@ export const boxStyles = stylex.create({
 	shrink: {
 		flexShrink: 0,
 	},
-	maxWidth: (value: string | number) => ({
-		maxWidth: value,
+	maxWidth: (value: number) => ({
+		maxWidth: `${value}px`,
 	}),
 });
 
 export const boxSizeStyles = stylex.create({
-	xxs: { maxWidth: 220 },
-	xs: { maxWidth: 320 },
-	sm: { maxWidth: 640 },
-	md: { maxWidth: 768 },
-	lg: { maxWidth: 1024 },
-	xl: { maxWidth: 1280 },
-	full: { maxWidth: "none" },
+	xxs: { maxWidth: 240 },
+  xs: { maxWidth: 320 },
+  sm: { maxWidth: 480 },
+  md: { maxWidth: 640 },
+  lg: { maxWidth: 768 },
+  xl: { maxWidth: 1024 },
+  "2xl": { maxWidth: 1280 },
+  full: { maxWidth: "none" },
 });

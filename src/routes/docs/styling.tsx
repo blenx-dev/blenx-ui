@@ -64,7 +64,7 @@ function StylingDoc() {
 				<Text variant="h2">Style Composition</Text>
 				<Text variant="body2" color="secondary">
 					Components compose styles using{" "}
-					<Text variant="code">stylex.props()</Text>, which merges multiple
+					<Text variant="code" span>stylex.props()</Text>, which merges multiple
 					style definitions and applies them as atomic classes:
 				</Text>
 				<Surface variant="sunken" padding="medium" render={<pre />}>
@@ -83,9 +83,9 @@ function StylingDoc() {
 				<Box render={<ul />}>
 					<li>
 						<Text variant="body2">
-							Stylex does not support <Text variant="code">@media</Text> queries
-							in <Text variant="code">stylex.create</Text> — use{" "}
-							<Text variant="code">stylex.defineVars</Text> with media query
+							Stylex does not support <Text variant="code" span>@media</Text> queries
+							in <Text variant="code" span>stylex.create</Text> — use{" "}
+							<Text variant="code" span>stylex.defineVars</Text> with media query
 							overrides.
 						</Text>
 					</li>
@@ -102,7 +102,7 @@ function StylingDoc() {
 					</li>
 					<li>
 						<Text variant="body2">
-							Bundler plugin ( <Text variant="code">@stylexjs/unplugin</Text>)
+							Bundler plugin ( <Text variant="code" span>@stylexjs/unplugin</Text>)
 							is required at build time.
 						</Text>
 					</li>

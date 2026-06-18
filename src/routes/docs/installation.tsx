@@ -40,7 +40,7 @@ function InstallationDoc() {
 					<Text variant="h2">1. Configure the Registry</Text>
 					<Text variant="body2" color="secondary">
 						Add the Blenx UI registry to your project's{" "}
-						<Text variant="code">components.json</Text>:
+						<Text variant="code" span>components.json</Text>:
 					</Text>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<code>{`{
