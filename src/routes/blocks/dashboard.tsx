@@ -18,7 +18,7 @@ interface BlockInfo {
 	label: string;
 	description: string;
 	importPath: string;
-	demoExport: string;
+	demoName?: string;
 }
 
 const BLOCKS: BlockInfo[] = [
@@ -28,7 +28,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A SaaS dashboard with KPI metric grid, chart placeholders, and an activity table.",
 		importPath: "@/components/blocks/dashboard-01/dashboard-01",
-		demoExport: "Dashboard01DefaultDemo",
 	},
 	{
 		key: "profile-01",
@@ -36,7 +35,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A user profile page with editable form fields, notification preference toggles, and a danger zone for account deletion.",
 		importPath: "@/components/blocks/profile-01/profile-01",
-		demoExport: "Profile01DefaultDemo",
 	},
 	{
 		key: "settings-01",
@@ -44,7 +42,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A tabbed settings page with sections for general, appearance, notifications, privacy, and billing preferences.",
 		importPath: "@/components/blocks/settings-01/settings-01",
-		demoExport: "Settings01DefaultDemo",
 	},
 ];
 
@@ -65,11 +62,22 @@ function BlockDemo({ block }: { block: BlockInfo }) {
 
 	const DemoComponent = lazy(async () => {
 		const mod = await importFn();
-		const Component = (mod as Record<string, unknown>)[block.demoExport];
-		if (typeof Component === "function") {
-			return { default: Component as React.ComponentType };
+		const m = mod as Record<string, unknown>;
+		const demos = m.demos as
+			| { name: string; component: React.ComponentType }[]
+			| undefined;
+
+		if (demos && demos.length > 0) {
+			const match = block.demoName
+				? demos.find((d) => d.name === block.demoName)
+				: undefined;
+			const demo = match ?? demos[0];
+			if (demo) {
+				return { default: demo.component as React.ComponentType };
+			}
 		}
-		return { default: () => <Text>Demo not found</Text> };
+
+		return { default: (() => <Text>Demo not found</Text>) as never };
 	});
 
 	return (
@@ -130,7 +138,7 @@ function DashboardPage() {
 									Import
 								</Text>
 								<Surface render={<pre />} padding="small" variant="sunken">
-									<code>{`import { ${block.demoExport.replace("Demo", "")} } from "${block.importPath}";`}</code>
+									<code>{`import { demos } from "${block.importPath}";`}</code>
 								</Surface>
 							</Box>
 						</VStack>

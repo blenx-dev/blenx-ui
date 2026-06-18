@@ -32,4 +32,4 @@ function SelectDemo() {
 	);
 }
 
-export { SelectDemo as Demo };
+export const demos = [{ name: "Default", component: SelectDemo }];

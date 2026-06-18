@@ -21,4 +21,4 @@ function InputDemo() {
 	);
 }
 
-export { InputDemo as Demo };
+export const demos = [{ name: "Default", component: InputDemo }];

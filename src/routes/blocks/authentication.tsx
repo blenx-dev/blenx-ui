@@ -18,7 +18,7 @@ interface BlockInfo {
 	label: string;
 	description: string;
 	importPath: string;
-	demoExport: string;
+	demoName?: string;
 }
 
 const BLOCKS: BlockInfo[] = [
@@ -28,7 +28,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A sign-in form with email/password fields, social login options, and links to password reset and registration.",
 		importPath: "@/components/blocks/login-01/login-01",
-		demoExport: "Login01DefaultDemo",
 	},
 	{
 		key: "login-02",
@@ -36,7 +35,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"An email-first sign-in flow supporting both password and magic-link authentication.",
 		importPath: "@/components/blocks/login-02/login-02",
-		demoExport: "Login02PasswordFlowDemo",
 	},
 	{
 		key: "signup-01",
@@ -44,7 +42,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A registration form with name, email, password fields, social sign-up options, and terms acceptance.",
 		importPath: "@/components/blocks/signup-01/signup-01",
-		demoExport: "Signup01DefaultDemo",
 	},
 	{
 		key: "forgot-password-01",
@@ -52,7 +49,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A password reset form that accepts an email address and displays a success confirmation after submission.",
 		importPath: "@/components/blocks/forgot-password-01/forgot-password-01",
-		demoExport: "ForgotPassword01DefaultDemo",
 	},
 	{
 		key: "verify-email-01",
@@ -60,7 +56,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A 6-digit OTP verification form with auto-advancing inputs, resend cooldown, and email display.",
 		importPath: "@/components/blocks/verify-email-01/verify-email-01",
-		demoExport: "VerifyEmail01DefaultDemo",
 	},
 ];
 
@@ -81,11 +76,22 @@ function BlockDemo({ block }: { block: BlockInfo }) {
 
 	const DemoComponent = lazy(async () => {
 		const mod = await importFn();
-		const Component = (mod as Record<string, unknown>)[block.demoExport];
-		if (typeof Component === "function") {
-			return { default: Component as React.ComponentType };
+		const m = mod as Record<string, unknown>;
+		const demos = m.demos as
+			| { name: string; component: React.ComponentType }[]
+			| undefined;
+
+		if (demos && demos.length > 0) {
+			const match = block.demoName
+				? demos.find((d) => d.name === block.demoName)
+				: undefined;
+			const demo = match ?? demos[0];
+			if (demo) {
+				return { default: demo.component as React.ComponentType };
+			}
 		}
-		return { default: () => <Text>Demo not found</Text> };
+
+		return { default: (() => <Text>Demo not found</Text>) as never };
 	});
 
 	return (
@@ -146,7 +152,7 @@ function AuthenticationPage() {
 									Import
 								</Text>
 								<Surface render={<pre />} padding="small" variant="sunken">
-									<code>{`import { ${block.demoExport.replace("Demo", "")} } from "${block.importPath}";`}</code>
+									<code>{`import { demos } from "${block.importPath}";`}</code>
 								</Surface>
 							</Box>
 						</VStack>

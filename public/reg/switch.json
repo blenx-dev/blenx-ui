@@ -15,7 +15,7 @@
   "files": [
     {
       "path": "src/components/ui/Switch/switch.tsx",
-      "content": "import { Switch as SwitchPrimitive } from \"@base-ui/react/switch\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport { switchStyles } from \"./switch.styles\";\n\ntype Props = Omit<SwitchPrimitive.Root.Props, \"style\"> & {\n\tstyle?: stylex.StyleXStyles;\n};\n\nexport function Switch({ style, ...props }: Props) {\n\tconst rootProps = stylex.props(switchStyles.root, style);\n\treturn (\n\t\t<SwitchPrimitive.Root\n\t\t\t{...props}\n\t\t\t{...rootProps}\n\t\t\trender={(rootProps, { checked, disabled }) => (\n\t\t\t\t<span\n\t\t\t\t\t{...rootProps}\n\t\t\t\t\t{...stylex.props(\n\t\t\t\t\t\tswitchStyles.root,\n\t\t\t\t\t\tchecked && switchStyles.rootChecked,\n\t\t\t\t\t\tdisabled && switchStyles.rootDisabled,\n\t\t\t\t\t\tstyle,\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t<SwitchPrimitive.Thumb\n\t\t\t\t\t\t{...stylex.props(\n\t\t\t\t\t\t\tswitchStyles.thumb,\n\t\t\t\t\t\t\tchecked && switchStyles.thumbChecked,\n\t\t\t\t\t\t)}\n\t\t\t\t\t/>\n\t\t\t\t</span>\n\t\t\t)}\n\t\t/>\n\t);\n}\n",
+      "content": "import { Switch as SwitchPrimitive } from \"@base-ui/react/switch\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport { switchStyles } from \"./switch.styles\";\n\ntype Props = Omit<SwitchPrimitive.Root.Props, \"style\"> & {\n\tstyle?: stylex.StyleXStyles;\n};\n\nexport function Switch({ style, ...props }: Props) {\n\tconst rootProps = stylex.props(switchStyles.root, style);\n\treturn (\n\t\t<SwitchPrimitive.Root\n\t\t\t{...props}\n\t\t\t{...rootProps}\n\t\t\trender={(renderProps, { checked, disabled }) => (\n\t\t\t\t<span\n\t\t\t\t\t{...renderProps}\n\t\t\t\t\t{...stylex.props(\n\t\t\t\t\t\tswitchStyles.root,\n\t\t\t\t\t\tchecked && switchStyles.rootChecked,\n\t\t\t\t\t\tdisabled && switchStyles.rootDisabled,\n\t\t\t\t\t\tstyle,\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t<SwitchPrimitive.Thumb\n\t\t\t\t\t\t{...stylex.props(\n\t\t\t\t\t\t\tswitchStyles.thumb,\n\t\t\t\t\t\t\tchecked && switchStyles.thumbChecked,\n\t\t\t\t\t\t)}\n\t\t\t\t\t/>\n\t\t\t\t</span>\n\t\t\t)}\n\t\t/>\n\t);\n}\n",
       "type": "registry:ui",
       "target": "@ui/Switch/switch.tsx"
     },
@@ -26,6 +26,5 @@
       "target": "@ui/Switch/switch.styles.ts"
     }
   ],
-  "type": "registry:ui",
-  "demo": "import { HStack, VStack } from \"../Stack/stack\";\nimport { Text } from \"../Text/text\";\nimport { Switch } from \"./switch\";\n\nfunction SwitchDemo() {\n\treturn (\n\t\t<VStack gap=\"medium\">\n\t\t\t<HStack gap=\"medium\" align=\"center\">\n\t\t\t\t<Switch defaultChecked />\n\t\t\t\t<Text variant=\"body2\">Airplane Mode</Text>\n\t\t\t</HStack>\n\t\t\t<HStack gap=\"medium\" align=\"center\">\n\t\t\t\t<Switch />\n\t\t\t\t<Text variant=\"body2\">Wi-Fi</Text>\n\t\t\t</HStack>\n\t\t\t<HStack gap=\"medium\" align=\"center\">\n\t\t\t\t<Switch disabled />\n\t\t\t\t<Text variant=\"body2\" color=\"secondary\">\n\t\t\t\t\tBluetooth (disabled)\n\t\t\t\t</Text>\n\t\t\t</HStack>\n\t\t</VStack>\n\t);\n}\n\nexport { SwitchDemo as Demo };\n"
+  "type": "registry:ui"
 }

@@ -23,4 +23,4 @@ function SwitchDemo() {
 	);
 }
 
-export { SwitchDemo as Demo };
+export const demos = [{ name: "Default", component: SwitchDemo }];

@@ -18,7 +18,7 @@ interface BlockInfo {
 	label: string;
 	description: string;
 	importPath: string;
-	demoExport: string;
+	demoName?: string;
 }
 
 const BLOCKS: BlockInfo[] = [
@@ -28,7 +28,7 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A marketing hero section with headline, supporting text, dual CTA buttons, and optional image.",
 		importPath: "@/components/blocks/hero-01/hero-01",
-		demoExport: "Hero01DefaultDemo",
+		demoName: "Default",
 	},
 	{
 		key: "faq-01",
@@ -36,7 +36,7 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"An expandable FAQ accordion with section heading, description, and optional search/filter.",
 		importPath: "@/components/blocks/faq-01/faq-01",
-		demoExport: "Faq01DefaultDemo",
+		demoName: "Default",
 	},
 	{
 		key: "pricing-01",
@@ -44,7 +44,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A pricing section with monthly/yearly toggle, three plan tiers, feature lists, and prominent CTA for the popular plan.",
 		importPath: "@/components/blocks/pricing-01/pricing-01",
-		demoExport: "Pricing01DefaultDemo",
 	},
 	{
 		key: "contact-01",
@@ -52,7 +51,7 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A contact form page with name, email, subject select, message textarea, success state, and optional contact information sidebar.",
 		importPath: "@/components/blocks/contact-01/contact-01",
-		demoExport: "Contact01DefaultDemo",
+		demoName: "Default",
 	},
 ];
 
@@ -73,11 +72,22 @@ function BlockDemo({ block }: { block: BlockInfo }) {
 
 	const DemoComponent = lazy(async () => {
 		const mod = await importFn();
-		const Component = (mod as Record<string, unknown>)[block.demoExport];
-		if (typeof Component === "function") {
-			return { default: Component as React.ComponentType };
+		const m = mod as Record<string, unknown>;
+		const demos = m.demos as
+			| { name: string; component: React.ComponentType }[]
+			| undefined;
+
+		if (demos && demos.length > 0) {
+			const match = block.demoName
+				? demos.find((d) => d.name === block.demoName)
+				: undefined;
+			const demo = match ?? demos[0];
+			if (demo) {
+				return { default: demo.component as React.ComponentType };
+			}
 		}
-		return { default: () => <Text>Demo not found</Text> };
+
+		return { default: (() => <Text>Demo not found</Text>) as never };
 	});
 
 	return (
@@ -137,7 +147,7 @@ function MarketingPage() {
 									Import
 								</Text>
 								<Surface render={<pre />} padding="small" variant="sunken">
-									<code>{`import { ${block.demoExport.replace("Demo", "")} } from "${block.importPath}";`}</code>
+									<code>{`import { demos } from "${block.importPath}";`}</code>
 								</Surface>
 							</Box>
 						</VStack>

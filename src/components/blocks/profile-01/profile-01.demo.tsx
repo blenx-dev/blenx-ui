@@ -11,3 +11,5 @@ export function Profile01DefaultDemo() {
 		/>
 	);
 }
+
+export const demos = [{ name: "Default", component: Profile01DefaultDemo }];

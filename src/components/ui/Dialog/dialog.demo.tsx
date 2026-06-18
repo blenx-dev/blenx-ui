@@ -44,4 +44,4 @@ function DialogDemo() {
 	);
 }
 
-export { DialogDemo as Demo };
+export const demos = [{ name: "Default", component: DialogDemo }];

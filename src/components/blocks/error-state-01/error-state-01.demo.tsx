@@ -44,3 +44,9 @@ export function ErrorState01ToastDemo() {
 		/>
 	);
 }
+
+export const demos = [
+	{ name: "Page", component: ErrorState01PageDemo },
+	{ name: "Card", component: ErrorState01CardDemo },
+	{ name: "Toast", component: ErrorState01ToastDemo },
+];

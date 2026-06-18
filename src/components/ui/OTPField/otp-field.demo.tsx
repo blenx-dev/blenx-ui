@@ -11,51 +11,47 @@ const styles = stylex.create({
 		padding: 32,
 		maxWidth: 400,
 	},
-	section: {
-		display: "flex",
-		flexDirection: "column",
-		gap: 8,
-	},
-	label: {
-		fontSize: 14,
-		fontWeight: 600,
-	},
 });
 
 export function OTPFieldDemo() {
 	return (
 		<div {...stylex.props(styles.wrapper)}>
-			<div {...stylex.props(styles.section)}>
-				<span {...stylex.props(styles.label)}>Default (6 digits)</span>
-				<OTPField length={6} defaultValue="">
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-				</OTPField>
-			</div>
-
-			<div {...stylex.props(styles.section)}>
-				<span {...stylex.props(styles.label)}>With separator (4-4-4)</span>
-				<OTPField length={12} defaultValue="" validationType="alphanumeric">
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldSeparator />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldSeparator />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-					<OTPFieldInput />
-				</OTPField>
-			</div>
+			<OTPField length={6} defaultValue="">
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+			</OTPField>
 		</div>
 	);
 }
+
+function OTPFieldGroupedDemo() {
+	return (
+		<div {...stylex.props(styles.wrapper)}>
+			<OTPField length={12} defaultValue="" validationType="alphanumeric">
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldSeparator />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldSeparator />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+				<OTPFieldInput />
+			</OTPField>
+		</div>
+	);
+}
+
+export const demos = [
+	{ name: "Default", component: OTPFieldDefaultDemo },
+	{ name: "Grouped", component: OTPFieldGroupedDemo },
+];

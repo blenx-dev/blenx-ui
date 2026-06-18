@@ -14,7 +14,7 @@
   "files": [
     {
       "path": "src/components/ui/Spinner/spinner.tsx",
-      "content": "import { SpinnerIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { spinnerStyles } from \"./spinner.styles\";\n\ntype Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;\n\nexport function Spinner({ style, ...props }: Props): React.ReactElement {\n\treturn (\n\t\t<SpinnerIcon\n\t\t\taria-label=\"Loading\"\n\t\t\trole=\"status\"\n\t\t\t{...stylex.props(spinnerStyles.spinner, style)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n",
+      "content": "import { SpinnerIcon } from \"@phosphor-icons/react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport type React from \"react\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { spinnerStyles } from \"./spinner.styles\";\n\ntype Props = PropsWithStylex<React.ComponentProps<typeof SpinnerIcon>>;\n\nexport function Spinner({ style, ...props }: Props): React.ReactElement {\n\treturn (\n\t\t<output\n\t\t\taria-label=\"Loading\"\n\t\t\t{...stylex.props(spinnerStyles.spinner, style)}\n\t\t>\n\t\t\t<SpinnerIcon {...props} />\n\t\t</output>\n\t);\n}\n",
       "type": "registry:ui",
       "target": "@ui/Spinner/spinner.tsx"
     },

@@ -34,4 +34,4 @@ function CardDemo() {
 	);
 }
 
-export { CardDemo as Demo };
+export const demos = [{ name: "Default", component: CardDemo }];

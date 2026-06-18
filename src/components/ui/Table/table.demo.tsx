@@ -57,4 +57,4 @@ function TableDemo() {
 	);
 }
 
-export { TableDemo as Demo };
+export const demos = [{ name: "Default", component: TableDemo }];

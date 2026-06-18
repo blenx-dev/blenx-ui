@@ -33,4 +33,4 @@ function TabsDemo() {
 	);
 }
 
-export { TabsDemo as Demo };
+export const demos = [{ name: "Default", component: TabsDemo }];

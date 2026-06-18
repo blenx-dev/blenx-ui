@@ -41,4 +41,4 @@ function AccordionDemo() {
 	);
 }
 
-export { AccordionDemo as Demo };
+export const demos = [{ name: "Default", component: AccordionDemo }];

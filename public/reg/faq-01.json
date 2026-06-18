@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq-01",
+  "title": "FAQ Section",
+  "description": "An FAQ section block with accordion Q&A items and optional search/filter functionality.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/accordion.json",
+    "http://localhost:3001/reg/text.json",
+    "http://localhost:3001/reg/stack.json",
+    "http://localhost:3001/reg/box.json",
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/faq-01/faq-01.tsx",
+      "content": "\"use client\";\n\nimport { useState, useMemo } from \"react\";\nimport * as stylex from \"@stylexjs/stylex\";\nimport { Text } from \"@/components/ui/Text/text\";\nimport {\n\tAccordionRoot,\n\tAccordionItem,\n\tAccordionHeader,\n\tAccordionTrigger,\n\tAccordionPanel,\n} from \"@/components/ui/Accordion/accordion\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { faqStyles } from \"./faq-01.styles\";\n\ntype FaqItem = {\n\tquestion: string;\n\tanswer: string;\n};\n\ntype Props = PropsWithStylex<{\n\ttitle?: string;\n\tdescription?: string;\n\titems: FaqItem[];\n\tsearchable?: boolean;\n}>;\n\nexport function Faq01({\n\ttitle = \"Frequently asked questions\",\n\tdescription,\n\titems,\n\tsearchable = false,\n\tstyle,\n}: Props) {\n\tconst [searchQuery, setSearchQuery] = useState(\"\");\n\n\tconst filteredItems = useMemo(() => {\n\t\tif (!searchable || !searchQuery.trim()) return items;\n\t\tconst query = searchQuery.toLowerCase();\n\t\treturn items.filter(\n\t\t\t(item) =>\n\t\t\t\titem.question.toLowerCase().includes(query) ||\n\t\t\t\titem.answer.toLowerCase().includes(query),\n\t\t);\n\t}, [items, searchQuery, searchable]);\n\n\treturn (\n\t\t<section {...stylex.props(faqStyles.section, style)}>\n\t\t\t<div {...stylex.props(faqStyles.inner)}>\n\t\t\t\t<div {...stylex.props(faqStyles.header)}>\n\t\t\t\t\t<Text variant=\"h2\" style={faqStyles.title}>\n\t\t\t\t\t\t{title}\n\t\t\t\t\t</Text>\n\t\t\t\t\t{description && (\n\t\t\t\t\t\t<Text variant=\"body1\" style={faqStyles.description}>\n\t\t\t\t\t\t\t{description}\n\t\t\t\t\t\t</Text>\n\t\t\t\t\t)}\n\t\t\t\t</div>\n\n\t\t\t\t{searchable && (\n\t\t\t\t\t<input\n\t\t\t\t\t\ttype=\"search\"\n\t\t\t\t\t\tplaceholder=\"Search questions...\"\n\t\t\t\t\t\tvalue={searchQuery}\n\t\t\t\t\t\tonChange={(e) => setSearchQuery(e.target.value)}\n\t\t\t\t\t\taria-label=\"Search frequently asked questions\"\n\t\t\t\t\t\t{...stylex.props(faqStyles.search)}\n\t\t\t\t\t/>\n\t\t\t\t)}\n\n\t\t\t\t<div {...stylex.props(faqStyles.accordionWrapper)}>\n\t\t\t\t\t{filteredItems.length > 0 ? (\n\t\t\t\t\t\t<AccordionRoot>\n\t\t\t\t\t\t\t{filteredItems.map((item) => (\n\t\t\t\t\t\t\t\t<AccordionItem key={item.question}>\n\t\t\t\t\t\t\t\t\t<AccordionHeader>\n\t\t\t\t\t\t\t\t\t\t<AccordionTrigger>{item.question}</AccordionTrigger>\n\t\t\t\t\t\t\t\t\t</AccordionHeader>\n\t\t\t\t\t\t\t\t\t<AccordionPanel>\n\t\t\t\t\t\t\t\t\t\t<Text variant=\"body2\">{item.answer}</Text>\n\t\t\t\t\t\t\t\t\t</AccordionPanel>\n\t\t\t\t\t\t\t\t</AccordionItem>\n\t\t\t\t\t\t\t))}\n\t\t\t\t\t\t</AccordionRoot>\n\t\t\t\t\t) : (\n\t\t\t\t\t\t<Text variant=\"body1\" style={faqStyles.noResults}>\n\t\t\t\t\t\t\tNo questions match your search.\n\t\t\t\t\t\t</Text>\n\t\t\t\t\t)}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</section>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@blocks/faq-01/faq-01.tsx"
+    },
+    {
+      "path": "src/components/blocks/faq-01/faq-01.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport { spacing, fontSize } from \"@/lib/theme/tokens.stylex\";\n\nexport const faqStyles = stylex.create({\n\tsection: {\n\t\tdisplay: \"flex\",\n\t\tflexDirection: \"column\",\n\t\talignItems: \"center\",\n\t\tpaddingTop: spacing.xxxlarge,\n\t\tpaddingBottom: spacing.xxxlarge,\n\t\tpaddingLeft: spacing.medium,\n\t\tpaddingRight: spacing.medium,\n\t\twidth: \"100%\",\n\t\tboxSizing: \"border-box\",\n\t},\n\tinner: {\n\t\twidth: \"100%\",\n\t\tmaxWidth: 720,\n\t\tmarginLeft: \"auto\",\n\t\tmarginRight: \"auto\",\n\t\tdisplay: \"flex\",\n\t\tflexDirection: \"column\",\n\t\talignItems: \"center\",\n\t\tgap: spacing.medium,\n\t},\n\theader: {\n\t\ttextAlign: \"center\",\n\t\tmarginBottom: spacing.medium,\n\t},\n\ttitle: {\n\t\tmarginBottom: spacing.xsmall,\n\t},\n\tdescription: {\n\t\tcolor: theme.contentSecondary,\n\t\tmaxWidth: 560,\n\t},\n\tsearch: {\n\t\twidth: \"100%\",\n\t\tmaxWidth: 480,\n\t\tpadding: `${spacing.small} ${spacing.medium}`,\n\t\tborderWidth: 1,\n\t\tborderStyle: \"solid\",\n\t\tborderColor: theme.border,\n\t\tborderRadius: theme.borderRadius,\n\t\tbackgroundColor: theme.background,\n\t\tcolor: theme.contentPrimary,\n\t\tfontSize: fontSize.small,\n\t\tfontFamily: \"inherit\",\n\t\toutline: {\n\t\t\tdefault: \"none\",\n\t\t\t\":focus\": `2px solid ${theme.focusRing}`,\n\t\t},\n\t\toutlineOffset: \"2px\",\n\t\t\"::placeholder\": {\n\t\t\tcolor: theme.contentDisabled,\n\t\t},\n\t\tmarginBottom: spacing.small,\n\t\tboxSizing: \"border-box\",\n\t},\n\taccordionWrapper: {\n\t\twidth: \"100%\",\n\t},\n\tnoResults: {\n\t\ttextAlign: \"center\",\n\t\tpadding: spacing.xlarge,\n\t\tcolor: theme.contentSecondary,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@blocks/faq-01/faq-01.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

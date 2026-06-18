@@ -94,4 +94,4 @@ function IconDemo() {
 	);
 }
 
-export { IconDemo as Demo };
+export const demos = [{ name: "Default", component: IconDemo }];

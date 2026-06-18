@@ -20,3 +20,8 @@ export function Login02MagicLinkDemo() {
 		/>
 	);
 }
+
+export const demos = [
+	{ name: "Password Flow", component: Login02PasswordFlowDemo },
+	{ name: "Magic Link", component: Login02MagicLinkDemo },
+];

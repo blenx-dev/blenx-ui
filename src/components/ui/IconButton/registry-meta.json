@@ -10,11 +10,6 @@
 			"file": "icon-button.tsx",
 			"type": "registry:ui",
 			"target": "@ui/IconButton/icon-button.tsx"
-		},
-		{
-			"file": "icon-button.styles.ts",
-			"type": "registry:file",
-			"target": "@ui/IconButton/icon-button.styles.ts"
 		}
 	]
 }

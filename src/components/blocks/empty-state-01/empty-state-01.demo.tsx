@@ -12,3 +12,5 @@ export function EmptyState01Demo() {
 		/>
 	);
 }
+
+export const demos = [{ name: "Default", component: EmptyState01Demo }];

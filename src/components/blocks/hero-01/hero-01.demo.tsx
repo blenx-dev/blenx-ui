@@ -24,3 +24,8 @@ export function Hero01WithImageDemo() {
 		/>
 	);
 }
+
+export const demos = [
+	{ name: "Default", component: Hero01DefaultDemo },
+	{ name: "With Image", component: Hero01WithImageDemo },
+];

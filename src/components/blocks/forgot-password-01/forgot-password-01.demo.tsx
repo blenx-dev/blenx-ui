@@ -4,7 +4,9 @@ export function ForgotPassword01DefaultDemo() {
 	return (
 		<ForgotPassword01
 			onSubmit={(email) => console.log("Reset link sent to:", email)}
-			backToLoginLink={{ label: "Back to login", handleClick: () => {} }}
+			backToLoginLink={{ label: "Back to login", onClick: () => {} }}
 		/>
 	);
 }
+
+export const demos = [{ name: "Default", component: ForgotPassword01DefaultDemo }];

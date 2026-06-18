@@ -18,7 +18,7 @@ interface BlockInfo {
 	label: string;
 	description: string;
 	importPath: string;
-	demoExport: string;
+	demoName?: string;
 }
 
 const BLOCKS: BlockInfo[] = [
@@ -28,7 +28,6 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"An empty state block for use when no data exists. Supports card and page variants with optional action buttons.",
 		importPath: "@/components/blocks/empty-state-01/empty-state-01",
-		demoExport: "EmptyState01Demo",
 	},
 	{
 		key: "loading-state-01",
@@ -36,7 +35,7 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"A loading/skeleton block for use while content is being fetched. Supports text, card, table, and avatar patterns.",
 		importPath: "@/components/blocks/loading-state-01/loading-state-01",
-		demoExport: "LoadingState01AllDemo",
+		demoName: "All",
 	},
 	{
 		key: "error-state-01",
@@ -44,7 +43,7 @@ const BLOCKS: BlockInfo[] = [
 		description:
 			"An error state block for displaying errors with retry action and expandable debug details. Supports card, page, and toast variants.",
 		importPath: "@/components/blocks/error-state-01/error-state-01",
-		demoExport: "ErrorState01PageDemo",
+		demoName: "Page",
 	},
 ];
 
@@ -65,11 +64,22 @@ function BlockDemo({ block }: { block: BlockInfo }) {
 
 	const DemoComponent = lazy(async () => {
 		const mod = await importFn();
-		const Component = (mod as Record<string, unknown>)[block.demoExport];
-		if (typeof Component === "function") {
-			return { default: Component as React.ComponentType };
+		const m = mod as Record<string, unknown>;
+		const demos = m.demos as
+			| { name: string; component: React.ComponentType }[]
+			| undefined;
+
+		if (demos && demos.length > 0) {
+			const match = block.demoName
+				? demos.find((d) => d.name === block.demoName)
+				: undefined;
+			const demo = match ?? demos[0];
+			if (demo) {
+				return { default: demo.component as React.ComponentType };
+			}
 		}
-		return { default: () => <Text>Demo not found</Text> };
+
+		return { default: (() => <Text>Demo not found</Text>) as never };
 	});
 
 	return (
@@ -130,7 +140,7 @@ function ApplicationStatesPage() {
 									Import
 								</Text>
 								<Surface render={<pre />} padding="small" variant="sunken">
-									<code>{`import { ${block.demoExport.replace("Demo", "")} } from "${block.importPath}";`}</code>
+									<code>{`import { demos } from "${block.importPath}";`}</code>
 								</Surface>
 							</Box>
 						</VStack>

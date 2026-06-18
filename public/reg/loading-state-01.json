@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loading-state-01",
+  "title": "Loading State",
+  "description": "A loading/skeleton block with various skeleton shapes (text, card, table, avatar) and optional progress indicator.",
+  "dependencies": [
+    "@stylexjs/stylex",
+    "@phosphor-icons/react",
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3001/reg/progress.json",
+    "http://localhost:3001/reg/stack.json",
+    "http://localhost:3001/reg/box.json",
+    "http://localhost:3001/reg/surface.json",
+    "http://localhost:3001/reg/shared.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/loading-state-01/loading-state-01.tsx",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { VStack, HStack } from \"@/components/ui/Stack/stack\";\nimport { Progress } from \"@/components/ui/Progress/progress\";\nimport type { PropsWithStylex } from \"@/utils/stylex.utils\";\nimport { skeletonStyles } from \"./loading-state-01.styles\";\n\ntype SkeletonPattern = \"text\" | \"card\" | \"table\" | \"avatar\" | \"custom\";\n\ntype Props = PropsWithStylex<{\n\tpattern?: SkeletonPattern;\n\tlines?: number;\n\trows?: number;\n\tshowProgress?: boolean;\n\tlabel?: string;\n\tchildren?: React.ReactNode;\n}>;\n\nfunction SkeletonBar({ style }: { style?: stylex.StyleXStyles }) {\n\treturn (\n\t\t<div\n\t\t\taria-hidden=\"true\"\n\t\t\t{...stylex.props(skeletonStyles.textLine, skeletonStyles.shimmer, style)}\n\t\t/>\n\t);\n}\n\nfunction TextPattern({ lines = 3 }: { lines?: number }) {\n\treturn (\n\t\t<VStack gap=\"small\">\n\t\t\t{Array.from({ length: lines }, (_, i) => (\n\t\t\t\t<SkeletonBar\n\t\t\t\t\tkey={i}\n\t\t\t\t\tstyle={i === lines - 1 ? skeletonStyles.textLineShort : undefined}\n\t\t\t\t/>\n\t\t\t))}\n\t\t</VStack>\n\t);\n}\n\nfunction CardPattern() {\n\treturn (\n\t\t<div\n\t\t\t{...stylex.props(skeletonStyles.cardSkeleton, skeletonStyles.shimmer)}\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t);\n}\n\nfunction TablePattern({ rows = 4 }: { rows?: number }) {\n\treturn (\n\t\t<VStack gap=\"xsmall\">\n\t\t\t<div\n\t\t\t\t{...stylex.props(skeletonStyles.tableHeader, skeletonStyles.shimmer)}\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t\t{Array.from({ length: rows }, (_, i) => (\n\t\t\t\t<div\n\t\t\t\t\tkey={i}\n\t\t\t\t\t{...stylex.props(skeletonStyles.tableRow, skeletonStyles.shimmer)}\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t/>\n\t\t\t))}\n\t\t</VStack>\n\t);\n}\n\nfunction AvatarPattern() {\n\treturn (\n\t\t<HStack gap=\"medium\" align=\"center\">\n\t\t\t<div\n\t\t\t\t{...stylex.props(skeletonStyles.avatar, skeletonStyles.shimmer)}\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t\t<div {...stylex.props(skeletonStyles.avatarTextGroup)}>\n\t\t\t\t<SkeletonBar />\n\t\t\t\t<SkeletonBar />\n\t\t\t</div>\n\t\t</HStack>\n\t);\n}\n\nexport function LoadingState01({\n\tpattern = \"text\",\n\tlines,\n\trows,\n\tshowProgress,\n\tlabel = \"Loading content\",\n\tchildren,\n\tstyle,\n}: Props) {\n\treturn (\n\t\t<output\n\t\t\taria-busy=\"true\"\n\t\t\taria-label={label}\n\t\t\t{...stylex.props(skeletonStyles.container, style)}\n\t\t>\n\t\t\t{pattern === \"text\" && <TextPattern lines={lines} />}\n\t\t\t{pattern === \"card\" && <CardPattern />}\n\t\t\t{pattern === \"table\" && <TablePattern rows={rows} />}\n\t\t\t{pattern === \"avatar\" && <AvatarPattern />}\n\t\t\t{pattern === \"custom\" && children}\n\n\t\t\t{showProgress && (\n\t\t\t\t<div {...stylex.props(skeletonStyles.progressWrapper)}>\n\t\t\t\t\t<Progress value={null} />\n\t\t\t\t</div>\n\t\t\t)}\n\t\t</output>\n\t);\n}\n",
+      "type": "registry:ui",
+      "target": "@blocks/loading-state-01/loading-state-01.tsx"
+    },
+    {
+      "path": "src/components/blocks/loading-state-01/loading-state-01.styles.ts",
+      "content": "import * as stylex from \"@stylexjs/stylex\";\nimport { theme } from \"@/lib/theme/contract.stylex\";\nimport { spacing, borderRadius } from \"@/lib/theme/tokens.stylex\";\n\nconst shimmer = stylex.keyframes({\n\t\"0%\": { transform: \"translateX(-100%)\" },\n\t\"100%\": { transform: \"translateX(100%)\" },\n});\n\nexport const skeletonStyles = stylex.create({\n\tshimmer: {\n\t\tposition: \"relative\",\n\t\toverflow: \"hidden\",\n\t\t\"::after\": {\n\t\t\tcontent: \"\",\n\t\t\tposition: \"absolute\",\n\t\t\tinset: 0,\n\t\t\tbackground: `linear-gradient(90deg, transparent 0%, ${theme.surfaceRaised} 50%, transparent 100%)`,\n\t\t\tanimationName: shimmer,\n\t\t\tanimationDuration: {\n\t\t\t\tdefault: \"1.5s\",\n\t\t\t\t\"@media (prefers-reduced-motion: reduce)\": \"0ms\",\n\t\t\t},\n\t\t\tanimationIterationCount: \"infinite\",\n\t\t\tanimationTimingFunction: \"ease-in-out\",\n\t\t},\n\t},\n\n\ttextLine: {\n\t\theight: 14,\n\t\tborderRadius: borderRadius.full,\n\t\tbackgroundColor: theme.surfaceSubtle,\n\t},\n\n\ttextLineShort: {\n\t\twidth: \"60%\",\n\t},\n\n\tcardSkeleton: {\n\t\theight: 200,\n\t\tborderRadius: theme.borderRadius,\n\t\tbackgroundColor: theme.surfaceSubtle,\n\t},\n\n\ttableHeader: {\n\t\theight: 40,\n\t\tborderRadius: theme.borderRadius,\n\t\tbackgroundColor: theme.surfaceSubtle,\n\t\tmarginBottom: spacing.xsmall,\n\t},\n\n\ttableRow: {\n\t\theight: 48,\n\t\tborderRadius: theme.borderRadius,\n\t\tbackgroundColor: theme.surfaceSubtle,\n\t},\n\n\tavatar: {\n\t\twidth: 48,\n\t\theight: 48,\n\t\tborderRadius: \"50%\",\n\t\tbackgroundColor: theme.surfaceSubtle,\n\t\tflexShrink: 0,\n\t},\n\n\tavatarRow: {\n\t\tdisplay: \"flex\",\n\t\tflexDirection: \"row\",\n\t\talignItems: \"center\",\n\t\tgap: spacing.medium,\n\t},\n\n\tavatarTextGroup: {\n\t\tdisplay: \"flex\",\n\t\tflexDirection: \"column\",\n\t\tgap: spacing.xsmall,\n\t\tflex: 1,\n\t},\n\n\tcontainer: {\n\t\tdisplay: \"flex\",\n\t\tflexDirection: \"column\",\n\t\tgap: spacing.medium,\n\t\tpadding: spacing.medium,\n\t},\n\n\tprogressWrapper: {\n\t\tmarginTop: spacing.small,\n\t\twidth: \"100%\",\n\t\tmaxWidth: 300,\n\t},\n});\n",
+      "type": "registry:file",
+      "target": "@blocks/loading-state-01/loading-state-01.styles.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -23,11 +23,11 @@ const sampleFaqs = [
 	},
 ];
 
-export function Faq01DefaultDemo() {
+function Faq01DefaultDemo() {
 	return <Faq01 items={sampleFaqs} />;
 }
 
-export function Faq01WithSearchDemo() {
+function Faq01WithSearchDemo() {
 	return (
 		<Faq01
 			title="Common questions"
@@ -37,3 +37,8 @@ export function Faq01WithSearchDemo() {
 		/>
 	);
 }
+
+export const demos = [
+	{ name: "Default", component: Faq01DefaultDemo },
+	{ name: "With Search", component: Faq01WithSearchDemo },
+];

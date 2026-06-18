@@ -13,3 +13,5 @@ export function Signup01DefaultDemo() {
 		/>
 	);
 }
+
+export const demos = [{ name: "Default", component: Signup01DefaultDemo }];

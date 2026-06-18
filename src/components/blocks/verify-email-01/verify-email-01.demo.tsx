@@ -10,3 +10,5 @@ export function VerifyEmail01DefaultDemo() {
 		/>
 	);
 }
+
+export const demos = [{ name: "Default", component: VerifyEmail01DefaultDemo }];

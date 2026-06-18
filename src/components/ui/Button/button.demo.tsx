@@ -116,4 +116,4 @@ function ButtonDemo() {
 	);
 }
 
-export { ButtonDemo as Demo };
+export const demos = [{ name: "Default", component: ButtonDemo }];

@@ -33,3 +33,11 @@ export function LoadingState01AllDemo() {
 		</VStack>
 	);
 }
+
+export const demos = [
+	{ name: "Text", component: LoadingState01TextDemo },
+	{ name: "Card", component: LoadingState01CardDemo },
+	{ name: "Table", component: LoadingState01TableDemo },
+	{ name: "Avatar", component: LoadingState01AvatarDemo },
+	{ name: "All", component: LoadingState01AllDemo },
+];

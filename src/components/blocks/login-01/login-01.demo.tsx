@@ -15,3 +15,5 @@ export function Login01DefaultDemo() {
 		/>
 	);
 }
+
+export const demos = [{ name: "Default", component: Login01DefaultDemo }];

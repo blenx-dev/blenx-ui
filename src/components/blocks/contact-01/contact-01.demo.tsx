@@ -22,3 +22,8 @@ export function Contact01SimpleDemo() {
 		/>
 	);
 }
+
+export const demos = [
+	{ name: "Default", component: Contact01DefaultDemo },
+	{ name: "Simple", component: Contact01SimpleDemo },
+];

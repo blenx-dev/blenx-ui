@@ -25,4 +25,4 @@ function BadgeDemo() {
 	);
 }
 
-export { BadgeDemo as Demo };
+export const demos = [{ name: "Default", component: BadgeDemo }];
