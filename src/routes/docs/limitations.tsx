@@ -9,7 +9,7 @@ export const Route = createFileRoute("/docs/limitations")({
 function LimitationsDoc() {
 	return (
 		<VStack>
-			<DocHeading variant="h1">Limitations</DocHeading>
+			<DocHeading variant="h1" title="Limitations" />
 			<Text variant="body2" color="secondary">
 				Blenx UI makes specific technology choices that come with important
 				constraints. Review these before adopting the library.
@@ -17,9 +17,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">
-						Monorepo Not Supported for Consumers
-					</DocHeading>
+				<DocHeading variant="h2" title="Monorepo Not Supported for Consumers" />
 					<Text variant="body2" color="secondary">
 						The shadcn registry model copies source files directly into your
 						project. The copied files use import aliases (
@@ -51,7 +49,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">Stylex Build Requirement</DocHeading>
+					<DocHeading variant="h2" title="Stylex Build Requirement" />
 					<Text variant="body2" color="secondary">
 						Stylex is a build-time CSS-in-JS solution. Every consumer project
 						must:
@@ -89,7 +87,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">Base UI</DocHeading>
+					<DocHeading variant="h2" title="Base UI" />
 					<Text variant="body2" color="secondary">
 						Blenx UI depends on
 						<Text variant="code" span>
@@ -107,7 +105,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">No Tailwind CSS Support</DocHeading>
+					<DocHeading variant="h2" title="No Tailwind CSS Support" />
 					<Text variant="body2" color="secondary">
 						This project deliberately chose Stylex over Tailwind CSS. The
 						registry components ship with their own Stylex styles. If your
@@ -130,7 +128,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">Phosphor Icons</DocHeading>
+					<DocHeading variant="h2" title="Phosphor Icons" />
 					<Text variant="body2" color="secondary">
 						The library uses{" "}
 						<Text variant="code" span>
@@ -147,7 +145,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">Framework Compatibility</DocHeading>
+					<DocHeading variant="h2" title="Framework Compatibility" />
 					<Text variant="body2" color="secondary">
 						Components are built with React 19+ and are not tested with:
 					</Text>
@@ -175,7 +173,7 @@ function LimitationsDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">CSS Custom Properties Theming</DocHeading>
+					<DocHeading variant="h2" title="CSS Custom Properties Theming" />
 					<Text variant="body2" color="secondary">
 						Theme tokens are implemented as Stylex CSS variables. While this
 						enables efficient light/dark mode switching, it means theme

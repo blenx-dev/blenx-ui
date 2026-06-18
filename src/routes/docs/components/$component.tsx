@@ -46,7 +46,7 @@ function ComponentDocPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<DocHeading variant="h1">{doc.title}</DocHeading>
+				<DocHeading variant="h1" title={doc.title}>{doc.title}</DocHeading>
 				<Text variant="body2" color="secondary">
 					{doc.description}
 				</Text>
@@ -64,7 +64,7 @@ function ComponentDocPage() {
 
 			{doc.registryName && registry?.demo && (
 				<VStack marginY="medium">
-					<DocHeading variant="h2">Demo</DocHeading>
+					<DocHeading variant="h2" title="Demo" />
 					<Surface padding="medium" variant="sunken">
 						<DocDemoRenderer registryName={doc.registryName} />
 					</Surface>
@@ -83,7 +83,7 @@ function ComponentDocPage() {
 
 			{doc.examples.length > 0 && (
 				<VStack>
-					<DocHeading variant="h2">Examples</DocHeading>
+					<DocHeading variant="h2" title="Examples" />
 					<DocCodeView
 						files={doc.examples.map((example) => ({
 							title: example.name,
@@ -101,7 +101,7 @@ function ComponentDocPage() {
 				<VStack gap="medium">
 					<Separator tone="subtle" />
 					<Box>
-						<DocHeading variant="h2">Accessibility</DocHeading>
+						<DocHeading variant="h2" title="Accessibility" />
 						<DocAccessibility
 							keyboard={doc.accessibility.keyboard}
 							aria={doc.accessibility.aria}
@@ -114,7 +114,7 @@ function ComponentDocPage() {
 				<VStack>
 					<Separator tone="subtle" />
 					<VStack>
-						<DocHeading variant="h2">Related Components</DocHeading>
+						<DocHeading variant="h2" title="Related Components" />
 						<DocRelated related={doc.related} />
 					</VStack>
 				</VStack>

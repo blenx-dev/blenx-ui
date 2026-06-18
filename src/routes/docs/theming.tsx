@@ -9,14 +9,12 @@ export const Route = createFileRoute("/docs/theming")({
 function ThemingDoc() {
 	return (
 		<VStack gap="medium">
-			<DocHeading variant="h1">Theming</DocHeading>
+			<DocHeading variant="h1" title="Theming" />
 			<Separator tone="subtle" />
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">
-						Approach 1: Stylex Contract Theme (Recommended)
-					</DocHeading>
+				<DocHeading variant="h2" title="Approach 1: Stylex Contract Theme (Recommended)" />
 					<Text variant="body1" color="secondary">
 						Create a typed theme using{" "}
 						<Text variant="code" span>
@@ -34,7 +32,7 @@ function ThemingDoc() {
 						will automatically pick up your custom values.
 					</Text>
 
-					<DocHeading variant="h3">1. Create a theme file</DocHeading>
+					<DocHeading variant="h3" title="1. Create a theme file" />
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">
 							{`// styles/my-theme.stylex.ts
@@ -64,7 +62,7 @@ export const myTheme = stylex.createTheme(theme, {
 						</Text>
 					</Surface>
 
-					<DocHeading variant="h3">2. Apply to root element</DocHeading>
+					<DocHeading variant="h3" title="2. Apply to root element" />
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">
 							{`// React — wrap your app root
@@ -98,7 +96,7 @@ export default function RootLayout({ children }) {
 						</Text>
 					</Surface>
 
-					<DocHeading variant="h3">Available Imports</DocHeading>
+					<DocHeading variant="h3" title="Available Imports" />
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<Text variant="code">
 							{`// Import the contract for createTheme

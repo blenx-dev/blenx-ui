@@ -10,8 +10,8 @@ function PrimitivesDoc() {
 	return (
 		<>
 			<VStack gap="medium">
-				<DocHeading variant="h1">Primitives with Base UI</DocHeading>
-				<DocHeading variant="h2">Why Base UI?</DocHeading>
+				<DocHeading variant="h1" title="Primitives with Base UI" />
+				<DocHeading variant="h2" title="Why Base UI?" />
 				<Text variant="body2" color="secondary">
 					Blenx UI is built on <strong>Base UI React</strong> (
 					<Text variant="code" span>
@@ -30,7 +30,7 @@ function PrimitivesDoc() {
 			</VStack>
 
 			<VStack gap="medium" paddingY="medium">
-				<DocHeading variant="h2">Component Architecture</DocHeading>
+				<DocHeading variant="h2" title="Component Architecture" />
 				<Surface variant="sunken" padding="medium" render={<pre />}>
 					<code>{`// Base UI handles behavior and accessibility
 import { useRender } from "@base-ui/react/use-render";
@@ -51,7 +51,7 @@ export function Button({ render, ...props }) {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium" paddingY="medium">
-				<DocHeading variant="h2">Key Primitives Used</DocHeading>
+				<DocHeading variant="h2" title="Key Primitives Used" />
 				<Grid columns={2}>
 					<Surface withBorder padding="small">
 						<Text variant="h5">Dialog</Text>
@@ -95,12 +95,12 @@ export function Button({ render, ...props }) {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium" paddingY="medium">
-				<DocHeading variant="h2">
-					Extending with{" "}
-					<Text variant="code" size="large" span>
-						render
-					</Text>
-				</DocHeading>
+			<DocHeading variant="h2" title="Extending with render">
+				Extending with{" "}
+				<Text variant="code" size="large" span>
+					render
+				</Text>
+			</DocHeading>
 				<Text variant="body2" color="secondary">
 					Every component supports a{" "}
 					<Text variant="code" span>

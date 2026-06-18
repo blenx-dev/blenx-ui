@@ -10,7 +10,7 @@ function DocsHome() {
 	return (
 		<VStack>
 			<VStack gap="small">
-				<DocHeading variant="h1">Blenx UI Docs</DocHeading>
+				<DocHeading variant="h1" title="Blenx UI Docs" />
 				<Text variant="body2" color="secondary">
 					A design system built with Stylex and Base UI, distributed via the
 					shadcn registry model.
@@ -21,7 +21,7 @@ function DocsHome() {
 
 			<VStack>
 				<Box>
-					<DocHeading variant="h2">Quick Start</DocHeading>
+					<DocHeading variant="h2" title="Quick Start" />
 					<Text variant="body2" color="secondary">
 						Install components via the shadcn CLI into your React project:
 					</Text>

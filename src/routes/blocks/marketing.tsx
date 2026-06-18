@@ -127,7 +127,7 @@ function MarketingPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<DocHeading variant="h1">Marketing Blocks</DocHeading>
+				<DocHeading variant="h1" title="Marketing Blocks" />
 				<Text variant="body2" color="secondary">
 					Marketing page blocks — hero, FAQ, pricing, and contact sections.
 				</Text>
@@ -148,7 +148,7 @@ function MarketingPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<DocHeading variant="h2">{block.label}</DocHeading>
+								<DocHeading variant="h2" title={block.label}>{block.label}</DocHeading>
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>

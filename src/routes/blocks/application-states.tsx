@@ -129,7 +129,7 @@ function ApplicationStatesPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<DocHeading variant="h1">Application State Blocks</DocHeading>
+				<DocHeading variant="h1" title="Application State Blocks" />
 				<Text variant="body2" color="secondary">
 					Blocks for communicating application states — empty, loading, and
 					error.
@@ -151,7 +151,7 @@ function ApplicationStatesPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<DocHeading variant="h2">{block.label}</DocHeading>
+								<DocHeading variant="h2" title={block.label} />
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>

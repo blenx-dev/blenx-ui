@@ -135,7 +135,7 @@ function AuthenticationPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<DocHeading variant="h1">Authentication Blocks</DocHeading>
+				<DocHeading variant="h1" title="Authentication Blocks" />
 				<Text variant="body2" color="secondary">
 					Authentication page blocks — sign in, sign up, password reset, and
 					email verification.
@@ -157,7 +157,7 @@ function AuthenticationPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<DocHeading variant="h2">{block.label}</DocHeading>
+								<DocHeading variant="h2" title={block.label} />
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>

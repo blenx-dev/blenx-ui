@@ -9,10 +9,10 @@ export const Route = createFileRoute("/docs/installation")({
 function InstallationDoc() {
 	return (
 		<VStack>
-			<DocHeading variant="h1">Installation</DocHeading>
+			<DocHeading variant="h1" title="Installation" />
 
 			<VStack gap="medium">
-				<DocHeading variant="h2">Prerequisites</DocHeading>
+				<DocHeading variant="h2" title="Prerequisites" />
 				<VStack gap="xxsmall" render={<ul />}>
 					<li>
 						<Text variant="body2">React 19+</Text>
@@ -38,7 +38,7 @@ function InstallationDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">1. Configure the Registry</DocHeading>
+					<DocHeading variant="h2" title="1. Configure the Registry" />
 					<Text variant="body2" color="secondary">
 						Add the Blenx UI registry to your project's{" "}
 						<Text variant="code" span>
@@ -73,7 +73,7 @@ function InstallationDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">2. Install a Component</DocHeading>
+					<DocHeading variant="h2" title="2. Install a Component"/>
 					<Surface variant="sunken" padding="medium" render={<pre />}>
 						<code>{`# Using the registry URL directly
 npx shadcn@latest add http://localhost:3001/reg/button.json
@@ -88,7 +88,7 @@ npx shadcn@latest add @blenx-dev/button`}</code>
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">3. Required Dependencies</DocHeading>
+					<DocHeading variant="h2" title="3. Required Dependencies" />
 					<Text variant="body2" color="secondary">
 						Each component may require installing additional packages:
 					</Text>
@@ -103,7 +103,7 @@ npx shadcn@latest add @blenx-dev/button`}</code>
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">4. Configure Stylex</DocHeading>
+					<DocHeading variant="h2" title="4. Configure Stylex" />
 					<Text variant="body2" color="secondary">
 						Your bundler must be configured with the Stylex plugin. Components
 						use atomic CSS via Stylex, which requires a build-time transform.

@@ -4,7 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import type React from "react";
 import * as stylex from "@stylexjs/stylex";
 import { Box, Separator, Text } from "@/components/ui";
-import { extractTextFromChildren, slugify } from "@/lib/slug";
+import { slugify } from "@/lib/slug";
 import type { TextVariant } from "@/components/ui/Text/text";
 
 const headingStyles = stylex.create({
@@ -29,19 +29,19 @@ const headingStyles = stylex.create({
 
 interface DocHeadingProps {
 	variant: Extract<TextVariant, "h1" | "h2" | "h3" | "h4" | "h5" | "h6">;
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	id?: string;
-	className?: string;
+	title: string;
 }
 
 export function DocHeading({
 	variant,
 	children,
+	title,
 	id: explicitId,
 	...props
 }: DocHeadingProps) {
-	const text = useMemo(() => extractTextFromChildren(children), [children]);
-	const autoId = useMemo(() => slugify(text || ""), [text]);
+	const autoId = useMemo(() => slugify(title), [title]);
 	const headingId = explicitId || autoId;
 	const [copied, setCopied] = useState(false);
 	const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -55,9 +55,9 @@ export function DocHeading({
 		timeoutRef.current = setTimeout(() => setCopied(false), 2000);
 	};
 	return (
-		<Box marginBottom="xsmall">
-			<Text variant={variant} id={headingId} {...props} marginBottom="xsmall">
-				{children}
+		<Box marginBottom="xsmall"  id={headingId}>
+			<Text variant={variant} {...props} marginBottom="xsmall">
+				{children || title}
 				<Text span style={headingStyles.anchorLink} data-slot="anchor-link">
 					<a
 						href={`#${headingId}`}
@@ -70,7 +70,7 @@ export function DocHeading({
 					</a>
 				</Text>
 			</Text>
-			<Separator />
+			<Separator tone="subtle" />
 		</Box>
 	);
 }

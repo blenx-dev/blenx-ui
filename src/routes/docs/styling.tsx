@@ -9,11 +9,11 @@ export const Route = createFileRoute("/docs/styling")({
 function StylingDoc() {
 	return (
 		<VStack>
-			<DocHeading variant="h1">Styling with Stylex</DocHeading>
+			<DocHeading variant="h1" title="Styling with Stylex" />
 			<Separator />
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">Why Stylex?</DocHeading>
+					<DocHeading variant="h2" title="Why Stylex?" />
 					<Text variant="body2" color="secondary">
 						Blenx UI uses <strong>Stylex</strong> as its styling engine. Stylex
 						is a CSS-in-JS library developed by Meta that compiles to atomic CSS
@@ -33,7 +33,7 @@ function StylingDoc() {
 
 			<Box>
 				<VStack gap="medium">
-					<DocHeading variant="h2">Design Tokens</DocHeading>
+					<DocHeading variant="h2" title="Design Tokens" />
 					<Text variant="body2" color="secondary">
 						The design system is driven by CSS variables defined via{" "}
 						<Text variant="code" span>
@@ -65,7 +65,7 @@ function StylingDoc() {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium">
-				<DocHeading variant="h2">Style Composition</DocHeading>
+				<DocHeading variant="h2" title="Style Composition" />
 				<Text variant="body2" color="secondary">
 					Components compose styles using{" "}
 					<Text variant="code" span>
@@ -86,7 +86,7 @@ function StylingDoc() {
 			<Separator tone="subtle" />
 
 			<VStack gap="medium">
-				<DocHeading variant="h2">Key Constraints</DocHeading>
+				<DocHeading variant="h2" title="Key Constraints" />
 				<Box render={<ul />}>
 					<li>
 						<Text variant="body2">

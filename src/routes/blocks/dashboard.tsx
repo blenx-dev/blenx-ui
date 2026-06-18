@@ -119,7 +119,7 @@ function DashboardPage() {
 	return (
 		<VStack gap="large">
 			<VStack gap="small">
-				<DocHeading variant="h1">Dashboard Blocks</DocHeading>
+				<DocHeading variant="h1" title="Dashboard Blocks" />
 				<Text variant="body2" color="secondary">
 					Dashboard and profile page blocks — analytics dashboard, user profile,
 					and application settings.
@@ -141,7 +141,7 @@ function DashboardPage() {
 					<TabsPanel key={block.key} value={block.key}>
 						<VStack gap="medium">
 							<VStack gap="small">
-								<DocHeading variant="h2">{block.label}</DocHeading>
+								<DocHeading variant="h2" title={block.label} />
 								<Text variant="body2" color="secondary">
 									{block.description}
 								</Text>
