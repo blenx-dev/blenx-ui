@@ -90,7 +90,10 @@ export function AccordionTrigger({
 			}}
 			{...props}
 		>
-			<CaretUpDownIcon size={16} {...stylex.props(accordionStyles.triggerIcon)} />
+			<CaretUpDownIcon
+				size={16}
+				{...stylex.props(accordionStyles.triggerIcon)}
+			/>
 			{children}
 		</AccordionPrimitive.Trigger>
 	);

@@ -13,6 +13,10 @@
 			"type": "string",
 			"description": "Display name of the component or block"
 		},
+		"componentKey": {
+			"type": "string",
+			"description": "Unique key to identify component. used to link with other app aspects. defauls to directory name."
+		},
 		"description": {
 			"type": "string",
 			"description": "Brief description of the component or block"

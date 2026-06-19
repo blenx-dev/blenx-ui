@@ -1,6 +1,7 @@
 {
 	"$schema": "https://blenx-ui.vercel.app/docs/docs-meta.schema.json",
 	"title": "Alert Dialog",
+	"componentKey": "alert-dialog",
 	"description": "A confirmation or alert modal dialog for critical user interactions requiring acknowledgment.",
 	"category": "Overlay",
 	"status": "stable",

@@ -521,7 +521,7 @@
     "registryName": "alert",
     "examples": []
   },
-  "alertdialog": {
+  "alert-dialog": {
     "title": "Alert Dialog",
     "description": "A confirmation or alert modal dialog for critical user interactions requiring acknowledgment.",
     "category": "Overlay",
@@ -1274,6 +1274,39 @@
       ]
     },
     "registryName": "separator",
+    "examples": []
+  },
+  "sheet": {
+    "title": "Sheet",
+    "description": "A slide-in panel component that enters from any edge of the viewport. Built on Base UI Dialog with custom side positioning.",
+    "category": "Overlay",
+    "status": "stable",
+    "keywords": [
+      "sheet",
+      "panel",
+      "slide",
+      "sidebar",
+      "drawer",
+      "overlay"
+    ],
+    "related": [
+      "Drawer",
+      "Dialog",
+      "Button",
+      "ScrollArea"
+    ],
+    "accessibility": {
+      "keyboard": [
+        "Escape"
+      ],
+      "aria": [
+        "role",
+        "aria-modal",
+        "aria-labelledby",
+        "aria-describedby"
+      ]
+    },
+    "registryName": "sheet",
     "examples": []
   },
   "slider": {
