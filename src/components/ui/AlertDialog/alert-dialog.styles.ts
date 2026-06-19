@@ -40,9 +40,7 @@ export const alertDialogStyles = stylex.create({
 		display: "flex",
 		flexDirection: "column",
 		width: "100%",
-		minWidth: 0,
 		maxWidth: "28rem",
-		maxHeight: "100%",
 		minHeight: 0,
 		transformOrigin: "center",
 		borderWidth: borderWidth.thin,
@@ -82,8 +80,8 @@ export const alertDialogStyles = stylex.create({
 	},
 	closeButton: {
 		position: "absolute",
-		top: spacing.small,
-		insetInlineEnd: spacing.small,
+		top: 4,
+		right: 4,
 	},
 	header: {
 		display: "flex",

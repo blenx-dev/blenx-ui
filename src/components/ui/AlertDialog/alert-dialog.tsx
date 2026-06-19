@@ -3,13 +3,13 @@
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
-import { XIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import type { _BaseDivProps, PropsWithStylex } from "@/utils/stylex.utils";
-import { Button } from "../Button/button";
 import { ScrollArea } from "../ScrollArea/scroll-area";
 import { alertDialogStyles } from "./alert-dialog.styles";
+import { IconButton } from "../IconButton/icon-button";
+import { XIcon } from "@phosphor-icons/react";
 
 function AlertDialog(
 	props: AlertDialogPrimitive.Root.Props,
@@ -85,17 +85,22 @@ function AlertDialogPopup({
 					data-slot="alert-dialog-popup"
 					{...props}
 				>
-					{children}
 					{showCloseButton && (
 						<AlertDialogPrimitive.Close
 							aria-label="Close"
 							{...stylex.props(alertDialogStyles.closeButton)}
-							render={<Button size="small" variant="ghost" />}
+							render={
+								<IconButton
+									variant="ghost"
+									style={alertDialogStyles.closeButton}
+								/>
+							}
 							{...closeProps}
 						>
 							<XIcon />
 						</AlertDialogPrimitive.Close>
 					)}
+					{children}
 				</AlertDialogPrimitive.Popup>
 			</AlertDialogViewport>
 		</AlertDialogPortal>
