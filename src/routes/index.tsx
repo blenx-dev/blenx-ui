@@ -1,4 +1,9 @@
-import { ArrowRightIcon, CheckIcon, FileCode, Gear } from "@phosphor-icons/react";
+import {
+	ArrowRightIcon,
+	CheckIcon,
+	FileCode,
+	Gear,
+} from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { GITHUB_URL } from "@/constants";
@@ -75,7 +80,8 @@ const features = [
 	{
 		title: "Production Ready",
 		desc: "Built for real-world applications. Tested, documented, and designed to handle production scale.",
-	},	{
+	},
+	{
 		title: "Powered by StyleX",
 		desc: "Type-safe, zero-runtime CSS-in-JS. Predictable styles that scale with your application.",
 	},
@@ -90,7 +96,10 @@ interface ComparisonRow {
 const comparisonColumns: Column<ComparisonRow>[] = [
 	{ key: "feature", header: "Feature" },
 	{ key: "blenx", header: "Blenx" },
-	{ key: "traditional" as keyof ComparisonRow, header: "Traditional UI Libraries" },
+	{
+		key: "traditional" as keyof ComparisonRow,
+		header: "Traditional UI Libraries",
+	},
 ];
 
 const comparisonRows: ComparisonRow[] = [
@@ -127,13 +136,41 @@ const comparisonRows: ComparisonRow[] = [
 ];
 
 const docLinks = [
-	{ to: "/docs/installation" as const, title: "Installation", desc: "Configure your project and install components." },
-	{ to: "/docs/styling" as const, title: "Styling", desc: "How StyleX works in Blenx UI." },
-	{ to: "/docs/installation" as const, title: "Components", desc: "Browse all available components." },
-	{ to: "/docs/theming" as const, title: "Theming", desc: "Customize light and dark themes." },
-	{ to: "/docs/primitives" as const, title: "Primitives", desc: "Base UI component architecture." },
-	{ to: "/docs/primitives" as const, title: "Accessibility", desc: "WAI-ARIA compliance and keyboard navigation." },
-	{ to: "/docs/limitations" as const, title: "Limitations", desc: "Important constraints and tradeoffs." },
+	{
+		to: "/docs/installation" as const,
+		title: "Installation",
+		desc: "Configure your project and install components.",
+	},
+	{
+		to: "/docs/styling" as const,
+		title: "Styling",
+		desc: "How StyleX works in Blenx UI.",
+	},
+	{
+		to: "/docs/installation" as const,
+		title: "Components",
+		desc: "Browse all available components.",
+	},
+	{
+		to: "/docs/theming" as const,
+		title: "Theming",
+		desc: "Customize light and dark themes.",
+	},
+	{
+		to: "/docs/primitives" as const,
+		title: "Primitives",
+		desc: "Base UI component architecture.",
+	},
+	{
+		to: "/docs/primitives" as const,
+		title: "Accessibility",
+		desc: "WAI-ARIA compliance and keyboard navigation.",
+	},
+	{
+		to: "/docs/limitations" as const,
+		title: "Limitations",
+		desc: "Important constraints and tradeoffs.",
+	},
 ];
 
 const metrics = [
@@ -145,9 +182,21 @@ const metrics = [
 ];
 
 const installSteps = [
-	{ number: "1", title: "Install", desc: "Run the CLI command to add any component." },
-	{ number: "2", title: "Source", desc: "Component source is copied to your project." },
-	{ number: "3", title: "Customize", desc: "Edit, extend, and own every line." },
+	{
+		number: "1",
+		title: "Install",
+		desc: "Run the CLI command to add any component.",
+	},
+	{
+		number: "2",
+		title: "Source",
+		desc: "Component source is copied to your project.",
+	},
+	{
+		number: "3",
+		title: "Customize",
+		desc: "Edit, extend, and own every line.",
+	},
 ];
 
 /* ---------------------------------------------------------------------------
@@ -332,9 +381,7 @@ function ShowcaseCard() {
 		<Card>
 			<CardHeader>
 				<CardTitle>Quick Start</CardTitle>
-				<CardDescription>
-					Get up and running in seconds.
-				</CardDescription>
+				<CardDescription>Get up and running in seconds.</CardDescription>
 			</CardHeader>
 			<CardBody>
 				<Text variant="body2" color="secondary">
@@ -400,11 +447,7 @@ const showcaseItems = [
 
 function HomeComponent() {
 	return (
-		<Container
-			size="3xl"
-			paddingX="medium"
-			paddingY="massive"
-		>
+		<Container size="3xl" paddingX="medium" paddingY="massive">
 			<VStack gap="xxxlarge">
 				{/* ─── Hero ──────────────────────────────────────────────────── */}
 				<Box maxWidth={720} style={styles.centeredBox}>
@@ -421,8 +464,8 @@ function HomeComponent() {
 								color="secondary"
 								align="center"
 							>
-								Accessible React components built with StyleX and Base UI.
-								Copy the source. Own the code. Build without vendor lock-in.
+								Accessible React components built with StyleX and Base UI. Copy
+								the source. Own the code. Build without vendor lock-in.
 							</Text>
 						</Box>
 						<HStack gap="medium" wrap justify="center">
@@ -447,7 +490,12 @@ function HomeComponent() {
 								variant="ghost"
 								radius="small"
 								render={
-									<a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="View on GitHub" />
+									<a
+										href={GITHUB_URL}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="View on GitHub"
+									/>
 								}
 							>
 								GitHub ↗
@@ -489,8 +537,8 @@ function HomeComponent() {
 									align="center"
 									size="large"
 								>
-									Add components directly to your project and own the
-									resulting source code.
+									Add components directly to your project and own the resulting
+									source code.
 								</Text>
 							</Box>
 						</VStack>
@@ -500,9 +548,7 @@ function HomeComponent() {
 						<HStack gap="large" wrap justify="center">
 							{installSteps.map((step) => (
 								<HStack key={step.number} gap="small" align="center">
-									<Box style={styles.stepCircle}>
-										{step.number}
-									</Box>
+									<Box style={styles.stepCircle}>{step.number}</Box>
 									<VStack gap="xxsmall">
 										<Text variant="body2" weight="semibold">
 											{step.title}
@@ -547,11 +593,7 @@ function HomeComponent() {
 						{showcaseItems.map((item) => {
 							const DemoComponent = item.component;
 							return (
-								<Surface
-									key={item.title}
-									variant="outline"
-									padding="medium"
-								>
+								<Surface key={item.title} variant="outline" padding="medium">
 									<VStack gap="small">
 										<Text variant="body2" weight="semibold">
 											{item.title}
@@ -620,10 +662,10 @@ function HomeComponent() {
 					</VStack>
 					<Box maxWidth="lg" overflow="auto">
 						<Table
-						columnData={comparisonColumns}
-						rowData={comparisonRows}
-						rowKey="feature"
-					/>
+							columnData={comparisonColumns}
+							rowData={comparisonRows}
+							rowKey="feature"
+						/>
 					</Box>
 				</VStack>
 
@@ -695,11 +737,7 @@ function HomeComponent() {
 				<Box maxWidth={640} style={styles.centeredBox}>
 					<VStack gap="large" align="center">
 						<Box maxWidth={600} style={styles.centeredBox}>
-							<Text
-								variant="h2"
-								align="center"
-								style={styles.sectionTitle}
-							>
+							<Text variant="h2" align="center" style={styles.sectionTitle}>
 								Build with components you actually own.
 							</Text>
 						</Box>
@@ -736,7 +774,12 @@ function HomeComponent() {
 								variant="ghost"
 								radius="small"
 								render={
-									<a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="View on GitHub" />
+									<a
+										href={GITHUB_URL}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="View on GitHub"
+									/>
 								}
 							>
 								GitHub ↗

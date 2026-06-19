@@ -48,7 +48,9 @@ const CommandContext = createContext<CommandContextValue | null>(null);
 function useCommandContext() {
 	const ctx = useContext(CommandContext);
 	if (!ctx) {
-		throw new Error("Command compound components must be used within <Command>");
+		throw new Error(
+			"Command compound components must be used within <Command>",
+		);
 	}
 	return ctx;
 }
@@ -129,7 +131,14 @@ export function Command({
 			registerItem,
 			listboxId,
 		}),
-		[query, filteredItems, activeIndex, handleItemSelect, registerItem, listboxId],
+		[
+			query,
+			filteredItems,
+			activeIndex,
+			handleItemSelect,
+			registerItem,
+			listboxId,
+		],
 	);
 
 	return (
@@ -179,7 +188,8 @@ export function CommandInput({
 			}
 			if (e.key === "ArrowDown") {
 				e.preventDefault();
-				const list = (e.currentTarget as HTMLElement).parentElement?.nextElementSibling as HTMLElement | null;
+				const list = (e.currentTarget as HTMLElement).parentElement
+					?.nextElementSibling as HTMLElement | null;
 				list?.focus();
 			}
 		},
@@ -187,7 +197,10 @@ export function CommandInput({
 	);
 
 	return (
-		<div {...stylex.props(commandStyles.inputWrapper, style)} className={className}>
+		<div
+			{...stylex.props(commandStyles.inputWrapper, style)}
+			className={className}
+		>
 			<span {...stylex.props(commandStyles.inputIcon)}>
 				<MagnifyingGlass size={16} weight="regular" />
 			</span>
@@ -216,12 +229,14 @@ interface CommandListProps {
 	style?: stylex.StyleXStyles;
 }
 
-export function CommandList({
-	children,
-	className,
-	style,
-}: CommandListProps) {
-	const { filteredItems, activeIndex, setActiveIndex, onItemSelect, listboxId } = useCommandContext();
+export function CommandList({ children, className, style }: CommandListProps) {
+	const {
+		filteredItems,
+		activeIndex,
+		setActiveIndex,
+		onItemSelect,
+		listboxId,
+	} = useCommandContext();
 	const listRef = useRef<HTMLDivElement>(null);
 
 	const handleKeyDown = useCallback(
@@ -297,10 +312,7 @@ export function CommandEmpty({
 
 	if (query.trim() && filteredItems.length === 0) {
 		return (
-			<div
-				{...stylex.props(commandStyles.empty, style)}
-				className={className}
-			>
+			<div {...stylex.props(commandStyles.empty, style)} className={className}>
 				{children ?? "No results found."}
 			</div>
 		);
@@ -327,7 +339,12 @@ export function CommandGroup({
 	style,
 }: CommandGroupProps) {
 	return (
-		<div role="group" aria-label={heading} {...stylex.props(commandStyles.group, style)} className={className}>
+		<div
+			role="group"
+			aria-label={heading}
+			{...stylex.props(commandStyles.group, style)}
+			className={className}
+		>
 			{heading && (
 				<div {...stylex.props(commandStyles.groupHeading)}>{heading}</div>
 			)}
@@ -357,7 +374,13 @@ export function CommandItem({
 	className,
 	style,
 }: CommandItemProps) {
-	const { filteredItems, activeIndex, setActiveIndex, registerItem, onItemSelect } = useCommandContext();
+	const {
+		filteredItems,
+		activeIndex,
+		setActiveIndex,
+		registerItem,
+		onItemSelect,
+	} = useCommandContext();
 
 	useEffect(() => {
 		const unregister = registerItem({
@@ -371,13 +394,15 @@ export function CommandItem({
 		};
 	}, [value, keywords, disabled, registerItem]);
 
-	const isVisible = useMemo(() => 
-		filteredItems.some((item) => item.id === value)
-	, [filteredItems, value]);
+	const isVisible = useMemo(
+		() => filteredItems.some((item) => item.id === value),
+		[filteredItems, value],
+	);
 
-	const itemIndex = useMemo(() => 
-		filteredItems.findIndex((item) => item.id === value)
-	, [filteredItems, value]);
+	const itemIndex = useMemo(
+		() => filteredItems.findIndex((item) => item.id === value),
+		[filteredItems, value],
+	);
 
 	const isActive = activeIndex >= 0 && itemIndex === activeIndex;
 	const itemRef = useRef<HTMLDivElement>(null);
@@ -447,10 +472,7 @@ interface CommandSeparatorProps {
 	style?: stylex.StyleXStyles;
 }
 
-export function CommandSeparator({
-	className,
-	style,
-}: CommandSeparatorProps) {
+export function CommandSeparator({ className, style }: CommandSeparatorProps) {
 	return (
 		<div
 			role="separator"

@@ -17,6 +17,7 @@ bun dev
 ## Issues
 
 Before opening an issue:
+
 - Search existing issues
 - Provide reproduction steps
 - Include environment details

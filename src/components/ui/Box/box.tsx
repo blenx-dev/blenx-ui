@@ -1,7 +1,11 @@
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import * as stylex from "@stylexjs/stylex";
-import { type ColorProps, type SpacingProps } from "@/utils/base.styles";
+import {
+	themeTransition,
+	type ColorProps,
+	type SpacingProps,
+} from "@/utils/base.styles";
 import {
 	resolvePaddingStyles,
 	resolveMarginStyles,
@@ -92,6 +96,7 @@ function Box({ render, ...props }: BoxProps) {
 	const marginStyles = resolveMarginStyles(boxProps);
 	const displayStyles = resolveDisplayStyles(boxProps);
 	const stylexProps = stylex.props(
+		themeTransition.root,
 		boxStyles.root,
 		Boolean(boxProps.fullWidth) && boxStyles.fullWidth,
 		Boolean(boxProps.fullHeight) && boxStyles.fullHeight,

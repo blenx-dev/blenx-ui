@@ -1,4 +1,12 @@
-import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandSeparator } from "./command";
+import {
+	Command,
+	CommandInput,
+	CommandList,
+	CommandEmpty,
+	CommandGroup,
+	CommandItem,
+	CommandSeparator,
+} from "./command";
 import { HStack, VStack } from "../Stack/stack";
 import { Text } from "../Text/text";
 import { Gear, Palette, FileCode } from "@phosphor-icons/react";

@@ -225,6 +225,7 @@ Files prefixed with `demo` can be safely deleted. They are there to provide a st
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
 
 For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+
 # Blenx UI
 
 Build modern React applications with accessible, customizable, registry-first components powered by StyleX and Base UI.
@@ -237,74 +238,75 @@ Most component libraries force you to choose between flexibility and speed.
 
 Blenx is built around a different philosophy:
 
-* Own your components
-* Copy source code into your project
-* Customize everything
-* No vendor lock-in
-* Accessibility built-in
-* StyleX-first architecture
+- Own your components
+- Copy source code into your project
+- Customize everything
+- No vendor lock-in
+- Accessibility built-in
+- StyleX-first architecture
 
 ## Features
 
-* ⚡ Registry-first component distribution
-* 🎨 Built for StyleX
-* ♿ Accessible primitives powered by Base UI
-* 📦 Copy-and-own component model
-* 🧩 Design system ready
-* 🌙 Theming support
-* 📱 Responsive by default
-* 🔒 Type-safe APIs
+- ⚡ Registry-first component distribution
+- 🎨 Built for StyleX
+- ♿ Accessible primitives powered by Base UI
+- 📦 Copy-and-own component model
+- 🧩 Design system ready
+- 🌙 Theming support
+- 📱 Responsive by default
+- 🔒 Type-safe APIs
 
 ## Why Blenx?
 
-| Feature | Blenx | Traditional UI Libraries |
-|----------|--------|--------|
-| Own the source code | ✅ | ❌ |
-| Copy into project | ✅ | ❌ |
-| Accessible primitives | ✅ | Varies |
-| Fully customizable | ✅ | Limited |
-| Registry-first distribution | ✅ | ❌ |
-| StyleX-native | ✅ | Rare |
+| Feature                     | Blenx | Traditional UI Libraries |
+| --------------------------- | ----- | ------------------------ |
+| Own the source code         | ✅    | ❌                       |
+| Copy into project           | ✅    | ❌                       |
+| Accessible primitives       | ✅    | Varies                   |
+| Fully customizable          | ✅    | Limited                  |
+| Registry-first distribution | ✅    | ❌                       |
+| StyleX-native               | ✅    | Rare                     |
+
 ## Core Components
 
 ### Layout
 
-* Box
-* Stack
-* Grid
-* Container
-* Surface
+- Box
+- Stack
+- Grid
+- Container
+- Surface
 
 ### Forms
 
-* Button
-* Input
-* Textarea
-* Checkbox
-* Radio Group
-* Select
-* Switch
+- Button
+- Input
+- Textarea
+- Checkbox
+- Radio Group
+- Select
+- Switch
 
 ### Overlay
 
-* Dialog
-* Drawer
-* Popover
-* Tooltip
+- Dialog
+- Drawer
+- Popover
+- Tooltip
 
 ### Navigation
 
-* Tabs
-* Accordion
-* Breadcrumb
+- Tabs
+- Accordion
+- Breadcrumb
 
 ### Data Display
 
-* Avatar
-* Badge
-* Card
-* Alert
-* Skeleton
+- Avatar
+- Badge
+- Card
+- Alert
+- Skeleton
 
 More components are continuously being added.
 
@@ -316,19 +318,19 @@ Instead of consuming components from a black-box package, components are added d
 
 This allows teams to:
 
-* Modify implementations freely
-* Establish internal design standards
-* Scale design systems across multiple products
-* Avoid dependency lock-in
+- Modify implementations freely
+- Establish internal design standards
+- Scale design systems across multiple products
+- Avoid dependency lock-in
 
 ## Technology Stack
 
 Built with:
 
-* React
-* TypeScript
-* StyleX
-* Base UI
+- React
+- TypeScript
+- StyleX
+- Base UI
 
 ## Documentation
 

@@ -17,7 +17,7 @@ export const colors = stylex.defineVars({
   accent: 'blue',
   line: 'gray',
   '--background': 'black',
-});`
+});`;
 function LimitationsDoc() {
 	return (
 		<VStack>
@@ -195,7 +195,10 @@ function LimitationsDoc() {
 					</Text>
 					<CodeBlock language="css" code={CSS_OVERRIDE_CODE} />
 					<Text variant="body2" color="secondary">
-						By default, defineVars will create unique, hashed variable names. To create variables with custom names use a key that starts with --. These will generate CSS custom properties with the provided name instead of generating a globally unique name.
+						By default, defineVars will create unique, hashed variable names. To
+						create variables with custom names use a key that starts with --.
+						These will generate CSS custom properties with the provided name
+						instead of generating a globally unique name.
 					</Text>
 					<CodeBlock language="tsx" code={CUSTOM_STYLES_THEME_VARS} />
 				</VStack>

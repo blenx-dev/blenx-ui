@@ -67,8 +67,6 @@ function ThemingDoc() {
 	return (
 		<VStack gap="medium">
 			<DocHeading variant="h1" title="Theming" />
-			<Separator tone="subtle" />
-
 			<Box>
 				<VStack gap="medium">
 					<DocHeading

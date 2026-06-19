@@ -41,15 +41,17 @@ export const boxSizeStyles = stylex.create({
 	"2xl": { maxWidth: 1280 },
 	"3xl": { maxWidth: 1440 },
 	full: {
-	width: "100%",
-	maxWidth: "100%",
-},	screen: {
-	maxWidth: "100%",
-	width: "100%",
-	},viewport: {
-	width: "100svw",
-	maxWidth: "100svw",
-},
+		width: "100%",
+		maxWidth: "100%",
+	},
+	screen: {
+		maxWidth: "100%",
+		width: "100%",
+	},
+	viewport: {
+		width: "100svw",
+		maxWidth: "100svw",
+	},
 });
 
 export const boxHeightStyles = stylex.create({

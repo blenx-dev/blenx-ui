@@ -1,9 +1,4 @@
-import {
-	ListIcon,
-	MoonIcon,
-	SunIcon,
-	XIcon,
-} from "@phosphor-icons/react";
+import { ListIcon, MoonIcon, SunIcon, XIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import { ClientOnly, Link, useLocation } from "@tanstack/react-router";
 import { useMediaQuery, useLocalStorage } from "@uidotdev/usehooks";
@@ -11,7 +6,7 @@ import { GITHUB_URL } from "@/constants";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { Button, Container, HStack, Separator, Text } from "./ui";
+import { Button, Container, HStack, IconButton, Separator, Text } from "./ui";
 import { darkTheme, lightTheme } from "@/lib/app-theme.stylex";
 import { useEffect } from "react";
 
@@ -70,14 +65,13 @@ function DocsRouteSidebarOption() {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	if (isSmallDevice)
 		return (
-			<Button
-				size="icon"
-				variant="soft"
+			<IconButton
+				variant="ghost"
 				onClick={() => setOpen(!sidebarOpen)}
 				aria-label="Toggle sidebar"
 			>
 				{sidebarOpen ? <XIcon /> : <ListIcon />}
-			</Button>
+			</IconButton>
 		);
 }
 const lightThemeClass = stylex.props(lightTheme).className || "";
@@ -101,10 +95,7 @@ export function ThemeEffect() {
 function ThemeToggle() {
 	const [themeMode, setThemeMode] = useLocalStorage("Blenx-Theme", "light");
 
-	const handleToggle = () => {
-		const previousTheme = themeMode;
-		const nextTheme = previousTheme === "light" ? "dark" : "light";
-		setThemeMode(nextTheme);
+	const updateDocumentTheme = (nextTheme: "light" | "dark") => {
 		document.documentElement.classList.remove(
 			...lightThemeClass.split(" "),
 			...darkThemeClass.split(" "),
@@ -116,15 +107,22 @@ function ThemeToggle() {
 		}
 		document.documentElement.setAttribute("data-theme", nextTheme);
 	};
+	const handleToggle = () => {
+		const previousTheme = themeMode;
+		const nextTheme = previousTheme === "light" ? "dark" : "light";
+		setThemeMode(nextTheme);
+		document.startViewTransition(() => {
+			updateDocumentTheme(nextTheme);
+		});
+	};
 	return (
-		<Button
-			size="icon"
+		<IconButton
 			variant="ghost"
 			onClick={handleToggle}
 			aria-label={`Switch to ${themeMode === "light" ? "dark" : "light"} mode`}
 		>
 			{themeMode === "light" ? <MoonIcon /> : <SunIcon />}
-		</Button>
+		</IconButton>
 	);
 }
 
@@ -148,13 +146,13 @@ function Header() {
 							<Text variant="h3">Blenx UI</Text>
 						</Link>
 					</HStack>
-					<HStack>
+					<HStack align="center" gap="xsmall">
 						<ClientOnly>
 							{!isDocsActive && <DocsRouteOption />}
 							{isDocsActive && <BlocksRouteOption />}
 							<ThemeToggle />
 						</ClientOnly>
-						
+
 						{!isDocsActive && !isBlocksActive && (
 							<Button
 								size="xsmall"

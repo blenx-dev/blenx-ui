@@ -55,6 +55,7 @@ function Button({
 		"aria-disabled": loading || undefined,
 		"data-loading": loading ? "" : undefined,
 		"data-slot": "button",
+		nativeButton: !props.render,
 		disabled: isDisabled,
 	};
 	return (
