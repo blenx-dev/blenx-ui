@@ -5,7 +5,7 @@ import { HStack, VStack } from "@/components/ui/Stack/stack";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { heroStyles } from "./hero-01.styles";
 import { ImageIcon } from "@phosphor-icons/react";
-import { Box, Container } from "@/components/ui";
+import { Container, Icon } from "@/components/ui";
 
 type Cta = {
 	label: string;
@@ -31,7 +31,7 @@ export function Hero01({
 	imageAlt = "",
 }: Props) {
 	return (
-		<Container>
+		<Container content="center">
 			<div {...stylex.props(heroStyles.inner)}>
 				<VStack>
 					<Text variant="h1" maxWidth="md">
@@ -69,9 +69,9 @@ export function Hero01({
 							{...stylex.props(heroStyles.image)}
 						/>
 					) : (
-						<Box maxWidth="md" paddingY="massive">
+						<Icon maxWidth="md" paddingY="massive" color="secondary">
 							<ImageIcon size={98} />
-						</Box>
+						</Icon>
 					)}
 				</VStack>
 			</div>

@@ -1,4 +1,4 @@
-import { codeToHtml } from "../../shiki.bundle";
+import { codeToHtml } from "./shiki.bundle";
 
 type Lang =
 	| "typescript"

@@ -34,7 +34,8 @@
 		"registry:gen": "tsx scripts/build.ts",
 		"generate-responsive-grid": "tsx scripts/generate-responsive-grid.ts",
 		"registry:build": "bun registry:gen && shadcn build scripts/registry.json --output public/reg && bun scripts/clean.ts",
-		"deploy": "bun run build && wrangler deploy"
+		"deploy": "bun run build && wrangler deploy",
+		"shiki:gen": "tsx scripts/shiki-codegen.ts"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.5.0",
@@ -77,6 +78,7 @@
 		"oxfmt": "^0.55.0",
 		"oxlint": "^1.70.0",
 		"shadcn": "^4.11.0",
+		"shiki-codegen": "^4.2.0",
 		"ts-node": "^10.9.2",
 		"tsx": "^4.22.4",
 		"typescript": "^6.0.2",
