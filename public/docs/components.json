@@ -812,6 +812,45 @@
     "registryName": "combobox",
     "examples": []
   },
+  "command": {
+    "title": "Command",
+    "description": "A searchable command palette with keyboard navigation, groups, and filtering.",
+    "category": "Overlay",
+    "status": "experimental",
+    "keywords": [
+      "command",
+      "palette",
+      "search",
+      "filter",
+      "kbar",
+      "spotlight",
+      "keyboard"
+    ],
+    "related": [
+      "Dialog",
+      "Select",
+      "Menu"
+    ],
+    "accessibility": {
+      "keyboard": [
+        "ArrowDown",
+        "ArrowUp",
+        "Enter",
+        "Escape"
+      ],
+      "aria": [
+        "role",
+        "combobox",
+        "listbox",
+        "option",
+        "aria-selected",
+        "aria-expanded",
+        "aria-haspopup"
+      ]
+    },
+    "registryName": "command",
+    "examples": []
+  },
   "container": {
     "title": "Container",
     "description": "A centered layout wrapper that constrains content width with configurable max-width presets.",
