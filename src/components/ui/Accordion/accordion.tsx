@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import { CaretUpDownIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { accordionStyles } from "./accordion.styles";
@@ -90,7 +90,7 @@ export function AccordionTrigger({
 			}}
 			{...props}
 		>
-			<CaretDownIcon size={16} {...stylex.props(accordionStyles.triggerIcon)} />
+			<CaretUpDownIcon size={16} {...stylex.props(accordionStyles.triggerIcon)} />
 			{children}
 		</AccordionPrimitive.Trigger>
 	);
