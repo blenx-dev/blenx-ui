@@ -1,1 +1,1 @@
-export const GITHUB_URL = "https://github.com/kupras06/blenx-ui";
+export const GITHUB_URL = "https://github.com/blenx-dev/blenx-ui";
