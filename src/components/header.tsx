@@ -126,30 +126,28 @@ function ThemeToggle() {
 	);
 }
 function BrandLogo({ size = 48 }: { size?: number }) {
-  const scale = size / 74;
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 390 70"
-      width={390 * scale}
-      height={70 * scale}
-      fill="currentColor"
-    >
-      <rect x={0}  y={0}  width={20} height={34} rx={5} />
-      <rect x={0}  y={38} width={20} height={34} rx={5} />
-      <rect x={28} y={0}  width={50} height={34} rx={10} />
-      <rect x={28} y={38} width={50} height={34} rx={10} />
+	const scale = size / 74;
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 390 70"
+			width={390 * scale}
+			height={70 * scale}
+			fill="currentColor"
+		>
+			<rect x={0} y={0} width={20} height={34} rx={5} />
+			<rect x={0} y={38} width={20} height={34} rx={5} />
+			<rect x={28} y={0} width={50} height={34} rx={10} />
+			<rect x={28} y={38} width={50} height={34} rx={10} />
 
-      <text
-        x={84}
-        y={69}
-        fontWeight={800}
-        fontSize={92}
-      >
-        Blenx<tspan fontWeight={300} opacity={0.5}>UI</tspan>
-      </text>
-    </svg>
-  );
+			<text x={84} y={69} fontWeight={800} fontSize={92}>
+				Blenx
+				<tspan fontWeight={300} opacity={0.5}>
+					UI
+				</tspan>
+			</text>
+		</svg>
+	);
 }
 function Header() {
 	const { pathname } = useLocation();
@@ -168,7 +166,7 @@ function Header() {
 							to="/"
 							{...stylex.props(styles.logo, isHomeActive && styles.activeLink)}
 						>
-								<BrandLogo size={30} />
+							<BrandLogo size={30} />
 						</Link>
 					</HStack>
 					<HStack align="center" gap="xsmall">
