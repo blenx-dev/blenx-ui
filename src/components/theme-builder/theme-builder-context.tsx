@@ -1,47 +1,9 @@
+import type { theme } from "@/lib/theme/contract.stylex";
 import { create } from "zustand";
 import { createContext } from "zustand-utils";
 
-export type ThemeTokens = {
-	primary: string;
-	primarySubtle: string;
-	secondary: string;
-	background: string;
-	backgroundSubtle: string;
-	surface: string;
-	surfaceSubtle: string;
-	surfaceRaised: string;
-	surfaceHover: string;
-	surfaceOverlay: string;
-	border: string;
-	borderSubtle: string;
-	borderStrong: string;
-	contentPrimary: string;
-	contentSecondary: string;
-	contentDisabled: string;
-	contentAccent: string;
-	contentOnPrimary: string;
-	sentimentNegative: string;
-	sentimentNegativeSubtle: string;
-	sentimentPositive: string;
-	sentimentPositiveSubtle: string;
-	sentimentWarning: string;
-	sentimentWarningSubtle: string;
-	sentimentInfo: string;
-	sentimentInfoSubtle: string;
-	focusRing: string;
-	fontFamilySans: string;
-	fontFamilyMono: string;
-	baseFontSize: string;
-	headingScale: number;
-	fontWeight: string;
-	shadowIntensity: string;
-	radius: string;
-	spacing: string;
-	shadowSm: string;
-	shadowMd: string;
-	shadowLg: string;
-	shadowXl: string;
-};
+type ThemeKeys = keyof (typeof theme)["__tokens"];
+export type ThemeTokens = Record<ThemeKeys, string>;
 
 export const defaultTokens: ThemeTokens = {
 	primary: "#243142",
@@ -71,18 +33,19 @@ export const defaultTokens: ThemeTokens = {
 	sentimentInfo: "#2980B9",
 	sentimentInfoSubtle: "#EBF5FB",
 	focusRing: "#4A90D9",
-	fontFamilySans: '"DM Sans", system-ui, -apple-system, sans-serif',
-	fontFamilyMono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-	baseFontSize: "16px",
-	headingScale: 1.25,
-	fontWeight: "400",
-	shadowIntensity: "medium",
-	radius: "medium",
-	spacing: "default",
+	fontSize: '"DM Sans", system-ui, -apple-system, sans-serif',
+	borderRadius: "medium",
 	shadowSm: "0 1px 3px rgba(36,49,66,0.08), 0 1px 2px rgba(36,49,66,0.04)",
 	shadowMd: "0 4px 12px rgba(36,49,66,0.10), 0 2px 4px rgba(36,49,66,0.06)",
 	shadowLg: "0 8px 24px rgba(36,49,66,0.12), 0 4px 8px rgba(36,49,66,0.06)",
 	shadowXl: "0 20px 48px rgba(36,49,66,0.15), 0 8px 16px rgba(36,49,66,0.08)",
+	primaryHover: "",
+	sentimentPositiveHover: "",
+	sentimentWarningHover: "",
+	sentimentNegativeHover: "",
+	sentimentInfoHover: "",
+	hoverOverlay: "",
+	hoverOverlaySoft: "",
 };
 
 interface ThemeBuilderStore {

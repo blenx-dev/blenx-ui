@@ -1,27 +1,15 @@
-import { mergeProps, useRender } from "@base-ui/react";
+import { mergeProps } from "@base-ui/react";
 import * as stylex from "@stylexjs/stylex";
-import { borderRadiusStyles } from "@/utils/layout.styles";
 import type { PropsWithStylex } from "@/utils/stylex.utils";
 import { badgeStyles, badgeVariantStyles } from "./badge.styles";
+import { Box, type BoxProps } from "../Box/box";
 
-type Props = PropsWithStylex<useRender.ComponentProps<"span">> & {
+type Props = PropsWithStylex<BoxProps> & {
 	variant?: keyof typeof badgeVariantStyles;
-	radius?: keyof typeof borderRadiusStyles;
 };
 
-export function Badge({
-	variant = "default",
-	radius,
-	style,
-	render,
-	...props
-}: Props) {
-	const sx = stylex.props(
-		badgeStyles.root,
-		badgeVariantStyles[variant],
-		radius && borderRadiusStyles[radius],
-		style,
-	);
+export function Badge({ variant = "default", style, ...props }: Props) {
+	const sx = stylex.props(badgeStyles.root, badgeVariantStyles[variant], style);
 	const merged = mergeProps(props, sx);
-	return useRender({ defaultTagName: "span", props: merged, render });
+	return <Box {...merged} />;
 }

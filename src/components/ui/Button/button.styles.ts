@@ -205,7 +205,7 @@ export const buttonStyles = stylex.create({
 		fontSize: theme.fontSize,
 		fontFamily: fonts.display,
 		textDecoration: "none",
-		position:'relative',
+		position: "relative",
 		transition: "all 0.2s ease",
 		":disabled": {
 			opacity: 0.4,

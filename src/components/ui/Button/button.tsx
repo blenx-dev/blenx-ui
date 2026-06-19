@@ -59,11 +59,7 @@ function Button({
 	};
 	return (
 		<ButtonPrimitive {...mergeProps<"button">(defaultProps, props)}>
-			{loading && (
-				<Spinner
-					data-slot="button-loading-indicator"
-				/>
-			)}
+			{loading && <Spinner data-slot="button-loading-indicator" />}
 			{children}
 		</ButtonPrimitive>
 	);

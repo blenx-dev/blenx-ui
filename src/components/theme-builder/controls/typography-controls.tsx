@@ -84,27 +84,6 @@ export function TypographyControls() {
 						/>
 					</VStack>
 
-					<VStack gap="xxsmall">
-						<HStack justify="between">
-							<Text variant="body2">Heading Scale</Text>
-							<Text variant="body2" color="secondary">
-								{tokens.headingScale.toFixed(2)}
-							</Text>
-						</HStack>
-						<Slider
-							min={1.0}
-							max={2.0}
-							step={0.05}
-							value={tokens.headingScale}
-							onValueChange={(value) =>
-								updateToken(
-									"headingScale",
-									Array.isArray(value) ? value[0] : value,
-								)
-							}
-						/>
-					</VStack>
-
 					<Select.Wrapper label="Font Weight">
 						<Select.Root
 							value={String(tokens.fontWeight ?? "400")}

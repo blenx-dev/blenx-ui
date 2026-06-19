@@ -1,4 +1,10 @@
-import { ListIcon, MoonIcon, SunIcon, XIcon } from "@phosphor-icons/react";
+import {
+	WarningIcon,
+	ListIcon,
+	MoonIcon,
+	SunIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import { ClientOnly, Link, useLocation } from "@tanstack/react-router";
 import { useMediaQuery, useLocalStorage } from "@uidotdev/usehooks";
@@ -6,7 +12,7 @@ import { GITHUB_URL } from "@/constants";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { Button, Container, HStack, Separator, Text } from "./ui";
+import { Button, Container, HStack, Icon, Separator, Text } from "./ui";
 import { darkTheme, lightTheme } from "@/lib/app-theme.stylex";
 import { useEffect } from "react";
 
@@ -19,12 +25,6 @@ const styles = stylex.create({
 		letterSpacing: letterSpacing.tight,
 		lineHeight: 1,
 	},
-	navLinks: {
-		display: "flex",
-		flexDirection: "row",
-		alignItems: "center",
-		gap: spacing["4"],
-	},
 	link: {
 		textDecoration: "none",
 		color: theme.contentSecondary,
@@ -35,12 +35,6 @@ const styles = stylex.create({
 	activeLink: {
 		color: theme.contentPrimary,
 		fontWeight: 600,
-	},
-	divider: {
-		border: "none",
-		borderTopWidth: "1px",
-		borderTopStyle: "solid",
-		borderTopColor: theme.border,
 	},
 });
 function DocsRouteOption() {
@@ -97,10 +91,10 @@ export function ThemeEffect() {
 			...lightThemeClass.split(" "),
 			...darkThemeClass.split(" "),
 		);
-
 		document.documentElement.classList.add(
 			...(themeMode === "dark" ? darkThemeClass : lightThemeClass).split(" "),
 		);
+		document.documentElement.setAttribute("data-theme", themeMode);
 	}, [themeMode]);
 
 	return null;
@@ -154,7 +148,7 @@ function Header() {
 							<Text variant="h3">Blenx UI</Text>
 						</Link>
 					</HStack>
-					<div {...stylex.props(styles.navLinks)}>
+					<HStack>
 						<ClientOnly>
 							<DocsRouteOption />
 							<BlocksRouteOption />
@@ -166,7 +160,19 @@ function Header() {
 							nativeButton={false}
 							render={<Link to="/theme-builder" />}
 						>
-							Theme Builder
+							<HStack gap="xxsmall" position="relative">
+								Theme Builder
+								<Icon
+									color="error"
+									backgroundColor="error"
+									position="absolute"
+									bottom="small"
+									padding="xxsmall"
+									left="massive"
+								>
+									<WarningIcon />
+								</Icon>
+							</HStack>
 						</Button>
 						<Button
 							size="xsmall"
@@ -184,7 +190,7 @@ function Header() {
 						>
 							GitHub &rarr;
 						</Button>
-					</div>
+					</HStack>
 				</HStack>
 			</Container>
 			<Separator />

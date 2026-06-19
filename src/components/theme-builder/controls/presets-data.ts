@@ -3,35 +3,10 @@ import type { ThemeTokens } from "../theme-builder-context";
 export interface ThemePreset {
 	name: string;
 	colors: string[];
-	tokens: Partial<ThemeTokens>;
+	tokens: ThemeTokens;
 }
 
 export const presets: ThemePreset[] = [
-	{
-		name: "Default Light",
-		colors: ["#ffffff", "#f4f4f5", "#e4e4e7", "#18181b", "#3b82f6"],
-		tokens: {
-			primary: "#18181b",
-			primarySubtle: "#3f3f46",
-			secondary: "#3b82f6",
-			background: "#ffffff",
-			backgroundSubtle: "#f4f4f5",
-			surface: "#ffffff",
-			surfaceSubtle: "#f4f4f5",
-			surfaceRaised: "#ffffff",
-			surfaceHover: "#f4f4f5",
-			surfaceOverlay: "rgba(0,0,0,0.4)",
-			border: "#e4e4e7",
-			borderSubtle: "#f4f4f5",
-			borderStrong: "#d4d4d8",
-			contentPrimary: "#09090b",
-			contentSecondary: "#71717a",
-			contentDisabled: "#a1a1aa",
-			contentAccent: "#18181b",
-			contentOnPrimary: "#ffffff",
-			focusRing: "#3b82f6",
-		},
-	},
 	{
 		name: "Zinc Dark",
 		colors: ["#09090b", "#18181b", "#27272a", "#fafafa", "#3b82f6"],
