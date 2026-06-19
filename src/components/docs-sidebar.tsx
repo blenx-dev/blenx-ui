@@ -26,7 +26,10 @@ const sections: SidebarSection[] = [
 	},
 	{
 		title: "Customization",
-		links: [{ to: "/docs/theming", label: "Theming" }],
+		links: [
+			{ to: "/docs/theming", label: "Theming" },
+			{ to: "/theme-builder", label: "Theme Builder" },
+		],
 	},
 	{
 		title: "Components",

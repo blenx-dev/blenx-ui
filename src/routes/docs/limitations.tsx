@@ -11,7 +11,13 @@ const CSS_OVERRIDE_CODE = `/* Override theme tokens in your CSS */
   --primary: #your-color;
   --background: #your-bg;
 }`;
+const CUSTOM_STYLES_THEME_VARS = `import * as stylex from '@stylexjs/stylex';
 
+export const colors = stylex.defineVars({
+  accent: 'blue',
+  line: 'gray',
+  '--background': 'black',
+});`
 function LimitationsDoc() {
 	return (
 		<VStack>
@@ -160,9 +166,6 @@ function LimitationsDoc() {
 					</Text>
 					<VStack render={<ul />}>
 						<li>
-							<Text variant="body2">React Native</Text>
-						</li>
-						<li>
 							<Text variant="body2">
 								Vue, Svelte, Solid, or other frameworks
 							</Text>
@@ -191,6 +194,10 @@ function LimitationsDoc() {
 						code.
 					</Text>
 					<CodeBlock language="css" code={CSS_OVERRIDE_CODE} />
+					<Text variant="body2" color="secondary">
+						By default, defineVars will create unique, hashed variable names. To create variables with custom names use a key that starts with --. These will generate CSS custom properties with the provided name instead of generating a globally unique name.
+					</Text>
+					<CodeBlock language="tsx" code={CUSTOM_STYLES_THEME_VARS} />
 				</VStack>
 			</Box>
 		</VStack>

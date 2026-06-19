@@ -1,5 +1,4 @@
 import {
-	WarningIcon,
 	ListIcon,
 	MoonIcon,
 	SunIcon,
@@ -12,7 +11,7 @@ import { GITHUB_URL } from "@/constants";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { Button, Container, HStack, Icon, Separator, Text } from "./ui";
+import { Button, Container, HStack, Separator, Text } from "./ui";
 import { darkTheme, lightTheme } from "@/lib/app-theme.stylex";
 import { useEffect } from "react";
 
@@ -133,7 +132,6 @@ function Header() {
 	const { pathname } = useLocation();
 	const isDocsActive = pathname.startsWith("/docs");
 	const isBlocksActive = pathname.startsWith("/blocks");
-	const isThemeBuilderActive = pathname === "/theme-builder";
 	const isHomeActive = pathname === "/";
 	return (
 		<>
@@ -156,28 +154,7 @@ function Header() {
 							{isDocsActive && <BlocksRouteOption />}
 							<ThemeToggle />
 						</ClientOnly>
-						{isDocsActive && (
-							<Button
-								size="xsmall"
-								variant={isThemeBuilderActive ? "soft" : "ghost"}
-								nativeButton={false}
-								render={<Link to="/theme-builder" />}
-							>
-								<HStack gap="xxsmall" position="relative">
-									Theme Builder
-									<Icon
-										color="error"
-										backgroundColor="error"
-										position="absolute"
-										bottom="small"
-										padding="xxsmall"
-										left="massive"
-									>
-										<WarningIcon />
-									</Icon>
-								</HStack>
-							</Button>
-						)}
+						
 						{!isDocsActive && !isBlocksActive && (
 							<Button
 								size="xsmall"
