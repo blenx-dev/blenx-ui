@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { DocHeading } from "@/components/docs/doc-heading";
 import {
 	Box,
-	CodeBlock,
 	Grid,
 	Separator,
 	Table,
 	Text,
 	VStack,
-} from "@/components/ui";
-
+} from "@blenx-dev/ui/components";;
+import { CodeBlock } from "@/components/ui/CodeBlock/code-block";	
 export const Route = createFileRoute("/docs/components/data-table")({
 	component: DataTableDoc,
 });
@@ -145,7 +144,7 @@ const FEATURE_KEYS = [
 const SHADCN_ADD_CODE = "npx shadcn@latest add data-table";
 const TANSTACK_INSTALL_CODE = "npm install @tanstack/react-table";
 
-const QUICK_START_CODE = `import { DataTable } from "@/components/ui"
+const QUICK_START_CODE = `import { DataTable } from "@blenx-dev/ui/components";
 import { createColumnHelper } from "@tanstack/react-table"
 
 interface User {

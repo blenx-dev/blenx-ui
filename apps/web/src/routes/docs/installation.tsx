@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DocHeading } from "@/components/docs/doc-heading";
-import { Box, CodeBlock, Separator, Text, VStack } from "@/components/ui";
-
+import { Box,  Separator, Text, VStack } from "@blenx-dev/ui/components";;
+import { CodeBlock } from "@/components/ui/CodeBlock/code-block";	
 export const Route = createFileRoute("/docs/installation")({
 	component: InstallationDoc,
 });
@@ -13,7 +13,7 @@ const COMPONENTS_JSON = `{
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
-    "ui": "@/components/ui",
+    "ui": "@blenx-dev/ui/components";,
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
