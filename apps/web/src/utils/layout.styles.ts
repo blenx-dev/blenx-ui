@@ -7,7 +7,7 @@ import {
 	type MarginProps,
 	type PaddingProps,
 } from "./base.styles";
-import type { BoxProps } from "@/components/ui";
+import type { BoxProps } from "@blenx-dev/ui/components";;
 
 export const displayStyles = stylex.create({
 	block: { display: "block" },
