@@ -6,7 +6,7 @@ import { GITHUB_URL } from "@/constants";
 import { theme } from "@/lib/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@/lib/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { Button, Container, HStack, IconButton, Separator, Text } from "./ui";
+import { Button, Container, HStack, IconButton, Separator } from "./ui";
 import { darkTheme, lightTheme } from "@/lib/app-theme.stylex";
 import { useEffect } from "react";
 
@@ -125,7 +125,33 @@ function ThemeToggle() {
 		</IconButton>
 	);
 }
+function BrandLogo({ size = 30 }: { size?: number }) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={size * 4}
+			height={size}
+			viewBox="0 0 480 120"
+			fill="currentColor"
+		>
+			<rect x="0" y="10" width="18" height="44" rx="4" />
+			<rect x="0" y="66" width="18" height="44" rx="4" />
+			<rect x="24" y="10" width="46" height="44" rx="8" />
+			<rect x="24" y="66" width="46" height="44" rx="8" />
 
+			<text
+				x="90"
+				y="100"
+				fontFamily="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+				fontSize="100"
+				fontWeight="800"
+				letterSpacing="-3"
+			>
+				BlenxUI
+			</text>
+		</svg>
+	);
+}
 function Header() {
 	const { pathname } = useLocation();
 	const isDocsActive = pathname.startsWith("/docs");
@@ -143,7 +169,7 @@ function Header() {
 							to="/"
 							{...stylex.props(styles.logo, isHomeActive && styles.activeLink)}
 						>
-							<Text variant="h3">Blenx UI</Text>
+							<BrandLogo />
 						</Link>
 					</HStack>
 					<HStack align="center" gap="xsmall">

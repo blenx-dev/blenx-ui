@@ -5,7 +5,8 @@ import * as stylex from "@stylexjs/stylex";
 const lightValues = {
 	primary: "#1c1917",
 	primarySubtle: "#57534e",
-	secondary: "#6366f1",
+	secondary: "#4f5d95",
+	focusRing: "#5b5fc7",
 
 	background: "#f5f3ef",
 	backgroundSubtle: "#edeae4",
@@ -25,8 +26,6 @@ const lightValues = {
 	contentDisabled: "#a8a29e",
 	contentAccent: "#1c1917",
 	contentOnPrimary: "#ffffff",
-
-	focusRing: "#6366f1",
 
 	sentimentNegative: "#ef4444",
 	sentimentNegativeSubtle: "#fef2f2",
@@ -55,7 +54,7 @@ const lightValues = {
 const darkValues = {
 	primary: "#f5f3ef",
 	primarySubtle: "#d4cec5",
-	secondary: "#818cf8",
+	secondary: "#8ea0ff",
 
 	background: "#0f0e0c",
 	backgroundSubtle: "#1a1916",
