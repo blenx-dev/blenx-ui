@@ -17,6 +17,15 @@ Blenx is built around a different philosophy:
 * Accessibility built-in
 * StyleX-first architecture
 
+| Feature                     | Blenx | Traditional UI Libraries |
+| --------------------------- | ----- | ------------------------ |
+| Own the source code         | ✅    | ❌                       |
+| Copy into project           | ✅    | ❌                       |
+| Accessible primitives       | ✅    | Varies                   |
+| Fully customizable          | ✅    | Limited                  |
+| Registry-first distribution | ✅    | ❌                       |
+| StyleX-native               | ✅    | Rare                     |
+
 ## Features
 
 * ⚡ Registry-first component distribution
