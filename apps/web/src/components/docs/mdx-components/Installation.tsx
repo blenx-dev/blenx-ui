@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import * as stylex from "@stylexjs/stylex";
 import { CodeBlock } from "@/components/ui/CodeBlock/code-block";
-import { DocCodeView } from "./doc-code-view";
 import { Badge, HStack, Separator, Text, VStack } from "@blenx-dev/ui/components";
+import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
+import { borderRadius, fontSize } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { DocsH3 } from "./DocHeaders";
 
 interface RegistryMeta {
   name: string;
@@ -43,7 +46,7 @@ function Installation({ registryName }: InstallationProps) {
   return (
     <VStack gap="medium">
       <VStack gap="xsmall">
-        <Text variant="h3">CLI Installation</Text>
+        <DocsH3>CLI Installation</DocsH3>
         <Text variant="body2" color="secondary">
           Install the component using the shadcn CLI:
         </Text>
@@ -54,15 +57,19 @@ function Installation({ registryName }: InstallationProps) {
         <>
           <Separator />
           <VStack gap="xsmall">
-            <Text variant="h3">Manual Installation</Text>
-            <VStack gap="medium">
-              <DocCodeView
-                files={files.map((f) => ({
-                  code: f.content ?? "",
-                  title: cleanTarget(f.target),
-                }))}
-              />
-            </VStack>
+            <DocsH3>Manual Installation</DocsH3>
+            <Text variant="body2" color="secondary">
+              Copy the following files into your project:
+            </Text>
+            <ul {...stylex.props(listStyles.list)}>
+              {files.map((f) => (
+                <li key={f.target} {...stylex.props(listStyles.item)}>
+                  <code {...stylex.props(listStyles.code)}>
+                    {cleanTarget(f.target)}
+                  </code>
+                </li>
+              ))}
+            </ul>
           </VStack>
         </>
       )}
@@ -82,6 +89,28 @@ function Installation({ registryName }: InstallationProps) {
     </VStack>
   );
 }
+
+const listStyles = stylex.create({
+  list: {
+    margin: 0,
+    paddingLeft: "1.25rem",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.375rem",
+  },
+  item: {
+    margin: 0,
+    fontFamily: "ui-monospace, SFMono-Regular, monospace",
+    fontSize: fontSize.small,
+  },
+  code: {
+    color: theme.contentSecondary,
+    backgroundColor: theme.surfaceSubtle,
+    padding: "1px 6px",
+    borderRadius: borderRadius.small,
+    fontSize: fontSize.small,
+  },
+});
 
 export { Installation };
 export type { InstallationProps };

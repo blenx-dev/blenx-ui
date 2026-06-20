@@ -16,7 +16,7 @@ interface DocsContentProps {
 function DocsContent({ children }: DocsContentProps) {
   return (
     <Box {...stylex.props(styles.root)} data-doc-content marginBottom="large">
-      <VStack gap="xlarge">{children}</VStack>
+      <VStack gap="medium">{children}</VStack>
     </Box>
   );
 }

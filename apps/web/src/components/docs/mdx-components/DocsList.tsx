@@ -41,7 +41,7 @@ interface DocsLiProps {
 function DocsLi({ children }: DocsLiProps) {
   return (
     <li {...stylex.props(listStyles.li)}>
-      <Text variant="body1" as="span">
+      <Text variant="body1" span>
         {children}
       </Text>
     </li>
