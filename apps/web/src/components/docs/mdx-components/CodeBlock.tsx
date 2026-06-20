@@ -94,7 +94,7 @@ function CodeBlock({
           </Button>
         </Box>
         <Box
-          as="div"
+          render={<div />}
           dangerouslySetInnerHTML={{
             __html: highlighted ?? escapeHtml(code),
           }}
