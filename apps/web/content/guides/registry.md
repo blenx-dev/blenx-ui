@@ -18,119 +18,163 @@ navigation:
   order: 6
 ---
 
-## Registry Architecture
 
-Blenx distributes components through a registry—a JSON manifest that maps component names to their source files, dependencies, and metadata. This is the same architecture that shadcn/ui popularized for React component libraries.
+# Registry
 
-Key difference from traditional npm packages: when you install a Blenx component, you do not add a dependency to `package.json`. Instead, the CLI copies source files verbatim into your project directory. You can edit them, patch them, restructure them—they belong to you.
+Blenx is distributed through a shadcn-compatible registry.
 
-This model is controversial. It trades the convenience of `npm update` for complete ownership. There is no upgrade path from registry installations—if Blenx ships a breaking change to a component, your local copy does not update automatically. You decide when and how to merge upstream changes.
+Instead of installing components from an npm package, components are added directly to your project as source code. This approach gives you complete ownership over implementation, styling, and composition while still providing a simple installation experience.
 
-## How Registry Installation Works
+## What Is a Registry?
 
-The CLI command `npx blenx@latest add <component>` performs the following steps:
+A registry is a collection of component definitions that can be consumed by the shadcn CLI.
 
-1. Fetches the registry manifest from the configured registry URL (defaults to `https://registry.blenx.dev`).
-2. Resolves the component's metadata: entry file path, style dependencies, npm dependencies, and transitive registry dependencies.
-3. Checks for conflicts with existing files in the target directory.
-4. Copies each source file to the configured project path (defaults to `@ui/components/<name>.tsx`).
-5. Installs npm packages listed in the component's `dependencies` array via the project's package manager.
-6. Verifies the target alias resolves correctly in the project's TypeScript and bundler configuration.
+When you run:
 
-If installation fails at step 3 (file collision), the CLI exits without writing anything. Overwrite existing files by passing `--force`.
+```bash
+npx shadcn@latest add @blenx/button
+```
+
+the CLI fetches the component definition from the Blenx registry, resolves its dependencies, and writes the source files directly into your application.
+
+Unlike traditional npm packages, the resulting component becomes part of your codebase.
+
+## Why Use a Registry?
+
+Traditional UI libraries are consumed through package imports:
+
+```tsx
+import { Button } from "@some-library/react";
+```
+
+This approach is convenient but can become restrictive when your design system evolves.
+
+Registry-based distribution takes a different approach.
+
+When you install a component:
+
+* The source code is copied into your project
+* You can modify any implementation detail
+* Styling is fully customizable
+* Components can be refactored alongside your application
+* There is no vendor lock-in
+
+You own the code from day one.
+
+## Registry vs npm Packages
+
+### npm Package
+
+```txt
+Application
+    │
+    ▼
+UI Library Package
+```
+
+Updates are automatic, but customization is often limited.
+
+### Registry Installation
+
+```txt
+Application
+    │
+    ▼
+Copied Component Source
+```
+
+Updates are manual, but ownership and flexibility are significantly higher.
 
 ## Dependency Resolution
 
-Components declare two types of dependencies:
+Components rarely exist in isolation.
 
-- **npm dependencies** — standard packages (`react`, `@stylexjs/stylex`, `@radix-ui/react-dialog`). The CLI installs these into your project's `package.json`.
-- **registry dependencies** — other Blenx components. The CLI resolves these transitively before writing any files. If `dialog` depends on `button` and `surface`, and you have not installed them, the CLI installs all three.
+A Dialog may depend on:
 
-Transitive resolution means you cannot partially install a component's dependency tree. The CLI ensures every file reference in the installed components resolves to an existing file in your project. This is stricter than npm's dependency model, where missing transitive dependencies fail silently at runtime.
+* Button
+* Surface
+* Text
+* Box
+* Stack
 
-## Updates and Versioning Strategy
+The registry describes these relationships and the shadcn CLI resolves them automatically during installation.
 
-The registry is immutable for published versions. Once a component version is published, its source files do not change. New versions are published as separate entries in the manifest.
+You install one component and the required building blocks are added alongside it.
 
-When you run `npx blenx@latest add` again, the CLI checks the registry for newer versions of installed components. You can:
+## Registry Categories
 
-- `diff` your local copy against the registry version
-- `update` to overwrite your local copy with the registry version
-- `pin` a component to a specific registry version
+The Blenx registry contains several types of assets:
 
-Updates overwrite your local changes. If you have customized a component, the CLI warns you before overwriting. There is no automatic merge—you receive the full new source and must reapply your customizations manually. This is the price of ownership.
+### Components
 
-## Custom Registries
+Reusable UI elements such as:
 
-You can host your own registry. This is useful for:
+* Button
+* Dialog
+* Input
+* Select
+* DatePicker
 
-- Internal design systems with proprietary components
-- Companies that need audit trails for component changes
-- Teams that want to distribute components across multiple projects without publishing to npm
+### Blocks
 
-A custom registry is a JSON endpoint that returns the same schema as the default registry. Configure it in `blenx.json`:
+Higher-level compositions intended for application screens and workflows.
 
-```json
-{
-  "registry": "https://internal.corp/blenx-registry",
-  "target": "@ui",
-  "typescript": { "baseUrl": "./src" }
-}
-```
+Examples include:
 
-Build your own registry server, or host a static JSON file. The CLI reads the manifest once during installation and resolves all dependencies from the same source. Custom registries do not cascade—if component A in your custom registry depends on component B, the resolution only looks within your custom registry, not the default one.
+* Authentication forms
+* Empty states
+* Error states
+* Settings pages
 
-## File Targeting
+### Primitives
 
-The `target` configuration determines where files land:
+Foundational layout and design system building blocks.
 
-| Config Value  | Default Directory |
-| ------------- | ----------------- |
-| `@ui`         | `src/ui/`         |
-| `@blocks`     | `src/blocks/`     |
-| `@components` | `src/components/` |
-| `@lib`        | `src/lib/`        |
+Examples include:
 
-These aliases are created during `init` in your `tsconfig.json` and bundler configuration. You can rename them freely, but changing a target after components are installed breaks imports—you would need to update every component file's import paths.
+* Box
+* Stack
+* Grid
+* Surface
+* Container
+* Text
 
-## registry-meta.json Structure
+## Component Ownership
 
-Each registry is defined by a `registry-meta.json` file, either served from a URL or shipped alongside a self-hosted registry. The schema:
+One of the core principles of Blenx is ownership.
 
-```json
-{
-  "version": "1.0.0",
-  "components": {
-    "button": {
-      "name": "button",
-      "type": "registry:component",
-      "description": "Interactive button with variants",
-      "dependencies": ["react", "@stylexjs/stylex"],
-      "registryDependencies": ["box", "text", "surface"],
-      "files": ["button.tsx", "button.styles.ts"],
-      "category": "components"
-    }
-  }
-}
-```
+After installation:
 
-Each component entry declares its files relative to the registry root, its npm and registry dependencies, and its category for directory placement.
+* Components belong to your application
+* You can rename them
+* You can restructure directories
+* You can replace implementation details
+* You can adopt your own coding standards
 
-## When to Use Registry vs Direct Import
+The registry is a distribution mechanism, not a runtime dependency.
 
-**Use the registry for** components you intend to customize extensively, components that form the visual core of your application (buttons, forms, layout), and any component where you want full control over styling, rendering, and behavior.
+## Building Your Own Registry
 
-**Import from npm for** utility components you do not customize (hooks, utility functions, test helpers). These follow the traditional npm update model and do not benefit from being source-copied.
+The same registry architecture can be used internally within organizations.
 
-The registry model is not for every dependency. It optimizes for customization at the cost of automatic updates. Use it for UI components, where customization is common and valuable. Use traditional npm for everything else.
+Many teams create private registries to distribute:
 
-## Running Your Own Registry
+* Design system components
+* Internal application blocks
+* Shared templates
+* Company-specific workflows
 
-To run a custom registry:
+Because Blenx follows the shadcn registry specification, components can be distributed using the same tooling and developer experience.
 
-1. Create a `registry-meta.json` manifest file.
-2. Host it at a URL reachable by the CLI (a static S3 bucket, a GitHub Pages site, an internal server).
-3. Point `blenx.json` to the URL.
-4. Add components by creating files in a structure that matches your registry manifest entries.
+## When Should You Use a Registry?
 
-The CLI does not validate that registry files exist on disk before installation. It trusts the manifest. If your manifest points to `button.tsx` but the file is missing from the server, installation fails when the CLI tries to fetch it.
+Registry-based distribution works best when:
+
+* Components require customization
+* Teams maintain a design system
+* Source ownership is important
+* Applications evolve independently
+
+For utilities, helper functions, and libraries that rarely change, traditional npm packages are often a better fit.
+
+The registry model is optimized for UI components, where flexibility and ownership provide the greatest value.

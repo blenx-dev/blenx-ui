@@ -15,92 +15,85 @@ navigation:
   group: guides
   order: 1
 ---
-
 ## Overview
 
-Blenx is a styled React component library built on StyleX. It uses a shadcn-style registry for distribution—meaning you own the code. Every component is installed directly into your project as source files, not imported from an opaque npm package. You get full control over styling, behavior, and bundling with zero lock-in.
+Blenx is a StyleX-powered React component library distributed through a registry-first architecture. Components are installed directly into your application as source code using the shadcn CLI.
 
-This guide walks through installation, project structure, adding your first component, and setting up your development workflow.
+Unlike traditional component libraries, Blenx does not require you to import components from a runtime package. When you add a component, the source files are copied into your project, giving you full ownership over implementation, styling, and composition.
 
 ## Prerequisites
 
-- React 18 or newer
-- `@stylexjs/stylex` configured in your bundler
-- A monorepo (recommended, not required)
+Before installing components, ensure your project has:
 
-Blenx has no runtime styling engine. StyleX compiles all styles at build time into atomic CSS. If your project uses CSS Modules, Tailwind, or styled-components, you can still use Blenx—each system lives in its own layer. But you will get the most value by writing new components with StyleX.
+* React 18 or newer
+* StyleX configured in your build pipeline
+* The shadcn CLI installed
 
-## Installation via the CLI
+Blenx components are designed around StyleX and its compile-time styling model.
 
-Blenx distributes components through a CLI that copies source files into your project. This is the same pattern popularized by shadcn/ui.
+## Configure the Registry
+
+Add the Blenx registry to your `components.json` configuration:
+
+```json
+{
+  "registries": {
+    "@blenx": "https://blenx-ui.vercel.app/reg"
+  }
+}
+```
+
+Once configured, the shadcn CLI can discover and install components directly from the Blenx registry.
+
+## Install Your First Component
+
+Install a component using the shadcn CLI:
 
 ```bash
-npx blenx@latest init
+npx shadcn@latest add @blenx/button
 ```
 
-The `init` command scaffolds a `blenx.json` configuration file, installs the required peer dependencies (`react`, `react-dom`, `@stylexjs/stylex`), and creates the default directory structure under `@ui/`.
-
-After init, add individual components:
+Install multiple components:
 
 ```bash
-npx blenx@latest add button
-npx blenx@latest add dialog
-npx blenx@latest add stack
+npx shadcn@latest add @blenx/button @blenx/dialog
 ```
 
-Each command copies the component source, its direct dependencies, and the required primitives into your project. The CLI resolves transitive dependencies automatically—install `dialog` and it pulls in `button`, `surface`, `text`, and `box` if they are not already present.
+The CLI automatically resolves registry dependencies and installs any required primitives.
 
-## Project Structure
+## What Gets Installed
 
-After initialization, your project will contain:
+When a component is added, the registry provides:
 
-```
-@ui/
-├── primitives/
-│   ├── box.tsx
-│   ├── stack.tsx
-│   ├── grid.tsx
-│   ├── container.tsx
-│   ├── surface.tsx
-│   └── text.tsx
-├── components/
-│   ├── button.tsx
-│   ├── dialog.tsx
-│   └── input.tsx
-└── lib/
-    └── theme/
-        ├── contract.stylex.ts
-        ├── app-theme.stylex.ts
-        └── tokens.stylex.ts
-```
+* Component source code
+* Required primitives
+* Theme dependencies
+* Registry metadata
+* Installation instructions
 
-The `@ui/` alias is configured during init. You can customize it to `@components/`, `@blocks/`, or any path you prefer. Files within `primitives/` are foundation components—every other component depends on them. Files within `components/` are interactive UI elements. Files within `lib/` contain theme contracts and token definitions.
+The resulting files are written directly into your project and can be modified freely.
 
-## Understanding the Dependency Chain
+## Why Registry-First?
 
-Blenx components are intentionally granular. A `Dialog` depends on:
+Blenx follows the same ownership model popularized by shadcn/ui:
 
-- `Box` (layout foundation)
-- `Surface` (themed container)
-- `Text` (typography)
-- `Button` (action triggers)
-- `Stack` (spatial layout)
-- `FocusTrap` (accessibility primitive)
+* No runtime component dependency
+* Full source ownership
+* Easy customization
+* No vendor lock-in
+* Simple upgrades through registry updates
 
-This sounds like a lot. It is. But the tradeoff is deliberate: every dependency is a reusable primitive you can compose independently. You never have to override a deeply nested style because you can replace the primitive directly. There is no monolithic `Dialog` component with thirty props for every possible visual permutation.
-
-The CLI handles all of this automatically. Run `blenx add dialog` and every transitive dependency is resolved and installed. You only need to understand the chain when you want to customize—knowing that `Dialog` renders a `Surface` means you can theme your surfaces globally and every dialog inherits.
-
-## Development Workflow
-
-1. **Install a component.** Use the CLI, never copy-paste from the registry manually. The CLI ensures dependency consistency.
-2. **Open the source file.** It lives in your project. You own it. Modify the JSX, swap primitives, adjust styles.
-3. **Style with StyleX.** Every component uses `stylex.create()` with semantic tokens from the theme contract. Change a token value and all components update.
-4. **Run the StyleX build plugin.** Your bundler (Vite, Next.js, Webpack) must include the StyleX plugin. Without it, styles are not compiled.
-5. **Test and iterate.** Because styles are colocated and type-safe, refactoring is local. Change a component in isolation without fear of breaking distant UI.
+Every component becomes part of your codebase rather than a black-box dependency.
 
 ## Next Steps
 
-Run `npx blenx@latest add button` to install your first component. Then open `@ui/components/button.tsx` and read through the source—every Blenx component is written to be read, not hidden behind an abstraction.
+Install a component and explore the generated source files.
 
-For deeper guidance, see the Theming guide to understand how styles cascade from tokens to components, or the Primitives guide to learn about the composition model.
+Then continue to:
+
+* Theming
+* Design Tokens
+* Primitives
+* Registry Architecture
+
+to learn how Blenx components are composed and customized.
