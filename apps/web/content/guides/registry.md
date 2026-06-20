@@ -18,7 +18,6 @@ navigation:
   order: 6
 ---
 
-
 # Registry
 
 Blenx is distributed through a shadcn-compatible registry.
@@ -53,11 +52,11 @@ Registry-based distribution takes a different approach.
 
 When you install a component:
 
-* The source code is copied into your project
-* You can modify any implementation detail
-* Styling is fully customizable
-* Components can be refactored alongside your application
-* There is no vendor lock-in
+- The source code is copied into your project
+- You can modify any implementation detail
+- Styling is fully customizable
+- Components can be refactored alongside your application
+- There is no vendor lock-in
 
 You own the code from day one.
 
@@ -91,11 +90,11 @@ Components rarely exist in isolation.
 
 A Dialog may depend on:
 
-* Button
-* Surface
-* Text
-* Box
-* Stack
+- Button
+- Surface
+- Text
+- Box
+- Stack
 
 The registry describes these relationships and the shadcn CLI resolves them automatically during installation.
 
@@ -109,11 +108,11 @@ The Blenx registry contains several types of assets:
 
 Reusable UI elements such as:
 
-* Button
-* Dialog
-* Input
-* Select
-* DatePicker
+- Button
+- Dialog
+- Input
+- Select
+- DatePicker
 
 ### Blocks
 
@@ -121,10 +120,10 @@ Higher-level compositions intended for application screens and workflows.
 
 Examples include:
 
-* Authentication forms
-* Empty states
-* Error states
-* Settings pages
+- Authentication forms
+- Empty states
+- Error states
+- Settings pages
 
 ### Primitives
 
@@ -132,12 +131,12 @@ Foundational layout and design system building blocks.
 
 Examples include:
 
-* Box
-* Stack
-* Grid
-* Surface
-* Container
-* Text
+- Box
+- Stack
+- Grid
+- Surface
+- Container
+- Text
 
 ## Component Ownership
 
@@ -145,11 +144,11 @@ One of the core principles of Blenx is ownership.
 
 After installation:
 
-* Components belong to your application
-* You can rename them
-* You can restructure directories
-* You can replace implementation details
-* You can adopt your own coding standards
+- Components belong to your application
+- You can rename them
+- You can restructure directories
+- You can replace implementation details
+- You can adopt your own coding standards
 
 The registry is a distribution mechanism, not a runtime dependency.
 
@@ -159,10 +158,10 @@ The same registry architecture can be used internally within organizations.
 
 Many teams create private registries to distribute:
 
-* Design system components
-* Internal application blocks
-* Shared templates
-* Company-specific workflows
+- Design system components
+- Internal application blocks
+- Shared templates
+- Company-specific workflows
 
 Because Blenx follows the shadcn registry specification, components can be distributed using the same tooling and developer experience.
 
@@ -170,10 +169,10 @@ Because Blenx follows the shadcn registry specification, components can be distr
 
 Registry-based distribution works best when:
 
-* Components require customization
-* Teams maintain a design system
-* Source ownership is important
-* Applications evolve independently
+- Components require customization
+- Teams maintain a design system
+- Source ownership is important
+- Applications evolve independently
 
 For utilities, helper functions, and libraries that rarely change, traditional npm packages are often a better fit.
 

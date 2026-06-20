@@ -13,7 +13,6 @@ navigation:
   link: "/docs"
 ---
 
-
 # Blenx UI
 
 Blenx UI is a modern React component library built on top of StyleX and Base UI primitives. It combines the ownership model popularized by shadcn/ui with a registry-first architecture, allowing teams to install components as source code instead of consuming them through a runtime package.
@@ -30,12 +29,12 @@ Components are distributed through a registry and added directly to your codebas
 
 This means:
 
-* Full source ownership
-* No vendor lock-in
-* Registry-driven installation
-* Type-safe APIs
-* Design system friendly architecture
-* Easy customization and extension
+- Full source ownership
+- No vendor lock-in
+- Registry-driven installation
+- Type-safe APIs
+- Design system friendly architecture
+- Easy customization and extension
 
 ## Built on StyleX
 
@@ -57,10 +56,10 @@ Instead of importing components from a large runtime package, Blenx components a
 
 When a component is added:
 
-* Source files are copied into your project
-* Dependencies are resolved automatically
-* Registry metadata is preserved
-* Components remain fully editable
+- Source files are copied into your project
+- Dependencies are resolved automatically
+- Registry metadata is preserved
+- Components remain fully editable
 
 This approach keeps applications lightweight while giving developers complete control over implementation.
 

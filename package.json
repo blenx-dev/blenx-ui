@@ -25,7 +25,8 @@
     "check-types": "turbo check-types",
     "dev:web": "turbo dev",
     "check": "oxlint && oxfmt --write",
-    "generate:registry": "tsx scripts/generate-docs-manifest.ts"
+    "generate:registry": "tsx scripts/generate-docs-manifest.ts",
+    "generate:api": "tsx scripts/generate-api-meta.ts"
   },
   "dependencies": {
     "@blenx-dev/env": "workspace:*",
@@ -38,6 +39,8 @@
     "lefthook": "^2.1.9",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.68.0",
+    "ts-morph": "^28.0.0",
+    "tsx": "^4.22.4",
     "turbo": "^2.9.18",
     "typescript": "catalog:"
   },

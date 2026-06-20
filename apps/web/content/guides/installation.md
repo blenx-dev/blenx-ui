@@ -14,6 +14,7 @@ navigation:
   order: 1
   link: "/docs/guides/installation"
 ---
+
 # Installation
 
 Blenx components are distributed through a registry and installed using the shadcn CLI. Components are copied directly into your project as source code, giving you full ownership over implementation, styling, and customization.
@@ -22,9 +23,9 @@ Blenx components are distributed through a registry and installed using the shad
 
 Before installing components, ensure your project has:
 
-* React 18 or newer
-* StyleX configured in your build pipeline
-* A project initialized with the shadcn CLI
+- React 18 or newer
+- StyleX configured in your build pipeline
+- A project initialized with the shadcn CLI
 
 If you have not yet configured shadcn, follow the official setup process first.
 
@@ -62,11 +63,11 @@ The CLI automatically resolves registry dependencies and installs any required c
 
 When a component is added, the registry provides:
 
-* Component source files
-* Required primitives
-* Registry metadata
-* Supporting utilities
-* Installation instructions
+- Component source files
+- Required primitives
+- Registry metadata
+- Supporting utilities
+- Installation instructions
 
 Files are written directly into your project and can be modified freely.
 
@@ -76,11 +77,11 @@ Blenx components are built from composable primitives.
 
 For example, installing a Dialog may also install:
 
-* Box
-* Surface
-* Text
-* Stack
-* Button
+- Box
+- Surface
+- Text
+- Stack
+- Button
 
 Dependencies are resolved automatically by the registry. You only install the component you need.
 
@@ -120,9 +121,9 @@ Install your first component and explore the generated source code.
 
 Then continue to:
 
-* Components
-* Blocks
-* Theming
-* Design Tokens
+- Components
+- Blocks
+- Theming
+- Design Tokens
 
 to learn how Blenx components are composed and customized.
