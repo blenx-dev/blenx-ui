@@ -5,6 +5,18 @@ order: 4
 default: false
 ---
 
+## Demo
+
+<DemoRenderer registryName="authorization-01" />
+
+## Installation
+
+<Installation registryName="authorization-01" />
+
+## Source Code
+
+<SourceCode registryName="authorization-01" />
+
 ## Overview
 
 Authorization-01 is not a header but a full-page authorization gate block that wraps protected content and redirects unauthenticated users to a login page. It monitors authentication state and conditionally renders either the protected children or a redirect/fallback UI. The block supports role-based access control, session timeout detection, and a customizable "please log in" interstitial with the application branding. It integrates with your existing auth provider (Supabase, Clerk, Auth0, or custom) through an `onAuthCheck` callback that returns the current user or null, keeping the auth logic external to the block.

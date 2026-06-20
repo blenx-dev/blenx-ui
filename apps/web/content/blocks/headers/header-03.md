@@ -5,6 +5,18 @@ order: 3
 default: false
 ---
 
+## Demo
+
+<DemoRenderer registryName="header-03" />
+
+## Installation
+
+<Installation registryName="header-03" />
+
+## Source Code
+
+<SourceCode registryName="header-03" />
+
 ## Overview
 
 Header-03 is a minimal header block optimized for authentication pages — login, signup, password reset, and email verification screens. It strips away the navigation links and action buttons of a standard header, keeping only the logo/brand mark on the left and optional language or theme toggles on the right. The header is intentionally sparse to keep user focus on the auth form rather than navigation options. It uses the `transparent` variant by default with no background and minimal bottom border, blending into the page surface. On auth pages, users should either complete the form or have a clear path back to the landing page — the logo typically links to the home page, providing the only navigation escape.

@@ -5,6 +5,18 @@ order: 1
 default: true
 ---
 
+## Demo
+
+<DemoRenderer registryName="data-table-01" />
+
+## Installation
+
+<Installation registryName="data-table-01" />
+
+## Source Code
+
+<SourceCode registryName="data-table-01" />
+
 ## Overview
 
 Data-table-01 is a feature-rich table block designed for displaying, sorting, filtering, and acting on structured data. It provides column definitions with sortable headers, row selection via checkboxes, pagination controls, a configurable toolbar with search and action buttons, and responsive handling that gracefully collapses columns on narrow viewports. The table receives data as a typed array and column definitions as a configuration array, keeping the block fully generic and reusable across any data domain — user lists, order history, inventory tables, audit logs, and so on. The block manages its own pagination and sort state internally, emitting changes via `onSortChange` and `onPageChange` callbacks, or you can opt for server-side pagination by providing `totalPages` and controlling the current page externally.

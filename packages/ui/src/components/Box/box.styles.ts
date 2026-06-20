@@ -49,7 +49,7 @@ export const boxWidthStyles = stylex.create({
     width: "fit-content",
   },
   viewport: {
-    width: "fit-content",
+    width: "full",
     maxWidth: "90svw",
   },
   maxViewPort: {
