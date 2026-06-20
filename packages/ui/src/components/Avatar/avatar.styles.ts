@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import { fontWeight, spacing } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "#theme/contract.stylex";
+import { fontWeight, spacing } from "#theme/tokens.stylex";
 export const avatarStyles = stylex.create({
   root: {
     display: "inline-flex",

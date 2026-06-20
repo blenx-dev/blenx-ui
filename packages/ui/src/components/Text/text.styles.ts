@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
+import { theme } from "#theme/contract.stylex";
 import {
   borderRadius,
   fontSize,
@@ -8,7 +8,7 @@ import {
   letterSpacing,
   lineHeight,
   spacing,
-} from "@blenx-dev/ui/lib/theme/tokens.stylex";
+} from "#theme/tokens.stylex";
 
 export const textTransformStyles = stylex.create({
   uppercase: {

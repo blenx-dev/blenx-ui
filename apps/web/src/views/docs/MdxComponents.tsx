@@ -12,8 +12,8 @@ import { DocDemoRenderer } from "./mdx-components/doc-demo-renderer";
 import { DocSourceCode } from "./mdx-components/doc-source-code";
 import { Installation } from "./mdx-components/Installation";
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import { borderRadius, fontSize } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import { Spinner } from "@blenx-dev/ui/components";
 
 const inlineCodeStyles = stylex.create({

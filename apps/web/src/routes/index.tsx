@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { createFileRoute } from "@tanstack/react-router";
-import { fontSize } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import type { Column } from "@blenx-dev/ui/components/Table/table";
 import {
   Box,

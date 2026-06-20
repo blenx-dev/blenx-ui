@@ -2,8 +2,8 @@ import { CheckIcon, CopySimpleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
 import { Box, Button, Surface } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import { borderRadius, fontSize } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import * as stylex from "@stylexjs/stylex";
 
 interface CodeBlockProps {

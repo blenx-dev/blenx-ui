@@ -7,8 +7,8 @@ import { DocsContent } from "@/views/docs/DocsContent";
 import { mdxComponents } from "@/views/docs/MdxComponents";
 import { useDocsTocStore } from "@/stores/docs-toc";
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import { borderRadius, fontSize, spacing } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { borderRadius, fontSize, spacing } from "@blenx-dev/ui/theme/tokens.stylex";
 
 export const Route = createFileRoute("/docs/blocks/$group/$variant")({
   component: BlockVariantPage,

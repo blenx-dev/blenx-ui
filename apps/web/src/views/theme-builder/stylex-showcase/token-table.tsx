@@ -1,6 +1,6 @@
 import type { Column } from "@blenx-dev/ui/components";
 import { Accordion, Table, Text } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 import { componentTokenMap } from "../preview/component-token-map";
 import { useThemeBuilder } from "../theme-builder-context";
 

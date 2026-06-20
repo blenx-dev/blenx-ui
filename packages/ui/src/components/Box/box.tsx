@@ -1,11 +1,7 @@
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import * as stylex from "@stylexjs/stylex";
-import {
-  themeTransition,
-  type ColorProps,
-  type SpacingProps,
-} from "@blenx-dev/ui/utils/base.styles";
+import { themeTransition, type ColorProps, type SpacingProps } from "#utils/base.styles";
 import {
   resolvePaddingStyles,
   resolveMarginStyles,
@@ -13,8 +9,8 @@ import {
   type BorderRadiusProp,
   type LayoutProps,
   borderRadiusStyles,
-} from "@blenx-dev/ui/utils/layout.styles";
-import type { _BaseDivProps } from "@blenx-dev/ui/utils/stylex.utils";
+} from "#utils/layout.styles";
+import type { _BaseDivProps } from "#utils/stylex.utils";
 import { boxWidthStyles, boxStyles } from "./box.styles";
 
 type BoxSize = keyof typeof boxWidthStyles;

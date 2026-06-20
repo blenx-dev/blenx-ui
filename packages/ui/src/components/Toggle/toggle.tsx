@@ -2,8 +2,8 @@
 
 import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import * as stylex from "@stylexjs/stylex";
-import { type BorderRadiusProp, borderRadiusStyles } from "@blenx-dev/ui/utils/layout.styles";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import { type BorderRadiusProp, borderRadiusStyles } from "#utils/layout.styles";
+import type { PropsWithStylex } from "#utils/stylex.utils";
 import {
   togglePressedStyles,
   toggleSizeStyles,

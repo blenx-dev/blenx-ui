@@ -41,13 +41,13 @@ Blenx is built around a different philosophy:
 
 ## Core Components
 
-| Layout | Forms | Overlay | Navigation | Data Display |
-|----------|----------|----------|----------|----------|
-| Box | Button | Dialog | Tabs | Avatar |
-| Stack | Input | Drawer | Accordion | Badge |
-| Grid | Select | Popover | Breadcrumb | Card |
-| Container | Checkbox | Tooltip |  | Alert |
-| Surface | Switch |  |  | Skeleton |
+| Layout    | Forms    | Overlay | Navigation | Data Display |
+| --------- | -------- | ------- | ---------- | ------------ |
+| Box       | Button   | Dialog  | Tabs       | Avatar       |
+| Stack     | Input    | Drawer  | Accordion  | Badge        |
+| Grid      | Select   | Popover | Breadcrumb | Card         |
+| Container | Checkbox | Tooltip |            | Alert        |
+| Surface   | Switch   |         |            | Skeleton     |
 
 ## Philosophy
 

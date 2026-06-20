@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
+import { theme } from "#theme/contract.stylex";
 import {
   borderRadius,
   borderWidth,
@@ -9,7 +9,7 @@ import {
   fontWeight,
   lineHeight,
   spacing,
-} from "@blenx-dev/ui/lib/theme/tokens.stylex";
+} from "#theme/tokens.stylex";
 
 const dataPanelOpen = "[data-panel-open] &";
 

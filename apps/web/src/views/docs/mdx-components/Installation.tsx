@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { CodeBlock } from "@/components/ui/CodeBlock/code-block";
 import { Badge, HStack, Separator, Text, VStack } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import { borderRadius, fontSize } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import { DocsH3 } from "./DocHeaders";
 
 interface RegistryMeta {

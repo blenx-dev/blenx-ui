@@ -5,7 +5,9 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "types": [],
     "paths": {
-      "@blenx-dev/ui/*": ["./src/*"]
+      "@blenx-dev/ui/*": ["./src/*"],
+      "#utils/*": ["./src/utils/*"],
+      "#theme/*": ["./src/theme/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

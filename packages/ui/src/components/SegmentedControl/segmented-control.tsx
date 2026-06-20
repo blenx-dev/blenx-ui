@@ -1,4 +1,4 @@
-import type { BorderRadiusProp } from "@blenx-dev/ui/utils/layout.styles";
+import type { BorderRadiusProp } from "#utils/layout.styles";
 import { ToggleGroup, ToggleGroupItem, type ToggleGroupProps } from "../ToggleGroup/toggle-group";
 
 type Option<T extends string> = {

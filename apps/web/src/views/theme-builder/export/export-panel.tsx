@@ -12,7 +12,7 @@ import {
   Text,
   VStack,
 } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 import { useThemeBuilder } from "../theme-builder-context";
 
 export function ExportPanel() {

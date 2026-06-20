@@ -2,8 +2,8 @@ import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
-import { colorStyles } from "@blenx-dev/ui/utils/base.styles";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import { colorStyles } from "#utils/base.styles";
+import type { PropsWithStylex } from "#utils/stylex.utils";
 import {
   fontSizeStyles,
   textAlignStyles,

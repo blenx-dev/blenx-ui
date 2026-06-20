@@ -1,10 +1,10 @@
 import * as stylex from "@stylexjs/stylex";
-import type { CSSProperties } from "react";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import { spacing } from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "#theme/contract.stylex";
+import { spacing } from "#theme/tokens.stylex";
 
+// @ts-ignore - TS2883: non-portable inferred type from CSSProperties["height"]
 export const scrollAreaStyles = stylex.create({
-  height: (height: CSSProperties["height"]) => ({
+  height: (height) => ({
     height,
     maxHeight: height,
   }),

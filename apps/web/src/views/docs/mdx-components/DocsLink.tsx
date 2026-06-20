@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
+import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 
 const styles = stylex.create({
   link: {

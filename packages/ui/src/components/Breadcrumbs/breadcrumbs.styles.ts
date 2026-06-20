@@ -1,12 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/lib/theme/contract.stylex";
-import {
-  duration,
-  fontSize,
-  fontWeight,
-  mediaQueries,
-  spacing,
-} from "@blenx-dev/ui/lib/theme/tokens.stylex";
+import { theme } from "#theme/contract.stylex";
+import { duration, fontSize, fontWeight, mediaQueries, spacing } from "#theme/tokens.stylex";
 
 export const breadcrumbsStyles = stylex.create({
   root: {
