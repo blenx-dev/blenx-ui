@@ -25,7 +25,7 @@ interface GuideDoc {
 function GuideDoc() {
   const { guide } = Route.useParams();
   const doc = allGuides.find(
-    (g) => g._meta.path === guide || g.navigation.link === `/docs/${guide}`,
+    (g) => g._meta.path === guide || g.navigation.link === `/docs/guides/${guide}`,
   ) as GuideDoc | undefined;
 
   const setItems = useDocsTocStore((st) => st.setItems);
