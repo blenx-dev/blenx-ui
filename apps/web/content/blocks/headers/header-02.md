@@ -5,6 +5,18 @@ order: 2
 default: false
 ---
 
+## Demo
+
+<DemoRenderer registryName="header-02" />
+
+## Installation
+
+<Installation registryName="header-02" />
+
+## Source Code
+
+<SourceCode registryName="header-02" />
+
 ## Overview
 
 Header-02 is a search-centric header block that places a command palette or search input at the center of the top navigation. Unlike header-01's navigation link row, header-02 dedicates the primary header space to a search input that can trigger a command palette overlay, making it ideal for documentation sites, knowledge bases, and data-heavy applications where finding content is the primary interaction. The logo remains on the left, and a minimal set of action icons (theme toggle, notifications, user menu) sit on the right. The search input expands on focus with a subtle animation and can be triggered via keyboard shortcut (`Cmd+K` or `Ctrl+K`). On mobile, the search input collapses to an icon button that opens a full-screen search overlay.

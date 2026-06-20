@@ -155,10 +155,10 @@ function RootDocument() {
           <ThemeEffect />
         </ClientOnly>
         <QueryClientProvider client={queryClient}>
-            <Header />
-            <Container size={"3xl"} render={<main />} grow>
-              <Outlet />
-            </Container>
+          <Header />
+          <Container size={"3xl"} render={<main />} grow>
+            <Outlet />
+          </Container>
         </QueryClientProvider>
         {!import.meta.dev ? <Analytics /> : null}
         <Scripts />

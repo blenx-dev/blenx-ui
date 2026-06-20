@@ -22,16 +22,6 @@ const staticSections: SidebarSection[] = [
       { to: "/theme-builder", label: "Theme Builder" },
     ],
   },
-  {
-    title: "Blocks",
-    links: [
-      { to: "/docs/blocks", label: "All Blocks" },
-      { to: "/docs/blocks/authentication", label: "Authentication" },
-      { to: "/docs/blocks/application-states", label: "Application States" },
-      { to: "/docs/blocks/marketing", label: "Marketing" },
-      { to: "/docs/blocks/dashboard", label: "Dashboard" },
-    ],
-  },
 ];
 
 function formatLabel(slug: string): string {
@@ -69,9 +59,8 @@ function DocsSidebar({ onClose }: { onClose?: () => void }) {
     { title: "Components", links: componentLinks },
     ...staticSections,
   ];
-  const isBlockRoute = pathname.startsWith('/docs/blocks')
-  if (isBlockRoute)
-    return <BlocksSidebar />
+  const isBlockRoute = pathname.startsWith("/docs/blocks");
+  if (isBlockRoute) return <BlocksSidebar />;
 
   return (
     <Surface variant="sunken">

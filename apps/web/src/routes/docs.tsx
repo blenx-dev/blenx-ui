@@ -8,7 +8,7 @@ import { useDocsTocStore } from "@/stores/docs-toc";
 import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
 export const Route = createFileRoute("/docs")({
   component: DocsLayout,
-  errorComponent:DefaultCatchBoundary
+  errorComponent: DefaultCatchBoundary,
 });
 
 function DrawerSidebar() {
@@ -48,7 +48,7 @@ function TocSection() {
 
 function DocsLayout() {
   return (
-    <Container padding="medium">
+    <Container paddingY="medium">
       <HStack>
         <ClientOnly>
           <RenderSidebarNavs />

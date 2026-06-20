@@ -5,6 +5,18 @@ order: 1
 default: true
 ---
 
+## Demo
+
+<DemoRenderer registryName="header-01" />
+
+## Installation
+
+<Installation registryName="header-01" />
+
+## Source Code
+
+<SourceCode registryName="header-01" />
+
 ## Overview
 
 Header-01 is a standard application header block that provides primary navigation, branding, and user actions in a single horizontal bar. It features a logo or site name on the left, a centered navigation link row, and a right-aligned action area for buttons, icons, or a user menu. The header is `position: sticky` at the top of the viewport with a backdrop blur effect, ensuring it remains accessible as the user scrolls while maintaining visual separation from page content. The navigation links highlight the active route automatically via the framework router, and the entire header collapses to a hamburger menu on mobile viewports. At its core, header-01 solves the problem of consistent top-of-page navigation across all routes of an application or marketing site.
