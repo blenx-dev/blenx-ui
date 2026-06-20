@@ -1,7 +1,7 @@
 import { ClientOnly, createFileRoute, Outlet } from "@tanstack/react-router";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { DocsSidebar } from "@/components/docs-sidebar";
-import { DocsToc } from "@/components/docs/DocsToc";
+import { DocsToc } from "@/views/docs/DocsToc";
 import { Box, Container, HStack, ScrollArea, Sheet, SheetPopup } from "@blenx-dev/ui/components";
 import { useSidebarStore } from "@/stores/docs-sidebar";
 import { useDocsTocStore } from "@/stores/docs-toc";

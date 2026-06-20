@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Spinner } from "@blenx-dev/ui/components";
 
 const ThemeBuilderPage = lazy(() =>
-  import("@/components/theme-builder/theme-builder-page").then((m) => ({
+  import("@/views/theme-builder/theme-builder-page").then((m) => ({
     default: m.ThemeBuilderPage,
   })),
 );
