@@ -456,7 +456,7 @@ function HomeComponent() {
                 radius="small"
                 render={
                   <Link
-                    to="/docs/$guide"
+                    to="/docs/guides/$guide"
                     params={{
                       guide: "getting-started",
                     }}
@@ -471,7 +471,7 @@ function HomeComponent() {
                 radius="small"
                 render={
                   <Link
-                    to="/docs/$guide"
+                    to="/docs/guides/$guide"
                     params={{
                       guide: "installation",
                     }}
@@ -634,9 +634,9 @@ function HomeComponent() {
               </Text>
             </Box>
           </VStack>
-          <Box maxWidth="lg" overflow="auto">
+          <Container content="center" maxWidth="lg" overflow="auto">
             <Table columnData={comparisonColumns} rowData={comparisonRows} rowKey="feature" />
-          </Box>
+          </Container>
         </VStack>
 
         <Separator tone="subtle" />
@@ -677,7 +677,7 @@ function HomeComponent() {
                 key={link.to + link.title}
                 render={
                   <Link
-                    to="/docs/$guide"
+                    to="/docs/guides/$guide"
                     params={{
                       guide: link.to,
                     }}
@@ -721,7 +721,7 @@ function HomeComponent() {
                 radius="small"
                 render={
                   <Link
-                    to="/docs/$guide"
+                    to="/docs/guides/$guide"
                     params={{
                       guide: "installation",
                     }}
@@ -736,7 +736,7 @@ function HomeComponent() {
                 radius="small"
                 render={
                   <Link
-                    to="/docs/$guide"
+                    to="/docs/guides/$guide"
                     params={{
                       guide: "installation",
                     }}
