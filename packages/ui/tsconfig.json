@@ -4,8 +4,8 @@
     "jsx": "react-jsx",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "types": [],
+    "baseUrl": ".",
     "paths": {
-      "@blenx-dev/ui/*": ["./src/*"],
       "#utils/*": ["./src/utils/*"],
       "#theme/*": ["./src/theme/*"]
     }

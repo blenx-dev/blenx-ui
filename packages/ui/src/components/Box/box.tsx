@@ -114,9 +114,9 @@ function Box({ render, ...props }: BoxProps) {
     Boolean(boxProps.withBorder) && boxStyles.withBorder,
     ...paddingStyles,
     ...marginStyles,
-    resolvedRadius && borderRadiusStyles[resolvedRadius],
     ...displayStyles,
     ...appliedBoxWidthStyles,
+    resolvedRadius && borderRadiusStyles[resolvedRadius],
     boxProps.style,
   );
   const mergedProps = mergeProps(htmlProps, stylexProps);

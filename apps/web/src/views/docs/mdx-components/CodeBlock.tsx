@@ -1,7 +1,7 @@
 import { CheckIcon, CopySimpleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
-import { Box, Button, Surface } from "@blenx-dev/ui/components";
+import { Box, HStack, IconButton, Surface, Text } from "@blenx-dev/ui/components";
 import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import * as stylex from "@stylexjs/stylex";
@@ -73,33 +73,33 @@ function CodeBlock({
   }, [code]);
 
   return (
-    <Surface variant="sunken" borderRadius="medium" position="relative" padding="none">
-      {title && (
-        <Box {...stylex.props(styles.header)}>
-          <span>{title}</span>
-        </Box>
-      )}
-      <Box padding="medium" {...stylex.props(styles.scroll)}>
-        <Box position="absolute" right="small" top="small">
-          <Button
-            type="button"
-            size="xsmall"
-            radius="xsmall"
-            variant={copied ? "solid" : "ghost"}
-            onClick={handleCopy}
-            aria-label={copied ? "Copied" : "Copy code"}
-          >
-            {copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
-            {copied ? "Copied" : "Copy"}
-          </Button>
-        </Box>
-        <Box
-          render={<div />}
-          dangerouslySetInnerHTML={{
-            __html: highlighted ?? escapeHtml(code),
-          }}
-        />
-      </Box>
+    <Surface variant="sunken" borderRadius="medium">
+      <HStack
+        align="center"
+        justify="between"
+        paddingLeft="small"
+        paddingY="xxsmall"
+        paddingRight="xxsmall"
+      >
+        <Text variant="h6" color="secondary">
+          {title ? title : null}
+        </Text>
+        <IconButton
+          padding="none"
+          intent={copied ? "primary" : "neutral"}
+          onClick={handleCopy}
+          aria-label={copied ? "Copied" : "Copy code"}
+        >
+          {copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
+        </IconButton>
+      </HStack>
+      <Box
+        style={styles.scroll}
+        render={<div />}
+        dangerouslySetInnerHTML={{
+          __html: highlighted ?? escapeHtml(code),
+        }}
+      />
     </Surface>
   );
 }

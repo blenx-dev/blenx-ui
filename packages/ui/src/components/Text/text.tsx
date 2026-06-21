@@ -32,7 +32,7 @@ const variantTag = {
 } as const satisfies Record<string, keyof React.JSX.IntrinsicElements>;
 export type TextVariant = keyof typeof variantTag;
 
-type Props = PropsWithStylex<
+export type TextProps = PropsWithStylex<
   BoxProps & {
     variant?: TextVariant;
     color?: keyof typeof colorStyles;
@@ -57,7 +57,7 @@ export function Text({
   transform = "none",
   children,
   ...props
-}: Props): React.ReactElement {
+}: TextProps): React.ReactElement {
   const sx = stylex.props(
     textStyles.base,
     textTransformStyles[transform],

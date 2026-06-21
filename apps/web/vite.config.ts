@@ -15,6 +15,7 @@ const config = defineConfig(({ command, mode }) => {
   return {
     resolve: {
       tsconfigPaths: true,
+      conditions: ["source"],
     },
     optimizeDeps: {
       exclude: ["@blenx-dev/ui"],

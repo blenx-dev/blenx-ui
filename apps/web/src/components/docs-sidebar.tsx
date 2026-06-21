@@ -17,10 +17,7 @@ interface SidebarSection {
 const staticSections: SidebarSection[] = [
   {
     title: "Customization",
-    links: [
-      { to: "/docs/theming", label: "Theming" },
-      { to: "/theme-builder", label: "Theme Builder" },
-    ],
+    links: [{ to: "/theme-builder", label: "Theme Builder" }],
   },
 ];
 
@@ -81,7 +78,7 @@ function DocsSidebar({ onClose }: { onClose?: () => void }) {
                 return (
                   <Surface
                     variant={isActive ? "default" : "sunken"}
-                    radius="small"
+                    borderRadius="xsmall"
                     paddingY="xxsmall"
                     paddingX="xsmall"
                     key={link.to}

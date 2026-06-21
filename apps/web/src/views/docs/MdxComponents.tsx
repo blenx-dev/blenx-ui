@@ -13,23 +13,12 @@ import { DocSourceCode } from "./mdx-components/doc-source-code";
 import { Installation } from "./mdx-components/Installation";
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
-import { Spinner } from "@blenx-dev/ui/components";
+import { fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
+import { Spinner, Text } from "@blenx-dev/ui/components";
+import { type TextProps } from "@blenx-dev/ui/components";
 
-const inlineCodeStyles = stylex.create({
-  code: {
-    fontFamily: "ui-monospace, SFMono-Regular, monospace",
-    fontSize: fontSize.xsmall,
-    backgroundColor: theme.surfaceSubtle,
-    padding: "2px 6px",
-    borderRadius: borderRadius.small,
-    color: theme.contentPrimary,
-    whiteSpace: "nowrap",
-  },
-});
-
-function InlineCode(props: ComponentProps<"code">) {
-  return <code {...stylex.props(inlineCodeStyles.code)} {...props} />;
+function InlineCode(props: TextProps) {
+  return <Text variant="code" span {...props} />;
 }
 
 function Pre({ children, ...props }: ComponentProps<"pre">) {

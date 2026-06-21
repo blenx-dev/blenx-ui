@@ -13,23 +13,23 @@
   },
   "exports": {
     ".": {
+      "source": "./src/index.ts",
       "types": "./dist/src/index.d.ts",
       "import": "./dist/index.js"
     },
     "./styles.css": "./dist/assets/stylex.css",
     "./components/*": {
+      "source": "./src/components/index.ts",
       "types": "./dist/src/components/*/index.d.ts",
       "import": "./dist/components/*/index.js"
     },
     "./theme/*": {
+      "source": "./src/index.ts",
       "types": "./dist/src/theme/*.d.ts",
       "import": "./dist/theme/*.js"
     }
   },
   "scripts": {
-    "build": "bun run build:js && bun run build:types",
-    "build:js": "esbuild src/**/*.{ts,tsx} --bundle=false --format=esm --jsx=preserve --outdir=dist/src",
-    "build:types": "tsc -p tsconfig.build.json",
     "check-types": "tsc --noEmit",
     "build:vite": "vite build",
     "generate:api": "bun run scripts/generate-api.ts"
