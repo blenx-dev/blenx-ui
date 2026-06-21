@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { Box, CopyButton, Text, VStack } from "@blenx-dev/ui/components";
 import { theme } from "@blenx-dev/ui/theme/contract.stylex";
@@ -15,6 +15,7 @@ import {
 } from "@blenx-dev/ui/theme/tokens.stylex";
 import type { TocItem } from "@/utils/extractHeadings";
 import { HStack } from "@blenx-dev/ui";
+import { useRouterState } from "@tanstack/react-router";
 
 interface DocsTocProps {
   items: TocItem[];
@@ -80,33 +81,10 @@ const itemStyles = stylex.create({
   },
 });
 
-function useActiveHeading(ids: string[]): string {
-  const [activeId, setActiveId] = useState<string>("");
-
-  useEffect(() => {
-    if (ids.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = [...entries].filter((e) => e.isIntersecting);
-        visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-80px 0px -60% 0px",
-        threshold: 0,
-      },
-    );
-
-    const elements = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, [ids]);
+function useActiveHeading(): string {
+  const activeId = useRouterState({
+    select: (state) => state.location.hash,
+  });
 
   return activeId;
 }
@@ -129,8 +107,7 @@ function useActiveHeading(ids: string[]): string {
  * - Nested heading levels beyond H3
  */
 export function DocsToc({ items }: DocsTocProps) {
-  const ids = items.map((item) => item.slug);
-  const activeId = useActiveHeading(ids);
+  const activeId = useActiveHeading();
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 

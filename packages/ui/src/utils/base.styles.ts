@@ -25,6 +25,7 @@ export const bgColorStyles = stylex.create({
 
 export const borderColorStyles = stylex.create({
   primary: { borderColor: theme.primary },
+  default: { borderColor: "currentColor" },
   secondary: { borderColor: theme.secondary },
   disabled: { borderColor: theme.surfaceSubtle },
   error: { borderColor: theme.sentimentNegativeSubtle },

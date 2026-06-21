@@ -56,7 +56,7 @@ function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
 
   return (
     <Box maxWidth={"90svw"}>
-      <Surface variant="sunken" render={<pre />} withBorder>
+      <Surface variant="sunken" render={<pre />} borderColor="surface">
         <HStack justify="end" paddingTop="small" paddingRight="small">
           <CopyButton onClick={handleCopy} size="xsmall" />
         </HStack>

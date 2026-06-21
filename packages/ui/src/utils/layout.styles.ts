@@ -273,7 +273,7 @@ export function resolveDisplayStyles(boxProps: ColorProps & LayoutProps) {
   return [
     boxProps.color && colorStyles[boxProps.color],
     boxProps.backgroundColor && bgColorStyles[boxProps.backgroundColor],
-    boxProps.borderColor && borderColorStyles[boxProps.borderColor],
+    boxProps.borderColor && borderColorStyles[boxProps.borderColor || "default"],
     boxProps.zIndex && zIndexStyles[boxProps.zIndex],
     boxProps.zIndex && zIndexStyles[boxProps.zIndex],
     boxProps.display && displayStyles[boxProps.display],

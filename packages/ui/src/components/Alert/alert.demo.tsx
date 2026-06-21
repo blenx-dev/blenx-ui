@@ -4,7 +4,7 @@ import { VStack } from "../Stack/stack";
 
 function AlertDemo() {
   return (
-    <VStack withBorder>
+    <VStack withBorder padding="medium">
       <Alert variant="info" icon={<InfoIcon />} title="Info" description="This is an info alert" />
       <Alert
         variant="success"

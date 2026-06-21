@@ -156,7 +156,7 @@ function RootDocument() {
         </ClientOnly>
         <QueryClientProvider client={queryClient}>
           <Header />
-          <Container size={"3xl"} render={<main />} grow>
+          <Container size={"3xl"} render={<main />} grow color="secondary">
             <Outlet />
           </Container>
         </QueryClientProvider>
