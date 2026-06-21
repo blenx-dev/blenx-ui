@@ -30,6 +30,7 @@ export const demoImports: Record<string, () => Promise<Record<string, unknown>>>
   "icon-button": () => import("@blenx-dev/ui/components/IconButton/icon-button.demo"),
   input: () => import("@blenx-dev/ui/components/Input/input.demo"),
   otpfield: () => import("@blenx-dev/ui/components/OTPField/otp-field.demo"),
+  popover: () => import("@blenx-dev/ui/components/Popover/popover.demo"),
   select: () => import("@blenx-dev/ui/components/Select/select.demo"),
   sheet: () => import("@blenx-dev/ui/components/Sheet/sheet.demo"),
   spinner: () => import("@blenx-dev/ui/components/Spinner/spinner.demo"),

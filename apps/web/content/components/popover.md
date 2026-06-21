@@ -10,6 +10,10 @@ navigation:
 
 Popover displays floating content in relation to a trigger element, with automatic positioning, flip behavior, and dismiss-on-click-outside. Use popovers for contextual tooltips, action menus, inline help content, quick-action panels, and small forms that belong to a specific UI element. Do not use popovers for primary navigation, critical notifications, or content that requires user input before continuing — those cases call for Dialog or Sheet.
 
+## Demo
+
+<DemoRenderer registryName="popover" />
+
 ## Installation
 
 <Installation registryName="popover" />

@@ -48,11 +48,15 @@ export function PopoverPopup({
   ...props
 }: PropsWithStylex<PopoverPrimitive.Popup.Props>): React.ReactElement {
   return (
-    <PopoverPrimitive.Popup
-      {...stylex.props(popoverStyles.popup, style)}
-      data-slot="popover-popup"
-      {...props}
-    />
+    <PopoverPortal>
+      <PopoverPositioner>
+        <PopoverPrimitive.Popup
+          {...stylex.props(popoverStyles.popup, style)}
+          data-slot="popover-popup"
+          {...props}
+        />
+      </PopoverPositioner>
+    </PopoverPortal>
   );
 }
 

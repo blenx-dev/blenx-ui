@@ -6,7 +6,6 @@ import {
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
-  PopoverPositioner,
   PopoverTitle,
   PopoverTrigger,
 } from "./popover";
@@ -17,21 +16,19 @@ export function DefaultStory() {
       <Text variant="body2">Click the button to open a popover</Text>
       <Popover>
         <PopoverTrigger render={<Button variant="outline">Open Popover</Button>} />
-        <PopoverPositioner sideOffset={8}>
-          <PopoverPopup>
-            <PopoverArrow />
-            <Stack gap="small" padding="medium">
-              <PopoverTitle>Popover Title</PopoverTitle>
-              <PopoverDescription>
-                This is a popover. It can contain any content.
-              </PopoverDescription>
-              <Button size="small" variant="solid">
-                Action
-              </Button>
-            </Stack>
-          </PopoverPopup>
-        </PopoverPositioner>
+        <PopoverPopup>
+          <PopoverArrow />
+          <Stack gap="small" padding="medium">
+            <PopoverTitle>Popover Title</PopoverTitle>
+            <PopoverDescription>This is a popover. It can contain any content.</PopoverDescription>
+            <Button size="small" variant="solid">
+              Action
+            </Button>
+          </Stack>
+        </PopoverPopup>
       </Popover>
     </Stack>
   );
 }
+
+export const demos = [{ name: "Default", component: DefaultStory }];
