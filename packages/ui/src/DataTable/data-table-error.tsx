@@ -1,4 +1,4 @@
-import { Button } from "@blenx-dev/ui/components";
+import { Button } from "#components";
 import { theme } from "#theme/contract.stylex";
 import { fontSize, spacing } from "#theme/tokens.stylex";
 import { WarningCircleIcon } from "@phosphor-icons/react";

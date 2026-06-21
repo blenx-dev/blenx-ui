@@ -1,11 +1,4 @@
-import {
-  Button,
-  Menu,
-  MenuItem,
-  MenuPopup,
-  MenuSeparator,
-  MenuTrigger,
-} from "@blenx-dev/ui/components";
+import { Button, Menu, MenuItem, MenuPopup, MenuSeparator, MenuTrigger } from "#components";
 import { theme } from "#theme/contract.stylex";
 import { ListIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";

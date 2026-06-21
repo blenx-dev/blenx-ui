@@ -5,7 +5,8 @@
   "type": "module",
   "imports": {
     "#utils/*": "./src/utils/*",
-    "#theme/*": "./src/theme/*"
+    "#theme/*": "./src/theme/*",
+    "#components": "./src/components/index.ts"
   },
   "exports": {
     "./globals.css": "./src/styles/globals.css",

@@ -29,7 +29,7 @@ import { DataTableToolbar } from "./data-table-toolbar";
 import type { DataTableProps, RowAction, TableFeatures } from "./types";
 import { theme } from "#theme/contract.stylex";
 import { fontSize, fontWeight, spacing } from "#theme/tokens.stylex";
-import { Button, Spinner } from "@blenx-dev/ui/components";
+import { Button, Spinner } from "#components";
 
 // ─── Size constants ──────────────────────────────────────────────────────────
 

@@ -6,7 +6,8 @@
     "types": [],
     "paths": {
       "#utils/*": ["./src/utils/*"],
-      "#theme/*": ["./src/theme/*"]
+      "#theme/*": ["./src/theme/*"],
+      "#components": ["./src/components/index.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
