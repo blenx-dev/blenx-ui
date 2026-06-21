@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { theme } from "#theme/contract.stylex";
-import { dataRuleQueries, fontSize, fontWeight, spacing } from "#theme/tokens.stylex";
+import { borderWidth, fontSize, fontWeight, spacing } from "#theme/tokens.stylex";
 export const toggleSizeStyles = stylex.create({
   sm: {
     height: spacing.large,
@@ -28,10 +28,7 @@ export const toggleVariantStyles = stylex.create({
     backgroundColor: theme.surface,
   },
   outline: {
-    borderColor: {
-      default: theme.border,
-      [dataRuleQueries.dataPressed]: theme.borderStrong,
-    },
+    borderColor: theme.border,
     color: theme.contentPrimary,
     backgroundColor: theme.backgroundSubtle,
   },
@@ -42,8 +39,9 @@ export const togglePressedStyles = stylex.create({
     backgroundColor: theme.surfaceRaised,
   },
   outline: {
-    outlineWidth: "0px",
+    outlineWidth: borderWidth.thin,
     backgroundColor: theme.surfaceOverlay,
+    borderColor: theme.borderStrong,
   },
 });
 export const toggleStyles = stylex.create({

@@ -128,16 +128,6 @@ export const primitives = stylex.create({
   },
 });
 
-export const dataRuleQueries = stylex.defineConsts({
-  dataChecked: "[data-checked]",
-  dataDisabled: "[data-disabled]",
-  dataFocus: "[data-focus]",
-  dataPressed: "[data-pressed]",
-  parentDataChecked: "[data-checked] &",
-  parentDataDisabled: "[data-disabled] &",
-  hasSvg: "& svg",
-});
-
 // ─── Border width ────────────────────────────────────────────────────────────
 export const borderWidth = stylex.defineVars({
   hairline: "0.5px",
@@ -157,7 +147,7 @@ export const duration = stylex.defineVars({
   lazy: "700ms",
 });
 
-export const easing = stylex.defineVars({
+export const easing = stylex.defineConsts({
   linear: "linear",
   standard: "cubic-bezier(0.4, 0, 0.2, 1)",
   enter: "cubic-bezier(0, 0, 0.2, 1)",
@@ -167,7 +157,7 @@ export const easing = stylex.defineVars({
 });
 
 // ─── Z-index ─────────────────────────────────────────────────────────────────
-export const zIndexVars = stylex.defineVars({
+export const zIndexVars = stylex.defineConsts({
   base: 0,
   raised: 100,
   floating: 1000,

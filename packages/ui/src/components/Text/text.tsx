@@ -47,7 +47,7 @@ export type TextProps = PropsWithStylex<
 
 export function Text({
   variant = "body1",
-  color,
+  color = "primary",
   align,
   weight,
   style,
@@ -65,7 +65,6 @@ export function Text({
     color && colorStyles[color],
     align && textAlignStyles[align],
     weight && textWeightStyles[weight],
-    !color && colorStyles.primary,
     size && fontSizeStyles[size],
     style,
   );
