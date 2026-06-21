@@ -7,6 +7,7 @@ import type { PropsWithStylex } from "#utils/stylex.utils";
 import { Input } from "../Input/input";
 import { ScrollArea } from "../ScrollArea/scroll-area";
 import { comboboxStyles } from "./combobox.styles";
+import { CloseButton } from "../CloseButton";
 
 type InputSize = "sm" | "default" | "lg" | number;
 
@@ -151,9 +152,7 @@ export function ComboboxInput({
         </ComboboxTrigger>
       )}
       {showClear && (
-        <ComboboxClear {...mergeProps(clearProps, clearStyleProps)}>
-          <XIcon size={resolvedSize === "sm" ? 16 : 18} weight="regular" />
-        </ComboboxClear>
+        <ComboboxClear {...mergeProps(clearProps, clearStyleProps)} render={<CloseButton />} />
       )}
     </ComboboxPrimitive.InputGroup>
   );

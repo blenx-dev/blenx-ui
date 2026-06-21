@@ -1,8 +1,7 @@
-import { CheckIcon, CopySimpleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
 import {
-  Button,
+  CopyButton,
   HStack,
   ScrollArea,
   SegmentedControl,
@@ -29,9 +28,8 @@ function escapeHtml(code: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")}</code></pre>`;
 }
-function CopyButton({ value }: { value: string }) {
+function CopyHandler({ value }: { value: string }) {
   const [copied, setCopied] = useState(false);
-
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(value).then(() => {
       setCopied(true);
@@ -39,17 +37,9 @@ function CopyButton({ value }: { value: string }) {
     });
   }, [value]);
   return (
-    <Button
-      type="button"
-      size="xsmall"
-      radius="xsmall"
-      variant={copied ? "solid" : "soft"}
-      onClick={handleCopy}
-      aria-label={copied ? "Copied" : "Copy code"}
-    >
-      {copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
-      {copied ? "Copied" : "Copy"}
-    </Button>
+    <CopyButton size="xsmall" onClick={handleCopy} aria-label={copied ? "Copied" : "Copy code"}>
+      Copy
+    </CopyButton>
   );
 }
 function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
@@ -102,7 +92,7 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
             />
           </div>
           <div style={{ flexShrink: 0 }}>
-            <CopyButton value={activeFile.code} />
+            <CopyHandler value={activeFile.code} />
           </div>
         </HStack>
       ) : (
@@ -118,7 +108,6 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
           <CopyButton value={activeFile.code} />
         </HStack>
       )}
-      sss
       <ScrollArea height="60svh">
         <div
           dangerouslySetInnerHTML={{

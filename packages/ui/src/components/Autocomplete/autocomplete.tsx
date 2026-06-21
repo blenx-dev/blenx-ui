@@ -1,12 +1,13 @@
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
 import { mergeProps } from "@base-ui/react/merge-props";
-import { CaretUpDownIcon, XIcon } from "@phosphor-icons/react";
+import { CaretUpDownIcon } from "@phosphor-icons/react";
 import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import type { PropsWithStylex } from "#utils/stylex.utils";
 import { Input } from "../Input/input";
 import { ScrollArea } from "../ScrollArea/scroll-area";
 import { autoCompleteInputSize, autoCompleteStyles } from "./autocomplete.styles";
+import { CloseButton } from "../CloseButton";
 
 const Autocomplete: typeof AutocompletePrimitive.Root = AutocompletePrimitive.Root;
 
@@ -119,11 +120,7 @@ function AutocompleteInput({
           <CaretUpDownIcon size={resolvedSize === "sm" ? 16 : 18} weight="regular" />
         </AutocompleteTrigger>
       )}
-      {showClear && (
-        <AutocompleteClear {...clearButtonProps}>
-          <XIcon size={resolvedSize === "sm" ? 16 : 18} weight="regular" />
-        </AutocompleteClear>
-      )}
+      {showClear && <AutocompleteClear {...clearButtonProps} render={<CloseButton />} />}
     </AutocompletePrimitive.InputGroup>
   );
 }

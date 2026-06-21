@@ -52,7 +52,15 @@ function BlocksRouteOption() {
     <Button
       size="xsmall"
       variant={isBlocksActive ? "soft" : "ghost"}
-      render={<Link to="/docs/blocks" />}
+      render={
+        <Link
+          to="/docs/blocks/$group/$variant"
+          params={{
+            group: "dashboard",
+            variant: "dashboard-01",
+          }}
+        />
+      }
       nativeButton={false}
     >
       Blocks

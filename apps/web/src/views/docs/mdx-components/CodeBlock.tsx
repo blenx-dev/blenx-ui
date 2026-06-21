@@ -1,7 +1,6 @@
-import { CheckIcon, CopySimpleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
-import { Box, HStack, IconButton, Surface, Text } from "@blenx-dev/ui/components";
+import { Box, CopyButton, HStack, Surface, Text } from "@blenx-dev/ui/components";
 import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import * as stylex from "@stylexjs/stylex";
@@ -50,9 +49,7 @@ function CodeBlock({
   highlightLines: _highlightLines,
 }: CodeBlockProps) {
   const [highlighted, setHighlighted] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
   const mountedRef = useRef(true);
-
   useEffect(() => {
     mountedRef.current = true;
     highlightCode(code, language).then((html) => {
@@ -66,10 +63,7 @@ function CodeBlock({
   }, [code, language]);
 
   const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+    navigator.clipboard.writeText(code).then(() => {});
   }, [code]);
 
   return (
@@ -84,14 +78,7 @@ function CodeBlock({
         <Text variant="h6" color="secondary">
           {title ? title : null}
         </Text>
-        <IconButton
-          padding="none"
-          intent={copied ? "primary" : "neutral"}
-          onClick={handleCopy}
-          aria-label={copied ? "Copied" : "Copy code"}
-        >
-          {copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
-        </IconButton>
+        <CopyButton padding="none" onClick={handleCopy} />
       </HStack>
       <Box
         style={styles.scroll}

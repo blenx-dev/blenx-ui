@@ -15,7 +15,6 @@ import {
 } from "@blenx-dev/ui/theme/tokens.stylex";
 import type { TocItem } from "@/utils/extractHeadings";
 import { HStack } from "@blenx-dev/ui";
-import { CopyIcon } from "@phosphor-icons/react";
 
 interface DocsTocProps {
   items: TocItem[];
@@ -185,13 +184,11 @@ export function DocsToc({ items }: DocsTocProps) {
                 <CopyButton
                   padding="none"
                   variant="ghost"
-                  onClick={(e) => {
-                    e.preventDefault();
+                  color="secondary"
+                  onClick={() => {
                     handleClick(item.slug, true);
                   }}
-                >
-                  <CopyIcon />
-                </CopyButton>
+                />
               </HStack>
             );
           })}

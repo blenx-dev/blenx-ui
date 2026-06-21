@@ -1,7 +1,6 @@
-import { CheckIcon, CopySimpleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
-import { Box, Button, HStack, Surface } from "@blenx-dev/ui/components";
+import { Box, CopyButton, HStack, Surface } from "@blenx-dev/ui/components";
 
 interface CodeBlockProps {
   code: string;
@@ -19,7 +18,6 @@ function escapeHtml(code: string): string {
 
 function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
   const [highlighted, setHighlighted] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const mountedRef = useRef(true);
@@ -38,9 +36,7 @@ function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
       setMenuOpen(false);
-      setTimeout(() => setCopied(false), 2000);
     });
   }, [code]);
 
@@ -62,10 +58,7 @@ function CodeBlock({ code, language = "typescript" }: CodeBlockProps) {
     <Box maxWidth={"90svw"}>
       <Surface variant="sunken" render={<pre />} withBorder>
         <HStack justify="end" paddingTop="small" paddingRight="small">
-          <Button onClick={handleCopy} size="xsmall">
-            {copied ? <CheckIcon size={14} /> : <CopySimpleIcon size={14} />}
-            {copied ? "Copied" : "Copy code"}
-          </Button>
+          <CopyButton onClick={handleCopy} size="xsmall" />
         </HStack>
         <Box overflow="auto">
           <div
