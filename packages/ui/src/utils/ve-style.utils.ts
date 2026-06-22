@@ -7,7 +7,6 @@ export function applyBaseSprinkles(
 ): [string, Record<string, unknown>] {
   const sprinkleProps: Record<BasePropKeys, unknown> = {};
   const htmlProps: Record<string, unknown> = {};
-
   for (const [key, value] of Object.entries(props)) {
     if (key === "fullWidth" && props[key]) {
       sprinkleProps.width = "full";

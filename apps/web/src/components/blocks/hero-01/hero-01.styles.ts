@@ -1,1 +1,1 @@
-export { heroInner, heroImage } from "@/lib/styles.css";
+export { heroImage } from "@/lib/styles.css";
