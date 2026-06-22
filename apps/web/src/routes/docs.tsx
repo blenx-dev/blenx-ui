@@ -28,7 +28,7 @@ function RenderSidebarNavs() {
       {isSmallDevice ? (
         <DrawerSidebar />
       ) : (
-        <Container size="full">
+        <Container size="xxs" centered contentCentered>
           <ScrollArea height="90svh">
             <DocsSidebar />
           </ScrollArea>

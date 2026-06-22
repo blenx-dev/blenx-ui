@@ -10,8 +10,8 @@ export type ContainerProps = Props;
 export function Container({ size, centered = true, contentCentered, ...props }: Props) {
   return (
     <Box
-      maxWidth={size}
       {...props}
+      flexShrink={0}
       className={clsx(
         containerRecipe({
           size,

@@ -5,6 +5,7 @@ import { spacing } from "#theme/tokens.css";
 export const root = style({
   height: "100%",
   minHeight: 0,
+  width: "100%",
   boxSizing: "border-box",
 });
 
