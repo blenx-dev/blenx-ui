@@ -8,20 +8,11 @@ type StackVariants = RecipeVariants<typeof stackRecipe>;
 
 export type StackProps = Omit<BoxProps, "display"> & StackVariants;
 
-export function Stack({
-  direction,
-  gap,
-  align,
-  justify,
-  wrap,
-  className,
-  style,
-  ...props
-}: StackProps) {
+export function Stack({ gap, align, justify, wrap, className, style, ...props }: StackProps) {
   return (
     <Box
       display="flex"
-      className={clsx(stackRecipe({ direction, gap, align, justify, wrap }), className)}
+      className={clsx(stackRecipe({ gap, align, justify, wrap }), className)}
       style={style}
       {...props}
     />

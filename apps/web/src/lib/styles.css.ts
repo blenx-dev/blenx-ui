@@ -5,30 +5,10 @@ import {
   fontSize,
   fontWeight,
   letterSpacing,
-  mediaQueries,
   spacing,
 } from "@blenx-dev/ui/theme/tokens.css";
 
-/* ── Keyframes ── */
-
 /* ── Hero01 ── */
-
-export const heroInner = style({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  gap: spacing.xxxlarge,
-  width: "100%",
-  maxWidth: 1200,
-  marginLeft: "auto",
-  marginRight: "auto",
-  "@media": {
-    [mediaQueries.sm]: {
-      flexDirection: "column",
-      gap: spacing.xlarge,
-    },
-  },
-});
 
 export const heroImage = style({
   width: "100%",

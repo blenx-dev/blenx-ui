@@ -3,12 +3,6 @@ import { spacing } from "#theme/tokens.css";
 
 export const stackRecipe = recipe({
   variants: {
-    direction: {
-      column: { flexDirection: "column" },
-      row: { flexDirection: "row" },
-      "row-inverse": { flexDirection: "row-reverse" },
-      "column-inverse": { flexDirection: "column-reverse" },
-    },
     gap: {
       none: { gap: 0 },
       xxsmall: { gap: spacing.xxsmall },
@@ -43,7 +37,6 @@ export const stackRecipe = recipe({
     },
   },
   defaultVariants: {
-    direction: "column",
     gap: "medium",
   },
 });

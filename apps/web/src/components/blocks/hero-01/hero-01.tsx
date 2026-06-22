@@ -1,7 +1,7 @@
 import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Text } from "@blenx-dev/ui/components/Text/text";
-import { HStack, VStack } from "@blenx-dev/ui/components/Stack/stack";
-import { heroInner, heroImage } from "./hero-01.styles";
+import { HStack, VStack, Stack } from "@blenx-dev/ui/components/Stack/stack";
+import { heroImage } from "./hero-01.styles";
 import { ImageIcon } from "@phosphor-icons/react";
 import { Container, Icon } from "@blenx-dev/ui/components";
 
@@ -31,7 +31,14 @@ export function Hero01({
 }: Props) {
   return (
     <Container content="center">
-      <div className={heroInner}>
+      <Stack
+        align="center"
+        gap={"xxxlarge"}
+        direction={{
+          mobile: "column",
+          tablet: "row",
+        }}
+      >
         <VStack>
           <Text variant="h1" maxWidth="md">
             {headline}
@@ -65,7 +72,7 @@ export function Hero01({
             </Icon>
           )}
         </VStack>
-      </div>
+      </Stack>
     </Container>
   );
 }

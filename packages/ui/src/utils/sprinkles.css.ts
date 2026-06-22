@@ -130,15 +130,19 @@ const colorProperties = defineProperties({
 });
 
 const flexProperties = defineProperties({
+  conditions: responsiveConditions,
+  defaultCondition: "mobile",
   properties: {
     flex: ["none", 1],
     flexGrow: { 0: 0, 1: 1 },
     flexShrink: { 0: 0, 1: 1 },
     display: ["block", "flex", "grid", "inline-flex", "none"],
+    flexDirection: ["row", "row-reverse", "column", "column-reverse"],
     justifyContent: ["center", "start", "end", "stretch", "between", "around", "evenly"],
     alignItems: ["center", "start", "end", "stretch", "baseline"],
   },
   shorthands: {
+    direction: ["flexDirection"],
     justify: ["justifyContent"],
     align: ["alignItems"],
     grow: ["flexGrow"],
