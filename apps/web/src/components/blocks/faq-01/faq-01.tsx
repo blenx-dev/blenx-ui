@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
   AccordionPanel,
 } from "@blenx-dev/ui/components/Accordion/accordion";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Box, Container, Input, VStack } from "@blenx-dev/ui/components";
 
 type FaqItem = {
@@ -17,12 +17,13 @@ type FaqItem = {
   answer: string;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   description?: string;
   items: FaqItem[];
   searchable?: boolean;
-}>;
+  style?: CSSProperties;
+};
 
 export function Faq01({
   title = "Frequently asked questions",

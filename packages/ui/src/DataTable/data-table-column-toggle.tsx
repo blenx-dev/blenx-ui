@@ -1,17 +1,13 @@
 import { Button, Menu, MenuItem, MenuPopup, MenuSeparator, MenuTrigger } from "#components";
-import { theme } from "#theme/contract.stylex";
+import { themeContract } from "#theme/contract.css";
 import { ListIcon } from "@phosphor-icons/react";
-import * as stylex from "@stylexjs/stylex";
 import type { Table } from "@tanstack/react-table";
+import * as styles from "./data-table.css";
 
 interface DataTableColumnToggleProps<TData> {
   table: Table<TData>;
 }
 
-/**
- * Column visibility toggle menu.
- * Renders a dropdown menu with checkboxes for each column.
- */
 export function DataTableColumnToggle<TData>({ table }: DataTableColumnToggleProps<TData>) {
   const columns = table.getAllLeafColumns().filter((column) => column.getCanHide());
 
@@ -34,12 +30,10 @@ export function DataTableColumnToggle<TData>({ table }: DataTableColumnTogglePro
             }
           }}
         >
-          <span {...stylex.props(styles.deselectLabel)}>
-            {allVisible ? "Deselect all" : "Select all"}
-          </span>
-          <span {...stylex.props(styles.checkbox(allVisible ? "checked" : "unchecked"))}>
+          <span className={styles.deselectLabel}>{allVisible ? "Deselect all" : "Select all"}</span>
+          <span className={allVisible ? styles.checkboxChecked : styles.checkboxUnchecked}>
             {allVisible && <CheckMark />}
-            {!allVisible && someVisible && <div {...stylex.props(styles.partial)} />}
+            {!allVisible && someVisible && <div className={styles.partial} />}
           </span>
         </MenuItem>
         <MenuSeparator />
@@ -48,8 +42,8 @@ export function DataTableColumnToggle<TData>({ table }: DataTableColumnTogglePro
           const isVisible = column.getIsVisible();
           return (
             <MenuItem key={column.id} onClick={() => column.toggleVisibility(!isVisible)}>
-              <span {...stylex.props(styles.itemLabel)}>{label}</span>
-              <span {...stylex.props(styles.checkbox(isVisible ? "checked" : "unchecked"))}>
+              <span className={styles.itemLabel}>{label}</span>
+              <span className={isVisible ? styles.checkboxChecked : styles.checkboxUnchecked}>
                 {isVisible && <CheckMark />}
               </span>
             </MenuItem>
@@ -67,7 +61,7 @@ function CheckMark() {
       height="12"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={theme.contentOnPrimary}
+      stroke={themeContract.contentOnPrimary}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -77,32 +71,3 @@ function CheckMark() {
     </svg>
   );
 }
-
-const styles = stylex.create({
-  itemLabel: {
-    fontSize: 14,
-  },
-  deselectLabel: {
-    color: theme.contentSecondary,
-    fontSize: 13,
-  },
-  checkbox: (state: "checked" | "unchecked") => ({
-    marginLeft: "auto",
-    width: 16,
-    height: 16,
-    borderRadius: 3,
-    borderWidth: 1.5,
-    borderStyle: "solid",
-    borderColor: state === "checked" ? theme.primary : theme.border,
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: state === "checked" ? theme.primary : "transparent",
-  }),
-  partial: {
-    width: 8,
-    height: 2,
-    borderRadius: 1,
-    backgroundColor: theme.contentSecondary,
-  },
-});

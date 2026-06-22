@@ -5,17 +5,18 @@ import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Input } from "@blenx-dev/ui/components/Input/input";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Box, Container, Field, FieldLabel, Progress, VStack } from "@blenx-dev/ui/components";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   flow?: "password" | "magic-link";
   onSubmitEmail?: (email: string) => void;
   onSubmitPassword?: (email: string, password: string) => void;
   onRequestMagicLink?: (email: string) => void;
-}>;
+  style?: CSSProperties;
+};
 
 export function Login02({
   title = "Sign in",

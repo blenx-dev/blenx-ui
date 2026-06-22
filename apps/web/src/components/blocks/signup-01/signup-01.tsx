@@ -6,7 +6,7 @@ import { Input, Label } from "@blenx-dev/ui/components/Input/input";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Checkbox } from "@blenx-dev/ui/components/Checkbox/checkbox";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import {
   Box,
   Container,
@@ -29,7 +29,7 @@ type FormValues = {
   acceptedTerms: boolean;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   description?: string;
   logo?: React.ReactNode;
@@ -37,7 +37,8 @@ type Props = PropsWithStylex<{
   socialProviders?: SocialProvider[];
   termsUrl?: string;
   loginLink?: { label: string; handleClick: () => void };
-}>;
+  style?: CSSProperties;
+};
 
 export function Signup01({
   title = "Create an account",

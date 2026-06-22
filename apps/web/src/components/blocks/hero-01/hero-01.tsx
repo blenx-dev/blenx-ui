@@ -1,9 +1,7 @@
-import * as stylex from "@stylexjs/stylex";
 import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { HStack, VStack } from "@blenx-dev/ui/components/Stack/stack";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
-import { heroStyles } from "./hero-01.styles";
+import { heroInner, heroImage } from "./hero-01.styles";
 import { ImageIcon } from "@phosphor-icons/react";
 import { Container, Icon } from "@blenx-dev/ui/components";
 
@@ -12,7 +10,7 @@ type Cta = {
   handleClick?: () => void;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   headline: string;
   subheadline?: string;
   primaryCta?: Cta;
@@ -20,7 +18,8 @@ type Props = PropsWithStylex<{
   imageSrc?: string;
   imageAlt?: string;
   backgroundVariant?: "default" | "muted" | "accent";
-}>;
+  style?: React.CSSProperties;
+};
 
 export function Hero01({
   headline,
@@ -32,7 +31,7 @@ export function Hero01({
 }: Props) {
   return (
     <Container content="center">
-      <div {...stylex.props(heroStyles.inner)}>
+      <div className={heroInner}>
         <VStack>
           <Text variant="h1" maxWidth="md">
             {headline}
@@ -59,7 +58,7 @@ export function Hero01({
         </VStack>
         <VStack>
           {imageSrc ? (
-            <img src={imageSrc} alt={imageAlt} {...stylex.props(heroStyles.image)} />
+            <img src={imageSrc} alt={imageAlt} className={heroImage} />
           ) : (
             <Icon maxWidth="md" paddingY="massive" color="secondary">
               <ImageIcon size={98} />

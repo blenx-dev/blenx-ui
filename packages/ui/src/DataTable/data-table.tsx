@@ -1,6 +1,5 @@
-// oxlint-disable max-statements
 import { CaretDownIcon, CaretUpIcon } from "@phosphor-icons/react";
-import * as stylex from "@stylexjs/stylex";
+import clsx from "clsx";
 import {
   type ColumnDef,
   type ColumnFiltersState,
@@ -27,11 +26,8 @@ import { DataTableLoading } from "./data-table-loading";
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableToolbar } from "./data-table-toolbar";
 import type { DataTableProps, RowAction, TableFeatures } from "./types";
-import { theme } from "#theme/contract.stylex";
-import { fontSize, fontWeight, spacing } from "#theme/tokens.stylex";
 import { Button, Spinner } from "#components";
-
-// ─── Size constants ──────────────────────────────────────────────────────────
+import * as styles from "./data-table.css";
 
 const DEFAULT_FEATURES: TableFeatures = {
   sorting: true,
@@ -45,8 +41,6 @@ const DEFAULT_FEATURES: TableFeatures = {
   rowActions: false,
   bulkActions: false,
 };
-
-// ─── Indeterminate checkbox ──────────────────────────────────────────────────
 
 function IndeterminateCheckbox({
   checked,
@@ -73,12 +67,11 @@ function IndeterminateCheckbox({
       checked={checked}
       onChange={onChange}
       aria-label={label}
-      {...stylex.props(styles.checkbox)}
+      className={styles.checkbox}
     />
   );
 }
 
-// ─── Main component ──────────────────────────────────────────────────────────
 function useDataTableStates<TData extends Record<string, unknown>>(
   props: Partial<DataTableProps<TData>>,
 ) {
@@ -359,19 +352,19 @@ export function DataTable<TData extends Record<string, unknown>>({
         />
       )}
 
-      <div ref={tableContainerRef} onScroll={handleScroll} {...stylex.props(styles.tableContainer)}>
-        <table {...stylex.props(styles.table)} aria-label="Data table">
+      <div ref={tableContainerRef} onScroll={handleScroll} className={styles.tableContainer}>
+        <table className={styles.table} aria-label="Data table">
           <thead
-            {...stylex.props(
+            className={
               features.stickyHeader
                 ? isScrolled
                   ? styles.theadStickyScrolled
                   : styles.theadSticky
-                : styles.theadStatic,
-            )}
+                : styles.theadStatic
+            }
           >
             {headerGroups.map((hg) => (
-              <tr key={hg.id} {...stylex.props(styles.headRow)}>
+              <tr key={hg.id} className={styles.headRow}>
                 {hg.headers.map((header) => {
                   const isSorted = header.column.getIsSorted();
                   const isSortable = header.column.getCanSort();
@@ -379,7 +372,7 @@ export function DataTable<TData extends Record<string, unknown>>({
                     <th
                       key={header.id}
                       colSpan={header.colSpan}
-                      {...stylex.props(
+                      className={clsx(
                         styles.th,
                         size === "sm" && styles.thSm,
                         size === "lg" && styles.thLg,
@@ -399,7 +392,7 @@ export function DataTable<TData extends Record<string, unknown>>({
                           : undefined
                       }
                     >
-                      <div {...stylex.props(styles.thContent)}>
+                      <div className={styles.thContent}>
                         {header.isPlaceholder
                           ? null
                           : flexRender(header.column.columnDef.header, header.getContext())}
@@ -415,7 +408,7 @@ export function DataTable<TData extends Record<string, unknown>>({
           <tbody>
             {rows.length === 0 ? (
               <tr>
-                <td colSpan={stableColumns.length} {...stylex.props(styles.emptyTd)}>
+                <td colSpan={stableColumns.length} className={styles.emptyTd}>
                   {emptyState}
                 </td>
               </tr>
@@ -431,7 +424,7 @@ export function DataTable<TData extends Record<string, unknown>>({
                     }}
                     tabIndex={callbacks?.onRowClick ? 0 : undefined}
                     role={callbacks?.onRowClick ? "button" : undefined}
-                    {...stylex.props(
+                    className={clsx(
                       styles.tr,
                       size === "sm" && styles.trSm,
                       size === "lg" && styles.trLg,
@@ -442,7 +435,7 @@ export function DataTable<TData extends Record<string, unknown>>({
                     {row.getVisibleCells().map((cell) => (
                       <td
                         key={cell.id}
-                        {...stylex.props(
+                        className={clsx(
                           styles.td,
                           size === "sm" && styles.tdSm,
                           size === "lg" && styles.tdLg,
@@ -460,9 +453,9 @@ export function DataTable<TData extends Record<string, unknown>>({
       </div>
 
       {isFetching && !isFetchingNextPage && mode !== "client" && (
-        <div {...stylex.props(styles.fetchingBar)}>
+        <div className={styles.fetchingBar}>
           <Spinner />
-          <span {...stylex.props(styles.fetchingText)}>Updating...</span>
+          <span className={styles.fetchingText}>Updating...</span>
         </div>
       )}
 
@@ -481,8 +474,6 @@ export function DataTable<TData extends Record<string, unknown>>({
   );
 }
 
-// ─── Row actions cell ────────────────────────────────────────────────────────
-
 interface RowActionsCellProps<TData> {
   row: Row<TData>;
   actions: RowAction<TData>[];
@@ -490,7 +481,7 @@ interface RowActionsCellProps<TData> {
 
 function RowActionsCell<TData>({ row, actions }: RowActionsCellProps<TData>) {
   return (
-    <div {...stylex.props(styles.actionsCell)}>
+    <div className={styles.actionsCell}>
       {actions.map((action, i) => {
         const isDisabled =
           typeof action.disabled === "function" ? action.disabled(row.original) : action.disabled;
@@ -514,134 +505,3 @@ function RowActionsCell<TData>({ row, actions }: RowActionsCellProps<TData>) {
     </div>
   );
 }
-
-// ─── Stylex styles ───────────────────────────────────────────────────────────
-
-const styles = stylex.create({
-  tableContainer: {
-    overflowX: "auto",
-    overflowY: "auto",
-    borderRadius: 8,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: theme.border,
-    position: "relative",
-  },
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-    tableLayout: "auto",
-  },
-  theadStatic: {},
-  theadSticky: {
-    position: "sticky",
-    top: 0,
-    zIndex: 1,
-  },
-  theadStickyScrolled: {
-    position: "sticky",
-    top: 0,
-    zIndex: 1,
-    boxShadow: theme.shadowSm,
-  },
-  headRow: {
-    backgroundColor: theme.backgroundSubtle,
-  },
-  th: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 12,
-    paddingRight: 12,
-    fontSize: "12px",
-    fontWeight: fontWeight.semibold,
-    color: theme.contentSecondary,
-    textAlign: "left",
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
-    borderBottomWidth: 1,
-    borderBottomStyle: "solid",
-    borderBottomColor: theme.border,
-    whiteSpace: "nowrap",
-    userSelect: "none",
-  },
-  thSm: {
-    fontSize: "11px",
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 8,
-    paddingRight: 8,
-  },
-  thLg: {
-    fontSize: "13px",
-    paddingTop: 14,
-    paddingBottom: 14,
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
-  thSortable: {
-    cursor: "pointer",
-  },
-  thContent: {
-    display: "flex",
-    alignItems: "center",
-    gap: 4,
-  },
-  emptyTd: {
-    padding: 0,
-    borderBottomWidth: 1,
-    borderBottomStyle: "solid",
-    borderBottomColor: theme.border,
-  },
-  tr: {
-    transition: "background-color 0.15s ease",
-  },
-  trSm: { height: 36 },
-  trLg: { height: 60 },
-  trSelected: {
-    backgroundColor: theme.backgroundSubtle,
-  },
-  td: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 12,
-    paddingRight: 12,
-    fontSize: fontSize.small,
-    color: theme.contentPrimary,
-    borderBottomWidth: 1,
-    borderBottomStyle: "solid",
-    borderBottomColor: theme.borderSubtle,
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-  },
-  tdSm: {
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 8,
-    paddingRight: 8,
-  },
-  tdLg: {
-    paddingTop: 14,
-    paddingBottom: 14,
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
-  fetchingBar: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: spacing.small,
-    gap: spacing.small,
-  },
-  fetchingText: {
-    color: theme.contentSecondary,
-    fontSize: "13px",
-  },
-  checkbox: {
-    cursor: "pointer",
-  },
-  actionsCell: {
-    display: "flex",
-    gap: 4,
-  },
-});

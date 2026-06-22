@@ -1,8 +1,8 @@
-import type { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { themeContract } from "@blenx-dev/ui/theme/contract.css";
 import { create } from "zustand";
 import { createContext } from "zustand-utils";
 
-type ThemeKeys = keyof (typeof theme)["__tokens"];
+type ThemeKeys = keyof typeof themeContract;
 export type ThemeTokens = Record<ThemeKeys, string>;
 
 export const defaultTokens: ThemeTokens = {

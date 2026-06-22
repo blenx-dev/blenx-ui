@@ -1,46 +1,15 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import * as stylex from "@stylexjs/stylex";
 import { Box, CopyButton, Text, VStack } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { fontSize, fontWeight, spacing } from "@blenx-dev/ui/theme/tokens.stylex";
 import type { TocItem } from "@/utils/extractHeadings";
 import { HStack } from "@blenx-dev/ui";
 import { useRouterState } from "@tanstack/react-router";
+import { tocRoot, tocTitle } from "@/lib/styles.css";
 
 interface DocsTocProps {
   items: TocItem[];
 }
-
-const tocStyles = stylex.create({
-  root: {
-    display: "none",
-    width: "220px",
-    flexShrink: 0,
-    position: "sticky",
-    top: spacing.large,
-    alignSelf: "start",
-    maxHeight: "90svh",
-    overflowY: "auto",
-    "@media (min-width: 1024px)": {
-      display: "block",
-    },
-  },
-  title: {
-    fontSize: fontSize.xsmall,
-    fontWeight: fontWeight.semibold,
-    letterSpacing: "0.05em",
-    textTransform: "uppercase",
-    color: theme.contentSecondary,
-    marginBottom: spacing.medium,
-  },
-  list: {
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-  },
-});
 
 function useActiveHeading(): string {
   const activeId = useRouterState({
@@ -92,8 +61,8 @@ export function DocsToc({ items }: DocsTocProps) {
   if (items.length === 0) return null;
 
   return (
-    <Box {...stylex.props(tocStyles.root)} render={<aside />} aria-label="On this page">
-      <Text variant="caption" style={tocStyles.title}>
+    <Box className={tocRoot} render={<aside />} aria-label="On this page">
+      <Text variant="caption" className={tocTitle}>
         On this page
       </Text>
       <Box render={<nav />} aria-label="Table of contents">

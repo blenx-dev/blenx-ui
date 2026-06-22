@@ -11,11 +11,9 @@ import { DocAccessibility } from "./mdx-components/doc-accessibility";
 import { DocDemoRenderer } from "./mdx-components/doc-demo-renderer";
 import { DocSourceCode } from "./mdx-components/doc-source-code";
 import { Installation } from "./mdx-components/Installation";
-import * as stylex from "@stylexjs/stylex";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import { Spinner, Text } from "@blenx-dev/ui/components";
 import { type TextProps } from "@blenx-dev/ui/components";
+import { tableHeaderRow, tableHeaderCell, tableCell } from "@/lib/styles.css";
 
 function InlineCode(props: TextProps) {
   return <Text variant="code" backgroundColor="disabled" px="xs" py="xxs" {...props} />;
@@ -39,39 +37,16 @@ function Pre({ children, ...props }: ComponentProps<"pre">) {
   return <CodeBlock code={code} language={language} />;
 }
 
-const tableHeadStyles = stylex.create({
-  headerRow: {
-    backgroundColor: theme.surfaceSubtle,
-  },
-  headerCell: {
-    padding: "10px 16px",
-    fontWeight: 600,
-    fontSize: fontSize.small,
-    textAlign: "left",
-    whiteSpace: "nowrap",
-    color: theme.contentPrimary,
-    borderBottom: `1px solid ${theme.border}`,
-  },
-  cell: {
-    padding: "10px 16px",
-    fontSize: fontSize.small,
-    borderBottom: `1px solid ${theme.borderSubtle}`,
-    color: theme.contentSecondary,
-    verticalAlign: "top",
-    lineHeight: 1.6,
-  },
-});
-
 function Th(props: ComponentProps<"th">) {
-  return <th {...stylex.props(tableHeadStyles.headerCell)} {...props} />;
+  return <th className={tableHeaderCell} {...props} />;
 }
 
 function Td(props: ComponentProps<"td">) {
-  return <td {...stylex.props(tableHeadStyles.cell)} {...props} />;
+  return <td className={tableCell} {...props} />;
 }
 
 function Thead(props: ComponentProps<"thead">) {
-  return <thead {...stylex.props(tableHeadStyles.headerRow)} {...props} />;
+  return <thead className={tableHeaderRow} {...props} />;
 }
 
 function Tr(props: ComponentProps<"tr">) {

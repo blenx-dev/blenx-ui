@@ -1,13 +1,7 @@
-import * as stylex from "@stylexjs/stylex";
 import { Link, useLocation, useMatches } from "@tanstack/react-router";
 import { Box, Surface, Text, VStack } from "@blenx-dev/ui/components";
 import type { SidebarSection } from "@/views/docs/docs-utils";
-
-const styles = stylex.create({
-  link: {
-    textDecoration: "none",
-  },
-});
+import { sidebarLink } from "@/lib/styles.css";
 
 const isLinkActive = (link: string, pathname: string) =>
   link === "/docs"
@@ -38,7 +32,7 @@ function DocsSidebar({ onClose }: { onClose?: () => void }) {
                     paddingY="xs"
                     paddingX="sm"
                     key={link.to}
-                    render={<Link {...stylex.props(styles.link)} to={link.to} onClick={onClose} />}
+                    render={<Link className={sidebarLink} to={link.to} onClick={onClose} />}
                   >
                     <Text variant="body2" color={isActive ? "primary" : "secondary"}>
                       {link.label}

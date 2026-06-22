@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import {
   Alert,
   Box,
@@ -17,13 +17,14 @@ import {
 
 const DIGIT_COUNT = 6;
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   email?: string;
   onVerify?: (code: string) => void;
   onResend?: () => void;
   resendCooldown?: number;
-}>;
+  style?: CSSProperties;
+};
 
 // eslint-disable-next-line max-statements
 export function VerifyEmail01({

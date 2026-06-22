@@ -6,7 +6,7 @@ import { Input } from "@blenx-dev/ui/components/Input/input";
 import { Textarea } from "@blenx-dev/ui/components/Textarea/textarea";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import {
   Box,
   Container,
@@ -32,13 +32,14 @@ type FormValues = {
   message: string;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   description?: string;
   contactInfo?: ContactInfo;
   onSubmit?: (values: FormValues) => void;
   subjects?: { value: string; label: string }[];
-}>;
+  style?: CSSProperties;
+};
 
 const defaultSubjects = [
   { value: "general", label: "General inquiry" },

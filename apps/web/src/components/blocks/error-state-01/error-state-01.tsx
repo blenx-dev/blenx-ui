@@ -5,7 +5,7 @@ import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { VStack, HStack } from "@blenx-dev/ui/components/Stack/stack";
 import { Surface } from "@blenx-dev/ui/components/Surface/surface";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Icon } from "@blenx-dev/ui/components";
 
 type Action = {
@@ -13,14 +13,15 @@ type Action = {
   handleClick: () => void;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   icon?: React.ReactNode;
   title: string;
   message?: string;
   error?: Error | string;
   onRetry?: () => void;
   secondaryAction?: Action;
-}>;
+  style?: CSSProperties;
+};
 
 export function ErrorState01({ icon, title, message, error, onRetry, secondaryAction }: Props) {
   const [showDetails, setShowDetails] = useState(false);

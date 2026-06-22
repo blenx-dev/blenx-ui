@@ -1,28 +1,8 @@
 import { useMemo, useRef, useState } from "react";
-import * as stylex from "@stylexjs/stylex";
-import { Box, Separator, Text } from "@blenx-dev/ui/components";
+import { Separator, Text } from "@blenx-dev/ui/components";
 import { slugify, extractTextFromChildren } from "@/lib/slug";
 import type React from "react";
-
-const styles = stylex.create({
-  anchor: {
-    opacity: {
-      default: 0,
-      ":hover": 1,
-      [stylex.when.ancestor(":hover")]: 0.7,
-    },
-    marginLeft: 8,
-    fontSize: "0.7em",
-    fontWeight: 400,
-    verticalAlign: "middle",
-    color: {
-      default: "color-mix(in srgb, var(--docs-heading-anchor) 65%, transparent)",
-      ":hover": "var(--docs-heading-anchor-hover)",
-    },
-    textDecoration: "none",
-    userSelect: "none",
-  },
-});
+import { headingAnchor } from "@/lib/styles.css";
 
 interface DocsHeadingProps {
   children: React.ReactNode;
@@ -57,12 +37,12 @@ function DocsHeading({
   };
 
   return (
-    <Box position="relative" id={headingId} {...stylex.props(stylex.defaultMarker())}>
+    <div style={{ position: "relative" }} id={headingId}>
       <Text variant={as}>
         {children}
         {headingId && as !== "h1" && (
           <a
-            {...stylex.props(styles.anchor)}
+            className={headingAnchor}
             href={`#${headingId}`}
             onClick={handleAnchorClick}
             aria-label={copied ? "Copied link" : `Link to ${headingId}`}
@@ -73,7 +53,7 @@ function DocsHeading({
         )}
       </Text>
       {as === "h2" && <Separator tone="subtle" />}
-    </Box>
+    </div>
   );
 }
 

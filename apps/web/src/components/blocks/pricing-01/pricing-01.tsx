@@ -6,9 +6,9 @@ import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody, CardHeader } from "@blenx-dev/ui/components/Card/card";
 import { Badge } from "@blenx-dev/ui/components/Badge/badge";
 import { Switch } from "@blenx-dev/ui/components/Switch/switch";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
 import { CheckIcon } from "@phosphor-icons/react";
 import { Container, HStack, Icon, VStack } from "@blenx-dev/ui/components";
+import type { CSSProperties } from "react";
 
 type Plan = {
   name: string;
@@ -20,12 +20,13 @@ type Plan = {
   cta: { label: string; handleClick: () => void };
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   description?: string;
   plans?: Plan[];
   onSelectPlan?: (plan: Plan, billing: "monthly" | "yearly") => void;
-}>;
+  style?: CSSProperties;
+};
 
 const defaultPlans: Plan[] = [
   {

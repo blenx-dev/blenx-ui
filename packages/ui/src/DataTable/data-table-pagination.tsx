@@ -1,18 +1,12 @@
 import { Button } from "#components";
-import { theme } from "#theme/contract.stylex";
-import { fontSize, spacing } from "#theme/tokens.stylex";
 import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
-import * as stylex from "@stylexjs/stylex";
 import type { Table } from "@tanstack/react-table";
+import * as styles from "./data-table.css";
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
 }
 
-/**
- * Pagination controls for the DataTable.
- * Provides page navigation, page info, and smart page number display with ellipsis.
- */
 export function DataTablePagination<TData>({ table }: DataTablePaginationProps<TData>) {
   const { pageIndex } = table.getState().pagination;
   const pageCount = table.getPageCount();
@@ -24,13 +18,13 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
   const canNextPage = table.getCanNextPage();
 
   return (
-    <nav aria-label="Pagination" {...stylex.props(styles.nav)}>
-      <span {...stylex.props(styles.info)}>{totalRows} results</span>
-      <div {...stylex.props(styles.controls)}>
-        <span {...stylex.props(styles.range)}>
+    <nav aria-label="Pagination" className={styles.nav}>
+      <span className={styles.info}>{totalRows} results</span>
+      <div className={styles.controls}>
+        <span className={styles.range}>
           {startRow}-{endRow} of {totalRows}
         </span>
-        <div {...stylex.props(styles.buttonGroup)}>
+        <div className={styles.buttonGroup}>
           <Button
             variant="outline"
             size="small"
@@ -53,8 +47,8 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
               const isActive = pageIdx === pageIndex;
               const showGap = idx > 0 && page - filtered[idx - 1]! > 1;
               return (
-                <div key={`page-${page.toString()}`} {...stylex.props(styles.pageWrap)}>
-                  {showGap && <span {...stylex.props(styles.ellipsis)}>...</span>}
+                <div key={`page-${page.toString()}`} className={styles.pageWrap}>
+                  {showGap && <span className={styles.ellipsis}>...</span>}
                   <Button
                     variant={isActive ? "solid" : "ghost"}
                     intent={isActive ? "primary" : undefined}
@@ -63,7 +57,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
                     onClick={() => table.setPageIndex(pageIdx)}
                     aria-label={`Page ${page.toString()}`}
                     aria-current={isActive ? "page" : undefined}
-                    {...stylex.props(styles.pageButton)}
+                    className={styles.pageButton}
                   >
                     {page.toString()}
                   </Button>
@@ -84,47 +78,3 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
     </nav>
   );
 }
-
-const styles = stylex.create({
-  nav: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: spacing.small,
-    paddingBottom: spacing.small,
-  },
-  info: {
-    color: theme.contentSecondary,
-    fontSize: fontSize.small,
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    gap: spacing.small,
-  },
-  range: {
-    color: theme.contentSecondary,
-    fontSize: fontSize.small,
-    whiteSpace: "nowrap",
-  },
-  buttonGroup: {
-    display: "flex",
-    alignItems: "center",
-    gap: spacing.xsmall,
-  },
-  pageWrap: {
-    display: "flex",
-    alignItems: "center",
-    gap: 2,
-  },
-  ellipsis: {
-    color: theme.contentDisabled,
-    fontSize: fontSize.small,
-    paddingLeft: spacing.xsmall,
-    paddingRight: spacing.xsmall,
-  },
-  pageButton: {
-    minWidth: 32,
-    height: 32,
-  },
-});

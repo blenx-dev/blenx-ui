@@ -1,12 +1,9 @@
-import * as stylex from "@stylexjs/stylex";
-import { fontSize, theme } from "#theme/theme.stylex";
 import { Spinner } from "#components";
 import type { TableSize } from "./types";
+import * as styles from "./data-table.css";
 
 interface DataTableLoadingProps {
-  /** Number of skeleton rows to render */
   rowCount?: number;
-  /** Number of columns */
   columnCount?: number;
   size?: TableSize;
 }
@@ -17,10 +14,6 @@ const ROW_HEIGHTS: Record<TableSize, number> = {
   lg: 60,
 };
 
-/**
- * Skeleton loading state for the DataTable.
- * Renders a placeholder table with pulsing skeleton rows.
- */
 export function DataTableLoading({
   rowCount = 5,
   columnCount = 4,
@@ -29,13 +22,16 @@ export function DataTableLoading({
   const rowHeight = ROW_HEIGHTS[size];
 
   return (
-    <output {...stylex.props(styles.wrapper)} aria-label="Loading table data">
-      <table {...stylex.props(styles.table)}>
+    <output className={styles.loadingWrapper} aria-label="Loading table data">
+      <table className={styles.loadingTable}>
         <thead>
           <tr>
             {Array.from({ length: columnCount }).map((_, i) => (
-              <th key={`skeleton-header-${i.toString()}`} {...stylex.props(styles.headerCell)}>
-                <div {...stylex.props(styles.skeletonBar(14, `${60 + ((i * 10) % 40)}px`))} />
+              <th key={`skeleton-header-${i.toString()}`} className={styles.headerCell}>
+                <div
+                  className={styles.skeletonBar}
+                  style={{ height: 14, width: `${60 + ((i * 10) % 40)}px` }}
+                />
               </th>
             ))}
           </tr>
@@ -46,12 +42,15 @@ export function DataTableLoading({
               {Array.from({ length: columnCount }).map((_, colIdx) => (
                 <td
                   key={`skeleton-cell-${rowIdx.toString()}-${colIdx.toString()}`}
-                  {...stylex.props(styles.cell(rowHeight))}
+                  className={styles.cell}
+                  style={{ height: rowHeight }}
                 >
                   <div
-                    {...stylex.props(
-                      styles.skeletonBar(12, `${80 + ((rowIdx * 7 + colIdx * 13) % 20)}%`),
-                    )}
+                    className={styles.skeletonBar}
+                    style={{
+                      height: 12,
+                      width: `${80 + ((rowIdx * 7 + colIdx * 13) % 20)}%`,
+                    }}
                   />
                 </td>
               ))}
@@ -59,65 +58,10 @@ export function DataTableLoading({
           ))}
         </tbody>
       </table>
-      <div {...stylex.props(styles.loadingFooter)}>
+      <div className={styles.loadingFooter}>
         <Spinner />
-        <span {...stylex.props(styles.loadingText)}>Loading data...</span>
+        <span className={styles.loadingText}>Loading data...</span>
       </div>
     </output>
   );
 }
-
-const pulseKeyframes = stylex.keyframes({
-  "0%, 100%": { opacity: 0.4 },
-  "50%": { opacity: 0.8 },
-});
-
-const styles = stylex.create({
-  wrapper: {
-    width: "100%",
-  },
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-  },
-  headerCell: {
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    borderBottomColor: theme.border,
-    borderBottomStyle: "solid",
-    borderBottomWidth: 1,
-  },
-  skeletonBar: (height: number, width: string) => ({
-    height,
-    width,
-    borderRadius: 4,
-    backgroundColor: theme.surfaceRaised,
-    animationName: pulseKeyframes,
-    animationDuration: "1.5s",
-    animationTimingFunction: "ease-in-out",
-    animationIterationCount: "infinite",
-  }),
-  cell: (height: number) => ({
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    borderBottomColor: theme.borderSubtle,
-    borderBottomStyle: "solid",
-    borderBottomWidth: 1,
-    height,
-  }),
-  loadingFooter: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-    gap: 8,
-  },
-  loadingText: {
-    color: theme.contentSecondary,
-    fontSize: fontSize.small,
-  },
-});

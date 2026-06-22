@@ -12,7 +12,6 @@ import {
   Text,
   VStack,
 } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 import { useThemeBuilder } from "../theme-builder-context";
 
 export function ExportPanel() {
@@ -27,7 +26,7 @@ export function ExportPanel() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "blenx-theme.json";
+    a.download = "blenx-themeContract.json";
     a.click();
     URL.revokeObjectURL(url);
   }, [tokens]);

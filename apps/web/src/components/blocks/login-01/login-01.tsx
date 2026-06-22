@@ -7,7 +7,7 @@ import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Checkbox } from "@blenx-dev/ui/components/Checkbox/checkbox";
 import { Separator } from "@blenx-dev/ui/components/Separator/separator";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Container, Field, FieldLabel, HStack, VStack } from "@blenx-dev/ui/components";
 
 type SocialProvider = {
@@ -26,13 +26,14 @@ type FormValues = {
   rememberMe: boolean;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   description?: string;
   onSubmit?: (values: FormValues) => void;
   socialProviders?: SocialProvider[];
   links?: Links;
-}>;
+  style?: CSSProperties;
+};
 
 export function Login01({
   title = "Welcome back",

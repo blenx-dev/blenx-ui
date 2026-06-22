@@ -1,20 +1,5 @@
-import * as stylex from "@stylexjs/stylex";
 import type React from "react";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-
-const styles = stylex.create({
-  link: {
-    color: theme.primary,
-    textDecoration: "underline",
-    textUnderlineOffset: 2,
-    textDecorationColor: {
-      default: "transparent",
-      [":hover"]: theme.primary,
-    },
-    transition: "text-decoration-color 200ms ease",
-    cursor: "pointer",
-  },
-});
+import { docsLink } from "@/lib/styles.css";
 
 interface DocsLinkProps {
   href?: string;
@@ -26,7 +11,7 @@ function DocsLink({ href, children, ...props }: DocsLinkProps) {
 
   return (
     <a
-      {...stylex.props(styles.link)}
+      className={docsLink}
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}

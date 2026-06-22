@@ -1,25 +1,23 @@
 import { ListIcon, MoonIcon, SunIcon, XIcon } from "@phosphor-icons/react";
-import * as stylex from "@stylexjs/stylex";
 import { ClientOnly, Link, useLocation } from "@tanstack/react-router";
 import { useMediaQuery, useLocalStorage } from "@uidotdev/usehooks";
 import { GITHUB_URL } from "@/constants";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { fontSize, letterSpacing } from "@blenx-dev/ui/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
 import { Button, Container, HStack, IconButton, Separator } from "@blenx-dev/ui/components";
 import { darkTheme, lightTheme } from "@/lib/app-theme.css";
 import { useEffect } from "react";
+import { logoStyles } from "@/lib/styles.css";
 
-const styles = stylex.create({
-  logo: {
-    textDecoration: "none",
-    color: theme.contentPrimary,
-    fontWeight: 700,
-    fontSize: fontSize.large,
-    letterSpacing: letterSpacing.tight,
-    lineHeight: 1,
-  },
-});
+// const styles = stylex.create({
+//   logo: {
+//     textDecoration: "none",
+//     color: theme.contentPrimary,
+//     fontWeight: 700,
+//     fontSize: fontSize.large,
+//     letterSpacing: letterSpacing.tight,
+//     lineHeight: 1,
+//   },
+// });
 function DocsRouteOption() {
   const { pathname } = useLocation();
   const isDocsActive = pathname.startsWith("/docs");
@@ -137,11 +135,11 @@ function Header() {
   const isBlocksActive = pathname.startsWith("/blocks");
   return (
     <>
-      <Container size="2xl" py="small" px="xxsmall">
+      <Container size="2xl" py="xs" px="md">
         <HStack align="center" justify="between" py="xsmall">
           <HStack align="center" justify="between" gap="xxsmall" paddingLeft="none">
             <ClientOnly>{isDocsActive && <DocsRouteSidebarOption />}</ClientOnly>
-            <Link to="/" {...stylex.props(styles.logo)}>
+            <Link to="/" className={logoStyles}>
               <BrandLogo size={30} />
             </Link>
           </HStack>
