@@ -1,29 +1,13 @@
-import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import { Text } from "@blenx-dev/ui/components";
-
-const listStyles = stylex.create({
-  ul: {
-    paddingLeft: 24,
-    marginBlock: 0,
-    listStyle: "disc",
-  },
-  ol: {
-    paddingLeft: 24,
-    marginBlock: 0,
-    listStyle: "decimal",
-  },
-  li: {
-    marginBottom: 4,
-  },
-});
+import { docsUl, docsOl, docsLi } from "@/lib/styles.css";
 
 interface DocsUlProps {
   children: React.ReactNode;
 }
 
 function DocsUl({ children }: DocsUlProps) {
-  return <ul {...stylex.props(listStyles.ul)}>{children}</ul>;
+  return <ul className={docsUl}>{children}</ul>;
 }
 
 interface DocsOlProps {
@@ -31,7 +15,7 @@ interface DocsOlProps {
 }
 
 function DocsOl({ children }: DocsOlProps) {
-  return <ol {...stylex.props(listStyles.ol)}>{children}</ol>;
+  return <ol className={docsOl}>{children}</ol>;
 }
 
 interface DocsLiProps {
@@ -40,7 +24,7 @@ interface DocsLiProps {
 
 function DocsLi({ children }: DocsLiProps) {
   return (
-    <li {...stylex.props(listStyles.li)}>
+    <li className={docsLi}>
       <Text variant="body1" span>
         {children}
       </Text>

@@ -1,8 +1,7 @@
-import * as stylex from "@stylexjs/stylex";
 import { Button, Spinner } from "#components";
-import { fontSize, spacing, theme } from "#theme/theme.stylex";
 import type { InfiniteScrollConfig } from "./types";
 import { useInfiniteScroll } from "./use-infinite-scroll";
+import * as styles from "./data-table.css";
 
 interface DataTableInfiniteLoaderProps {
   fetchNextPage: () => void;
@@ -12,14 +11,6 @@ interface DataTableInfiniteLoaderProps {
   config?: InfiniteScrollConfig;
 }
 
-/**
- * Infinite scroll loader for the DataTable.
- *
- * Auto mode: Uses IntersectionObserver to trigger fetchNextPage when the
- * sentinel element becomes visible.
- *
- * Manual mode: Renders a "Load more" button.
- */
 export function DataTableInfiniteLoader({
   fetchNextPage,
   hasNextPage,
@@ -31,7 +22,6 @@ export function DataTableInfiniteLoader({
   const loadingText = config?.loadingText ?? "Loading...";
   const noMoreText = config?.noMoreText ?? "No more results";
 
-  // Auto mode: use IntersectionObserver on sentinel
   const { sentinelRef } = useInfiniteScroll({
     hasNextPage,
     isFetchingNextPage: isFetchingNextPage || Boolean(isFetching),
@@ -46,32 +36,29 @@ export function DataTableInfiniteLoader({
       <div
         ref={sentinelRef}
         aria-label={isFetchingNextPage ? loadingText : noMoreText}
-        {...stylex.props(styles.sentinel)}
+        className={styles.sentinel}
       >
         {isFetchingNextPage && (
-          <div {...stylex.props(styles.loadingInline)}>
+          <div className={styles.loadingInline}>
             <Spinner />
-            <span {...stylex.props(styles.loadingText)}>{loadingText}</span>
+            <span className={styles.loaderLoadingText}>{loadingText}</span>
           </div>
         )}
-        {!hasNextPage && !isFetchingNextPage && (
-          <span {...stylex.props(styles.noMore)}>{noMoreText}</span>
-        )}
+        {!hasNextPage && !isFetchingNextPage && <span className={styles.noMore}>{noMoreText}</span>}
       </div>
     );
   }
 
-  // Manual mode
   if (!hasNextPage) {
     return (
-      <div {...stylex.props(styles.center)}>
-        <span {...stylex.props(styles.noMore)}>{noMoreText}</span>
+      <div className={styles.center}>
+        <span className={styles.noMore}>{noMoreText}</span>
       </div>
     );
   }
 
   return (
-    <div {...stylex.props(styles.center)}>
+    <div className={styles.center}>
       <Button
         variant="outline"
         onClick={fetchNextPage}
@@ -84,32 +71,3 @@ export function DataTableInfiniteLoader({
     </div>
   );
 }
-
-const styles = stylex.create({
-  sentinel: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: spacing.medium,
-    minHeight: 48,
-  },
-  loadingInline: {
-    display: "flex",
-    alignItems: "center",
-    gap: spacing.small,
-  },
-  loadingText: {
-    color: theme.contentSecondary,
-    fontSize: fontSize.small,
-  },
-  noMore: {
-    color: theme.contentDisabled,
-    fontSize: fontSize.small,
-  },
-  center: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: spacing.medium,
-  },
-});

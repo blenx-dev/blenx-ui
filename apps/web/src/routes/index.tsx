@@ -1,7 +1,6 @@
-import * as stylex from "@stylexjs/stylex";
 import { createFileRoute } from "@tanstack/react-router";
-import { fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import type { Column } from "@blenx-dev/ui/components/Table/table";
+import { sectionTitle, centeredBox } from "@/lib/styles.css";
 import {
   Box,
   Container,
@@ -79,23 +78,6 @@ const metrics = [
 ];
 
 /* ---------------------------------------------------------------------------
- * Styles
- * ------------------------------------------------------------------------- */
-
-const styles = stylex.create({
-  sectionTitle: {
-    fontSize: fontSize.display,
-    lineHeight: 1.2,
-    fontWeight: 700,
-    letterSpacing: "-0.03em",
-  },
-  centeredBox: {
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-});
-
-/* ---------------------------------------------------------------------------
  * Route
  * ------------------------------------------------------------------------- */
 
@@ -130,10 +112,10 @@ function HomeComponent() {
         {/* ─── Comparison ────────────────────────────────────────────── */}
         <VStack gap="large">
           <VStack gap="small" align="center">
-            <Text variant="h2" align="center" style={styles.sectionTitle}>
+            <Text variant="h2" align="center" className={sectionTitle}>
               How we compare
             </Text>
-            <Box maxWidth={560} style={styles.centeredBox}>
+            <Box maxWidth={560} className={centeredBox}>
               <Text variant="body2" color="secondary" align="center" size="large">
                 See how Blenx compares to traditional UI libraries.
               </Text>

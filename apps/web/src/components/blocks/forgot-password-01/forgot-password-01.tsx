@@ -5,14 +5,15 @@ import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Input } from "@blenx-dev/ui/components/Input/input";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Box, Container, Field, FieldLabel, HStack, VStack } from "@blenx-dev/ui/components";
 
-type Props = PropsWithStylex<{
+type Props = {
   title?: string;
   onSubmit?: (email: string) => void;
   backToLoginLink?: { label: string; handleClick: () => void };
-}>;
+  style?: CSSProperties;
+};
 
 export function ForgotPassword01({
   title = "Forgot your password?",

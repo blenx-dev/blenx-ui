@@ -7,7 +7,7 @@ import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody, CardHeader, CardTitle } from "@blenx-dev/ui/components/Card/card";
 import { Switch } from "@blenx-dev/ui/components/Switch/switch";
 import { HStack, VStack } from "@blenx-dev/ui/components/Stack/stack";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Box, Container, Field, FieldLabel } from "@blenx-dev/ui/components";
 
 type NotificationSetting = {
@@ -23,13 +23,14 @@ type UserData = {
   bio: string;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   user?: UserData;
   notifications?: NotificationSetting[];
   onUpdateProfile?: (data: UserData) => void;
   onUpdateNotifications?: (settings: NotificationSetting[]) => void;
   onDeleteAccount?: () => void;
-}>;
+  style?: CSSProperties;
+};
 
 const defaultUser: UserData = {
   name: "Jane Doe",

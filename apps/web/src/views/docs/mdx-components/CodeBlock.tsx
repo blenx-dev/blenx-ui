@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
 import { Box, CopyButton, HStack, Surface, Text } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
-import * as stylex from "@stylexjs/stylex";
+import { codeScroll } from "@/lib/styles.css";
 
 interface CodeBlockProps {
   code: string;
@@ -18,29 +16,6 @@ function escapeHtml(code: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")}</code></pre>`;
 }
-
-const styles = stylex.create({
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "8px 16px",
-    backgroundColor: theme.surface,
-    borderBottom: `1px solid ${theme.borderSubtle}`,
-    borderRadius: `${borderRadius.medium} ${borderRadius.medium} 0 0`,
-    fontSize: fontSize.xsmall,
-    color: theme.contentSecondary,
-  },
-  scroll: {
-    overflowX: "auto",
-    WebkitOverflowScrolling: "touch",
-  },
-  copyButton: {
-    position: "absolute",
-    top: 8,
-    right: 8,
-  },
-});
 
 function CodeBlock({
   code,
@@ -85,7 +60,7 @@ function CodeBlock({
         <CopyButton p="none" onClick={handleCopy} />
       </Box>
       <Box
-        style={styles.scroll}
+        className={codeScroll}
         render={<div />}
         dangerouslySetInnerHTML={{
           __html: highlighted ?? escapeHtml(code),

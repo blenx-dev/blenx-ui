@@ -7,7 +7,6 @@ import {
   TrashSimpleIcon,
   UsersIcon,
 } from "@phosphor-icons/react";
-import * as stylex from "@stylexjs/stylex";
 import {
   Avatar,
   AvatarFallback,
@@ -23,85 +22,19 @@ import {
   Text,
   VStack,
 } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { fontSize, spacing } from "@blenx-dev/ui/theme/tokens.stylex";
-
-const styles = stylex.create({
-  kpiGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: spacing["3"],
-    marginBottom: spacing["6"],
-  },
-  kpiValue: {
-    fontSize: fontSize.xlarge,
-    fontWeight: 700,
-    color: theme.contentPrimary,
-  },
-  kpiLabel: {
-    fontSize: fontSize.xsmall,
-    color: theme.contentSecondary,
-    marginTop: spacing["1"],
-  },
-  trendUp: {
-    color: theme.sentimentPositive,
-    fontSize: fontSize.xsmall,
-    display: "flex",
-    alignItems: "center",
-    gap: spacing["1"],
-    marginTop: spacing["1"],
-  },
-  trendDown: {
-    color: theme.sentimentNegative,
-    fontSize: fontSize.xsmall,
-    display: "flex",
-    alignItems: "center",
-    gap: spacing["1"],
-    marginTop: spacing["1"],
-  },
-
-  dashboardGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: spacing["3"],
-    marginTop: spacing["6"],
-  },
-  profileSection: {
-    marginTop: spacing["6"],
-  },
-  profileContent: {
-    display: "flex",
-    alignItems: "center",
-    gap: spacing["3"],
-  },
-  profileInfo: {
-    display: "flex",
-    flexDirection: "column",
-    gap: spacing["1"],
-  },
-  profileName: {
-    fontSize: fontSize.medium,
-    fontWeight: 600,
-    color: theme.contentPrimary,
-  },
-  profileEmail: {
-    fontSize: fontSize.small,
-    color: theme.contentSecondary,
-  },
-  profileActions: {
-    display: "flex",
-    gap: spacing["2"],
-    marginTop: spacing["3"],
-  },
-  chartPlaceholder: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: 200,
-    color: theme.contentDisabled,
-    fontSize: fontSize.small,
-  },
-});
+import {
+  kpiGrid,
+  kpiValue,
+  trendUp as trendUpClass,
+  trendDown as trendDownClass,
+  dashboardGrid,
+  profileContent,
+  profileInfo,
+  profileName,
+  profileEmail,
+  profileActions,
+  chartPlaceholder,
+} from "@/lib/styles.css";
 
 const kpis = [
   {
@@ -172,14 +105,14 @@ const activities = [
 export const ExampleDashboard = memo(() => (
   <VStack gap="none">
     {/* KPI Cards */}
-    <div {...stylex.props(styles.kpiGrid)}>
+    <div className={kpiGrid}>
       {kpis.map((kpi) => (
         <Card key={kpi.label} padding="medium">
           <Text variant="caption" color="secondary">
             {kpi.label}
           </Text>
-          <div {...stylex.props(styles.kpiValue)}>{kpi.value}</div>
-          <div {...stylex.props(kpi.up ? styles.trendUp : styles.trendDown)}>
+          <div className={kpiValue}>{kpi.value}</div>
+          <div className={kpi.up ? trendUpClass : trendDownClass}>
             {kpi.up ? <ArrowUpRightIcon size={14} /> : <ArrowDownRightIcon size={14} />}
             <span>{kpi.trend}</span>
           </div>
@@ -226,26 +159,26 @@ export const ExampleDashboard = memo(() => (
     </Card>
 
     {/* User Profile Card + Charts */}
-    <div {...stylex.props(styles.dashboardGrid)}>
+    <div className={dashboardGrid}>
       {/* Profile */}
       <Card padding="medium">
         <CardHeader>
           <CardTitle>User Profile</CardTitle>
         </CardHeader>
         <CardBody>
-          <div {...stylex.props(styles.profileContent)}>
+          <div className={profileContent}>
             <Avatar size="large">
               <AvatarFallback>AK</AvatarFallback>
             </Avatar>
-            <div {...stylex.props(styles.profileInfo)}>
-              <div {...stylex.props(styles.profileName)}>Alex Kumar</div>
-              <div {...stylex.props(styles.profileEmail)}>alex@example.com</div>
+            <div className={profileInfo}>
+              <div className={profileName}>Alex Kumar</div>
+              <div className={profileEmail}>alex@example.com</div>
               <Badge variant="primary" radius="full">
                 Admin
               </Badge>
             </div>
           </div>
-          <div {...stylex.props(styles.profileActions)}>
+          <div className={profileActions}>
             <Button variant="outline" size="small">
               <PencilSimpleLineIcon size={14} />
               Edit
@@ -261,7 +194,7 @@ export const ExampleDashboard = memo(() => (
       {/* Charts */}
       <Surface variant="outline">
         <CardBody>
-          <div {...stylex.props(styles.chartPlaceholder)}>
+          <div className={chartPlaceholder}>
             <VStack gap="small" align="center">
               <ChartBarIcon size={32} />
               <Text variant="body2" color="disabled">
@@ -273,10 +206,10 @@ export const ExampleDashboard = memo(() => (
       </Surface>
     </div>
 
-    <div {...stylex.props(styles.dashboardGrid)} style={{ marginTop: 0 }}>
+    <div className={dashboardGrid} style={{ marginTop: 0 }}>
       <Surface variant="outline">
         <CardBody>
-          <div {...stylex.props(styles.chartPlaceholder)}>
+          <div className={chartPlaceholder}>
             <VStack gap="small" align="center">
               <UsersIcon size={32} />
               <Text variant="body2" color="disabled">
@@ -289,7 +222,7 @@ export const ExampleDashboard = memo(() => (
 
       <Surface variant="outline">
         <CardBody>
-          <div {...stylex.props(styles.chartPlaceholder)}>
+          <div className={chartPlaceholder}>
             <VStack gap="small" align="center">
               <ChartBarIcon size={32} />
               <Text variant="body2" color="disabled">

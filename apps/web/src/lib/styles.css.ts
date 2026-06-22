@@ -1,0 +1,480 @@
+import { keyframes, style } from "@vanilla-extract/css";
+import { themeContract } from "@blenx-dev/ui/theme/contract.css";
+import {
+  borderRadius,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  mediaQueries,
+  spacing,
+} from "@blenx-dev/ui/theme/tokens.css";
+
+/* ── Keyframes ── */
+
+export const shimmerKeyframes = keyframes({
+  "0%": { transform: "translateX(-100%)" },
+  "100%": { transform: "translateX(100%)" },
+});
+
+/* ── Hero01 ── */
+
+export const heroInner = style({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  gap: spacing.xxxlarge,
+  width: "100%",
+  maxWidth: 1200,
+  marginLeft: "auto",
+  marginRight: "auto",
+  "@media": {
+    [mediaQueries.sm]: {
+      flexDirection: "column",
+      gap: spacing.xlarge,
+    },
+  },
+});
+
+export const heroImage = style({
+  width: "100%",
+  maxWidth: 540,
+  height: "auto",
+  borderRadius: themeContract.borderRadius,
+  objectFit: "cover",
+});
+
+/* ── Loading Skeleton ── */
+
+export const skeletonShimmer = style({
+  position: "relative",
+  overflow: "hidden",
+  "::after": {
+    content: "",
+    position: "absolute",
+    inset: 0,
+    background: `linear-gradient(90deg, transparent 0%, ${themeContract.surfaceRaised} 50%, transparent 100%)`,
+    animationName: shimmerKeyframes,
+    animationDuration: "1.5s",
+    animationIterationCount: "infinite",
+    animationTimingFunction: "ease-in-out",
+  },
+});
+
+export const skeletonTextLine = style({
+  height: 14,
+  borderRadius: borderRadius.full,
+  backgroundColor: themeContract.surfaceRaised,
+});
+
+export const skeletonTextLineShort = style({
+  width: "60%",
+});
+
+export const skeletonCardSkeleton = style({
+  height: 200,
+  borderRadius: themeContract.borderRadius,
+  backgroundColor: themeContract.surfaceRaised,
+});
+
+export const skeletonTableHeader = style({
+  height: 40,
+  borderRadius: themeContract.borderRadius,
+  backgroundColor: themeContract.surfaceRaised,
+  marginBottom: spacing.xsmall,
+});
+
+export const skeletonTableRow = style({
+  height: 48,
+  borderRadius: themeContract.borderRadius,
+  backgroundColor: themeContract.surfaceRaised,
+});
+
+export const skeletonAvatar = style({
+  width: 48,
+  height: 48,
+  borderRadius: "50%",
+  backgroundColor: themeContract.surfaceRaised,
+  flexShrink: 0,
+});
+
+export const skeletonAvatarRow = style({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  gap: spacing.medium,
+});
+
+export const skeletonAvatarTextGroup = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: spacing.xsmall,
+  flex: 1,
+});
+
+export const skeletonContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: spacing.medium,
+  padding: spacing.medium,
+});
+
+export const skeletonProgressWrapper = style({
+  marginTop: spacing.small,
+  width: "100%",
+  maxWidth: 300,
+});
+
+/* ── Routes/Index ── */
+
+export const sectionTitle = style({
+  fontSize: fontSize.display,
+  lineHeight: 1.2,
+  fontWeight: 700,
+  letterSpacing: "-0.03em",
+});
+
+export const centeredBox = style({
+  marginLeft: "auto",
+  marginRight: "auto",
+});
+
+/* ── Docs Sidebar ── */
+
+export const sidebarLink = style({
+  textDecoration: "none",
+});
+
+/* ── DocsToc ── */
+
+export const tocRoot = style({
+  display: "none",
+  width: "220px",
+  flexShrink: 0,
+  position: "sticky",
+  top: spacing.large,
+  alignSelf: "start",
+  maxHeight: "90svh",
+  overflowY: "auto",
+  "@media": {
+    "screen and (min-width: 1024px)": {
+      display: "block",
+    },
+  },
+});
+
+export const tocTitle = style({
+  fontSize: fontSize.xsmall,
+  fontWeight: fontWeight.semibold,
+  letterSpacing: "0.05em",
+  textTransform: "uppercase",
+  color: themeContract.contentSecondary,
+  marginBottom: spacing.medium,
+});
+
+export const tocList = style({
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+});
+
+/* ── MdxComponents (table head) ── */
+
+export const tableHeaderRow = style({
+  backgroundColor: themeContract.surfaceSubtle,
+});
+
+export const tableHeaderCell = style({
+  padding: "10px 16px",
+  fontWeight: 600,
+  fontSize: fontSize.small,
+  textAlign: "left",
+  whiteSpace: "nowrap",
+  color: themeContract.contentPrimary,
+  borderBottom: `1px solid ${themeContract.border}`,
+});
+
+export const tableCell = style({
+  padding: "10px 16px",
+  fontSize: fontSize.small,
+  borderBottom: `1px solid ${themeContract.borderSubtle}`,
+  color: themeContract.contentSecondary,
+  verticalAlign: "top",
+  lineHeight: 1.6,
+});
+
+/* ── DocsLink ── */
+
+export const docsLink = style({
+  color: themeContract.primary,
+  textDecoration: "underline",
+  textUnderlineOffset: 2,
+  cursor: "pointer",
+  transition: "text-decoration-color 200ms ease",
+  ":hover": {
+    color: themeContract.primary,
+  },
+});
+
+/* ── Installation ── */
+
+export const installList = style({
+  margin: 0,
+  paddingLeft: "1.25rem",
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.375rem",
+});
+
+export const installItem = style({
+  margin: 0,
+  fontFamily: "ui-monospace, SFMono-Regular, monospace",
+  fontSize: fontSize.small,
+});
+
+export const installCode = style({
+  color: themeContract.contentSecondary,
+  backgroundColor: themeContract.surfaceSubtle,
+  padding: "1px 6px",
+  borderRadius: borderRadius.small,
+  fontSize: fontSize.small,
+});
+
+/* ── CodeBlock ── */
+
+export const codeHeader = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "8px 16px",
+  backgroundColor: themeContract.surface,
+  borderBottom: `1px solid ${themeContract.borderSubtle}`,
+  borderRadius: `${borderRadius.medium} ${borderRadius.medium} 0 0`,
+  fontSize: fontSize.xsmall,
+  color: themeContract.contentSecondary,
+});
+
+export const codeScroll = style({
+  overflowX: "auto",
+  WebkitOverflowScrolling: "touch",
+});
+
+export const codeCopyButton = style({
+  position: "absolute",
+  top: 8,
+  right: 8,
+});
+
+/* ── DocsTable ── */
+
+export const tableScroll = style({
+  overflowX: "auto",
+  WebkitOverflowScrolling: "touch",
+});
+
+export const tableView = style({
+  width: "100%",
+  borderCollapse: "collapse",
+  fontSize: 14,
+});
+
+export const docsTableHeader = style({
+  backgroundColor: themeContract.surfaceSubtle,
+  borderBottom: `1px solid ${themeContract.border}`,
+});
+
+export const docsTableHeaderCell = style({
+  padding: "8px 16px",
+  fontWeight: 600,
+  textAlign: "left",
+  whiteSpace: "nowrap",
+  color: themeContract.contentPrimary,
+});
+
+export const docsTableCell = style({
+  padding: "8px 16px",
+  borderBottom: `1px solid ${themeContract.borderSubtle}`,
+  color: themeContract.contentSecondary,
+  verticalAlign: "top",
+});
+
+export const docsTableCode = style({
+  fontFamily: "ui-monospace, SFMono-Regular, monospace",
+  fontSize: 13,
+  backgroundColor: themeContract.surfaceSubtle,
+  padding: "2px 6px",
+  borderRadius: borderRadius.small,
+});
+
+/* ── DocsParagraph ── */
+
+export const docsParagraph = style({
+  lineHeight: 1.75,
+  marginBlock: 0,
+});
+
+/* ── DocsList ── */
+
+export const docsUl = style({
+  paddingLeft: 24,
+  marginBlock: 0,
+  listStyle: "disc",
+});
+
+export const docsOl = style({
+  paddingLeft: 24,
+  marginBlock: 0,
+  listStyle: "decimal",
+});
+
+export const docsLi = style({
+  marginBottom: 4,
+});
+
+/* ── DocHeaders ── */
+
+export const headingAnchor = style({
+  opacity: 0,
+  marginLeft: 8,
+  fontSize: "0.7em",
+  fontWeight: 400,
+  verticalAlign: "middle",
+  color: "color-mix(in srgb, var(--docs-heading-anchor) 65%, transparent)",
+  textDecoration: "none",
+  userSelect: "none",
+  ":hover": {
+    color: "var(--docs-heading-anchor-hover)",
+    opacity: 1,
+  },
+});
+
+/* ── Example Dashboard ── */
+
+export const kpiGrid = style({
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gap: spacing["3"],
+  marginBottom: spacing["6"],
+});
+
+export const kpiValue = style({
+  fontSize: fontSize.xlarge,
+  fontWeight: 700,
+  color: themeContract.contentPrimary,
+});
+
+export const kpiLabel = style({
+  fontSize: fontSize.xsmall,
+  color: themeContract.contentSecondary,
+  marginTop: spacing["1"],
+});
+
+export const trendUp = style({
+  color: themeContract.sentimentPositive,
+  fontSize: fontSize.xsmall,
+  display: "flex",
+  alignItems: "center",
+  gap: spacing["1"],
+  marginTop: spacing["1"],
+});
+
+export const trendDown = style({
+  color: themeContract.sentimentNegative,
+  fontSize: fontSize.xsmall,
+  display: "flex",
+  alignItems: "center",
+  gap: spacing["1"],
+  marginTop: spacing["1"],
+});
+
+export const dashboardGrid = style({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: spacing["3"],
+  marginTop: spacing["6"],
+});
+
+export const profileSection = style({
+  marginTop: spacing["6"],
+});
+
+export const profileContent = style({
+  display: "flex",
+  alignItems: "center",
+  gap: spacing["3"],
+});
+
+export const profileInfo = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: spacing["1"],
+});
+
+export const profileName = style({
+  fontSize: fontSize.medium,
+  fontWeight: 600,
+  color: themeContract.contentPrimary,
+});
+
+export const profileEmail = style({
+  fontSize: fontSize.small,
+  color: themeContract.contentSecondary,
+});
+
+export const profileActions = style({
+  display: "flex",
+  gap: spacing["2"],
+  marginTop: spacing["3"],
+});
+
+export const chartPlaceholder = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  minHeight: 200,
+  color: themeContract.contentDisabled,
+  fontSize: fontSize.small,
+});
+
+/* ── Impact Summary ── */
+
+export const impactPanel = style({
+  padding: spacing["2"],
+  borderRadius: borderRadius.medium,
+  backgroundColor: themeContract.surfaceRaised,
+  borderWidth: 1,
+  borderStyle: "solid",
+  borderColor: themeContract.borderSubtle,
+});
+
+export const impactEmpty = style({
+  color: themeContract.contentDisabled,
+  fontSize: fontSize.xsmall,
+  textAlign: "center",
+  paddingBlock: spacing["2"],
+});
+
+export const impactList = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: spacing["1"],
+});
+
+export const impactChip = style({
+  display: "inline-flex",
+  alignItems: "center",
+  padding: "2px 8px",
+  borderRadius: borderRadius.full,
+  backgroundColor: `${themeContract.primary}15`,
+  color: themeContract.primary,
+  fontSize: fontSize.xsmall,
+  fontWeight: 500,
+});
+
+export const logoStyles = style({
+  textDecoration: "none",
+  color: themeContract.contentPrimary,
+  fontWeight: 700,
+  fontSize: fontSize.large,
+  letterSpacing: letterSpacing.tight,
+  lineHeight: 1,
+});

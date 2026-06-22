@@ -1,11 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import * as stylex from "@stylexjs/stylex";
 import { Badge, HStack, Separator, Text, VStack } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { borderRadius, fontSize } from "@blenx-dev/ui/theme/tokens.stylex";
 import { DocsH3 } from "./DocHeaders";
 import { docsQueries } from "@/lib/docs-api";
 import { CodeBlock } from "./CodeBlock";
+import { installList, installItem, installCode } from "@/lib/styles.css";
 
 interface InstallationProps {
   registryName: string;
@@ -42,10 +40,10 @@ function Installation({ registryName }: InstallationProps) {
             <Text variant="body2" color="secondary">
               Copy the following files into your project:
             </Text>
-            <ul {...stylex.props(listStyles.list)}>
+            <ul className={installList}>
               {files.map((f) => (
-                <li key={f.target} {...stylex.props(listStyles.item)}>
-                  <code {...stylex.props(listStyles.code)}>{cleanTarget(f.target)}</code>
+                <li key={f.target} className={installItem}>
+                  <code className={installCode}>{cleanTarget(f.target)}</code>
                 </li>
               ))}
             </ul>
@@ -68,28 +66,6 @@ function Installation({ registryName }: InstallationProps) {
     </VStack>
   );
 }
-
-const listStyles = stylex.create({
-  list: {
-    margin: 0,
-    paddingLeft: "1.25rem",
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.375rem",
-  },
-  item: {
-    margin: 0,
-    fontFamily: "ui-monospace, SFMono-Regular, monospace",
-    fontSize: fontSize.small,
-  },
-  code: {
-    color: theme.contentSecondary,
-    backgroundColor: theme.surfaceSubtle,
-    padding: "1px 6px",
-    borderRadius: borderRadius.small,
-    fontSize: fontSize.small,
-  },
-});
 
 export { Installation };
 export type { InstallationProps };

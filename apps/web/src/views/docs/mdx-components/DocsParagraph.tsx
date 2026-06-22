@@ -1,15 +1,6 @@
-import * as stylex from "@stylexjs/stylex";
 import type React from "react";
 import { Text } from "@blenx-dev/ui/components";
-
-const styles = stylex.create({
-  paragraph: {
-    lineHeight: {
-      default: 1.75,
-    },
-    marginBlock: 0,
-  },
-});
+import { docsParagraph } from "@/lib/styles.css";
 
 interface DocsParagraphProps {
   children: React.ReactNode;
@@ -17,7 +8,7 @@ interface DocsParagraphProps {
 
 function DocsParagraph({ children }: DocsParagraphProps) {
   return (
-    <Text variant="body1" {...stylex.props(styles.paragraph)}>
+    <Text variant="body1" className={docsParagraph}>
       {children}
     </Text>
   );

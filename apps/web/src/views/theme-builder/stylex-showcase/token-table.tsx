@@ -1,6 +1,6 @@
 import type { Column } from "@blenx-dev/ui/components";
 import { Accordion, Table, Text } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
+import { themeContract } from "@blenx-dev/ui/theme/contract.css";
 import { componentTokenMap } from "../preview/component-token-map";
 import { useThemeBuilder } from "../theme-builder-context";
 
@@ -116,7 +116,7 @@ export function TokenTable() {
               style: {
                 cursor: "pointer",
                 ...(isSelected && {
-                  backgroundColor: `${theme.focusRing}15`,
+                  backgroundColor: `${themeContract.focusRing}15`,
                 }),
               },
             };

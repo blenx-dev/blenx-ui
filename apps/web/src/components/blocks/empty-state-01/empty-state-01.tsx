@@ -2,7 +2,7 @@ import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { VStack, HStack } from "@blenx-dev/ui/components/Stack/stack";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Box, Container } from "@blenx-dev/ui/components";
 
 type Action = {
@@ -10,14 +10,15 @@ type Action = {
   handleClick: () => void;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   icon?: React.ReactNode;
   title: string;
   description?: string;
   action?: Action;
   secondaryAction?: Action;
   variant?: "card" | "page";
-}>;
+  style?: CSSProperties;
+};
 
 export function EmptyState01({
   icon,

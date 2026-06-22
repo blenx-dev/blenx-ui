@@ -5,7 +5,7 @@ import { Table } from "@blenx-dev/ui/components/Table/table";
 import { Badge } from "@blenx-dev/ui/components/Badge/badge";
 import { Surface } from "@blenx-dev/ui/components/Surface/surface";
 import type { Column } from "@blenx-dev/ui/components/Table/table";
-import type { PropsWithStylex } from "@blenx-dev/ui/utils/stylex.utils";
+import type { CSSProperties } from "react";
 import { Container, Grid, HStack, VStack } from "@blenx-dev/ui/components";
 
 type Kpi = {
@@ -26,12 +26,13 @@ type ChartSection = {
   title: string;
 };
 
-type Props = PropsWithStylex<{
+type Props = {
   kpis?: Kpi[];
   activities?: Activity[];
   chartSections?: ChartSection[];
   actions?: { label: string; handleClick: () => void }[];
-}>;
+  style?: CSSProperties;
+};
 
 const defaultKpis: Kpi[] = [
   {

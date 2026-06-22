@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useMemo } from "react";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { borderRadius as radiusTokens } from "@blenx-dev/ui/theme/tokens.stylex";
+import { themeContract } from "@blenx-dev/ui/theme/contract.css";
+import { borderRadius as radiusTokens } from "@blenx-dev/ui/theme/tokens.css";
 import { useThemeBuilder } from "./theme-builder-context";
 
 const radiusMap: Record<string, string> = {
@@ -22,38 +22,38 @@ export function ThemePreviewProvider({ children }: { children: ReactNode }) {
   const cssVars = useMemo(() => {
     const vars: Record<string, string> = {};
     const entries: Array<[string, string]> = [
-      [theme.primary, tokens.primary],
-      [theme.primarySubtle, tokens.primarySubtle],
-      [theme.secondary, tokens.secondary],
-      [theme.background, tokens.background],
-      [theme.backgroundSubtle, tokens.backgroundSubtle],
-      [theme.surface, tokens.surface],
-      [theme.surfaceSubtle, tokens.surfaceSubtle],
-      [theme.surfaceRaised, tokens.surfaceRaised],
-      [theme.surfaceHover, tokens.surfaceHover],
-      [theme.surfaceOverlay, tokens.surfaceOverlay],
-      [theme.border, tokens.border],
-      [theme.borderSubtle, tokens.borderSubtle],
-      [theme.borderStrong, tokens.borderStrong],
-      [theme.contentPrimary, tokens.contentPrimary],
-      [theme.contentSecondary, tokens.contentSecondary],
-      [theme.contentDisabled, tokens.contentDisabled],
-      [theme.contentOnPrimary, tokens.contentOnPrimary],
-      [theme.sentimentNegative, tokens.sentimentNegative],
-      [theme.sentimentNegativeSubtle, tokens.sentimentNegativeSubtle],
-      [theme.sentimentPositive, tokens.sentimentPositive],
-      [theme.sentimentPositiveSubtle, tokens.sentimentPositiveSubtle],
-      [theme.sentimentWarning, tokens.sentimentWarning],
-      [theme.sentimentWarningSubtle, tokens.sentimentWarningSubtle],
-      [theme.sentimentInfo, tokens.sentimentInfo],
-      [theme.sentimentInfoSubtle, tokens.sentimentInfoSubtle],
-      [theme.focusRing, tokens.focusRing],
-      [theme.shadowSm, tokens.shadowSm],
-      [theme.shadowMd, tokens.shadowMd],
-      [theme.shadowLg, tokens.shadowLg],
-      [theme.shadowXl, tokens.shadowXl],
-      [theme.fontSize, tokens.fontSize],
-      [theme.borderRadius, radiusMap[tokens.borderRadius] ?? radiusTokens.medium],
+      [themeContract.primary, tokens.primary],
+      [themeContract.primarySubtle, tokens.primarySubtle],
+      [themeContract.secondary, tokens.secondary],
+      [themeContract.background, tokens.background],
+      [themeContract.backgroundSubtle, tokens.backgroundSubtle],
+      [themeContract.surface, tokens.surface],
+      [themeContract.surfaceSubtle, tokens.surfaceSubtle],
+      [themeContract.surfaceRaised, tokens.surfaceRaised],
+      [themeContract.surfaceHover, tokens.surfaceHover],
+      [themeContract.surfaceOverlay, tokens.surfaceOverlay],
+      [themeContract.border, tokens.border],
+      [themeContract.borderSubtle, tokens.borderSubtle],
+      [themeContract.borderStrong, tokens.borderStrong],
+      [themeContract.contentPrimary, tokens.contentPrimary],
+      [themeContract.contentSecondary, tokens.contentSecondary],
+      [themeContract.contentDisabled, tokens.contentDisabled],
+      [themeContract.contentOnPrimary, tokens.contentOnPrimary],
+      [themeContract.sentimentNegative, tokens.sentimentNegative],
+      [themeContract.sentimentNegativeSubtle, tokens.sentimentNegativeSubtle],
+      [themeContract.sentimentPositive, tokens.sentimentPositive],
+      [themeContract.sentimentPositiveSubtle, tokens.sentimentPositiveSubtle],
+      [themeContract.sentimentWarning, tokens.sentimentWarning],
+      [themeContract.sentimentWarningSubtle, tokens.sentimentWarningSubtle],
+      [themeContract.sentimentInfo, tokens.sentimentInfo],
+      [themeContract.sentimentInfoSubtle, tokens.sentimentInfoSubtle],
+      [themeContract.focusRing, tokens.focusRing],
+      [themeContract.shadowSm, tokens.shadowSm],
+      [themeContract.shadowMd, tokens.shadowMd],
+      [themeContract.shadowLg, tokens.shadowLg],
+      [themeContract.shadowXl, tokens.shadowXl],
+      [themeContract.fontSize, tokens.fontSize],
+      [themeContract.borderRadius, radiusMap[tokens.borderRadius] ?? radiusTokens.medium],
     ];
     for (const [k, v] of entries) {
       vars[cx(k)] = v;
