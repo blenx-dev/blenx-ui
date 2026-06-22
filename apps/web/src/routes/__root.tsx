@@ -1,4 +1,3 @@
-import * as stylex from "@stylexjs/stylex";
 import type { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -10,8 +9,6 @@ import {
 } from "@tanstack/react-router";
 import { Header, ThemeEffect } from "@/components/header";
 import { Container } from "@blenx-dev/ui/components";
-import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import { fonts } from "@blenx-dev/ui/theme/tokens.stylex";
 import appCss from "@/app.css?url";
 import { Analytics } from "@vercel/analytics/react";
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -104,18 +101,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   component: RootDocument,
 });
 
-const rootStyles = stylex.create({
-  body: {
-    backgroundColor: theme.background,
-    color: theme.contentPrimary,
-    margin: 0,
-    fontFamily: fonts.display,
-    fontSize: "14px",
-    lineHeight: 1.5,
-    maxWidth: "100svw",
-  },
-});
-
 function RootDocument() {
   const { queryClient } = Route.useRouteContext();
 
@@ -127,7 +112,7 @@ function RootDocument() {
         <meta name="twitter:image" content="https://blenx-ui.vercel.app/og" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.classList.add("stylex-"+t);document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
           }}
         />
         <script
@@ -154,7 +139,7 @@ function RootDocument() {
           <link rel="stylesheet" href="/assets/stylex.css" />
         )}
       </head>
-      <body {...stylex.props(rootStyles.body)}>
+      <body>
         <ClientOnly>
           <ThemeEffect />
         </ClientOnly>

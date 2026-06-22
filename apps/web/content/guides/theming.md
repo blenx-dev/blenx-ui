@@ -93,9 +93,8 @@ Never reference `border-radius: 8px` in a component file. Use `themeContract.rad
 
 ## Theme Switching
 
-Blenx uses zustand to manage the active theme, persisted to `localStorage` under the key `"theme"`. An inline `<script>` in the document `<head>` reads this value before React hydrates to prevent flash of unstyled content.
+Blenx uses manages the active theme, persisted to `localStorage` under the key `"blenx-theme"`. An inline `<script>` in the document `<head>` reads this value before React hydrates to prevent flash of unstyled content.
 
-- `useThemeStore` exposes `theme` ("light" | "dark") and `setTheme`.
 - Applying the theme means setting the corresponding `stylex.createTheme()` result on a provider element wrapping your app.
 - A `<meta name="color-scheme" content="dark light">` tag ensures native elements respect the theme.
 

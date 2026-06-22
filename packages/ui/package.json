@@ -10,10 +10,11 @@
   },
   "exports": {
     "./globals.css": "./src/styles/globals.css",
-    "./lib/*": "./src/lib/*.ts",
-    "./components/*": "./src/components/*.tsx",
+    "./lib/*": "./src/lib/*",
+    "./components": "./src/components/index.ts",
+    "./components/*": "./src/components/*",
     ".": "./src/index.ts",
-    "./theme/*": "./src/theme/*.ts",
+    "./theme/*": "./src/theme/*",
     "./postcss.config": "./postcss.config.mjs"
   },
   "scripts": {

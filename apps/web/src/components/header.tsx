@@ -6,7 +6,6 @@ import { GITHUB_URL } from "@/constants";
 import { theme } from "@blenx-dev/ui/theme/contract.stylex";
 import { fontSize, letterSpacing, spacing } from "@blenx-dev/ui/theme/tokens.stylex";
 import { useSidebarStore } from "@/stores/docs-sidebar";
-import { useThemeStore } from "@/stores/theme";
 import { Button, Container, HStack, IconButton, Separator } from "@blenx-dev/ui/components";
 import { darkTheme, lightTheme } from "@/lib/app-theme.css";
 import { useEffect } from "react";
@@ -79,81 +78,43 @@ function DocsRouteSidebarOption() {
       </IconButton>
     );
 }
-const lightThemeClass = stylex.props(lightTheme).className || "";
-const darkThemeClass = stylex.props(darkTheme).className || "";
 export function ThemeEffect() {
-  const themeMode = useThemeStore((s) => s.themeMode);
-  const setThemeMode = useThemeStore((s) => s.setThemeMode);
-
   return (
     <ClientOnly>
-      <ThemeInner
-        themeMode={themeMode}
-        setThemeMode={setThemeMode}
-        lightThemeClass={lightThemeClass}
-        darkThemeClass={darkThemeClass}
-      />
+      <ThemeInner />
     </ClientOnly>
   );
 }
-function ThemeInner({
-  themeMode: _themeMode,
-  setThemeMode,
-  lightThemeClass,
-  darkThemeClass,
-}: {
-  themeMode: string;
-  setThemeMode: (mode: "light" | "dark") => void;
-  lightThemeClass: string;
-  darkThemeClass: string;
-}) {
-  const [storedTheme] = useLocalStorage<"light" | "dark">("theme", "light");
-
+function ThemeInner() {
+  const [storedTheme] = useLocalStorage<"light" | "dark">("blenx-theme", "light");
   useEffect(() => {
-    const next = storedTheme === "dark" ? darkThemeClass : lightThemeClass;
-    document.documentElement.classList.remove(
-      ...lightThemeClass.split(" "),
-      ...darkThemeClass.split(" "),
-    );
-    document.documentElement.classList.add(...next.split(" "));
-    document.documentElement.setAttribute("data-theme", storedTheme);
-    setThemeMode(storedTheme);
-  }, [storedTheme, setThemeMode, lightThemeClass, darkThemeClass]);
+    const next = storedTheme === "dark" ? "light" : "dark";
+    const nextTheme = next === "light" ? lightTheme : darkTheme;
+    document.documentElement.classList.remove(lightTheme, darkTheme);
+    document.documentElement.classList.add(nextTheme);
+    document.documentElement.setAttribute("data-theme", next);
+  }, [storedTheme]);
 
   return null;
 }
 function ThemeToggle() {
-  const setThemeMode = useThemeStore((s) => s.setThemeMode);
-  const [themeMode, setThemeModeLocal] = useLocalStorage("theme", "light");
+  const [storedTheme, setStoredTheme] = useLocalStorage<"light" | "dark">("blenx-theme", "light");
 
-  const updateDocumentTheme = (nextTheme: "light" | "dark") => {
-    document.documentElement.classList.remove(
-      ...lightThemeClass.split(" "),
-      ...darkThemeClass.split(" "),
-    );
-    if (nextTheme === "light") {
-      document.documentElement.classList.add(...lightThemeClass.split(" "));
-    } else {
-      document.documentElement.classList.add(...darkThemeClass.split(" "));
-    }
-    document.documentElement.setAttribute("data-theme", nextTheme);
-  };
   const handleToggle = () => {
-    const previousTheme = themeMode;
-    const nextTheme = previousTheme === "light" ? "dark" : "light";
-    setThemeModeLocal(nextTheme);
-    setThemeMode(nextTheme);
-    document.startViewTransition(() => {
-      updateDocumentTheme(nextTheme);
-    });
+    const next = storedTheme === "dark" ? "light" : "dark";
+    const nextTheme = next === "light" ? lightTheme : darkTheme;
+    document.documentElement.classList.remove(lightTheme, darkTheme);
+    document.documentElement.classList.add(nextTheme);
+    document.documentElement.setAttribute("data-theme", next);
+    setStoredTheme(next);
   };
   return (
     <IconButton
       variant="ghost"
       onClick={handleToggle}
-      aria-label={`Switch to ${themeMode === "light" ? "dark" : "light"} mode`}
+      aria-label={`Switch to ${storedTheme === "light" ? "dark" : "light"} mode`}
     >
-      {themeMode === "light" ? <MoonIcon /> : <SunIcon />}
+      {storedTheme === "light" ? <MoonIcon /> : <SunIcon />}
     </IconButton>
   );
 }

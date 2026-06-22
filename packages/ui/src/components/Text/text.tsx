@@ -51,7 +51,7 @@ export type TextProps = BoxProps & {
 
 export function Text({
   variant = "body1",
-  color,
+  color = "default",
   textAlign,
   weight,
   className,
