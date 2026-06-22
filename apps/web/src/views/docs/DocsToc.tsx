@@ -4,15 +4,7 @@ import { useCallback, useRef, useState } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { Box, CopyButton, Text, VStack } from "@blenx-dev/ui/components";
 import { theme } from "@blenx-dev/ui/theme/contract.stylex";
-import {
-  borderRadius,
-  duration,
-  easing,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  spacing,
-} from "@blenx-dev/ui/theme/tokens.stylex";
+import { fontSize, fontWeight, spacing } from "@blenx-dev/ui/theme/tokens.stylex";
 import type { TocItem } from "@/utils/extractHeadings";
 import { HStack } from "@blenx-dev/ui";
 import { useRouterState } from "@tanstack/react-router";
@@ -47,37 +39,6 @@ const tocStyles = stylex.create({
     listStyle: "none",
     margin: 0,
     padding: 0,
-  },
-});
-
-const itemStyles = stylex.create({
-  item: {
-    display: "block",
-    paddingBlock: spacing["1"],
-    paddingInlineEnd: spacing.small,
-    fontSize: fontSize.small,
-    lineHeight: lineHeight.snug,
-    color: theme.contentSecondary,
-    textDecoration: "none",
-    borderRadius: borderRadius.xsmall,
-    transition: `color ${duration.fast} ${easing.standard}`,
-    ":hover": {
-      color: theme.contentPrimary,
-    },
-    ":focus-visible": {
-      outline: `2px solid ${theme.focusRing}`,
-      outlineOffset: "2px",
-    },
-  },
-  active: {
-    color: theme.primary,
-    fontWeight: fontWeight.medium,
-  },
-  depthH2: {
-    paddingLeft: spacing.xsmall,
-  },
-  depthH3: {
-    paddingLeft: spacing.large,
   },
 });
 
@@ -139,25 +100,24 @@ export function DocsToc({ items }: DocsTocProps) {
         <VStack gap="none">
           {items.map((item) => {
             const isActive = item.slug === activeId;
-            const depthClass = item.depth === 3 ? "depthH3" : "depthH2";
             return (
               <HStack render={<li />} key={item.slug} justify="between" align="center">
-                <a
-                  {...stylex.props(
-                    itemStyles.item,
-                    itemStyles[depthClass],
-                    isActive && itemStyles.active,
-                  )}
-                  href={`#${item.slug}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick(item.slug);
-                  }}
-                  aria-current={isActive ? "true" : undefined}
-                  title={copiedId === item.slug ? "Copied!" : `Navigate to ${item.title}`}
+                <Text
+                  color={isActive ? "primary" : "secondary"}
+                  render={
+                    <a
+                      href={`#${item.slug}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClick(item.slug);
+                      }}
+                      aria-current={isActive ? "true" : undefined}
+                      title={copiedId === item.slug ? "Copied!" : `Navigate to ${item.title}`}
+                    />
+                  }
                 >
                   {item.title}
-                </a>
+                </Text>
                 <CopyButton
                   padding="none"
                   variant="ghost"

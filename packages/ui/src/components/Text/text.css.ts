@@ -129,13 +129,8 @@ export const textVariants = recipe({
         margin: 0,
       },
       code: {
-        fontFamily: fonts.mono,
-        fontSize: fontSize.small,
-        lineHeight: lineHeight.normal,
-        fontWeight: fontWeight.regular,
         margin: 0,
         backgroundColor: themeContract.backgroundSubtle,
-        padding: spacing["xxlarge"],
         borderRadius: borderRadius.small,
       },
     },

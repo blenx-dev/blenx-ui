@@ -18,7 +18,7 @@ import { Spinner, Text } from "@blenx-dev/ui/components";
 import { type TextProps } from "@blenx-dev/ui/components";
 
 function InlineCode(props: TextProps) {
-  return <Text variant="code" span {...props} />;
+  return <Text variant="code" backgroundColor="disabled" px="xs" py="xxs" {...props} />;
 }
 
 function Pre({ children, ...props }: ComponentProps<"pre">) {

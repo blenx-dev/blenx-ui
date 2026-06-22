@@ -1,30 +1,31 @@
 import * as stylex from "@stylexjs/stylex";
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useMatches } from "@tanstack/react-router";
 import { Box, Surface, Text, VStack } from "@blenx-dev/ui/components";
-import { BlocksSidebar } from "./blocks-sidebar";
-import { useDocsData } from "@/views/docs/DocsDataProvider";
+import type { SidebarSection } from "@/views/docs/docs-utils";
 
 const styles = stylex.create({
   link: {
     textDecoration: "none",
   },
 });
+
 const isLintActive = (link: string, pathname: string) =>
   link === "/docs"
     ? pathname === "/docs" || pathname === "/docs/"
     : link === "/blocks"
       ? pathname === "/blocks" || pathname.startsWith("/blocks/")
       : pathname === link || pathname.startsWith(link + "/");
+
 function DocsSidebar({ onClose }: { onClose?: () => void }) {
   const { pathname } = useLocation();
-  const allSections = useDocsData((st) => st.allSections);
-  const isBlockRoute = pathname.startsWith("/docs/blocks");
-  if (isBlockRoute) return <BlocksSidebar />;
+  const matches = useMatches();
+  const sidebarSections: SidebarSection[] =
+    [...matches].reverse().find((m) => m.context.sidebarSections)?.context.sidebarSections ?? [];
 
   return (
     <Surface variant="sunken" grow={1}>
       <VStack gap="medium" padding="medium">
-        {allSections.map((section) => (
+        {sidebarSections.map((section) => (
           <Box key={section.title}>
             <Text variant="h3">{section.title}</Text>
             <VStack gap="xxsmall">

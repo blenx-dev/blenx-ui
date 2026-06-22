@@ -5,8 +5,6 @@ import { textVariants } from "./text.css";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { applyBaseSprinkles } from "#utils/styles";
 import type { BaseSprinkles } from "#utils/sprinkles.css";
-import type { _BaseDivProps } from "#utils/types";
-
 const variantTag = {
   h1: "h1",
   h2: "h2",
@@ -27,7 +25,7 @@ const variantTag = {
   div: "div",
 } as const satisfies Record<string, keyof React.JSX.IntrinsicElements>;
 
-export type TextProps = _BaseDivProps &
+export type TextProps = useRender.ComponentProps<"div"> &
   BaseSprinkles &
   RecipeVariants<typeof textVariants> & { span?: boolean };
 
@@ -50,16 +48,17 @@ export function Text({
     textVariants({ variant, textAlign, weight, transform, size }),
     className,
   );
+  const mergedProps = { className: rootCls, style, ...htmlProps };
   if (span) {
     return useRender({
       defaultTagName: "span",
-      props: { className: rootCls, style, ...htmlProps },
+      props: mergedProps,
       render,
     });
   }
   return useRender({
     defaultTagName: variantTag[variant],
-    props: { className: rootCls, style, ...htmlProps },
+    props: mergedProps,
     render,
   });
 }
