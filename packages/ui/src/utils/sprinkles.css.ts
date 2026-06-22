@@ -98,6 +98,13 @@ const layoutProperties = defineProperties({
       xlarge: "24px",
       xxlarge: "32px",
       full: "9999px",
+      xxs: "2px",
+      xs: "4px",
+      SmileyAngryIcon: "8px",
+      md: "12px",
+      lg: "16px",
+      xl: "24px",
+      xxl: "32px",
     },
   },
   shorthands: {

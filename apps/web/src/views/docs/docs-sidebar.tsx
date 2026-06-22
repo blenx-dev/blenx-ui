@@ -9,7 +9,7 @@ const styles = stylex.create({
   },
 });
 
-const isLintActive = (link: string, pathname: string) =>
+const isLinkActive = (link: string, pathname: string) =>
   link === "/docs"
     ? pathname === "/docs" || pathname === "/docs/"
     : link === "/blocks"
@@ -23,18 +23,18 @@ function DocsSidebar({ onClose }: { onClose?: () => void }) {
     [...matches].reverse().find((m) => m.context.sidebarSections)?.context.sidebarSections ?? [];
 
   return (
-    <Surface variant="sunken" grow={1}>
+    <Surface variant="sunken" fullWidth>
       <VStack gap="medium" padding="medium">
         {sidebarSections.map((section) => (
           <Box key={section.title}>
             <Text variant="h3">{section.title}</Text>
             <VStack gap="xxsmall">
               {section.links.map((link) => {
-                const isActive = isLintActive(link.to, pathname);
+                const isActive = isLinkActive(link.to, pathname);
                 return (
                   <Surface
                     variant={isActive ? "default" : "sunken"}
-                    borderRadius="xxsmall"
+                    borderRadius="xs"
                     paddingY="xs"
                     paddingX="sm"
                     key={link.to}

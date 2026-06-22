@@ -7,7 +7,6 @@ export const variantRecipe = recipe({
     variant: {
       default: {
         backgroundColor: themeContract.surface,
-        borderRadius: themeContract.borderRadius,
       },
       outline: {
         backgroundColor: themeContract.surface,

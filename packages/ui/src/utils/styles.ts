@@ -9,9 +9,9 @@ export function applyBaseSprinkles(
   const htmlProps: Record<string, unknown> = {};
 
   for (const [key, value] of Object.entries(props)) {
-    if (key === "fullWidth") {
+    if (key === "fullWidth" && props[key]) {
       sprinkleProps.width = "full";
-    } else if (key === "withBorder") {
+    } else if (key === "withBorder" && props[key]) {
       sprinkleProps.borderColor = "default";
     } else if (BASE_SPRINKLE_KEYS_SET.has(key)) {
       sprinkleProps[key as BasePropKeys] = value;

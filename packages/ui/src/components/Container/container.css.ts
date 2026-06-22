@@ -2,23 +2,19 @@ import { recipe } from "@vanilla-extract/recipes";
 
 export const containerRecipe = recipe({
   base: {
-    width: "100%",
     boxSizing: "border-box",
   },
   variants: {
     size: {
-      xxs: {
-        maxWidth: "240px",
-        width: "240px",
-      },
-      xs: { maxWidth: "320px", width: "320px" },
-      sm: { maxWidth: "480px", width: "480px" },
-      md: { maxWidth: "640px", width: "640px" },
-      lg: { maxWidth: "768px", width: "768px" },
-      xl: { maxWidth: "1024px", width: "1024px" },
-      "2xl": { maxWidth: "1280px", width: "1280px" },
-      "3xl": { maxWidth: "1440px" },
-      full: { maxWidth: "100%" },
+      xxs: { width: "min(240px, 100%)" },
+      xs: { width: "min(320px, 100%)" },
+      sm: { width: "min(480px, 100%)" },
+      md: { width: "min(640px, 100%)" },
+      lg: { width: "min(768px, 100%)" },
+      xl: { width: "min(1024px, 100%)" },
+      "2xl": { maxWidth: "1280px", width: "100%" },
+      "3xl": { maxWidth: "1440px", width: "100%" },
+      full: { maxWidth: "100%", width: "100%" },
     },
     centered: {
       true: {
