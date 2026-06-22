@@ -12,7 +12,7 @@
       "target": "@blocks/loading-state-01/loading-state-01.tsx"
     },
     {
-      "file": "loading-state-01.styles.ts",
+      "file": "loading-state-01.css.ts",
       "type": "registry:file",
       "target": "@blocks/loading-state-01/loading-state-01.styles.ts"
     }

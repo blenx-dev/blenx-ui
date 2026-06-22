@@ -1,0 +1,77 @@
+/* ── Loading Skeleton ── */
+
+import { themeContract } from "@blenx-dev/ui/theme/contract.css";
+import { borderRadius, spacing } from "@blenx-dev/ui/theme/tokens.css";
+import { keyframes, style } from "@vanilla-extract/css";
+
+export const shimmerKeyframes = keyframes({
+  "0%": { transform: "translateX(-100%)" },
+  "100%": { transform: "translateX(100%)" },
+});
+export const skeletonShimmer = style({
+  position: "relative",
+  overflow: "hidden",
+  "::after": {
+    content: "",
+    position: "absolute",
+    inset: 0,
+    background: `linear-gradient(90deg, transparent 0%, ${themeContract.surfaceRaised} 50%, transparent 100%)`,
+    animationName: shimmerKeyframes,
+    animationDuration: "1.5s",
+    animationIterationCount: "infinite",
+    animationTimingFunction: "ease-in-out",
+  },
+});
+
+export const skeletonTextLine = style({
+  height: 14,
+  borderRadius: borderRadius.full,
+  backgroundColor: themeContract.surfaceRaised,
+});
+
+export const skeletonCardSkeleton = style({
+  height: 200,
+  borderRadius: themeContract.borderRadius,
+  backgroundColor: themeContract.surfaceRaised,
+});
+
+export const skeletonTableHeader = style({
+  height: 40,
+  borderRadius: themeContract.borderRadius,
+  backgroundColor: themeContract.surfaceRaised,
+  marginBottom: spacing.xsmall,
+});
+
+export const skeletonTableRow = style({
+  height: 48,
+  borderRadius: themeContract.borderRadius,
+  backgroundColor: themeContract.surfaceRaised,
+});
+
+export const skeletonAvatar = style({
+  width: 48,
+  height: 48,
+  borderRadius: "50%",
+  backgroundColor: themeContract.surfaceRaised,
+  flexShrink: 0,
+});
+
+export const skeletonAvatarTextGroup = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: spacing.xsmall,
+  flex: 1,
+});
+
+export const skeletonContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: spacing.medium,
+  padding: spacing.medium,
+});
+
+export const skeletonProgressWrapper = style({
+  marginTop: spacing.small,
+  width: "100%",
+  maxWidth: 300,
+});

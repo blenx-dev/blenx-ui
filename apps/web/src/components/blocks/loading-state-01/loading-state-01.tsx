@@ -10,8 +10,8 @@ import {
   skeletonAvatarTextGroup,
   skeletonContainer,
   skeletonProgressWrapper,
-} from "./loading-state-01.styles";
-
+} from "./loading-state-01.css";
+import clsx from "clsx";
 type SkeletonPattern = "text" | "card" | "table" | "avatar" | "custom";
 
 type Props = {
@@ -26,7 +26,7 @@ type Props = {
 
 function SkeletonBar({ style }: { style?: React.CSSProperties }) {
   return (
-    <div aria-hidden="true" className={`${skeletonTextLine} ${skeletonShimmer}`} style={style} />
+    <div aria-hidden="true" className={clsx(skeletonTextLine, skeletonShimmer)} style={style} />
   );
 }
 
@@ -41,15 +41,15 @@ function TextPattern({ lines = 3 }: { lines?: number }) {
 }
 
 function CardPattern() {
-  return <div className={`${skeletonCardSkeleton} ${skeletonShimmer}`} aria-hidden="true" />;
+  return <div className={clsx(skeletonCardSkeleton, skeletonShimmer)} aria-hidden="true" />;
 }
 
 function TablePattern({ rows = 4 }: { rows?: number }) {
   return (
     <VStack gap="xsmall">
-      <div className={`${skeletonTableHeader} ${skeletonShimmer}`} aria-hidden="true" />
+      <div className={clsx(skeletonTableHeader, skeletonShimmer)} aria-hidden="true" />
       {Array.from({ length: rows }, (_, i) => (
-        <div key={i} className={`${skeletonTableRow} ${skeletonShimmer}`} aria-hidden="true" />
+        <div key={i} className={clsx(skeletonTableRow, skeletonShimmer)} aria-hidden="true" />
       ))}
     </VStack>
   );
@@ -58,7 +58,7 @@ function TablePattern({ rows = 4 }: { rows?: number }) {
 function AvatarPattern() {
   return (
     <HStack gap="medium" align="center">
-      <div className={`${skeletonAvatar} ${skeletonShimmer}`} aria-hidden="true" />
+      <div className={clsx(skeletonAvatar, skeletonShimmer)} aria-hidden="true" />
       <div className={skeletonAvatarTextGroup}>
         <SkeletonBar />
         <SkeletonBar />
