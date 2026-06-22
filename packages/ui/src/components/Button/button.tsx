@@ -7,7 +7,7 @@ import {
   intent as intentRecipe,
   variant as variantRecipe,
 } from "./button.css";
-import { applyBaseSprinkles } from "#utils/styles.js";
+import { applyBaseSprinkles } from "#utils/ve-style.utils.js";
 import type { BaseSprinkles } from "#utils/sprinkles.css.js";
 
 type _BaseUIButtonProps = ButtonPrimitive.Props;
