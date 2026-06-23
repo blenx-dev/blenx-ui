@@ -8,16 +8,6 @@ import { darkTheme, lightTheme } from "@/lib/app-theme.css";
 import { useEffect } from "react";
 import { logoStyles } from "@/lib/styles.css";
 
-// const styles = stylex.create({
-//   logo: {
-//     textDecoration: "none",
-//     color: theme.contentPrimary,
-//     fontWeight: 700,
-//     fontSize: fontSize.large,
-//     letterSpacing: letterSpacing.tight,
-//     lineHeight: 1,
-//   },
-// });
 function DocsRouteOption() {
   const { pathname } = useLocation();
   const isDocsActive = pathname.startsWith("/docs");

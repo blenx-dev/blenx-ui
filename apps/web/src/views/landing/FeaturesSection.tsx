@@ -38,7 +38,7 @@ const features = [
     desc: "Built for real-world applications. Tested, documented, and designed to handle production scale.",
   },
   {
-    title: "Powered by StyleX",
+    title: "Powered by Vanilla Extract",
     desc: "Type-safe, zero-runtime CSS-in-JS. Predictable styles that scale with your application.",
   },
 ];

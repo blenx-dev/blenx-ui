@@ -49,7 +49,7 @@ const comparisonRows: ComparisonRow[] = [
   },
   {
     feature: "Styling",
-    blenx: "StyleX — type-safe, zero-runtime",
+    blenx: "Vanilla Extract — type-safe, zero-runtime CSS",
     traditional: "Tailwind, styled-components, or CSS modules",
   },
   {
@@ -74,7 +74,7 @@ const metrics = [
   { label: "TypeScript", value: "100%" },
   { label: "Base UI", value: "Powered" },
   { label: "Registry", value: "First" },
-  { label: "StyleX", value: "Native" },
+  { label: "Vanilla Extract", value: "Native" },
 ];
 
 /* ---------------------------------------------------------------------------

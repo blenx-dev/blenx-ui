@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
 import {
   Box,
@@ -29,20 +29,7 @@ function escapeHtml(code: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")}</code></pre>`;
 }
-function CopyHandler({ value }: { value: string }) {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(value).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }, [value]);
-  return (
-    <CopyButton size="xsmall" onClick={handleCopy} aria-label={copied ? "Copied" : "Copy code"}>
-      Copy
-    </CopyButton>
-  );
-}
+
 function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
   const activeFiles = files || (code != null ? [{ code, title, language }] : []);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -106,7 +93,7 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
         </HStack>
       )}
       <Box position="absolute" top="xsmall" right="xsmall">
-        <CopyHandler value={activeFile.code} />
+        <CopyButton copyValue={activeFile.code} />
       </Box>
 
       <ScrollArea height="60svh">

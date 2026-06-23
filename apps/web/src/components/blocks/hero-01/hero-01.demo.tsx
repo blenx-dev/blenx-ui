@@ -4,7 +4,7 @@ export function Hero01DefaultDemo() {
   return (
     <Hero01
       headline="Build better interfaces faster"
-      subheadline="A modern design system with accessible, composable components powered by StyleX and Base UI."
+      subheadline="A modern design system with accessible, composable components powered by Vanilla Extract and Base UI."
       primaryCta={{ label: "Get started", handleClick: () => {} }}
       secondaryCta={{ label: "Learn more", handleClick: () => {} }}
     />

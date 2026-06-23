@@ -22,17 +22,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "Blenx UI — Modern React Component Library powered by StyleX & Base UI",
+        title: "Blenx UI — Modern React Component Library powered by Vanilla Extract & Base UI",
       },
       {
         name: "description",
         content:
-          "A modern, no-Tailwind React component library built with StyleX and Base UI. Accessible, headless primitives with shadcn-style ergonomics.",
+          "A modern, no-Tailwind React component library built with Vanilla Extract and Base UI. Accessible, headless primitives with shadcn-style ergonomics.",
       },
       {
         name: "keywords",
         content:
-          "stylex, base-ui, react, react-components, component-library, ui-kit, design-system, no-tailwind, shadcn, modern, typescript, zustand, ui-components, headless-ui, accessible-components",
+          "vanilla-extract, base-ui, react, react-components, component-library, ui-kit, design-system, no-tailwind, shadcn, modern, typescript, zustand, ui-components, headless-ui, accessible-components",
       },
       {
         name: "author",
@@ -53,7 +53,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Built with StyleX and Base UI. Accessible, headless primitives with shadcn-style ergonomics.",
+          "Built with Vanilla Extract and Base UI. Accessible, headless primitives with shadcn-style ergonomics.",
       },
       {
         name: "twitter:card",
@@ -66,7 +66,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Built with StyleX and Base UI. Accessible, headless primitives with shadcn-style ergonomics.",
+          "Built with Vanilla Extract and Base UI. Accessible, headless primitives with shadcn-style ergonomics.",
       },
     ],
     links: [
@@ -124,20 +124,13 @@ function RootDocument() {
               name: "Blenx UI",
               url: "https://blenx-ui.vercel.app",
               description:
-                "A modern, no-Tailwind React component library built with StyleX and Base UI.",
+                "A modern, no-Tailwind React component library built with Vanilla Extract and Base UI.",
               applicationCategory: "Component Library",
-              keywords: "stylex, base-ui, react, component-library, ui-kit, design-system, shadcn",
+              keywords:
+                "vanilla-extract, base-ui, react, component-library, ui-kit, design-system, shadcn",
             }),
           }}
         />
-        {import.meta.env.DEV ? (
-          <>
-            <link rel="stylesheet" href="/virtual:stylex.css" />
-            <script type="module" src="/@id/virtual:stylex:runtime" />
-          </>
-        ) : (
-          <link rel="stylesheet" href="/assets/stylex.css" />
-        )}
       </head>
       <body>
         <ClientOnly>

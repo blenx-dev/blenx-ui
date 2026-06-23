@@ -24,7 +24,7 @@ Blenx components are distributed through a registry and installed using the shad
 Before installing components, ensure your project has:
 
 - React 18 or newer
-- StyleX configured in your build pipeline
+- Vanilla Extract configured in your build pipeline
 - A project initialized with the shadcn CLI
 
 If you have not yet configured shadcn, follow the official setup process first.

@@ -57,7 +57,7 @@ The tradeoff is verbosity at the call site. Blenx believes this is the right tra
 
 ## Box
 
-Box renders a `<div>` with StyleX props. It is the escape hatch and the foundation. Use Box when no semantic element fits—containers, wrappers, spacers. Box accepts `stylex.props()` directly, so you can pass any StyleX styles without intermediation.
+Box renders a `<div>` with Vanilla Extract styles (via sprinkles). It is the escape hatch and the foundation. Use Box when no semantic element fits—containers, wrappers, spacers. Box accepts a `className` prop directly for custom styles.
 
 Box has no built-in styles. It is a blank canvas.
 
@@ -74,7 +74,7 @@ Stack is a flex container with opinionated defaults: `display: flex`, `alignItem
 
 Use Stack instead of manual `display: flex` on a Box. It encodes the most common flex patterns—gap, alignment, wrapping, direction—into named props. This makes layout intent readable without scanning a style definition.
 
-Stack accepts responsive values. `gap={{ base: 'sm', md: 'lg' }}` compiles to different gap values at breakpoints using the same StyleX media query mechanism.
+Stack accepts responsive values. `gap={{ base: 'sm', md: 'lg' }}` compiles to different gap values at breakpoints using the same Vanilla Extract media query mechanism.
 
 ## Grid
 
@@ -131,6 +131,6 @@ Text maps `size` values to the contract's type scale. Use `color="muted"` for se
 
 Compose from primitives when your layout follows standard web patterns: cards, lists, forms, headers, footers. These account for 90% of UI work. Primitives keep them consistent and maintainable.
 
-Build a custom component when the layout is genuinely novel or performance-critical. A drag-and-drop grid, a virtualized list, a canvas-based visualization—primitives are not designed for these. Use Box as your foundation and opt into direct DOM and StyleX control.
+Build a custom component when the layout is genuinely novel or performance-critical. A drag-and-drop grid, a virtualized list, a canvas-based visualization—primitives are not designed for these. Use Box as your foundation and opt into direct DOM and Vanilla Extract control.
 
 The boundary is pragmatic: if you can express the layout with `HStack`, `VStack`, `Grid`, and `Container`, do it. If you are fighting primitives to achieve a layout they do not support, stop fighting—build a Box with custom styles.

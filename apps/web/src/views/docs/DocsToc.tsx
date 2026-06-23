@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import { Box, CopyButton, Text, VStack } from "@blenx-dev/ui/components";
+import { Box, Container, CopyButton, Text, VStack } from "@blenx-dev/ui/components";
 import type { TocItem } from "@/utils/extractHeadings";
 import { HStack } from "@blenx-dev/ui";
 import { useRouterState } from "@tanstack/react-router";
-import { tocRoot, tocTitle } from "@/lib/styles.css";
+import { tocTitle } from "@/lib/styles.css";
 
 interface DocsTocProps {
   items: TocItem[];
@@ -61,7 +61,7 @@ export function DocsToc({ items }: DocsTocProps) {
   if (items.length === 0) return null;
 
   return (
-    <Box className={tocRoot} render={<aside />} aria-label="On this page">
+    <Container size="xxs" centered render={<aside />} aria-label="On this page">
       <Text variant="caption" className={tocTitle}>
         On this page
       </Text>
@@ -100,6 +100,6 @@ export function DocsToc({ items }: DocsTocProps) {
           })}
         </VStack>
       </Box>
-    </Box>
+    </Container>
   );
 }

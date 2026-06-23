@@ -16,7 +16,7 @@ import { PreviewErrorBoundary } from "./error-boundary";
 import { ExportPanel } from "./export";
 import { ImpactSummary } from "./impact-map";
 import { ComponentShowcase, ExampleDashboard } from "./preview";
-import { HowItWorks, TokenTable } from "./stylex-showcase";
+import { HowItWorks, TokenTable } from "./ve-showcase";
 import { ThemeBuilderProvider, useThemeBuilder } from "./theme-builder-context";
 import { ThemePreviewProvider } from "./theme-provider";
 import { ClientOnly } from "@tanstack/react-router";
