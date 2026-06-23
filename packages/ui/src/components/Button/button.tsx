@@ -1,26 +1,16 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import clsx from "clsx";
 import { Spinner } from "../Spinner/spinner";
-import {
-  base,
-  size as sizeRecipe,
-  intent as intentRecipe,
-  variant as variantRecipe,
-} from "./button.css";
+import { variant as variantRecipe } from "./button.css";
 import { applyBaseSprinkles } from "#utils/ve-style.utils.js";
 import type { BaseSprinkles } from "#utils/sprinkles.css.js";
+import type { RecipeVariants } from "@vanilla-extract/recipes";
 
-type _BaseUIButtonProps = ButtonPrimitive.Props;
+type ButtonVariants = RecipeVariants<typeof variantRecipe>;
 
-const NEW_VARIANTS = ["solid", "soft", "outline", "ghost", "link"] as const;
-type NewVariant = (typeof NEW_VARIANTS)[number];
-type ButtonIntent = "primary" | "neutral" | "success" | "warning" | "danger" | "info" | "mono";
-
-type ButtonProps = _BaseUIButtonProps &
-  BaseSprinkles & {
-    variant?: NewVariant;
-    intent?: ButtonIntent;
-    size?: "xsmall" | "small" | "icon" | "medium" | "large";
+type ButtonProps = ButtonPrimitive.Props &
+  BaseSprinkles &
+  ButtonVariants & {
     disabled?: boolean;
     loading?: boolean;
     fullWidth?: boolean;
@@ -40,11 +30,8 @@ function Button({
   const resolvedVariant = intent === "mono" ? "soft" : variant;
   const [boxProps, restProps] = applyBaseSprinkles(props);
   const rootCls = clsx(
-    base,
     boxProps,
-    sizeRecipe({ size }),
-    intent && intentRecipe({ intent: intent ?? "primary" }),
-    variantRecipe({ variant: resolvedVariant }),
+    variantRecipe({ variant: resolvedVariant, intent: intent ?? "primary", size }),
     className,
   );
 
@@ -65,4 +52,4 @@ function Button({
 }
 
 export { Button };
-export type { ButtonProps, ButtonIntent };
+export type { ButtonProps };
