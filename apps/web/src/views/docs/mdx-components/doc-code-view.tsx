@@ -47,9 +47,7 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
     const lang = activeFile.language ?? "typescript";
 
     highlightCode(activeFile.code, lang).then((html) => {
-      if (mountedRef.current) {
-        setHighlighted(html);
-      }
+      if (mountedRef.current) setHighlighted(html);
     });
 
     return () => {
@@ -61,24 +59,22 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
   const isMultiFile = activeFiles.length > 1;
 
   return (
-    <Surface variant="sunken" maxWidth="viewport" position="relative">
+    <Surface variant="sunken" position="relative">
       {isMultiFile ? (
         <HStack padding="xsmall" align="center" overflow="hidden">
-          <div style={{ overflowX: "auto", flex: 1, minWidth: 0, whiteSpace: "nowrap" }}>
-            <SegmentedControl
-              variant="default"
-              value={activeIndex.toString()}
-              radius="xsmall"
-              onValueChange={(value) => {
-                setActiveIndex(Number(value));
-                setHighlighted(null);
-              }}
-              options={activeFiles.map((file, idx) => ({
-                value: `${idx}`,
-                label: file.title || `File ${idx + 1}`,
-              }))}
-            />
-          </div>
+          <SegmentedControl
+            variant="default"
+            value={activeIndex.toString()}
+            radius="xsmall"
+            onValueChange={(value) => {
+              setActiveIndex(Number(value));
+              setHighlighted(null);
+            }}
+            options={activeFiles.map((file, idx) => ({
+              value: `${idx}`,
+              label: file.title || `File ${idx + 1}`,
+            }))}
+          />
         </HStack>
       ) : (
         <HStack justify="between" padding="xsmall" align="center">
@@ -96,7 +92,7 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
         <CopyButton copyValue={activeFile.code} />
       </Box>
 
-      <ScrollArea height="60svh">
+      <ScrollArea height="60svh" render={<pre />}>
         <div
           dangerouslySetInnerHTML={{
             __html: highlighted ?? escapeHtml(activeFile.code),

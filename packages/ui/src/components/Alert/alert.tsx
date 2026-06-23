@@ -4,6 +4,7 @@ import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { alertVariants } from "./alert.css";
 import clsx from "clsx";
 import { HStack, VStack } from "../Stack/stack";
+import { Box } from "../Box/box";
 
 type Props = RecipeVariants<typeof alertVariants> & {
   icon?: ReactNode;
@@ -22,10 +23,10 @@ function Alert({ variant = "info", icon, title, description, children, className
       p="small"
       className={clsx(alertVariants({ variant }), className)}
     >
-      {icon}
+      <Box p={"xxs"}>{icon}</Box>
       <VStack gap="xxsmall">
         {title ? (
-          <Text variant="h6" padding="none" margin="none">
+          <Text variant="h6" padding="none" margin="none" color={variant}>
             {title}
           </Text>
         ) : null}

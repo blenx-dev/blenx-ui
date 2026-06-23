@@ -1,14 +1,13 @@
 "use client";
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
-import { CaretUpDownIcon } from "@phosphor-icons/react";
+import { CaretDownIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import {
   root,
   rootVertical,
   item,
   itemDisabled,
-  header,
   trigger,
   triggerIcon,
   panel,
@@ -44,7 +43,7 @@ type AccordionHeaderProps = AccordionPrimitive.Header.Props;
 
 function AccordionHeader({ children, className, ...props }: AccordionHeaderProps) {
   return (
-    <AccordionPrimitive.Header className={clsx(header, className)} {...props}>
+    <AccordionPrimitive.Header className={className} {...props}>
       {children}
     </AccordionPrimitive.Header>
   );
@@ -55,7 +54,7 @@ type AccordionTriggerProps = AccordionPrimitive.Trigger.Props;
 function AccordionTrigger({ children, className, ...props }: AccordionTriggerProps) {
   return (
     <AccordionPrimitive.Trigger className={clsx(trigger, className)} {...props}>
-      <CaretUpDownIcon size={16} className={triggerIcon} />
+      <CaretDownIcon size={16} className={triggerIcon} />
       {children}
     </AccordionPrimitive.Trigger>
   );

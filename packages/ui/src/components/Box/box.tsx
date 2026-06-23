@@ -3,6 +3,7 @@ import type { _BaseDivProps } from "#utils/types";
 import clsx from "clsx";
 import { applyBaseSprinkles } from "#utils/ve-style.utils.js";
 import type { BaseSprinkles } from "#utils/sprinkles.css.js";
+import { baseBox } from "./box.css";
 
 type BoxProps = useRender.ComponentProps<"div"> & BaseSprinkles;
 
@@ -13,7 +14,7 @@ function Box({ render, className, ...props }: BoxProps) {
     render,
     props: {
       ...htmlProps,
-      className: clsx(styleProps, className),
+      className: clsx(baseBox, styleProps, className),
     },
   });
 }

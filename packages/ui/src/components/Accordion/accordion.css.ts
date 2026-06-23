@@ -32,19 +32,15 @@ export const itemDisabled = style({
   opacity: 0.5,
 });
 
-export const header = style({
-  margin: 0,
-});
-
 export const trigger = style({
   display: "flex",
   alignItems: "center",
   gap: spacing.small,
   width: "100%",
-  paddingTop: spacing.medium,
-  paddingBottom: spacing.medium,
-  paddingLeft: spacing.small,
-  paddingRight: spacing.small,
+  paddingTop: spacing.small,
+  paddingBottom: spacing.small,
+  paddingLeft: spacing.xsmall,
+  paddingRight: spacing.xsmall,
   boxSizing: "border-box",
   fontSize: fontSize.small,
   lineHeight: lineHeight.normal,
@@ -92,7 +88,7 @@ export const panel = style({
   overflow: "hidden",
   boxSizing: "border-box",
   transitionProperty: "grid-template-rows, opacity",
-  padding: spacing.medium,
+  padding: spacing.small,
   transitionDuration: duration.normal,
   transitionTimingFunction: easing.standard,
 });
