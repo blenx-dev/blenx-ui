@@ -63,8 +63,8 @@ export function ButtonDemo() {
       <Stack gap="small">
         <Text variant="h6">Soft + Intents</Text>
         <HStack wrap>
-          <Button variant="soft" intent="primary">
-            Soft Primary
+          <Button variant="soft" intent="warning">
+            Soft Warning
           </Button>
           <Button variant="soft" intent="success">
             Soft Success
