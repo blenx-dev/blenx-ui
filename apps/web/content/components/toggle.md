@@ -20,8 +20,6 @@ Toggle provides a two-state button that switches between active and inactive vis
 
 ## Usage
 
-<Spinner name="toggle-default" />
-
 Toggle renders as a button element that maintains a pressed state through `aria-pressed`. The `pressed` and `onPressedChange` props control the toggle state in controlled mode, or the component can manage its own state internally. The visual treatment switches between a default button appearance and an active appearance that uses the brand color or a filled background, depending on the variant. The `size` prop matches the Button component's size scale for consistent spacing in toolbars. The disabled state removes interaction and reduces visual emphasis.
 
 ## Composition

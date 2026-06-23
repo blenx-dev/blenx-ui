@@ -39,9 +39,10 @@ function RenderSidebarNavs() {
 }
 
 function TocSection() {
-  const matches = useMatches();
-  const toc = [...matches].reverse().find((m) => m.context.toc)?.context.toc ?? [];
-  return <DocsToc items={toc} />;
+  const matches = useMatches({
+    select: (r) => r.reverse().find((m) => (m.context as any).toc),
+  });
+  return <DocsToc items={(matches?.context as any)?.toc} />;
 }
 
 function DocsLayout() {
