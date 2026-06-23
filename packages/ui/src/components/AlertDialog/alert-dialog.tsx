@@ -12,7 +12,6 @@ import {
   popup,
   viewportShellBottomStickOnMobile,
   popupBottomStickOnMobile,
-  closeButton as closeButtonStyle,
   header,
   footer,
   footerDefault,
@@ -90,8 +89,9 @@ function AlertDialogPopup({
           {showCloseButton && (
             <AlertDialogPrimitive.Close
               aria-label="Close"
-              className={closeButtonStyle}
-              render={<CloseButton variant="ghost" className={closeButtonStyle} />}
+              render={
+                <CloseButton position="absolute" top="xsmall" left="xsmall" variant="ghost" />
+              }
               {...closeProps}
             />
           )}

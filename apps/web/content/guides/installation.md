@@ -15,8 +15,6 @@ navigation:
   link: "/docs/guides/installation"
 ---
 
-# Installation
-
 Blenx components are distributed through a registry and installed using the shadcn CLI. Components are copied directly into your project as source code, giving you full ownership over implementation, styling, and customization.
 
 ## Prerequisites

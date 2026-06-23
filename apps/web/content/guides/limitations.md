@@ -24,13 +24,9 @@ Blenx is a UI component library styled with Vanilla Extract. It is not an animat
 
 **Animations.** Blenx components ship with minimal transitions (opacity fades for overlays, height transitions for accordions). Complex, choreographed animations are outside the scope. Use `framer-motion`, `react-spring`, or CSS `@keyframes` for animation work. Blenx components accept `className` and `style` props—wire up animation libraries at the call site.
 
-**Routing.** There is no Blenx `<Link>` component. Use your framework's router (Next.js `<Link>`, React Router `<Link>`, TanStack Router `<Link>`). Blenx `Button` accepts an `as` prop for polymorphic rendering—pass your router's link component to render a styled link.
-
 **Data fetching.** Blenx does not provide `useQuery`, `useMutation`, or any data-layer abstraction. Use React Query, SWR, Apollo, or your framework's data fetching. Blenx components render the data you provide; they do not fetch it.
 
 ## When Another Solution May Be More Appropriate
-
-**Fully custom, brand-first designs.** If your application requires pixel-perfect, art-directed layouts that do not follow standard interface patterns, Blenx primitives will feel constraining. You will spend energy overriding defaults rather than building from scratch. Consider a bespoke Vanilla Extract setup without registry components, or a different styling approach entirely.
 
 **Heavily animated or interactive UIs.** Blenx's composition model and Vanilla Extract's build-time compilation are optimized for static and moderately dynamic UIs. If your application is a design tool, a game, or a data visualization with thousands of animated DOM elements, the component abstraction adds overhead that may not be justified. Use primitives (Box) directly or drop to raw DOM.
 
@@ -46,7 +42,7 @@ Vanilla Extract is not a general-purpose CSS engine. It makes deliberate tradeof
 
 **Learning curve.** Developers accustomed to runtime CSS-in-JS (styled-components, Emotion) find Vanilla Extract's static extraction model unfamiliar. The `.css.ts` file convention, sprinkles API, and recipe patterns require ramp-up time for new team members.
 
-**No style reuse via className concatenation.** Vanilla Extract encourages composition through the `composeStyles()` function or recipe patterns, not string concatenation of class names. You cannot write `className={condition ? 'styleA' : 'styleB'}` with raw strings—styles must be composed at build time.
+**No style reuse via className concatenation.** Vanilla Extract encourages composition through recipe patterns, not string concatenation of class names. You cannot write `className={condition ? 'styleA' : 'styleB'}` with raw strings—styles must be composed at build time.
 
 For historical context, Blenx previously used StyleX as its styling foundation. Future documentation will detail StyleX-specific limitations and how the migration to Vanilla Extract addressed them.
 

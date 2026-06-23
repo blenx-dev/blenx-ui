@@ -5,24 +5,24 @@ export const alertVariants = recipe({
   variants: {
     variant: {
       info: {
-        bg: themeContract.sentimentInfoSubtle,
-        fg: themeContract.sentimentInfo,
-        border: themeContract.sentimentInfo,
+        backgroundColor: themeContract.sentimentInfoSubtle,
+        color: themeContract.sentimentInfo,
+        borderColor: themeContract.sentimentInfo,
       },
       success: {
-        bg: themeContract.sentimentPositiveSubtle,
-        fg: themeContract.sentimentPositive,
-        border: themeContract.sentimentPositive,
+        backgroundColor: themeContract.sentimentPositiveSubtle,
+        color: themeContract.sentimentPositive,
+        borderColor: themeContract.sentimentPositive,
       },
       warning: {
-        bg: themeContract.sentimentWarningSubtle,
-        fg: themeContract.sentimentWarning,
-        border: themeContract.sentimentWarning,
+        backgroundColor: themeContract.sentimentWarningSubtle,
+        color: themeContract.sentimentWarning,
+        borderColor: themeContract.sentimentWarning,
       },
       error: {
-        bg: themeContract.sentimentNegativeSubtle,
-        fg: themeContract.sentimentNegative,
-        border: themeContract.sentimentNegative,
+        backgroundColor: themeContract.sentimentNegativeSubtle,
+        color: themeContract.sentimentNegative,
+        borderColor: themeContract.sentimentNegative,
       },
     },
   },
