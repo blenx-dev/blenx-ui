@@ -3,6 +3,7 @@ import { recipe } from "@vanilla-extract/recipes";
 export const containerRecipe = recipe({
   base: {
     boxSizing: "border-box",
+    minWidth: 0,
   },
   variants: {
     size: {

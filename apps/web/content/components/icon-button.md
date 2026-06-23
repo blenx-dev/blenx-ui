@@ -24,8 +24,6 @@ Icon buttons provide a compact trigger for actions where visual real estate is l
 
 ## Usage
 
-<Spinner name="icon-button-default" />
-
 Icon buttons are built on the Button component with enforced square aspect ratio and default size that matches the standard button height. The variant, size, and color props map directly to Button semantics, ensuring visual consistency across the system. Unlike standard buttons, icon buttons do not accept children as text — only render an icon element. An accessible label must always be provided through `aria-label` for screen readers.
 
 ## Composition

@@ -11,6 +11,7 @@ export const root = style({
 
 export const viewport = style({
   height: "100%",
+  minWidth: 0,
   borderRadius: themeContract.borderRadius,
   outline: "none",
   boxSizing: "border-box",
