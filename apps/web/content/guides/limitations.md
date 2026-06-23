@@ -1,12 +1,12 @@
 ---
 title: "Limitations"
-description: "Blenx does not solve every problem. This guide covers what the library intentionally avoids, where other tools may serve you better, and the tradeoffs you accept by using StyleX and the registry model."
+description: "Blenx does not solve every problem. This guide covers what the library intentionally avoids, where other tools may serve you better, and the tradeoffs you accept by using Vanilla Extract and the registry model."
 category: "Advanced"
 order: 8
 keywords:
   - limitations
   - tradeoffs
-  - StyleX
+  - vanilla-extract
   - animations
   - mobile
   - registry
@@ -20,7 +20,7 @@ navigation:
 
 ## What Blenx Intentionally Does Not Solve
 
-Blenx is a UI component library styled with StyleX. It is not an animation framework, a routing library, a data-fetching client, or a state management solution. These boundaries are deliberate.
+Blenx is a UI component library styled with Vanilla Extract. It is not an animation framework, a routing library, a data-fetching client, or a state management solution. These boundaries are deliberate.
 
 **Animations.** Blenx components ship with minimal transitions (opacity fades for overlays, height transitions for accordions). Complex, choreographed animations are outside the scope. Use `framer-motion`, `react-spring`, or CSS `@keyframes` for animation work. Blenx components accept `className` and `style` props—wire up animation libraries at the call site.
 
@@ -30,27 +30,29 @@ Blenx is a UI component library styled with StyleX. It is not an animation frame
 
 ## When Another Solution May Be More Appropriate
 
-**Fully custom, brand-first designs.** If your application requires pixel-perfect, art-directed layouts that do not follow standard interface patterns, Blenx primitives will feel constraining. You will spend energy overriding defaults rather than building from scratch. Consider a bespoke StyleX setup without registry components, or a different styling approach entirely.
+**Fully custom, brand-first designs.** If your application requires pixel-perfect, art-directed layouts that do not follow standard interface patterns, Blenx primitives will feel constraining. You will spend energy overriding defaults rather than building from scratch. Consider a bespoke Vanilla Extract setup without registry components, or a different styling approach entirely.
 
-**Heavily animated or interactive UIs.** Blenx's composition model and StyleX's build-time compilation are optimized for static and moderately dynamic UIs. If your application is a design tool, a game, or a data visualization with thousands of animated DOM elements, the component abstraction adds overhead that may not be justified. Use primitives (Box) directly or drop to raw DOM.
+**Heavily animated or interactive UIs.** Blenx's composition model and Vanilla Extract's build-time compilation are optimized for static and moderately dynamic UIs. If your application is a design tool, a game, or a data visualization with thousands of animated DOM elements, the component abstraction adds overhead that may not be justified. Use primitives (Box) directly or drop to raw DOM.
 
-**Projects without StyleX build plugin support.** If your bundler, framework, or deployment platform does not support the StyleX plugin, Blenx components will not render styled output. This is a hard requirement. Check that your toolchain supports `@stylexjs/babel-plugin` or `@stylexjs/rollup-plugin` before adopting Blenx.
+**Projects without Vanilla Extract build plugin support.** If your bundler, framework, or deployment platform does not support the Vanilla Extract plugin, Blenx components will not render styled output. This is a hard requirement. Check that your toolchain supports `@vanilla-extract/vite-plugin` or `@vanilla-extract/next-plugin` before adopting Blenx.
 
-## StyleX Limitations
+## Vanilla Extract Limitations
 
-StyleX is not a general-purpose CSS engine. It makes deliberate tradeoffs that affect how you write styles.
+Vanilla Extract is not a general-purpose CSS engine. It makes deliberate tradeoffs that affect how you write styles.
 
-**Build-time only, no runtime.** StyleX compiles all styles at build time. You cannot dynamically construct a style object from user input or API response and have it compile to a class. Dynamic values must use CSS custom properties (via `stylex.defineVars()`) or inline `style` props.
+**Build-time compilation.** Vanilla Extract compiles `.css.ts` files into static CSS files at build time. You cannot dynamically construct a style from user input or API response. Dynamic values must use CSS custom properties (via `createThemeContract()`) or inline `style` props.
 
-**No dynamic class generation.** StyleX does not support concatenating class names from strings (`className={condition ? 'flex' : 'grid'}`). All class names are determined at build time from static `stylex.create()` calls. Conditional styles must use the `stylex.props(styles.base, condition && styles.variant)` pattern.
+**File separation.** Unlike CSS-in-JS solutions that allow colocated styles in `.tsx` files, Vanilla Extract requires styles to be defined in separate `.css.ts` files. This enforces a file structure pattern that may feel verbose for small components.
 
-**Learning curve.** Developers accustomed to Tailwind utility classes or styled-components template literals find StyleX's object syntax unfamiliar. Property names follow CSS-in-JS conventions (camelCase, commas instead of semicolons). New team members need ramp-up time.
+**Learning curve.** Developers accustomed to runtime CSS-in-JS (styled-components, Emotion) find Vanilla Extract's static extraction model unfamiliar. The `.css.ts` file convention, sprinkles API, and recipe patterns require ramp-up time for new team members.
 
-**No `@apply` or style reuse directive.** StyleX encourages composition through merge, not inheritance. You cannot create a style "mixin" and apply it to multiple components. Share styles by extracting them into a shared `stylex.create()` object and importing it where needed.
+**No style reuse via className concatenation.** Vanilla Extract encourages composition through the `composeStyles()` function or recipe patterns, not string concatenation of class names. You cannot write `className={condition ? 'styleA' : 'styleB'}` with raw strings—styles must be composed at build time.
+
+For historical context, Blenx previously used StyleX as its styling foundation. Future documentation will detail StyleX-specific limitations and how the migration to Vanilla Extract addressed them.
 
 ## Registry Limitations
 
-**Build step required.** Registry installation copies files into your project. Those files contain TypeScript and StyleX code that must be compiled. There is no pre-compiled CSS file to link in your HTML head. Every Blenx installation requires a build pipeline.
+**Build step required.** Registry installation copies files into your project. Those files contain TypeScript and Vanilla Extract code that must be compiled. There is no pre-compiled CSS file to link in your HTML head. Every Blenx installation requires a build pipeline.
 
 **No CDN delivery.** Because components are source files, there is no Blenx CDN URL to drop into a static HTML page. Blenx is designed for projects with build tooling, not for traditional server-rendered pages or static site generators that lack a build step.
 
@@ -85,18 +87,15 @@ Blenx is not mobile-first. The default themes and components are designed for de
 
 If your primary audience is mobile users, or if you are building a mobile-first web application, evaluate whether Blenx's desktop-oriented defaults save you time or add overhead. The primitives are responsive—they do not prevent mobile-first design—but they are not optimized for it out of the box.
 
-## Template Literal Restrictions
+## CSS File Convention
 
-StyleX does not support template literals inside `stylex.create()` style values. The following does not work:
+Vanilla Extract requires styles to be authored in `.css.ts` files. These files are evaluated at build time by the VE build plugin, which means:
 
-```tsx
-// Does not work
-const styles = stylex.create({
-  root: { color: `rgb(${r}, ${g}, ${b})` },
-});
-```
+- Imports from `.css.ts` files return class name strings (not style objects)
+- You cannot conditionally import `.css.ts` files
+- Dynamic values (props, state) must use CSS custom properties (`createThemeContract()`) or runtime `style` objects
 
-Use `stylex.defineVars()` and CSS custom properties for values that must be dynamic, or compute the value statically when it is known at build time. This is a hard limitation of StyleX's build-time compilation model.
+This file convention differs from colocated CSS-in-JS approaches. If you prefer writing styles directly in component files, Vanilla Extract's file separation may feel restrictive.
 
 ## Being Transparent
 

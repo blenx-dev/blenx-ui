@@ -37,7 +37,7 @@ Focus management is the most common accessibility gap in React applications. Ble
 
 - **Focus trapping.** Dialog and modal components include a `FocusTrap` primitive that cycles focus within the modal while it is open. It does not prevent focus from leaving via browser chrome (address bar, dev tools)—that is impossible in JavaScript. What it does prevent is focus moving behind the backdrop to background page elements.
 - **Focus restoration.** When a dialog closes, focus should return to the element that triggered it. Blenx components track the trigger element internally. If you open a dialog programmatically, pass a `returnFocusRef` to restore focus correctly.
-- **Focus indication.** Never remove `:focus-visible` outlines. StyleX supports `::focus-visible` pseudo-classes. If you customize focus styles, make the indicator more visible, not less. A 2px offset outline is the minimum—Blenx defaults to a 3px ring with theme accent color.
+- **Focus indication.** Never remove `:focus-visible` outlines. Vanilla Extract supports `::focus-visible` pseudo-classes via its style API. If you customize focus styles, make the indicator more visible, not less. A 2px offset outline is the minimum—Blenx defaults to a 3px ring with theme accent color.
 
 ## ARIA Usage
 
@@ -72,10 +72,8 @@ Blenx provides a `useReducedMotion` hook that returns `true` when the user's sys
 ```tsx
 const prefersReducedMotion = useReducedMotion();
 
-const styles = stylex.create({
-  overlay: {
-    opacityTransition: prefersReducedMotion ? "0.2s" : "0s",
-  },
+const overlayStyle = style({
+  transition: prefersReducedMotion ? "opacity 0.2s" : "opacity 0s",
 });
 ```
 

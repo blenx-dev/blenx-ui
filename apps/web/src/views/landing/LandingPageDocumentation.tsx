@@ -10,7 +10,7 @@ const docLinks = [
   {
     to: "styling",
     title: "Styling",
-    desc: "How StyleX works in Blenx UI.",
+    desc: "How Vanilla Extract works in Blenx UI.",
   },
   {
     to: "installation",

@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-description: "Blenx UI is a React component library built with StyleX and Base UI primitives, distributed through a registry-first architecture."
+description: "Blenx UI is a React component library built with Vanilla Extract and Base UI primitives, distributed through a registry-first architecture."
 category: "Getting Started"
 keywords:
   - overview
@@ -15,7 +15,7 @@ navigation:
 
 # Blenx UI
 
-Blenx UI is a modern React component library built on top of StyleX and Base UI primitives. It combines the ownership model popularized by shadcn/ui with a registry-first architecture, allowing teams to install components as source code instead of consuming them through a runtime package.
+Blenx UI is a modern React component library built on top of Vanilla Extract and Base UI primitives. It combines the ownership model popularized by shadcn/ui with a registry-first architecture, allowing teams to install components as source code instead of consuming them through a runtime package.
 
 The goal is simple: provide production-ready components without taking control away from developers.
 
@@ -36,11 +36,11 @@ This means:
 - Design system friendly architecture
 - Easy customization and extension
 
-## Built on StyleX
+## Built on Vanilla Extract
 
-Blenx uses StyleX as its styling foundation.
+Blenx uses Vanilla Extract as its styling foundation.
 
-StyleX generates atomic CSS at build time, providing predictable performance, strong type safety, and scalable theming without runtime styling overhead.
+Vanilla Extract generates static CSS files at build time, providing predictable performance, strong type safety, and scalable theming without runtime styling overhead.
 
 Components are built around semantic design tokens, making it easy to implement custom themes while maintaining consistency across applications.
 

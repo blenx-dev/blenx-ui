@@ -21,7 +21,7 @@ export const Route = createFileRoute("/og")({
             <div style={{ fontSize: 72, fontWeight: 700 }}>Blenx UI</div>
 
             <div style={{ fontSize: 32, marginTop: 24 }}>
-              React Component Library powered by StyleX & Base UI
+              React Component Library powered by Vanilla Extract & Base UI
             </div>
           </div>,
           {

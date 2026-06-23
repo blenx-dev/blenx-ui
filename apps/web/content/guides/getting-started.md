@@ -18,7 +18,7 @@ navigation:
 
 ## Overview
 
-Blenx is a StyleX-powered React component library distributed through a registry-first architecture. Components are installed directly into your application as source code using the shadcn CLI.
+Blenx is a Vanilla Extract-powered React component library distributed through a registry-first architecture. Components are installed directly into your application as source code using the shadcn CLI.
 
 Unlike traditional component libraries, Blenx does not require you to import components from a runtime package. When you add a component, the source files are copied into your project, giving you full ownership over implementation, styling, and composition.
 
@@ -27,10 +27,10 @@ Unlike traditional component libraries, Blenx does not require you to import com
 Before installing components, ensure your project has:
 
 - React 18 or newer
-- StyleX configured in your build pipeline
+- Vanilla Extract configured in your build pipeline
 - The shadcn CLI installed
 
-Blenx components are designed around StyleX and its compile-time styling model.
+Blenx components are designed around Vanilla Extract and its compile-time styling model.
 
 ## Configure the Registry
 

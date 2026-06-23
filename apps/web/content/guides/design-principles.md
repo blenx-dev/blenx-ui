@@ -48,17 +48,17 @@ The tradeoff: more JSX at the usage site. Composing primitives into a data table
 
 Every Blenx component works in any context. A Button does not assume it lives inside a form. A Dialog does not assume it is the only overlay on the page. Components do not import global styles, do not depend on ambient CSS, and do not require a specific parent component to render correctly.
 
-This is achieved through strict isolation: every component imports only its own dependencies (primitives, tokens, hooks) and renders with StyleX-scoped classes. There is no CSS cascade to rely on and no global style reset requirement.
+This is achieved through strict isolation: every component imports only its own dependencies (primitives, tokens, hooks) and renders with Vanilla Extract-scoped classes. There is no CSS cascade to rely on and no global style reset requirement.
 
 The tradeoff: components include more explicit CSS than equivalent components in a traditional CSS framework. A Blenx Button sets `display`, `alignItems`, `justifyContent`, `gap`, `padding`, `borderRadius`, `fontSize`, `fontWeight`, `lineHeight`, `cursor`, `border`, `backgroundColor`, and `color`. A Bootstrap button sets two of these and inherits the rest from global styles. Blenx forgoes inheritance for reliability. Every component renders identically regardless of where it is placed.
 
 ## Performance
 
-StyleX compiles styles to atomic CSS classes at build time. The runtime cost of a Blenx component is: function call overhead from `stylex.props()`, React reconciliation, and DOM mutation. There is no style injection, no CSS parsing at runtime, no dynamic class name generation.
+Vanilla Extract compiles styles to static CSS files at build time. The runtime cost of a Blenx component is: a single `className` string lookup, React reconciliation, and DOM mutation. There is no style injection, no CSS parsing at runtime, no dynamic style object generation.
 
 Tree-shaking works because components are individual source files. Your bundler includes only the components you import—there is no barrel file that forces the entire library into your bundle. The registry model reinforces this: you install exactly the components you use.
 
-The tradeoff: StyleX requires a build plugin. If your project uses a bundler without a StyleX plugin (or if you cannot configure one), you cannot use Blenx. There is no CDN build, no UMD bundle, no runtime-only option. The performance advantage is real but conditional on build tooling.
+The tradeoff: Vanilla Extract requires a build plugin (such as `@vanilla-extract/vite-plugin` or `@vanilla-extract/next-plugin`). If your project uses a bundler without VE support (or if you cannot configure one), you cannot use Blenx. The performance advantage is real but conditional on build tooling.
 
 ## Maintainability
 

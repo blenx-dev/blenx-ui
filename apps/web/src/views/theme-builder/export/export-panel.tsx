@@ -31,8 +31,8 @@ export function ExportPanel() {
     URL.revokeObjectURL(url);
   }, [tokens]);
 
-  const generateStyleXCode = useCallback(() => {
-    const themeEntries = Object.entries(theme)
+  const generateThemeCode = useCallback(() => {
+    const themeEntries = Object.entries(tokens)
       .filter(([key]) => key !== "__varGroupHash__")
       .map(([key]) => {
         const value =
@@ -42,14 +42,14 @@ export function ExportPanel() {
               ? tokens.borderRadius
               : tokens[key as keyof typeof tokens]?.toString();
         if (!value) return null;
-        return `    ${key}: "${value}",`;
+        return `  ${key}: "${value}",`;
       })
       .filter(Boolean) as string[];
 
-    return `import * as stylex from "@stylexjs/stylex";
-import { theme } from "@/lib/theme/contract.stylex";
+    return `import { createTheme } from "@vanilla-extract/css";
+import { themeContract } from "@blenx-dev/ui/theme/contract.css";
 
-export const customTheme = stylex.createTheme(theme, {
+export const customTheme = createTheme(themeContract, {
 ${themeEntries.join("\n")}
 });`;
   }, [tokens]);
@@ -64,16 +64,16 @@ ${themeEntries.join("\n")}
     }
   }, [tokens]);
 
-  const copyStyleX = useCallback(async () => {
+  const copyThemeCode = useCallback(async () => {
     try {
-      const code = generateStyleXCode();
+      const code = generateThemeCode();
       await navigator.clipboard.writeText(code);
-      setCopied("stylex");
+      setCopied("ve");
       setTimeout(() => setCopied(""), 2000);
     } catch {
       // Fallback
     }
-  }, [generateStyleXCode]);
+  }, [generateThemeCode]);
 
   const handleReset = useCallback(() => {
     resetTokens();
@@ -94,14 +94,12 @@ ${themeEntries.join("\n")}
             <Button variant="outline" size="small" onClick={copyJSON}>
               {copied === "json" ? "Copied!" : "Copy JSON"}
             </Button>
-            <Button variant="outline" size="small" onClick={copyStyleX}>
-              {copied === "stylex" ? "Copied!" : "Copy StyleX Theme"}
+            <Button variant="outline" size="small" onClick={copyThemeCode}>
+              {copied === "ve" ? "Copied!" : "Copy VE Theme"}
             </Button>
           </VStack>
 
-          {copied === "stylex" && (
-            <Text color="primary">StyleX theme code copied to clipboard!</Text>
-          )}
+          {copied === "ve" && <Text color="primary">VE theme code copied to clipboard!</Text>}
 
           <Separator />
 

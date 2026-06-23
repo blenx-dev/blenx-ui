@@ -10,12 +10,12 @@ export function LandingHero() {
         <Text variant="h1" align="center" size="xxlarge">
           The shadcn/ui experience
           <br />
-          for StyleX.
+          for Vanilla Extract.
         </Text>
         <Box maxWidth={640} px={"2xl"}>
           <Text variant="body1" size="large" color="secondary" align="center">
-            Accessible React components built with StyleX and Base UI. Copy the source. Own the
-            code. Build without vendor lock-in.
+            Accessible React components built with Vanilla Extract and Base UI. Copy the source. Own
+            the code. Build without vendor lock-in.
           </Text>
         </Box>
         <HStack gap="medium" wrap justify="center">
@@ -71,7 +71,7 @@ export function LandingHero() {
             variant="primary"
             // style={styles.badgePill}
           >
-            StyleX Native
+            Vanilla Extract Native
           </Badge>
           <Badge
             variant="secondary"

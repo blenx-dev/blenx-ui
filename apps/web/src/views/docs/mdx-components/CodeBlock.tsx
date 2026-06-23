@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
 import { Box, CopyButton, HStack, Surface, Text } from "@blenx-dev/ui/components";
 import { codeScroll } from "@/lib/styles.css";
@@ -37,10 +37,6 @@ function CodeBlock({
     };
   }, [code, language]);
 
-  const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(code).then(() => {});
-  }, [code]);
-
   return (
     <Surface variant="sunken" borderRadius="medium" position="relative" paddingRight="xlarge">
       {title ? (
@@ -57,7 +53,7 @@ function CodeBlock({
         </HStack>
       ) : null}
       <Box position="absolute" top="xsmall" right="xsmall">
-        <CopyButton p="none" onClick={handleCopy} />
+        <CopyButton p="none" copyValue={code} />
       </Box>
       <Box
         className={codeScroll}

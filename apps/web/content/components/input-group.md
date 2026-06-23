@@ -10,6 +10,9 @@ navigation:
 
 Input Group extends a standard Input with prefix or suffix adornments — icons, buttons, text labels, or dropdown triggers. It solves the problem of composite input fields where additional context or actions are necessary within the same visual boundary. Use input groups for search fields with submit buttons, password fields with visibility toggles, amount fields with currency indicators, and URL inputs with protocol prefixes.
 
+## Demo
+
+<DemoRenderer registryName="inputgroup" />
 ## Installation
 
 <Installation registryName="inputgroup" />
@@ -19,8 +22,6 @@ Input Group extends a standard Input with prefix or suffix adornments — icons,
 <SourceCode registryName="inputgroup" />
 
 ## Usage
-
-<Spinner name="input-group-default" />
 
 The component wraps an Input and positions adornment elements in the leading or trailing slots. Adornments are rendered inline within the input's visual container, using the same border, background, and height to create a seamless appearance. The Input Group manages focus states so that clicking an adornment does not remove focus from the input itself. When an adornment is interactive, such as a button, the interactive element must handle its own focus and click events.
 

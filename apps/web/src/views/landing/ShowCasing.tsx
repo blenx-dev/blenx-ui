@@ -49,7 +49,7 @@ function ShowcaseAccordion() {
         <AccordionPanel>
           <Box padding="small">
             <Text variant="body2" color="secondary">
-              A registry-first React component library built with StyleX and Base UI.
+              A registry-first React component library built with Vanilla Extract and Base UI.
             </Text>
           </Box>
         </AccordionPanel>
@@ -188,7 +188,7 @@ function ShowcaseDialog() {
         </DialogHeader>
         <DialogPanel>
           <Text variant="body2">
-            This demonstrates a working dialog component using Base UI and StyleX.
+            This demonstrates a working dialog component using Base UI and Vanilla Extract.
           </Text>
         </DialogPanel>
         <DialogFooter>
