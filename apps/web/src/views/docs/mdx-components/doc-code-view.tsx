@@ -1,14 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
-import {
-  Box,
-  CopyButton,
-  HStack,
-  ScrollArea,
-  SegmentedControl,
-  Surface,
-  Text,
-} from "@blenx-dev/ui/components";
+import { ScrollArea } from "@blenx-dev/ui/components";
+import { CodeFrame } from "./CodeFrame";
+import { codeBlockContent } from "@/lib/styles.css";
 
 interface CodeFile {
   code: string;
@@ -56,50 +50,27 @@ function DocCodeView({ code, title, language, files }: DocCodeViewProps) {
   }, [activeFile.code, activeFile.language]);
 
   const lang = activeFile.language ?? "typescript";
-  const isMultiFile = activeFiles.length > 1;
-
   return (
-    <Surface variant="sunken" position="relative">
-      {isMultiFile ? (
-        <HStack padding="xsmall" align="center" overflow="hidden">
-          <SegmentedControl
-            variant="default"
-            value={activeIndex.toString()}
-            radius="xsmall"
-            onValueChange={(value) => {
-              setActiveIndex(Number(value));
-              setHighlighted(null);
-            }}
-            options={activeFiles.map((file, idx) => ({
-              value: `${idx}`,
-              label: file.title || `File ${idx + 1}`,
-            }))}
-          />
-        </HStack>
-      ) : (
-        <HStack justify="between" padding="xsmall" align="center">
-          <HStack paddingX="xxsmall" align="center">
-            {activeFile.title && (
-              <Text variant="h5" color="primary">
-                {activeFile.title}
-              </Text>
-            )}
-            <Text variant="caption">{lang}</Text>
-          </HStack>
-        </HStack>
-      )}
-      <Box position="absolute" top="xsmall" right="xsmall">
-        <CopyButton copyValue={activeFile.code} />
-      </Box>
-
+    <CodeFrame
+      copyValue={activeFile.code}
+      title={activeFile.title}
+      language={lang}
+      files={activeFiles}
+      activeIndex={activeIndex}
+      onActiveIndexChange={(index) => {
+        setActiveIndex(index);
+        setHighlighted(null);
+      }}
+    >
       <ScrollArea height="60svh" render={<pre />}>
         <div
+          className={codeBlockContent}
           dangerouslySetInnerHTML={{
             __html: highlighted ?? escapeHtml(activeFile.code),
           }}
         />
       </ScrollArea>
-    </Surface>
+    </CodeFrame>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { highlightCode } from "@/lib/syntax-highlight";
-import { Box, CopyButton, HStack, Surface, Text } from "@blenx-dev/ui/components";
+import { codeBlockContent } from "@/lib/styles.css";
+import { CodeFrame } from "./CodeFrame";
 interface CodeBlockProps {
   code: string;
   language?: string;
@@ -31,27 +32,41 @@ function CodeBlock({ code, language = "typescript", title }: CodeBlockProps) {
   }, [code, language]);
 
   return (
-    <Surface variant="sunken" borderRadius="medium" position="relative" width="full">
-      {title ? (
-        <HStack align="center" justify="between" paddingLeft="small" paddingY="xxsmall">
-          <Text variant="h6" color="secondary">
-            {title ? title : null}
-          </Text>
-        </HStack>
-      ) : null}
-      <Box position="absolute" top="xsmall" right="xsmall">
-        <CopyButton p="none" copyValue={code} />
-      </Box>
-      <Box
-        render={<div />}
-        overflow="auto"
+    <CodeFrame copyValue={code} title={title} language={language}>
+      <div
+        className={codeBlockContent}
         dangerouslySetInnerHTML={{
           __html: highlighted ?? escapeHtml(code),
         }}
       />
-    </Surface>
+    </CodeFrame>
   );
 }
+function CodeSnippet({ code, language = "typescript" }: CodeBlockProps) {
+  const [highlighted, setHighlighted] = useState<string | null>(null);
+  const mountedRef = useRef(true);
+  useEffect(() => {
+    mountedRef.current = true;
+    highlightCode(code, language).then((html) => {
+      if (mountedRef.current) {
+        setHighlighted(html);
+      }
+    });
+    return () => {
+      mountedRef.current = false;
+    };
+  }, [code, language]);
 
-export { CodeBlock };
+  return (
+    <CodeFrame copyValue={code} language={language}>
+      <div
+        className={codeBlockContent}
+        dangerouslySetInnerHTML={{
+          __html: highlighted ?? escapeHtml(code),
+        }}
+      />
+    </CodeFrame>
+  );
+}
+export { CodeBlock, CodeSnippet };
 export type { CodeBlockProps };
