@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Badge, HStack, Separator, Text, VStack } from "@blenx-dev/ui/components";
 import { DocsH3 } from "./DocHeaders";
 import { docsQueries } from "@/lib/docs-api";
-import { CodeBlock } from "./CodeBlock";
+import { CodeSnippet } from "./CodeBlock";
 import { installList, installItem, installCode } from "@/lib/styles.css";
 
 interface InstallationProps {
@@ -29,7 +29,7 @@ function Installation({ registryName }: InstallationProps) {
         <Text variant="body2" color="secondary">
           Install the component using the shadcn CLI:
         </Text>
-        <CodeBlock language="bash" code={cliCode} />
+        <CodeSnippet language="bash" code={cliCode} />
       </VStack>
 
       {registry && files.length > 0 && (

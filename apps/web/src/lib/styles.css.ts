@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import { themeContract } from "@blenx-dev/ui/theme/contract.css";
 import {
   borderRadius,
@@ -150,6 +150,43 @@ export const codeHeader = style({
 export const codeScroll = style({
   overflowX: "auto",
   WebkitOverflowScrolling: "touch",
+});
+
+export const codeBlockContent = style({
+  minWidth: 0,
+  maxWidth: "100%",
+  marginTop: "10px",
+});
+
+globalStyle(`${codeBlockContent} .shiki`, {
+  width: "100%",
+  maxWidth: "100%",
+  boxSizing: "border-box",
+  margin: 0,
+  whiteSpace: "pre-wrap",
+  wordBreak: "break-word",
+});
+
+globalStyle(`${codeBlockContent} .shiki code`, {
+  display: "block",
+  width: "100%",
+  maxWidth: "100%",
+  whiteSpace: "inherit",
+  overflowWrap: "inherit",
+  wordBreak: "inherit",
+});
+
+globalStyle(`${codeBlockContent} .shiki .line`, {
+  display: "block",
+  width: "100%",
+  maxWidth: "100%",
+  whiteSpace: "inherit",
+  overflowWrap: "inherit",
+  wordBreak: "inherit",
+});
+
+globalStyle(`${codeBlockContent} .shiki span`, {
+  whiteSpace: "inherit",
 });
 
 export const codeCopyButton = style({

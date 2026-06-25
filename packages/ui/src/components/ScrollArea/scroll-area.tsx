@@ -29,8 +29,8 @@ type ScrollAreaProps = ScrollAreaPrimitive.Root.Props & {
 function ScrollArea({
   children,
   scrollFade = false,
-  scrollbarGutter = false,
-  fill = false,
+  scrollbarGutter = true,
+  fill = true,
   height = "60svh",
   className,
   style,

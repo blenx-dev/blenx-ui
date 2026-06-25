@@ -76,5 +76,5 @@ export const thumb = style({
   position: "relative",
   flexGrow: 1,
   borderRadius: themeContract.borderRadius,
-  backgroundColor: "rgba(0, 0, 0, 0.2)",
+  backgroundColor: themeContract.borderStrong,
 });
