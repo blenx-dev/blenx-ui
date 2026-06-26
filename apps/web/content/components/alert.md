@@ -26,14 +26,6 @@ The Alert component delivers contextual feedback messages to users in response t
 
 Render an Alert with the `intent` prop to select the visual variant. Each intent automatically applies the corresponding icon (checkmark for success, exclamation for warning, etc.), but you can override it with the `icon` slot if your messaging requires a custom graphic. Alerts can optionally render a title via the `title` prop to summarize the message, followed by children for the detailed body. The component accepts an `onClose` callback and a dismiss button when closable behavior is needed. Alerts participate in the document flow and will push sibling content, so place them near the surface they relate to — typically at the top of a form, card, or page section.
 
-## Composition
-
-Use Alert inside `Field` to show per-field validation messages only when an error or warning is present. Pair Alert with `Card` when you need to surface a persistent message within a contained area. For multi-step flows, Alert inside `Dialog` or `Drawer` provides feedback without disrupting the modal context. Alerts are also effective inside `DataTable` empty states to explain why no data is shown. Avoid nesting alerts inside other alerts — the visual hierarchy becomes muddled and screen reader announcements overlap.
-
-## Design Guidelines
-
-Alerts should occupy the full width of their container with sufficient padding to distinguish them from surrounding content. The left border accent and icon color should match the intent — green for success, amber for warning, red for error, blue for info. Text contrast within alerts must meet WCAG AA standards; do not reduce opacity on alert text for visual effect. Dismissible alerts should place the close button in the top-right corner, visually separated from the message content.
-
 ## API Reference
 
 <ApiReference />

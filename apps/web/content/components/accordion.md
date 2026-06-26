@@ -26,14 +26,6 @@ The Accordion component organizes content into collapsible sections, letting use
 
 Accordion exposes a controlled and uncontrolled API via `defaultValue` for the expanded item keys. Each child section uses `AccordionItem` wrapping `AccordionTrigger` and `AccordionPanel`. The trigger is the clickable header that controls visibility of its corresponding panel. You can allow multiple panels to be open simultaneously by configuring the component to support multi-open behavior, but single-open (default) is the more common pattern. Changing the expanded item programmatically is straightforward via the `value` prop in controlled mode. The component handles collapse animations internally, so you can rely on smooth transitions without additional wiring.
 
-## Composition
-
-Accordion pairs naturally with `Field` when used inside forms, and with `Card` when grouping related accordion groups on a page. The `AccordionPanel` accepts any valid React children, including `Text`, `Input`, or even nested components like `DataTable` for tabular data inside expandable sections. When building a settings page, place each Accordion section inside a `Card` for clear visual grouping. Avoid nesting accordions inside other accordions — the interaction model becomes confusing and keyboard navigation suffers.
-
-## Design Guidelines
-
-Use the accordion as a scannable content structure rather than a content-hiding mechanism. The visual design should distinguish between collapsed and expanded states through rotation of the chevron icon and subtle background or border changes on the active item. Padding inside panels should be generous enough to accommodate content without feeling cramped when expanded. Maintain consistent spacing between items — typically equal to or greater than the internal padding of a panel to reinforce the grouping.
-
 ## API Reference
 
 <ApiReference />

@@ -22,14 +22,6 @@ DatePicker combines the Calendar component with a Popover and a text input trigg
 
 Control the selected date with `value` (a Date object) and `onChange`. The `format` prop defines the display format in the input field. The popover opens when the user clicks the input or the calendar icon. Use `minDate` and `maxDate` to constrain the selectable range, disabling invalid dates in the calendar. The `selectionMode` prop supports single, range, and multiple modes, mirroring Calendar's capabilities. In range mode, the input shows the start and end dates separated by a dash. The component handles date parsing from text input — invalid text entries trigger validation errors without closing the popover. The `defaultMonth` prop sets the initially visible month in the calendar, independent of the selected date.
 
-## Composition
-
-DatePicker is a form control and should be wrapped in `Field` for label, help text, and error state. It uses the same Calendar and Popover primitives as other Blenx components, ensuring consistent z-index stacking and portal behavior. Use DatePicker inside `Dialog` for form modals, inside `Card` for settings panels, and inside `DataTable` filter bars for date range filtering. DatePicker does not compose well inside narrow `Drawer` instances where the calendar popover would be cropped — adjust `Popover` placement or use a larger drawer width.
-
-## Design Guidelines
-
-The input field should clearly show its purpose with a calendar icon on the right side. The selected date should be formatted in a human-readable pattern that matches the rest of the application. The popover arrow should point to the input field, creating a clear visual connection. The calendar should align with the input's left edge or center, depending on available space. On mobile, consider the popover position to avoid the calendar being cropped by the viewport edge. The "Today" button should be prominent for quick reset navigation.
-
 ## API Reference
 
 <ApiReference />

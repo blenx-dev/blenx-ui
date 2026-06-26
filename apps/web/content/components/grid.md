@@ -22,14 +22,6 @@ Grid is a CSS Grid layout primitive that enables complex two-dimensional layouts
 
 Define the grid structure with `columns` and `rows` props, accepting CSS grid template values or theme-based span tokens. The `gap` prop sets row and column gaps using theme spacing tokens. Items are placed automatically in source order or explicitly using `column` and `row` props on child elements. Use `alignItems`, `justifyContent`, and `placeItems` for alignment control. Responsive grids are achieved by passing object values keyed by breakpoint — for example, `columns={{ sm: 1, md: 2, lg: 3 }}`. The component renders as a `div` with `display: grid` and passes all specified CSS grid properties through vanilla-extract.
 
-## Composition
-
-Grid is the primary layout container for page sections. Use it inside `Container` for page-level grids, inside `Card` for card-internal layouts, and as a parent for `Box`-based grid items, `Card` components, `Field` instances in form layouts, and any other Blenx component. Grid items can span multiple columns or rows using the `colSpan` and `rowSpan` props. Nested grids are supported — a grid item can contain another Grid for complex sub-layouts. Grid composes with `Container` for constrained-width layouts and with `Box` for individual cell styling.
-
-## Design Guidelines
-
-Grid gaps should follow the theme's spacing scale for visual consistency with other layout components. Column counts should decrease predictably at breakpoints — a four-column grid becomes three, then two, then one, rather than jumping directly from four to one. Items in a grid should have consistent min-widths to prevent single-column items from becoming too wide on large screens. The grid should not introduce scrollbars unless explicitly configured — ensure items have appropriate overflow handling. Alignment properties should be used intentionally to create visual order, not as defaults for every grid.
-
 ## API Reference
 
 <ApiReference />

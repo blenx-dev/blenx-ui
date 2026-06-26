@@ -22,14 +22,6 @@ Checkbox presents a binary choice with an associated label, supporting checked, 
 
 Control the checked state with `checked` and `onChange` props. Pass `indeterminate` to render the minus icon for partial selection in tree hierarchies — this is a visual-only state and does not affect the boolean value. Use `invalid` and `required` props for validation feedback. The label is passed as `children` or via the `label` prop, and clicking the label toggles the checkbox. For checkbox groups, wrap multiple checkboxes in a `Field` with a group label and use `FieldError` for validation messages. The `size` prop adjusts the checkbox box dimensions and label font size proportionally.
 
-## Composition
-
-Checkbox groups live inside `Field` for labeled form sections with validation. Use Checkbox inside `DataTable` rows for row selection, where a header checkbox controls the indeterminate and all-checked states. Checkbox also appears inside `Card` for permission panels and inside `Dialog` for multi-select confirmation dialogs. For accessibility, each Checkbox must have an associated label — do not use Checkbox without label text unless you provide `aria-label` directly. Pair with `Tooltip` when the checkbox label needs additional explanation.
-
-## Design Guidelines
-
-The checkbox box should be large enough to be easily clickable — minimum 20px by 20px at the default size. The checked and indeterminate states should use the primary intent color with a white checkmark or dash for contrast. Focus outlines should be visible around the entire control including the label, not just the box. Disabled checkboxes should reduce opacity but remain legible — the label should still be readable. Validation error styling should wrap both the checkbox and its label with a colored border or background rather than just the box.
-
 ## API Reference
 
 <ApiReference />

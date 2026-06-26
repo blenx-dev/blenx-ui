@@ -22,14 +22,6 @@ Slider allows users to select a value or range of values from a continuous or di
 
 The slider renders a horizontal track by default, with vertical orientation available through the `orientation` prop. The `value` and `onChange` props manage the controlled value, which can be a single number or a two-element array for range mode. The `step` prop defines the increment granularity, with `min` and `max` bounding the range. Ticks are rendered at interval positions when the `marks` prop is provided. The track is divided visually into the filled portion (before the thumb) and the unfilled portion (after the thumb), with color indicating the active range.
 
-## Composition
-
-Sliders appear in filter panels alongside Text labels for the range name and numeric Inputs or badges showing the current value. In settings panels, a Slider pairs with a reset Button to restore default values. The Surface component can wrap a slider group to visually contain the control within a settings section. Stack alignment ensures the slider track, label, and value display are properly spaced.
-
-## Design Guidelines
-
-The track height should be thin relative to the thumb size so the thumb is the primary interactive target. The filled portion of the track uses the brand color to indicate the active selection, while the unfilled portion uses a low-emphasis surface color. The thumb should be large enough for touch interaction — at least 44x44 points. Focus-visible rings appear around the thumb during keyboard interaction. Tick marks should align with step positions and use a consistent height and color.
-
 ## API Reference
 
 <ApiReference />

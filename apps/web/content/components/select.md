@@ -26,14 +26,6 @@ Select presents a list of options from which the user chooses one value. It supp
 
 The native variant renders a stylized `<select>` element with custom chevron icon, preferred for form compatibility and mobile experience where the OS provides a native picker. The custom variant renders a trigger button with a dropdown menu built on the Popover component, offering richer styling control. Both variants support `<optgroup>` for categorizing options with group labels. The placeholder prop displays instructional text when no option is selected, though it is not a substitute for a visible label. Validation styling mirrors the Input component's error state treatment.
 
-## Composition
-
-Select components integrate with Form layouts, appearing alongside Text for labels and helper messages. In filter toolbars, a Select can combine with other Selects or Inputs to build complex query interfaces. The custom variant uses the Menu component internally for the dropdown, meaning menu items, separators, and disabled items are all supported. A Select inside an Input Group as a prefix or suffix allows for compound controls like unit selectors paired with numeric inputs.
-
-## Design Guidelines
-
-The chevron icon uses the system's low-emphasis color to avoid competing with the selected value text. The custom dropdown surface elevation matches Menu and Popover for consistent layering. Option height is calibrated for comfortable touch targeting at the medium size. The focus ring applies to the trigger element and matches the Input focus ring treatment for visual consistency within forms.
-
 ## API Reference
 
 <ApiReference />

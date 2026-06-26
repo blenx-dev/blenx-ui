@@ -22,14 +22,6 @@ Radio renders a group of radio buttons where exactly one option can be selected 
 
 A Radio Group wraps individual Radio items and manages the selected value. The group accepts a `value` and `onChange` prop, behaving as a controlled component. Each radio renders a native `<input type="radio">` underneath, ensuring form submission compatibility and accessibility. Keyboard navigation follows the roving tabindex pattern: Tab enters and exits the group, arrow keys move between options within the group, and Space selects the focused option.
 
-## Composition
-
-Radio Groups sit inside Form layouts alongside Labels for each option, Text for group instructions, and validation messages below the group. The Surface component can wrap a Radio Group to visually group options in filter panels or preference screens. The inline variant places radios horizontally for space-efficient layouts, while the stacked variant aligns them vertically for readability. Each radio item can contain nested Text or supporting content.
-
-## Design Guidelines
-
-The radio indicator uses a filled circle for the selected state and an empty circle for the unselected state, following platform convention. The label text should be placed to the right of the indicator in left-to-right locales. Disabled radios reduce opacity and suppress the hover state. Focus-visible styles appear on the radio indicator, not the label, to follow native form control behavior.
-
 ## API Reference
 
 <ApiReference />

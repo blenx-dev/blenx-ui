@@ -22,14 +22,6 @@ Separator renders a visual dividing line that distinguishes content sections, gr
 
 The component renders a native `<hr>` element in horizontal mode and a styled `<div>` with a vertical border in vertical mode. It is accessible by default, communicating a thematic break to screen readers. The `orientation` prop toggles between `horizontal` and `vertical`. The `tone` prop controls the color strength: `subtle` for low-emphasis dividers in dense layouts, `default` for standard dividers, and `strong` for high-contrast divisions in critical layout sections. The decorative variant sets `aria-hidden="true"` for purely visual separators.
 
-## Composition
-
-Separators are placed inside Stack components to divide stacked content groups, within Menu components to separate item categories, inside Surface containers to split content regions, and between Cards to create visual breathing room. In toolbar layouts, a vertical Separator groups related icon buttons by function. The component does not accept children — it is purely a visual element that occupies space along its primary axis.
-
-## Design Guidelines
-
-The separator line width follows the theme's border-width token. Color uses the border color token at the appropriate emphasis level for the chosen tone. Horizontal separators should span the full width of their container by default, with optional `inset` or `insetStart`/`insetEnd` margin variants. Vertical separators match the height of their container or a specified `length`. Margins above and below the separator should be consistent with the spacing scale relative to the content it divides.
-
 ## API Reference
 
 <ApiReference />

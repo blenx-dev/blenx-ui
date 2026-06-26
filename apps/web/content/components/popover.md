@@ -26,14 +26,6 @@ Popover displays floating content in relation to a trigger element, with automat
 
 The Popover consists of a trigger component and a content panel. The trigger is any interactive element; clicking it toggles the popover visibility. The content panel positions itself relative to the trigger using the configured placement, which accepts `top`, `bottom`, `left`, `right`, and their `-start`/`-end` variants. The popover automatically flips to the opposite side when the preferred placement would overflow the viewport. A backdrop overlay or close button can be added for dismissible popovers.
 
-## Composition
-
-Popovers work alongside any interactive element as their trigger. They commonly contain Menu items, small Form elements, Filter controls, or rich Text with interactive links. A Popover can be composed inside a Toolbar to provide additional options for a toolbar button. The Popover surface uses the same elevation tokens as Menu and Sheet, providing consistent layering across floating elements in the system.
-
-## Design Guidelines
-
-The popover surface should be visually distinguishable from the page content through elevation shadow and background color, but should not obscure the trigger so much that the context is lost. Corner radius should match the surface component's default value. The arrow indicator, when enabled, should point to the center of the trigger along the relevant axis. Padding inside the popover follows the surface padding scale.
-
 ## API Reference
 
 <ApiReference />

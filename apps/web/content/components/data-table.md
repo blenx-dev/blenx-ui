@@ -18,14 +18,6 @@ Define columns using the `columns` prop with accessor functions, header labels, 
 
 <SourceCode registryName="data-table" />
 
-## Composition
-
-DataTable fills the body of a `Card` or sits directly within a `Container`. The toolbar area above the table accepts `Button` components for batch actions, `Select` for page size control, and `Input` for global search. Columns can render any Blenx component as cell content — `Badge` for status indicators, `Icon` for actionable icons, `Button` for row-level actions, `Avatar` for user data, and `Checkbox` for row selection. The empty state renders a custom illustration or message passed via `emptyState` prop. Error state shows an `Alert` with a retry action.
-
-## Design Guidelines
-
-Table rows should have alternating or subtle hover backgrounds for readability. Column headers should be sticky when scrolling vertically. Sort indicators should clearly show the active sort direction with an arrow icon. Selected rows should have a distinct background color that is visible but not distracting. Pagination controls should show the total count and allow direct page input. The page size selector should offer options appropriate to the data density — 10, 25, 50, and 100 are standard. Loading states should preserve the table structure to prevent layout shift.
-
 ## API Reference
 
 <ApiReference />

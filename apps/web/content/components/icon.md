@@ -26,14 +26,6 @@ Icon is a wrapper component for Phosphor icons that provides consistent sizing, 
 
 Pass the Phosphor icon component as a child to Icon, or use the `name` prop with the icon's string identifier. Set `size` to one of the theme size tokens to match the surrounding text scale. The `color` prop accepts theme color tokens or raw CSS color values. By default, Icon inherits the current text color via `currentColor`, ensuring it matches adjacent text without explicit color configuration. The `weight` prop maps to Phosphor's built-in weight variants (regular, bold, fill, duotone, thin) for visual emphasis. Use `aria-hidden="true"` when the icon is decorative and `aria-label` when it serves as the sole identifier of an action.
 
-## Composition
-
-Icon is the primary graphic element inside `Button` start and end icon slots, `Alert` severity icons, `Badge` decorative elements, and `Command` item visuals. Use Icon inside `Box` for alignment-controlled icon containers, inside `Card` headers for decorative section icons, and inside `DataTable` cells for status or action icons. Icon composes with `Tooltip` for icon-only buttons where the icon alone does not convey the action. For icon groups, wrap multiple Icon components in a `Box` with flex layout and consistent gap spacing. Do not wrap Icon in additional divs for spacing — apply margin directly to Icon using its style props.
-
-## Design Guidelines
-
-Icons should align with the baseline of adjacent text. The icon bounding box should match the text line height at each size tier. Use consistent stroke weight across the same interface tier — toolbar icons should all use the same weight, as should navigation icons and inline indicators. Icon color should match the semantic intent of the surrounding text or control. Disabled icons should use the same reduced opacity as disabled text. The clickable area of an icon-only button should be larger than the icon itself, achieved through the parent Button's padding, not Icon's size.
-
 ## API Reference
 
 <ApiReference />

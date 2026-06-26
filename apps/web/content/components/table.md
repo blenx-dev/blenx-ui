@@ -26,14 +26,6 @@ Table renders structured data in a grid of rows and columns using styled native 
 
 Table provides `<thead>`, `<tbody>`, `<tr>`, `<th>`, and `<td>` components that mirror the native HTML table structure with consistent styling. The `sortable` prop on header cells adds click-to-sort behavior with ascending and descending indicators. The `striped` variant alternates row background colors for improved scanability in dense datasets. The `stickyHeader` prop pins the header row to the top of the scrollable container when the table body overflows. The table is wrapped in a horizontal overflow container by default to prevent layout breakage on narrow viewports.
 
-## Composition
-
-Tables contain Text components in cells for consistent typography. Header cells use a higher-emphasis text variant to distinguish column labels from data. Sortable headers include Icon Button triggers for the sort direction indicator. Tables are placed inside Surface containers or Cards, and the Scroll Area component is often layered underneath for consistent scrollbar behavior. Action columns at the right edge of the table use Icon Button components for row-level operations. The Stack component arranges multiple tables vertically within a page section.
-
-## Design Guidelines
-
-Row height should be consistent within the table, with sufficient padding for touch targeting in action columns. Horizontal borders between rows provide clear separation without the visual weight of vertical borders between columns. Header cells use a subtle background that distinguishes them from data rows without competing with the content. The sort indicator icon uses the system's low-emphasis color when inactive and the brand color when the column is actively sorted.
-
 ## API Reference
 
 <ApiReference />
