@@ -30,6 +30,8 @@ export const demoImports: Record<string, () => Promise<Record<string, unknown>>>
   icon: () => import("@blenx-dev/ui/components/Icon/icon.demo"),
   "icon-button": () => import("@blenx-dev/ui/components/IconButton/icon-button.demo"),
   input: () => import("@blenx-dev/ui/components/Input/input.demo"),
+  inputgroup: () => import("@blenx-dev/ui/components/InputGroup/input-group.demo"),
+  menu: () => import("@blenx-dev/ui/components/Menu/menu.demo"),
   otpfield: () => import("@blenx-dev/ui/components/OTPField/otp-field.demo"),
   popover: () => import("@blenx-dev/ui/components/Popover/popover.demo"),
   select: () => import("@blenx-dev/ui/components/Select/select.demo"),
@@ -38,5 +40,4 @@ export const demoImports: Record<string, () => Promise<Record<string, unknown>>>
   switch: () => import("@blenx-dev/ui/components/Switch/switch.demo"),
   table: () => import("@blenx-dev/ui/components/Table/table.demo"),
   tabs: () => import("@blenx-dev/ui/components/Tabs/tabs.demo"),
-  inputgroup: () => import("@blenx-dev/ui/components/InputGroup/input-group.demo"),
 };

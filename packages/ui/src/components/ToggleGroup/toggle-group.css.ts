@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { borderRadius, spacing } from "#theme/tokens.css";
+import { borderRadius, spacing } from "@blenx-dev/theme/tokens.css";
 
 export const groupBase = style({
   display: "inline-flex",

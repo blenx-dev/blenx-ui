@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "#theme/contract.css";
-import { fontSize, fontWeight, spacing } from "#theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
+import { fontSize, fontWeight, spacing } from "@blenx-dev/theme/tokens.css";
 
 export const root = style({
   display: "inline-block",

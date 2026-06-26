@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "#theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 import {
   borderWidth,
   duration,
@@ -8,7 +8,7 @@ import {
   fontWeight,
   lineHeight,
   spacing,
-} from "#theme/tokens.css";
+} from "@blenx-dev/theme/tokens.css";
 
 export const root = style({
   display: "flex",

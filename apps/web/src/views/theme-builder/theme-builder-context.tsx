@@ -1,4 +1,4 @@
-import { themeContract } from "@blenx-dev/ui/theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 import { create } from "zustand";
 import { createContext } from "zustand-utils";
 

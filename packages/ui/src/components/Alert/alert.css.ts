@@ -1,4 +1,4 @@
-import { themeContract } from "#theme/contract.css.js";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const alertVariants = recipe({

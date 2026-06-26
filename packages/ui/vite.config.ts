@@ -1,13 +1,9 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
-import stylex from "@stylexjs/unplugin";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 export default defineConfig({
   plugins: [
-    stylex.vite({
-      useCSSLayers: true,
-    }),
     vanillaExtractPlugin(),
     dts({
       entryRoot: "src",
@@ -18,9 +14,6 @@ export default defineConfig({
   build: {
     target: "esnext",
     minify: false,
-
-    cssCodeSplit: false,
-
     lib: {
       entry: "src/index.ts",
       formats: ["es"],

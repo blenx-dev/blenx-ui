@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "#theme/contract.css";
-import { spacing } from "#theme/tokens.css";
-import { borderRadius } from "#theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
+import { spacing } from "@blenx-dev/theme/tokens.css";
+import { borderRadius } from "@blenx-dev/theme/tokens.css";
 
 export const root = style({
   display: "inline-flex",

@@ -47,7 +47,7 @@ export function ExportPanel() {
       .filter(Boolean) as string[];
 
     return `import { createTheme } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/ui/theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 
 export const customTheme = createTheme(themeContract, {
 ${themeEntries.join("\n")}

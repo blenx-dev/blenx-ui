@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "#theme/contract.css";
-import { borderRadius, fontSize, spacing } from "#theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
+import { borderRadius, fontSize, spacing } from "@blenx-dev/theme/tokens.css";
 
 export const group = style({
   position: "relative",

@@ -12,7 +12,7 @@ const config = defineConfig(() => {
       tsconfigPaths: true,
     },
     optimizeDeps: {
-      exclude: ["@blenx-dev/ui"],
+      exclude: ["@blenx-dev/ui", "@blenx-dev/theme"],
     },
     server: {
       port: 3001,

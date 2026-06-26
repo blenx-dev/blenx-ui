@@ -1,12 +1,12 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/ui/theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 import {
   borderRadius,
   fontSize,
   fontWeight,
   letterSpacing,
   spacing,
-} from "@blenx-dev/ui/theme/tokens.css";
+} from "@blenx-dev/theme/tokens.css";
 
 /* ── Hero01 ── */
 

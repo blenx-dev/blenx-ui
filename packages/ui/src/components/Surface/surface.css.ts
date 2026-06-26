@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "#theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 
 export const variantRecipe = recipe({
   base: { textDecoration: "none" },

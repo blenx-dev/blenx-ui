@@ -64,6 +64,10 @@ export function DocsToc({ items }: DocsTocProps) {
                   padding="none"
                   variant="ghost"
                   color="secondary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(item.slug);
+                  }}
                   copyValue={copyValue.toString()}
                 />
               </HStack>

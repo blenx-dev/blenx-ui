@@ -1,6 +1,6 @@
 import { style, keyframes } from "@vanilla-extract/css";
-import { themeContract } from "#theme/contract.css";
-import { borderRadius, fontSize, fontWeight, spacing } from "#theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
+import { borderRadius, fontSize, fontWeight, spacing } from "@blenx-dev/theme/tokens.css";
 
 const pulse = keyframes({
   "0%, 100%": { opacity: 0.4 },

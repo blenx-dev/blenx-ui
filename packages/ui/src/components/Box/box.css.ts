@@ -1,4 +1,4 @@
-import { themeContract } from "#theme/contract.css.js";
+import { themeContract } from "@blenx-dev/theme/contract.css";
 import { style } from "@vanilla-extract/css";
 
 export const baseBox = style({

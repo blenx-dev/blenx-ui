@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "#theme/contract.css";
-import { borderRadius, borderWidth, fontSize } from "#theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
+import { borderRadius, borderWidth, fontSize } from "@blenx-dev/theme/tokens.css";
 
 export const disabled = style({
   pointerEvents: "none",

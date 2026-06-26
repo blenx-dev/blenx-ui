@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "#theme/contract.css";
-import { spacing } from "#theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract.css";
+import { spacing } from "@blenx-dev/theme/tokens.css";
 
 export const badgeRecipe = recipe({
   base: {
