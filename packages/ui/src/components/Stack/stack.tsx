@@ -25,7 +25,7 @@ export function VStack(props: VStackProps) {
   return <Stack direction="column" {...props} />;
 }
 
-type HStackProps = Omit<StackProps, "direction">;
+export type HStackProps = Omit<StackProps, "direction">;
 
 export function HStack(props: HStackProps) {
   return <Stack direction="row" {...props} />;
