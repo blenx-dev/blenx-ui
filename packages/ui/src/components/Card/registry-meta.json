@@ -10,11 +10,6 @@
       "file": "card.tsx",
       "type": "registry:ui",
       "target": "@ui/Card/card.tsx"
-    },
-    {
-      "file": "card.styles.ts",
-      "type": "registry:file",
-      "target": "@ui/Card/card.styles.ts"
     }
   ]
 }

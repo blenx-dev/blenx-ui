@@ -1,5 +1,10 @@
+import { MapPinIcon, ShoppingCartIcon, StarIcon, ChartBarIcon } from "@phosphor-icons/react";
 import { Button } from "../Button/button";
 import { Text } from "../Text/text";
+import { Badge } from "../Badge/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "../Avatar/avatar";
+import { HStack, VStack } from "../Stack/stack";
+import { Box } from "../Box/box";
 import { Card, CardBody, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
 
 export function CardDemo() {
@@ -27,4 +32,146 @@ export function CardDemo() {
   );
 }
 
-export const demos = [{ name: "Default", component: CardDemo }];
+export function ProfileCardDemo() {
+  return (
+    <Card>
+      <CardHeader>
+        <HStack gap="medium" align="center">
+          <Avatar size="large">
+            <AvatarImage src="https://i.pravatar.cc/150?u=alex" alt="Alex Rivera" />
+            <AvatarFallback>AR</AvatarFallback>
+          </Avatar>
+          <VStack gap="xxsmall">
+            <HStack gap="xsmall" align="center">
+              <CardTitle>Alex Rivera</CardTitle>
+              <Badge variant="primary">Pro</Badge>
+            </HStack>
+            <HStack gap="xxsmall" align="center">
+              <MapPinIcon size={12} />
+              <Text variant="caption" color="secondary">
+                San Francisco, CA
+              </Text>
+            </HStack>
+          </VStack>
+        </HStack>
+      </CardHeader>
+      <CardBody>
+        <Text variant="body2">
+          Full-stack developer with 8+ years of experience building accessible, performant web
+          applications. Passionate about design systems and open source.
+        </Text>
+      </CardBody>
+      <CardFooter>
+        <HStack gap="small" justify="end" wrap>
+          <Button variant="ghost" size="small">
+            Message
+          </Button>
+          <Button size="small">Follow</Button>
+        </HStack>
+      </CardFooter>
+    </Card>
+  );
+}
+
+export function ProductCardDemo() {
+  return (
+    <Card>
+      <Box
+        height="180px"
+        width="full"
+        backgroundColor="info"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          borderTopLeftRadius: "inherit",
+          borderTopRightRadius: "inherit",
+          overflow: "hidden",
+        }}
+      >
+        <Badge variant="danger" style={{ position: "absolute", top: 8, left: 8 }}>
+          20% OFF
+        </Badge>
+        <ShoppingCartIcon size={40} />
+      </Box>
+      <CardHeader>
+        <HStack gap="medium" justify="between" align="center">
+          <VStack gap="xxsmall">
+            <CardTitle>Pro Subscription</CardTitle>
+            <CardDescription>Annual billing - save 20%</CardDescription>
+          </VStack>
+          <HStack gap="xsmall" align="center">
+            <StarIcon size={14} />
+            <Text variant="caption" weight="semibold">
+              4.9
+            </Text>
+          </HStack>
+        </HStack>
+      </CardHeader>
+      <CardBody>
+        <Text variant="body2">
+          Unlimited projects, advanced analytics, priority support, and team collaboration features.
+          Everything you need to scale your workflow.
+        </Text>
+        <HStack gap="xsmall" align="baseline" style={{ marginTop: 8 }}>
+          <Text variant="h3" weight="bold">
+            $29
+          </Text>
+          <Text variant="body3" color="secondary">
+            /month
+          </Text>
+        </HStack>
+      </CardBody>
+      <CardFooter>
+        <Button fullWidth>Subscribe Now</Button>
+      </CardFooter>
+    </Card>
+  );
+}
+
+export function StatCardDemo() {
+  return (
+    <Card>
+      <CardBody>
+        <HStack gap="medium" align="center" justify="between">
+          <VStack gap="xxsmall">
+            <Text variant="caption" color="secondary">
+              Total Revenue
+            </Text>
+            <Text variant="h3" weight="bold">
+              $48,250
+            </Text>
+            <HStack gap="xxsmall" align="center">
+              <Badge variant="sucess">+12.5%</Badge>
+              <Text variant="caption" color="secondary">
+                vs last month
+              </Text>
+            </HStack>
+          </VStack>
+          <Box
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: 12,
+              backgroundColor: "var(--color-primary-subtle)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <ChartBarIcon size={24} />
+          </Box>
+        </HStack>
+      </CardBody>
+    </Card>
+  );
+}
+
+export const demos = [
+  { name: "Default", component: CardDemo },
+  { name: "Profile Card", component: ProfileCardDemo },
+  { name: "Product Card", component: ProductCardDemo },
+  { name: "Stat Card", component: StatCardDemo },
+];

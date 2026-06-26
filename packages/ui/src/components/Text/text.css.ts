@@ -14,7 +14,6 @@ export const textVariants = recipe({
   base: {
     margin: 0,
     textDecoration: "none",
-    color: themeContract.contentOnPrimary,
   },
   variants: {
     variant: {

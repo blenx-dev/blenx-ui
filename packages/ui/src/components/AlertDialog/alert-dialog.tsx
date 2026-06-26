@@ -21,6 +21,7 @@ import {
   panel,
 } from "./alert-dialog.css";
 import { CloseButton } from "../CloseButton";
+import { Box } from "../Box/box";
 
 function AlertDialog(props: AlertDialogPrimitive.Root.Props): React.ReactElement {
   return <AlertDialogPrimitive.Root {...props} />;
@@ -87,11 +88,13 @@ function AlertDialogPopup({
           {...props}
         >
           {showCloseButton && (
-            <AlertDialogPrimitive.Close
-              aria-label="Close"
-              render={<CloseButton position="absolute" top="small" right="small" variant="ghost" />}
-              {...closeProps}
-            />
+            <Box position="absolute" right="xsmall" top="xsmall">
+              <AlertDialogPrimitive.Close
+                aria-label="Close"
+                render={<CloseButton variant="ghost" />}
+                {...closeProps}
+              />
+            </Box>
           )}
           {children}
         </AlertDialogPrimitive.Popup>
@@ -163,7 +166,7 @@ function AlertDialogPanel({
   scrollFade?: boolean;
 }): React.ReactElement {
   return (
-    <ScrollArea scrollFade={scrollFade}>
+    <ScrollArea scrollFade={scrollFade} height="fit-content">
       {useRender({
         defaultTagName: "div",
         props: {

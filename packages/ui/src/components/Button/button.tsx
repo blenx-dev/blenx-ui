@@ -20,7 +20,7 @@ function Button({
   children,
   variant = "solid",
   intent,
-  size = "medium",
+  size = "small",
   disabled: disabledProp,
   loading,
   className,
