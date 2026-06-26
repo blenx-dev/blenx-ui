@@ -12,9 +12,9 @@
       "target": "@ui/Grid/grid.tsx"
     },
     {
-      "file": "grid.styles.ts",
+      "file": "grid.css.ts",
       "type": "registry:file",
-      "target": "@ui/Grid/grid.styles.ts"
+      "target": "@ui/Grid/grid.css.ts"
     }
   ]
 }

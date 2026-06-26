@@ -12,9 +12,9 @@
       "target": "@ui/ToggleGroup/toggle-group.tsx"
     },
     {
-      "file": "toggle-group.styles.ts",
+      "file": "toggle-group.css.ts",
       "type": "registry:file",
-      "target": "@ui/ToggleGroup/toggle-group.styles.ts"
+      "target": "@ui/ToggleGroup/toggle-group.css.ts"
     }
   ]
 }

@@ -12,9 +12,9 @@
       "target": "@ui/Dialog/dialog.tsx"
     },
     {
-      "file": "dialog.styles.ts",
+      "file": "dialog.css.ts",
       "type": "registry:file",
-      "target": "@ui/Dialog/dialog.styles.ts"
+      "target": "@ui/Dialog/dialog.css.ts"
     }
   ]
 }

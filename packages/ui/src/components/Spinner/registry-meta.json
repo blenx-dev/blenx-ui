@@ -11,9 +11,9 @@
       "target": "@ui/Spinner/spinner.tsx"
     },
     {
-      "file": "spinner.styles.ts",
+      "file": "spinner.css.ts",
       "type": "registry:file",
-      "target": "@ui/Spinner/spinner.styles.ts"
+      "target": "@ui/Spinner/spinner.css.ts"
     }
   ]
 }

@@ -12,9 +12,9 @@
       "target": "@ui/Autocomplete/autocomplete.tsx"
     },
     {
-      "file": "autocomplete.styles.ts",
+      "file": "autocomplete.css.ts",
       "type": "registry:file",
-      "target": "@ui/Autocomplete/autocomplete.styles.ts"
+      "target": "@ui/Autocomplete/autocomplete.css.ts"
     }
   ]
 }

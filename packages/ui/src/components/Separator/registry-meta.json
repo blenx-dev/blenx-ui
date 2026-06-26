@@ -12,9 +12,9 @@
       "target": "@ui/Separator/separator.tsx"
     },
     {
-      "file": "separator.styles.ts",
+      "file": "separator.css.ts",
       "type": "registry:file",
-      "target": "@ui/Separator/separator.styles.ts"
+      "target": "@ui/Separator/separator.css.ts"
     }
   ]
 }

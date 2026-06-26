@@ -12,9 +12,9 @@
       "target": "@ui/Field/field.tsx"
     },
     {
-      "file": "field.styles.ts",
+      "file": "field.css.ts",
       "type": "registry:file",
-      "target": "@ui/Field/field.styles.ts"
+      "target": "@ui/Field/field.css.ts"
     }
   ]
 }

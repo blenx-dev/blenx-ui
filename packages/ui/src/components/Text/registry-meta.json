@@ -11,9 +11,9 @@
       "target": "@ui/Text/text.tsx"
     },
     {
-      "file": "text.styles.ts",
+      "file": "text.css.ts",
       "type": "registry:file",
-      "target": "@ui/Text/text.styles.ts"
+      "target": "@ui/Text/text.css.ts"
     }
   ]
 }

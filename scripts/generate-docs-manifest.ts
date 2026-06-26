@@ -83,7 +83,10 @@ function readSource(filePath: string): string {
 }
 
 function rewriteImports(content: string): string {
-  return content.replace(/@blenx-dev\/ui\//g, "@/");
+  return content
+    .replace(/@blenx-dev\/ui\//g, "@/")
+    .replace(/@blenx-dev\/theme\//g, "@lib/theme/")
+    .replace(/#utils\//g, "@utils/");
 }
 
 function normalizeRegistryDependency(dep: string): string {
@@ -226,33 +229,38 @@ function generateSharedRegistry(): void {
     type: string;
   }> = [
     {
-      source: "packages/ui/src/lib/theme/contract.stylex.ts",
-      target: "@lib/theme/contract.stylex.ts",
+      source: "packages/theme/src/contract.css.ts",
+      target: "@lib/theme/contract.css.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/lib/theme/tokens.stylex.ts",
-      target: "@lib/theme/tokens.stylex.ts",
+      source: "packages/theme/src/tokens.css.ts",
+      target: "@lib/theme/tokens.css.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/lib/theme/theme.stylex.ts",
-      target: "@lib/theme/theme.stylex.ts",
+      source: "packages/theme/src/light-theme.css.ts",
+      target: "@lib/theme/light-theme.css.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/stylex.utils.ts",
-      target: "@utils/stylex.utils.ts",
+      source: "packages/ui/src/utils/sprinkles.css.ts",
+      target: "@utils/sprinkles.css.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/layout.styles.ts",
-      target: "@utils/layout.styles.ts",
+      source: "packages/ui/src/utils/ve-style.utils.ts",
+      target: "@utils/ve-style.utils.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/base.styles.ts",
-      target: "@utils/base.styles.ts",
+      source: "packages/ui/src/utils/types.ts",
+      target: "@utils/types.ts",
+      type: "registry:lib",
+    },
+    {
+      source: "packages/ui/src/utils/heights.ts",
+      target: "@utils/heights.ts",
       type: "registry:lib",
     },
   ];
@@ -270,7 +278,12 @@ function generateSharedRegistry(): void {
     type: "registry:lib",
     title: "Shared",
     description: "Shared libraries, theme and utilities for blenx UI.",
-    dependencies: ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+    dependencies: [
+      "@stylexjs/stylex",
+      "@phosphor-icons/react",
+      "@base-ui/react",
+      "@vanilla-extract/sprinkles",
+    ],
     files,
   };
 

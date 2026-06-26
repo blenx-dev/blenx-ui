@@ -11,9 +11,9 @@
       "target": "@ui/Tabs/tabs.tsx"
     },
     {
-      "file": "tabs.styles.ts",
+      "file": "tabs.css.ts",
       "type": "registry:file",
-      "target": "@ui/Tabs/tabs.styles.ts"
+      "target": "@ui/Tabs/tabs.css.ts"
     }
   ]
 }

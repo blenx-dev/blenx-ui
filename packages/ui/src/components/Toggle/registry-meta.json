@@ -11,9 +11,9 @@
       "target": "@ui/Toggle/toggle.tsx"
     },
     {
-      "file": "toggle.styles.ts",
+      "file": "toggle.css.ts",
       "type": "registry:file",
-      "target": "@ui/Toggle/toggle.styles.ts"
+      "target": "@ui/Toggle/toggle.css.ts"
     }
   ]
 }

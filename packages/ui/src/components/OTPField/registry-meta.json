@@ -11,9 +11,9 @@
       "target": "@ui/OTPField/otp-field.tsx"
     },
     {
-      "file": "otp-field.styles.ts",
+      "file": "otp-field.css.ts",
       "type": "registry:file",
-      "target": "@ui/OTPField/otp-field.styles.ts"
+      "target": "@ui/OTPField/otp-field.css.ts"
     }
   ]
 }

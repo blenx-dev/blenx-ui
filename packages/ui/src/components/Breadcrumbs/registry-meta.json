@@ -11,9 +11,9 @@
       "target": "@ui/Breadcrumbs/breadcrumbs.tsx"
     },
     {
-      "file": "breadcrumbs.styles.ts",
+      "file": "breadcrumbs.css.ts",
       "type": "registry:file",
-      "target": "@ui/Breadcrumbs/breadcrumbs.styles.ts"
+      "target": "@ui/Breadcrumbs/breadcrumbs.css.ts"
     }
   ]
 }

@@ -12,9 +12,9 @@
       "target": "@ui/Stack/stack.tsx"
     },
     {
-      "file": "stack.styles.ts",
+      "file": "stack.css.ts",
       "type": "registry:file",
-      "target": "@ui/Stack/stack.styles.ts"
+      "target": "@ui/Stack/stack.css.ts"
     }
   ]
 }

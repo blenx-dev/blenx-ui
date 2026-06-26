@@ -11,9 +11,9 @@
       "target": "@ui/Textarea/textarea.tsx"
     },
     {
-      "file": "textarea.styles.ts",
+      "file": "textarea.css.ts",
       "type": "registry:file",
-      "target": "@ui/Textarea/textarea.styles.ts"
+      "target": "@ui/Textarea/textarea.css.ts"
     }
   ]
 }

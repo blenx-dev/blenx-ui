@@ -12,9 +12,9 @@
       "target": "@ui/Command/command.tsx"
     },
     {
-      "file": "command.styles.ts",
+      "file": "command.css.ts",
       "type": "registry:file",
-      "target": "@ui/Command/command.styles.ts"
+      "target": "@ui/Command/command.css.ts"
     }
   ]
 }

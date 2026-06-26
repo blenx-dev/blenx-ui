@@ -11,9 +11,9 @@
       "target": "@ui/Radio/radio.tsx"
     },
     {
-      "file": "radio.styles.ts",
+      "file": "radio.css.ts",
       "type": "registry:file",
-      "target": "@ui/Radio/radio.styles.ts"
+      "target": "@ui/Radio/radio.css.ts"
     }
   ]
 }

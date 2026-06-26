@@ -11,9 +11,9 @@
       "target": "@ui/Checkbox/checkbox.tsx"
     },
     {
-      "file": "checkbox.styles.ts",
+      "file": "checkbox.css.ts",
       "type": "registry:file",
-      "target": "@ui/Checkbox/checkbox.styles.ts"
+      "target": "@ui/Checkbox/checkbox.css.ts"
     }
   ]
 }

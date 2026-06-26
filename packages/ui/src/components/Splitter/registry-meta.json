@@ -11,9 +11,9 @@
       "target": "@ui/Splitter/splitter.tsx"
     },
     {
-      "file": "splitter.styles.ts",
+      "file": "splitter.css.ts",
       "type": "registry:file",
-      "target": "@ui/Splitter/splitter.styles.ts"
+      "target": "@ui/Splitter/splitter.css.ts"
     }
   ]
 }

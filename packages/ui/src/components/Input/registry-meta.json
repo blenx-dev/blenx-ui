@@ -11,9 +11,9 @@
       "target": "@ui/Input/input.tsx"
     },
     {
-      "file": "input.styles.ts",
+      "file": "input.css.ts",
       "type": "registry:file",
-      "target": "@ui/Input/input.styles.ts"
+      "target": "@ui/Input/input.css.ts"
     }
   ]
 }

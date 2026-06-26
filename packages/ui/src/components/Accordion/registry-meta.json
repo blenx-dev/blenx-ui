@@ -11,9 +11,9 @@
       "target": "@ui/Accordion/accordion.tsx"
     },
     {
-      "file": "accordion.styles.ts",
+      "file": "accordion.css.ts",
       "type": "registry:file",
-      "target": "@ui/Accordion/accordion.styles.ts"
+      "target": "@ui/Accordion/accordion.css.ts"
     }
   ]
 }

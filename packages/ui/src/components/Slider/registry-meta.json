@@ -11,9 +11,9 @@
       "target": "@ui/Slider/slider.tsx"
     },
     {
-      "file": "slider.styles.ts",
+      "file": "slider.css.ts",
       "type": "registry:file",
-      "target": "@ui/Slider/slider.styles.ts"
+      "target": "@ui/Slider/slider.css.ts"
     }
   ]
 }

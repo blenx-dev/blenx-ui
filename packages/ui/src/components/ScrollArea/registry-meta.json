@@ -11,9 +11,9 @@
       "target": "@ui/ScrollArea/scroll-area.tsx"
     },
     {
-      "file": "scroll-area.styles.ts",
+      "file": "scroll-area.css.ts",
       "type": "registry:file",
-      "target": "@ui/ScrollArea/scroll-area.styles.ts"
+      "target": "@ui/ScrollArea/scroll-area.css.ts"
     }
   ]
 }

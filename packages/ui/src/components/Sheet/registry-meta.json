@@ -12,9 +12,9 @@
       "target": "@ui/Sheet/sheet.tsx"
     },
     {
-      "file": "sheet.styles.ts",
+      "file": "sheet.css.ts",
       "type": "registry:file",
-      "target": "@ui/Sheet/sheet.styles.ts"
+      "target": "@ui/Sheet/sheet.css.ts"
     }
   ]
 }

@@ -12,9 +12,9 @@
       "target": "@ui/AlertDialog/alert-dialog.tsx"
     },
     {
-      "file": "alert-dialog.styles.ts",
+      "file": "alert-dialog.css.ts",
       "type": "registry:file",
-      "target": "@ui/AlertDialog/alert-dialog.styles.ts"
+      "target": "@ui/AlertDialog/alert-dialog.css.ts"
     }
   ]
 }

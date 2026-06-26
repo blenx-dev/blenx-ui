@@ -1,7 +1,7 @@
 ---
 title: "Design Guidelines"
 description: "Comprehensive design and visual guidelines for the Blenx component library — covering palette tokens, typography, spacing, layout, and component-specific rules."
-category: "Fundamentals"
+category: "Guides"
 order: 3
 keywords:
   - design guidelines

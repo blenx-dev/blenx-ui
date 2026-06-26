@@ -11,9 +11,9 @@
       "target": "@ui/Table/table.tsx"
     },
     {
-      "file": "table.styles.ts",
+      "file": "table.css.ts",
       "type": "registry:file",
-      "target": "@ui/Table/table.styles.ts"
+      "target": "@ui/Table/table.css.ts"
     }
   ]
 }

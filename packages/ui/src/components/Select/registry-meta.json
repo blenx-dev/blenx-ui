@@ -12,9 +12,9 @@
       "target": "@ui/Select/select.tsx"
     },
     {
-      "file": "select.styles.ts",
+      "file": "select.css.ts",
       "type": "registry:file",
-      "target": "@ui/Select/select.styles.ts"
+      "target": "@ui/Select/select.css.ts"
     }
   ]
 }

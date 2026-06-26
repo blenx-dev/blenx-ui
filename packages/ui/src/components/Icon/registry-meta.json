@@ -12,9 +12,9 @@
       "target": "@ui/Icon/icon.tsx"
     },
     {
-      "file": "icon.styles.ts",
+      "file": "icon.css.ts",
       "type": "registry:file",
-      "target": "@ui/Icon/icon.styles.ts"
+      "target": "@ui/Icon/icon.css.ts"
     }
   ]
 }

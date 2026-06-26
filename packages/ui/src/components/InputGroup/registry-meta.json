@@ -11,9 +11,9 @@
       "target": "@ui/InputGroup/input-group.tsx"
     },
     {
-      "file": "input-group.styles.ts",
+      "file": "input-group.css.ts",
       "type": "registry:file",
-      "target": "@ui/InputGroup/input-group.styles.ts"
+      "target": "@ui/InputGroup/input-group.css.ts"
     }
   ]
 }

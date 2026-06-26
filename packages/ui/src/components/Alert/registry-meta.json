@@ -12,9 +12,9 @@
       "target": "@ui/Alert/alert.tsx"
     },
     {
-      "file": "alert.styles.ts",
+      "file": "alert.css.ts",
       "type": "registry:file",
-      "target": "@ui/Alert/alert.styles.ts"
+      "target": "@ui/Alert/alert.css.ts"
     }
   ]
 }

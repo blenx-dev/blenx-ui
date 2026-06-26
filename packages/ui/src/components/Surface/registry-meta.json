@@ -12,9 +12,9 @@
       "target": "@ui/Surface/surface.tsx"
     },
     {
-      "file": "surface.styles.ts",
+      "file": "surface.css.ts",
       "type": "registry:file",
-      "target": "@ui/Surface/surface.styles.ts"
+      "target": "@ui/Surface/surface.css.ts"
     }
   ]
 }

@@ -11,9 +11,9 @@
       "target": "@ui/Popover/popover.tsx"
     },
     {
-      "file": "popover.styles.ts",
+      "file": "popover.css.ts",
       "type": "registry:file",
-      "target": "@ui/Popover/popover.styles.ts"
+      "target": "@ui/Popover/popover.css.ts"
     }
   ]
 }

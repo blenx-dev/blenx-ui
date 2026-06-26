@@ -12,9 +12,9 @@
       "target": "@ui/Calendar/calendar.tsx"
     },
     {
-      "file": "calendar.styles.ts",
+      "file": "calendar.css.ts",
       "type": "registry:file",
-      "target": "@ui/Calendar/calendar.styles.ts"
+      "target": "@ui/Calendar/calendar.css.ts"
     }
   ]
 }

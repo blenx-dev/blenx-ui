@@ -12,9 +12,9 @@
       "target": "@ui/Drawer/drawer.tsx"
     },
     {
-      "file": "drawer.styles.ts",
+      "file": "drawer.css.ts",
       "type": "registry:file",
-      "target": "@ui/Drawer/drawer.styles.ts"
+      "target": "@ui/Drawer/drawer.css.ts"
     }
   ]
 }

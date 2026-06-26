@@ -12,9 +12,9 @@
       "target": "@ui/Container/container.tsx"
     },
     {
-      "file": "container.styles.ts",
+      "file": "container.css.ts",
       "type": "registry:file",
-      "target": "@ui/Container/container.styles.ts"
+      "target": "@ui/Container/container.css.ts"
     }
   ]
 }

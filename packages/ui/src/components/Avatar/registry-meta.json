@@ -11,9 +11,9 @@
       "target": "@ui/Avatar/avatar.tsx"
     },
     {
-      "file": "avatar.styles.ts",
+      "file": "avatar.css.ts",
       "type": "registry:file",
-      "target": "@ui/Avatar/avatar.styles.ts"
+      "target": "@ui/Avatar/avatar.css.ts"
     }
   ]
 }

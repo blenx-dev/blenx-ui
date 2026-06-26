@@ -11,9 +11,9 @@
       "target": "@ui/Menu/menu.tsx"
     },
     {
-      "file": "menu.styles.ts",
+      "file": "menu.css.ts",
       "type": "registry:file",
-      "target": "@ui/Menu/menu.styles.ts"
+      "target": "@ui/Menu/menu.css.ts"
     }
   ]
 }

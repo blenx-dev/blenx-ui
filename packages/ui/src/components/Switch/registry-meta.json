@@ -12,9 +12,9 @@
       "target": "@ui/Switch/switch.tsx"
     },
     {
-      "file": "switch.styles.ts",
+      "file": "switch.css.ts",
       "type": "registry:file",
-      "target": "@ui/Switch/switch.styles.ts"
+      "target": "@ui/Switch/switch.css.ts"
     }
   ]
 }

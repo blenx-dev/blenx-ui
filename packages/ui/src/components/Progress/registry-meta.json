@@ -11,9 +11,9 @@
       "target": "@ui/Progress/progress.tsx"
     },
     {
-      "file": "progress.styles.ts",
+      "file": "progress.css.ts",
       "type": "registry:file",
-      "target": "@ui/Progress/progress.styles.ts"
+      "target": "@ui/Progress/progress.css.ts"
     }
   ]
 }
