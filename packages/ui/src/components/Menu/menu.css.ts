@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract";
 import {
   borderRadius,
   fontSize,
   fontWeight,
   letterSpacing,
   spacing,
-} from "@blenx-dev/theme/tokens.css";
+} from "@blenx-dev/theme/tokens";
 
 export const trigger = style({
   display: "inline-flex",

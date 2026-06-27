@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "@blenx-dev/theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract";
 import {
   borderRadius,
   fonts,
@@ -8,7 +8,7 @@ import {
   letterSpacing,
   lineHeight,
   spacing,
-} from "@blenx-dev/theme/tokens.css";
+} from "@blenx-dev/theme/tokens";
 
 export const textVariants = recipe({
   base: {

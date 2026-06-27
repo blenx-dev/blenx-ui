@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { spacing } from "@blenx-dev/theme/tokens.css";
+import { spacing } from "@blenx-dev/theme/tokens";
 
 export const stackRecipe = recipe({
   variants: {

@@ -3,8 +3,8 @@ import { allBlocks, allBlockGroups } from "content-collections";
 import { MDXContent } from "@content-collections/mdx/react";
 import { Box, Separator, Text, VStack } from "@blenx-dev/components";
 import { mdxComponents } from "@/views/docs/MdxComponents";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { borderRadius, fontSize, spacing } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { borderRadius, fontSize, spacing } from "@blenx-dev/theme/tokens";
 
 export const Route = createFileRoute("/docs/blocks/$group/$variant")({
   beforeLoad: ({ params }) => {

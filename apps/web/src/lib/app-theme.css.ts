@@ -1,6 +1,6 @@
 import { createTheme, globalStyle } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { borderRadius, fontSize } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { borderRadius, fontSize } from "@blenx-dev/theme/tokens";
 
 export const lightTheme = createTheme(themeContract, {
   primary: "#1c1917",

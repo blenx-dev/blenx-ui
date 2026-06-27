@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { duration } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { duration } from "@blenx-dev/theme/tokens";
 
 export const HANDLE_SIZE = 8;
 

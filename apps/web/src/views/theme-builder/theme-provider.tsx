@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useMemo } from "react";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { borderRadius as radiusTokens } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { borderRadius as radiusTokens } from "@blenx-dev/theme/tokens";
 import { useThemeBuilder } from "./theme-builder-context";
 
 const radiusMap: Record<string, string> = {

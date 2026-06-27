@@ -40,7 +40,6 @@
     "@vanilla-extract/recipes": "^0.5.7",
     "@vanilla-extract/sprinkles": "^1.6.5",
     "clsx": "^2.1.1",
-    "next-themes": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "shadcn": "^4.11.0",

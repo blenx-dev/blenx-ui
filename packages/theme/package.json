@@ -7,18 +7,9 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    "./contract": {
-      "types": "./contract.css.d.ts",
-      "import": "./contract.css.js"
-    },
-    "./tokens": {
-      "types": "./tokens.css.d.ts",
-      "import": "./tokens.css.js"
-    },
-    "./light-theme": {
-      "types": "./light-theme.css.d.ts",
-      "import": "./light-theme.css.js"
-    }
+    "./contract": "./src/contract.css.ts",
+    "./tokens": "./src/tokens.css.ts",
+    "./light-theme": "./src/light-theme.css.ts"
   },
   "publishConfig": {
     "access": "public"
