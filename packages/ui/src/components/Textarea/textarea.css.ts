@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
+import { themeContract } from "@blenx-dev/theme/contract";
 
 export const shell = style({
   display: "inline-flex",

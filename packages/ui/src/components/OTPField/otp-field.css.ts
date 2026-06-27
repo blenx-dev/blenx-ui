@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { fontSize, spacing } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { fontSize, spacing } from "@blenx-dev/theme/tokens";
 
 export const root = style({
   display: "flex",

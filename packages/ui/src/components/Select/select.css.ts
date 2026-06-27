@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { borderRadius, fontSize, fontWeight, spacing } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { borderRadius, fontSize, fontWeight, spacing } from "@blenx-dev/theme/tokens";
 
 export const label = style({
   fontSize: fontSize.xsmall,

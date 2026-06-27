@@ -1,7 +1,7 @@
 import { createVar } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { fontSize, fonts, spacing } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { fontSize, fonts, spacing } from "@blenx-dev/theme/tokens";
 
 export const intentVars = {
   solidBg: createVar(),

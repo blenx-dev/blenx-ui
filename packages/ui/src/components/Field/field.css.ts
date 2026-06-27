@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { fontSize } from "@blenx-dev/theme/tokens.css";
+import { fontSize } from "@blenx-dev/theme/tokens";
 
 export const field = style({
   display: "flex",

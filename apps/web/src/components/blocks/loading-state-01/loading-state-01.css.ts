@@ -1,7 +1,7 @@
 /* ── Loading Skeleton ── */
 
-import { themeContract } from "@blenx-dev/theme/contract.css";
-import { borderRadius, spacing } from "@blenx-dev/theme/tokens.css";
+import { themeContract } from "@blenx-dev/theme/contract";
+import { borderRadius, spacing } from "@blenx-dev/theme/tokens";
 import { keyframes, style } from "@vanilla-extract/css";
 
 export const shimmerKeyframes = keyframes({
