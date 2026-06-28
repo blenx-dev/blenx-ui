@@ -21,7 +21,7 @@ import {
   Table,
   Text,
   VStack,
-} from "@blenx-dev/components";
+} from "@blenx-dev/ui";
 import {
   kpiGrid,
   kpiValue,

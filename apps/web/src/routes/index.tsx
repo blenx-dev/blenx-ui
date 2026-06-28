@@ -1,16 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { Column } from "@blenx-dev/ui/components/Table/table";
 import { sectionTitle, centeredBox } from "@/lib/styles.css";
-import {
-  Box,
-  Container,
-  HStack,
-  Separator,
-  Surface,
-  Table,
-  Text,
-  VStack,
-} from "@blenx-dev/components";
+import { Box, Container, HStack, Separator, Surface, Table, Text, VStack } from "@blenx-dev/ui";
 import { ShowCaseComponents } from "@/views/landing/ShowCasing";
 import { LandingHero } from "@/views/landing/LandingHero";
 import { BlenxFeatures, InstallSection } from "@/views/landing/FeaturesSection";

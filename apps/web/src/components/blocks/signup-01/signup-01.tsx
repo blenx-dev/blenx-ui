@@ -7,15 +7,7 @@ import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Checkbox } from "@blenx-dev/ui/components/Checkbox/checkbox";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
 import type { CSSProperties } from "react";
-import {
-  Box,
-  Container,
-  Field,
-  FieldLabel,
-  HStack,
-  Separator,
-  VStack,
-} from "@blenx-dev/components";
+import { Box, Container, Field, FieldLabel, HStack, Separator, VStack } from "@blenx-dev/ui";
 
 type SocialProvider = {
   provider: string;

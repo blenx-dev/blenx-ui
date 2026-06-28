@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { codeHeader } from "@/lib/styles.css";
-import { Box, CopyButton, HStack, SegmentedControl, Surface, Text } from "@blenx-dev/components";
+import { Box, CopyButton, HStack, SegmentedControl, Surface, Text } from "@blenx-dev/ui";
 
 interface CodeFrameFile {
   title?: string;

@@ -1,5 +1,5 @@
 import type React from "react";
-import { Text } from "@blenx-dev/components";
+import { Text } from "@blenx-dev/ui";
 import { docsUl, docsOl, docsLi } from "@/lib/styles.css";
 
 interface DocsUlProps {

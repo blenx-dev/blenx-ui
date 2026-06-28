@@ -36,7 +36,7 @@ import {
   TabsTab,
   Text,
   VStack,
-} from "@blenx-dev/components";
+} from "@blenx-dev/ui";
 import { ArrowRightIcon, CheckIcon, FileCodeIcon, GearIcon } from "@phosphor-icons/react";
 
 function ShowcaseAccordion() {

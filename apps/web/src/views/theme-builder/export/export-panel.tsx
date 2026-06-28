@@ -11,7 +11,7 @@ import {
   Separator,
   Text,
   VStack,
-} from "@blenx-dev/components";
+} from "@blenx-dev/ui";
 import { useThemeBuilder } from "../theme-builder-context";
 
 export function ExportPanel() {

@@ -10,7 +10,7 @@ import {
   HStack,
   Text,
   VStack,
-} from "@blenx-dev/components";
+} from "@blenx-dev/ui";
 import { FileCodeIcon } from "@phosphor-icons/react";
 import { CodeBlock } from "../docs/mdx-components/CodeBlock";
 

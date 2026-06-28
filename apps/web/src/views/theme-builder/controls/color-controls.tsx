@@ -1,4 +1,4 @@
-import { Accordion, ColorPicker, Grid } from "@blenx-dev/components";
+import { Accordion, ColorPicker, Grid } from "@blenx-dev/ui";
 import { useThemeBuilder } from "../theme-builder-context";
 import type { ThemeTokens } from "../theme-builder-context";
 
