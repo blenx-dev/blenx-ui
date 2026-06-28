@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@blenx-dev/ui/components/Button/button";
-import { Input } from "@blenx-dev/ui/components/Input/input";
-import { Textarea } from "@blenx-dev/ui/components/Textarea/textarea";
-import { Text } from "@blenx-dev/ui/components/Text/text";
-import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
+import { Input } from "@blenx-dev/ui/Input";
+import { Button } from "@blenx-dev/ui/Button";
+import { Textarea } from "@blenx-dev/ui/Textarea";
+import { Text } from "@blenx-dev/ui/Text";
+import { Card, CardBody } from "@blenx-dev/ui/Card";
 import type { CSSProperties } from "react";
 import { Box, Container, Field, FieldLabel, HStack, Icon, Select, VStack } from "@blenx-dev/ui";
 import { PaperPlaneTiltIcon } from "@phosphor-icons/react";

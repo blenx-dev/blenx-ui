@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type { Column } from "@blenx-dev/ui/components/Table/table";
+import type { Column } from "@blenx-dev/ui/Table";
 import { Container, HStack, Separator, Surface, Table, Text, VStack } from "@blenx-dev/ui";
 import { ShowCaseComponents } from "@/views/landing/ShowCasing";
 import { LandingHero } from "@/views/landing/LandingHero";
