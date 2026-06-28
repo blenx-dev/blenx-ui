@@ -10,7 +10,7 @@ import {
   TabsList,
   TabsPanel,
   TabsTab,
-} from "@blenx-dev/components";
+} from "@blenx-dev/ui";
 import { ColorControls, NonColorControls, PresetControls, TypographyControls } from "./controls";
 import { PreviewErrorBoundary } from "./error-boundary";
 import { ExportPanel } from "./export";

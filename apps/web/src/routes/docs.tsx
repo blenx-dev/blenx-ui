@@ -12,7 +12,7 @@ import {
   Surface,
   Text,
   VStack,
-} from "@blenx-dev/components";
+} from "@blenx-dev/ui";
 import {
   ClientOnly,
   createFileRoute,

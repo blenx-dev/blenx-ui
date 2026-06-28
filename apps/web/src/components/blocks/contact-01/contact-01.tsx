@@ -7,16 +7,7 @@ import { Textarea } from "@blenx-dev/ui/components/Textarea/textarea";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
 import type { CSSProperties } from "react";
-import {
-  Box,
-  Container,
-  Field,
-  FieldLabel,
-  HStack,
-  Icon,
-  Select,
-  VStack,
-} from "@blenx-dev/components";
+import { Box, Container, Field, FieldLabel, HStack, Icon, Select, VStack } from "@blenx-dev/ui";
 import { PaperPlaneTiltIcon } from "@phosphor-icons/react";
 
 type ContactInfo = {

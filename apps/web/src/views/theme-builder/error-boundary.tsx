@@ -1,5 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
-import { Text, VStack } from "@blenx-dev/components";
+import { Text, VStack } from "@blenx-dev/ui";
 
 interface Props {
   children: ReactNode;

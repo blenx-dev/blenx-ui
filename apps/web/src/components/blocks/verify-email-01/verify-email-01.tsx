@@ -5,15 +5,7 @@ import { Button } from "@blenx-dev/ui/components/Button/button";
 import { Text } from "@blenx-dev/ui/components/Text/text";
 import { Card, CardBody } from "@blenx-dev/ui/components/Card/card";
 import type { CSSProperties } from "react";
-import {
-  Alert,
-  Box,
-  Container,
-  HStack,
-  OTPField,
-  OTPFieldInput,
-  VStack,
-} from "@blenx-dev/components";
+import { Alert, Box, Container, HStack, OTPField, OTPFieldInput, VStack } from "@blenx-dev/ui";
 
 const DIGIT_COUNT = 6;
 
