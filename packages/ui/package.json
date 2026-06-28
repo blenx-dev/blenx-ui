@@ -1,6 +1,6 @@
 {
   "name": "@blenx-dev/ui",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -35,6 +35,9 @@
     "clsx": "^2.1.1",
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "changeset": "^0.2.6"
   },
   "peerDependencies": {
     "react": "catalog:",

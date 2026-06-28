@@ -27,7 +27,10 @@
     "check": "oxlint && oxfmt --write",
     "clean": "rimraf --glob node_modules dist build .turbo **/node_modules **/dist **/build && turbo -F clean",
     "generate:registry": "tsx scripts/generate-docs-manifest.ts",
-    "generate:api": "tsx scripts/generate-api-meta.ts"
+    "generate:api": "tsx scripts/generate-api-meta.ts",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
   },
   "dependencies": {
     "@blenx-dev/env": "workspace:*",
@@ -36,6 +39,7 @@
   },
   "devDependencies": {
     "@blenx-dev/config": "workspace:*",
+    "@changesets/cli": "^2.31.0",
     "@types/node": "catalog:",
     "lefthook": "^2.1.9",
     "oxfmt": "^0.53.0",
