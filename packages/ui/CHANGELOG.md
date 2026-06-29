@@ -1,5 +1,18 @@
 # @blenx-dev/ui
 
+## 0.2.0
+
+### Minor Changes
+
+- d2b8ab1: improve on configurable themes
+
+### Patch Changes
+
+- 4a56dc0: move fonts to configurable tokens
+- Updated dependencies [d2b8ab1]
+- Updated dependencies [4a56dc0]
+  - @blenx-dev/theme@0.2.0
+
 ## 0.1.4
 
 ### Patch Changes
