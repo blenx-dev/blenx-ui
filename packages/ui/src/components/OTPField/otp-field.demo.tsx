@@ -1,21 +1,11 @@
 "use client";
 
-import * as stylex from "@stylexjs/stylex";
+import { VStack } from "../Stack";
 import { OTPField, OTPFieldInput, OTPFieldSeparator } from "./otp-field";
-
-const styles = stylex.create({
-  wrapper: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 24,
-    padding: 32,
-    maxWidth: 400,
-  },
-});
 
 export function OTPFieldDemo() {
   return (
-    <div {...stylex.props(styles.wrapper)}>
+    <VStack>
       <OTPField length={6} defaultValue="">
         <OTPFieldInput />
         <OTPFieldInput />
@@ -24,13 +14,13 @@ export function OTPFieldDemo() {
         <OTPFieldInput />
         <OTPFieldInput />
       </OTPField>
-    </div>
+    </VStack>
   );
 }
 
 export function OTPFieldGroupedDemo() {
   return (
-    <div {...stylex.props(styles.wrapper)}>
+    <VStack>
       <OTPField length={12} defaultValue="" validationType="alphanumeric">
         <OTPFieldInput />
         <OTPFieldInput />
@@ -47,7 +37,7 @@ export function OTPFieldGroupedDemo() {
         <OTPFieldInput />
         <OTPFieldInput />
       </OTPField>
-    </div>
+    </VStack>
   );
 }
 

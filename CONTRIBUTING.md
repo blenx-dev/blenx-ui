@@ -4,8 +4,8 @@ Thanks for contributing to Blenx!
 
 ## Development
 
-bun install
-bun dev
+pnpm install
+pnpm dev
 
 ## Pull Requests
 

@@ -1,9 +1,14 @@
 ---
 title: "Vite Configuration"
 description: "Configure Vite to use Blenx UI with Vanilla Extract."
+category: "Guides"
 navigation:
-  group: getting-started
-  order: 3
+  group: guides
+  order: 4
+keywords:
+  - vite
+  - configuration
+  - setup
 ---
 
 # Vite Configuration
@@ -15,7 +20,7 @@ Because of this, Vite must process Blenx UI as application source rather than as
 ## Install
 
 ```bash
-bun add @blenx-dev/ui @blenx-dev/theme
+pnpm add @blenx-dev/ui @blenx-dev/theme
 ```
 
 ## Configure Vite
