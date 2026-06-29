@@ -42,3 +42,10 @@ export const themeContract = createThemeContract({
   hoverOverlay: "hover-overlay",
   hoverOverlaySoft: "hover-overlay-soft",
 });
+export const tokenVars = createThemeContract({
+  font: {
+    sans: null,
+    body: null,
+    mono: null,
+  },
+});

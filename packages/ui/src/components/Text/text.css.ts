@@ -1,8 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "@blenx-dev/theme/contract";
+import { themeContract, tokenVars } from "@blenx-dev/theme/contract";
 import {
   borderRadius,
-  fonts,
   fontSize,
   fontWeight,
   letterSpacing,
@@ -18,7 +17,7 @@ export const textVariants = recipe({
   variants: {
     variant: {
       h1: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.displayLg,
         lineHeight: lineHeight.tight,
         fontWeight: fontWeight.bold,
@@ -27,7 +26,7 @@ export const textVariants = recipe({
         scrollMarginTop: "80px",
       },
       h2: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.xxl,
         lineHeight: lineHeight.tight,
         fontWeight: fontWeight.bold,
@@ -36,7 +35,7 @@ export const textVariants = recipe({
         scrollMarginTop: "80px",
       },
       h3: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.xl,
         lineHeight: lineHeight.snug,
         fontWeight: fontWeight.semibold,
@@ -45,7 +44,7 @@ export const textVariants = recipe({
         scrollMarginTop: "80px",
       },
       h4: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.lg,
         lineHeight: lineHeight.tight,
         fontWeight: fontWeight.semibold,
@@ -53,7 +52,7 @@ export const textVariants = recipe({
         scrollMarginTop: "80px",
       },
       h5: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.md,
         lineHeight: lineHeight.normal,
         fontWeight: fontWeight.semibold,
@@ -61,7 +60,7 @@ export const textVariants = recipe({
         scrollMarginTop: "80px",
       },
       h6: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.sm,
         lineHeight: lineHeight.normal,
         fontWeight: fontWeight.semibold,
@@ -75,7 +74,7 @@ export const textVariants = recipe({
         margin: 0,
       },
       body2: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.sm,
         lineHeight: lineHeight.normal,
         fontWeight: fontWeight.regular,
@@ -88,7 +87,7 @@ export const textVariants = recipe({
         margin: 0,
       },
       body4: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.xxs,
         lineHeight: lineHeight.normal,
         fontWeight: fontWeight.medium,
@@ -96,7 +95,7 @@ export const textVariants = recipe({
         margin: 0,
       },
       caption: {
-        fontFamily: fonts.body,
+        fontFamily: tokenVars.font.body,
         fontSize: fontSize.xs,
         lineHeight: lineHeight.normal,
         fontWeight: fontWeight.medium,

@@ -1,5 +1,5 @@
 import { createTheme } from "@vanilla-extract/css";
-import { themeContract } from "./contract.css";
+import { themeContract, tokenVars } from "./contract.css";
 
 export const [themeClass, themeVars] = createTheme(themeContract, {
   primary: "#1c1917",
@@ -51,6 +51,14 @@ export const [themeClass, themeVars] = createTheme(themeContract, {
 
   fontSize: "16px",
   borderRadius: "12px",
+});
+
+export const fontThemeClass = createTheme(tokenVars, {
+  font: {
+    sans: '"DM Sans", system-ui, -apple-system, sans-serif',
+    body: '"DM Sans", system-ui, sans-serif',
+    mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
+  },
 });
 
 export const darkThemeClass = createTheme(themeContract, {

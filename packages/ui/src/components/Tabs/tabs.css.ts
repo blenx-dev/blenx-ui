@@ -1,11 +1,10 @@
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract";
+import { themeContract, tokenVars } from "@blenx-dev/theme/contract";
 import {
   borderRadius,
   duration,
   easing,
   fontSize,
-  fonts,
   fontWeight,
   spacing,
 } from "@blenx-dev/theme/tokens";
@@ -169,7 +168,7 @@ export const tab = style({
   whiteSpace: "nowrap",
   userSelect: "none",
   font: "inherit",
-  fontFamily: fonts.body,
+  fontFamily: tokenVars.font.body,
   WebkitTapHighlightColor: "transparent",
   transition: `color ${duration.normal} ${easing.standard}, background-color ${duration.normal} ${easing.standard}, box-shadow ${duration.normal} ${easing.standard}`,
 });

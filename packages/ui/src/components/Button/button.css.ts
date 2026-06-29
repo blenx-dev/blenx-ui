@@ -1,7 +1,7 @@
 import { createVar } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { themeContract } from "@blenx-dev/theme/contract";
-import { fontSize, fonts, spacing } from "@blenx-dev/theme/tokens";
+import { themeContract, tokenVars } from "@blenx-dev/theme/contract";
+import { fontSize, spacing } from "@blenx-dev/theme/tokens";
 
 export const intentVars = {
   solidBg: createVar(),
@@ -29,7 +29,7 @@ export const variant = recipe({
     width: "fit-content",
     height: "fit-content",
     fontSize: themeContract.fontSize,
-    fontFamily: fonts.body,
+    fontFamily: tokenVars.font.body,
     textDecoration: "none",
     position: "relative",
     transition: "all 0.2s ease",

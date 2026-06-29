@@ -11,12 +11,6 @@ export const borderRadius = {
   full: "999px",
 } as const;
 
-export const fonts = {
-  sans: '"DM Sans", system-ui, -apple-system, sans-serif',
-  body: '"DM Sans", system-ui, sans-serif',
-  mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
-} as const;
-
 export const fontSize = {
   xxs: "10px",
   xs: "12px",

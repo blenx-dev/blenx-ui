@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { useMemo } from "react";
-import { themeContract } from "@blenx-dev/theme/contract";
+import { themeContract, tokenVars } from "@blenx-dev/theme/contract";
 import { borderRadius as radiusTokens } from "@blenx-dev/theme/tokens";
 import { useThemeBuilder } from "./theme-builder-context";
 
@@ -66,6 +66,13 @@ export function ThemePreviewProvider({ children }: { children: ReactNode }) {
     for (const [k, v] of entries) {
       vars[contractKeyToVarName(k)] = v;
     }
+
+    vars[contractKeyToVarName(tokenVars.font.sans)] =
+      '"DM Sans", system-ui, -apple-system, sans-serif';
+    vars[contractKeyToVarName(tokenVars.font.body)] = '"DM Sans", system-ui, sans-serif';
+    vars[contractKeyToVarName(tokenVars.font.mono)] =
+      '"DM Mono", ui-monospace, SFMono-Regular, monospace';
+
     return vars;
   }, [tokens]);
   return <div style={cssVars as React.CSSProperties}>{children}</div>;

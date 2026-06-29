@@ -1,6 +1,6 @@
 import { createTheme, globalStyle } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract";
-import { borderRadius, fonts, fontSize } from "@blenx-dev/theme/tokens";
+import { themeContract, tokenVars } from "@blenx-dev/theme/contract";
+import { borderRadius, fontSize } from "@blenx-dev/theme/tokens";
 
 export const lightTheme = createTheme(themeContract, {
   primary: "#1c1917",
@@ -51,6 +51,14 @@ export const lightTheme = createTheme(themeContract, {
 
   hoverOverlay: "rgba(28,25,23,0.05)",
   hoverOverlaySoft: "rgba(28,25,23,0.10)",
+});
+
+export const fontTheme = createTheme(tokenVars, {
+  font: {
+    sans: '"DM Sans", system-ui, -apple-system, sans-serif',
+    body: '"DM Sans", system-ui, sans-serif',
+    mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
+  },
 });
 
 export const darkTheme = createTheme(themeContract, {
@@ -108,12 +116,12 @@ globalStyle("body", {
   backgroundColor: themeContract.background,
   color: themeContract.contentPrimary,
   margin: 0,
-  fontFamily: fonts.body,
+  fontFamily: tokenVars.font.body,
   fontSize: "14px",
   lineHeight: 1.5,
   maxWidth: "100vw",
 });
 
 globalStyle("h1,h2,h3,h4,h5,h6", {
-  fontFamily: fonts.body,
+  fontFamily: tokenVars.font.body,
 });
