@@ -1,5 +1,11 @@
 # @blenx-dev/ui
 
+## 0.2.2
+
+### Patch Changes
+
+- e30d5bc: update peer dependency
+
 ## 0.2.1
 
 ### Patch Changes
