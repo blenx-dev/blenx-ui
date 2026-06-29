@@ -73,6 +73,7 @@ export const tokenVarsDefaults = {
     "48": "192px",
   },
   borderRadius: {
+    default: "12px",
     xs: "2px",
     sm: "4px",
     md: "8px",

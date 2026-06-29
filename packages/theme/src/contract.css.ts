@@ -117,6 +117,7 @@ export const tokenVars = createThemeContract({
     "48": null,
   },
   borderRadius: {
+    default: null,
     xs: null,
     sm: null,
     md: null,

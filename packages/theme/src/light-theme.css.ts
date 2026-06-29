@@ -51,7 +51,7 @@ export const [themeClass, themeVars] = createTheme(themeContract, {
   hoverOverlaySoft: "rgba(28,25,23,0.10)",
 
   fontSize: "16px",
-  borderRadius: "12px",
+  borderRadius: tokenVars.borderRadius.default,
 });
 
 export const tokenThemeClass = createTheme(tokenVars, tokenVarsDefaults);
@@ -106,5 +106,5 @@ export const darkThemeClass = createTheme(themeContract, {
   hoverOverlaySoft: "rgba(245,243,239,0.13)",
 
   fontSize: "16px",
-  borderRadius: "12px",
+  borderRadius: tokenVars.borderRadius.default,
 });

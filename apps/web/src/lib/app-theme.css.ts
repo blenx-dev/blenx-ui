@@ -17,7 +17,7 @@ export const lightTheme = createTheme(themeContract, {
   surfaceHover: "#edeae4",
   surfaceOverlay: "rgba(28,25,23,0.35)",
 
-  borderRadius: tokenVarsDefaults.borderRadius.lg,
+  borderRadius: tokenVars.borderRadius.default,
   fontSize: tokenVarsDefaults.fontSize.md,
   border: "#e2ddd6",
   borderSubtle: "#edeae4",
@@ -80,7 +80,7 @@ export const darkTheme = createTheme(themeContract, {
   contentOnPrimary: "#0f0e0c",
 
   focusRing: "#818cf8",
-  borderRadius: tokenVarsDefaults.borderRadius.lg,
+  borderRadius: tokenVars.borderRadius.default,
   fontSize: tokenVarsDefaults.fontSize.md,
   sentimentNegative: "#f87171",
   sentimentNegativeSubtle: "#450a0a",
