@@ -1,5 +1,11 @@
 # @blenx-dev/theme
 
+## 1.0.0
+
+### Minor Changes
+
+- b6f481c: New Theme Structure
+
 ## 0.2.1
 
 ### Patch Changes
