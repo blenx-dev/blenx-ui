@@ -27,7 +27,9 @@ const variantTag = {
 
 export type TextProps = useRender.ComponentProps<"div"> &
   BaseSprinkles &
-  RecipeVariants<typeof textVariants> & { span?: boolean };
+  RecipeVariants<typeof textVariants> & { span?: boolean } & {
+    size?: BaseSprinkles["fontSize"];
+  };
 
 export function Text({
   variant = "body1",
@@ -42,10 +44,10 @@ export function Text({
   transform = "none",
   ...props
 }: TextProps): React.ReactElement {
-  const [baseStyles, htmlProps] = applyBaseSprinkles({ ...props, color });
+  const [baseStyles, htmlProps] = applyBaseSprinkles({ ...props, color, fontSize: size });
   const rootCls = clsx(
     baseStyles,
-    textVariants({ variant, textAlign, weight, transform, size }),
+    textVariants({ variant, textAlign, weight, transform }),
     className,
   );
   const mergedProps = { className: rootCls, style, ...htmlProps };

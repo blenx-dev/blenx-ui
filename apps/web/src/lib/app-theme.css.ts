@@ -1,6 +1,6 @@
 import { createTheme, globalStyle } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
-import { createBlenxTheme, tokenVarsDefaults, genPalleteFromRadix } from "@blenx-dev/theme";
+import { createBlenxTheme, mergeWithDefaultTokens, genPalleteFromRadix } from "@blenx-dev/theme";
 import {
   blue,
   blueA,
@@ -22,7 +22,14 @@ import {
   redDarkA,
 } from "@radix-ui/colors";
 
-export const tokenThemeClass = createTheme(tokenVars, tokenVarsDefaults);
+const tokens = mergeWithDefaultTokens({
+  font: {
+    sans: '"DM Sans", system-ui, -apple-system, sans-serif',
+    body: '"DM Sans", system-ui, sans-serif',
+    mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
+  },
+});
+export const tokenThemeClass = createTheme(tokenVars, tokens);
 
 export const { themeClass: lightClass } = createBlenxTheme({
   colors: {

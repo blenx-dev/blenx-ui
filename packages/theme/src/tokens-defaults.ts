@@ -1,12 +1,12 @@
 type SizeVars = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
 
 export type TokenVars = {
-  font: Record<"sans" | "body" | "mono", string | null>;
-  shadow: Record<"sm" | "md" | "lg" | "xl", string | null>;
-  fontSize: Record<SizeVars | "display" | "displayLg" | "hero", string | null>;
-  fontWeight: Record<"regular" | "medium" | "semibold" | "bold" | "extrabold", string | null>;
-  lineHeight: Record<"tight" | "snug" | "normal" | "relaxed" | "loose", string | null>;
-  letterSpacing: Record<"tight" | "snug" | "normal" | "wide" | "wider" | "widest", string | null>;
+  font: Record<"sans" | "body" | "mono", string>;
+  shadow: Record<"sm" | "md" | "lg" | "xl", string>;
+  fontSize: Record<SizeVars | "display" | "displayLg" | "hero", string>;
+  fontWeight: Record<"regular" | "medium" | "semibold" | "bold" | "extrabold", string>;
+  lineHeight: Record<"tight" | "snug" | "normal" | "relaxed" | "loose", string>;
+  letterSpacing: Record<"tight" | "snug" | "normal" | "wide" | "wider" | "widest", string>;
   spacing: Record<
     | SizeVars
     | "none"
@@ -32,12 +32,12 @@ export type TokenVars = {
     | "32"
     | "40"
     | "48",
-    string | null
+    string
   >;
-  borderRadius: Record<"default" | SizeVars | "full", string | null>;
-  borderWidth: Record<"hairline" | "thin" | "medium" | "thick" | "heavy", string | null>;
-  duration: Record<"instant" | "fast" | "normal" | "slow" | "slower" | "lazy", string | null>;
-  easing: Record<"linear" | "standard" | "enter" | "exit" | "spring" | "bounce", string | null>;
+  borderRadius: Record<"default" | SizeVars | "full", string>;
+  borderWidth: Record<"hairline" | "thin" | "medium" | "thick" | "heavy", string>;
+  duration: Record<"instant" | "fast" | "normal" | "slow" | "slower" | "lazy", string>;
+  easing: Record<"linear" | "standard" | "enter" | "exit" | "spring" | "bounce", string>;
 };
 
 export const tokenVarsDefaults = {
@@ -156,3 +156,29 @@ export const tokenVarsDefaults = {
     xl: "0 20px 25px rgba(0, 0, 0, 0.15)",
   },
 } satisfies TokenVars;
+// Source - https://stackoverflow.com/a/47914631
+// Posted by CRice
+// Retrieved 2026-06-30, License - CC BY-SA 3.0
+
+type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};
+
+export function mergeWithDefaultTokens(props?: RecursivePartial<TokenVars>): TokenVars {
+  if (!props) return tokenVarsDefaults;
+  return {
+    ...tokenVarsDefaults,
+    ...props,
+    font: { ...tokenVarsDefaults.font, ...props.font },
+    fontSize: { ...tokenVarsDefaults.fontSize, ...props.fontSize },
+    fontWeight: { ...tokenVarsDefaults.fontWeight, ...props.fontWeight },
+    lineHeight: { ...tokenVarsDefaults.lineHeight, ...props.lineHeight },
+    letterSpacing: { ...tokenVarsDefaults.letterSpacing, ...props.letterSpacing },
+    spacing: { ...tokenVarsDefaults.spacing, ...props.spacing },
+    borderRadius: { ...tokenVarsDefaults.borderRadius, ...props.borderRadius },
+    borderWidth: { ...tokenVarsDefaults.borderWidth, ...props.borderWidth },
+    duration: { ...tokenVarsDefaults.duration, ...props.duration },
+    easing: { ...tokenVarsDefaults.easing, ...props.easing },
+    shadow: { ...tokenVarsDefaults.shadow, ...props.shadow },
+  };
+}
