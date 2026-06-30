@@ -102,6 +102,9 @@ importers:
       '@phosphor-icons/react':
         specifier: ^2.1.10
         version: 2.1.10(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@radix-ui/colors':
+        specifier: ^3.0.0
+        version: 3.0.0
       '@shikijs/core':
         specifier: ^4.2.0
         version: 4.3.0
@@ -286,6 +289,10 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1.20.1
         version: 1.21.0
+    devDependencies:
+      colors:
+        specifier: link:@types/@radix-ui/colors
+        version: link:@types/@radix-ui/colors
 
   packages/ui:
     dependencies:
@@ -1831,6 +1838,9 @@ packages:
 
   '@poppinss/exception@1.2.3':
     resolution: {integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==}
+
+  '@radix-ui/colors@3.0.0':
+    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
 
   '@resvg/resvg-wasm@2.4.0':
     resolution: {integrity: sha512-C7c51Nn4yTxXFKvgh2txJFNweaVcfUPQxwEUFw4aWsCmfiBDJsTSwviIF8EcwjQ6k8bPyMWCl1vw4BdxE569Cg==}
@@ -6558,6 +6568,8 @@ snapshots:
       supports-color: 10.2.2
 
   '@poppinss/exception@1.2.3': {}
+
+  '@radix-ui/colors@3.0.0': {}
 
   '@resvg/resvg-wasm@2.4.0': {}
 

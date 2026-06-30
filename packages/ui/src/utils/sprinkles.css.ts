@@ -48,10 +48,10 @@ const colors = {
   default: "currentColor",
   secondary: semanticVars.text.secondary,
   disabled: semanticVars.text.disabled,
-  error: semanticVars.status.danger,
-  success: semanticVars.status.success,
-  warning: semanticVars.status.warning,
-  info: semanticVars.status.info,
+  error: semanticVars.status.danger.default,
+  success: semanticVars.status.success.default,
+  warning: semanticVars.status.warning.default,
+  info: semanticVars.status.info.default,
 } as const;
 
 const responsiveConditions = {
@@ -106,10 +106,14 @@ const colorProperties = defineProperties({
   properties: {
     color: colors,
     backgroundColor: {
-      primary: semanticVars.interactive.primary,
+      primary: semanticVars.interactive.primary.default,
+      primaryHover: semanticVars.interactive.primary.hover,
+      primaryActive: semanticVars.interactive.primary.active,
+      secondary: semanticVars.interactive.secondary.default,
+      secondaryHover: semanticVars.interactive.secondary.hover,
+      secondaryActive: semanticVars.interactive.secondary.active,
       default: "inherit",
-      secondary: semanticVars.interactive.secondary,
-      disabled: semanticVars.text.disabled,
+      disabled: semanticVars.background.subtle, // background, not text.disabled
       error: semanticVars.status.dangerBg,
       success: semanticVars.status.successBg,
       warning: semanticVars.status.warningBg,

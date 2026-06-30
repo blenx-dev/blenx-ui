@@ -1,4 +1,11 @@
 import { createThemeContract } from "@vanilla-extract/css";
+// Shared shape — mirrors PaletteRoles' ColorState from Layer 3
+// so state data isn't lost as it flows up through the layers.
+export interface ColorStateVars {
+  default: string | null;
+  hover: string | null;
+  active: string | null;
+}
 
 export const semanticVars = createThemeContract({
   background: {
@@ -23,35 +30,64 @@ export const semanticVars = createThemeContract({
     strong: null,
   },
   interactive: {
-    primary: null,
-    primaryFg: null,
-    primaryHover: null,
-    primaryBg: null,
-    secondary: null,
+    primary: {
+      default: null,
+      hover: null,
+      active: null,
+    },
+    primaryFg: null, // foreground rarely needs state variants
+    primaryBg: {
+      // soft/tinted variant background (e.g. soft button)
+      default: null,
+      hover: null,
+      active: null,
+    },
+    secondary: {
+      default: null,
+      hover: null,
+      active: null,
+    },
     secondaryFg: null,
-    secondaryHover: null,
-    secondaryBg: null,
-    neutral: null,
+    secondaryBg: {
+      default: null,
+      hover: null,
+      active: null,
+    },
+    neutral: {
+      default: null,
+      hover: null,
+      active: null,
+    },
     neutralFg: null,
   },
   status: {
-    success: null,
+    success: {
+      default: null,
+      hover: null,
+      active: null,
+    },
     successBg: null,
-    warning: null,
+    warning: {
+      default: null,
+      hover: null,
+      active: null,
+    },
     warningBg: null,
-    danger: null,
+    danger: {
+      default: null,
+      hover: null,
+      active: null,
+    },
     dangerBg: null,
-    info: null,
+    info: {
+      default: null,
+      hover: null,
+      active: null,
+    },
     infoBg: null,
   },
   focus: {
     ring: null,
-  },
-  shadow: {
-    sm: null,
-    md: null,
-    lg: null,
-    xl: null,
   },
 });
 
@@ -61,6 +97,7 @@ export const tokenVars = createThemeContract({
     body: null,
     mono: null,
   },
+  shadow: { sm: null, md: null, lg: null, xl: null },
   fontSize: {
     xxs: null,
     xs: null,

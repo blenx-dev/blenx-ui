@@ -16,6 +16,7 @@
     "@cloudflare/vite-plugin": "^1.26.0",
     "@content-collections/mdx": "^0.2.2",
     "@phosphor-icons/react": "^2.1.10",
+    "@radix-ui/colors": "^3.0.0",
     "@shikijs/core": "^4.2.0",
     "@shikijs/engine-javascript": "^4.2.0",
     "@shikijs/langs": "^4.2.0",

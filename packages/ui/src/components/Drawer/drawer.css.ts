@@ -38,7 +38,6 @@ export const swipeAreaRight = style({
 export const backdrop = style({
   position: "fixed",
   inset: 0,
-  zIndex: 50,
   backgroundColor: "rgba(0, 0, 0, 0.32)",
   backdropFilter: "blur(4px)",
   transitionProperty: "opacity",

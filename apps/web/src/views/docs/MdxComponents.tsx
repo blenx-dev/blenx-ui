@@ -15,7 +15,7 @@ import { Box, Spinner, Text } from "@blenx-dev/ui";
 import { type TextProps } from "@blenx-dev/ui";
 
 function InlineCode(props: TextProps) {
-  return <Text variant="code" backgroundColor="disabled" px="xs" py="xxs" {...props} />;
+  return <Text variant="code" backgroundColor="info" px="xs" py="xxs" {...props} />;
 }
 
 function Pre({ children, ...props }: ComponentProps<"pre">) {
