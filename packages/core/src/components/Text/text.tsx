@@ -26,7 +26,7 @@ const variantTag = {
 } as const satisfies Record<string, keyof React.JSX.IntrinsicElements>;
 
 export type TextProps = useRender.ComponentProps<"div"> &
-  BaseSprinkles &
+  Omit<BaseSprinkles, "fontSize"> &
   RecipeVariants<typeof textVariants> & { span?: boolean } & {
     size?: BaseSprinkles["fontSize"];
   };

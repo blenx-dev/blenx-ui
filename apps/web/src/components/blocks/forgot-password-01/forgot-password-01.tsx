@@ -6,7 +6,8 @@ import { Input } from "@blenx-dev/core/Input";
 import { Text } from "@blenx-dev/core/Text";
 import { Card, CardBody } from "@blenx-dev/core/Card";
 import type { CSSProperties } from "react";
-import { Box, Container, Field, FieldLabel, HStack, VStack } from "@blenx-dev/core";
+import { Box, Container, Field, FieldLabel, HStack, Icon, VStack } from "@blenx-dev/core";
+import { PulseIcon } from "@phosphor-icons/react";
 
 type Props = {
   title?: string;
@@ -45,21 +46,9 @@ export function ForgotPassword01({
         <CardBody>
           {submitted ? (
             <VStack>
-              <div>
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>
-              </div>
+              <Icon size="xxl">
+                <PulseIcon />
+              </Icon>
               <Text variant="h4">Check your email</Text>
               <Text variant="body2" color="success">
                 We&apos;ve sent a password reset link to <strong>{email}</strong>. Please check your
