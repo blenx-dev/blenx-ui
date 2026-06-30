@@ -44,7 +44,7 @@ export const trackVertical = style({
 export const indicator = style({
   userSelect: "none",
   borderRadius: tokenVars.borderRadius.full,
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
 });
 
 export const thumb = style({
@@ -61,7 +61,7 @@ export const thumb = style({
   transitionDuration: "150ms",
   width: 16,
   height: 16,
-  boxShadow: semanticVars.shadow.sm,
+  boxShadow: tokenVars.shadow.sm,
   selectors: {
     "&:has(:focus-visible)": {
       boxShadow: `0 0 0 3px ${semanticVars.focus.ring}`,

@@ -39,7 +39,7 @@ export const input = style({
       boxShadow: `0 0 0 2px ${semanticVars.border.strong}`,
     },
     "&:focus-visible[aria-invalid='true']": {
-      borderColor: semanticVars.status.danger,
+      borderColor: semanticVars.status.danger.default,
       boxShadow: `0 0 0 3px ${semanticVars.status.danger}`,
     },
   },
@@ -62,11 +62,11 @@ export const inputLg = style({
 });
 
 export const inputError = style({
-  borderColor: semanticVars.status.danger,
+  borderColor: semanticVars.status.danger.default,
 });
 
 export const error = style({
   fontSize: 12,
   lineHeight: 1.4,
-  color: semanticVars.status.danger,
+  color: semanticVars.status.danger.default,
 });

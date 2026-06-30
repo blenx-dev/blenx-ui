@@ -12,7 +12,7 @@ export const root = style({
   borderStyle: "solid",
   borderColor: semanticVars.border.default,
   borderRadius: tokenVars.borderRadius.lg,
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
   boxSizing: "border-box",
   outline: "none",
 });

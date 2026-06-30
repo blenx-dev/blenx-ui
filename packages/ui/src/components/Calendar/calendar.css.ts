@@ -128,12 +128,12 @@ export const dayButton = style({
 });
 
 export const dayButtonSelected = style({
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
   color: semanticVars.interactive.primaryFg,
   fontWeight: tokenVars.fontWeight.semibold,
   selectors: {
     "&:hover": {
-      backgroundColor: semanticVars.interactive.primary,
+      backgroundColor: semanticVars.interactive.primary.default,
     },
   },
 });

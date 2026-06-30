@@ -1,53 +1,93 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { createTheme, globalStyle } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
-import { createBlenxThemeFromRadix } from "@blenx-dev/theme";
+import { createBlenxThemeFromRadix, tokenVarsDefaults } from "@blenx-dev/theme";
 import {
+  blue,
+  blueA,
+  blueDark,
+  blueDarkA,
   amber,
   amberA,
   amberDark,
-  sage,
-  sageA,
   amberDarkA,
-  sageDark,
-  sageDarkA,
+  gray,
+  grayDark,
+  green,
+  greenA,
+  greenDark,
+  greenDarkA,
+  red,
+  redA,
+  redDark,
+  redDarkA,
 } from "@radix-ui/colors";
 import { definePalette } from "@blenx-dev/theme/radix/from-radix";
 
-export const { themeClass: lightClass, tokenThemeClass } = createBlenxThemeFromRadix({
+export const tokenThemeClass = createTheme(tokenVars, tokenVarsDefaults);
+
+export const { themeClass: lightClass } = createBlenxThemeFromRadix({
   colors: {
-    primary: { base: definePalette("amber", amber), accent: definePalette("amberA", amberA) },
-    neutral: { base: definePalette("sage", sage), accent: definePalette("sageA", sageA) },
-    secondary: { base: definePalette("amber", amber), accent: definePalette("amberA", amberA) },
-    success: { base: definePalette("amber", amber), accent: definePalette("amberA", amberA) },
-    warning: { base: definePalette("amber", amber), accent: definePalette("amberA", amberA) },
-    danger: { base: definePalette("amber", amber), accent: definePalette("amberA", amberA) },
-    info: { base: definePalette("amber", amber), accent: definePalette("amberA", amberA) },
+    primary: {
+      base: definePalette("blue", blue),
+      accent: definePalette("blueA", blueA),
+    },
+    neutral: {
+      base: definePalette("gray", gray),
+      accent: definePalette("gray", gray),
+    },
+    secondary: {
+      base: definePalette("gray", gray),
+      accent: definePalette("gray", gray),
+    },
+    success: {
+      base: definePalette("green", green),
+      accent: definePalette("greenA", greenA),
+    },
+    warning: {
+      base: definePalette("amber", amber),
+      accent: definePalette("amberA", amberA),
+    },
+    danger: {
+      base: definePalette("red", red),
+      accent: definePalette("redA", redA),
+    },
+    info: {
+      base: definePalette("blue", blue),
+      accent: definePalette("blueA", blueA),
+    },
   },
 });
+
 export const { themeClass: darkClass } = createBlenxThemeFromRadix({
   colors: {
     primary: {
-      base: definePalette("amber", amberDark),
-      accent: definePalette("amberA", amberDarkA),
+      base: definePalette("blue", blueDark),
+      accent: definePalette("blueA", blueDarkA),
     },
-    neutral: { base: definePalette("sage", sageDark), accent: definePalette("sageA", sageDarkA) },
+    neutral: {
+      base: definePalette("gray", grayDark),
+      accent: definePalette("gray", grayDark),
+    },
     secondary: {
-      base: definePalette("amber", amberDark),
-      accent: definePalette("amberA", amberDarkA),
+      base: definePalette("gray", grayDark),
+      accent: definePalette("gray", grayDark),
     },
     success: {
-      base: definePalette("amber", amberDark),
-      accent: definePalette("amberA", amberDarkA),
+      base: definePalette("green", greenDark),
+      accent: definePalette("greenA", greenDarkA),
     },
     warning: {
       base: definePalette("amber", amberDark),
       accent: definePalette("amberA", amberDarkA),
     },
     danger: {
-      base: definePalette("amber", amberDark),
-      accent: definePalette("amberA", amberDarkA),
+      base: definePalette("red", redDark),
+      accent: definePalette("redA", redDarkA),
     },
-    info: { base: definePalette("amber", amberDark), accent: definePalette("amberA", amberDarkA) },
+    info: {
+      base: definePalette("blue", blueDark),
+      accent: definePalette("blueA", blueDarkA),
+    },
   },
 });
 

@@ -56,7 +56,7 @@ export const indicator = style({
 });
 
 export const indicatorChecked = style({
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
   color: semanticVars.interactive.primaryFg,
 });
 

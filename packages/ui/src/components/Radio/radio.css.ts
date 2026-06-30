@@ -55,7 +55,7 @@ export const indicator = style({
 
 export const indicatorChecked = style({
   display: "flex",
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
 });
 
 export const dot = style({

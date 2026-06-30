@@ -12,6 +12,8 @@ import { Container, Separator } from "@blenx-dev/ui";
 import appCss from "@/app.css?url";
 import "@blenx-dev/theme/reset";
 import { Analytics } from "@vercel/analytics/react";
+import clsx from "clsx";
+import { tokenThemeClass } from "@/lib/app-theme.css";
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -21,6 +23,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1",
+      },
+      {
+        name: "color-scheme",
+        content: "dark light",
       },
       {
         title: "Blenx UI — Modern React Component Library powered by Vanilla Extract & Base UI",
@@ -106,14 +112,14 @@ function RootDocument() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <html lang="en">
+    <html lang="en" className={clsx(tokenThemeClass)}>
       <head>
         <HeadContent />
         <meta property="og:image" content="https://blenx-ui.vercel.app/og" />
         <meta name="twitter:image" content="https://blenx-ui.vercel.app/og" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("blenx-theme")||"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
           }}
         />
         <script
@@ -142,7 +148,7 @@ function RootDocument() {
             <Header />
           </Container>
           <Separator />
-          <Container size={"4xl"} render={<main />} color="secondary">
+          <Container size={"4xl"} render={<main />}>
             <Outlet />
           </Container>
         </QueryClientProvider>

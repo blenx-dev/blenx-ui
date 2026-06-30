@@ -24,10 +24,10 @@ export const group = style({
       boxShadow: `0 0 0 2px ${semanticVars.border.strong}`,
     },
     "&:has([aria-invalid='true'])": {
-      borderColor: semanticVars.status.danger,
+      borderColor: semanticVars.status.danger.default,
     },
     "&:has([aria-invalid='true']:focus-visible)": {
-      borderColor: semanticVars.status.danger,
+      borderColor: semanticVars.status.danger.default,
       boxShadow: `0 0 0 2px ${semanticVars.status.danger}`,
     },
     "&:has(:disabled)": {

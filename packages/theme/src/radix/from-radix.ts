@@ -1,9 +1,8 @@
 import { createTheme } from "@vanilla-extract/css";
 import type { PaletteRoles, PaletteScale } from "../palettes/types";
 import type { RadixThemeConfig } from "./types";
-import { semanticVars, tokenVars } from "../contract.css";
+import { semanticVars } from "../contract.css";
 import { resolveToSemanticTokens } from "../semantic/resolve";
-import { tokenVarsDefaults } from "../tokens-defaults";
 type PaletteKind = "colorful" | "neutral";
 function blendScale(
   base: PaletteScale,
@@ -73,9 +72,8 @@ export function createBlenxThemeFromRadix(config: RadixThemeConfig) {
   });
 
   const themeClass = createTheme(semanticVars, resolvedTheme);
-  const tokenThemeClass = createTheme(tokenVars, tokenVarsDefaults);
+
   return {
     themeClass,
-    tokenThemeClass,
   };
 }

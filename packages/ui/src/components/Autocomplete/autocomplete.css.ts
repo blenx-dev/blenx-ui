@@ -100,7 +100,7 @@ export const popupShell = style({
   borderColor: semanticVars.border.default,
   borderRadius: tokenVars.borderRadius.lg,
   backgroundColor: semanticVars.surface.default,
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
   transformOrigin: "var(--transform-origin)",
   transitionProperty: "transform, opacity",
   transitionDuration: "150ms",

@@ -81,7 +81,7 @@ export const tabActiveVertical = style({
   backgroundColor: semanticVars.background.subtle,
   borderRightWidth: 2,
   borderRightStyle: "solid",
-  borderRightColor: semanticVars.interactive.secondary,
+  borderRightColor: semanticVars.interactive.secondary.default,
 });
 
 export const tabUnderlineActive = style({
@@ -207,7 +207,7 @@ export const tabActiveDefault = style({
   backgroundColor: "transparent",
   borderBottomWidth: 2,
   borderBottomStyle: "solid",
-  borderBottomColor: semanticVars.interactive.secondary,
+  borderBottomColor: semanticVars.interactive.secondary.default,
 });
 
 export const tabUnderline = style({
@@ -236,7 +236,7 @@ export const indicatorDefault = style({
 export const indicatorUnderline = style({
   zIndex: 0,
   borderRadius: tokenVars.borderRadius.full,
-  backgroundColor: semanticVars.interactive.secondary,
+  backgroundColor: semanticVars.interactive.secondary.default,
 });
 
 export const panel = style({

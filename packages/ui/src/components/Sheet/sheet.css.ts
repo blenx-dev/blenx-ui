@@ -66,7 +66,7 @@ export const popup = style({
   borderStyle: "solid",
   borderColor: semanticVars.border.default,
   outline: "none",
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
   willChange: "translate",
   transitionProperty: "opacity, translate",
   transitionDuration: "200ms",

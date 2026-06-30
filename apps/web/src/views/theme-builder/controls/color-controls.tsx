@@ -11,15 +11,23 @@ const tokenGroups: { key: keyof ThemeTokens; label: string; subtokens: string[] 
     key: "interactive",
     label: "Interactive",
     subtokens: [
-      "primary",
+      "primary.default",
+      "primary.hover",
+      "primary.active",
       "primaryFg",
-      "primaryHover",
-      "primaryBg",
-      "secondary",
+      "primaryBg.default",
+      "primaryBg.hover",
+      "primaryBg.active",
+      "secondary.default",
+      "secondary.hover",
+      "secondary.active",
       "secondaryFg",
-      "secondaryHover",
-      "secondaryBg",
-      "neutral",
+      "secondaryBg.default",
+      "secondaryBg.hover",
+      "secondaryBg.active",
+      "neutral.default",
+      "neutral.hover",
+      "neutral.active",
       "neutralFg",
     ],
   },
@@ -27,18 +35,25 @@ const tokenGroups: { key: keyof ThemeTokens; label: string; subtokens: string[] 
     key: "status",
     label: "Status",
     subtokens: [
-      "success",
+      "success.default",
+      "success.hover",
+      "success.active",
       "successBg",
-      "warning",
+      "warning.default",
+      "warning.hover",
+      "warning.active",
       "warningBg",
-      "danger",
+      "danger.default",
+      "danger.hover",
+      "danger.active",
       "dangerBg",
-      "info",
+      "info.default",
+      "info.hover",
+      "info.active",
       "infoBg",
     ],
   },
   { key: "focus", label: "Focus", subtokens: ["ring"] },
-  { key: "shadow", label: "Shadow", subtokens: ["sm", "md", "lg", "xl"] },
 ];
 
 function ColorGroupControl({
@@ -50,7 +65,20 @@ function ColorGroupControl({
 }) {
   const tokens = useThemeBuilder((s) => s.tokens);
   const updateToken = useThemeBuilder((s) => s.updateToken);
-  const group = tokens[groupKey] as Record<string, string>;
+  const group = tokens[groupKey];
+
+  function getTokenValue(sub: string): string {
+    const parts = sub.split(".");
+    let val: unknown = group;
+    for (const part of parts) {
+      if (val && typeof val === "object") {
+        val = (val as Record<string, unknown>)[part];
+      } else {
+        return "";
+      }
+    }
+    return typeof val === "string" ? val : "";
+  }
 
   return (
     <Accordion.Item value={groupKey}>
@@ -63,7 +91,7 @@ function ColorGroupControl({
             <ColorPicker
               key={sub}
               label={sub}
-              value={group[sub]}
+              value={getTokenValue(sub)}
               onChange={(color) => updateToken(groupKey, sub, color)}
             />
           ))}
