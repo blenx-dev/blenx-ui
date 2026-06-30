@@ -495,7 +495,7 @@ export function DrawerMenuCheckboxItem({
       ) : (
         <>
           <CheckboxPrimitive.Indicator className={menuCheckboxIndicator}>
-            <SquareCheckIcon />
+            <SquareCheckIcon width={16} />
           </CheckboxPrimitive.Indicator>
           <span className={menuCheckboxLabel}>{children}</span>
         </>
@@ -538,7 +538,7 @@ function DrawerMenuRadioItem({
       {...props}
     >
       <RadioPrimitive.Indicator className={menuRadioIndicator}>
-        <SquareCheckIcon />
+        <SquareCheckIcon width={16} />
       </RadioPrimitive.Indicator>
       <span className={menuRadioLabel}>{children}</span>
     </RadioPrimitive.Root>

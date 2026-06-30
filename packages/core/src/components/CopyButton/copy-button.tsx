@@ -26,11 +26,12 @@ export function CopyButton({ copyValue, onClick, ...props }: CopyButtonProps) {
   return (
     <IconButton
       variant="soft"
+      color={copied ? "success" : "secondary"}
       {...props}
       title={copied ? "Copied!" : `Copy ${copyValue ?? ""}`}
       onClick={handleClick}
     >
-      {copied ? <CheckIcon /> : <CopyIcon />}
+      {copied ? <CheckIcon width={16} /> : <CopyIcon width={16} />}
     </IconButton>
   );
 }

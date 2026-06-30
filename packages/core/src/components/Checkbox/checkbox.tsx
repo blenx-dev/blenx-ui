@@ -67,7 +67,7 @@ function Checkbox({ className, style, ...props }: CheckboxProps) {
                     <path d="M5.252 12h13.496" />
                   </svg>
                 ) : (
-                  <SquareCheckIcon />
+                  <SquareCheckIcon width={24} />
                 )}
               </span>
             )}

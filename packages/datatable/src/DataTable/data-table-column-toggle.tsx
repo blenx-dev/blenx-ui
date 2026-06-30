@@ -18,7 +18,7 @@ export function DataTableColumnToggle<TData>({ table }: DataTableColumnTogglePro
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" size="sm" />}>
-        <ListIcon />
+        <ListIcon width={16} />
         <span>Columns</span>
       </MenuTrigger>
       <MenuPopup align="end">
@@ -31,7 +31,7 @@ export function DataTableColumnToggle<TData>({ table }: DataTableColumnTogglePro
         >
           <span className={styles.deselectLabel}>{allVisible ? "Deselect all" : "Select all"}</span>
           <span className={allVisible ? styles.checkboxChecked : styles.checkboxUnchecked}>
-            {allVisible && <CheckMark />}
+            {allVisible && <SquareCheckIcon width={16} />}
             {!allVisible && someVisible && <div className={styles.partial} />}
           </span>
         </MenuItem>
@@ -43,7 +43,7 @@ export function DataTableColumnToggle<TData>({ table }: DataTableColumnTogglePro
             <MenuItem key={column.id} onClick={() => column.toggleVisibility(!isVisible)}>
               <span className={styles.itemLabel}>{label}</span>
               <span className={isVisible ? styles.checkboxChecked : styles.checkboxUnchecked}>
-                {isVisible && <CheckMark />}
+                {isVisible && <SquareCheckIcon width={16} />}
               </span>
             </MenuItem>
           );
@@ -51,8 +51,4 @@ export function DataTableColumnToggle<TData>({ table }: DataTableColumnTogglePro
       </MenuPopup>
     </Menu>
   );
-}
-
-function CheckMark() {
-  return <SquareCheckIcon />;
 }

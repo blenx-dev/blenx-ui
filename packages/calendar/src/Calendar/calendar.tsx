@@ -112,20 +112,20 @@ function Calendar({ className, components: userComponents, ...props }: DayPicker
       if (orientation === "left") {
         return (
           <IconButton variant="ghost">
-            <ChevronLeftIcon />
+            <ChevronLeftIcon width={16} />
           </IconButton>
         );
       }
       if (orientation === "right") {
         return (
           <IconButton variant="ghost">
-            <ChevronRightIcon />
+            <ChevronRightIcon width={16} />
           </IconButton>
         );
       }
       return (
         <IconButton variant="ghost">
-          <ChevronDownIcon />
+          <ChevronDownIcon width={16} />
         </IconButton>
       );
     },
