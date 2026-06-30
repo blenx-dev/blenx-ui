@@ -39,7 +39,7 @@ export const popup = style({
   boxSizing: "border-box",
   opacity: "calc(1 - var(--nested-dialogs))",
   outline: "none",
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
   transitionProperty: "opacity, translate",
   transitionDuration: "200ms",
   transitionTimingFunction: "ease-in-out",

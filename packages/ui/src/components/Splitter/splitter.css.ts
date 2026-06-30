@@ -44,13 +44,13 @@ export const handle = style({
       backgroundColor: semanticVars.border.default,
     },
     "&:focus-visible": {
-      backgroundColor: semanticVars.interactive.primary,
+      backgroundColor: semanticVars.interactive.primary.default,
     },
   },
 });
 
 export const handleActive = style({
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
 });
 
 export const handleDisabled = style({

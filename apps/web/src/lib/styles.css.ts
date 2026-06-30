@@ -4,13 +4,13 @@ import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 /* ── DocsLink ── */
 
 export const docsLink = style({
-  color: semanticVars.interactive.primary,
+  color: semanticVars.interactive.primary.default,
   textDecoration: "underline",
   textUnderlineOffset: 2,
   cursor: "pointer",
   transition: "text-decoration-color 200ms ease",
   ":hover": {
-    color: semanticVars.interactive.primary,
+    color: semanticVars.interactive.primary.default,
   },
 });
 
@@ -155,7 +155,7 @@ export const kpiLabel = style({
 });
 
 export const trendUp = style({
-  color: semanticVars.status.success,
+  color: semanticVars.status.success.default,
   fontSize: tokenVars.fontSize.xs,
   display: "flex",
   alignItems: "center",
@@ -164,7 +164,7 @@ export const trendUp = style({
 });
 
 export const trendDown = style({
-  color: semanticVars.status.danger,
+  color: semanticVars.status.danger.default,
   fontSize: tokenVars.fontSize.xs,
   display: "flex",
   alignItems: "center",
@@ -251,7 +251,7 @@ export const impactChip = style({
   padding: "2px 8px",
   borderRadius: tokenVars.borderRadius.full,
   backgroundColor: `color-mix(in srgb, ${semanticVars.interactive.primary} 15%, transparent)`,
-  color: semanticVars.interactive.primary,
+  color: semanticVars.interactive.primary.default,
   fontSize: tokenVars.fontSize.xs,
   fontWeight: 500,
 });

@@ -29,35 +29,27 @@ export const defaultTokens: SemanticTokens = {
     strong: "#B8C2CF",
   },
   interactive: {
-    primary: "#243142",
+    primary: { default: "#243142", hover: "#1B2533", active: "#0F1820" },
     primaryFg: "#FFFFFF",
-    primaryHover: "#1B2533",
-    primaryBg: "#E8EDF3",
-    secondary: "#C9822A",
+    primaryBg: { default: "#E8EDF3", hover: "#D6DDE5", active: "#C5D0DB" },
+    secondary: { default: "#C9822A", hover: "#B07020", active: "#9E5E19" },
     secondaryFg: "#FFFFFF",
-    secondaryHover: "#B07020",
-    secondaryBg: "#FDF3E8",
-    neutral: "#6B7280",
+    secondaryBg: { default: "#FDF3E8", hover: "#FCE7D1", active: "#FBDCBA" },
+    neutral: { default: "#6B7280", hover: "#5A6673", active: "#495560" },
     neutralFg: "#FFFFFF",
   },
   status: {
-    success: "#27AE60",
+    success: { default: "#27AE60", hover: "#219A52", active: "#1E8449" },
     successBg: "#EAFAF1",
-    warning: "#F39C12",
+    warning: { default: "#F39C12", hover: "#E08E0B", active: "#C9770A" },
     warningBg: "#FEF9E7",
-    danger: "#D63031",
+    danger: { default: "#D63031", hover: "#C0392B", active: "#A93226" },
     dangerBg: "#FFEAEA",
-    info: "#2980B9",
+    info: { default: "#2980B9", hover: "#2471A3", active: "#1F618D" },
     infoBg: "#EBF5FB",
   },
   focus: {
     ring: "#4A90D9",
-  },
-  shadow: {
-    sm: "0 1px 2px rgba(0,0,0,0.05)",
-    md: "0 4px 6px rgba(0,0,0,0.07)",
-    lg: "0 10px 15px rgba(0,0,0,0.1)",
-    xl: "0 20px 25px rgba(0,0,0,0.15)",
   },
 };
 
@@ -92,15 +84,20 @@ function createThemeBuilderStore() {
         clearTimeout(timer);
         debounceTimers.delete(`${group}.${key}`);
       }
-      set((state) => ({
-        tokens: {
-          ...state.tokens,
-          [group]: {
-            ...(state.tokens[group] as Record<string, string>),
-            [key]: value,
-          },
-        },
-      }));
+      set((state) => {
+        const updated = structuredClone(state.tokens);
+        const groupObj = updated[group] as Record<string, unknown>;
+        const parts = key.split(".");
+        if (parts.length === 1) {
+          (groupObj as Record<string, string>)[key] = value;
+        } else {
+          const [parent, child] = parts;
+          const parentObj = { ...(groupObj[parent] as Record<string, string>) };
+          parentObj[child] = value;
+          groupObj[parent] = parentObj;
+        }
+        return { tokens: updated };
+      });
     },
 
     updateTokenDebounced: (group, key, value) => {
@@ -111,15 +108,20 @@ function createThemeBuilderStore() {
         timerKey,
         setTimeout(() => {
           debounceTimers.delete(timerKey);
-          set((state) => ({
-            tokens: {
-              ...state.tokens,
-              [group]: {
-                ...(state.tokens[group] as Record<string, string>),
-                [key]: value,
-              },
-            },
-          }));
+          set((state) => {
+            const updated = structuredClone(state.tokens);
+            const groupObj = updated[group] as Record<string, unknown>;
+            const parts = key.split(".");
+            if (parts.length === 1) {
+              (groupObj as Record<string, string>)[key] = value;
+            } else {
+              const [parent, child] = parts;
+              const parentObj = { ...(groupObj[parent] as Record<string, string>) };
+              parentObj[child] = value;
+              groupObj[parent] = parentObj;
+            }
+            return { tokens: updated };
+          });
         }, 16),
       );
     },

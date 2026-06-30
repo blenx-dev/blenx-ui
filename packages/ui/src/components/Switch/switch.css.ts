@@ -22,7 +22,7 @@ export const root = style({
 });
 
 export const rootChecked = style({
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
 });
 
 export const rootDisabled = style({
@@ -34,7 +34,7 @@ export const thumb = style({
   width: tokenVars.spacing.lg,
   height: tokenVars.spacing.lg,
   borderRadius: tokenVars.borderRadius.full,
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
   transitionProperty: "transform, background-color",
   transitionDuration: "150ms",
   transform: "translateX(0)",

@@ -56,7 +56,7 @@ export const theadStickyScrolled = style({
   position: "sticky",
   top: 0,
   zIndex: 1,
-  boxShadow: semanticVars.shadow.sm,
+  boxShadow: tokenVars.shadow.sm,
 });
 
 export const headRow = style({

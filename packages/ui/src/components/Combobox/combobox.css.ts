@@ -92,7 +92,7 @@ export const popupShell = style({
   borderColor: semanticVars.border.default,
   borderRadius: tokenVars.borderRadius.lg,
   backgroundColor: semanticVars.surface.default,
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
   transformOrigin: "var(--transform-origin)",
   transitionProperty: "transform, opacity",
   transitionDuration: "150ms",
@@ -247,10 +247,10 @@ export const chips = style({
       boxShadow: `0 0 0 2px ${semanticVars.border.strong}`,
     },
     "&:has([aria-invalid='true'])": {
-      borderColor: semanticVars.status.danger,
+      borderColor: semanticVars.status.danger.default,
     },
     "&:has([aria-invalid='true']:focus-visible)": {
-      borderColor: semanticVars.status.danger,
+      borderColor: semanticVars.status.danger.default,
       boxShadow: `0 0 0 2px ${semanticVars.status.danger}`,
     },
     "&:has(:disabled)": {

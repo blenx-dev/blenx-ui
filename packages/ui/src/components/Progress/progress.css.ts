@@ -19,7 +19,7 @@ export const track = style({
 
 export const indicator = style({
   height: "100%",
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.interactive.primary.default,
   borderRadius: tokenVars.borderRadius.full,
   transitionProperty: "width, background-color",
   transitionDuration: tokenVars.duration.slow,

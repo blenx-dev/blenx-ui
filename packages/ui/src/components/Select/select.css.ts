@@ -38,7 +38,7 @@ export const trigger = style({
       borderColor: semanticVars.border.strong,
     },
     "&:focus-visible": {
-      borderColor: semanticVars.interactive.primary,
+      borderColor: semanticVars.interactive.primary.default,
       boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
     },
     "&:disabled": {
@@ -84,7 +84,7 @@ export const popup = style({
   borderStyle: "solid",
   borderColor: semanticVars.border.default,
   borderRadius: tokenVars.borderRadius.lg,
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
   zIndex: 1400,
   minWidth: "var(--anchor-width)",
   maxWidth: "var(--available-width)",
@@ -123,14 +123,14 @@ export const item = style({
       backgroundColor: semanticVars.background.subtle,
     },
     "&[data-selected]": {
-      backgroundColor: semanticVars.interactive.primary,
+      backgroundColor: semanticVars.interactive.primary.default,
       color: semanticVars.interactive.primaryFg,
     },
     "&[data-selected]:hover": {
-      backgroundColor: semanticVars.interactive.primary,
+      backgroundColor: semanticVars.interactive.primary.default,
     },
     "&[data-selected][data-highlighted]": {
-      backgroundColor: semanticVars.interactive.primary,
+      backgroundColor: semanticVars.interactive.primary.default,
     },
     "&[data-disabled]": {
       color: semanticVars.text.disabled,

@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 
 export const field = style({
   display: "flex",
@@ -25,11 +25,11 @@ export const item = style({
 export const description = style({
   fontSize: "12px",
   lineHeight: 1.4,
-  color: "var(--muted-foreground, inherit)",
+  color: semanticVars.text.secondary,
 });
 
 export const error = style({
   fontSize: "12px",
   lineHeight: 1.4,
-  color: "var(--destructive-foreground, inherit)",
+  color: semanticVars.status.danger.default,
 });

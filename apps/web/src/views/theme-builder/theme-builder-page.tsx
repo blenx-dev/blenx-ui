@@ -1,4 +1,4 @@
-import { SidebarIcon, X } from "@phosphor-icons/react";
+import { SidebarIcon } from "@phosphor-icons/react";
 import {
   Accordion,
   Box,
@@ -45,11 +45,6 @@ function ThemeBuilderInner() {
       <Box position="relative" style={{ height: "90svh", overflow: "hidden" }}>
         <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
           <SheetPopup>
-            <Box padding="sm" style={{ display: "flex", justifyContent: "flex-end" }}>
-              <IconButton variant="ghost" onClick={toggleSidebar} aria-label="Close sidebar">
-                <X size={16} />
-              </IconButton>
-            </Box>
             <ScrollArea style={{ flex: 1 }}>
               <SidebarContent />
             </ScrollArea>

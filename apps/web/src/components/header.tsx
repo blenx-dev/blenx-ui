@@ -91,9 +91,9 @@ function BrandLogo({ size = 48 }: { size?: number }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 390 70"
-      width={390 * scale}
-      height={70 * scale}
+      viewBox="0 0 470 80"
+      width={470 * scale}
+      height={80 * scale}
       fill="currentColor"
     >
       <rect x={0} y={0} width={20} height={34} rx={5} />
@@ -101,7 +101,7 @@ function BrandLogo({ size = 48 }: { size?: number }) {
       <rect x={28} y={0} width={50} height={34} rx={10} />
       <rect x={28} y={38} width={50} height={34} rx={10} />
 
-      <text x={84} y={69} fontWeight={800} fontSize={92}>
+      <text x={81} y={69} fontWeight={800} fontSize={92}>
         Blenx
         <tspan fontWeight={300} opacity={0.5}>
           UI

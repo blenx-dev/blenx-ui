@@ -1,8 +1,50 @@
+type SizeVars = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
+
+export type TokenVars = {
+  font: Record<"sans" | "body" | "mono", string | null>;
+  shadow: Record<"sm" | "md" | "lg" | "xl", string | null>;
+  fontSize: Record<SizeVars | "display" | "displayLg" | "hero", string | null>;
+  fontWeight: Record<"regular" | "medium" | "semibold" | "bold" | "extrabold", string | null>;
+  lineHeight: Record<"tight" | "snug" | "normal" | "relaxed" | "loose", string | null>;
+  letterSpacing: Record<"tight" | "snug" | "normal" | "wide" | "wider" | "widest", string | null>;
+  spacing: Record<
+    | SizeVars
+    | "none"
+    | "huge"
+    | "massive"
+    | "titanic"
+    | "0"
+    | "0.5"
+    | "1"
+    | "2"
+    | "3"
+    | "4"
+    | "5"
+    | "6"
+    | "7"
+    | "8"
+    | "9"
+    | "10"
+    | "12"
+    | "16"
+    | "20"
+    | "24"
+    | "32"
+    | "40"
+    | "48",
+    string | null
+  >;
+  borderRadius: Record<"default" | SizeVars | "full", string | null>;
+  borderWidth: Record<"hairline" | "thin" | "medium" | "thick" | "heavy", string | null>;
+  duration: Record<"instant" | "fast" | "normal" | "slow" | "slower" | "lazy", string | null>;
+  easing: Record<"linear" | "standard" | "enter" | "exit" | "spring" | "bounce", string | null>;
+};
+
 export const tokenVarsDefaults = {
   font: {
-    sans: '"DM Sans", system-ui, -apple-system, sans-serif',
-    body: '"DM Sans", system-ui, sans-serif',
-    mono: '"DM Mono", ui-monospace, SFMono-Regular, monospace',
+    sans: "system-ui, -apple-system, sans-serif",
+    body: "system-ui, sans-serif",
+    mono: "ui-monospace, SFMono-Regular, monospace",
   },
   fontSize: {
     xxs: "10px",
@@ -80,6 +122,8 @@ export const tokenVarsDefaults = {
     lg: "12px",
     xl: "16px",
     xxl: "24px",
+    xxs: "1px",
+    xxxl: "32px",
     full: "999px",
   },
   borderWidth: {
@@ -105,4 +149,10 @@ export const tokenVarsDefaults = {
     spring: "cubic-bezier(0.34, 1.56, 0.64, 1)",
     bounce: "cubic-bezier(0.68, -0.55, 0.27, 1.55)",
   },
-} as const;
+  shadow: {
+    sm: "0 1px 2px rgba(0, 0, 0, 0.05)",
+    md: "0 4px 6px rgba(0, 0, 0, 0.07)",
+    lg: "0 10px 15px rgba(0, 0, 0, 0.1)",
+    xl: "0 20px 25px rgba(0, 0, 0, 0.15)",
+  },
+} satisfies TokenVars;

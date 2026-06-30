@@ -112,7 +112,7 @@ export const popup = style({
 });
 
 export const popupDefault = style({
-  boxShadow: semanticVars.shadow.lg,
+  boxShadow: tokenVars.shadow.lg,
 });
 
 export const popupStraight = style({
@@ -280,7 +280,7 @@ export const menuItem = style({
 });
 
 export const menuItemDestructive = style({
-  color: semanticVars.status.danger,
+  color: semanticVars.status.danger.default,
 });
 
 export const separator = style({

@@ -30,7 +30,7 @@ export const popup = style({
   borderStyle: "solid",
   borderColor: semanticVars.border.subtle,
   borderRadius: tokenVars.borderRadius.lg,
-  boxShadow: semanticVars.shadow.xl,
+  boxShadow: tokenVars.shadow.xl,
   zIndex: 1000,
   padding: tokenVars.spacing.xs,
   display: "flex",
@@ -77,15 +77,15 @@ export const item = style({
 });
 
 export const itemDestructive = style({
-  color: semanticVars.status.danger,
+  color: semanticVars.status.danger.default,
   selectors: {
     "&:hover": {
       backgroundColor: semanticVars.status.dangerBg,
-      color: semanticVars.status.danger,
+      color: semanticVars.status.danger.default,
     },
     "&:focus-visible": {
       backgroundColor: semanticVars.status.dangerBg,
-      color: semanticVars.status.danger,
+      color: semanticVars.status.danger.default,
       boxShadow: `0 0 0 2px ${semanticVars.status.danger} inset`,
     },
     "&:active": {
