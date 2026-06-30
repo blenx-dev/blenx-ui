@@ -9,7 +9,7 @@ export function BadgeDemo() {
       <HStack wrap>
         <Badge variant="default">Default</Badge>
         <Badge variant="primary">Primary</Badge>
-        <Badge variant="secondary">Secondary</Badge>
+        <Badge>Secondary</Badge>
         <Badge variant="danger">Danger</Badge>
         <Badge variant="success">Success</Badge>
       </HStack>
@@ -22,9 +22,7 @@ export function BadgeDemo() {
         <Badge variant="primary" appearance="outline">
           Primary
         </Badge>
-        <Badge variant="secondary" appearance="outline">
-          Secondary
-        </Badge>
+        <Badge appearance="outline">Secondary</Badge>
         <Badge variant="danger" appearance="outline">
           Danger
         </Badge>
@@ -41,9 +39,7 @@ export function BadgeDemo() {
         <Badge variant="primary" appearance="soft">
           Primary
         </Badge>
-        <Badge variant="secondary" appearance="soft">
-          Secondary
-        </Badge>
+        <Badge appearance="soft">Secondary</Badge>
         <Badge variant="danger" appearance="soft">
           Danger
         </Badge>

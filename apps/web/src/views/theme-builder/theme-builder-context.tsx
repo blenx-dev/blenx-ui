@@ -65,6 +65,7 @@ interface ThemeBuilderStore {
   tokens: ThemeTokens;
   sidebarOpen: boolean;
   toggleSidebar: () => void;
+  setSidebarOpen: (open: boolean) => void;
   updateToken: (group: ThemeTokenGroup, key: string, value: ThemeTokenValue) => void;
   updateTokenDebounced: (group: ThemeTokenGroup, key: string, value: ThemeTokenValue) => void;
   resetTokens: () => void;
@@ -81,6 +82,7 @@ function createThemeBuilderStore() {
     selectedToken: null,
 
     toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
+    setSidebarOpen: (open) => set({ sidebarOpen: open }),
 
     setSelectedToken: (token) => set({ selectedToken: token }),
 

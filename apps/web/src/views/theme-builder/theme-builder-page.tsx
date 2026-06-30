@@ -1,15 +1,15 @@
-import { ListIcon } from "@phosphor-icons/react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { SidebarIcon, X } from "@phosphor-icons/react";
 import {
   Accordion,
   Box,
-  Button,
+  IconButton,
   ScrollArea,
-  Splitter,
   Tabs,
   TabsList,
   TabsPanel,
   TabsTab,
+  Sheet,
+  SheetPopup,
 } from "@blenx-dev/ui";
 import { ColorControls, NonColorControls, PresetControls, TypographyControls } from "./controls";
 import { PreviewErrorBoundary } from "./error-boundary";
@@ -35,93 +35,64 @@ function SidebarContent() {
   );
 }
 
-function Sidebar({ compact }: { compact: boolean }) {
-  const sidebarOpen = useThemeBuilder((s) => s.sidebarOpen);
-
-  if (!compact) {
-    return (
-      <ScrollArea height="90svh">
-        <SidebarContent />
-      </ScrollArea>
-    );
-  }
-
-  if (!sidebarOpen) return null;
-
-  return (
-    <ScrollArea height="90svh">
-      <SidebarContent />
-    </ScrollArea>
-  );
-}
-
-function PreviewPanel({ compact }: { compact: boolean }) {
-  const toggleSidebar = useThemeBuilder((s) => s.toggleSidebar);
-
-  return (
-    <ScrollArea height="90svh">
-      {compact && (
-        <Button variant="ghost" size="sm" onClick={toggleSidebar}>
-          <ListIcon size={16} />
-          Controls
-        </Button>
-      )}
-
-      <Box paddingX="xl">
-        <Tabs defaultValue="showcase">
-          <TabsList>
-            <TabsTab value="showcase">Components</TabsTab>
-            <TabsTab value="dashboard">Dashboard</TabsTab>
-            <TabsTab value="inspector">Variables</TabsTab>
-          </TabsList>
-          <TabsPanel value="showcase">
-            <PreviewErrorBoundary>
-              <ComponentShowcase />
-            </PreviewErrorBoundary>
-          </TabsPanel>
-          <TabsPanel value="dashboard">
-            <PreviewErrorBoundary>
-              <ExampleDashboard />
-            </PreviewErrorBoundary>
-          </TabsPanel>
-          <TabsPanel value="inspector">
-            <ImpactSummary />
-            <TokenTable />
-            <HowItWorks />
-          </TabsPanel>
-        </Tabs>
-      </Box>
-    </ScrollArea>
-  );
-}
-
 function ThemeBuilderInner() {
-  const isMobile = useMediaQuery("(max-width: 639px)");
-  const isTablet = useMediaQuery("(max-width: 1023px)");
-  const compact = isMobile || isTablet;
-
-  if (compact) {
-    return (
-      <ThemePreviewProvider>
-        <Sidebar compact />
-        <PreviewPanel compact />
-      </ThemePreviewProvider>
-    );
-  }
+  const sidebarOpen = useThemeBuilder((s) => s.sidebarOpen);
+  const toggleSidebar = useThemeBuilder((s) => s.toggleSidebar);
+  const setSidebarOpen = useThemeBuilder((s) => s.setSidebarOpen);
 
   return (
     <ThemePreviewProvider>
-      <Splitter orientation="horizontal">
-        <Splitter.Panel defaultSize={28} minSize={18} maxSize={50}>
-          <ScrollArea height="90svh">
-            <SidebarContent />
+      <Box position="relative" style={{ height: "90svh", overflow: "hidden" }}>
+        <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
+          <SheetPopup>
+            <Box padding="sm" style={{ display: "flex", justifyContent: "flex-end" }}>
+              <IconButton variant="ghost" onClick={toggleSidebar} aria-label="Close sidebar">
+                <X size={16} />
+              </IconButton>
+            </Box>
+            <ScrollArea style={{ flex: 1 }}>
+              <SidebarContent />
+            </ScrollArea>
+          </SheetPopup>
+        </Sheet>
+
+        <Box>
+          <Box padding="sm">
+            {!sidebarOpen && (
+              <IconButton variant="ghost" onClick={toggleSidebar} aria-label="Open sidebar">
+                <SidebarIcon size={16} />
+              </IconButton>
+            )}
+          </Box>
+
+          <ScrollArea height="calc(90svh - 52px)">
+            <Box paddingX="xl">
+              <Tabs defaultValue="showcase">
+                <TabsList>
+                  <TabsTab value="showcase">Components</TabsTab>
+                  <TabsTab value="dashboard">Dashboard</TabsTab>
+                  <TabsTab value="inspector">Variables</TabsTab>
+                </TabsList>
+                <TabsPanel value="showcase">
+                  <PreviewErrorBoundary>
+                    <ComponentShowcase />
+                  </PreviewErrorBoundary>
+                </TabsPanel>
+                <TabsPanel value="dashboard">
+                  <PreviewErrorBoundary>
+                    <ExampleDashboard />
+                  </PreviewErrorBoundary>
+                </TabsPanel>
+                <TabsPanel value="inspector">
+                  <ImpactSummary />
+                  <TokenTable />
+                  <HowItWorks />
+                </TabsPanel>
+              </Tabs>
+            </Box>
           </ScrollArea>
-        </Splitter.Panel>
-        <Splitter.Handle />
-        <Splitter.Panel minSize={30}>
-          <PreviewPanel compact={false} />
-        </Splitter.Panel>
-      </Splitter>
+        </Box>
+      </Box>
     </ThemePreviewProvider>
   );
 }
