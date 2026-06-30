@@ -1,6 +1,6 @@
 import { WarningCircleIcon } from "@phosphor-icons/react";
 import * as styles from "./data-table.css";
-import { Button } from "../components";
+import { Button } from "@blenx-dev/core";
 
 interface DataTableErrorProps {
   message?: string;

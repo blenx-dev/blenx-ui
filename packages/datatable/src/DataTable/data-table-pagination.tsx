@@ -1,4 +1,4 @@
-import { Button } from "../components";
+import { Button } from "@blenx-dev/core";
 import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 import type { Table } from "@tanstack/react-table";
 import * as styles from "./data-table.css";

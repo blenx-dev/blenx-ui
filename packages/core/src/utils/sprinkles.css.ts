@@ -169,7 +169,13 @@ const alignmentProperties = defineProperties({
   conditions: responsiveConditions,
   defaultCondition: "base",
   properties: {
-    alignItems: ["start", "center", "end", "stretch", "baseline"],
+    alignItems: {
+      start: "flex-start",
+      center: "center",
+      end: "flex-end",
+      stretch: "stretch",
+      baseline: "baseline",
+    },
     justifyContent: {
       start: "flex-start",
       center: "center",

@@ -5,26 +5,25 @@ import clsx from "clsx";
 import type React from "react";
 import { backdrop, positioner, popup, arrow, arrowFill, title, description } from "./popover.css";
 
-export const PopoverCreateHandle: typeof PopoverPrimitive.createHandle =
-  PopoverPrimitive.createHandle;
+const PopoverCreateHandle: typeof PopoverPrimitive.createHandle = PopoverPrimitive.createHandle;
 
-export function Popover(props: PopoverPrimitive.Root.Props): React.ReactElement {
+function Popover(props: PopoverPrimitive.Root.Props): React.ReactElement {
   return <PopoverPrimitive.Root {...props} />;
 }
 
-export function PopoverTrigger(props: PopoverPrimitive.Trigger.Props): React.ReactElement {
+function PopoverTrigger(props: PopoverPrimitive.Trigger.Props): React.ReactElement {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
 
-export function PopoverClose(props: PopoverPrimitive.Close.Props): React.ReactElement {
+function PopoverClose(props: PopoverPrimitive.Close.Props): React.ReactElement {
   return <PopoverPrimitive.Close data-slot="popover-close" {...props} />;
 }
 
-export function PopoverPortal(props: PopoverPrimitive.Portal.Props): React.ReactElement {
+function PopoverPortal(props: PopoverPrimitive.Portal.Props): React.ReactElement {
   return <PopoverPrimitive.Portal {...props} />;
 }
 
-export function PopoverPositioner({
+function PopoverPositioner({
   sideOffset = 4,
   side = "bottom",
   align = "center",
@@ -48,7 +47,7 @@ export function PopoverPositioner({
   );
 }
 
-export function PopoverPopup({
+function PopoverPopup({
   className,
   style,
   ...props
@@ -70,7 +69,7 @@ export function PopoverPopup({
   );
 }
 
-export function PopoverArrow(props: PopoverPrimitive.Arrow.Props): React.ReactElement {
+function PopoverArrow(props: PopoverPrimitive.Arrow.Props): React.ReactElement {
   return (
     <PopoverPrimitive.Arrow className={arrow} data-slot="popover-arrow" {...props}>
       <div className={arrowFill} />
@@ -78,15 +77,15 @@ export function PopoverArrow(props: PopoverPrimitive.Arrow.Props): React.ReactEl
   );
 }
 
-export function PopoverBackdrop(props: PopoverPrimitive.Backdrop.Props): React.ReactElement {
+function PopoverBackdrop(props: PopoverPrimitive.Backdrop.Props): React.ReactElement {
   return <PopoverPrimitive.Backdrop className={backdrop} data-slot="popover-backdrop" {...props} />;
 }
 
-export function PopoverTitle(props: PopoverPrimitive.Title.Props): React.ReactElement {
+function PopoverTitle(props: PopoverPrimitive.Title.Props): React.ReactElement {
   return <PopoverPrimitive.Title className={title} data-slot="popover-title" {...props} />;
 }
 
-export function PopoverDescription(props: PopoverPrimitive.Description.Props): React.ReactElement {
+function PopoverDescription(props: PopoverPrimitive.Description.Props): React.ReactElement {
   return (
     <PopoverPrimitive.Description
       className={description}
@@ -95,8 +94,6 @@ export function PopoverDescription(props: PopoverPrimitive.Description.Props): R
     />
   );
 }
-
-export const PopoverRoot = Popover;
 
 export const PopoverCompound = {
   Root: Popover,
@@ -110,4 +107,17 @@ export const PopoverCompound = {
   Title: PopoverTitle,
   Description: PopoverDescription,
   createHandle: PopoverCreateHandle,
+};
+export {
+  Popover,
+  PopoverTrigger,
+  PopoverClose,
+  PopoverPortal,
+  PopoverPositioner,
+  PopoverPopup,
+  PopoverArrow,
+  PopoverBackdrop,
+  PopoverTitle,
+  PopoverDescription,
+  PopoverCreateHandle,
 };

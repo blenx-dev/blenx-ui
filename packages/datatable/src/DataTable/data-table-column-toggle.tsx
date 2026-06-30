@@ -2,7 +2,7 @@ import { semanticVars } from "@blenx-dev/theme/contract";
 import { ListIcon } from "@phosphor-icons/react";
 import type { Table } from "@tanstack/react-table";
 import * as styles from "./data-table.css";
-import { Button, Menu, MenuItem, MenuPopup, MenuSeparator, MenuTrigger } from "../components";
+import { Button, Menu, MenuItem, MenuPopup, MenuSeparator, MenuTrigger } from "@blenx-dev/core";
 
 interface DataTableColumnToggleProps<TData> {
   table: Table<TData>;

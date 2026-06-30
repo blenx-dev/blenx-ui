@@ -257,6 +257,49 @@ importers:
         specifier: ^4.70.0
         version: 4.105.0
 
+  packages/calendar:
+    dependencies:
+      '@blenx-dev/core':
+        specifier: workspace:*
+        version: link:../core
+      '@blenx-dev/theme':
+        specifier: workspace:*
+        version: link:../theme
+      '@phosphor-icons/react':
+        specifier: ^2.1.10
+        version: 2.1.10(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@vanilla-extract/css':
+        specifier: ^1.20.1
+        version: 1.21.0
+      '@vanilla-extract/recipes':
+        specifier: ^0.5.7
+        version: 0.5.7(@vanilla-extract/css@1.21.0)
+      '@vanilla-extract/sprinkles':
+        specifier: ^1.6.5
+        version: 1.7.0(@vanilla-extract/css@1.21.0)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      react:
+        specifier: 'catalog:'
+        version: 19.2.7
+      react-day-picker:
+        specifier: ^10.0.1
+        version: 10.0.1(@types/react@19.2.17)(react@19.2.7)
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.7(react@19.2.7)
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.17
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.2.3(@types/react@19.2.17)
+      changeset:
+        specifier: ^0.2.6
+        version: 0.2.6
+
   packages/config: {}
 
   packages/core:

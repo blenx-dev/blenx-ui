@@ -1,4 +1,4 @@
-import { Stack } from "../Stack/stack";
+import { Stack } from "@blenx-dev/core";
 import { Calendar } from "./calendar";
 
 export function DefaultStory() {

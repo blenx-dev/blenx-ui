@@ -1,20 +1,22 @@
 "use client";
 
-import { CalendarBlankIcon } from "@phosphor-icons/react";
-import { useRef, useState } from "react";
-import { Button } from "../Button/button";
-import { Calendar } from "../Calendar/calendar";
-import { Field, FieldError, FieldLabel } from "../Field/field";
 import {
+  Button,
+  Field,
+  FieldError,
+  FieldLabel,
+  Icon,
   Popover,
-  PopoverCompound,
   PopoverPopup,
+  PopoverPortal,
   PopoverPositioner,
   PopoverTrigger,
-} from "../Popover/popover";
-
+} from "@blenx-dev/core";
+import { useState, useRef, type ReactNode } from "react";
+import { Calendar } from "../Calendar";
 type Props = {
   value: Date | undefined;
+  triggerIcon?: ReactNode;
   onChange: (date: Date | undefined) => void;
   format?: (date: Date | undefined) => string;
   label?: string;
@@ -30,6 +32,7 @@ export function DatePicker({
   format,
   placeholder = "Pick a date",
   error,
+  triggerIcon,
   disabled,
 }: Props) {
   const [open, setOpen] = useState(false);
@@ -58,16 +61,16 @@ export function DatePicker({
           disabled={disabled}
           render={<Button type="button" variant="outline" fullWidth />}
         >
-          <CalendarBlankIcon size={18} />
+          {triggerIcon ? <Icon size="md">{triggerIcon}</Icon> : null}
           {value ? (format?.(value) ?? value.toString()) : placeholder}
         </PopoverTrigger>
-        <PopoverCompound.Portal>
+        <PopoverPortal>
           <PopoverPositioner sideOffset={6} side="bottom" align="start">
             <PopoverPopup>
               <Calendar mode="single" selected={value} onSelect={handleSelect} />
             </PopoverPopup>
           </PopoverPositioner>
-        </PopoverCompound.Portal>
+        </PopoverPortal>
       </Popover>
       {error && <FieldError>{error}</FieldError>}
     </Field>

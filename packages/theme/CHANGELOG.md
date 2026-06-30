@@ -1,6 +1,6 @@
 # @blenx-dev/theme
 
-## 1.0.0
+## 0.2.2
 
 ### Minor Changes
 

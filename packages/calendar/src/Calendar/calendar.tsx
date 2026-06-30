@@ -1,10 +1,8 @@
 "use client";
 
-import { CaretLeftIcon, CaretRightIcon, CaretUpDownIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import { useEffect, useRef } from "react";
 import { DayPicker, type DayPickerProps } from "react-day-picker";
-import { Button } from "../Button/button";
 import {
   root,
   months,
@@ -24,6 +22,7 @@ import {
   dropdowns,
   dropdown,
 } from "./calendar.css";
+import { IconButton } from "@blenx-dev/core";
 
 function StyledDayButton({
   day: _day,
@@ -106,29 +105,16 @@ function Calendar({ className, components: userComponents, ...props }: DayPicker
   const defaultComponents = {
     Chevron: ({
       orientation,
-      ...chevronProps
     }: {
       orientation?: "left" | "right" | "up" | "down";
     }): React.ReactElement => {
       if (orientation === "left") {
-        return (
-          <Button size="icon" variant="ghost">
-            <CaretLeftIcon {...chevronProps} aria-hidden="true" />
-          </Button>
-        );
+        return <IconButton variant="ghost">&lt;</IconButton>;
       }
       if (orientation === "right") {
-        return (
-          <Button size="icon" variant="ghost">
-            <CaretRightIcon {...chevronProps} aria-hidden="true" />
-          </Button>
-        );
+        return <IconButton variant="ghost">&gt;</IconButton>;
       }
-      return (
-        <Button size="icon" variant="ghost">
-          <CaretUpDownIcon {...chevronProps} aria-hidden="true" />
-        </Button>
-      );
+      return <IconButton variant="ghost">&gt;</IconButton>;
     },
   };
   const mergedComponents = {

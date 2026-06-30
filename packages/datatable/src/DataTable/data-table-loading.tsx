@@ -1,4 +1,4 @@
-import { Spinner } from "../components";
+import { Spinner } from "@blenx-dev/core";
 import type { TableSize } from "./types";
 import * as styles from "./data-table.css";
 
