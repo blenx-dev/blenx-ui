@@ -1,10 +1,10 @@
 "use client";
 
 import { mergeProps, useRender } from "@base-ui/react";
-import { CaretRightIcon, DotsThreeIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import type { ComponentPropsWithoutRef } from "react";
 import { root, list, item, link, page, separator, ellipsis, srOnly } from "./breadcrumbs.css";
+import { ChevronRightIcon, EllipsisIcon } from "../../icons";
 
 type NavProps = useRender.ComponentProps<"nav"> & {
   className?: string;
@@ -64,7 +64,7 @@ export function BreadcrumbSeparator({ children, className, style, ...props }: Li
       style={style}
       {...props}
     >
-      {children ?? <CaretRightIcon size={16} />}
+      {children ?? <ChevronRightIcon width={16} />}
     </li>
   );
 }
@@ -72,7 +72,7 @@ export function BreadcrumbSeparator({ children, className, style, ...props }: Li
 export function BreadcrumbEllipsis({ className, style, ...props }: SpanProps) {
   return (
     <span role="presentation" className={clsx(ellipsis, className)} style={style} {...props}>
-      <DotsThreeIcon size={16} />
+      <EllipsisIcon width={16} />
       <span className={srOnly}>More</span>
     </span>
   );

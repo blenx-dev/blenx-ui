@@ -1,4 +1,4 @@
-import { FolderOpenIcon } from "@phosphor-icons/react";
+import { FolderOpenIcon } from "@blenx-dev/core/icons";
 import * as styles from "./data-table.css";
 
 interface DataTableEmptyProps {
@@ -17,7 +17,7 @@ export function DataTableEmpty({
       {icon && <div className={styles.iconWrap}>{icon}</div>}
       {!icon && (
         <div className={styles.iconWrap}>
-          <FolderOpenIcon size={48} />
+          <FolderOpenIcon width={48} />
         </div>
       )}
       <p className={styles.message}>{message}</p>

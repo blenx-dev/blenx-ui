@@ -1,7 +1,6 @@
 "use client";
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
-import { CaretDownIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import {
   root,
@@ -12,6 +11,7 @@ import {
   triggerIcon,
   panel,
 } from "./accordion.css";
+import { ChevronDownIcon } from "../../icons";
 
 type AccordionRootProps = AccordionPrimitive.Root.Props;
 
@@ -54,7 +54,7 @@ type AccordionTriggerProps = AccordionPrimitive.Trigger.Props;
 function AccordionTrigger({ children, className, ...props }: AccordionTriggerProps) {
   return (
     <AccordionPrimitive.Trigger className={clsx(trigger, className)} {...props}>
-      <CaretDownIcon size={16} className={triggerIcon} />
+      <ChevronDownIcon width={16} className={triggerIcon} />
       {children}
     </AccordionPrimitive.Trigger>
   );

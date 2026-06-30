@@ -1,4 +1,3 @@
-import { CaretDownIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HexAlphaColorPicker, HexColorInput } from "react-colorful";
 import {
@@ -16,6 +15,7 @@ import {
   VStack,
   Text,
 } from "@blenx-dev/core";
+import { ChevronDownIcon } from "@blenx-dev/core/icons";
 
 const HEX_REGEX = /^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
 
@@ -83,7 +83,7 @@ export function ColorPicker({ value, onChange, label }: Props) {
         >
           <ColorSwatch color={value} size={20} />
           <Text variant="body2">{value}</Text>
-          <CaretDownIcon />
+          <ChevronDownIcon width={17} />
         </PopoverTrigger>
         <PopoverCompound.Portal>
           <PopoverPositioner sideOffset={6} side="bottom" align="start">

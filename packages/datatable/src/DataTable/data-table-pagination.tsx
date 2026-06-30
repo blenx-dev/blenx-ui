@@ -1,7 +1,7 @@
 import { Button } from "@blenx-dev/core";
-import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 import type { Table } from "@tanstack/react-table";
 import * as styles from "./data-table.css";
+import { ChevronLeftIcon, ChevronRightIcon } from "@blenx-dev/core/icons";
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
@@ -32,7 +32,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
             onClick={() => table.previousPage()}
             aria-label="Previous page"
           >
-            <CaretLeftIcon size={16} />
+            <ChevronLeftIcon width={16} />
           </Button>
           {Array.from({ length: pageCount }, (_, i) => i + 1)
             .filter((page) => {
@@ -71,7 +71,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
             onClick={() => table.nextPage()}
             aria-label="Next page"
           >
-            <CaretRightIcon size={16} />
+            <ChevronRightIcon width={16} />
           </Button>
         </div>
       </div>

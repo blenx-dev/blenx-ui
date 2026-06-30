@@ -1,5 +1,4 @@
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox";
-import { CaretUpDownIcon, CheckIcon, XIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import * as React from "react";
 import { Input } from "../Input/input";
@@ -37,6 +36,7 @@ import {
   chipRemove,
 } from "./combobox.css";
 import { CloseButton } from "../CloseButton";
+import { CheckIcon, ChevronDownIcon, XIcon } from "../../icons";
 
 type InputSize = "sm" | "default" | "lg" | number;
 
@@ -105,7 +105,7 @@ export function ComboboxClear({
       data-slot="combobox-clear"
       {...props}
     >
-      {children ?? <XIcon size={18} weight="regular" />}
+      {children ?? <XIcon width={18} />}
     </ComboboxPrimitive.Clear>
   );
 }
@@ -163,7 +163,7 @@ export function ComboboxInput({
           data-slot="combobox-trigger"
           {...triggerProps}
         >
-          <CaretUpDownIcon size={resolvedSize === "sm" ? 16 : 18} weight="regular" />
+          <ChevronDownIcon width={resolvedSize === "sm" ? 16 : 18} />
         </ComboboxPrimitive.Trigger>
       )}
       {showClear && (
@@ -231,7 +231,7 @@ export function ComboboxItem({
   return (
     <ComboboxPrimitive.Item className={clsx(item, className)} data-slot="combobox-item" {...props}>
       <ComboboxPrimitive.ItemIndicator className={itemIndicator}>
-        <CheckIcon size={16} weight="bold" />
+        <CheckIcon width={16} />
       </ComboboxPrimitive.ItemIndicator>
       <div className={itemContent}>{children}</div>
     </ComboboxPrimitive.Item>
@@ -340,7 +340,7 @@ function ComboboxChipRemove({
       data-slot="combobox-chip-remove"
       {...props}
     >
-      <XIcon size={16} weight="regular" />
+      <XIcon width={16} />
     </ComboboxPrimitive.ChipRemove>
   );
 }

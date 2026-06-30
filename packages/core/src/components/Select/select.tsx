@@ -1,5 +1,4 @@
 import { Select as SelectPrimitive } from "@base-ui/react/select";
-import { CaretDownIcon, CaretUpIcon, CheckIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import type * as React from "react";
 import { Field, FieldError, FieldLabel } from "../Field/field";
@@ -16,6 +15,7 @@ import {
   triggerLg,
   triggerSm,
 } from "./select.css";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "../../icons";
 
 type SelectSize = "sm" | "default" | "lg";
 
@@ -62,7 +62,7 @@ export function SelectValue({ placeholder, ...props }: SelectPrimitive.Value.Pro
 export function SelectIcon(props: SelectPrimitive.Icon.Props) {
   return (
     <SelectPrimitive.Icon className={iconStyle} {...props}>
-      <CaretDownIcon size={16} />
+      <ChevronDownIcon width={16} />
     </SelectPrimitive.Icon>
   );
 }
@@ -90,7 +90,7 @@ export function SelectItem({
   return (
     <SelectPrimitive.Item className={itemStyle} {...props}>
       <SelectPrimitive.ItemIndicator className={itemIndicator}>
-        <CheckIcon size={14} weight="bold" />
+        <CheckIcon width={14} />
       </SelectPrimitive.ItemIndicator>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
@@ -112,7 +112,7 @@ export function SelectGroupLabel(props: SelectPrimitive.GroupLabel.Props) {
 export function SelectScrollUpArrow(props: SelectPrimitive.ScrollUpArrow.Props) {
   return (
     <SelectPrimitive.ScrollUpArrow className={scrollArrow} {...props}>
-      <CaretUpIcon size={12} />
+      <ChevronUpIcon width={12} />
     </SelectPrimitive.ScrollUpArrow>
   );
 }
@@ -120,7 +120,7 @@ export function SelectScrollUpArrow(props: SelectPrimitive.ScrollUpArrow.Props) 
 export function SelectScrollDownArrow(props: SelectPrimitive.ScrollDownArrow.Props) {
   return (
     <SelectPrimitive.ScrollDownArrow className={scrollArrow} {...props}>
-      <CaretDownIcon size={12} />
+      <ChevronDownIcon width={12} />
     </SelectPrimitive.ScrollDownArrow>
   );
 }

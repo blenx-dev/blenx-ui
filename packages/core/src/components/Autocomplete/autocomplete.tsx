@@ -1,5 +1,4 @@
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
-import { CaretUpDownIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import type React from "react";
 import { Input } from "../Input/input";
@@ -29,6 +28,7 @@ import {
   item,
 } from "./autocomplete.css";
 import { CloseButton } from "../CloseButton";
+import { ChevronUpIcon } from "../../icons";
 
 const Autocomplete: typeof AutocompletePrimitive.Root = AutocompletePrimitive.Root;
 
@@ -106,7 +106,7 @@ function AutocompleteInput({
           data-slot="autocomplete-trigger"
           {...triggerProps}
         >
-          <CaretUpDownIcon size={resolvedSize === "sm" ? 16 : 18} weight="regular" />
+          <ChevronUpIcon width={resolvedSize === "sm" ? 16 : 18} />
         </AutocompletePrimitive.Trigger>
       )}
       {showClear && (

@@ -5,7 +5,6 @@ import { Drawer as DrawerPrimitive } from "@base-ui/react/drawer";
 import { Radio as RadioPrimitive } from "@base-ui/react/radio";
 import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";
 import { useRender } from "@base-ui/react/use-render";
-import { ArrowRightIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import type React from "react";
 import { createContext, useContext, useMemo } from "react";
@@ -68,7 +67,7 @@ import {
 import { CloseButton } from "../CloseButton";
 import type { _BaseDivProps } from "../../utils/types";
 import { Box } from "../Box";
-import { SquareCheckIcon } from "../../icons";
+import { ArrowRightIcon, SquareCheckIcon } from "../../icons";
 
 type DrawerPosition = "right" | "left" | "top" | "bottom";
 

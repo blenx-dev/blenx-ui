@@ -1,4 +1,4 @@
-import { WarningCircleIcon } from "@phosphor-icons/react";
+import { CircleAlertIcon } from "@blenx-dev/core/icons";
 import * as styles from "./data-table.css";
 import { Button } from "@blenx-dev/core";
 
@@ -13,7 +13,7 @@ export function DataTableError({
 }: DataTableErrorProps) {
   return (
     <div role="alert" aria-label={message} className={styles.errorContainer}>
-      <WarningCircleIcon size={48} />
+      <CircleAlertIcon width={48} />
       <p className={styles.errorMessage}>{message}</p>
       {onRetry && (
         <Button variant="outline" size="sm" onClick={onRetry}>

@@ -1,4 +1,3 @@
-import { CaretDownIcon, CaretUpIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import {
   type ColumnDef,
@@ -28,6 +27,7 @@ import { DataTableToolbar } from "./data-table-toolbar";
 import type { DataTableProps, RowAction, TableFeatures } from "./types";
 import { Button, Spinner } from "@blenx-dev/core";
 import * as styles from "./data-table.css";
+import { ChevronDownIcon, ChevronUpIcon } from "@blenx-dev/core/icons";
 
 const DEFAULT_FEATURES: TableFeatures = {
   sorting: true,
@@ -396,8 +396,8 @@ export function DataTable<TData extends Record<string, unknown>>({
                         {header.isPlaceholder
                           ? null
                           : flexRender(header.column.columnDef.header, header.getContext())}
-                        {isSorted === "asc" && <CaretUpIcon size={10} aria-hidden="true" />}
-                        {isSorted === "desc" && <CaretDownIcon size={10} aria-hidden="true" />}
+                        {isSorted === "asc" && <ChevronUpIcon width={10} aria-hidden="true" />}
+                        {isSorted === "desc" && <ChevronDownIcon width={10} aria-hidden="true" />}
                       </div>
                     </th>
                   );

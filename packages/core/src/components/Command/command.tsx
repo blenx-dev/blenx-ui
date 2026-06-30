@@ -14,7 +14,6 @@ import {
   useRef,
 } from "react";
 import clsx from "clsx";
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import {
   root,
   inputWrapper,
@@ -29,6 +28,7 @@ import {
   itemDisabled,
   separator,
 } from "./command.css";
+import { SearchIcon } from "../../icons";
 
 interface CommandItemData {
   id: string;
@@ -182,7 +182,7 @@ export function CommandInput({
   return (
     <div className={clsx(inputWrapper, className)} style={style}>
       <span className={inputIcon}>
-        <MagnifyingGlass size={16} weight="regular" />
+        <SearchIcon width={16} />
       </span>
       <input
         className={inputStyle}
