@@ -23,35 +23,63 @@ export interface SemanticTokens {
     strong: string;
   };
   interactive: {
-    primary: string;
+    primary: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     primaryFg: string;
-    primaryHover: string;
-    primaryBg: string;
-    secondary: string;
+    primaryBg: {
+      default: string;
+      hover: string;
+      active: string;
+    };
+    secondary: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     secondaryFg: string;
-    secondaryHover: string;
-    secondaryBg: string;
-    neutral: string;
+    secondaryBg: {
+      default: string;
+      hover: string;
+      active: string;
+    };
+    neutral: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     neutralFg: string;
   };
   status: {
-    success: string;
+    success: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     successBg: string;
-    warning: string;
+    warning: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     warningBg: string;
-    danger: string;
+    danger: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     dangerBg: string;
-    info: string;
+    info: {
+      default: string;
+      hover: string;
+      active: string;
+    };
     infoBg: string;
   };
   focus: {
     ring: string;
-  };
-  shadow: {
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
   };
 }
 

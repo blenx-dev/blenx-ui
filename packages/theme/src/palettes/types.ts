@@ -12,3 +12,18 @@ export interface PaletteScale {
   11: string;
   12: string;
 }
+export interface ColorState {
+  default: string;
+  hover: string;
+  active: string;
+  disabled?: string;
+}
+
+export interface PaletteRoles {
+  bg: ColorState;
+  border: ColorState;
+  text: ColorState;
+  solid: ColorState;
+  solidFg: string; // foreground rarely needs its own state machine
+  focus: string;
+}
