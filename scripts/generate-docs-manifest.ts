@@ -185,11 +185,7 @@ function generateRegistryJson(entry: { dir: string; meta: RegistryMetaJson }): v
     };
   });
 
-  const dependencies = meta.dependencies ?? [
-    "@stylexjs/stylex",
-    "@phosphor-icons/react",
-    "@base-ui/react",
-  ];
+  const dependencies = meta.dependencies ?? ["@phosphor-icons/react", "@base-ui/react"];
 
   const registryDependencies = meta.registryDependencies?.map(normalizeRegistryDependency) ?? [];
 
@@ -273,12 +269,7 @@ function generateSharedRegistry(): void {
     type: "registry:lib",
     title: "Shared",
     description: "Shared libraries, theme and utilities for blenx UI.",
-    dependencies: [
-      "@stylexjs/stylex",
-      "@phosphor-icons/react",
-      "@base-ui/react",
-      "@vanilla-extract/sprinkles",
-    ],
+    dependencies: ["@phosphor-icons/react", "@base-ui/react", "@vanilla-extract/sprinkles"],
     files,
   };
 

@@ -20,7 +20,7 @@ function BlogPost() {
   if (!post) throw notFound();
 
   return (
-    <Container size="2xl" px={"xl"} py="md">
+    <Container size="xxl" px={"xl"} py="md">
       <Link
         to="/blog"
         style={{

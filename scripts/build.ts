@@ -85,7 +85,7 @@ items.push({
   type: "registry:lib",
   title: "Shared",
   description: "Shared libraries, theme and utilities.",
-  dependencies: ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+  dependencies: ["@phosphor-icons/react", "@base-ui/react"],
   files: [...buildRegistryFiles(LIB_DIR, "@lib"), ...buildRegistryFiles(UTILS_DIR, "@utils")],
 });
 
@@ -114,7 +114,7 @@ for (const metaPath of registryMetaFiles) {
     ...meta,
     files,
     registryDependencies: [...itemRegistryDependencies, themeRegistryUrl],
-    dependencies: ["@stylexjs/stylex", "@phosphor-icons/react", "@base-ui/react"],
+    dependencies: ["@phosphor-icons/react", "@base-ui/react"],
   });
 }
 

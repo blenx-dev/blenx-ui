@@ -13,9 +13,9 @@ export const containerRecipe = recipe({
       md: { width: "min(640px, 100%)" },
       lg: { width: "min(768px, 100%)" },
       xl: { width: "min(1024px, 100%)" },
-      "2xl": { width: "min(1280px, 100%)" },
-      "3xl": { width: "min(1440px, 100%)" },
-      "4xl": { width: "min(1536px, 100%)" },
+      xxl: { width: "min(1280px, 100%)" },
+      xxxl: { width: "min(1440px, 100%)" },
+      xxxxl: { width: "min(1536px, 100%)" },
       full: { maxWidth: "100%", width: "100%" },
     },
     centered: {

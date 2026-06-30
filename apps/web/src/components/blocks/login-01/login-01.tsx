@@ -52,7 +52,7 @@ export function Login01({
   };
 
   return (
-    <Container size="2xl" content="center" paddingY="huge">
+    <Container size="xxl" content="center" paddingY="huge">
       <Card maxWidth="sm" fullWidth>
         <CardBody padding="md">
           <VStack align="center" gap="sm">

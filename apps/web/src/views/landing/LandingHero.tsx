@@ -5,14 +5,14 @@ import { Link } from "@tanstack/react-router";
 
 export function LandingHero() {
   return (
-    <Container size="3xl" paddingX="md" paddingTop="lg" paddingBottom="massive">
+    <Container size="xxxl" paddingX="md" paddingTop="lg" paddingBottom="massive">
       <VStack gap="lg" align="center">
         <Text variant="h1" textAlign="center" size="xxl">
           The shadcn/ui experience
           <br />
           for Vanilla Extract.
         </Text>
-        <Box maxWidth={640} px={"2xl"}>
+        <Box maxWidth={640} px={"xxl"}>
           <Text variant="body1" size="lg" color="secondary" textAlign="center">
             Accessible React components built with Vanilla Extract and Base UI. Copy the source. Own
             the code. Build without vendor lock-in.
