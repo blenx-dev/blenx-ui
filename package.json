@@ -13,7 +13,8 @@
     "generate:api": "tsx scripts/generate-api-meta.ts",
     "changeset": "changeset",
     "ci:version": "changeset version",
-    "ci:release": "changeset publish"
+    "ci:release": "changeset publish",
+    "publish:all": "pnpm -r --filter './packages/*' publish --access public"
   },
   "dependencies": {
     "@blenx-dev/env": "workspace:*",

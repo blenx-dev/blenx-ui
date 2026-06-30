@@ -1,5 +1,13 @@
 # @blenx-dev/core
 
+## 0.2.3
+
+### Patch Changes
+
+- 0439e3e: Use Icon generator and simplify components
+- Updated dependencies [0439e3e]
+  - @blenx-dev/theme@0.2.3
+
 ## 1.0.0
 
 ### Minor Changes
