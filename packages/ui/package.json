@@ -42,8 +42,8 @@
     "changeset": "^0.2.6"
   },
   "peerDependencies": {
-    "react": "catalog:",
     "@blenx-dev/theme": "workspace:*",
+    "react": "catalog:",
     "react-dom": "catalog:"
   }
 }

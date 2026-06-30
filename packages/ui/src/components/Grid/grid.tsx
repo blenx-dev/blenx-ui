@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { Box, type BoxProps } from "../Box/box";
 import { gridSprinkles } from "../../utils/sprinkles.css";
 import { gridSpanVariants, gridItem } from "./grid.css";
+import { applyGridSprinkles } from "../../utils/ve-style.utils";
 
 type GridSprinkles = Parameters<typeof gridSprinkles>[0];
 
@@ -11,36 +12,10 @@ export type GridItemProps = BoxProps & {
   span?: keyof typeof gridSpanVariants;
 };
 
-function Grid({
-  columns,
-  flow,
-  align,
-  justify,
-  gap,
-  rowGap,
-  columnGap,
-  className,
-  style,
-  ...props
-}: GridProps) {
+function Grid({ className, style, ...props }: GridProps) {
+  const [gridStyles, restProps] = applyGridSprinkles(props);
   return (
-    <Box
-      display="grid"
-      className={clsx(
-        gridSprinkles({
-          columns,
-          flow,
-          align,
-          justify,
-          gap,
-          rowGap,
-          columnGap,
-        }),
-        className,
-      )}
-      style={style}
-      {...props}
-    />
+    <Box display="grid" className={clsx(gridStyles, className)} style={style} {...restProps} />
   );
 }
 

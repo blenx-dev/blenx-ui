@@ -238,6 +238,8 @@ export const baseSprinkles = createSprinkles(
 
 export const gridSprinkles = createSprinkles(gridProperties);
 
+export type GridSprinkles = Parameters<typeof gridSprinkles>[0];
+
 export type BaseSprinkles = Parameters<typeof baseSprinkles>[0] & {
   fullWidth?: boolean;
   fullHeight?: boolean;

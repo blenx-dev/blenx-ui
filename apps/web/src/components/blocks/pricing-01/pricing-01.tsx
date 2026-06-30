@@ -94,7 +94,7 @@ export function Pricing01({
             Yearly
           </Text>
           {yearly && (
-            <Badge radius="full" variant="sucess">
+            <Badge radius="full" variant="success">
               Save up to 20%
             </Badge>
           )}

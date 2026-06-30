@@ -143,7 +143,7 @@ export function StatCardDemo() {
               $48,250
             </Text>
             <HStack gap="xxs" align="center">
-              <Badge variant="sucess">+12.5%</Badge>
+              <Badge variant="success">+12.5%</Badge>
               <Text variant="caption" color="secondary">
                 vs last month
               </Text>

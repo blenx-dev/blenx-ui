@@ -9,16 +9,16 @@ import { useEffect } from "react";
 
 function DocsRouteOption() {
   const { pathname } = useLocation();
+  const isDocsActive = pathname.startsWith("/docs");
   const isBlocksActive = pathname.startsWith("/docs/blocks");
+  const showBlocks = isDocsActive ? !isBlocksActive : true;
   return (
     <Button
       size="xs"
       variant={"ghost"}
       nativeButton={false}
       render={
-        isBlocksActive ? (
-          <Link to="/docs" />
-        ) : (
+        showBlocks ? (
           <Link
             to="/docs/blocks/$group/$variant"
             params={{
@@ -26,10 +26,12 @@ function DocsRouteOption() {
               variant: "dashboard-01",
             }}
           />
+        ) : (
+          <Link to="/docs" />
         )
       }
     >
-      {isBlocksActive ? "Docs" : "Blocs"}
+      {showBlocks ? "Blocks" : "Docs"}
     </Button>
   );
 }
