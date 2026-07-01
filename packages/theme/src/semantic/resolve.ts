@@ -32,8 +32,9 @@ export function resolveToSemanticTokens({
       floating: neutral.border.default, // distinct from raised; adjust if a dedicated step is added later
     },
     text: {
-      primary: neutral.text.default,
-      secondary: neutral.text.hover, // muted/secondary text reuses the hover step
+      primary: neutral.text.hover,
+      secondary: neutral.text.default, // one step lighter than primary text
+      accent: primary.text.default,
       disabled: neutral.border.default,
       inverse: neutral.solidFg,
     },

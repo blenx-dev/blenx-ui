@@ -43,7 +43,6 @@ export const root = style({
   display: "flex",
   alignItems: "center",
   gap: "8px",
-  color: themeContract.contentPrimary,
   backgroundColor: themeContract.surface,
 });
 ```

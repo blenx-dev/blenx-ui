@@ -21,6 +21,7 @@ export const semanticVars = createThemeContract({
   text: {
     primary: null,
     secondary: null,
+    accent: null,
     disabled: null,
     inverse: null,
   },

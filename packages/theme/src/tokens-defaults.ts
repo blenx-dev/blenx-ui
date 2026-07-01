@@ -40,7 +40,7 @@ export type TokenVars = {
   easing: Record<"linear" | "standard" | "enter" | "exit" | "spring" | "bounce", string>;
 };
 
-export const tokenVarsDefaults = {
+export const tokenVarsDefaults: TokenVars = {
   font: {
     sans: "system-ui, -apple-system, sans-serif",
     body: "system-ui, sans-serif",
@@ -155,7 +155,7 @@ export const tokenVarsDefaults = {
     lg: "0 10px 15px rgba(0, 0, 0, 0.1)",
     xl: "0 20px 25px rgba(0, 0, 0, 0.15)",
   },
-} satisfies TokenVars;
+};
 // Source - https://stackoverflow.com/a/47914631
 // Posted by CRice
 // Retrieved 2026-06-30, License - CC BY-SA 3.0

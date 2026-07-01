@@ -12,6 +12,7 @@ export interface SemanticTokens {
   text: {
     primary: string;
     secondary: string;
+    accent: string;
     disabled: string;
     inverse: string;
   };
