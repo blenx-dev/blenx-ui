@@ -4,13 +4,17 @@ import { basename, dirname, join, relative } from "path";
 // =====================
 // Paths (from repo root)
 // =====================
-const UI_SRC_DIR = "packages/ui/src";
-const UI_COMPONENTS_DIR = join(UI_SRC_DIR, "components");
-const UI_DATA_TABLE_DIR = join(UI_SRC_DIR, "DataTable");
+const CORE_SRC_DIR = "packages/core/src";
+const UI_COMPONENTS_DIR = join(CORE_SRC_DIR, "components");
 const BLOCK_COMPONENTS_DIR = "apps/web/src/components";
 const WEB_PUBLIC_DIR = "apps/web/public";
 const WEB_SRC_DIR = "apps/web/src";
 const REGISTRY_OUTPUT_DIR = join(WEB_PUBLIC_DIR, "reg");
+
+const CALENDAR_DIR = "packages/calendar/src/Calendar";
+const DATEPICKER_DIR = "packages/calendar/src/DatePicker";
+const COLORPICKER_DIR = "packages/color-picker/src/ColorPicker";
+const DATATABLE_DIR = "packages/datatable/src/DataTable";
 
 const OUTPUT_MANIFEST = join(WEB_PUBLIC_DIR, "docs/components.json");
 const OUTPUT_REGISTRY = join(WEB_SRC_DIR, "docs-demo-registry.ts");
@@ -86,7 +90,11 @@ function rewriteImports(content: string): string {
   return content
     .replace(/@blenx-dev\/ui\//g, "@/")
     .replace(/@blenx-dev\/theme\//g, "@lib/theme/")
-    .replace(/#utils\//g, "@utils/");
+    .replace(/#utils\//g, "@utils/")
+    .replace(/@blenx-dev\/core\//g, "@/components/")
+    .replace(/['"]@blenx-dev\/core['"]/g, '"@/components"')
+    .replace(/\.\.\/\.\.\/utils\//g, "@utils/")
+    .replace(/\.\.\/utils\//g, "@utils/");
 }
 
 function normalizeRegistryDependency(dep: string): string {
@@ -153,20 +161,23 @@ function findRegistryMetaFiles(): Array<{
   scanDir(UI_COMPONENTS_DIR);
   scanDir(join(BLOCK_COMPONENTS_DIR, "blocks"));
 
-  // Handle DataTable (standalone dir in packages/ui/src/)
-  const dtMetaPath = join(UI_DATA_TABLE_DIR, "registry-meta.json");
-  if (existsSync(dtMetaPath)) {
-    const meta = readJson<RegistryMetaJson>(dtMetaPath);
-    if (meta?.name && !seen.has(meta.name)) {
-      seen.add(meta.name);
-      results.push({ dir: UI_DATA_TABLE_DIR, meta });
+  // Scan individual package component dirs
+  const standaloneDirs = [DATATABLE_DIR, CALENDAR_DIR, DATEPICKER_DIR, COLORPICKER_DIR];
+  for (const dir of standaloneDirs) {
+    const metaPath = join(dir, "registry-meta.json");
+    if (existsSync(metaPath)) {
+      const meta = readJson<RegistryMetaJson>(metaPath);
+      if (meta?.name && !seen.has(meta.name)) {
+        seen.add(meta.name);
+        results.push({ dir, meta });
+      }
     }
   }
 
   return results;
 }
 
-const UI_COMPONENT_EXPORT_PACKAGE = "@blenx-dev/ui/components/";
+const UI_COMPONENT_EXPORT_PACKAGE = "@blenx-dev/core/components/";
 
 // =====================
 // Registry JSON generation
@@ -235,23 +246,33 @@ function generateSharedRegistry(): void {
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/sprinkles.css.ts",
+      source: "packages/core/src/utils/sprinkles.css.ts",
       target: "@utils/sprinkles.css.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/ve-style.utils.ts",
+      source: "packages/core/src/utils/sprinkles.tokens.ts",
+      target: "@utils/sprinkles.tokens.ts",
+      type: "registry:lib",
+    },
+    {
+      source: "packages/core/src/utils/ve-style.utils.ts",
       target: "@utils/ve-style.utils.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/types.ts",
+      source: "packages/core/src/utils/types.ts",
       target: "@utils/types.ts",
       type: "registry:lib",
     },
     {
-      source: "packages/ui/src/utils/heights.ts",
+      source: "packages/core/src/utils/heights.ts",
       target: "@utils/heights.ts",
+      type: "registry:lib",
+    },
+    {
+      source: "packages/core/src/utils/drawer-styles.css.ts",
+      target: "@utils/drawer-styles.css.ts",
       type: "registry:lib",
     },
   ];
