@@ -1,0 +1,3978 @@
+# Blenx UI
+
+Design system built for React with Vanilla Extract. Accessible, themeable, and composable components.
+
+---
+
+# Accordion
+
+Accordion component organizes content into collapsible sections, letting users disclose information progressively.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** data-display
+- **Status:** stable
+- **Keywords:** accordion, collapsible, expand, collapse
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Accordion } from "@blenx-dev/core"
+```
+
+## Overview
+
+The Accordion component organizes content into collapsible sections, letting users disclose information progressively. It is built on Base UI Accordion primitives for accessible expand/collapse behavior with proper ARIA attributes and keyboard navigation. Use accordions to reduce vertical space when presenting heterogeneous content that users can choose to engage with — common use cases include FAQ sections, settings panels, and multi-step form summaries.
+
+## Variants
+
+Accordion exposes a controlled and uncontrolled API via `defaultValue` for the expanded item keys. Each child section uses `AccordionItem` wrapping `AccordionTrigger` and `AccordionPanel`. The trigger is the clickable header that controls visibility of its corresponding panel. You can allow multiple panels to be open simultaneously by configuring the component to support multi-open behavior, but single-open (default) is the more common pattern. Changing the expanded item programmatically is straightforward via the `value` prop in controlled mode. The component handles collapse animations internally, so you can rely on smooth transitions without additional wiring.
+
+## Examples
+
+```tsx
+function AccordionDemo() {
+  return (
+    <Accordion.Root>
+      <Accordion.Item value="item-1">
+        <Accordion.Header>
+          <Accordion.Trigger>What is Blenx UI?</Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel>
+          <Text variant="body2">
+            Blenx UI is a modern React component library built with StyleX and Base UI.
+          </Text>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item value="item-2">
+        <Accordion.Header>
+          <Accordion.Trigger>How do I install it?</Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel>
+          <Text variant="body2">
+            Install via the shadcn CLI with:{" "}
+            <Text variant="code">npx shadcn@latest add button</Text>
+          </Text>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item value="item-3">
+        <Accordion.Header>
+          <Accordion.Trigger>Is it accessible?</Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel>
+          <Text variant="body2">
+            Yes, all components are built on Base UI primitives with full ARIA support.
+          </Text>
+        </Accordion.Panel>
+      </Accordion.Item>
+    </Accordion.Root>
+  );
+}
+```
+
+## Files
+
+- `@ui/Accordion/accordion.tsx`
+- `@ui/Accordion/accordion.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Enter`
+- `Space`
+
+### ARIA Attributes
+
+- `aria-expanded`
+- `aria-controls`
+- `aria-labelledby`
+
+## Common Mistakes
+
+Accordion does not support virtualized panels. Rendering hundreds of sections with complex children will degrade performance, as all panel content mounts and unmounts based on open state. If you need to render a large list, prefer alternatives like tabs or a scrollable flat layout. The animation system relies on a known height for smooth transitions; dynamically sized content that changes after mount may cause visual jumps. In rare cases, you may need to trigger a remount to recalculate the animation bounds.
+
+## Related Components
+
+- Tabs
+- Dialog
+
+
+---
+
+# Alert Dialog
+
+Alert Dialog is a modal dialog variant designed for urgent confirmations and critical actions that require the user's immediate attention.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** overlay
+- **Status:** stable
+- **Keywords:** dialog, modal, alert, confirmation, confirm
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { AlertDialog } from "@blenx-dev/core"
+```
+
+## Overview
+
+Alert Dialog is a modal dialog variant designed for urgent confirmations and critical actions that require the user's immediate attention. It is built on Base UI Dialog primitives with the AlertDialog pattern, ensuring proper focus trapping, backdrop blocking, and dismiss prevention. Use Alert Dialog when an action has destructive or irreversible consequences — deleting a resource, discarding unsaved changes, or confirming a payment.
+
+## Variants
+
+Alert Dialog renders with a title describing the consequence, a body providing context, and two action buttons — typically a cancel and a confirm. The confirm action uses the `actionIntent` prop to define its visual weight, defaulting to danger for destructive operations. The dialog traps focus and blocks interaction with the rest of the page until dismissed. Pressing Escape or clicking the backdrop dismisses the dialog without committing the action. The component accepts `onConfirm` and `onCancel` callbacks. For destructive actions, include the resource name in the title (e.g., "Delete invoice INV-042") so users know exactly what they are confirming.
+
+## Examples
+
+```tsx
+function AlertDialogDemo() {
+  return (
+    <VStack gap="md">
+      <Text variant="h6">Alert Dialog</Text>
+      <Box>
+        <AlertDialog>
+          <AlertDialogTrigger
+            render={
+              <Button variant="outline" intent="danger">
+                <Trash2Icon /> Delete Project
+              </Button>
+            }
+          >
+            Delete
+          </AlertDialogTrigger>
+          <AlertDialogPopup>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Delete project</AlertDialogTitle>
+              <AlertDialogDescription>
+                This will permanently delete the project and all of its data.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogPanel>
+              <Text variant="body2">
+                This action cannot be undone. All files, settings, and member permissions will be
+                removed.
+              </Text>
+            </AlertDialogPanel>
+            <AlertDialogFooter>
+              <HStack gap="sm" justify="end" wrap>
+                <AlertDialogClose render={<Button variant="ghost" />}>Cancel</AlertDialogClose>
+                <Button intent="danger">Delete</Button>
+              </HStack>
+            </AlertDialogFooter>
+          </AlertDialogPopup>
+        </AlertDialog>
+      </Box>
+    </VStack>
+  );
+}
+```
+
+## Dependencies
+
+- icon-button
+- scroll-area
+
+## Files
+
+- `@ui/AlertDialog/alert-dialog.tsx`
+- `@ui/AlertDialog/alert-dialog.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `aria-modal`
+- `aria-labelledby`
+- `aria-describedby`
+
+## Common Mistakes
+
+Alert Dialog does not support nested interactive elements beyond the confirm and cancel buttons. It cannot be dismissed by clicking outside — only by explicit cancel or confirm actions. The component does not include an undo mechanism; if you need undo, design that into the underlying action rather than the dialog. Alert Dialog also requires a visible cancel option; a dialog with only a confirm button is a blocking modal and should be audited for accessibility compliance.
+
+## Related Components
+
+- Dialog
+- Button
+- ScrollArea
+
+
+---
+
+# Alert
+
+Alert component delivers contextual feedback messages to users in response to an action or system event.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** feedback
+- **Status:** stable
+- **Keywords:** alert, banner, feedback, info, success, warning, error
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Alert } from "@blenx-dev/core"
+```
+
+## Overview
+
+The Alert component delivers contextual feedback messages to users in response to an action or system event. It supports four intents — info, success, warning, and error — each with distinct color mapping and iconography to communicate severity at a glance. Use alerts to confirm successful operations, warn about potential issues, notify users of state changes, or surface errors that need attention.
+
+## Variants
+
+Render an Alert with the `intent` prop to select the visual variant. Each intent automatically applies the corresponding icon (checkmark for success, exclamation for warning, etc.), but you can override it with the `icon` slot if your messaging requires a custom graphic. Alerts can optionally render a title via the `title` prop to summarize the message, followed by children for the detailed body. The component accepts an `onClose` callback and a dismiss button when closable behavior is needed. Alerts participate in the document flow and will push sibling content, so place them near the surface they relate to — typically at the top of a form, card, or page section.
+
+## Examples
+
+```tsx
+import { CheckIcon, CircleAlertIcon, InfoIcon, SkullIcon } from "../../icons";
+import { Alert } from "./alert";
+import { VStack } from "../Stack/stack";
+
+function AlertDemo() {
+  return (
+    <VStack withBorder padding="md">
+      <Alert
+        variant="info"
+        icon={<InfoIcon width={20} />}
+        title="Info"
+        description="This is an info alert"
+      />
+      <Alert
+        variant="success"
+        icon={<CheckIcon width={20} />}
+        title="Success"
+        description="This is a success alert"
+      />
+      <Alert
+        variant="warning"
+        icon={<CircleAlertIcon width={20} />}
+        title="Warning"
+        description="This is a warning alert"
+      />
+      <Alert
+        variant="error"
+        icon={<SkullIcon width={20} />}
+        title="Error"
+        description="This is an error alert"
+      />
+      <Alert variant="error" icon={<SkullIcon width={20} />}>
+        GOne
+      </Alert>
+    </VStack>
+  );
+}
+
+export const demos = [{ name: "Default", component: AlertDemo }];
+```
+
+## Files
+
+- `@ui/Alert/alert.tsx`
+- `@ui/Alert/alert.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `role`
+- `aria-live`
+
+## Common Mistakes
+
+Alert does not support auto-dismiss behavior. If you need a notification that disappears after a timeout, use a toast implementation instead. Alerts do not stack; if multiple alerts need to appear simultaneously, render them as siblings in a container and manage layout manually. The component does not manage focus — when an alert appears dynamically, you must handle focus management yourself if the alert is critical.
+
+## Related Components
+
+- Text
+
+
+---
+
+# Autocomplete
+
+Autocomplete provides an input field augmented with a popover suggestion list that filters options as the user types.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** autocomplete, typeahead, search, suggestions, filter
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Autocomplete } from "@blenx-dev/core"
+```
+
+## Overview
+
+Autocomplete provides an input field augmented with a popover suggestion list that filters options as the user types. It supports keyboard navigation, async data fetching, and single or multi-select modes. Use Autocomplete when the user must select from a known set of values but the list is too large for a standard Select or Combobox — think city names, product SKUs, or user tags.
+
+## Variants
+
+The component accepts an `options` array for client-side filtering or an `onQueryChange` callback for async search. In client-side mode, pass the full dataset and Autocomplete filters internally using the input value. In async mode, debounce the query handler on your side and update the `options` prop with the results. The popover opens when the input receives focus or the user starts typing, and closes on selection or blur. Use `multiple` mode for tag-like selection, where each selected item renders as a removable chip inside the input. The input value can be controlled or uncontrolled via `value` and `defaultValue` respectively.
+
+## Dependencies
+
+- input
+- scroll-area
+
+## Files
+
+- `@ui/Autocomplete/autocomplete.tsx`
+- `@ui/Autocomplete/autocomplete.css.ts`
+
+## Common Mistakes
+
+Autocomplete does not support grouped options. If you need categorized suggestions, consider using Combobox instead. The virtualized list only activates when the option count exceeds a threshold, but extremely large datasets (tens of thousands) will still cause performance degradation on initial render. Async mode delegates debouncing to the consumer; the component does not provide a built-in debounce utility. Network errors during async search must be handled by the consumer — the component surfaces errors through the `onError` callback but does not retry automatically.
+
+## Related Components
+
+- Input
+- ScrollArea
+- Field
+- Combobox
+
+
+---
+
+# Avatar
+
+Avatar displays user profile images with automatic fallback to initials when the image fails to load or is not provided.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** data-display
+- **Status:** stable
+- **Keywords:** avatar, profile, image, user, fallback
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Avatar } from "@blenx-dev/core"
+```
+
+## Overview
+
+Avatar displays user profile images with automatic fallback to initials when the image fails to load or is not provided. It is built on Base UI Avatar primitives, which handle image loading states and fallback rendering accessibly. Use Avatar to represent people in user lists, comment threads, team grids, and chat interfaces.
+
+## Variants
+
+Provide an `src` prop with the image URL and an `alt` prop for accessible naming. The initials fallback is computed from the `name` prop, extracting the first character of the first and last name segments. If both `src` and `name` are absent, Avatar renders a generic user icon. The `size` prop maps to pre-defined dimensions (sm, md, lg, xl) with corresponding font sizes for initials. Add a `status` prop to render the presence indicator at the bottom-right corner of the avatar boundary. The component handles the image loading lifecycle internally — it shows initials while the image loads, transitions to the image on success, and reverts to initials on error.
+
+## Files
+
+- `@ui/Avatar/avatar.tsx`
+- `@ui/Avatar/avatar.css.ts`
+
+## Common Mistakes
+
+Avatar does not support image cropping or editing workflows. It accepts pre-processed images only. The status indicator is purely visual and does not emit events or manage real-time presence data — integrate with your presence system separately. AvatarGroup has a maximum display count; exceeding this threshold shows a "+N" overflow indicator but does not provide interaction for viewing the full list.
+
+## Related Components
+
+- Badge
+
+
+---
+
+# Badge
+
+Badge is a small visual indicator that communicates counts, status, or labels adjacent to an element.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** data-display
+- **Status:** stable
+- **Keywords:** badge, pill, chip, label, status, count
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Badge } from "@blenx-dev/core"
+```
+
+## Overview
+
+Badge is a small visual indicator that communicates counts, status, or labels adjacent to an element. It supports multiple intents (primary, neutral, success, warning, danger, info) and size variants. Use badges to display unread notification counts, tag content with metadata labels, or indicate system status.
+
+## Variants
+
+Render a Badge with the `count` prop for numeric indicators or `children` for text labels. The `intent` prop controls color, and the `size` prop adjusts padding and font size. When used as an overlay on another element — like a bell icon for notifications — wrap both elements in a relative container and position the badge absolutely. For standalone badges, the component renders as an inline element that flows with surrounding content. The badge automatically truncates counts exceeding `maxCount` (default 99) to "99+" to prevent visual overflow. Use the `dot` variant to render a small presence indicator without a count value.
+
+## Examples
+
+```tsx
+function BadgeDemo() {
+  return (
+    <VStack gap="xs">
+      <Text variant="h6">Solid</Text>
+      <HStack wrap>
+        <Badge variant="default">Default</Badge>
+        <Badge variant="primary">Primary</Badge>
+        <Badge>Secondary</Badge>
+        <Badge variant="danger">Danger</Badge>
+        <Badge variant="success">Success</Badge>
+      </HStack>
+
+      <Text variant="h6">Outline</Text>
+      <HStack wrap>
+        <Badge variant="default" appearance="outline">
+          Default
+        </Badge>
+        <Badge variant="primary" appearance="outline">
+          Primary
+        </Badge>
+        <Badge appearance="outline">Secondary</Badge>
+        <Badge variant="danger" appearance="outline">
+          Danger
+        </Badge>
+        <Badge variant="success" appearance="outline">
+          Success
+        </Badge>
+      </HStack>
+
+      <Text variant="h6">Soft</Text>
+      <HStack wrap>
+        <Badge variant="default" appearance="soft">
+          Default
+        </Badge>
+        <Badge variant="primary" appearance="soft">
+          Primary
+        </Badge>
+        <Badge appearance="soft">Secondary</Badge>
+        <Badge variant="danger" appearance="soft">
+          Danger
+        </Badge>
+        <Badge variant="success" appearance="soft">
+          Success
+        </Badge>
+      </HStack>
+    </VStack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Badge/badge.tsx`
+- `@ui/Badge/badge.css.ts`
+
+## Common Mistakes
+
+Badge does not support animations for count changes. If you need animated transitions (e.g., a notification count incrementing), implement that through a separate animation wrapper. The overlay positioning assumes a single badge per parent element; multiple overlapped badges on the same element will conflict. Badge does not manage its own visibility — controlling when a badge appears or disappears is the consumer's responsibility.
+
+## Related Components
+
+- Text
+- Avatar
+
+
+---
+
+# Box
+
+Box is the lowest-level layout primitive in Blenx.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** stable
+- **Keywords:** box, layout, div, polymorphic, primitive
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Box } from "@blenx-dev/core"
+```
+
+## Overview
+
+Box is the lowest-level layout primitive in Blenx. It renders a single DOM element with access to style props for padding, margin, display, and other common CSS properties through vanilla-extract sprinkles. Every other layout component — Grid, Container, Card — is composed on top of Box.
+
+## Variants
+
+Box renders a `div` by default but accepts an `as` prop to change the underlying element to any valid HTML tag. Style props are passed directly as props on the component — `padding="md"`, `marginBlockStart="lg"`, `display="flex"`, etc. The style prop system maps design tokens to CSS values, ensuring consistency with the theme. Box does not apply any default styles other than `box-sizing: border-box`. Use it for element-level adjustments like spacing a button group, centering content with `marginInline="auto"`, or applying a background color to a section. For responsive values, pass an object keyed by breakpoint.
+
+## Files
+
+- `@ui/Box/box.tsx`
+
+## Common Mistakes
+
+Box provides no layout logic of its own. It does not handle overflow, scrolling, or content visibility. Complex layouts with conditional rendering, sticky positioning, or overflow behavior require additional configuration. Box does not enforce accessibility requirements — a `div` with `onClick` is not a button. For interactive containers, use the appropriate semantic component instead. Box also does not participate in any state management or lifecycle patterns.
+
+## Related Components
+
+- Container
+- Grid
+- Stack
+- Surface
+
+
+---
+
+# Breadcrumbs
+
+Breadcrumbs displays the page hierarchy as a navigational trail with separators between each level.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** navigation
+- **Status:** stable
+- **Keywords:** breadcrumbs, navigation, breadcrumb, trail, hierarchy
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Breadcrumbs } from "@blenx-dev/core"
+```
+
+## Overview
+
+Breadcrumbs displays the page hierarchy as a navigational trail with separators between each level. It helps users understand their current location within the application and provides quick access to ancestor pages. Use breadcrumbs in multi-level navigation structures — documentation sites, admin panels, SaaS dashboards, and e-commerce category trees.
+
+## Variants
+
+Provide an array of `items` where each item contains a `label` and an `href`. The last item is rendered as plain text representing the current page — it is not a link — while all preceding items render as anchors. The `separator` prop customizes the divider between items, defaulting to a forward slash with appropriate spacing. Breadcrumbs are rendered as a `<nav>` element with `aria-label="Breadcrumbs"` for accessibility. The component truncates items that exceed the container width, showing as many ancestor links as space allows with a collapsed indicator for overflow.
+
+## Files
+
+- `@ui/Breadcrumbs/breadcrumbs.tsx`
+- `@ui/Breadcrumbs/breadcrumbs.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `aria-label`
+- `aria-current`
+
+## Common Mistakes
+
+Breadcrumbs does not support multi-line wrapping. If the full breadcrumb trail overflows, items are truncated rather than wrapped to the next line. The component does not provide automatic path generation — the breadcrumb hierarchy must be constructed and passed explicitly. Breadcrumbs also do not support context menus on intermediate items for quick sibling navigation; that pattern requires a custom implementation.
+
+
+---
+
+# Button
+
+Button triggers actions and is the most frequently used interactive element in any application.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** button, action, click, submit, loading, variant
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Button } from "@blenx-dev/core"
+```
+
+## Overview
+
+Button triggers actions and is the most frequently used interactive element in any application. It supports multiple variants (solid, outline, ghost, soft, link), intents (primary, neutral, success, warning, danger, info), sizes, a loading state, and named icon slots (start, end). Use Button for form submissions, dialog triggers, navigation actions, and any click-initiated operation.
+
+## Variants
+
+Set `variant` and `intent` to select the visual combination. The `size` prop (sm, md, lg) scales padding, font size, and icon spacing proportionally. For actions that trigger asynchronous operations, use the `loading` prop to disable interaction and show a spinner in place of the start icon. The `startIcon` and `endIcon` slots accept Icon components that inherit the button's size and color. A button with an icon only (no visible children) renders as a square icon button with equal width and height, suitable for toolbars and action bars. The `disabled` prop prevents interaction and applies reduced opacity.
+
+## Examples
+
+```tsx
+function ButtonDemo() {
+  return (
+    <VStack gap="md">
+      <Stack gap="sm">
+        <Text variant="h6">Variant + Intent</Text>
+        <HStack wrap>
+          <Button variant="solid" intent="primary">
+            Solid Primary
+          </Button>
+          <Button variant="solid" intent="neutral">
+            Solid Neutral
+          </Button>
+          <Button variant="solid" intent="success">
+            Solid Success
+          </Button>
+          <Button variant="solid" intent="warning">
+            Solid Warning
+          </Button>
+          <Button variant="solid" intent="danger">
+            Solid Danger
+          </Button>
+          <Button variant="solid" intent="info">
+            Solid Info
+          </Button>
+        </HStack>
+      </Stack>
+
+      <Stack gap="sm">
+        <Text variant="h6">Outline + Intents</Text>
+        <HStack wrap>
+          <Button variant="outline" intent="primary">
+            Outline
+          </Button>
+          <Button variant="outline" intent="danger">
+            Outline Danger
+          </Button>
+          <Button variant="outline" intent="success">
+            Outline Success
+          </Button>
+        </HStack>
+      </Stack>
+
+      <Stack gap="sm">
+        <Text variant="h6">Ghost + Intents</Text>
+        <HStack wrap>
+          <Button variant="ghost" intent="primary">
+            Ghost
+          </Button>
+          <Button variant="ghost" intent="danger">
+            Ghost Danger
+          </Button>
+          <Button variant="ghost" intent="neutral">
+            Ghost Neutral
+          </Button>
+        </HStack>
+      </Stack>
+
+      <Stack gap="sm">
+        <Text variant="h6">Soft + Intents</Text>
+        <HStack wrap>
+          <Button variant="soft" intent="warning">
+            Soft Warning
+          </Button>
+          <Button variant="soft" intent="success">
+            Soft Success
+          </Button>
+          <Button variant="soft" intent="danger">
+            Soft Danger
+          </Button>
+        </HStack>
+      </Stack>
+
+      <Stack gap="sm">
+        <Text variant="h6">Link + Intents</Text>
+        <HStack wrap>
+          <Button variant="link" intent="primary">
+            Link
+          </Button>
+          <Button variant="link" intent="neutral">
+            Link Neutral
+          </Button>
+          <Button variant="link" intent="danger">
+            Link Danger
+          </Button>
+        </HStack>
+      </Stack>
+
+      <Stack gap="sm">
+        <Text variant="h6">Sizes</Text>
+        <HStack wrap>
+          <Button size="sm">Small</Button>
+          <Button size="md">Medium</Button>
+          <Button size="lg">Large</Button>
+        </HStack>
+      </Stack>
+
+      <Stack gap="sm">
+        <Text variant="h6">With Icons</Text>
+        <HStack wrap>
+          <Button>
+            <PlayIcon />
+            Play
+          </Button>
+          <Button variant="outline" intent="neutral">
+            Next
+            <ChevronRightIcon />
+          </Button>
+        </HStack>
+      </Stack>
+    </VStack>
+  );
+}
+```
+
+## Dependencies
+
+- spinner
+
+## Files
+
+- `@ui/Button/button.tsx`
+- `@ui/Button/button.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Enter`
+- `Space`
+
+### ARIA Attributes
+
+- `aria-disabled`
+- `aria-label`
+- `aria-describedby`
+
+## Common Mistakes
+
+Button does not support `as` prop polymorphism. It always renders as a `<button>` element. If you need a link styled as a button, compose a Link with button styling manually. The loading state does not prevent the component from unmounting during navigation — handle cleanup in your mutation handlers. Button also does not support dropdown or split button patterns natively; those require composition with Popover or Select components.
+
+## Related Components
+
+- Spinner
+- IconButton
+- Toggle
+
+
+---
+
+# Calendar
+
+Calendar renders a date grid with month navigation, supporting single date, date range, and multiple date selection modes.
+
+- **Package:** `@blenx-dev/calendar`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** calendar, date, datepicker, day, month
+
+## Installation
+
+```bash
+npm install @blenx-dev/calendar
+```
+
+## Imports
+
+```tsx
+import { Calendar } from "@blenx-dev/calendar"
+```
+
+## Overview
+
+Calendar renders a date grid with month navigation, supporting single date, date range, and multiple date selection modes. It provides keyboard navigation for power users and accessible announcements for screen readers. Use Calendar when users need to view or select dates within a structured monthly layout — booking systems, scheduling interfaces, date-filtered reports, and birth date pickers.
+
+## Variants
+
+Configure `selectionMode` as `"single"`, `"range"`, or `"multiple"`. In single mode, clicking a date selects it and calls `onDateChange`. In range mode, clicking a start date then an end date selects the range, with visual highlighting between them. The `minDate` and `maxDate` props constrain the selectable range, graying out disabled dates. Month navigation occurs via previous and next arrow buttons, with optional month and year dropdowns for rapid navigation when `showMonthYearPicker` is enabled. The component accepts a `defaultMonth` to set the initially visible month without setting a selected date. Use `isDateUnavailable` for custom date disabling logic beyond simple range constraints.
+
+## Dependencies
+
+- button
+
+## Files
+
+- `@ui/Calendar/calendar.tsx`
+- `@ui/Calendar/calendar.css.ts`
+
+## Common Mistakes
+
+Calendar does not support week number display, ISO week numbering, or custom first-day-of-week per locale beyond the system setting. Time selection is not supported — combine with TimePicker for datetime inputs. The component renders all days in the visible month upfront; for extremely large date ranges or infinite scrolling through months, consider a custom virtualized implementation. Calendar also does not support drag-to-select for range selection; ranges must be selected via two clicks.
+
+## Related Components
+
+- DatePicker
+- Button
+
+
+---
+
+# Card
+
+Card is a surface-level container that groups related content and actions into a single visual unit.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** data-display
+- **Status:** stable
+- **Keywords:** card, container, panel, content, surface
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Card } from "@blenx-dev/core"
+```
+
+## Overview
+
+Card is a surface-level container that groups related content and actions into a single visual unit. It provides sub-components for header, body, footer, title, and description, enabling structured layouts without manual arrangement. Use cards to present discrete pieces of content — user profiles, dashboard widgets, product listings, and detail panels.
+
+## Variants
+
+Wrap content in `Card`, then compose with `CardHeader`, `CardBody`, and `CardFooter` as needed. `CardTitle` and `CardDescription` go inside `CardHeader` to establish the card's heading hierarchy and supplementary text. The header typically contains the title and any primary actions, the body holds the main content, and the footer houses secondary actions or metadata.
+
+`Card` renders a `Surface` with `variant="sunken"`, a border, and `p="md"` padding by default. `CardHeader`, `CardBody`, and `CardFooter` also apply `p="md"` padding automatically. Pass the `variant` prop to switch between surface styles — `"default"`, `"outline"`, `"raised"`, or `"sunken"`. Set `interactive` to add hover and focus-visible styles for clickable cards. All sub-components forward their underlying element props (`BoxProps` for header/body, `HStackProps` for footer, `TextProps` for title/description), giving you access to spacing, layout, and color sprinkles.
+
+## Examples
+
+### Card
+
+```tsx
+function CardDemo() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Getting Started</CardTitle>
+        <CardDescription>
+          Learn how to install and use Blenx UI components in your project.
+        </CardDescription>
+      </CardHeader>
+      <CardBody>
+        <Text variant="body2">
+          Blenx UI provides a set of accessible, styleable React components built on Base UI
+          primitives and styled with StyleX.
+        </Text>
+      </CardBody>
+      <CardFooter>
+        <Button variant="outline" size="sm">
+          Read docs
+        </Button>
+        <Button size="sm">Install</Button>
+      </CardFooter>
+    </Card>
+  );
+}
+```
+
+### ProfileCard
+
+```tsx
+function ProfileCardDemo() {
+  return (
+    <Card>
+      <CardHeader>
+        <HStack gap="md" align="center">
+          <Avatar size="lg">
+            <AvatarImage src="https://i.pravatar.cc/150?u=alex" alt="Alex Rivera" />
+            <AvatarFallback>AR</AvatarFallback>
+          </Avatar>
+          <VStack gap="xxs">
+            <HStack gap="xs" align="center">
+              <CardTitle>Alex Rivera</CardTitle>
+              <Badge variant="primary">Pro</Badge>
+            </HStack>
+            <HStack gap="xxs" align="center">
+              <MapPinIcon width={12} height={12} />
+              <Text variant="caption" color="secondary">
+                San Francisco, CA
+              </Text>
+            </HStack>
+          </VStack>
+        </HStack>
+      </CardHeader>
+      <CardBody>
+        <Text variant="body2">
+          Full-stack developer with 8+ years of experience building accessible, performant web
+          applications. Passionate about design systems and open source.
+        </Text>
+      </CardBody>
+      <CardFooter>
+        <HStack gap="sm" justify="end" wrap>
+          <Button variant="ghost" size="sm">
+            Message
+          </Button>
+          <Button size="sm">Follow</Button>
+        </HStack>
+      </CardFooter>
+    </Card>
+  );
+}
+```
+
+### ProductCard
+
+```tsx
+function ProductCardDemo() {
+  return (
+    <Card>
+      <Box
+        height="auto"
+        width="full"
+        backgroundColor="info"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          borderTopLeftRadius: "inherit",
+          borderTopRightRadius: "inherit",
+          overflow: "hidden",
+        }}
+      >
+        <Badge variant="danger" style={{ position: "absolute", top: 8, left: 8 }}>
+          20% OFF
+        </Badge>
+        <ShoppingCartIcon width={40} height={40} />
+      </Box>
+      <CardHeader>
+        <HStack gap="md" justify="between" align="center">
+          <VStack gap="xxs">
+            <CardTitle>Pro Subscription</CardTitle>
+            <CardDescription>Annual billing - save 20%</CardDescription>
+          </VStack>
+          <HStack gap="xs" align="center">
+            <StarIcon width={14} height={14} />
+            <Text variant="caption" weight="semibold">
+              4.9
+            </Text>
+          </HStack>
+        </HStack>
+      </CardHeader>
+      <CardBody>
+        <Text variant="body2">
+          Unlimited projects, advanced analytics, priority support, and team collaboration features.
+          Everything you need to scale your workflow.
+        </Text>
+        <HStack gap="xs" align="baseline" style={{ marginTop: 8 }}>
+          <Text variant="h3" weight="bold">
+            $29
+          </Text>
+          <Text variant="body3" color="secondary">
+            /month
+          </Text>
+        </HStack>
+      </CardBody>
+      <CardFooter>
+        <Button fullWidth>Subscribe Now</Button>
+      </CardFooter>
+    </Card>
+  );
+}
+```
+
+### StatCard
+
+```tsx
+function StatCardDemo() {
+  return (
+    <Card>
+      <CardBody>
+        <HStack gap="md" align="center" justify="between">
+          <VStack gap="xxs">
+            <Text variant="caption" color="secondary">
+              Total Revenue
+            </Text>
+            <Text variant="h3" weight="bold">
+              $48,250
+            </Text>
+            <HStack gap="xxs" align="center">
+              <Badge variant="success">+12.5%</Badge>
+              <Text variant="caption" color="secondary">
+                vs last month
+              </Text>
+            </HStack>
+          </VStack>
+          <Box
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: 12,
+              backgroundColor: "var(--color-primary-subtle)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <ChartBarIcon width={24} height={24} />
+          </Box>
+        </HStack>
+      </CardBody>
+    </Card>
+  );
+}
+```
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/Card/card.tsx`
+
+## Common Mistakes
+
+Card does not support collapsible or expandable sections internally — use Accordion within the body for that pattern. Cards have a fixed layout within their container; they do not reflow content based on viewport beyond standard responsive breakpoints. Card also does not manage overflow behavior — if content exceeds the card bounds, implement scrolling or truncation manually. Cards are not interactive by default; pass the `interactive` prop to add hover background and focus-visible styles, then wire up click handlers externally.
+
+## Related Components
+
+- Surface
+- Box
+
+
+---
+
+# Checkbox
+
+Checkbox presents a binary choice with an associated label, supporting checked, unchecked, and indeterminate states.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** checkbox, check, input, form, selection, indeterminate
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Checkbox } from "@blenx-dev/core"
+```
+
+## Overview
+
+Checkbox presents a binary choice with an associated label, supporting checked, unchecked, and indeterminate states. It includes built-in validation support and accessible labeling. Use checkboxes for multi-select scenarios where users can choose zero, one, or many options from a set — settings panels, permission tables, filter lists, and terms acceptance.
+
+## Variants
+
+Control the checked state with `checked` and `onChange` props. Pass `indeterminate` to render the minus icon for partial selection in tree hierarchies — this is a visual-only state and does not affect the boolean value. Use `invalid` and `required` props for validation feedback. The label is passed as `children` or via the `label` prop, and clicking the label toggles the checkbox. For checkbox groups, wrap multiple checkboxes in a `Field` with a group label and use `FieldError` for validation messages. The `size` prop adjusts the checkbox box dimensions and label font size proportionally.
+
+## Files
+
+- `@ui/Checkbox/checkbox.tsx`
+- `@ui/Checkbox/checkbox.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Space`
+
+### ARIA Attributes
+
+- `aria-checked`
+- `aria-labelledby`
+
+## Common Mistakes
+
+Checkbox does not support a tri-state value API — the `checked` prop remains boolean, and indeterminate is managed separately. The component does not include a group-level state manager; you must manage the selected set in your parent component. Checkbox also does not handle native form submission — serialize state manually for form integration. The indeterminate state is purely visual and cannot be set as the default for an uncontrolled checkbox.
+
+## Related Components
+
+- Field
+- CheckboxGroup
+
+
+---
+
+# Color Picker
+
+Color Picker provides a popover-based color selection interface with a swatch preview, HEX and RGB input fields, and a grid of preset colors.
+
+- **Package:** `@blenx-dev/color-picker`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** color, picker, color picker, hex, popover
+
+## Installation
+
+```bash
+npm install @blenx-dev/color-picker
+```
+
+## Imports
+
+```tsx
+import { ColorPicker } from "@blenx-dev/color-picker"
+```
+
+## Overview
+
+Color Picker provides a popover-based color selection interface with a swatch preview, HEX and RGB input fields, and a grid of preset colors. Use it when users need to specify a color value for customization tools — theme builders, branding settings, chart color configuration, and UI personalization panels. The component abstracts the complexity of color space representation while giving power users direct input for precise values.
+
+## Variants
+
+Control the selected color with `value` (a string in HEX, RGB, HSL, or named color format) and `onChange`. The popover opens on click of the trigger button, which displays the current color as a swatch. Within the popover, users can click a preset color, drag in the saturation-brightness panel, adjust the hue slider, or type values into HEX/RGB input fields. Changes in any input method update all other representations in real time. The `presetColors` prop accepts an array of color strings to display as quick-select swatches at the top of the popover. The component returns color values in the format specified by the `format` prop, defaulting to HEX.
+
+## Dependencies
+
+- button
+- color-swatch
+- field
+- popover
+- stack
+
+## Files
+
+- `@ui/ColorPicker/color-picker.tsx`
+
+## Common Mistakes
+
+Color Picker does not support alpha/opacity channels. If you need transparency, extend the component externally or accept the color as RGBA with a separate opacity slider. The saturation-brightness panel uses a fixed gradient map and does not support custom gamuts or color spaces like LAB or CMYK. The component also does not provide color contrast ratio calculations or palette generation. For color blindness simulation or accessibility checking, the consumer must implement those features separately.
+
+## Related Components
+
+- ColorSwatch
+- Popover
+- Field
+- Button
+
+
+---
+
+# Color Swatch
+
+Color Swatch is a presentational element that displays a color value as a small circular preview.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** data-display
+- **Status:** stable
+- **Keywords:** color, swatch, preview, color swatch
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { ColorSwatch } from "@blenx-dev/core"
+```
+
+## Overview
+
+Color Swatch is a presentational element that displays a color value as a small circular preview. It serves as a building block for color-related interfaces and is commonly used within Color Picker, but also stands alone for displaying theme colors, status indicators, or category markers. Use Color Swatch when you need to show a color value inline — in a list of named colors, as a legend indicator on a chart, or as a category badge in a data table.
+
+## Variants
+
+Pass a `color` prop as a CSS color string — HEX, RGB, HSL, or named colors. The `size` prop controls the diameter of the circle. An optional `border` prop adds a subtle ring around the swatch, useful when the color is white or very light. Swatches can be grouped as children of a `Box` with flex layout for swatch lists. The component does not handle click events directly; wrap it in a `Button` or clickable container if interactivity is needed. Color Swatch accepts an optional `aria-label` for accessible naming when used without accompanying text.
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/ColorSwatch/color-swatch.tsx`
+- `@ui/ColorSwatch/color-swatch.styles.ts`
+
+## Common Mistakes
+
+Color Swatch does not support custom shapes beyond the default circle. It cannot display gradients or patterns — only solid colors. There is no built-in color format conversion; the component renders whatever CSS color string is provided. Color Swatch also does not validate color strings — invalid values render as transparent. The component has no interactive capabilities and no state management for selection or hover states.
+
+## Related Components
+
+- ColorPicker
+
+
+---
+
+# Combobox
+
+Combobox merges a text input with a selectable options list, combining the flexibility of free-text entry with the precision of constrained selection.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** combobox, select, autocomplete, chips, multi-select
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Combobox } from "@blenx-dev/core"
+```
+
+## Overview
+
+Combobox merges a text input with a selectable options list, combining the flexibility of free-text entry with the precision of constrained selection. Users can type to filter options, navigate with arrow keys, and select with Enter or click. Use Combobox when users need to select from a list but may also need to enter a custom value not in the list — think tag inputs, recipient selectors, or country pickers with typing support.
+
+## Variants
+
+Pass `options` as an array of objects with `label` and `value` properties. The input filters options as the user types, and the filtered list is displayed in a popover. Use `allowCustomValue` to permit values not in the options array — when enabled, the current input value is treated as a valid selection. In multi-select mode (`multiple`), selected items render as removable chips inside the input. The popover opens on input focus or click, and closes on selection, blur, or Escape. Control the selected value with `value` and `onChange`, or use `defaultValue` for uncontrolled usage.
+
+## Dependencies
+
+- input
+- scroll-area
+
+## Files
+
+- `@ui/Combobox/combobox.tsx`
+- `@ui/Combobox/combobox.css.ts`
+
+## Common Mistakes
+
+Combobox does not support option grouping with headers. If you need categorized options, consider using a Select with optgroups or a custom grouped list. The popover uses virtual scrolling only when the number of options exceeds a threshold; extremely large lists may cause performance issues on initial render. The component does not provide built-in debouncing for async options filtering. When `allowCustomValue` is enabled, there is no built-in way to distinguish user-entered values from selected options after the fact.
+
+## Related Components
+
+- Input
+- ScrollArea
+- Field
+- Autocomplete
+
+
+---
+
+# Command
+
+Command implements a command palette — a search-driven interface for triggering actions, navigating pages, and discovering features.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** overlay
+- **Status:** experimental
+- **Keywords:** command, palette, search, filter, kbar, spotlight, keyboard
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Command } from "@blenx-dev/core"
+```
+
+## Overview
+
+Command implements a command palette — a search-driven interface for triggering actions, navigating pages, and discovering features. Users invoke it with a keyboard shortcut (typically Cmd+K or Ctrl+K), type to filter commands, and select an action to execute. Command is organized into groups of related actions, each with an optional keyboard shortcut hint.
+
+## Variants
+
+Define command items as an array of objects with `id`, `label`, optional `shortcut`, optional `group`, and `onSelect` callback. Groups are defined separately and items reference them by key. The search input filters items across all groups using case-insensitive matching against the label. Selected items call the `onSelect` callback and close the palette. Use `pages` for nested command flows — a "Create" command could open a sub-page with specific creation options. The palette opens and closes via the exposed `open` and `onOpenChange` props, typically bound to a keyboard shortcut listener. Command handles focus trapping and Escape dismissal within the dialog overlay.
+
+## Examples
+
+```tsx
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandSeparator,
+} from "./command";
+import { HStack, VStack } from "../Stack/stack";
+import { Text } from "../Text/text";
+import { FileCodeIcon, PaletteIcon, SettingsIcon } from "../../icons";
+
+export function CommandBasic() {
+  return (
+    <VStack gap="sm">
+      <Text variant="body2" color="secondary">
+        A basic command palette with search filtering.
+      </Text>
+      <Command>
+        <CommandInput placeholder="Search frameworks…" />
+        <CommandList>
+          <CommandEmpty>No frameworks found.</CommandEmpty>
+          <CommandItem value="react">React</CommandItem>
+          <CommandItem value="vue">Vue</CommandItem>
+          <CommandItem value="svelte">Svelte</CommandItem>
+          <CommandItem value="solid">Solid</CommandItem>
+          <CommandItem value="angular">Angular</CommandItem>
+        </CommandList>
+      </Command>
+    </VStack>
+  );
+}
+
+export function CommandWithGroups() {
+  return (
+    <VStack gap="sm">
+      <Text variant="body2" color="secondary">
+        Command palette with grouped items and custom icons.
+      </Text>
+      <Command>
+        <CommandInput placeholder="Search commands…" />
+        <CommandList>
+          <CommandEmpty>No results.</CommandEmpty>
+          <CommandGroup heading="Frameworks">
+            <CommandItem value="react">
+              <HStack gap="sm" align="center">
+                <FileCodeIcon width={16} height={16} />
+                <span>React</span>
+              </HStack>
+            </CommandItem>
+            <CommandItem value="vue">
+              <HStack gap="sm" align="center">
+                <FileCodeIcon width={16} height={16} />
+                <span>Vue</span>
+              </HStack>
+            </CommandItem>
+            <CommandItem value="svelte">
+              <HStack gap="sm" align="center">
+                <FileCodeIcon width={16} height={16} />
+                <span>Svelte</span>
+              </HStack>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Tools">
+            <CommandItem value="vite">
+              <HStack gap="sm" align="center">
+                <SettingsIcon width={16} height={16} />
+                <span>Vite</span>
+              </HStack>
+            </CommandItem>
+            <CommandItem value="webpack">
+              <HStack gap="sm" align="center">
+                <SettingsIcon width={16} height={16} />
+                <span>Webpack</span>
+              </HStack>
+            </CommandItem>
+            <CommandItem value="turbopack">
+              <HStack gap="sm" align="center">
+                <SettingsIcon width={16} height={16} />
+                <span>Turbopack</span>
+              </HStack>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Themes">
+            <CommandItem value="light">
+              <HStack gap="sm" align="center">
+                <PaletteIcon width={16} height={16} />
+                <span>Light</span>
+              </HStack>
+            </CommandItem>
+            <CommandItem value="dark">
+              <HStack gap="sm" align="center">
+                <PaletteIcon width={16} height={16} />
+                <span>Dark</span>
+              </HStack>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </Command>
+    </VStack>
+  );
+}
+
+export const demos = [
+  { name: "Default", component: CommandBasic },
+  { name: "With Groups", component: CommandWithGroups },
+];
+```
+
+## Dependencies
+
+- scroll-area
+
+## Files
+
+- `@ui/Command/command.tsx`
+- `@ui/Command/command.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `ArrowDown`
+- `ArrowUp`
+- `Enter`
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `combobox`
+- `listbox`
+- `option`
+- `aria-selected`
+- `aria-expanded`
+- `aria-haspopup`
+
+## Common Mistakes
+
+Command does not support inline documentation or help text for items — the label and optional description must be self-explanatory. The component does not persist recently used or frequently used commands for ranking; items are always displayed in the defined order. Nested pages are limited to one level of depth — deeper hierarchies require custom implementation. Command also does not support async item loading; all items must be provided upfront.
+
+## Related Components
+
+- Dialog
+- Select
+- Menu
+
+
+---
+
+# Container
+
+Container provides a responsive content width constraint and horizontal centering for page-level layouts.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** stable
+- **Keywords:** container, layout, wrapper, center, max-width
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Container } from "@blenx-dev/core"
+```
+
+## Overview
+
+Container provides a responsive content width constraint and horizontal centering for page-level layouts. It caps the maximum width of its children at a configurable breakpoint and centers them within the viewport using auto margins. Use Container as the outermost wrapper for page content to ensure consistent reading widths across different screen sizes.
+
+## Variants
+
+Wrap page content in Container with the `maxWidth` prop set to a theme breakpoint token — `sm`, `md`, `lg`, `xl`, or full width via `false`. The default is `lg` (typically 1024px). Container applies `max-width` and `margin-inline: auto` to center itself. It does not apply padding by default; add `padding` prop if you need horizontal padding between the container edge and its content. For nested layouts — such as a sidebar layout within a page — use Container for the main content area and a separate component for the sidebar. Container can be used without a max width for fluid layouts that still need centering.
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/Container/container.tsx`
+- `@ui/Container/container.css.ts`
+
+## Common Mistakes
+
+Container does not support negative margins or overflow behavior — it clips content that exceeds its bounds unless `overflow` is set separately. It also does not handle sticky positioning or z-index management. Container is not responsive in terms of switching between constrained and unconstrained modes — it always applies a max width. For sections that should be full-width on some breakpoints and constrained on others, implement custom logic or use the breakpoint props system.
+
+## Related Components
+
+- Box
+- Stack
+
+
+---
+
+# Data Table
+
+DataTable is a feature-rich table component built on @tanstack/react-table for sorting, filtering, pagination, column visibility toggle, row selection, infinite scroll, and server-side operations.
+
+- **Package:** `@blenx-dev/datatable`
+- **Category:** primitives
+- **Status:** stable
+
+## Installation
+
+```bash
+npm install @blenx-dev/datatable
+```
+
+## Imports
+
+```tsx
+import { DataTable } from "@blenx-dev/datatable"
+```
+
+## Overview
+
+DataTable is a feature-rich table component built on @tanstack/react-table for sorting, filtering, pagination, column visibility toggle, row selection, infinite scroll, and server-side operations. It handles loading, empty, and error states natively. Use DataTable whenever you need to present tabular data that requires user interaction — sorting by columns, filtering rows, selecting items for batch operations, or paginating through large datasets.
+
+## Variants
+
+Define columns using the `columns` prop with accessor functions, header labels, and optional cell renderers. Pass data via the `data` prop. Sorting is enabled per-column by setting `enableSorting: true` in the column definition. Filtering works through column-level filter inputs or a global search control via `globalFilter`. For pagination, use the `pagination` prop with page size and page index state, or enable `infiniteScroll` for a load-more pattern. Row selection is exposed through `onRowSelectionChange` and the `rowSelection` prop. The table manages its internal state via @tanstack/react-table's state management, but you can control it externally through the `state` prop. Server-side mode passes sorting, filtering, and pagination state to your data fetching function via callbacks.
+
+## Dependencies
+
+- @phosphor-icons/react
+- @tanstack/react-table
+- button
+- input
+- menu
+- spinner
+
+## Files
+
+- `@components/data-table/data-table.tsx`
+- `@components/data-table/data-table-column-toggle.tsx`
+- `@components/data-table/data-table-empty.tsx`
+- `@components/data-table/data-table-error.tsx`
+- `@components/data-table/data-table-infinite-loader.tsx`
+- `@components/data-table/data-table-loading.tsx`
+- `@components/data-table/data-table-pagination.tsx`
+- `@components/data-table/data-table-toolbar.tsx`
+- `@ui/data-table/types.ts`
+- `@components/data-table/index.ts`
+- `@components/data-table/use-infinite-scroll.ts`
+
+## Common Mistakes
+
+DataTable does not support column reordering via drag-and-drop out of the box. Editable cells require custom implementation using the cell renderer pattern. Tree or hierarchical data with expandable rows is not supported natively. The infinite scroll mode does not support reverse scrolling for chat-like interfaces. DataTable also does not provide built-in export to CSV or Excel — implement export logic separately using the current data and column definitions. The virtualization layer activates only after a configurable row threshold; extremely large datasets may need manual virtualizer configuration.
+
+
+---
+
+# Date Picker
+
+DatePicker combines the Calendar component with a Popover and a text input trigger, enabling users to select a date through either visual calendar navigation or direct text input.
+
+- **Package:** `@blenx-dev/calendar`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** date, date picker, calendar, popover, form
+
+## Installation
+
+```bash
+npm install @blenx-dev/calendar
+```
+
+## Imports
+
+```tsx
+import { DatePicker } from "@blenx-dev/calendar"
+```
+
+## Overview
+
+DatePicker combines the Calendar component with a Popover and a text input trigger, enabling users to select a date through either visual calendar navigation or direct text input. It displays the selected date in a formatted input field and opens the calendar on click or focus. Use DatePicker when users need to enter a date within a form context — booking systems, date-of-birth fields, scheduling interfaces, and date range filters.
+
+## Variants
+
+Control the selected date with `value` (a Date object) and `onChange`. The `format` prop defines the display format in the input field. The popover opens when the user clicks the input or the calendar icon. Use `minDate` and `maxDate` to constrain the selectable range, disabling invalid dates in the calendar. The `selectionMode` prop supports single, range, and multiple modes, mirroring Calendar's capabilities. In range mode, the input shows the start and end dates separated by a dash. The component handles date parsing from text input — invalid text entries trigger validation errors without closing the popover. The `defaultMonth` prop sets the initially visible month in the calendar, independent of the selected date.
+
+## Dependencies
+
+- button
+- calendar
+- field
+- popover
+
+## Files
+
+- `@ui/DatePicker/date-picker.tsx`
+
+## Common Mistakes
+
+DatePicker does not support time selection — datetime inputs require composing DatePicker with a separate TimeInput. The component operates in the browser's local time zone; dates are always represented as local Date objects. The popover position is fixed and may overflow on small viewports if not configured with appropriate placement. DatePicker also does not support non-Gregorian calendars. The range selection mode requires two clicks for each range; drag-to-select is not supported.
+
+## Related Components
+
+- Calendar
+- Popover
+- Field
+- Button
+
+
+---
+
+# Dialog
+
+Dialog is a modal overlay that presents content requiring user attention or input while blocking interaction with the rest of the page.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** overlay
+- **Status:** stable
+- **Keywords:** dialog, modal, popup, overlay, alert
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Dialog } from "@blenx-dev/core"
+```
+
+## Overview
+
+Dialog is a modal overlay that presents content requiring user attention or input while blocking interaction with the rest of the page. It is built on Base UI Dialog primitives for accessible focus trapping, dismiss handling, and backdrop management. Use Dialog for forms, confirmations, detail views, and any workflow where the user should focus on a single task before returning to the main interface.
+
+## Variants
+
+Dialog consists of `DialogTrigger`, `DialogContent`, `DialogHeader`, `DialogBody`, `DialogFooter`, `DialogTitle`, and `DialogDescription` sub-components. Trigger the dialog via `DialogTrigger`, which can be any interactive element. `DialogContent` renders the modal surface with the backdrop. `DialogTitle` provides the accessible name for the dialog, and `DialogDescription` provides additional context. The dialog traps focus within its content when open, returns focus to the trigger on close, and dismisses on Escape or backdrop click. Control open state with `open` and `onOpenChange` for controlled usage, or use `defaultOpen` for uncontrolled. The `size` prop adjusts the dialog width — `sm`, `md`, `lg`, `xl`, and `fullscreen`.
+
+## Examples
+
+```tsx
+function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger render={<Button variant="outline" />}>Open Dialog</DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Confirm Action</DialogTitle>
+          <DialogDescription>Are you sure you want to proceed with this action?</DialogDescription>
+        </DialogHeader>
+        <DialogPanel>
+          <Text variant="body2">This action cannot be undone. Please confirm your choice.</Text>
+        </DialogPanel>
+        <DialogFooter>
+          <HStack gap="sm" justify="end" wrap>
+            <DialogClose render={<Button variant="ghost" />}>Cancel</DialogClose>
+            <Button>Confirm</Button>
+          </HStack>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+## Dependencies
+
+- icon-button
+- scroll-area
+
+## Files
+
+- `@ui/Dialog/dialog.tsx`
+- `@ui/Dialog/dialog.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `aria-modal`
+- `aria-labelledby`
+- `aria-describedby`
+
+## Common Mistakes
+
+Dialog does not support resizing or dragging. It cannot be minimized to reveal underlying content. Stacking multiple dialogs is not supported — only one dialog can be open at a time. Dialog also does not manage unsaved changes detection; implement before-close confirmation logic using `onOpenChange` if needed. The component renders in a portal and may require additional z-index configuration when used alongside other portal-based components.
+
+## Related Components
+
+- AlertDialog
+- Button
+- ScrollArea
+- Drawer
+
+
+---
+
+# Drawer
+
+Drawer is a slide-in panel that emerges from any edge of the viewport — left, right, top, or bottom — providing a secondary surface for content and actions.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** overlay
+- **Status:** stable
+- **Keywords:** drawer, panel, slide, swipe, sidebar, menu
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Drawer } from "@blenx-dev/core"
+```
+
+## Overview
+
+Drawer is a slide-in panel that emerges from any edge of the viewport — left, right, top, or bottom — providing a secondary surface for content and actions. It is built on Base UI Dialog primitives, inheriting accessible focus trapping and backdrop management. Use Drawer for navigation menus on mobile, detail panels that reference data on the current page, filter panels, and multi-step workflows that benefit from staying in context.
+
+## Variants
+
+Set the `placement` prop to `"left"`, `"right"`, `"top"`, or `"bottom"` to control the entry direction. The `size` prop controls the drawer width for left/right placements and height for top/bottom placements. Control open state with `open` and `onOpenChange`. Drawer accepts the same sub-component structure as Dialog: `DrawerTrigger`, `DrawerContent`, `DrawerHeader`, `DrawerBody`, `DrawerFooter`, `DrawerTitle`, and `DrawerDescription`. The content area scrolls independently when overflow occurs. Drawer traps focus and dismisses on Escape or backdrop click. The `closeOnOutsideClick` prop can be disabled for workflows that require persistent attention.
+
+## Examples
+
+```tsx
+function DrawerDemo() {
+  return (
+    <VStack gap="md">
+      <Text variant="h6">Drawer</Text>
+      <Drawer position="right">
+        <DrawerTrigger
+          render={
+            <Button variant="outline">
+              <SettingsIcon /> Settings
+            </Button>
+          }
+        />
+        <DrawerPopup showCloseButton showBar>
+          <DrawerHeader>
+            <DrawerTitle>Settings</DrawerTitle>
+            <DrawerDescription>Customize your application preferences.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerPanel>
+            <VStack gap="sm">
+              <Text variant="body2">Notification preferences</Text>
+              <Text variant="body2" color="secondary">
+                Choose how you receive updates and alerts.
+              </Text>
+              <Text variant="body2">Theme customization</Text>
+              <Text variant="body2" color="secondary">
+                Adjust the appearance to match your workflow.
+              </Text>
+            </VStack>
+          </DrawerPanel>
+          <DrawerFooter>
+            <HStack gap="sm" justify="end" wrap>
+              <DrawerClose render={<Button variant="ghost" />}>Cancel</DrawerClose>
+              <Button>Save</Button>
+            </HStack>
+          </DrawerFooter>
+        </DrawerPopup>
+      </Drawer>
+    </VStack>
+  );
+}
+```
+
+## Dependencies
+
+- icon-button
+- scroll-area
+
+## Files
+
+- `@ui/Drawer/drawer.tsx`
+- `@ui/Drawer/drawer.css.ts`
+
+## Common Mistakes
+
+Drawer does not support resizing by the user. It cannot be converted to a floating panel or undocked from the viewport edge. Nesting drawers is not supported. Drawer does not persist open state across navigation — it must be managed at the page level. The slide animation uses CSS transforms and may conflict with other animated elements on the same compositing layer. Drawer also does not support swipe-to-dismiss gestures on touch devices; dismissal requires the close button, Escape key, or backdrop click.
+
+## Related Components
+
+- ScrollArea
+- Dialog
+- Button
+
+
+---
+
+# Field
+
+Field wraps form controls with label, help text, and error message layout, providing consistent form structure and accessible associations.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** field, form, label, error, validation, input
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Field } from "@blenx-dev/core"
+```
+
+## Overview
+
+Field wraps form controls with label, help text, and error message layout, providing consistent form structure and accessible associations. It acts as the single source of truth for form field metadata — every interactive input in a form should be wrapped in Field to ensure proper labeling and validation feedback. Use Field everywhere you place a form control — text inputs, selects, checkboxes, radio groups, date pickers, and custom form widgets.
+
+## Variants
+
+Pass the `label` prop for the visible label text and `name` for the form control's identifier. Use `helpText` for descriptive guidance that appears below the control, and `errorMessage` for validation errors. The `required` prop adds a visual indicator (typically an asterisk) to the label and sets `aria-required` on the control. Field uses `FieldLabel`, `FieldHelpText`, and `FieldError` sub-components internally but renders them automatically based on the props. The `layout` prop switches between vertical (label above control) and horizontal (label beside control) orientations. For horizontal layouts, `labelWidth` controls the label column width. Field wraps its children in a structure that maintains consistent spacing and alignment regardless of the child component.
+
+## Dependencies
+
+- button
+- scroll-area
+
+## Files
+
+- `@ui/Field/field.tsx`
+- `@ui/Field/field.css.ts`
+
+## Common Mistakes
+
+Field does not support inline validation with real-time error display as the user types — error messages are set externally. The component does not handle form-level validation logic or submission. Field also does not manage field grouping for radio groups or checkbox groups beyond wrapping each individual control — use a parent container with a group label for grouped controls. The horizontal layout may not be suitable for narrow viewports; responsive adjustments must be managed by the parent form layout.
+
+## Related Components
+
+- Input
+- Select
+- Textarea
+- ColorPicker
+- DatePicker
+
+
+---
+
+# Grid
+
+Grid is a CSS Grid layout primitive that enables complex two-dimensional layouts with rows and columns.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** experimental
+- **Keywords:** grid, layout, columns, css grid, responsive
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Grid } from "@blenx-dev/core"
+```
+
+## Overview
+
+Grid is a CSS Grid layout primitive that enables complex two-dimensional layouts with rows and columns. It provides a declarative API for defining grid templates, gaps, and item placement using theme tokens. Use Grid for page-level layouts with multiple regions, card grids, dashboard layouts, and any layout that requires simultaneous control over horizontal and vertical alignment.
+
+## Variants
+
+Define the grid structure with `columns` and `rows` props, accepting CSS grid template values or theme-based span tokens. The `gap` prop sets row and column gaps using theme spacing tokens. Items are placed automatically in source order or explicitly using `column` and `row` props on child elements. Use `alignItems`, `justifyContent`, and `placeItems` for alignment control. Responsive grids are achieved by passing object values keyed by breakpoint — for example, `columns={{ sm: 1, md: 2, lg: 3 }}`. The component renders as a `div` with `display: grid` and passes all specified CSS grid properties through vanilla-extract.
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/Grid/grid.tsx`
+- `@ui/Grid/grid.css.ts`
+
+## Common Mistakes
+
+Grid does not support subgrid behavior — child grid items cannot inherit the parent grid's column tracks. If you need subgrid, apply a separate Grid definition to the child. The component does not support grid auto-flow with dense packing for masonry-style layouts — implement masonry patterns with a dedicated library. Grid also lacks support for named grid lines or areas as props; use CSS class overrides for advanced grid template areas. The component does not provide debugging tools for visualizing grid lines during development.
+
+## Related Components
+
+- Box
+- Stack
+
+
+---
+
+# Icon Button
+
+Icon buttons provide a compact trigger for actions where visual real estate is limited.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** icon, button, icon-button, action, toolbar
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { IconButton } from "@blenx-dev/core"
+```
+
+## Overview
+
+Icon buttons provide a compact trigger for actions where visual real estate is limited. They use a square footprint with no visible text label, relying entirely on the icon to communicate intent. Use icon buttons in toolbars, table row actions, search fields, and notification controls where space is constrained and the icon meaning is self-evident.
+
+## Variants
+
+Icon buttons are built on the Button component with enforced square aspect ratio and default size that matches the standard button height. The variant, size, and color props map directly to Button semantics, ensuring visual consistency across the system. Unlike standard buttons, icon buttons do not accept children as text — only render an icon element. An accessible label must always be provided through `aria-label` for screen readers.
+
+## Examples
+
+```tsx
+function IconButtonDemo() {
+  return (
+    <VStack gap="md">
+      <VStack gap="sm">
+        <Text variant="h6">Variants</Text>
+        <HStack wrap>
+          <IconButton aria-label="Send" variant="solid">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="soft">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="outline">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="ghost">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="soft">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="link">
+            <SendIcon />
+          </IconButton>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">Intents</Text>
+        <HStack wrap>
+          <IconButton aria-label="Send" intent="primary">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Delete" intent="danger">
+            <Trash2Icon />
+          </IconButton>
+          <IconButton aria-label="Success" intent="success">
+            <BellIcon />
+          </IconButton>
+          <IconButton aria-label="Warning" intent="warning">
+            <BellIcon />
+          </IconButton>
+          <IconButton aria-label="Info" intent="info">
+            <BellIcon />
+          </IconButton>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">Variant + Intent</Text>
+        <HStack wrap>
+          <IconButton aria-label="Delete" variant="ghost" intent="danger">
+            <Trash2Icon />
+          </IconButton>
+          <IconButton aria-label="Delete" variant="outline" intent="danger">
+            <Trash2Icon />
+          </IconButton>
+          <IconButton aria-label="Delete" variant="soft" intent="danger">
+            <Trash2Icon />
+          </IconButton>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">Sizes</Text>
+        <HStack wrap align="center">
+          <IconButton aria-label="Send" variant="outline">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="outline">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="outline">
+            <SendIcon />
+          </IconButton>
+          <IconButton aria-label="Send" variant="outline">
+            <SendIcon />
+          </IconButton>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">States</Text>
+        <HStack wrap>
+          <IconButton aria-label="Refresh" loading>
+            <RefreshCcwIcon />
+          </IconButton>
+          <IconButton aria-label="Send" disabled>
+            <SendIcon />
+          </IconButton>
+        </HStack>
+      </VStack>
+    </VStack>
+  );
+}
+```
+
+## Dependencies
+
+- button
+
+## Files
+
+- `@ui/IconButton/icon-button.tsx`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Enter`
+- `Space`
+
+### ARIA Attributes
+
+- `aria-label`
+- `aria-disabled`
+
+## Common Mistakes
+
+Icon buttons cannot accommodate text labels, making them unsuitable for actions that require verbal clarification. The fixed square aspect ratio may cause layout issues in containers with non-standard heights. Complex or multi-step actions should not be hidden behind an icon-only trigger.
+
+## Related Components
+
+- Icon
+- Button
+- Spinner
+
+
+---
+
+# Icon
+
+Icon is a wrapper component for Phosphor icons that provides consistent sizing, coloring, and accessibility defaults.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** utility
+- **Status:** stable
+- **Keywords:** icon, svg, size, color, wrapper
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Icon } from "@blenx-dev/core"
+```
+
+## Overview
+
+Icon is a wrapper component for Phosphor icons that provides consistent sizing, coloring, and accessibility defaults. It renders the specified icon with the correct viewBox and stroke weight, inheriting or overriding color and size from props. Use Icon whenever you need a visual symbol in the interface — navigation items, button slots, status indicators, empty state illustrations, and decorative elements.
+
+## Variants
+
+Pass the Phosphor icon component as a child to Icon, or use the `name` prop with the icon's string identifier. Set `size` to one of the theme size tokens to match the surrounding text scale. The `color` prop accepts theme color tokens or raw CSS color values. By default, Icon inherits the current text color via `currentColor`, ensuring it matches adjacent text without explicit color configuration. The `weight` prop maps to Phosphor's built-in weight variants (regular, bold, fill, duotone, thin) for visual emphasis. Use `aria-hidden="true"` when the icon is decorative and `aria-label` when it serves as the sole identifier of an action.
+
+## Examples
+
+```tsx
+function IconDemo() {
+  return (
+    <VStack gap="md">
+      <VStack gap="sm">
+        <Text variant="h6">Sizes</Text>
+        <HStack align="center" gap="sm">
+          <Icon>
+            <UserIcon width={24} height={24} />
+          </Icon>
+          <Icon>
+            <UserIcon width={24} height={24} />
+          </Icon>
+          <Icon>
+            <UserIcon />
+          </Icon>
+          <Icon>
+            <UserIcon width={44} height={44} />
+          </Icon>
+          <Icon>
+            <UserIcon width={64} height={64} />
+          </Icon>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">Colors</Text>
+        <HStack align="center" gap="sm">
+          <Icon color="primary">
+            <SendIcon />
+          </Icon>
+          <Icon color="secondary">
+            <SendIcon />
+          </Icon>
+          <Icon>
+            <SendIcon />
+          </Icon>
+          <Icon color="error">
+            <XIcon />
+          </Icon>
+          <Icon color="success">
+            <CheckIcon />
+          </Icon>
+          <Icon color="warning">
+            <CircleAlertIcon />
+          </Icon>
+          <Icon color="info">
+            <InfoIcon />
+          </Icon>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">Background Colors</Text>
+        <HStack align="center" gap="sm">
+          <Icon backgroundColor="primary" color="primary" radius="sm">
+            <InfoIcon />
+          </Icon>
+          <Icon backgroundColor="error" color="error" radius="sm">
+            <XIcon />
+          </Icon>
+          <Icon backgroundColor="success" color="success" radius="sm">
+            <CheckIcon />
+          </Icon>
+          <Icon backgroundColor="warning" color="warning" radius="sm">
+            <CircleAlertIcon />
+          </Icon>
+          <Icon backgroundColor="info" color="info" radius="sm">
+            <InfoIcon />
+          </Icon>
+        </HStack>
+      </VStack>
+
+      <VStack gap="sm">
+        <Text variant="h6">Color Inherited from Parent</Text>
+        <HStack align="center" gap="sm">
+          <Icon>
+            <UserIcon />
+          </Icon>
+        </HStack>
+      </VStack>
+    </VStack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Icon/icon.tsx`
+- `@ui/Icon/icon.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `aria-hidden`
+
+## Common Mistakes
+
+Icon only supports Phosphor icon library. Non-Phosphor SVGs cannot be used through the Icon component. The component does not support animated icons or icon spritesheets. Custom icon sizes outside the defined theme tokens must use raw CSS values and may not align with typography consistently. Icon also does not support multi-color icons beyond the single `color` prop — duotone and fill weights that use multiple colors are rendered as a single color override. For complex multi-color icons, render the SVG directly.
+
+## Related Components
+
+- IconButton
+- Button
+- Badge
+
+
+---
+
+# Input Group
+
+Input Group extends a standard Input with prefix or suffix adornments — icons, buttons, text labels, or dropdown triggers.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** input group, fieldset, addon, form, group
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { InputGroup } from "@blenx-dev/core"
+```
+
+## Overview
+
+Input Group extends a standard Input with prefix or suffix adornments — icons, buttons, text labels, or dropdown triggers. It solves the problem of composite input fields where additional context or actions are necessary within the same visual boundary. Use input groups for search fields with submit buttons, password fields with visibility toggles, amount fields with currency indicators, and URL inputs with protocol prefixes.
+
+## Variants
+
+The component wraps an Input and positions adornment elements in the leading or trailing slots. Adornments are rendered inline within the input's visual container, using the same border, background, and height to create a seamless appearance. The Input Group manages focus states so that clicking an adornment does not remove focus from the input itself. When an adornment is interactive, such as a button, the interactive element must handle its own focus and click events.
+
+## Examples
+
+```tsx
+import { SearchIcon, UserIcon } from "../../icons";
+import { Button } from "../Button/button";
+import { Stack } from "../Stack/stack";
+import { Text } from "../Text/text";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "./input-group";
+
+export function DefaultStory() {
+  return (
+    <Stack gap="md">
+      <Text variant="h4">With icon and button</Text>
+      <InputGroup>
+        <InputGroupAddon align="inline-start">
+          <SearchIcon width={16} height={16} />
+        </InputGroupAddon>
+        <InputGroupInput placeholder="Search..." />
+        <InputGroupAddon align="inline-end">
+          <Button size="sm" variant="ghost">
+            Go
+          </Button>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon align="block-start">
+          <SearchIcon width={16} height={16} />
+        </InputGroupAddon>
+        <InputGroupTextarea placeholder="Search..." />
+        <InputGroupAddon align="block-end">
+          <Button size="sm" variant="ghost">
+            Go
+          </Button>
+        </InputGroupAddon>
+      </InputGroup>
+      <Text variant="h4">With text addon</Text>
+      <InputGroup>
+        <InputGroupAddon align="inline-start">
+          <UserIcon width={16} height={16} />
+        </InputGroupAddon>
+        <InputGroupInput placeholder="Username" aria-invalid />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>@example.com</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+    </Stack>
+  );
+}
+
+export const demos = [{ name: "Input group", component: DefaultStory }];
+```
+
+## Files
+
+- `@ui/InputGroup/input-group.tsx`
+- `@ui/InputGroup/input-group.css.ts`
+
+## Common Mistakes
+
+Input Group does not support adornments on both sides when the input is in a dense or compact size — the resulting field width is insufficient for meaningful text entry. The component does not handle adornment overflow: if the combined width of adornments and input exceeds the container, clipping occurs without scroll behavior.
+
+## Related Components
+
+- Input
+- Field
+- Checkbox
+- Radio
+
+
+---
+
+# Input
+
+Input component captures single-line text from users.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** input, text, form, field, text input
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Input } from "@blenx-dev/core"
+```
+
+## Overview
+
+The Input component captures single-line text from users. It serves as the foundational form control in Blenx, supporting variants, sizes, placeholder text, disabled state, and validation feedback. Use inputs for any scenario requiring short-form text entry — names, email addresses, search queries, URLs, or numeric values.
+
+## Variants
+
+Input renders a native `<input>` element underneath with consistent styling applied through the theme system. The variant prop controls the visual treatment: outlined is the default for most forms, underlined suits inline editing contexts, and filled works well in toolbars or dense layouts. Validation state is communicated through color (red for error, green for success) and an optional supporting message rendered below the input. The disabled state reduces contrast and removes interactive feedback.
+
+## Examples
+
+```tsx
+function InputDemo() {
+  return (
+    <VStack gap="md">
+      <VStack gap="md" padding="md">
+        <Text variant="h6">Size</Text>
+        <Input size="sm" placeholder="Small input" />
+        <Input placeholder="Default input" />
+        <Input size="lg" placeholder="Large input" />
+      </VStack>
+      <VStack gap="md" padding="md">
+        <Text variant="h4">States</Text>
+        <Input placeholder="Normal input" />
+        <Input placeholder="Disabled input" disabled />
+        <Input placeholder="With error" error="This field is required" />
+      </VStack>
+    </VStack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Input/input.tsx`
+- `@ui/Input/input.css.ts`
+
+## Common Mistakes
+
+Input renders a single native `<input>` element and does not support masking, formatting, or complex input composition out of the box. For password fields with visibility toggles, compose Input with an Icon Button inside an Input Group rather than relying on built-in functionality. The underlying DOM element is not abstracted, so native browser behaviors like autofill and spellcheck remain controlled by the browser.
+
+## Related Components
+
+- Field
+- InputGroup
+- Autocomplete
+- Combobox
+
+
+---
+
+# Menu
+
+Menu provides a dropdown list of actions or options triggered by a button, link, or other interactive element.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** navigation
+- **Status:** stable
+- **Keywords:** menu, dropdown, context menu, navigation
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Menu } from "@blenx-dev/core"
+```
+
+## Overview
+
+Menu provides a dropdown list of actions or options triggered by a button, link, or other interactive element. It handles item selection, separators, disabled items, submenus, and full keyboard navigation. Use menus for contextual action lists, overflow menus in toolbars, profile dropdowns, and "more actions" patterns.
+
+## Variants
+
+Menu is built on Base UI Menu primitives, inheriting WAI-ARIA menu pattern compliance. The trigger element receives the appropriate `aria-expanded`, `aria-haspopup`, and `aria-controls` attributes automatically. Items can be plain actions, links, or trigger nested submenus. Separators divide related groups of actions. Disabled items are rendered but excluded from keyboard navigation and receive reduced opacity. The menu positions itself relative to the trigger and flips when viewport space is insufficient.
+
+## Examples
+
+```tsx
+import { Button } from "../Button/button";
+import {
+  Menu,
+  MenuGroupLabel,
+  MenuItem,
+  MenuPopup,
+  MenuSeparator,
+  MenuShortcut,
+  MenuTrigger,
+} from "./menu";
+
+export function DefaultStory() {
+  return (
+    <Menu>
+      <MenuTrigger render={<Button variant="outline">Open Menu</Button>} />
+      <MenuPopup align="start" sideOffset={4}>
+        <MenuItem onSelect={() => {}}>Profile</MenuItem>
+        <MenuItem onSelect={() => {}}>
+          Settings
+          <MenuShortcut>⌘,</MenuShortcut>
+        </MenuItem>
+        <MenuItem onSelect={() => {}}>
+          Keyboard shortcuts
+          <MenuShortcut>⌘K</MenuShortcut>
+        </MenuItem>
+        <MenuSeparator />
+        <MenuGroupLabel>Account</MenuGroupLabel>
+        <MenuItem variant="destructive" onSelect={() => {}}>
+          Delete account
+        </MenuItem>
+      </MenuPopup>
+    </Menu>
+  );
+}
+export const demos = [
+  {
+    name: "Default",
+    component: DefaultStory,
+  },
+];
+```
+
+## Files
+
+- `@ui/Menu/menu.tsx`
+- `@ui/Menu/menu.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `ArrowUp`
+- `ArrowDown`
+- `Enter`
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `aria-orientation`
+
+## Common Mistakes
+
+Menu does not support virtualized lists, so very long item lists may overflow the viewport. Submenu positioning can become problematic near viewport edges despite flip logic — placing menus that open submenus away from the screen edge is recommended. The component does not provide built-in search or filtering for long lists of items.
+
+## Related Components
+
+- Button
+
+
+---
+
+# Otp Field
+
+OTP Field provides a dedicated input experience for one-time passwords, verification codes, and numeric tokens typically delivered via SMS or email.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** experimental
+- **Keywords:** otp, password, code, verification, 2fa, input
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { OtpField } from "@blenx-dev/core"
+```
+
+## Overview
+
+OTP Field provides a dedicated input experience for one-time passwords, verification codes, and numeric tokens typically delivered via SMS or email. It renders individual digit slots with auto-advance between fields, paste support, and validation feedback. Use OTP Field in authentication flows, two-factor verification screens, and account recovery forms.
+
+## Variants
+
+The component renders a row of individual input slots, each accepting a single character. As the user types, focus automatically advances to the next slot. Pasting a full code fills all slots simultaneously, triggering the onChange callback with the complete value. Backspace in an empty slot returns focus to the previous slot for correction. The `length` prop controls the number of slots, and the `type` prop defaults to `number` for numeric codes but can be set to `text` for alphanumeric tokens.
+
+## Examples
+
+### OTPField
+
+```tsx
+function OTPFieldDemo() {
+  return (
+    <VStack>
+      <OTPField length={6} defaultValue="">
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+      </OTPField>
+    </VStack>
+  );
+}
+```
+
+### OTPFieldGrouped
+
+```tsx
+function OTPFieldGroupedDemo() {
+  return (
+    <VStack>
+      <OTPField length={12} defaultValue="" validationType="alphanumeric">
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldSeparator />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldSeparator />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+        <OTPFieldInput />
+      </OTPField>
+    </VStack>
+  );
+}
+```
+
+## Files
+
+- `@ui/OTPField/otp-field.tsx`
+- `@ui/OTPField/otp-field.css.ts`
+
+## Common Mistakes
+
+OTP Field does not support fractional or partial paste — the pasted value must match the slot count exactly. It is not suitable for codes longer than 8 characters due to horizontal space constraints. The component assumes a linear input flow and does not support alternative entry methods like QR code scanning or deep-link code capture.
+
+## Related Components
+
+- Input
+- Field
+
+
+---
+
+# Popover
+
+Popover displays floating content in relation to a trigger element, with automatic positioning, flip behavior, and dismiss-on-click-outside.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** overlay
+- **Status:** stable
+- **Keywords:** popover, tooltip, popup, floating, overlay
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Popover } from "@blenx-dev/core"
+```
+
+## Overview
+
+Popover displays floating content in relation to a trigger element, with automatic positioning, flip behavior, and dismiss-on-click-outside. Use popovers for contextual tooltips, action menus, inline help content, quick-action panels, and small forms that belong to a specific UI element. Do not use popovers for primary navigation, critical notifications, or content that requires user input before continuing — those cases call for Dialog or Sheet.
+
+## Variants
+
+The Popover consists of a trigger component and a content panel. The trigger is any interactive element; clicking it toggles the popover visibility. The content panel positions itself relative to the trigger using the configured placement, which accepts `top`, `bottom`, `left`, `right`, and their `-start`/`-end` variants. The popover automatically flips to the opposite side when the preferred placement would overflow the viewport. A backdrop overlay or close button can be added for dismissible popovers.
+
+## Examples
+
+```tsx
+import { Button } from "../Button/button";
+import { Stack } from "../Stack/stack";
+import { Text } from "../Text/text";
+import {
+  Popover,
+  PopoverArrow,
+  PopoverDescription,
+  PopoverPopup,
+  PopoverTitle,
+  PopoverTrigger,
+} from "./popover";
+
+export function DefaultStory() {
+  return (
+    <Stack gap="sm" align="start">
+      <Text variant="body2">Click the button to open a popover</Text>
+      <Popover>
+        <PopoverTrigger render={<Button variant="outline">Open Popover</Button>} />
+        <PopoverPopup>
+          <PopoverArrow />
+          <Stack gap="sm" padding="md">
+            <PopoverTitle>Popover Title</PopoverTitle>
+            <PopoverDescription>This is a popover. It can contain any content.</PopoverDescription>
+            <Button size="sm" variant="solid">
+              Action
+            </Button>
+          </Stack>
+        </PopoverPopup>
+      </Popover>
+    </Stack>
+  );
+}
+
+export const demos = [{ name: "Default", component: DefaultStory }];
+```
+
+## Files
+
+- `@ui/Popover/popover.tsx`
+- `@ui/Popover/popover.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `aria-labelledby`
+- `aria-describedby`
+
+## Common Mistakes
+
+Popovers are inherently ephemeral — content inside a popover is lost when it closes. Do not put forms inside popovers unless the form state is persisted externally. The component does not support nested popovers or coordinated multi-popover layouts. Complex positioning requirements, such as following a moving trigger element, are outside the scope of this component.
+
+## Related Components
+
+- Button
+- ColorPicker
+- DatePicker
+
+
+---
+
+# Progress
+
+Progress visualizes the completion status of an ongoing operation.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** feedback
+- **Status:** stable
+- **Keywords:** progress, bar, loading, status, indicator
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Progress } from "@blenx-dev/core"
+```
+
+## Overview
+
+Progress visualizes the completion status of an ongoing operation. It supports determinate mode for known progress values and indeterminate mode for operations of unknown duration. Use progress bars for file uploads, multi-step form submissions, data loading, export generation, and any process where the user benefits from knowing that work is progressing.
+
+## Variants
+
+In determinate mode, the `value` prop accepts a number between 0 and `max` (default 100), and the bar fills proportionally. The component renders a native `<progress>` element for semantic HTML and accessibility. Indeterminate mode is activated by omitting the `value` prop or setting it to `null`, rendering an animated stripe pattern that loops continuously. The `size` prop controls thickness, with options matching the system's spacing scale.
+
+## Files
+
+- `@ui/Progress/progress.tsx`
+- `@ui/Progress/progress.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `role`
+- `aria-valuenow`
+- `aria-valuemin`
+- `aria-valuemax`
+
+## Common Mistakes
+
+Progress does not support stacked or segmented progress bars — each instance tracks a single operation. The component does not provide built-in cancel or pause controls. Real-time progress updates require external state management; the component merely reflects the value it receives.
+
+## Related Components
+
+- Spinner
+
+
+---
+
+# Radio
+
+Radio renders a group of radio buttons where exactly one option can be selected at a time.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** radio, radio group, option, select, form
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Radio } from "@blenx-dev/core"
+```
+
+## Overview
+
+Radio renders a group of radio buttons where exactly one option can be selected at a time. It handles selection state, keyboard navigation, focus management, and form integration. Use radios when the user must choose exactly one option from a small set (fewer than six), and the options benefit from being visible simultaneously for comparison.
+
+## Variants
+
+A Radio Group wraps individual Radio items and manages the selected value. The group accepts a `value` and `onChange` prop, behaving as a controlled component. Each radio renders a native `<input type="radio">` underneath, ensuring form submission compatibility and accessibility. Keyboard navigation follows the roving tabindex pattern: Tab enters and exits the group, arrow keys move between options within the group, and Space selects the focused option.
+
+## Files
+
+- `@ui/Radio/radio.tsx`
+- `@ui/Radio/radio.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `ArrowUp`
+- `ArrowDown`
+
+### ARIA Attributes
+
+- `aria-checked`
+- `aria-labelledby`
+
+## Common Mistakes
+
+Radio does not support deselection — once an option is selected, it cannot be unselected without selecting another option or explicitly resetting the group value. The component does not support inline error messages for individual radio options; validation is communicated at the group level. Custom radio indicator rendering is not supported; only the built-in circle indicator is available.
+
+## Related Components
+
+- Field
+- InputGroup
+
+
+---
+
+# Scroll Area
+
+Scroll Area provides a custom scrollbar wrapper that delivers consistent scrolling behavior and appearance across browsers and operating systems.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** utility
+- **Status:** stable
+- **Keywords:** scroll, scroll area, scrollbar, scroll fade
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { ScrollArea } from "@blenx-dev/core"
+```
+
+## Overview
+
+Scroll Area provides a custom scrollbar wrapper that delivers consistent scrolling behavior and appearance across browsers and operating systems. It addresses the problem of native scrollbar inconsistency — macOS overlays thin scrollbars that can be difficult to discover, while Windows renders wide, obtrusive scrollbars that disrupt layout. Use Scroll Area in code editors, chat panels, long lists, data tables, and any container where scrollable content meets custom-styled surfaces.
+
+## Variants
+
+The component wraps content inside a container that hides the native scrollbar and renders a custom scrollbar track and thumb overlay. The thumb size is proportional to the visible content ratio. The scrollbar track appears on hover over the scroll area or when the user is actively scrolling, and fades out after a configurable delay when idle. The `orientation` prop supports both vertical and horizontal scrolling independently. The scrollbar visibility is controlled through CSS custom properties for the thumb opacity and track display.
+
+## Files
+
+- `@ui/ScrollArea/scroll-area.tsx`
+- `@ui/ScrollArea/scroll-area.css.ts`
+
+## Common Mistakes
+
+Scroll Area does not support touch-device scrollbar customization on most mobile browsers, which ignore CSS scrollbar customization. The component does not provide scroll-to, scroll-into-view, or animated scrolling APIs — those must be implemented with the underlying DOM element ref. Custom scrollbar implementations can interfere with browser-level scrolling optimizations on some platforms.
+
+## Related Components
+
+- Dialog
+- AlertDialog
+- Drawer
+- Autocomplete
+- Combobox
+
+
+---
+
+# Segmented Control
+
+Segmented Control presents mutually exclusive options in a compact, horizontal row of connected segments.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** segmented, control, toggle, segment, button group
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { SegmentedControl } from "@blenx-dev/core"
+```
+
+## Overview
+
+Segmented Control presents mutually exclusive options in a compact, horizontal row of connected segments. It provides an alternative to Radio Groups when space is limited and the options are visually comparable at a glance. Use segmented controls for view mode switching (list, grid, detail), time range selection (day, week, month), or filter toggles within toolbars and headers.
+
+## Variants
+
+The component renders a row of segments where exactly one segment is selected at any time. Each segment behaves as a button with persistent active styling for the selected state. The container applies connected border-radius treatment where corners are rounded on the outermost segments and squared between adjacent segments. The `value` and `onChange` props manage selection in controlled mode. Segments can be disabled individually or as a group, and disabled segments are skipped during keyboard navigation.
+
+## Dependencies
+
+- toggle
+
+## Files
+
+- `@ui/SegmentedControl/segmented-control.tsx`
+
+## Common Mistakes
+
+Segmented Control does not support multi-selection or hierarchical selection — it is strictly single-select. Segment labels must be short enough to fit without truncation at the chosen size. The component does not support sub-labels or icons-with-text combinations in a single segment. Overflow behavior beyond five segments causes horizontal scrolling or wrapping, neither of which is well-supported by this pattern.
+
+## Related Components
+
+- ToggleGroup
+- Toggle
+
+
+---
+
+# Select
+
+Select presents a list of options from which the user chooses one value.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** select, dropdown, combobox, listbox, form
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Select } from "@blenx-dev/core"
+```
+
+## Overview
+
+Select presents a list of options from which the user chooses one value. It supports both native browser select rendering and a custom dropdown implementation with option groups, placeholder text, disabled states, and validation feedback. Use selects when the user must choose from multiple options (typically more than five) and space constraints make radio buttons or segmented controls impractical.
+
+## Variants
+
+The native variant renders a stylized `<select>` element with custom chevron icon, preferred for form compatibility and mobile experience where the OS provides a native picker. The custom variant renders a trigger button with a dropdown menu built on the Popover component, offering richer styling control. Both variants support `<optgroup>` for categorizing options with group labels. The placeholder prop displays instructional text when no option is selected, though it is not a substitute for a visible label. Validation styling mirrors the Input component's error state treatment.
+
+## Examples
+
+```tsx
+function SelectDemo() {
+  return (
+    <SelectRoot defaultValue="apple">
+      <SelectTrigger>
+        <SelectValue placeholder="Pick a fruit" />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectList>
+              <SelectItem value="apple">Apple</SelectItem>
+              <SelectItem value="banana">Banana</SelectItem>
+              <SelectItem value="orange">Orange</SelectItem>
+            </SelectList>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  );
+}
+```
+
+## Dependencies
+
+- field
+
+## Files
+
+- `@ui/Select/select.tsx`
+- `@ui/Select/select.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `ArrowUp`
+- `ArrowDown`
+- `Enter`
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `aria-expanded`
+- `aria-labelledby`
+
+## Common Mistakes
+
+The native variant offers limited customization — chevron icon and some padding are adjustable, but the dropdown appearance is controlled by the operating system. Multi-select is not supported; for multiple selections, use a Checkbox group or a Tag-based multi-select pattern. The custom variant does not support search or filtering of options, making it unsuitable for lists exceeding 30 items without an external search mechanism.
+
+## Related Components
+
+- Field
+- ScrollArea
+
+
+---
+
+# Separator
+
+Separator renders a visual dividing line that distinguishes content sections, groups related elements, or creates visual hierarchy within layouts.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** stable
+- **Keywords:** separator, divider, line, rule, hr
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Separator } from "@blenx-dev/core"
+```
+
+## Overview
+
+Separator renders a visual dividing line that distinguishes content sections, groups related elements, or creates visual hierarchy within layouts. It supports horizontal and vertical orientations with configurable tone variants. Use separators to divide form sections, separate menu item groups, distinguish sidebar navigation categories, or split content regions within a Surface or Card.
+
+## Variants
+
+The component renders a native `<hr>` element in horizontal mode and a styled `<div>` with a vertical border in vertical mode. It is accessible by default, communicating a thematic break to screen readers. The `orientation` prop toggles between `horizontal` and `vertical`. The `tone` prop controls the color strength: `subtle` for low-emphasis dividers in dense layouts, `default` for standard dividers, and `strong` for high-contrast divisions in critical layout sections. The decorative variant sets `aria-hidden="true"` for purely visual separators.
+
+## Dependencies
+
+- field
+
+## Files
+
+- `@ui/Separator/separator.tsx`
+- `@ui/Separator/separator.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `role`
+- `aria-orientation`
+
+## Common Mistakes
+
+Separator does not render a visible line when the container has no explicit height (vertical) or width (horizontal). The component does not support labels, icons, or text within the separator line — use a different pattern for titled dividers. The separator is purely visual and does not affect layout spacing; margins must be handled by the parent container.
+
+## Related Components
+
+- ToggleGroup
+- Menu
+
+
+---
+
+# Sheet
+
+Sheet provides a lightweight slide-in panel for secondary content that does not require the full commitment of a modal dialog.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** overlay
+- **Status:** stable
+- **Keywords:** sheet, panel, slide, sidebar, drawer, overlay
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Sheet } from "@blenx-dev/core"
+```
+
+## Overview
+
+Sheet provides a lightweight slide-in panel for secondary content that does not require the full commitment of a modal dialog. It slides in from the edge of the viewport and overlays the page content with an optional backdrop. Use sheets for mobile navigation menus, contextual settings panels, notification feeds, filter panels, and quick-edit interfaces.
+
+## Variants
+
+Sheet is built on Base UI Dialog primitives, inheriting focus trapping, dismiss-on-Escape, and backdrop click behavior. The `side` prop controls the slide-in direction — `left` or `right` for side panels, `top` or `bottom` for notification-style panels. The `size` prop controls the panel width for left/right sheets or height for top/bottom sheets, with preset values matching the spacing scale. The component handles body scroll locking when open, preventing background content from scrolling while the sheet is active.
+
+## Examples
+
+```tsx
+function SheetDemo() {
+  return (
+    <VStack gap="md">
+      <Text variant="h6">Sheet</Text>
+      <Sheet>
+        <SheetTrigger
+          render={
+            <Button variant="outline" size="sm">
+              Open Sheet
+            </Button>
+          }
+        />
+        <SheetPopup side="right">
+          <SheetHeader>
+            <SheetTitle>Edit Profile</SheetTitle>
+            <SheetDescription>Make changes to your profile information.</SheetDescription>
+          </SheetHeader>
+          <SheetPanel>
+            <VStack gap="sm">
+              <Text variant="body2">Name</Text>
+              <Text variant="body2" color="secondary">
+                Your display name as it appears to others.
+              </Text>
+            </VStack>
+          </SheetPanel>
+          <SheetFooter>
+            <HStack gap="sm" justify="end" wrap>
+              <SheetClose render={<Button variant="ghost" />}>Cancel</SheetClose>
+              <Button>Save</Button>
+            </HStack>
+          </SheetFooter>
+        </SheetPopup>
+      </Sheet>
+    </VStack>
+  );
+}
+```
+
+## Dependencies
+
+- icon-button
+- scroll-area
+
+## Files
+
+- `@ui/Sheet/sheet.tsx`
+- `@ui/Sheet/sheet.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Escape`
+
+### ARIA Attributes
+
+- `role`
+- `aria-modal`
+- `aria-labelledby`
+- `aria-describedby`
+
+## Common Mistakes
+
+Sheet does not support resizing — if adjustable panels are needed, use Splitter instead. The component does not support multiple visible sheets simultaneously by design. Sheet cannot be used as a persistent layout element because it closes when the user navigates away or dismisses it. Performance may degrade with very large content trees inside the sheet due to the animation and focus management overhead.
+
+## Related Components
+
+- Drawer
+- Dialog
+- Button
+- ScrollArea
+
+
+---
+
+# Slider
+
+Slider allows users to select a value or range of values from a continuous or discrete scale by dragging a thumb along a track.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** slider, range, input, range slider, thumb
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Slider } from "@blenx-dev/core"
+```
+
+## Overview
+
+Slider allows users to select a value or range of values from a continuous or discrete scale by dragging a thumb along a track. It supports single thumb for single-value selection and dual thumb for range selection, with configurable step intervals, minimum and maximum constraints, and optional tick marks. Use sliders for volume controls, price range filters, rating selectors, font size adjustment, and any numeric input where the relative position within a range is more meaningful than the exact value.
+
+## Variants
+
+The slider renders a horizontal track by default, with vertical orientation available through the `orientation` prop. The `value` and `onChange` props manage the controlled value, which can be a single number or a two-element array for range mode. The `step` prop defines the increment granularity, with `min` and `max` bounding the range. Ticks are rendered at interval positions when the `marks` prop is provided. The track is divided visually into the filled portion (before the thumb) and the unfilled portion (after the thumb), with color indicating the active range.
+
+## Files
+
+- `@ui/Slider/slider.tsx`
+- `@ui/Slider/slider.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `ArrowLeft`
+- `ArrowRight`
+- `ArrowUp`
+- `ArrowDown`
+
+### ARIA Attributes
+
+- `role`
+- `aria-valuenow`
+- `aria-valuemin`
+- `aria-valuemax`
+
+## Common Mistakes
+
+Slider does not support non-linear scales or logarithmic ranges — the value distribution is always linear. Range mode cannot accommodate more than two thumbs. The component is not suitable for very large ranges where the user cannot meaningfully distinguish between adjacent values. Touch interaction can be imprecise on small screens, making the slider better suited for desktop and tablet viewports.
+
+## Related Components
+
+- Field
+
+
+---
+
+# Spinner
+
+Spinner communicates ongoing loading activity through a rotating indicator animation.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** feedback
+- **Status:** stable
+- **Keywords:** spinner, loading, loader, progress, wait
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Spinner } from "@blenx-dev/core"
+```
+
+## Overview
+
+Spinner communicates ongoing loading activity through a rotating indicator animation. It provides size variants and optional label support for accessible loading announcements. Use spinners for content loading, form submission feedback, page transitions, and any asynchronous operation where a determinate progress indicator is not appropriate.
+
+## Variants
+
+The component renders an animated SVG circle that rotates continuously. The `size` prop maps to the system's spacing scale, providing consistent dimensions across the application. The optional `label` prop renders a text node that is visually hidden but available to screen readers via `aria-label` on the svg element. When no label is provided, the spinner is marked as `aria-hidden` to avoid announcing meaningless rotation to assistive technology. The animation speed is calibrated to feel calm but purposeful — approximately one rotation per second.
+
+## Examples
+
+```tsx
+import { Stack } from "../Stack/stack";
+import { Spinner } from "./spinner";
+
+export function SizesStory() {
+  return (
+    <Stack gap="md" direction="row" align="center">
+      <Spinner size={16} />
+      <Spinner size={24} />
+      <Spinner size={32} />
+      <Spinner size={48} />
+    </Stack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Spinner/spinner.tsx`
+- `@ui/Spinner/spinner.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `role`
+- `aria-label`
+
+## Common Mistakes
+
+Spinner does not display determinate progress — use Progress for percentage-based indicators. The animation cannot be paused or stopped programmatically; visibility and rendering are controlled by the parent. The component does not provide built-in overlay or centering behavior — those must be handled by the parent layout container.
+
+## Related Components
+
+- Button
+- Progress
+
+
+---
+
+# Splitter
+
+Splitter creates resizable panel layouts where users can adjust the relative size of adjacent content areas by dragging a divider handle.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** stable
+- **Keywords:** splitter, resize, panel, layout, split, resizable
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Splitter } from "@blenx-dev/core"
+```
+
+## Overview
+
+Splitter creates resizable panel layouts where users can adjust the relative size of adjacent content areas by dragging a divider handle. It supports horizontal and vertical splitting, initial panel sizes, minimum and maximum size constraints, and collapsed states. Use splitters in code editors with preview panes, email clients with list and detail views, dashboard layouts with adjustable widget areas, and any interface where users benefit from controlling content distribution.
+
+## Variants
+
+The component renders two panels separated by a draggable handle. The `defaultSize` prop controls the initial split ratio, accepting a percentage or pixel value for the primary panel. The `minSize` and `maxSize` props constrain panel dimensions to prevent unusably small or impractically large panels. Dragging the handle updates the panel sizes in real time, with optional snap behavior at defined breakpoints. The handle includes visual affordance through a narrow grip indicator and cursor change on hover. Double-clicking the handle resets the split to the default size.
+
+## Files
+
+- `@ui/Splitter/splitter.tsx`
+- `@ui/Splitter/splitter.css.ts`
+
+## Common Mistakes
+
+Splitter only supports two panels at a time. Multi-panel layouts must be constructed through nesting, which can complicate state management. The component does not provide built-in responsive behavior — panels do not automatically stack on narrow viewports. Touch interaction with the handle can be imprecise on mobile devices due to the fine motor control required.
+
+## Related Components
+
+- Box
+
+
+---
+
+# Stack
+
+Stack is a flexbox layout primitive that arranges children in a single direction with consistent spacing.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** stable
+- **Keywords:** stack, flex, layout, vstack, hstack, flexbox
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Stack } from "@blenx-dev/core"
+```
+
+## Overview
+
+Stack is a flexbox layout primitive that arranges children in a single direction with consistent spacing. It provides HStack for horizontal layouts and VStack for vertical layouts, with props for gap, alignment, distribution, and wrapping. Use stack as the primary building block for page sections, form layouts, toolbar arrangements, card content, and any linear arrangement of components.
+
+## Variants
+
+HStack and VStack render as flex containers with `flex-direction: row` and `flex-direction: column` respectively. The `gap` prop accepts values from the spacing scale, ensuring consistent whitespace throughout the application. The `align` prop maps to `align-items` for cross-axis alignment, and `justify` maps to `justify-content` for main-axis distribution. The `wrap` prop enables flex-wrap for responsive horizontal layouts that flow to multiple rows. The `inline` prop switches from block-level flex to inline-flex for compact layouts.
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/Stack/stack.tsx`
+- `@ui/Stack/stack.css.ts`
+
+## Common Mistakes
+
+Stack does not support responsive direction changes — an HStack cannot automatically become a VStack at a breakpoint. For that behavior, compose two Stack instances and show them conditionally or use CSS media queries externally. Stack does not provide grid capabilities; use CSS Grid or a grid component for two-dimensional layouts. The gap prop applies uniformly between all children — individual child spacing differences require wrapping children in intermediate containers.
+
+## Related Components
+
+- Box
+- Grid
+
+
+---
+
+# Surface
+
+Surface provides a themed container with configurable elevation, padding, and background variants.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** layout
+- **Status:** stable
+- **Keywords:** surface, background, container, elevation, card
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Surface } from "@blenx-dev/core"
+```
+
+## Overview
+
+Surface provides a themed container with configurable elevation, padding, and background variants. It serves as the visual foundation for cards, panels, sidebars, and any grouped content region. Use surfaces for card layouts, form sections, filter panels, sidebar navigation containers, and content grouping within page layouts.
+
+## Variants
+
+The component renders a container with background color, border radius, and optional border and shadow determined by the variant and elevation props. The `variant` prop selects the background treatment: `sunken` for backgrounds that recede below the page surface, `raised` for the default surface level matching the page background, and `elevated` for surfaces that appear to float above the page. The `padding` prop applies consistent internal spacing from the spacing scale. The `elevation` prop adds shadow depth for visual separation, with higher values producing larger shadows.
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/Surface/surface.tsx`
+- `@ui/Surface/surface.css.ts`
+
+## Common Mistakes
+
+Surface does not handle scrolling — use Scroll Area as a child for scrollable content. The component does not support dynamic or interactive variants; hover and active states are not built in. Surface is purely a container and does not affect the layout or positioning of its children. Excessive use of different elevation levels within the same view can create visual inconsistency.
+
+## Related Components
+
+- Box
+- Card
+
+
+---
+
+# Switch
+
+Switch provides a binary toggle control for turning a setting on or off.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** switch, toggle, on/off, toggle switch
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Switch } from "@blenx-dev/core"
+```
+
+## Overview
+
+Switch provides a binary toggle control for turning a setting on or off. It renders with a visual track and thumb that animate between checked and unchecked states, clearly communicating the current boolean value. Use switches for settings and preferences — notifications on or off, dark mode toggle, feature enablement, and any binary configuration where the effect is immediate.
+
+## Variants
+
+Switch is built on Base UI Switch primitives, inheriting full WAI-ARIA switch pattern compliance. The component renders a native `<button>` element with `role="switch"` and `aria-checked` attributes managed automatically. The `checked` and `onCheckedChange` props control the toggle state. The disabled state reduces opacity and removes interaction. The `size` prop offers standard and compact variants to match the application's density requirements. The label is provided externally and associated with the switch via `htmlFor` and `id`.
+
+## Examples
+
+```tsx
+function SwitchDemo() {
+  return (
+    <VStack gap="md">
+      <HStack gap="md" align="center">
+        <Switch defaultChecked />
+        <Text variant="body2">Airplane Mode</Text>
+      </HStack>
+      <HStack gap="md" align="center">
+        <Switch />
+        <Text variant="body2">Wi-Fi</Text>
+      </HStack>
+      <HStack gap="md" align="center">
+        <Switch disabled />
+        <Text variant="body2" color="secondary">
+          Bluetooth (disabled)
+        </Text>
+      </HStack>
+    </VStack>
+  );
+}
+```
+
+## Dependencies
+
+- box
+
+## Files
+
+- `@ui/Switch/switch.tsx`
+- `@ui/Switch/switch.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `Enter`
+- `Space`
+
+### ARIA Attributes
+
+- `aria-checked`
+- `aria-labelledby`
+
+## Common Mistakes
+
+Switch does not support an indeterminate or mixed state — it is strictly binary. The component does not provide built-in label rendering; labels must be provided externally. Switch does not support form validation or error states since it represents a preference rather than validated input.
+
+## Related Components
+
+- Field
+
+
+---
+
+# Table
+
+Table renders structured data in a grid of rows and columns using styled native HTML table elements.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** data-display
+- **Status:** stable
+- **Keywords:** table, data, grid, rows, columns
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Table } from "@blenx-dev/core"
+```
+
+## Overview
+
+Table renders structured data in a grid of rows and columns using styled native HTML table elements. It supports header groups, body rows, sorting indicators, and responsive overflow handling. Use tables for data comparison, financial reports, user lists, activity logs, and any dataset where users need to scan, compare, and reference values across multiple records.
+
+## Variants
+
+Table provides `<thead>`, `<tbody>`, `<tr>`, `<th>`, and `<td>` components that mirror the native HTML table structure with consistent styling. The `sortable` prop on header cells adds click-to-sort behavior with ascending and descending indicators. The `striped` variant alternates row background colors for improved scanability in dense datasets. The `stickyHeader` prop pins the header row to the top of the scrollable container when the table body overflows. The table is wrapped in a horizontal overflow container by default to prevent layout breakage on narrow viewports.
+
+## Examples
+
+```tsx
+function TableDemo() {
+  const columns = [
+    { key: "name" as keyof User, header: "Name" },
+    { key: "email" as keyof User, header: "Email" },
+    { key: "role" as keyof User, header: "Role" },
+    {
+      key: "status" as keyof User,
+      header: "Status",
+      cell: (row: User) => (
+        <Badge variant={row.status === "active" ? "primary" : "default"}>{row.status}</Badge>
+      ),
+    },
+  ];
+
+  return (
+    <VStack gap="md">
+      <Table columnData={columns} rowData={users} rowKey="id" />
+    </VStack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Table/table.tsx`
+- `@ui/Table/table.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `role`
+- `aria-colcount`
+
+## Common Mistakes
+
+Table does not support virtualized rendering — very large datasets (thousands of rows) will impact performance. The component does not provide built-in column resizing, drag-to-reorder, or column visibility controls. Inline editing within table cells is not supported; editing should be handled through an external mechanism like a Sheet or Dialog. Responsive behavior is limited to horizontal scrolling; tables do not automatically reflow into card layouts on small screens.
+
+
+---
+
+# Tabs
+
+Tabs organizes content into separate panels where only one panel is visible at a time, with navigation controls presented as a tab list.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** navigation
+- **Status:** stable
+- **Keywords:** tabs, tab, navigation, panel, tabbed
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Tabs } from "@blenx-dev/core"
+```
+
+## Overview
+
+Tabs organizes content into separate panels where only one panel is visible at a time, with navigation controls presented as a tab list. It supports horizontal and vertical tab arrangements, keyboard navigation between tabs, and dynamic tab panel content. Use tabs to partition settings pages, split documentation views, separate data visualization modes, and organize form sections that are too long for a single scroll.
+
+## Variants
+
+Tabs is built on Base UI Tabs primitives, implementing the WAI-ARIA tabs pattern with `tablist`, `tab`, and `tabpanel` roles. The component consists of a Tab List containing Tab triggers and a set of Tab Panels that correspond by index or value. The `value` and `onValueChange` props manage the selected tab in controlled mode. Keyboard navigation follows the roving tabindex pattern: arrow keys switch between tabs, and Tab moves focus into the active panel. The `orientation` prop toggles between horizontal and vertical tab layouts.
+
+## Examples
+
+```tsx
+function TabsDemo() {
+  return (
+    <VStack gap="md">
+      <Tabs defaultValue="tab1">
+        <TabsList>
+          <TabsTab value="tab1">Overview</TabsTab>
+          <TabsTab value="tab2">Usage</TabsTab>
+          <TabsTab value="tab3">API</TabsTab>
+        </TabsList>
+        <TabsPanel value="tab1">
+          <Text variant="body2">
+            Welcome to the component overview. Here you will find a summary of features and
+            capabilities.
+          </Text>
+        </TabsPanel>
+        <TabsPanel value="tab2">
+          <Text variant="body2">
+            Usage examples and code snippets to help you integrate the component into your project.
+          </Text>
+        </TabsPanel>
+        <TabsPanel value="tab3">
+          <Text variant="body2">Detailed API reference including props, types, and methods.</Text>
+        </TabsPanel>
+      </Tabs>
+    </VStack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Tabs/tabs.tsx`
+- `@ui/Tabs/tabs.css.ts`
+
+## Accessibility
+
+### Keyboard Support
+
+- `ArrowLeft`
+- `ArrowRight`
+- `Home`
+- `End`
+
+### ARIA Attributes
+
+- `role`
+- `aria-orientation`
+- `aria-selected`
+- `aria-labelledby`
+- `role`
+
+## Common Mistakes
+
+Tabs does not support draggable reordering of tabs. The component does not provide overflow behavior for overflowing tab lists — tabs scroll horizontally or wrap, both of which are non-standard patterns. Closable tabs are not supported; for tab-closing patterns, implement custom tab management with dynamic tab lists. Nested tabs beyond two levels create confusing visual hierarchies and should be avoided.
+
+## Related Components
+
+- Accordion
+- SegmentedControl
+
+
+---
+
+# Text
+
+Text provides the typography primitive for rendering all textual content in the Blenx system.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** typography
+- **Status:** stable
+- **Keywords:** text, typography, heading, paragraph, font
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Text } from "@blenx-dev/core"
+```
+
+## Overview
+
+Text provides the typography primitive for rendering all textual content in the Blenx system. It offers a range of semantic variants from heading levels h1 through h6, body text variants, captions, and code snippets, with props for color, alignment, and truncation. Use Text for every visible text node in the application to ensure consistent typography, responsive scaling, and theme compliance.
+
+## Variants
+
+Text renders as a `<p>`, `<span>`, `<h1>` through `<h6>`, or `<code>` element depending on the variant and element props. The `variant` prop selects the typographic style: `h1` through `h6` for headings, `body1` and `body2` for standard text, `caption` for smaller supporting text, and `code` for inline code. The `color` prop maps to theme color tokens, with options for default, subtle, disabled, brand, danger, success, and warning. The `align` prop applies text alignment, and the `truncate` prop enables single-line truncation with ellipsis. The `as` prop overrides the rendered element while preserving the variant's visual style, which is essential when a visual heading should be a semantic `<span>` or vice versa.
+
+## Files
+
+- `@ui/Text/text.tsx`
+- `@ui/Text/text.css.ts`
+
+## Common Mistakes
+
+Text does not support multi-line clamping for truncation — only single-line truncation with ellipsis is available. The component does not handle rich text, markdown rendering, or HTML content. For formatted text blocks, render HTML or markdown separately and use Text for individual styled segments. Text cannot automatically detect and style links, emails, or phone numbers within content — external parsing is required.
+
+## Related Components
+
+- Badge
+
+
+---
+
+# Textarea
+
+Textarea provides a multi-line text input for longer-form content entry.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** textarea, text, input, multiline, form
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Textarea } from "@blenx-dev/core"
+```
+
+## Overview
+
+Textarea provides a multi-line text input for longer-form content entry. It supports resizing, placeholder text, disabled state, character count, and validation styling consistent with the Input component. Use textareas for comments, descriptions, bio fields, message composition, address entry, and any scenario where the input text is expected to exceed a single line.
+
+## Variants
+
+Textarea renders a native `<textarea>` element with consistent styling applied through the theme system. The `rows` prop controls the initial visible height, with `minRows` and `maxRows` boundaries when auto-resize is enabled. The `resize` prop accepts `none`, `vertical`, `horizontal`, or `both` to control the user's ability to resize the element. Validation state is communicated through border color and an optional supporting message, matching the Input component's pattern. Auto-resize grows the textarea as the user types, up to the `maxRows` limit, at which point scrolling begins.
+
+## Files
+
+- `@ui/Textarea/textarea.tsx`
+- `@ui/Textarea/textarea.css.ts`
+
+## Common Mistakes
+
+Textarea does not support rich text formatting, markdown preview, or WYSIWYG editing. The auto-resize feature may cause layout shifts when the textarea grows beyond its initial boundaries. Character count display does not enforce the limit — validation must be handled externally. The component renders a native `<textarea>` element, so browser-specific behaviors like spellcheck and autocorrect remain controlled by the user's browser settings.
+
+## Related Components
+
+- Field
+- InputGroup
+
+
+---
+
+# Toggle Group
+
+Toggle Group manages a collection of toggle buttons where users can select multiple options within a category.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** toggle group, button group, toggle, button bar
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { ToggleGroup } from "@blenx-dev/core"
+```
+
+## Overview
+
+Toggle Group manages a collection of toggle buttons where users can select multiple options within a category. It supports both enforced minimum selection and unconstrained multiple selection. Use toggle groups for filter categories where multiple filters can be active simultaneously, feature tag selection, multi-criteria view customization, and any scenario where users need to select several options from a related set.
+
+## Variants
+
+Toggle Group wraps individual Toggle components and manages the array of selected values. The `value` and `onValueChange` props work with an array of selected item values. The `selection` prop controls the behavior: `multiple` allows any number of selected items, and `single` enforces exactly one selected item. The `orientation` prop arranges toggles horizontally or vertically. The `loop` prop controls whether keyboard focus wraps from the last toggle to the first. Child toggles inherit size and variant from the group for consistency.
+
+## Dependencies
+
+- toggle
+
+## Files
+
+- `@ui/ToggleGroup/toggle-group.tsx`
+- `@ui/ToggleGroup/toggle-group.css.ts`
+
+## Common Mistakes
+
+Toggle Group does not support draggable reordering of its items. The component does not provide a select-all or deselect-all behavior — this must be implemented externally. The `single` selection mode does not allow deselection of the only selected item, which differs from Radio Group behavior. The group does not support mixed or indeterminate selection states.
+
+## Related Components
+
+- Toggle
+- SegmentedControl
+- Separator
+
+
+---
+
+# Toggle
+
+Toggle provides a two-state button that switches between active and inactive visual states.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** forms
+- **Status:** stable
+- **Keywords:** toggle, button, on/off, pressed, toggle button
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { Toggle } from "@blenx-dev/core"
+```
+
+## Overview
+
+Toggle provides a two-state button that switches between active and inactive visual states. It communicates whether a feature, filter, or mode is currently enabled. Use toggles for toolbar mode switches, filter enablement, view option toggles, and feature flags in settings interfaces.
+
+## Variants
+
+Toggle renders as a button element that maintains a pressed state through `aria-pressed`. The `pressed` and `onPressedChange` props control the toggle state in controlled mode, or the component can manage its own state internally. The visual treatment switches between a default button appearance and an active appearance that uses the brand color or a filled background, depending on the variant. The `size` prop matches the Button component's size scale for consistent spacing in toolbars. The disabled state removes interaction and reduces visual emphasis.
+
+## Examples
+
+```tsx
+import { Stack } from "../Stack/stack";
+import { Toggle } from "./toggle";
+
+export function VariantsStory() {
+  return (
+    <Stack gap="md">
+      <Stack gap="sm" direction="row" align="center">
+        <Toggle>Default</Toggle>
+        <Toggle variant="outline">Outline</Toggle>
+      </Stack>
+      <Stack gap="sm" direction="row" align="center">
+        <Toggle size="sm">Small</Toggle>
+        <Toggle size="default">Default</Toggle>
+        <Toggle size="lg">Large</Toggle>
+      </Stack>
+      <Stack gap="sm" direction="row" align="center">
+        <Toggle disabled>Disabled</Toggle>
+        <Toggle variant="outline" disabled>
+          Disabled
+        </Toggle>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+## Files
+
+- `@ui/Toggle/toggle.tsx`
+- `@ui/Toggle/toggle.css.ts`
+
+## Accessibility
+
+### ARIA Attributes
+
+- `aria-pressed`
+
+## Common Mistakes
+
+Toggle does not support intermediate or indeterminate states. The component does not provide a built-in label — labels must be provided externally as children or adjacent elements. Toggle is not suitable for mutually exclusive options within a group; use Toggle Group or Segmented Control for that pattern.
+
+## Related Components
+
+- ToggleGroup
+- SegmentedControl
+
+
+---
+
+# CloseButton
+
+Close button component using IconButton from Blenx UI.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** primitives
+- **Status:** stable
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { CloseButton } from "@blenx-dev/core"
+```
+
+## Dependencies
+
+- icon-button
+
+## Files
+
+- `@ui/CloseButton/close-button.tsx`
+
+
+---
+
+# CopyButton
+
+Copy button component using IconButton from Blenx UI.
+
+- **Package:** `@blenx-dev/core`
+- **Category:** primitives
+- **Status:** stable
+
+## Installation
+
+```bash
+npm install @blenx-dev/core
+```
+
+## Imports
+
+```tsx
+import { CopyButton } from "@blenx-dev/core"
+```
+
+## Dependencies
+
+- icon-button
+
+## Files
+
+- `@ui/CopyButton/copy-button.tsx`
+
+
+---

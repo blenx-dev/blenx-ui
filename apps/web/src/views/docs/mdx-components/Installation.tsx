@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Badge, HStack, Separator, Text, VStack } from "@blenx-dev/core";
+import { Badge, Box, HStack, Separator, Text, VStack } from "@blenx-dev/core";
 import { DocsH3 } from "./DocHeaders";
 import { docsQueries } from "@/lib/docs-api";
 import { CodeSnippet } from "./CodeBlock";
@@ -33,13 +33,15 @@ function Installation({ registryName }: InstallationProps) {
         <Text variant="body2" color="secondary">
           Install the component using the shadcn CLI:
         </Text>
-        <CodeSnippet language="bash" code={cliCode} />
+        <Box maxWidth={"viewport"}>
+          <CodeSnippet language="bash" code={cliCode} />
+        </Box>
       </VStack>
 
       {files.length > 0 && (
         <>
           <Separator />
-          <VStack gap="xs">
+          <VStack gap="xs" maxWidth={"viewport"}>
             <DocsH3>Manual Installation</DocsH3>
             <Text variant="body2" color="secondary">
               Copy the source files into your project:

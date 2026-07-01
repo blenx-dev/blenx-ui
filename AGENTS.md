@@ -61,3 +61,8 @@ const actions = useMyStore((s) => s.actions)
 - **Formatting**: `oxfmt` via `.oxfmtrc.json` (tabs, double quotes, trailing commas, semicolons).
 - Run `npm run check` before pushing (oxfmt --check + oxlint).
 - Run `npm run check:fix` to auto-fix.
+
+## UI Components
+
+- Always prefer `@blenx-dev/core` components for any UI (Popover, Menu, Button, HStack, VStack, Box, Text, Badge, etc.) rather than building custom elements with plain HTML/CSS.
+- Components from `@blenx-dev/core` are the source of truth for layout, interaction, and styling patterns.

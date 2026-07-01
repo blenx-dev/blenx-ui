@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
+    "prebuild": "npm run generate:ai-docs && npm run generate:registry",
     "check-types": "turbo check-types",
     "dev:web": "turbo dev",
     "check": "oxlint && oxfmt --write",
     "clean": "rimraf --glob node_modules dist build .turbo **/node_modules **/dist **/build && turbo -F clean",
     "generate:registry": "tsx scripts/generate-docs-manifest.ts",
+    "generate:ai-docs": "tsx scripts/generate-ai-docs.ts",
     "generate:api": "tsx scripts/generate-api-meta.ts",
     "changeset": "changeset",
     "ci:version": "changeset version",

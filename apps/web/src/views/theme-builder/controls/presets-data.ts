@@ -23,7 +23,13 @@ export const presets: ThemePreset[] = [
         overlay: "rgba(0,0,0,0.8)",
         floating: "#18181b",
       },
-      text: { primary: "#fafafa", secondary: "#a1a1aa", disabled: "#52525b", inverse: "#09090b" },
+      text: {
+        primary: "#fafafa",
+        secondary: "#a1a1aa",
+        accent: "#3b82f6",
+        disabled: "#52525b",
+        inverse: "#09090b",
+      },
       border: { default: "#27272a", subtle: "#18181b", strong: "#3f3f46" },
       interactive: {
         primary: { default: "#fafafa", hover: "#e4e4e7", active: "#d4d4d4" },
@@ -48,7 +54,13 @@ export const presets: ThemePreset[] = [
         overlay: "rgba(0,0,0,0.5)",
         floating: "#ffffff",
       },
-      text: { primary: "#000000", secondary: "#666666", disabled: "#888888", inverse: "#ffffff" },
+      text: {
+        primary: "#000000",
+        secondary: "#666666",
+        accent: "#0070f3",
+        disabled: "#888888",
+        inverse: "#ffffff",
+      },
       border: { default: "#eaeaea", subtle: "#fafafa", strong: "#888888" },
       interactive: {
         primary: { default: "#000000", hover: "#333333", active: "#555555" },
@@ -73,7 +85,13 @@ export const presets: ThemePreset[] = [
         overlay: "rgba(0,0,0,0.7)",
         floating: "#1F2124",
       },
-      text: { primary: "#F2F2F2", secondary: "#8A8F98", disabled: "#4C5058", inverse: "#0E0F11" },
+      text: {
+        primary: "#F2F2F2",
+        secondary: "#8A8F98",
+        accent: "#5E6AD2",
+        disabled: "#4C5058",
+        inverse: "#0E0F11",
+      },
       border: { default: "#2B2D31", subtle: "#1F2124", strong: "#3C3F44" },
       interactive: {
         primary: { default: "#E5E5E5", hover: "#D1D1D1", active: "#BCBCBC" },
@@ -98,7 +116,13 @@ export const presets: ThemePreset[] = [
         overlay: "rgba(0,0,0,0.8)",
         floating: "#232323",
       },
-      text: { primary: "#ededed", secondary: "#8b8b8b", disabled: "#4a4a4a", inverse: "#1c1c1c" },
+      text: {
+        primary: "#ededed",
+        secondary: "#8b8b8b",
+        accent: "#24b47e",
+        disabled: "#4a4a4a",
+        inverse: "#1c1c1c",
+      },
       border: { default: "#2e2e2e", subtle: "#232323", strong: "#3e3e3e" },
       interactive: {
         primary: { default: "#24b47e", hover: "#3ecf8e", active: "#20916b" },
@@ -123,7 +147,13 @@ export const presets: ThemePreset[] = [
         overlay: "rgba(0,0,0,0.8)",
         floating: "#161b22",
       },
-      text: { primary: "#c9d1d9", secondary: "#8b949e", disabled: "#484f58", inverse: "#0d1117" },
+      text: {
+        primary: "#c9d1d9",
+        secondary: "#8b949e",
+        accent: "#58a6ff",
+        disabled: "#484f58",
+        inverse: "#0d1117",
+      },
       border: { default: "#30363d", subtle: "#21262d", strong: "#8b949e" },
       interactive: {
         primary: { default: "#c9d1d9", hover: "#b1bac4", active: "#8b949e" },
@@ -148,7 +178,13 @@ export const presets: ThemePreset[] = [
         overlay: "rgba(0,0,0,0.6)",
         floating: "#3b4252",
       },
-      text: { primary: "#eceff4", secondary: "#d8dee9", disabled: "#4c566a", inverse: "#2e3440" },
+      text: {
+        primary: "#eceff4",
+        secondary: "#d8dee9",
+        accent: "#88c0d0",
+        disabled: "#4c566a",
+        inverse: "#2e3440",
+      },
       border: { default: "#434c5e", subtle: "#3b4252", strong: "#4c566a" },
       interactive: {
         primary: { default: "#d8dee9", hover: "#e5e9f0", active: "#eceff4" },

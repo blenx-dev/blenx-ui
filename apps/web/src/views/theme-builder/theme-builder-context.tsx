@@ -20,6 +20,7 @@ export const defaultTokens: SemanticTokens = {
   text: {
     primary: "#223042",
     secondary: "#5A6878",
+    accent: "#D97706",
     disabled: "#A9B2BD",
     inverse: "#FFFFFF",
   },

@@ -1,0 +1,57 @@
+# Blenx UI
+
+Design system built for React with Vanilla Extract. Accessible, themeable, and composable components.
+
+## Components
+
+- [Accordion](/ai/accordion.md): Accordion component organizes content into collapsible sections, letting users disclose information progressively.
+- [Alert Dialog](/ai/alert-dialog.md): Alert Dialog is a modal dialog variant designed for urgent confirmations and critical actions that require the user's immediate attention.
+- [Alert](/ai/alert.md): Alert component delivers contextual feedback messages to users in response to an action or system event.
+- [Autocomplete](/ai/autocomplete.md): Autocomplete provides an input field augmented with a popover suggestion list that filters options as the user types.
+- [Avatar](/ai/avatar.md): Avatar displays user profile images with automatic fallback to initials when the image fails to load or is not provided.
+- [Badge](/ai/badge.md): Badge is a small visual indicator that communicates counts, status, or labels adjacent to an element.
+- [Box](/ai/box.md): Box is the lowest-level layout primitive in Blenx.
+- [Breadcrumbs](/ai/breadcrumbs.md): Breadcrumbs displays the page hierarchy as a navigational trail with separators between each level.
+- [Button](/ai/button.md): Button triggers actions and is the most frequently used interactive element in any application.
+- [Calendar](/ai/calendar.md): Calendar renders a date grid with month navigation, supporting single date, date range, and multiple date selection modes.
+- [Card](/ai/card.md): Card is a surface-level container that groups related content and actions into a single visual unit.
+- [Checkbox](/ai/checkbox.md): Checkbox presents a binary choice with an associated label, supporting checked, unchecked, and indeterminate states.
+- [Color Picker](/ai/color-picker.md): Color Picker provides a popover-based color selection interface with a swatch preview, HEX and RGB input fields, and a grid of preset colors.
+- [Color Swatch](/ai/color-swatch.md): Color Swatch is a presentational element that displays a color value as a small circular preview.
+- [Combobox](/ai/combobox.md): Combobox merges a text input with a selectable options list, combining the flexibility of free-text entry with the precision of constrained selection.
+- [Command](/ai/command.md): Command implements a command palette — a search-driven interface for triggering actions, navigating pages, and discovering features.
+- [Container](/ai/container.md): Container provides a responsive content width constraint and horizontal centering for page-level layouts.
+- [Data Table](/ai/data-table.md): DataTable is a feature-rich table component built on @tanstack/react-table for sorting, filtering, pagination, column visibility toggle, row selection, infinite scroll, and server-side operations.
+- [Date Picker](/ai/date-picker.md): DatePicker combines the Calendar component with a Popover and a text input trigger, enabling users to select a date through either visual calendar navigation or direct text input.
+- [Dialog](/ai/dialog.md): Dialog is a modal overlay that presents content requiring user attention or input while blocking interaction with the rest of the page.
+- [Drawer](/ai/drawer.md): Drawer is a slide-in panel that emerges from any edge of the viewport — left, right, top, or bottom — providing a secondary surface for content and actions.
+- [Field](/ai/field.md): Field wraps form controls with label, help text, and error message layout, providing consistent form structure and accessible associations.
+- [Grid](/ai/grid.md): Grid is a CSS Grid layout primitive that enables complex two-dimensional layouts with rows and columns.
+- [Icon Button](/ai/icon-button.md): Icon buttons provide a compact trigger for actions where visual real estate is limited.
+- [Icon](/ai/icon.md): Icon is a wrapper component for Phosphor icons that provides consistent sizing, coloring, and accessibility defaults.
+- [Input Group](/ai/input-group.md): Input Group extends a standard Input with prefix or suffix adornments — icons, buttons, text labels, or dropdown triggers.
+- [Input](/ai/input.md): Input component captures single-line text from users.
+- [Menu](/ai/menu.md): Menu provides a dropdown list of actions or options triggered by a button, link, or other interactive element.
+- [Otp Field](/ai/otp-field.md): OTP Field provides a dedicated input experience for one-time passwords, verification codes, and numeric tokens typically delivered via SMS or email.
+- [Popover](/ai/popover.md): Popover displays floating content in relation to a trigger element, with automatic positioning, flip behavior, and dismiss-on-click-outside.
+- [Progress](/ai/progress.md): Progress visualizes the completion status of an ongoing operation.
+- [Radio](/ai/radio.md): Radio renders a group of radio buttons where exactly one option can be selected at a time.
+- [Scroll Area](/ai/scroll-area.md): Scroll Area provides a custom scrollbar wrapper that delivers consistent scrolling behavior and appearance across browsers and operating systems.
+- [Segmented Control](/ai/segmented-control.md): Segmented Control presents mutually exclusive options in a compact, horizontal row of connected segments.
+- [Select](/ai/select.md): Select presents a list of options from which the user chooses one value.
+- [Separator](/ai/separator.md): Separator renders a visual dividing line that distinguishes content sections, groups related elements, or creates visual hierarchy within layouts.
+- [Sheet](/ai/sheet.md): Sheet provides a lightweight slide-in panel for secondary content that does not require the full commitment of a modal dialog.
+- [Slider](/ai/slider.md): Slider allows users to select a value or range of values from a continuous or discrete scale by dragging a thumb along a track.
+- [Spinner](/ai/spinner.md): Spinner communicates ongoing loading activity through a rotating indicator animation.
+- [Splitter](/ai/splitter.md): Splitter creates resizable panel layouts where users can adjust the relative size of adjacent content areas by dragging a divider handle.
+- [Stack](/ai/stack.md): Stack is a flexbox layout primitive that arranges children in a single direction with consistent spacing.
+- [Surface](/ai/surface.md): Surface provides a themed container with configurable elevation, padding, and background variants.
+- [Switch](/ai/switch.md): Switch provides a binary toggle control for turning a setting on or off.
+- [Table](/ai/table.md): Table renders structured data in a grid of rows and columns using styled native HTML table elements.
+- [Tabs](/ai/tabs.md): Tabs organizes content into separate panels where only one panel is visible at a time, with navigation controls presented as a tab list.
+- [Text](/ai/text.md): Text provides the typography primitive for rendering all textual content in the Blenx system.
+- [Textarea](/ai/textarea.md): Textarea provides a multi-line text input for longer-form content entry.
+- [Toggle Group](/ai/toggle-group.md): Toggle Group manages a collection of toggle buttons where users can select multiple options within a category.
+- [Toggle](/ai/toggle.md): Toggle provides a two-state button that switches between active and inactive visual states.
+- [CloseButton](/ai/close-button.md): Close button component using IconButton from Blenx UI.
+- [CopyButton](/ai/copy-button.md): Copy button component using IconButton from Blenx UI.

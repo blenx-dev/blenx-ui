@@ -21,7 +21,7 @@
 .react-router/
 .tanstack/
 .nitro/
-
+public/ai/
 # Deployment
 .vercel
 .netlify

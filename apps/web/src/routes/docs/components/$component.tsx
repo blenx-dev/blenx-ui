@@ -1,9 +1,10 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { allComponents } from "content-collections";
 import { MDXContent } from "@content-collections/mdx/react";
-import { Badge, Box, HStack, Text } from "@blenx-dev/core";
+import { Badge, Box, HStack, Separator, Text } from "@blenx-dev/core";
 import { DocsContent } from "@/views/docs/DocsContent";
 import { mdxComponents } from "@/views/docs/MdxComponents";
+import { AiActionsBar } from "@/components/ai/AiActionsBar";
 
 const PACKAGE_LABELS: Record<string, string> = {
   "data-table": "@blenx-dev/datatable",
@@ -40,6 +41,7 @@ function ComponentDoc() {
   if (!doc) throw notFound();
 
   const pkgLabel = getPackageLabel(component);
+  const aiUrl = `/ai/${component}.md`;
 
   return (
     <DocsContent>
@@ -56,7 +58,12 @@ function ComponentDoc() {
           {doc.description}
         </Text>
       </Box>
+
+      <AiActionsBar componentTitle={doc.title} aiUrl={aiUrl} />
+
       <MDXContent code={doc.mdx} components={mdxComponents} />
+
+      <Separator />
     </DocsContent>
   );
 }

@@ -1,0 +1,935 @@
+[
+  {
+    "name": "accordion",
+    "title": "Accordion",
+    "description": "Accordion component organizes content into collapsible sections, letting users disclose information progressively.",
+    "package": "@blenx-dev/core",
+    "category": "data-display",
+    "status": "stable",
+    "keywords": ["accordion", "collapsible", "expand", "collapse"],
+    "related": ["Tabs", "Dialog"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["Enter", "Space"],
+      "aria": ["aria-expanded", "aria-controls", "aria-labelledby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/accordion.md"
+  },
+  {
+    "name": "alert-dialog",
+    "title": "Alert Dialog",
+    "description": "Alert Dialog is a modal dialog variant designed for urgent confirmations and critical actions that require the user's immediate attention.",
+    "package": "@blenx-dev/core",
+    "category": "overlay",
+    "status": "stable",
+    "keywords": ["dialog", "modal", "alert", "confirmation", "confirm"],
+    "related": ["Dialog", "Button", "ScrollArea"],
+    "dependencies": ["icon-button", "scroll-area"],
+    "accessibility": {
+      "keyboard": ["Escape"],
+      "aria": ["role", "aria-modal", "aria-labelledby", "aria-describedby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/alert-dialog.md"
+  },
+  {
+    "name": "alert",
+    "title": "Alert",
+    "description": "Alert component delivers contextual feedback messages to users in response to an action or system event.",
+    "package": "@blenx-dev/core",
+    "category": "feedback",
+    "status": "stable",
+    "keywords": ["alert", "banner", "feedback", "info", "success", "warning", "error"],
+    "related": ["Text"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["role", "aria-live"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/alert.md"
+  },
+  {
+    "name": "autocomplete",
+    "title": "Autocomplete",
+    "description": "Autocomplete provides an input field augmented with a popover suggestion list that filters options as the user types.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["autocomplete", "typeahead", "search", "suggestions", "filter"],
+    "related": ["Input", "ScrollArea", "Field", "Combobox"],
+    "dependencies": ["input", "scroll-area"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/autocomplete.md"
+  },
+  {
+    "name": "avatar",
+    "title": "Avatar",
+    "description": "Avatar displays user profile images with automatic fallback to initials when the image fails to load or is not provided.",
+    "package": "@blenx-dev/core",
+    "category": "data-display",
+    "status": "stable",
+    "keywords": ["avatar", "profile", "image", "user", "fallback"],
+    "related": ["Badge"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/avatar.md"
+  },
+  {
+    "name": "badge",
+    "title": "Badge",
+    "description": "Badge is a small visual indicator that communicates counts, status, or labels adjacent to an element.",
+    "package": "@blenx-dev/core",
+    "category": "data-display",
+    "status": "stable",
+    "keywords": ["badge", "pill", "chip", "label", "status", "count"],
+    "related": ["Text", "Avatar"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/badge.md"
+  },
+  {
+    "name": "box",
+    "title": "Box",
+    "description": "Box is the lowest-level layout primitive in Blenx.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "stable",
+    "keywords": ["box", "layout", "div", "polymorphic", "primitive"],
+    "related": ["Container", "Grid", "Stack", "Surface"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/box.md"
+  },
+  {
+    "name": "breadcrumbs",
+    "title": "Breadcrumbs",
+    "description": "Breadcrumbs displays the page hierarchy as a navigational trail with separators between each level.",
+    "package": "@blenx-dev/core",
+    "category": "navigation",
+    "status": "stable",
+    "keywords": ["breadcrumbs", "navigation", "breadcrumb", "trail", "hierarchy"],
+    "related": [],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["aria-label", "aria-current"]
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/breadcrumbs.md"
+  },
+  {
+    "name": "button",
+    "title": "Button",
+    "description": "Button triggers actions and is the most frequently used interactive element in any application.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["button", "action", "click", "submit", "loading", "variant"],
+    "related": ["Spinner", "IconButton", "Toggle"],
+    "dependencies": ["spinner"],
+    "accessibility": {
+      "keyboard": ["Enter", "Space"],
+      "aria": ["aria-disabled", "aria-label", "aria-describedby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/button.md"
+  },
+  {
+    "name": "calendar",
+    "title": "Calendar",
+    "description": "Calendar renders a date grid with month navigation, supporting single date, date range, and multiple date selection modes.",
+    "package": "@blenx-dev/calendar",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["calendar", "date", "datepicker", "day", "month"],
+    "related": ["DatePicker", "Button"],
+    "dependencies": ["button"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/calendar.md"
+  },
+  {
+    "name": "card",
+    "title": "Card",
+    "description": "Card is a surface-level container that groups related content and actions into a single visual unit.",
+    "package": "@blenx-dev/core",
+    "category": "data-display",
+    "status": "stable",
+    "keywords": ["card", "container", "panel", "content", "surface"],
+    "related": ["Surface", "Box"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/card.md"
+  },
+  {
+    "name": "checkbox",
+    "title": "Checkbox",
+    "description": "Checkbox presents a binary choice with an associated label, supporting checked, unchecked, and indeterminate states.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["checkbox", "check", "input", "form", "selection", "indeterminate"],
+    "related": ["Field", "CheckboxGroup"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["Space"],
+      "aria": ["aria-checked", "aria-labelledby"]
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/checkbox.md"
+  },
+  {
+    "name": "color-picker",
+    "title": "Color Picker",
+    "description": "Color Picker provides a popover-based color selection interface with a swatch preview, HEX and RGB input fields, and a grid of preset colors.",
+    "package": "@blenx-dev/color-picker",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["color", "picker", "color picker", "hex", "popover"],
+    "related": ["ColorSwatch", "Popover", "Field", "Button"],
+    "dependencies": ["button", "color-swatch", "field", "popover", "stack"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/color-picker.md"
+  },
+  {
+    "name": "color-swatch",
+    "title": "Color Swatch",
+    "description": "Color Swatch is a presentational element that displays a color value as a small circular preview.",
+    "package": "@blenx-dev/core",
+    "category": "data-display",
+    "status": "stable",
+    "keywords": ["color", "swatch", "preview", "color swatch"],
+    "related": ["ColorPicker"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/color-swatch.md"
+  },
+  {
+    "name": "combobox",
+    "title": "Combobox",
+    "description": "Combobox merges a text input with a selectable options list, combining the flexibility of free-text entry with the precision of constrained selection.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["combobox", "select", "autocomplete", "chips", "multi-select"],
+    "related": ["Input", "ScrollArea", "Field", "Autocomplete"],
+    "dependencies": ["input", "scroll-area"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/combobox.md"
+  },
+  {
+    "name": "command",
+    "title": "Command",
+    "description": "Command implements a command palette — a search-driven interface for triggering actions, navigating pages, and discovering features.",
+    "package": "@blenx-dev/core",
+    "category": "overlay",
+    "status": "experimental",
+    "keywords": ["command", "palette", "search", "filter", "kbar", "spotlight", "keyboard"],
+    "related": ["Dialog", "Select", "Menu"],
+    "dependencies": ["scroll-area"],
+    "accessibility": {
+      "keyboard": ["ArrowDown", "ArrowUp", "Enter", "Escape"],
+      "aria": [
+        "role",
+        "combobox",
+        "listbox",
+        "option",
+        "aria-selected",
+        "aria-expanded",
+        "aria-haspopup"
+      ]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/command.md"
+  },
+  {
+    "name": "container",
+    "title": "Container",
+    "description": "Container provides a responsive content width constraint and horizontal centering for page-level layouts.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "stable",
+    "keywords": ["container", "layout", "wrapper", "center", "max-width"],
+    "related": ["Box", "Stack"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/container.md"
+  },
+  {
+    "name": "data-table",
+    "title": "Data Table",
+    "description": "DataTable is a feature-rich table component built on @tanstack/react-table for sorting, filtering, pagination, column visibility toggle, row selection, infinite scroll, and server-side operations.",
+    "package": "@blenx-dev/datatable",
+    "category": "primitives",
+    "status": "stable",
+    "keywords": [],
+    "related": [],
+    "dependencies": [
+      "@phosphor-icons/react",
+      "@tanstack/react-table",
+      "button",
+      "input",
+      "menu",
+      "spinner"
+    ],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/data-table.md"
+  },
+  {
+    "name": "date-picker",
+    "title": "Date Picker",
+    "description": "DatePicker combines the Calendar component with a Popover and a text input trigger, enabling users to select a date through either visual calendar navigation or direct text input.",
+    "package": "@blenx-dev/calendar",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["date", "date picker", "calendar", "popover", "form"],
+    "related": ["Calendar", "Popover", "Field", "Button"],
+    "dependencies": ["button", "calendar", "field", "popover"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/date-picker.md"
+  },
+  {
+    "name": "dialog",
+    "title": "Dialog",
+    "description": "Dialog is a modal overlay that presents content requiring user attention or input while blocking interaction with the rest of the page.",
+    "package": "@blenx-dev/core",
+    "category": "overlay",
+    "status": "stable",
+    "keywords": ["dialog", "modal", "popup", "overlay", "alert"],
+    "related": ["AlertDialog", "Button", "ScrollArea", "Drawer"],
+    "dependencies": ["icon-button", "scroll-area"],
+    "accessibility": {
+      "keyboard": ["Escape"],
+      "aria": ["role", "aria-modal", "aria-labelledby", "aria-describedby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/dialog.md"
+  },
+  {
+    "name": "drawer",
+    "title": "Drawer",
+    "description": "Drawer is a slide-in panel that emerges from any edge of the viewport — left, right, top, or bottom — providing a secondary surface for content and actions.",
+    "package": "@blenx-dev/core",
+    "category": "overlay",
+    "status": "stable",
+    "keywords": ["drawer", "panel", "slide", "swipe", "sidebar", "menu"],
+    "related": ["ScrollArea", "Dialog", "Button"],
+    "dependencies": ["icon-button", "scroll-area"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/drawer.md"
+  },
+  {
+    "name": "field",
+    "title": "Field",
+    "description": "Field wraps form controls with label, help text, and error message layout, providing consistent form structure and accessible associations.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["field", "form", "label", "error", "validation", "input"],
+    "related": ["Input", "Select", "Textarea", "ColorPicker", "DatePicker"],
+    "dependencies": ["button", "scroll-area"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/field.md"
+  },
+  {
+    "name": "grid",
+    "title": "Grid",
+    "description": "Grid is a CSS Grid layout primitive that enables complex two-dimensional layouts with rows and columns.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "experimental",
+    "keywords": ["grid", "layout", "columns", "css grid", "responsive"],
+    "related": ["Box", "Stack"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/grid.md"
+  },
+  {
+    "name": "icon-button",
+    "title": "Icon Button",
+    "description": "Icon buttons provide a compact trigger for actions where visual real estate is limited.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["icon", "button", "icon-button", "action", "toolbar"],
+    "related": ["Icon", "Button", "Spinner"],
+    "dependencies": ["button"],
+    "accessibility": {
+      "keyboard": ["Enter", "Space"],
+      "aria": ["aria-label", "aria-disabled"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/icon-button.md"
+  },
+  {
+    "name": "icon",
+    "title": "Icon",
+    "description": "Icon is a wrapper component for Phosphor icons that provides consistent sizing, coloring, and accessibility defaults.",
+    "package": "@blenx-dev/core",
+    "category": "utility",
+    "status": "stable",
+    "keywords": ["icon", "svg", "size", "color", "wrapper"],
+    "related": ["IconButton", "Button", "Badge"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["aria-hidden"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/icon.md"
+  },
+  {
+    "name": "input-group",
+    "title": "Input Group",
+    "description": "Input Group extends a standard Input with prefix or suffix adornments — icons, buttons, text labels, or dropdown triggers.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["input group", "fieldset", "addon", "form", "group"],
+    "related": ["Input", "Field", "Checkbox", "Radio"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/input-group.md"
+  },
+  {
+    "name": "input",
+    "title": "Input",
+    "description": "Input component captures single-line text from users.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["input", "text", "form", "field", "text input"],
+    "related": ["Field", "InputGroup", "Autocomplete", "Combobox"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/input.md"
+  },
+  {
+    "name": "menu",
+    "title": "Menu",
+    "description": "Menu provides a dropdown list of actions or options triggered by a button, link, or other interactive element.",
+    "package": "@blenx-dev/core",
+    "category": "navigation",
+    "status": "stable",
+    "keywords": ["menu", "dropdown", "context menu", "navigation"],
+    "related": ["Button"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["ArrowUp", "ArrowDown", "Enter", "Escape"],
+      "aria": ["role", "aria-orientation"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/menu.md"
+  },
+  {
+    "name": "otp-field",
+    "title": "Otp Field",
+    "description": "OTP Field provides a dedicated input experience for one-time passwords, verification codes, and numeric tokens typically delivered via SMS or email.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "experimental",
+    "keywords": ["otp", "password", "code", "verification", "2fa", "input"],
+    "related": ["Input", "Field"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/otp-field.md"
+  },
+  {
+    "name": "popover",
+    "title": "Popover",
+    "description": "Popover displays floating content in relation to a trigger element, with automatic positioning, flip behavior, and dismiss-on-click-outside.",
+    "package": "@blenx-dev/core",
+    "category": "overlay",
+    "status": "stable",
+    "keywords": ["popover", "tooltip", "popup", "floating", "overlay"],
+    "related": ["Button", "ColorPicker", "DatePicker"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["Escape"],
+      "aria": ["role", "aria-labelledby", "aria-describedby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/popover.md"
+  },
+  {
+    "name": "progress",
+    "title": "Progress",
+    "description": "Progress visualizes the completion status of an ongoing operation.",
+    "package": "@blenx-dev/core",
+    "category": "feedback",
+    "status": "stable",
+    "keywords": ["progress", "bar", "loading", "status", "indicator"],
+    "related": ["Spinner"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["role", "aria-valuenow", "aria-valuemin", "aria-valuemax"]
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/progress.md"
+  },
+  {
+    "name": "radio",
+    "title": "Radio",
+    "description": "Radio renders a group of radio buttons where exactly one option can be selected at a time.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["radio", "radio group", "option", "select", "form"],
+    "related": ["Field", "InputGroup"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["ArrowUp", "ArrowDown"],
+      "aria": ["aria-checked", "aria-labelledby"]
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/radio.md"
+  },
+  {
+    "name": "scroll-area",
+    "title": "Scroll Area",
+    "description": "Scroll Area provides a custom scrollbar wrapper that delivers consistent scrolling behavior and appearance across browsers and operating systems.",
+    "package": "@blenx-dev/core",
+    "category": "utility",
+    "status": "stable",
+    "keywords": ["scroll", "scroll area", "scrollbar", "scroll fade"],
+    "related": ["Dialog", "AlertDialog", "Drawer", "Autocomplete", "Combobox"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/scroll-area.md"
+  },
+  {
+    "name": "segmented-control",
+    "title": "Segmented Control",
+    "description": "Segmented Control presents mutually exclusive options in a compact, horizontal row of connected segments.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["segmented", "control", "toggle", "segment", "button group"],
+    "related": ["ToggleGroup", "Toggle"],
+    "dependencies": ["toggle"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/segmented-control.md"
+  },
+  {
+    "name": "select",
+    "title": "Select",
+    "description": "Select presents a list of options from which the user chooses one value.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["select", "dropdown", "combobox", "listbox", "form"],
+    "related": ["Field", "ScrollArea"],
+    "dependencies": ["field"],
+    "accessibility": {
+      "keyboard": ["ArrowUp", "ArrowDown", "Enter", "Escape"],
+      "aria": ["role", "aria-expanded", "aria-labelledby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/select.md"
+  },
+  {
+    "name": "separator",
+    "title": "Separator",
+    "description": "Separator renders a visual dividing line that distinguishes content sections, groups related elements, or creates visual hierarchy within layouts.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "stable",
+    "keywords": ["separator", "divider", "line", "rule", "hr"],
+    "related": ["ToggleGroup", "Menu"],
+    "dependencies": ["field"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["role", "aria-orientation"]
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/separator.md"
+  },
+  {
+    "name": "sheet",
+    "title": "Sheet",
+    "description": "Sheet provides a lightweight slide-in panel for secondary content that does not require the full commitment of a modal dialog.",
+    "package": "@blenx-dev/core",
+    "category": "overlay",
+    "status": "stable",
+    "keywords": ["sheet", "panel", "slide", "sidebar", "drawer", "overlay"],
+    "related": ["Drawer", "Dialog", "Button", "ScrollArea"],
+    "dependencies": ["icon-button", "scroll-area"],
+    "accessibility": {
+      "keyboard": ["Escape"],
+      "aria": ["role", "aria-modal", "aria-labelledby", "aria-describedby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/sheet.md"
+  },
+  {
+    "name": "slider",
+    "title": "Slider",
+    "description": "Slider allows users to select a value or range of values from a continuous or discrete scale by dragging a thumb along a track.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["slider", "range", "input", "range slider", "thumb"],
+    "related": ["Field"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"],
+      "aria": ["role", "aria-valuenow", "aria-valuemin", "aria-valuemax"]
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/slider.md"
+  },
+  {
+    "name": "spinner",
+    "title": "Spinner",
+    "description": "Spinner communicates ongoing loading activity through a rotating indicator animation.",
+    "package": "@blenx-dev/core",
+    "category": "feedback",
+    "status": "stable",
+    "keywords": ["spinner", "loading", "loader", "progress", "wait"],
+    "related": ["Button", "Progress"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["role", "aria-label"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/spinner.md"
+  },
+  {
+    "name": "splitter",
+    "title": "Splitter",
+    "description": "Splitter creates resizable panel layouts where users can adjust the relative size of adjacent content areas by dragging a divider handle.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "stable",
+    "keywords": ["splitter", "resize", "panel", "layout", "split", "resizable"],
+    "related": ["Box"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/splitter.md"
+  },
+  {
+    "name": "stack",
+    "title": "Stack",
+    "description": "Stack is a flexbox layout primitive that arranges children in a single direction with consistent spacing.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "stable",
+    "keywords": ["stack", "flex", "layout", "vstack", "hstack", "flexbox"],
+    "related": ["Box", "Grid"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/stack.md"
+  },
+  {
+    "name": "surface",
+    "title": "Surface",
+    "description": "Surface provides a themed container with configurable elevation, padding, and background variants.",
+    "package": "@blenx-dev/core",
+    "category": "layout",
+    "status": "stable",
+    "keywords": ["surface", "background", "container", "elevation", "card"],
+    "related": ["Box", "Card"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/surface.md"
+  },
+  {
+    "name": "switch",
+    "title": "Switch",
+    "description": "Switch provides a binary toggle control for turning a setting on or off.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["switch", "toggle", "on/off", "toggle switch"],
+    "related": ["Field"],
+    "dependencies": ["box"],
+    "accessibility": {
+      "keyboard": ["Enter", "Space"],
+      "aria": ["aria-checked", "aria-labelledby"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/switch.md"
+  },
+  {
+    "name": "table",
+    "title": "Table",
+    "description": "Table renders structured data in a grid of rows and columns using styled native HTML table elements.",
+    "package": "@blenx-dev/core",
+    "category": "data-display",
+    "status": "stable",
+    "keywords": ["table", "data", "grid", "rows", "columns"],
+    "related": [],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["role", "aria-colcount"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/table.md"
+  },
+  {
+    "name": "tabs",
+    "title": "Tabs",
+    "description": "Tabs organizes content into separate panels where only one panel is visible at a time, with navigation controls presented as a tab list.",
+    "package": "@blenx-dev/core",
+    "category": "navigation",
+    "status": "stable",
+    "keywords": ["tabs", "tab", "navigation", "panel", "tabbed"],
+    "related": ["Accordion", "SegmentedControl"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": ["ArrowLeft", "ArrowRight", "Home", "End"],
+      "aria": ["role", "aria-orientation", "aria-selected", "aria-labelledby", "role"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/tabs.md"
+  },
+  {
+    "name": "text",
+    "title": "Text",
+    "description": "Text provides the typography primitive for rendering all textual content in the Blenx system.",
+    "package": "@blenx-dev/core",
+    "category": "typography",
+    "status": "stable",
+    "keywords": ["text", "typography", "heading", "paragraph", "font"],
+    "related": ["Badge"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/text.md"
+  },
+  {
+    "name": "textarea",
+    "title": "Textarea",
+    "description": "Textarea provides a multi-line text input for longer-form content entry.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["textarea", "text", "input", "multiline", "form"],
+    "related": ["Field", "InputGroup"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/textarea.md"
+  },
+  {
+    "name": "toggle-group",
+    "title": "Toggle Group",
+    "description": "Toggle Group manages a collection of toggle buttons where users can select multiple options within a category.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["toggle group", "button group", "toggle", "button bar"],
+    "related": ["Toggle", "SegmentedControl", "Separator"],
+    "dependencies": ["toggle"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": true,
+    "aiUrl": "/ai/toggle-group.md"
+  },
+  {
+    "name": "toggle",
+    "title": "Toggle",
+    "description": "Toggle provides a two-state button that switches between active and inactive visual states.",
+    "package": "@blenx-dev/core",
+    "category": "forms",
+    "status": "stable",
+    "keywords": ["toggle", "button", "on/off", "pressed", "toggle button"],
+    "related": ["ToggleGroup", "SegmentedControl"],
+    "dependencies": [],
+    "accessibility": {
+      "keyboard": [],
+      "aria": ["aria-pressed"]
+    },
+    "hasExamples": true,
+    "hasSections": true,
+    "aiUrl": "/ai/toggle.md"
+  },
+  {
+    "name": "close-button",
+    "title": "CloseButton",
+    "description": "Close button component using IconButton from Blenx UI.",
+    "package": "@blenx-dev/core",
+    "category": "primitives",
+    "status": "stable",
+    "keywords": [],
+    "related": [],
+    "dependencies": ["icon-button"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": false,
+    "aiUrl": "/ai/close-button.md"
+  },
+  {
+    "name": "copy-button",
+    "title": "CopyButton",
+    "description": "Copy button component using IconButton from Blenx UI.",
+    "package": "@blenx-dev/core",
+    "category": "primitives",
+    "status": "stable",
+    "keywords": [],
+    "related": [],
+    "dependencies": ["icon-button"],
+    "accessibility": {
+      "keyboard": [],
+      "aria": []
+    },
+    "hasExamples": false,
+    "hasSections": false,
+    "aiUrl": "/ai/copy-button.md"
+  }
+]
