@@ -2,19 +2,15 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const root = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-    width: "full",
-  }),
-]);
+export const root = baseSprinkles({
+  display: "flex",
+  direction: "column",
+  width: "full",
+});
 
-export const rootVertical = style([
-  baseSprinkles({
-    direction: "column",
-  }),
-]);
+export const rootVertical = baseSprinkles({
+  direction: "column",
+});
 
 export const item = style({
   borderBottomWidth: tokenVars.borderWidth.thin,
@@ -36,12 +32,12 @@ export const trigger = style([
     fontSize: "sm",
     color: "primary",
     borderRadius: "default",
+    lineHeight: "normal",
+    fontWeight: "medium",
+    backgroundColor: "transparent",
   }),
   style({
     paddingInlineEnd: tokenVars.spacing.xxs,
-    lineHeight: tokenVars.lineHeight.normal,
-    fontWeight: tokenVars.fontWeight.medium,
-    backgroundColor: "transparent",
     border: "none",
     appearance: "none",
     fontFamily: "inherit",

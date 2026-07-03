@@ -2,6 +2,9 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { baseSprinkles } from "../../utils/sprinkles";
 
+const scrollMarginTop = style({
+  scrollMarginTop: "80px",
+});
 export const textVariants = recipe({
   base: [
     baseSprinkles({ lineHeight: "normal", margin: "0" }),
@@ -18,9 +21,7 @@ export const textVariants = recipe({
           fontSize: "displayLg",
           margin: "0",
         }),
-        style({
-          scrollMarginTop: "80px",
-        }),
+        scrollMarginTop,
       ],
       h2: [
         baseSprinkles({
@@ -29,9 +30,7 @@ export const textVariants = recipe({
           letterSpacing: "tight",
           margin: "0",
         }),
-        style({
-          scrollMarginTop: "80px",
-        }),
+        scrollMarginTop,
       ],
       h3: [
         baseSprinkles({
@@ -40,28 +39,11 @@ export const textVariants = recipe({
           letterSpacing: "snug",
           margin: "0",
         }),
-        style({
-          scrollMarginTop: "80px",
-        }),
+        scrollMarginTop,
       ],
-      h4: [
-        baseSprinkles({ fontSize: "lg", fontWeight: "semibold", margin: "0" }),
-        style({
-          scrollMarginTop: "80px",
-        }),
-      ],
-      h5: [
-        baseSprinkles({ fontSize: "md", fontWeight: "semibold", margin: "0" }),
-        style({
-          scrollMarginTop: "80px",
-        }),
-      ],
-      h6: [
-        baseSprinkles({ fontSize: "sm", fontWeight: "semibold", margin: "0" }),
-        style({
-          scrollMarginTop: "80px",
-        }),
-      ],
+      h4: [baseSprinkles({ fontSize: "lg", fontWeight: "semibold", margin: "0" }), scrollMarginTop],
+      h5: [baseSprinkles({ fontSize: "md", fontWeight: "semibold", margin: "0" }), scrollMarginTop],
+      h6: [baseSprinkles({ fontSize: "sm", fontWeight: "semibold", margin: "0" }), scrollMarginTop],
       body1: [baseSprinkles({ fontWeight: "regular", margin: "0" })],
       body2: [baseSprinkles({ fontSize: "sm", fontWeight: "regular", margin: "0" })],
       body3: [baseSprinkles({ fontSize: "xs", fontWeight: "regular", margin: "0" })],

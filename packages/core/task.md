@@ -16,23 +16,27 @@ instead of unique per-file classes, reducing the total CSS bundle size.
 ```ts
 import { baseSprinkles } from "../../utils/sprinkles.css.ts";
 
-// In a *.css.ts file, use `sprinkles()` where possible instead of `style()`:
-export const root = style([
+// When ALL properties are sprinkle-eligible, assign directly — no style() wrapper:
+export const root = baseSprinkles({
+  display: "flex",
+  direction: "column",
+  width: "full",
+  padding: "md",
+  radius: "lg",
+  color: "primary",
+  backgroundColor: "surface",
+  position: "relative",
+  overflow: "hidden",
+});
+
+// When mixing sprinkle + non-sprinkle props, wrap in style():
+export const rootWithTransition = style([
   baseSprinkles({
     display: "flex",
     direction: "column",
     align: "center",
-    justify: "between",
     gap: "sm",
-    width: "full",
-    padding: "md",
-    radius: "lg",
-    color: "primary",
-    backgroundColor: "surface",
-    position: "relative",
-    overflow: "hidden",
   }),
-  // Keep non-sprinkle props in a separate style() call:
   style({
     transition: "color 0.2s",
   }),
@@ -56,12 +60,12 @@ export const myRecipe = recipe({
       height: "fit",
       position: "relative",
       fontSize: "md",
+      fontWeight: "medium",
     }),
     style({
       // Non-sprinkle props stay here
       borderStyle: "solid",
       borderWidth: 1,
-      fontWeight: 500,
       fontFamily: tokenVars.font.body,
       transition: "all 0.2s ease",
     }),
