@@ -49,33 +49,33 @@ export const badgeDefault = style({
 
 export const badgePrimary = style({
   vars: {
-    [badgeVars.bg]: semanticVars.interactive.primary.default,
-    [badgeVars.fg]: semanticVars.interactive.primaryFg,
-    [badgeVars.borderColor]: semanticVars.interactive.primary.default,
+    [badgeVars.bg]: semanticVars.color.primary.default,
+    [badgeVars.fg]: semanticVars.color.primary.fg,
+    [badgeVars.borderColor]: semanticVars.color.primary.default,
   },
 });
 
 export const badgeSecondary = style({
   vars: {
-    [badgeVars.bg]: semanticVars.interactive.secondary.default,
-    [badgeVars.fg]: semanticVars.interactive.secondaryFg,
-    [badgeVars.borderColor]: semanticVars.interactive.secondary.default,
+    [badgeVars.bg]: semanticVars.color.secondary.default,
+    [badgeVars.fg]: semanticVars.color.secondary.fg,
+    [badgeVars.borderColor]: semanticVars.color.secondary.default,
   },
 });
 
 export const badgeSuccess = style({
   vars: {
-    [badgeVars.bg]: semanticVars.status.success.default,
+    [badgeVars.bg]: semanticVars.color.success.default,
     [badgeVars.fg]: semanticVars.text.inverse,
-    [badgeVars.borderColor]: semanticVars.status.success.default,
+    [badgeVars.borderColor]: semanticVars.color.success.default,
   },
 });
 
 export const badgeDanger = style({
   vars: {
-    [badgeVars.bg]: semanticVars.status.danger.default,
+    [badgeVars.bg]: semanticVars.color.danger.default,
     [badgeVars.fg]: semanticVars.text.inverse,
-    [badgeVars.borderColor]: semanticVars.status.danger.default,
+    [badgeVars.borderColor]: semanticVars.color.danger.default,
   },
 });
 
@@ -112,33 +112,33 @@ export const badgeRecipe = recipe({
 
       primary: {
         vars: {
-          [badgeVars.bg]: semanticVars.interactive.primary.default,
-          [badgeVars.fg]: semanticVars.interactive.primaryFg,
-          [badgeVars.borderColor]: semanticVars.interactive.primary.default,
+          [badgeVars.bg]: semanticVars.color.primary.default,
+          [badgeVars.fg]: semanticVars.color.primary.fg,
+          [badgeVars.borderColor]: semanticVars.color.primary.default,
         },
       },
 
       secondary: {
         vars: {
-          [badgeVars.bg]: semanticVars.interactive.secondary.default,
-          [badgeVars.fg]: semanticVars.interactive.secondaryFg,
-          [badgeVars.borderColor]: semanticVars.interactive.secondary.default,
+          [badgeVars.bg]: semanticVars.color.secondary.default,
+          [badgeVars.fg]: semanticVars.color.secondary.fg,
+          [badgeVars.borderColor]: semanticVars.color.secondary.default,
         },
       },
 
       success: {
         vars: {
-          [badgeVars.bg]: semanticVars.status.success.default,
+          [badgeVars.bg]: semanticVars.color.success.default,
           [badgeVars.fg]: semanticVars.text.inverse,
-          [badgeVars.borderColor]: semanticVars.status.success.default,
+          [badgeVars.borderColor]: semanticVars.color.success.default,
         },
       },
 
       danger: {
         vars: {
-          [badgeVars.bg]: semanticVars.status.danger.default,
+          [badgeVars.bg]: semanticVars.color.danger.default,
           [badgeVars.fg]: semanticVars.text.inverse,
-          [badgeVars.borderColor]: semanticVars.status.danger.default,
+          [badgeVars.borderColor]: semanticVars.color.danger.default,
         },
       },
     },

@@ -97,16 +97,16 @@ export const itemDestructive = style([
   style({
     selectors: {
       "&:hover": {
-        backgroundColor: semanticVars.status.dangerBg,
-        color: semanticVars.status.danger.default,
+        backgroundColor: semanticVars.color.danger.bg,
+        color: semanticVars.color.danger.default,
       },
       "&:focus-visible": {
-        backgroundColor: semanticVars.status.dangerBg,
-        color: semanticVars.status.danger.default,
-        boxShadow: `0 0 0 2px ${semanticVars.status.danger} inset`,
+        backgroundColor: semanticVars.color.danger.bg,
+        color: semanticVars.color.danger.default,
+        boxShadow: `0 0 0 2px ${semanticVars.color.danger} inset`,
       },
       "&:active": {
-        backgroundColor: semanticVars.status.dangerBg,
+        backgroundColor: semanticVars.color.danger.bg,
       },
     },
   }),

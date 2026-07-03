@@ -60,7 +60,7 @@ export const indicator = style([
     left: -1,
     right: -1,
     bottom: -1,
-    color: semanticVars.interactive.primaryFg,
+    color: semanticVars.color.primary.fg,
   }),
 ]);
 
@@ -69,7 +69,7 @@ export const indicatorChecked = style([
     backgroundColor: "primary",
   }),
   style({
-    color: semanticVars.interactive.primaryFg,
+    color: semanticVars.color.primary.fg,
   }),
 ]);
 

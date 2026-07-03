@@ -44,7 +44,7 @@ export const trigger = style([
         borderColor: semanticVars.border.strong,
       },
       "&:focus-visible": {
-        borderColor: semanticVars.interactive.primary.default,
+        borderColor: semanticVars.color.primary.default,
         boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
       },
       "&:disabled": {
@@ -138,14 +138,14 @@ export const item = style([
         backgroundColor: semanticVars.background.subtle,
       },
       "&[data-selected]": {
-        backgroundColor: semanticVars.interactive.primary.default,
-        color: semanticVars.interactive.primaryFg,
+        backgroundColor: semanticVars.color.primary.default,
+        color: semanticVars.color.primary.fg,
       },
       "&[data-selected]:hover": {
-        backgroundColor: semanticVars.interactive.primary.default,
+        backgroundColor: semanticVars.color.primary.default,
       },
       "&[data-selected][data-highlighted]": {
-        backgroundColor: semanticVars.interactive.primary.default,
+        backgroundColor: semanticVars.color.primary.default,
       },
       "&[data-disabled]": {
         color: semanticVars.text.disabled,

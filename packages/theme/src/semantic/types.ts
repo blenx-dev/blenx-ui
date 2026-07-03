@@ -1,4 +1,17 @@
-import type { ColorRole, ColorRoleName } from "../contract.css";
+import type { ColorRoleName } from "../contract.css";
+
+type ColorRoleTokens = {
+  default: string;
+  hover: string;
+  active: string;
+  bg: string;
+  bgHover: string;
+  bgActive: string;
+  fg: string;
+  text: string;
+  textActive: string;
+  border: string;
+};
 
 export interface SemanticTokens {
   background: {
@@ -14,7 +27,6 @@ export interface SemanticTokens {
   text: {
     primary: string;
     secondary: string;
-    accent: string;
     disabled: string;
     inverse: string;
   };
@@ -27,7 +39,7 @@ export interface SemanticTokens {
   focus: {
     ring: string;
   };
-  color: Record<ColorRoleName, ColorRole>;
+  color: Record<ColorRoleName, ColorRoleTokens>;
 }
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

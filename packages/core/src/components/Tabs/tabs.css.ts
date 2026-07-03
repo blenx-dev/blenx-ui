@@ -32,7 +32,7 @@ export const tabActiveVertical = style([
     fontWeight: tokenVars.fontWeight.semibold,
     borderRightWidth: 2,
     borderRightStyle: "solid",
-    borderRightColor: semanticVars.interactive.secondary.default,
+    borderRightColor: semanticVars.color.secondary.default,
   }),
 ]);
 
@@ -103,7 +103,7 @@ export const tabSegmentedActive = style([
     backgroundColor: "surface",
   }),
   style({
-    color: semanticVars.interactive.primaryFg,
+    color: semanticVars.color.primary.fg,
     fontWeight: tokenVars.fontWeight.semibold,
   }),
 ]);
@@ -124,11 +124,11 @@ export const tab = style([
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,
-        color: semanticVars.text.accent,
+        color: semanticVars.color.primary.text,
       },
       "&:active": {
         backgroundColor: semanticVars.surface.overlay,
-        color: semanticVars.text.accent,
+        color: semanticVars.color.primary.text,
       },
     },
     fontFamily: tokenVars.font.body,
@@ -156,7 +156,7 @@ export const tabDefault = style([
         backgroundColor: semanticVars.background.subtle,
       },
       "&:focus-visible": {
-        boxShadow: `inset 0 -2px 0 ${semanticVars.interactive.secondary}`,
+        boxShadow: `inset 0 -2px 0 ${semanticVars.color.secondary}`,
       },
     },
   }),
@@ -203,7 +203,7 @@ export const tabUnderline = style([
 
         borderBottomColor: semanticVars.text.primary,
         backgroundColor: semanticVars.background.subtle,
-        color: semanticVars.text.accent,
+        color: semanticVars.color.primary.text,
       },
     },
   }),
@@ -229,7 +229,7 @@ export const indicatorUnderline = style([
     radius: "full",
   }),
   style({
-    backgroundColor: semanticVars.interactive.secondary.default,
+    backgroundColor: semanticVars.color.secondary.default,
   }),
 ]);
 

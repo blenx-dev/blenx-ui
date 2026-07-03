@@ -306,11 +306,11 @@ export const chips = style([
         boxShadow: `0 0 0 2px ${semanticVars.border.strong}`,
       },
       "&:has([aria-invalid='true'])": {
-        borderColor: semanticVars.status.danger.default,
+        borderColor: semanticVars.color.danger.default,
       },
       "&:has([aria-invalid='true']:focus-visible)": {
-        borderColor: semanticVars.status.danger.default,
-        boxShadow: `0 0 0 2px ${semanticVars.status.danger}`,
+        borderColor: semanticVars.color.danger.default,
+        boxShadow: `0 0 0 2px ${semanticVars.color.danger}`,
       },
       "&:has(:disabled)": {
         opacity: 0.64,

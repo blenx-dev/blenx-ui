@@ -58,11 +58,11 @@ export const colors = {
   secondary: semanticVars.text.secondary,
   disabled: semanticVars.text.disabled,
   inverse: semanticVars.text.inverse,
-  link: semanticVars.interactive.primary.default,
-  error: semanticVars.status.danger.default,
-  success: semanticVars.status.success.default,
-  warning: semanticVars.status.warning.default,
-  info: semanticVars.status.info.default,
+  link: semanticVars.color.primary.default,
+  error: semanticVars.color.danger.default,
+  success: semanticVars.color.success.default,
+  warning: semanticVars.color.warning.default,
+  info: semanticVars.color.info.default,
 } as const;
 
 export const responsiveConditions = {
