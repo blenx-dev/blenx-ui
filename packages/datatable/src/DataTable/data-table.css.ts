@@ -226,11 +226,11 @@ export const checkboxChecked = style({
   borderRadius: 3,
   borderWidth: 1.5,
   borderStyle: "solid",
-  borderColor: semanticVars.interactive.primary,
+  borderColor: semanticVars.color.primary.default,
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: semanticVars.interactive.primary,
+  backgroundColor: semanticVars.color.primary.bg,
 });
 
 export const checkboxUnchecked = style({
@@ -299,7 +299,7 @@ export const errorContainer = style({
 });
 
 export const errorMessage = style({
-  color: semanticVars.status.danger,
+  color: semanticVars.color.danger.text,
   fontSize: tokenVars.fontSize.sm,
   lineHeight: 1.5,
   textAlign: "center",

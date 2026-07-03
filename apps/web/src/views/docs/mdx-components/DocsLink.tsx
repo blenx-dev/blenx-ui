@@ -15,7 +15,7 @@ function DocsLink({ href, children, ...props }: DocsLinkProps) {
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       style={{
-        color: semanticVars.interactive.primary.default,
+        color: semanticVars.color.primary.default,
         textDecoration: "underline",
         textUnderlineOffset: 2,
         cursor: "pointer",

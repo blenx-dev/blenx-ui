@@ -47,8 +47,8 @@ export const input = style([
         boxShadow: `0 0 0 2px ${semanticVars.border.strong}`,
       },
       "&:focus-visible[aria-invalid='true']": {
-        borderColor: semanticVars.status.danger.default,
-        boxShadow: `0 0 0 3px ${semanticVars.status.danger}`,
+        borderColor: semanticVars.color.danger.default,
+        boxShadow: `0 0 0 3px ${semanticVars.color.danger}`,
       },
     },
   }),

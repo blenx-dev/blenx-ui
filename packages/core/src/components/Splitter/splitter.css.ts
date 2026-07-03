@@ -52,7 +52,7 @@ export const handle = style([
         backgroundColor: semanticVars.border.default,
       },
       "&:focus-visible": {
-        backgroundColor: semanticVars.interactive.primary.default,
+        backgroundColor: semanticVars.color.primary.default,
       },
     },
   }),

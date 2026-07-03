@@ -22,7 +22,7 @@ export const input = recipe({
     backgroundColor: semanticVars.background.default,
     color: semanticVars.text.primary,
     outline: "none",
-    caretColor: semanticVars.interactive.primary.default,
+    caretColor: semanticVars.color.primary.default,
     transition: "box-shadow 0.15s ease, border-color 0.15s ease",
     padding: 0,
     margin: 0,

@@ -5,24 +5,24 @@ export const alertVariants = recipe({
   variants: {
     variant: {
       info: {
-        backgroundColor: semanticVars.status.infoBg,
-        color: semanticVars.status.info.active,
-        borderColor: semanticVars.status.info.default,
+        backgroundColor: semanticVars.color.info.bg,
+        color: semanticVars.color.info.active,
+        borderColor: semanticVars.color.info.default,
       },
       success: {
-        backgroundColor: semanticVars.status.successBg,
-        color: semanticVars.status.success.active,
-        borderColor: semanticVars.status.success.default,
+        backgroundColor: semanticVars.color.success.bg,
+        color: semanticVars.color.success.active,
+        borderColor: semanticVars.color.success.default,
       },
       warning: {
-        backgroundColor: semanticVars.status.warningBg,
-        color: semanticVars.status.warning.active,
-        borderColor: semanticVars.status.warning.default,
+        backgroundColor: semanticVars.color.warning.bg,
+        color: semanticVars.color.warning.active,
+        borderColor: semanticVars.color.warning.default,
       },
       error: {
-        backgroundColor: semanticVars.status.dangerBg,
-        color: semanticVars.status.danger.default,
-        borderColor: semanticVars.status.danger.default,
+        backgroundColor: semanticVars.color.danger.bg,
+        color: semanticVars.color.danger.default,
+        borderColor: semanticVars.color.danger.default,
       },
     },
   },

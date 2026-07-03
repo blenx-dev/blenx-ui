@@ -11,6 +11,21 @@ type BlenxThemeColors = {
   neutral: PaletteRoles;
 };
 
+function buildColorRole(role: PaletteRoles) {
+  return {
+    default: role.solid.default,
+    hover: role.solid.hover,
+    active: role.solid.active,
+    bg: role.bg.default,
+    bgHover: role.bg.hover,
+    bgActive: role.bg.active,
+    fg: role.solidFg,
+    text: role.text.default,
+    textActive: role.text.hover,
+    border: role.border.default,
+  };
+}
+
 export function resolveToSemanticTokens({
   primary,
   secondary,
@@ -34,7 +49,6 @@ export function resolveToSemanticTokens({
     text: {
       primary: neutral.text.hover,
       secondary: neutral.text.default, // one step lighter than primary text
-      accent: primary.text.default,
       disabled: neutral.border.default,
       inverse: neutral.solidFg,
     },
@@ -43,61 +57,14 @@ export function resolveToSemanticTokens({
       subtle: neutral.bg.active,
       strong: neutral.border.hover,
     },
-    interactive: {
-      primary: {
-        default: primary.solid.default,
-        hover: primary.solid.hover,
-        active: primary.solid.active,
-      },
-      primaryFg: primary.solidFg,
-      primaryBg: {
-        default: primary.bg.default,
-        hover: primary.bg.hover,
-        active: primary.bg.active,
-      },
-      secondary: {
-        default: secondary.solid.default,
-        hover: secondary.solid.hover,
-        active: secondary.solid.active,
-      },
-      secondaryFg: secondary.solidFg,
-      secondaryBg: {
-        default: secondary.bg.default,
-        hover: secondary.bg.hover,
-        active: secondary.bg.active,
-      },
-      neutral: {
-        default: neutral.solid.default,
-        hover: neutral.solid.hover,
-        active: neutral.solid.active,
-      },
-      neutralFg: neutral.solidFg,
-    },
-    status: {
-      success: {
-        default: success.solid.default,
-        hover: success.solid.hover,
-        active: success.solid.active,
-      },
-      successBg: success.bg.default,
-      warning: {
-        default: warning.solid.default,
-        hover: warning.solid.hover,
-        active: warning.solid.active,
-      },
-      warningBg: warning.bg.default,
-      danger: {
-        default: danger.solid.default,
-        hover: danger.solid.hover,
-        active: danger.solid.active,
-      },
-      dangerBg: danger.bg.default,
-      info: {
-        default: info.solid.default,
-        hover: info.solid.hover,
-        active: info.solid.active,
-      },
-      infoBg: info.bg.default,
+    color: {
+      primary: buildColorRole(primary),
+      secondary: buildColorRole(secondary),
+      neutral: buildColorRole(neutral),
+      success: buildColorRole(success),
+      warning: buildColorRole(warning),
+      danger: buildColorRole(danger),
+      info: buildColorRole(info),
     },
     focus: {
       ring: primary.focus,

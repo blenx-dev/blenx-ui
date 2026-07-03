@@ -25,10 +25,10 @@ export const shell = style([
         boxShadow: `0 0 0 3px ${semanticVars.border.strong}`,
       },
       "&:has([aria-invalid])": {
-        borderColor: semanticVars.status.danger.default,
+        borderColor: semanticVars.color.danger.default,
       },
       "&:has([aria-invalid]:focus-visible)": {
-        boxShadow: `0 0 0 3px ${semanticVars.status.danger.default}`,
+        boxShadow: `0 0 0 3px ${semanticVars.color.danger.default}`,
       },
       "&:has(:disabled)": {
         opacity: 0.64,

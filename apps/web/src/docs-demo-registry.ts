@@ -21,6 +21,7 @@ export const demoImports: Record<string, () => Promise<Record<string, unknown>>>
   accordion: () => import("@blenx-dev/core/components/Accordion/accordion.demo"),
   alert: () => import("@blenx-dev/core/components/Alert/alert.demo"),
   "alert-dialog": () => import("@blenx-dev/core/components/AlertDialog/alert-dialog.demo"),
+  aspectratio: () => import("@blenx-dev/core/components/AspectRatio/aspect-ratio.demo"),
   badge: () => import("@blenx-dev/core/components/Badge/badge.demo"),
   button: () => import("@blenx-dev/core/components/Button/button.demo"),
   card: () => import("@blenx-dev/core/components/Card/card.demo"),
