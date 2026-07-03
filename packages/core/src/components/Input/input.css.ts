@@ -74,11 +74,9 @@ export const inputLg = style([
   }),
 ]);
 
-export const inputError = style([
-  baseSprinkles({
-    borderColor: "error",
-  }),
-]);
+export const inputError = baseSprinkles({
+  borderColor: "error",
+});
 
 export const error = style([
   baseSprinkles({

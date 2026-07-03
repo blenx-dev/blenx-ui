@@ -12,11 +12,9 @@ export const root = style([
   }),
 ]);
 
-export const head = style([
-  baseSprinkles({
-    backgroundColor: "subtle",
-  }),
-]);
+export const head = baseSprinkles({
+  backgroundColor: "subtle",
+});
 
 export const header = style([
   baseSprinkles({
@@ -80,8 +78,6 @@ export const alignLeft = style({ textAlign: "left" });
 export const alignCenter = style({ textAlign: "center" });
 export const alignRight = style({ textAlign: "right" });
 
-export const colorSecondary = style([
-  baseSprinkles({
-    color: "secondary",
-  }),
-]);
+export const colorSecondary = baseSprinkles({
+  color: "secondary",
+});

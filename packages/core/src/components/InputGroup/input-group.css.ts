@@ -123,12 +123,10 @@ export const text = style([
   }),
 ]);
 
-export const menu = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-  }),
-]);
+export const menu = baseSprinkles({
+  display: "flex",
+  direction: "column",
+});
 
 export const input = style([
   baseSprinkles({

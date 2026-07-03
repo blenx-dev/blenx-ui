@@ -3,13 +3,11 @@ import { recipe } from "@vanilla-extract/recipes";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const root = style([
-  baseSprinkles({
-    display: "flex",
-    align: "center",
-    gap: "1",
-  }),
-]);
+export const root = baseSprinkles({
+  display: "flex",
+  align: "center",
+  gap: "1",
+});
 
 export const input = recipe({
   base: {

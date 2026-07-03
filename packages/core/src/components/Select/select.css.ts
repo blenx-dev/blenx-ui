@@ -80,14 +80,12 @@ export const triggerLg = style([
   }),
 ]);
 
-export const icon = style([
-  baseSprinkles({
-    display: "flex",
-    align: "center",
-    color: "secondary",
-    shrink: 0,
-  }),
-]);
+export const icon = baseSprinkles({
+  display: "flex",
+  align: "center",
+  color: "secondary",
+  shrink: 0,
+});
 
 export const popup = style([
   baseSprinkles({

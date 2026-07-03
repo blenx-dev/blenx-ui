@@ -65,19 +65,15 @@ export const page = style([
   }),
 ]);
 
-export const separator = style([
-  baseSprinkles({
-    display: "inline-flex",
-    align: "center",
-  }),
-]);
+export const separator = baseSprinkles({
+  display: "inline-flex",
+  align: "center",
+});
 
-export const ellipsis = style([
-  baseSprinkles({
-    display: "inline-flex",
-    align: "center",
-  }),
-]);
+export const ellipsis = baseSprinkles({
+  display: "inline-flex",
+  align: "center",
+});
 
 export const srOnly = style({
   position: "absolute",

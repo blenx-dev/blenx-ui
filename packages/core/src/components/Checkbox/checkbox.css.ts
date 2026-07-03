@@ -40,14 +40,12 @@ export const rootDisabled = style({
   opacity: 0.64,
 });
 
-export const group = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-    align: "start",
-    gap: "sm",
-  }),
-]);
+export const group = baseSprinkles({
+  display: "flex",
+  direction: "column",
+  align: "start",
+  gap: "sm",
+});
 
 export const indicator = style([
   baseSprinkles({
@@ -75,11 +73,9 @@ export const indicatorChecked = style([
   }),
 ]);
 
-export const indicatorIndeterminate = style([
-  baseSprinkles({
-    color: "primary",
-  }),
-]);
+export const indicatorIndeterminate = baseSprinkles({
+  color: "primary",
+});
 
 export const icon = style({
   width: 14,

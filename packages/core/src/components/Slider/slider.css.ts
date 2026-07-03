@@ -58,11 +58,9 @@ export const trackHorizontal = style([
   }),
 ]);
 
-export const trackVertical = style([
-  baseSprinkles({
-    height: "full",
-  }),
-]);
+export const trackVertical = baseSprinkles({
+  height: "full",
+});
 
 export const indicator = style([
   baseSprinkles({
@@ -105,10 +103,8 @@ export const thumbDragging = style({
   boxShadow: "none",
 });
 
-export const value = style([
-  baseSprinkles({
-    display: "flex",
-    justify: "end",
-    fontSize: "sm",
-  }),
-]);
+export const value = baseSprinkles({
+  display: "flex",
+  justify: "end",
+  fontSize: "sm",
+});

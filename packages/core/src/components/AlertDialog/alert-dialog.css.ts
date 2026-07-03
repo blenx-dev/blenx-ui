@@ -2,15 +2,13 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const header = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-    gap: "xxs",
-    padding: "md",
-    py: "xs",
-  }),
-]);
+export const header = baseSprinkles({
+  display: "flex",
+  direction: "column",
+  gap: "xxs",
+  padding: "md",
+  py: "xs",
+});
 
 export const footer = style([
   baseSprinkles({
@@ -69,9 +67,7 @@ export const description = style([
   }),
 ]);
 
-export const panel = style([
-  baseSprinkles({
-    padding: "md",
-    py: "xxs",
-  }),
-]);
+export const panel = baseSprinkles({
+  padding: "md",
+  py: "xxs",
+});

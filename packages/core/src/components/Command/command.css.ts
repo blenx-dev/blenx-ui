@@ -35,14 +35,12 @@ export const inputWrapper = style([
   }),
 ]);
 
-export const inputIcon = style([
-  baseSprinkles({
-    display: "flex",
-    align: "center",
-    shrink: 0,
-    color: "disabled",
-  }),
-]);
+export const inputIcon = baseSprinkles({
+  display: "flex",
+  align: "center",
+  shrink: 0,
+  color: "disabled",
+});
 
 export const input = style([
   baseSprinkles({
@@ -74,12 +72,10 @@ export const list = style([
   }),
 ]);
 
-export const group = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-  }),
-]);
+export const group = baseSprinkles({
+  display: "flex",
+  direction: "column",
+});
 
 export const groupHeading = style([
   baseSprinkles({
@@ -122,11 +118,9 @@ export const item = style([
   }),
 ]);
 
-export const itemActive = style([
-  baseSprinkles({
-    backgroundColor: "subtle",
-  }),
-]);
+export const itemActive = baseSprinkles({
+  backgroundColor: "subtle",
+});
 
 export const itemDisabled = style([
   baseSprinkles({

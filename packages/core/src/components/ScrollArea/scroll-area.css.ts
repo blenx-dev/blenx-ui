@@ -37,19 +37,15 @@ export const viewportFade = style({
     "linear-gradient(to bottom, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent)",
 });
 
-export const viewportGutter = style([
-  baseSprinkles({
-    paddingRight: "sm",
-    paddingBottom: "sm",
-  }),
-]);
+export const viewportGutter = baseSprinkles({
+  paddingRight: "sm",
+  paddingBottom: "sm",
+});
 
-export const contentFill = style([
-  baseSprinkles({
-    height: "full",
-    width: "full",
-  }),
-]);
+export const contentFill = baseSprinkles({
+  height: "full",
+  width: "full",
+});
 
 export const scrollbar = style([
   baseSprinkles({
@@ -89,11 +85,9 @@ export const scrollbarVertical = style({
   width: "6px",
 });
 
-export const thumb = style([
-  baseSprinkles({
-    position: "relative",
-    grow: 1,
-    radius: "default",
-    backgroundColor: "subtle",
-  }),
-]);
+export const thumb = baseSprinkles({
+  position: "relative",
+  grow: 1,
+  radius: "default",
+  backgroundColor: "subtle",
+});

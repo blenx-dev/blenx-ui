@@ -4,26 +4,20 @@ import { baseSprinkles } from "../../utils/sprinkles";
 
 export const HANDLE_SIZE = 8;
 
-export const root = style([
-  baseSprinkles({
-    display: "flex",
-    width: "full",
-    height: "full",
-    overflow: "hidden",
-  }),
-]);
+export const root = baseSprinkles({
+  display: "flex",
+  width: "full",
+  height: "full",
+  overflow: "hidden",
+});
 
-export const rootHorizontal = style([
-  baseSprinkles({
-    direction: "row",
-  }),
-]);
+export const rootHorizontal = baseSprinkles({
+  direction: "row",
+});
 
-export const rootVertical = style([
-  baseSprinkles({
-    direction: "column",
-  }),
-]);
+export const rootVertical = baseSprinkles({
+  direction: "column",
+});
 
 export const rootDisabled = style({
   pointerEvents: "none",
@@ -64,11 +58,9 @@ export const handle = style([
   }),
 ]);
 
-export const handleActive = style([
-  baseSprinkles({
-    backgroundColor: "primary",
-  }),
-]);
+export const handleActive = baseSprinkles({
+  backgroundColor: "primary",
+});
 
 export const handleDisabled = style({
   cursor: "not-allowed",

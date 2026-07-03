@@ -236,11 +236,9 @@ export const description = style([
   }),
 ]);
 
-export const panel = style([
-  baseSprinkles({
-    padding: "lg",
-  }),
-]);
+export const panel = baseSprinkles({
+  padding: "lg",
+});
 
 export const bar = style({
   position: "absolute",
@@ -277,12 +275,10 @@ export const barRight = style({
   left: 0,
 });
 
-export const menu = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-  }),
-]);
+export const menu = baseSprinkles({
+  display: "flex",
+  direction: "column",
+});
 
 export const menuItem = style([
   baseSprinkles({
@@ -307,11 +303,9 @@ export const menuItem = style([
   }),
 ]);
 
-export const menuItemDestructive = style([
-  baseSprinkles({
-    color: "error",
-  }),
-]);
+export const menuItemDestructive = baseSprinkles({
+  color: "error",
+});
 
 export const separator = style({
   height: "1px",
@@ -320,12 +314,10 @@ export const separator = style({
   marginBottom: tokenVars.spacing.xs,
 });
 
-export const menuGroup = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-  }),
-]);
+export const menuGroup = baseSprinkles({
+  display: "flex",
+  direction: "column",
+});
 
 export const menuGroupLabel = style([
   baseSprinkles({

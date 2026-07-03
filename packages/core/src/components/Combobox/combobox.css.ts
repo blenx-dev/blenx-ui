@@ -152,12 +152,10 @@ export const separator = style([
   }),
 ]);
 
-export const group = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-  }),
-]);
+export const group = baseSprinkles({
+  display: "flex",
+  direction: "column",
+});
 
 export const groupLabel = style([
   baseSprinkles({
@@ -182,11 +180,9 @@ export const empty = style([
   }),
 ]);
 
-export const row = style([
-  baseSprinkles({
-    direction: "column",
-  }),
-]);
+export const row = baseSprinkles({
+  direction: "column",
+});
 
 export const value = style([
   baseSprinkles({

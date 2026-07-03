@@ -94,12 +94,10 @@ export const tabUnderlineActive = style([
   }),
 ]);
 
-export const listGhost = style([
-  baseSprinkles({
-    display: "flex",
-    gap: "sm",
-  }),
-]);
+export const listGhost = baseSprinkles({
+  display: "flex",
+  gap: "sm",
+});
 
 export const tabGhost = style([
   baseSprinkles({
@@ -212,12 +210,10 @@ export const tabDefault = style([
   }),
 ]);
 
-export const tabVertical = style([
-  baseSprinkles({
-    width: "full",
-    justify: "start",
-  }),
-]);
+export const tabVertical = baseSprinkles({
+  width: "full",
+  justify: "start",
+});
 
 export const tabActive = style([
   baseSprinkles({
@@ -289,8 +285,6 @@ export const indicatorUnderline = style([
   }),
 ]);
 
-export const panelVertical = style([
-  baseSprinkles({
-    grow: 1,
-  }),
-]);
+export const panelVertical = baseSprinkles({
+  grow: 1,
+});

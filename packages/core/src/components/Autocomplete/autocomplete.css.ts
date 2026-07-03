@@ -135,12 +135,10 @@ export const popup = style([
   }),
 ]);
 
-export const group = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-  }),
-]);
+export const group = baseSprinkles({
+  display: "flex",
+  direction: "column",
+});
 
 export const separator = style([
   baseSprinkles({

@@ -2,38 +2,28 @@ import { style } from "@vanilla-extract/css";
 import { tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const groupBase = style([
-  baseSprinkles({
-    display: "inline-flex",
-    position: "relative",
-  }),
-]);
+export const groupBase = baseSprinkles({
+  display: "inline-flex",
+  position: "relative",
+});
 
-export const groupHorizontal = style([
-  baseSprinkles({
-    direction: "row",
-    align: "center",
-  }),
-]);
+export const groupHorizontal = baseSprinkles({
+  direction: "row",
+  align: "center",
+});
 
-export const groupVertical = style([
-  baseSprinkles({
-    direction: "column",
-    align: "center",
-  }),
-]);
+export const groupVertical = baseSprinkles({
+  direction: "column",
+  align: "center",
+});
 
-export const groupDefault = style([
-  baseSprinkles({
-    gap: "xxs",
-  }),
-]);
+export const groupDefault = baseSprinkles({
+  gap: "xxs",
+});
 
-export const groupOutline = style([
-  baseSprinkles({
-    gap: "0",
-  }),
-]);
+export const groupOutline = baseSprinkles({
+  gap: "0",
+});
 
 export const outlineItemHorizontal = style({
   selectors: {

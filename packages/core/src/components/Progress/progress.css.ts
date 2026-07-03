@@ -2,14 +2,12 @@ import { style } from "@vanilla-extract/css";
 import { tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const root = style([
-  baseSprinkles({
-    display: "flex",
-    direction: "column",
-    width: "full",
-    gap: "2",
-  }),
-]);
+export const root = baseSprinkles({
+  display: "flex",
+  direction: "column",
+  width: "full",
+  gap: "2",
+});
 
 export const track = style([
   baseSprinkles({

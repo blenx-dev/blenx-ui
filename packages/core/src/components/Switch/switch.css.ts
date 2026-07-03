@@ -28,11 +28,9 @@ export const root = style([
   }),
 ]);
 
-export const rootChecked = style([
-  baseSprinkles({
-    backgroundColor: "primary",
-  }),
-]);
+export const rootChecked = baseSprinkles({
+  backgroundColor: "primary",
+});
 
 export const rootDisabled = style({
   cursor: "not-allowed",

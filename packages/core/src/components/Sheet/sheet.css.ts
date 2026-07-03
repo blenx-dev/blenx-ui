@@ -198,8 +198,6 @@ export const description = style([
   }),
 ]);
 
-export const panel = style([
-  baseSprinkles({
-    padding: "lg",
-  }),
-]);
+export const panel = baseSprinkles({
+  padding: "lg",
+});
