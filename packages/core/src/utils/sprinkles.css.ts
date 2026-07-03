@@ -16,6 +16,47 @@ const borderRadiusVals = {
   xxl: tokenVars.borderRadius.xxl,
   xxxl: tokenVars.borderRadius.xxxl,
 };
+
+const borderWidthVals = {
+  none: "0",
+  hairline: tokenVars.borderWidth.hairline,
+  thin: tokenVars.borderWidth.thin,
+  medium: tokenVars.borderWidth.medium,
+  thick: tokenVars.borderWidth.thick,
+  heavy: tokenVars.borderWidth.heavy,
+};
+
+const borderProperties = defineProperties({
+  properties: {
+    borderTopRightRadius: borderRadiusVals,
+    borderTopLeftRadius: borderRadiusVals,
+    borderBottomRightRadius: borderRadiusVals,
+    borderBottomLeftRadius: borderRadiusVals,
+    borderTopWidth: borderWidthVals,
+    borderBottomWidth: borderWidthVals,
+    borderLeftWidth: borderWidthVals,
+    borderRightWidth: borderWidthVals,
+  },
+  shorthands: {
+    radius: [
+      "borderTopRightRadius",
+      "borderTopLeftRadius",
+      "borderBottomRightRadius",
+      "borderBottomLeftRadius",
+    ],
+    borderWidth: ["borderTopWidth", "borderBottomWidth", "borderLeftWidth", "borderRightWidth"],
+    borderRadius: [
+      "borderTopRightRadius",
+      "borderTopLeftRadius",
+      "borderBottomRightRadius",
+      "borderBottomLeftRadius",
+    ],
+    borderRadiusTop: ["borderTopLeftRadius", "borderTopRightRadius"],
+    borderRadiusBottom: ["borderBottomLeftRadius", "borderBottomRightRadius"],
+    borderRadiusLeft: ["borderTopLeftRadius", "borderBottomLeftRadius"],
+    borderRadiusRight: ["borderTopRightRadius", "borderBottomRightRadius"],
+  },
+});
 const layoutProperties = defineProperties({
   properties: {
     width: { auto: "auto", full: "100%", fit: "fit-content" },
@@ -34,36 +75,6 @@ const layoutProperties = defineProperties({
       screen: "100svh",
       none: "none",
     },
-    borderTopRightRadius: borderRadiusVals,
-    borderTopLeftRadius: borderRadiusVals,
-    borderBottomRightRadius: borderRadiusVals,
-    borderBottomLeftRadius: borderRadiusVals,
-    borderWidth: {
-      none: "0",
-      hairline: tokenVars.borderWidth.hairline,
-      thin: tokenVars.borderWidth.thin,
-      medium: tokenVars.borderWidth.medium,
-      thick: tokenVars.borderWidth.thick,
-      heavy: tokenVars.borderWidth.heavy,
-    },
-  },
-  shorthands: {
-    radius: [
-      "borderTopRightRadius",
-      "borderTopLeftRadius",
-      "borderBottomRightRadius",
-      "borderBottomLeftRadius",
-    ],
-    borderRadius: [
-      "borderTopRightRadius",
-      "borderTopLeftRadius",
-      "borderBottomRightRadius",
-      "borderBottomLeftRadius",
-    ],
-    borderRadiusTop: ["borderTopLeftRadius", "borderTopRightRadius"],
-    borderRadiusBottom: ["borderBottomLeftRadius", "borderBottomRightRadius"],
-    borderRadiusLeft: ["borderTopLeftRadius", "borderBottomLeftRadius"],
-    borderRadiusRight: ["borderTopRightRadius", "borderBottomRightRadius"],
   },
 });
 
@@ -274,6 +285,7 @@ export const baseSprinkles = createSprinkles(
   positionProperties,
   alignmentProperties,
   fontProperties,
+  borderProperties,
 );
 
 export const gridSprinkles = createSprinkles(gridProperties, alignmentProperties);
