@@ -3,7 +3,6 @@ import clsx from "clsx";
 import * as React from "react";
 import {
   root,
-  rootVertical,
   list,
   listUnderline,
   listGhost,
@@ -20,17 +19,18 @@ import {
   panelVertical,
 } from "./tabs.css";
 import type { BaseSprinkles } from "../../utils/sprinkles.css";
+import { baseSprinkles } from "../../utils/sprinkles.css";
 import { applyBaseSprinkles } from "../../utils/ve-style.utils";
 
 type TabsVariant = "underline" | "ghost" | "segmented";
 
 type TabsRootProps = TabsPrimitive.Root.Props & {
   variant?: TabsVariant;
-};
+} & BaseSprinkles;
 
-type TabsListProps = TabsPrimitive.List.Props;
+type TabsListProps = TabsPrimitive.List.Props & BaseSprinkles;
 
-type TabsTabProps = TabsPrimitive.Tab.Props;
+type TabsTabProps = TabsPrimitive.Tab.Props & BaseSprinkles;
 
 type TabsPanelProps = TabsPrimitive.Panel.Props & BaseSprinkles;
 
@@ -46,14 +46,30 @@ function useTabsContext(): TabsContextValue {
   return React.useContext(TabsContext) ?? { variant: DEFAULT_VARIANT };
 }
 
-export function Tabs({ children, variant = DEFAULT_VARIANT, ...props }: TabsRootProps) {
+export function Tabs({ children, className, variant = DEFAULT_VARIANT, ...props }: TabsRootProps) {
+  const [sprinkles, rest] = applyBaseSprinkles<TabsPrimitive.Root.Props>({
+    display: "flex",
+    flexDirection: "column",
+    width: "full",
+    padding: "none",
+    borderRadius: "none",
+    ...props,
+  });
   const contextValue = React.useMemo(() => ({ variant }), [variant]);
 
   return (
     <TabsContext.Provider value={contextValue}>
       <TabsPrimitive.Root
-        className={(state) => clsx(root, state.orientation === "vertical" && rootVertical)}
-        {...props}
+        className={(state) =>
+          clsx(
+            sprinkles,
+            root,
+            state.orientation === "vertical" &&
+              baseSprinkles({ flexDirection: "row", alignItems: "start", gap: "lg" }),
+            className,
+          )
+        }
+        {...rest}
       >
         {children}
       </TabsPrimitive.Root>
@@ -63,28 +79,44 @@ export function Tabs({ children, variant = DEFAULT_VARIANT, ...props }: TabsRoot
 
 export function TabsList({ className, ...props }: TabsListProps) {
   const { variant } = useTabsContext();
+  const [sprinkles, rest] = applyBaseSprinkles<TabsPrimitive.List.Props>({
+    display: "flex",
+    padding: "none",
+    borderRadius: "none",
+    ...props,
+  });
 
   return (
     <TabsPrimitive.List
       className={clsx(
+        sprinkles,
         list,
         variant === "underline" && listUnderline,
         variant === "ghost" && listGhost,
         variant === "segmented" && listSegmented,
         className,
       )}
-      {...props}
+      {...rest}
     />
   );
 }
 
 export function TabsTab({ className, ...props }: TabsTabProps) {
   const { variant } = useTabsContext();
+  const [sprinkles, rest] = applyBaseSprinkles<TabsPrimitive.Tab.Props>({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "xs",
+    zIndex: "1",
+    ...props,
+  });
 
   return (
     <TabsPrimitive.Tab
       className={(state) =>
         clsx(
+          sprinkles,
           tab,
           variant === "underline" && tabUnderline,
           variant === "ghost" && tabGhost,
@@ -97,7 +129,7 @@ export function TabsTab({ className, ...props }: TabsTabProps) {
           className,
         )
       }
-      {...props}
+      {...rest}
     />
   );
 }

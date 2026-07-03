@@ -2,43 +2,25 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 
 export const root = style({
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
   border: "none",
   backgroundColor: "transparent",
-  padding: 0,
-  borderRadius: 0,
   outline: "none",
 });
 
-export const rootVertical = style({
-  flexDirection: "row",
-  alignItems: "flex-start",
-  gap: tokenVars.spacing.lg,
-});
+export const rootVertical = style({});
 
 export const list = style({
   position: "relative",
-  display: "flex",
   overflow: "hidden",
   border: "none",
   outline: "none",
   backgroundColor: "transparent",
-  padding: 0,
-  borderRadius: 0,
 });
 
 export const listDefault = style({
-  flexDirection: "row",
-  alignItems: "stretch",
-  gap: 0,
-  padding: 0,
-  backgroundColor: "transparent",
   borderBottomWidth: 1,
   borderBottomStyle: "solid",
   borderBottomColor: semanticVars.border.subtle,
-  borderRadius: 0,
 });
 
 export const listUnderline = style({
@@ -143,11 +125,6 @@ export const tabSegmentedActive = style({
 
 export const tab = style({
   position: "relative",
-  zIndex: 1,
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: tokenVars.spacing.xs,
   minHeight: 36,
   backgroundColor: "transparent",
   cursor: "pointer",
@@ -226,6 +203,7 @@ export const tabUnderline = style({
 export const indicator = style({
   position: "absolute",
   pointerEvents: "none",
+  zIndex: 0,
 });
 
 export const indicatorDefault = style({
