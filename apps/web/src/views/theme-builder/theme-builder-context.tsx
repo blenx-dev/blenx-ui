@@ -123,6 +123,7 @@ interface ThemeBuilderStore {
   tokens: ThemeTokens;
   updateToken: (group: ThemeTokenGroup, key: string, value: ThemeTokenValue) => void;
   updateTokenDebounced: (group: ThemeTokenGroup, key: string, value: ThemeTokenValue) => void;
+  setTokens: (tokens: ThemeTokens) => void;
   resetTokens: () => void;
   selectedToken: string | null;
   setSelectedToken: (token: string | null) => void;
@@ -183,6 +184,10 @@ function createThemeBuilderStore() {
           });
         }, 16),
       );
+    },
+
+    setTokens: (tokens) => {
+      set({ tokens: structuredClone(tokens) });
     },
 
     resetTokens: () => {

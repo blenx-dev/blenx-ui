@@ -4,14 +4,31 @@ import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { tokenVarsDefaults } from "@blenx-dev/theme/tokens";
 import { useThemeBuilder } from "./theme-builder-context";
 
-function extractLeafVars(obj: Record<string, any>, path: string[] = []): Array<[string, string]> {
-  const result: Array<[string, string]> = [];
+type LeafVarEntry = [cssVarName: string, fullPath: string];
+
+function extractLeafVars(obj: Record<string, unknown>, path: string[] = []): LeafVarEntry[] {
+  const result: LeafVarEntry[] = [];
   for (const [key, value] of Object.entries(obj)) {
     if (value !== null && typeof value === "object") {
-      result.push(...extractLeafVars(value, [...path, key]));
+      result.push(...extractLeafVars(value as Record<string, unknown>, [...path, key]));
     } else if (typeof value === "string") {
       const cssVarName = value.replace(/^var\(|\)$/g, "");
-      result.push([cssVarName, key]);
+      result.push([cssVarName, [...path, key].join(".")]);
+    }
+  }
+  return result;
+}
+
+function flattenTokens(
+  obj: Record<string, unknown>,
+  path: string[] = [],
+): Array<[fullPath: string, value: string]> {
+  const result: Array<[string, string]> = [];
+  for (const [key, value] of Object.entries(obj)) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      result.push(...flattenTokens(value as Record<string, unknown>, [...path, key]));
+    } else if (typeof value === "string") {
+      result.push([[...path, key].join("."), value]);
     }
   }
   return result;
@@ -24,20 +41,14 @@ export function ThemePreviewProvider({ children }: { children: ReactNode }) {
     const vars: Record<string, string> = {};
 
     const leafMap = new Map<string, string>();
-    for (const [cssVar, key] of extractLeafVars(semanticVars)) {
-      leafMap.set(key, cssVar);
+    for (const [cssVar, fullPath] of extractLeafVars(semanticVars as Record<string, unknown>)) {
+      leafMap.set(fullPath, cssVar);
     }
 
-    for (const [groupKey, group] of Object.entries(tokens) as [string, Record<string, string>][]) {
-      for (const [tokenKey, value] of Object.entries(group)) {
-        const lookup =
-          groupKey === "shadow"
-            ? `shadow${tokenKey.charAt(0).toUpperCase() + tokenKey.slice(1)}`
-            : tokenKey;
-        const cssVar = leafMap.get(lookup);
-        if (cssVar && value) {
-          vars[cssVar] = value;
-        }
+    for (const [fullPath, value] of flattenTokens(tokens as unknown as Record<string, unknown>)) {
+      const cssVar = leafMap.get(fullPath);
+      if (cssVar && value) {
+        vars[cssVar] = value;
       }
     }
 
@@ -47,5 +58,6 @@ export function ThemePreviewProvider({ children }: { children: ReactNode }) {
 
     return vars;
   }, [tokens]);
+
   return <div style={cssVars as React.CSSProperties}>{children}</div>;
 }

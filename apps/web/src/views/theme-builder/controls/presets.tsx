@@ -1,6 +1,6 @@
+import type { SemanticTokens } from "@blenx-dev/theme";
 import { Accordion, Button, ColorSwatch, HStack, Text, VStack } from "@blenx-dev/core";
 import { useThemeBuilder } from "../theme-builder-context";
-import type { ThemeTokenGroup } from "../theme-builder-context";
 import { presets } from "./presets-data";
 
 function getFirstStringValue(obj: unknown): string | null {
@@ -14,40 +14,26 @@ function getFirstStringValue(obj: unknown): string | null {
   return null;
 }
 
-function applyNestedTokens(
-  target: Record<string, unknown>,
-  source: Record<string, unknown>,
-  prefix: string,
-  updateToken: (group: ThemeTokenGroup, key: string, value: string) => void,
-) {
+function deepMerge(target: Record<string, any>, source: Record<string, any>): Record<string, any> {
+  const result = { ...target };
   for (const [key, value] of Object.entries(source)) {
     if (value && typeof value === "object" && !Array.isArray(value)) {
-      applyNestedTokens(
-        (target[key] as Record<string, unknown>) ?? {},
-        value as Record<string, unknown>,
-        prefix ? `${prefix}.${key}` : key,
-        updateToken,
-      );
-    } else if (typeof value === "string") {
-      const parts = prefix.split(".");
-      if (parts.length === 1) {
-        updateToken(parts[0] as ThemeTokenGroup, key, value);
-      } else {
-        const [group, ...rest] = parts;
-        updateToken(group as ThemeTokenGroup, `${rest.join(".")}.${key}`, value);
-      }
+      result[key] = deepMerge(target[key] ?? {}, value);
+    } else if (value !== undefined) {
+      result[key] = value;
     }
   }
+  return result;
 }
 
 export function PresetControls() {
   const tokens = useThemeBuilder((s) => s.tokens);
-  const updateToken = useThemeBuilder((s) => s.updateToken);
+  const setTokens = useThemeBuilder((s) => s.setTokens);
 
   function applyPreset(preset: (typeof presets)[number]) {
-    for (const [groupKey, groupValue] of Object.entries(preset.tokens)) {
-      applyNestedTokens({}, groupValue as Record<string, unknown>, groupKey, updateToken);
-    }
+    setTokens(
+      deepMerge(structuredClone(tokens), preset.tokens as Partial<typeof tokens>) as SemanticTokens,
+    );
   }
 
   return (
