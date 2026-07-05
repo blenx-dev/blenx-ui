@@ -68,7 +68,7 @@ function ThemeBuilderInner() {
         </Sheet>
 
         <Box>
-          <ScrollArea height="calc(90svh - 52px)">
+          <ScrollArea height="99svh">
             <HStack paddingX="xl" align={"start"}>
               <Tabs
                 py="md"

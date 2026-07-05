@@ -181,7 +181,7 @@ export function DrawerViewport({
 
 export function DrawerPopup({
   children,
-  showCloseButton = false,
+  showCloseButton = true,
   position: positionProp,
   variant = "default",
   showBar = false,
