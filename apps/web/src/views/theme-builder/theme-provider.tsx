@@ -47,6 +47,5 @@ export function ThemePreviewProvider({ children }: { children: ReactNode }) {
 
     return vars;
   }, [tokens]);
-
   return <div style={cssVars as React.CSSProperties}>{children}</div>;
 }

@@ -71,7 +71,7 @@ function ColorGroupControl({
         <Grid columns={2}>
           {subtokens.map((sub) => (
             <ColorPicker
-              key={sub}
+              key={`${groupKey}.${sub}`}
               label={sub}
               value={getTokenValue(sub)}
               onChange={(color: string) => updateToken(groupKey, sub, color)}

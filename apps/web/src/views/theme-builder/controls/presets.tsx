@@ -70,14 +70,13 @@ export function PresetControls() {
                   style={{ flex: 1 }}
                 >
                   <HStack gap="xs">
-                    {Object.values(preset.tokens)
-                      .flatMap((g) => {
-                        const val = getFirstStringValue(g);
-                        return val ? [val] : [];
+                    {Object.entries(preset.tokens)
+                      .flatMap(([g, v]) => {
+                        const val = getFirstStringValue(v);
+                        return val ? [[g, val]] : [];
                       })
-                      .slice(0, 5)
-                      .map((color) => (
-                        <ColorSwatch color={color} key={color} size={12} />
+                      .map(([g, color]) => (
+                        <ColorSwatch color={color} key={`${preset.name}-${g}-${color}`} size={12} />
                       ))}
                     <Text variant="body3">{preset.label}</Text>
                   </HStack>
