@@ -39,7 +39,7 @@ export function DrawerDemo() {
           </Button>
         }
       />
-      <DrawerPopup showCloseButton showBar>
+      <DrawerPopup>
         <DrawerHeader>
           <DrawerTitle>Settings</DrawerTitle>
           <DrawerDescription>Customize your application preferences.</DrawerDescription>

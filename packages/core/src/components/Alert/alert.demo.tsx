@@ -4,7 +4,7 @@ import { VStack } from "../Stack/stack";
 
 export function AlertDemo() {
   return (
-    <VStack withBorder padding="md">
+    <VStack>
       <Alert
         variant="info"
         icon={<InfoIcon width={20} />}

@@ -19,15 +19,15 @@ import {
 import { memo } from "react";
 
 export const ComponentShowcase = memo(() => (
-  <VStack gap="lg">
-    <VStack withBorder padding="sm">
+  <VStack gap="xl">
+    <VStack withBorder>
       <Text variant="h3">Buttons</Text>
       <ButtonDemoSolids />
       <ButtonDemoStates />
     </VStack>
 
     {/* Forms */}
-    <VStack withBorder padding="sm">
+    <VStack withBorder>
       <Text variant="h3">Forms</Text>
       <VStack maxWidth="sm">
         <Input placeholder="Enter text..." size="default" />
@@ -42,14 +42,14 @@ export const ComponentShowcase = memo(() => (
     </VStack>
 
     {/* Navigation */}
-    <Box withBorder padding="sm">
+    <Box withBorder>
       <Text variant="h3" marginBottom={"md"}>
         Navigations
       </Text>
       <BreadcrumbDemo />
     </Box>
 
-    <VStack withBorder padding="sm">
+    <VStack withBorder>
       <Text variant="h3">Feedback</Text>
       <AlertDemo />
       <ProgressDemo />
