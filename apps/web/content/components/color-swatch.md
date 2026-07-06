@@ -10,6 +10,10 @@ navigation:
 
 Color Swatch is a presentational element that displays a color value as a small circular preview. It serves as a building block for color-related interfaces and is commonly used within Color Picker, but also stands alone for displaying theme colors, status indicators, or category markers. Use Color Swatch when you need to show a color value inline — in a list of named colors, as a legend indicator on a chart, or as a category badge in a data table.
 
+## Demo
+
+<DemoRenderer registryName="color-swatch" />
+
 ## Installation
 
 <Installation registryName="color-swatch" />

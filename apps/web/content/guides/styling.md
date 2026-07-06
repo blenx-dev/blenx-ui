@@ -37,13 +37,14 @@ Create a `*.css.ts` file next to your component. Define styles statically at the
 ```tsx
 // button.css.ts
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/core/theme/contract.css";
+import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 
 export const root = style({
   display: "flex",
   alignItems: "center",
   gap: "8px",
-  backgroundColor: themeContract.surface,
+  backgroundColor: semanticVars.surface.default,
+  borderRadius: tokenVars.borderRadius.md,
 });
 ```
 
@@ -171,19 +172,18 @@ These primitives exist because layout CSS is repetitive and error-prone. A `Stac
 Always reference theme tokens through the contract:
 
 ```tsx
-import { themeContract } from "@blenx-dev/core/theme/contract.css";
-import { fontSize, spacing, borderRadius } from "@blenx-dev/core/theme/tokens.css";
+import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 
 export const root = style({
-  color: themeContract.contentPrimary,
-  backgroundColor: themeContract.surface,
-  borderRadius: borderRadius.md,
-  fontSize: fontSize.sm,
-  padding: spacing.md,
+  color: semanticVars.text.primary,
+  backgroundColor: semanticVars.surface.default,
+  borderRadius: tokenVars.borderRadius.md,
+  fontSize: tokenVars.fontSize.sm,
+  padding: tokenVars.spacing.md,
 });
 ```
 
-The contract exports CSS custom property references, not JavaScript values. They resolve at build time. You cannot inspect `themeContract.contentPrimary` at runtime—it compiles to a `var(--content-primary)` reference.
+The contract exports CSS custom property references, not JavaScript values. They resolve at build time. You cannot inspect `semanticVars.text.primary` at runtime—it compiles to a `var(--text-primary)` reference.
 
 ## Anti-Patterns
 

@@ -58,17 +58,6 @@ export const toggleRecipes = recipe({
         paddingRight: tokenVars.spacing.md,
       },
     },
-    radius: {
-      default: { borderRadius: tokenVars.borderRadius.default },
-      none: { borderRadius: 0 },
-      xs: { borderRadius: tokenVars.borderRadius.xs },
-      sm: { borderRadius: tokenVars.borderRadius.sm },
-      md: { borderRadius: tokenVars.borderRadius.md },
-      lg: { borderRadius: tokenVars.borderRadius.lg },
-      xl: { borderRadius: tokenVars.borderRadius.xl },
-      xxl: { borderRadius: tokenVars.borderRadius.xxl },
-      full: { borderRadius: tokenVars.borderRadius.full },
-    },
     variant: {
       default: {
         borderColor: "transparent",

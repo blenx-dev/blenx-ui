@@ -10,6 +10,10 @@ navigation:
 
 Segmented Control presents mutually exclusive options in a compact, horizontal row of connected segments. It provides an alternative to Radio Groups when space is limited and the options are visually comparable at a glance. Use segmented controls for view mode switching (list, grid, detail), time range selection (day, week, month), or filter toggles within toolbars and headers.
 
+## Demo
+
+<DemoRenderer registryName="segmented-control" />
+
 ## Installation
 
 <Installation registryName="segmented-control" />

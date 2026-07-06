@@ -10,6 +10,10 @@ navigation:
 
 Surface provides a themed container with configurable elevation, padding, and background variants. It serves as the visual foundation for cards, panels, sidebars, and any grouped content region. Use surfaces for card layouts, form sections, filter panels, sidebar navigation containers, and content grouping within page layouts.
 
+## Demo
+
+<DemoRenderer registryName="surface" />
+
 ## Installation
 
 <Installation registryName="surface" />

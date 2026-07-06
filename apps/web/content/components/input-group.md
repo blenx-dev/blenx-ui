@@ -13,6 +13,7 @@ Input Group extends a standard Input with prefix or suffix adornments — icons,
 ## Demo
 
 <DemoRenderer registryName="inputgroup" />
+
 ## Installation
 
 <Installation registryName="inputgroup" />

@@ -24,32 +24,45 @@ Blenx organizes theming in three layers: **contract**, **tokens**, and **themes*
 
 ```
 contract.css.ts    →   createThemeContract (variable names only, the "API")
-tokens.css.ts      →   design token primitives (raw values: colors, spacing, fonts)
+tokens.css.ts      →   design token primitives (raw values: spacing, fonts, shadows)
 light-theme.css.ts →   createTheme (maps values to contract variables for light/dark modes)
 ```
 
 ### The Contract
 
-The contract (`contract.css.ts`) uses `createThemeContract()` from vanilla-extract to declare every theme variable without assigning any values. It is a schema, not a theme. Components import only from the contract—never from a theme file. This means a component's styles say "use `contentPrimary`" instead of "use `#1c1917`". The component does not know or care what value `contentPrimary` resolves to at runtime.
+The contract (`contract.css.ts`) uses `createThemeContract()` from vanilla-extract to declare every theme variable without assigning any values. It is a schema, not a theme. Components import only from the contract—never from a theme file. This means a component's styles say "use `text.primary`" instead of "use `#223042`". The component does not know or care what value resolves at runtime.
+
+The contract exposes two top-level objects: `semanticVars` (named color tokens) and `tokenVars` (design tokens like spacing, fonts, shadows, etc.).
 
 ```tsx
 // contract.css.ts
 import { createThemeContract } from "@vanilla-extract/css";
 
-export const themeContract = createThemeContract({
-  primary: "primary",
-  primarySubtle: "primary-subtle",
-  contentPrimary: "content-primary",
-  contentSecondary: "content-secondary",
-  surface: "surface",
-  border: "border",
-  borderRadius: "border-radius",
-  shadowSm: "shadow-sm",
-  // ...
+export const semanticVars = createThemeContract({
+  background: { default: null, subtle: null },
+  surface: { default: null, raised: null, overlay: null, floating: null },
+  text: { primary: null, secondary: null, disabled: null, inverse: null },
+  border: { default: null, subtle: null, strong: null },
+  focus: { ring: null },
+  color: {
+    primary: {
+      default: null,
+      hover: null,
+      active: null,
+      bg: null,
+      bgHover: null,
+      bgActive: null,
+      fg: null,
+      text: null,
+      textActive: null,
+      border: null,
+    },
+    // ... secondary, neutral, success, warning, danger, info
+  },
 });
 ```
 
-The string values (e.g. `"content-primary"`) become CSS custom property names (`--content-primary`). Every variable must be assigned a value by a theme before it resolves to something meaningful.
+The nested keys become CSS custom property names (`--text-primary`, `--color-primary-bg`, etc.). Every variable must be assigned a value by a theme before it resolves to something meaningful.
 
 ### The Tokens
 
@@ -125,28 +138,28 @@ A button uses `themeContract.primary` for its background. When you introduce a "
 
 ## Color System
 
-Light and dark themes each define a full palette. The contract exposes:
+Light and dark themes each define a full palette. The contract exposes semantic groups:
 
-- `contentPrimary` / `contentSecondary` / `contentDisabled` — text colors
-- `background` / `backgroundSubtle` — page background layers
-- `surface` / `surfaceSubtle` / `surfaceRaised` — component surface layers
-- `border` / `borderSubtle` / `borderStrong` — border colors
-- `primary` / `primarySubtle` / `primaryHover` — interactive accents
-- `sentimentPositive` / `sentimentWarning` / `sentimentNegative` / `sentimentInfo` — semantic colors
+- `text.primary` / `text.secondary` / `text.disabled` / `text.inverse` — text colors
+- `background.default` / `background.subtle` — page background layers
+- `surface.default` / `surface.raised` / `surface.overlay` / `surface.floating` — component surface layers
+- `border.default` / `border.subtle` / `border.strong` — border colors
+- `color.primary` through `color.info` — each with `default`, `hover`, `active`, `bg`, `bgHover`, `bgActive`, `fg`, `text`, `textActive`, `border` sub-keys
+- `focus.ring` — focus outline color
 
-The dark theme inverts these relationships. Components never detect dark mode—they reference `themeContract.contentPrimary` and the active theme class provides the correct value.
+The dark theme inverts these relationships. Components never detect dark mode—they reference `semanticVars.text.primary` and the active theme class provides the correct value.
 
 ## Typography Scale
 
-The tokens file defines `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, and `fonts` as raw values. Individual themes reference these in `createTheme`:
+The `tokenVars` contract defines `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, and `font` as CSS custom properties. Default values live in `tokenVarsDefaults` from `@blenx-dev/theme/tokens`. Individual themes reference these in `createTheme`:
 
 ```tsx
-createTheme(themeContract, {
-  fontSize: fontSize.md, // "16px"
+createTheme(tokenVars, {
+  fontSize: { md: "16px" },
 });
 ```
 
-Components read the resolved value through `themeContract.fontSize`. Font families are defined in `tokens.css.ts`, not in components. This lets you swap from "DM Sans" to your brand font by editing one file.
+Components read the resolved value through `tokenVars.fontSize.md`. Font families are defined in `tokenVarsDefaults`, not in components. This lets you swap from "DM Sans" to your brand font by editing one file.
 
 ## Radius, Shadows, and Spacing
 
@@ -177,12 +190,13 @@ Components reference the contract inside `style()` calls:
 
 ```tsx
 import { style } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
+import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 
 export const root = style({
-  backgroundColor: themeContract.surface,
-  color: themeContract.contentPrimary,
-  border: `1px solid ${themeContract.border}`,
+  backgroundColor: semanticVars.surface.default,
+  color: semanticVars.text.primary,
+  border: `1px solid ${semanticVars.border.default}`,
+  borderRadius: tokenVars.borderRadius.md,
 });
 ```
 
@@ -203,13 +217,33 @@ To add a brand theme:
 ```tsx
 // my-brand-theme.css.ts
 import { createTheme } from "@vanilla-extract/css";
-import { themeContract } from "@blenx-dev/theme/contract.css";
+import { semanticVars } from "@blenx-dev/theme/contract";
 
-export const brandTheme = createTheme(themeContract, {
-  primary: "#ff6b35",
-  contentPrimary: "#1a1a2e",
-  surface: "#ffffff",
-  // ... override any contract variable
+export const brandTheme = createTheme(semanticVars, {
+  background: { default: "#faf9f6", subtle: "#f0ede6" },
+  surface: {
+    default: "#ffffff",
+    raised: "#fefcf9",
+    overlay: "rgba(0,0,0,0.4)",
+    floating: "#ffffff",
+  },
+  text: { primary: "#1a1a2e", secondary: "#4a5568", disabled: "#a0aec0", inverse: "#ffffff" },
+  border: { default: "#e2e8f0", subtle: "#edf2f7", strong: "#cbd5e0" },
+  focus: { ring: "#4A90D9" },
+  color: {
+    primary: {
+      default: "#ff6b35",
+      hover: "#e85d2c",
+      active: "#d04f23",
+      bg: "#fff0ea",
+      bgHover: "#ffe1d5",
+      bgActive: "#ffd2c0",
+      fg: "#ffffff",
+      text: "#ff6b35",
+      textActive: "#e85d2c",
+      border: "#ff6b35",
+    },
+  },
 });
 ```
 
@@ -229,3 +263,4 @@ You can scope themes by applying the theme class to any container element. Theme
 - **Putting component-specific values in the contract.** If only one component needs a token, keep it local. The contract is for shared design language, not per-component quirks.
 - **Mutating theme objects.** `createTheme` output is statically extracted at build time. Do not programmatically merge or override theme objects at runtime—vanilla-extract does not support it.
 - **Forgetting to apply the theme class.** Contract variables without an active theme class produce empty string values. Your app root must add the theme class to the document element.
+- **Semantic vs token contracts.** Use `semanticVars` for named color tokens (background, surface, text, border, color roles) and `tokenVars` for design tokens (spacing, fonts, shadows, radii, durations). The two contracts serve different purposes and are imported from the same module: `@blenx-dev/theme/contract`.

@@ -10,6 +10,10 @@ navigation:
 
 Slider allows users to select a value or range of values from a continuous or discrete scale by dragging a thumb along a track. It supports single thumb for single-value selection and dual thumb for range selection, with configurable step intervals, minimum and maximum constraints, and optional tick marks. Use sliders for volume controls, price range filters, rating selectors, font size adjustment, and any numeric input where the relative position within a range is more meaningful than the exact value.
 
+## Demo
+
+<DemoRenderer registryName="slider" />
+
 ## Installation
 
 <Installation registryName="slider" />

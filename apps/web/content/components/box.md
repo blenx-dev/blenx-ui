@@ -10,6 +10,10 @@ navigation:
 
 Box is the lowest-level layout primitive in Blenx. It renders a single DOM element with access to style props for padding, margin, display, and other common CSS properties through vanilla-extract sprinkles. Every other layout component — Grid, Container, Card — is composed on top of Box.
 
+## Demo
+
+<DemoRenderer registryName="box" />
+
 ## Installation
 
 <Installation registryName="box" />

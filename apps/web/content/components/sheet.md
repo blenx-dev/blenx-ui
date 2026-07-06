@@ -20,7 +20,7 @@ Sheet provides a lightweight slide-in panel for secondary content that does not 
 
 ## Usage
 
-Sheet is built on Base UI Dialog primitives, inheriting focus trapping, dismiss-on-Escape, and backdrop click behavior. The `side` prop controls the slide-in direction — `left` or `right` for side panels, `top` or `bottom` for notification-style panels. The `size` prop controls the panel width for left/right sheets or height for top/bottom sheets, with preset values matching the spacing scale. The component handles body scroll locking when open, preventing background content from scrolling while the sheet is active.
+Sheet is built on Base UI Dialog primitives, inheriting focus trapping, dismiss-on-Escape, and backdrop click behavior. The `side` prop controls the slide-in direction — `left` or `right` for side panels, `top` or `bottom` for notification-style panels. The component handles body scroll locking when open, preventing background content from scrolling while the sheet is active. Sub-components include `Sheet`, `SheetTrigger`, `SheetPopup` (also exported as `SheetContent`), `SheetHeader`, `SheetPanel`, `SheetFooter`, `SheetTitle`, `SheetDescription`, and `SheetBackdrop` (also exported as `SheetOverlay`).
 
 ## API Reference
 

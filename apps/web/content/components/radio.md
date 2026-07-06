@@ -10,6 +10,10 @@ navigation:
 
 Radio renders a group of radio buttons where exactly one option can be selected at a time. It handles selection state, keyboard navigation, focus management, and form integration. Use radios when the user must choose exactly one option from a small set (fewer than six), and the options benefit from being visible simultaneously for comparison.
 
+## Demo
+
+<DemoRenderer registryName="radio" />
+
 ## Installation
 
 <Installation registryName="radio" />

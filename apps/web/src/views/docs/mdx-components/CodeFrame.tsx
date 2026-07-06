@@ -29,16 +29,15 @@ function CodeFrame({
         <HStack
           align="center"
           justify="between"
-          p={"xs"}
+          px={"xs"}
           borderRadiusBottom="none"
-          backgroundColor="surface"
+          backgroundColor="error"
         >
           <Box display="flex" alignItems="center" borderRadiusTop="none">
             {hasFiles ? (
               <SegmentedControl
                 variant="default"
                 value={String(activeIndex ?? 0)}
-                radius="none"
                 onValueChange={(value) => {
                   onActiveIndexChange?.(Number(value));
                 }}

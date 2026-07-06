@@ -16,7 +16,6 @@ export function Toggle({
   children,
   className,
   variant = "default",
-  radius = "default",
   size = "default",
   ...props
 }: ToggleProps) {
@@ -30,7 +29,7 @@ export function Toggle({
             {...renderProps}
             className={clsx(
               base,
-              toggleRecipes({ size, variant, radius }),
+              toggleRecipes({ size, variant }),
               state.pressed && pressed[variant],
               className,
             )}

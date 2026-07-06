@@ -12,7 +12,7 @@ Toggle Group manages a collection of toggle buttons where users can select multi
 
 ## Installation
 
-<Installation registryName="togglegroup" />
+<Installation registryName="toggle-group" />
 
 ## Usage
 
