@@ -11,16 +11,16 @@ export const base = style([
     align: "center",
     justify: "center",
     gap: "sm",
-    radius: "default",
+    radius: "inherit",
     backgroundColor: "transparent",
     fontSize: "sm",
     borderWidth: "thin",
+    lineHeight: "tight",
   }),
   style({
     whiteSpace: "nowrap",
     borderStyle: "solid",
     fontWeight: tokenVars.fontWeight.medium,
-    lineHeight: 1.4,
     cursor: "pointer",
     userSelect: "none",
     outline: "none",
@@ -62,12 +62,12 @@ export const toggleRecipes = recipe({
       default: {
         borderColor: "transparent",
         color: semanticVars.text.primary,
-        backgroundColor: semanticVars.surface.default,
+        backgroundColor: semanticVars.background.subtle,
       },
       outline: {
         borderColor: semanticVars.border.default,
         color: semanticVars.text.primary,
-        backgroundColor: semanticVars.background.subtle,
+        backgroundColor: semanticVars.color.neutral.bg,
       },
     },
   },
@@ -75,7 +75,7 @@ export const toggleRecipes = recipe({
 
 export const pressed = {
   default: style({
-    backgroundColor: semanticVars.surface.raised,
+    backgroundColor: semanticVars.color.neutral.bgActive,
   }),
   outline: style({
     outlineWidth: tokenVars.borderWidth.thin,

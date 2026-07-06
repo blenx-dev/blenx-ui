@@ -17,14 +17,6 @@ export const groupVertical = baseSprinkles({
   align: "center",
 });
 
-export const groupDefault = baseSprinkles({
-  gap: "xxs",
-});
-
-export const groupOutline = baseSprinkles({
-  gap: "0",
-});
-
 export const outlineItemHorizontal = style({
   selectors: {
     "&:first-child": {

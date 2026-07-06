@@ -15,8 +15,6 @@ import {
   groupBase,
   groupHorizontal,
   groupVertical,
-  groupDefault,
-  groupOutline,
   outlineItemHorizontal,
   outlineItemVertical,
 } from "./toggle-group.css";
@@ -35,9 +33,6 @@ export const ToggleGroupContext = React.createContext<ToggleGroupContextValue | 
 export type ToggleGroupProps = ToggleGroupPrimitive.Props & {
   variant?: ToggleGroupVariant;
   size?: ToggleGroupSize;
-  orientation?: "horizontal" | "vertical";
-  className?: string;
-  style?: React.CSSProperties;
 };
 
 export function ToggleGroup({
@@ -50,7 +45,6 @@ export function ToggleGroup({
   ...props
 }: ToggleGroupProps): React.ReactElement {
   const isHorizontal = orientation === "horizontal";
-  const isOutline = variant === "outline";
 
   const contextValue = React.useMemo(
     () => ({ variant, size, orientation }),
@@ -59,12 +53,7 @@ export function ToggleGroup({
 
   return (
     <ToggleGroupPrimitive
-      className={clsx(
-        groupBase,
-        isHorizontal ? groupHorizontal : groupVertical,
-        isOutline ? groupOutline : groupDefault,
-        className,
-      )}
+      className={clsx(groupBase, isHorizontal ? groupHorizontal : groupVertical, className)}
       style={style}
       data-slot="toggle-group"
       data-variant={variant}
