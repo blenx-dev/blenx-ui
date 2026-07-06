@@ -5,7 +5,7 @@ export const field = baseSprinkles({
   display: "flex",
   direction: "column",
   align: "start",
-  gap: "8",
+  gap: "2",
   flex: 1,
 });
 
