@@ -11,7 +11,7 @@ export const label = baseSprinkles({
   fontWeight: "medium",
 });
 
-export const input = style([
+export const inputStyle = style([
   baseSprinkles({
     width: "full",
     px: "md",

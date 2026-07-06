@@ -3,7 +3,7 @@ import { useRender } from "@base-ui/react/use-render";
 import clsx from "clsx";
 import type * as React from "react";
 import { useId } from "react";
-import { input, inputSm, inputLg, inputError, label } from "./input.css";
+import { inputStyle, inputSm, inputLg, inputError, label } from "./input.css";
 
 type InputSize = "sm" | "default" | "lg";
 type _BaseInputProps = Omit<InputPrimitive.Props & React.RefAttributes<HTMLInputElement>, "size">;
@@ -37,7 +37,7 @@ export function Input({ error, className, style, size = "default", ...props }: I
       id={fieldId}
       data-slot="input"
       className={clsx(
-        input,
+        inputStyle,
         size === "sm" && inputSm,
         size === "lg" && inputLg,
         error ? inputError : null,

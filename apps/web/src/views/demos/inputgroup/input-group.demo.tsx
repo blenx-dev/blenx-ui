@@ -1,7 +1,7 @@
 import { SearchIcon, UserIcon } from "@blenx-dev/core/icons";
 import {
   Button,
-  Stack,
+  VStack,
   Text,
   InputGroup,
   InputGroupAddon,
@@ -12,7 +12,7 @@ import {
 
 export function DefaultStory() {
   return (
-    <Stack gap="md">
+    <VStack gap="md">
       <Text variant="h4">With icon and button</Text>
       <InputGroup>
         <InputGroupAddon align="inline-start">
@@ -46,7 +46,7 @@ export function DefaultStory() {
           <InputGroupText>@example.com</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
-    </Stack>
+    </VStack>
   );
 }
 

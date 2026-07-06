@@ -29,8 +29,36 @@ export const viewport = style([
     justifyItems: "center",
   }),
 ]);
-
 export const drawerPopup = style([
+  baseSprinkles({
+    position: "relative",
+    display: "flex",
+    direction: "column",
+    width: "full",
+    backgroundColor: "surface",
+    color: "primary",
+    px: "md",
+    borderWidth: "none",
+  }),
+  style({
+    maxHeight: "100%",
+    minHeight: 0,
+    minWidth: 0,
+    outline: "none",
+    willChange: "transform",
+    transitionProperty: "transform, box-shadow, height, background-color, margin, padding",
+    transitionDuration: "450ms",
+    transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
+    "@media": {
+      "(prefers-reduced-motion: reduce)": {
+        transitionProperty: "none",
+        transitionDuration: "0ms",
+      },
+    },
+  }),
+]);
+
+export const dialogPopup = style([
   baseSprinkles({
     position: "relative",
     display: "flex",

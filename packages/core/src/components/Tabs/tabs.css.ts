@@ -212,7 +212,6 @@ export const tabUnderline = style([
 export const indicator = style([
   baseSprinkles({
     position: "absolute",
-    zIndex: "base",
   }),
   style({
     pointerEvents: "none",
@@ -225,7 +224,6 @@ export const indicatorDefault = style({
 
 export const indicatorUnderline = style([
   baseSprinkles({
-    zIndex: "base",
     radius: "full",
   }),
   style({

@@ -10,7 +10,7 @@ import { CloseButton } from "../CloseButton";
 import type { _BaseDivProps } from "../../utils/types";
 import {
   backdrop,
-  drawerPopup,
+  dialogPopup,
   viewport,
   viewportShellBottomStickOnMobile,
   popupBottomStickOnMobile,
@@ -72,7 +72,7 @@ export function DialogPopup({
       <DialogViewport bottomStickOnMobile={bottomStickOnMobile}>
         <DialogBackdrop />
         <DialogPrimitive.Popup
-          className={clsx(drawerPopup, bottomStickOnMobile && popupBottomStickOnMobile, className)}
+          className={clsx(dialogPopup, bottomStickOnMobile && popupBottomStickOnMobile, className)}
           data-slot="dialog-popup"
           {...props}
         >

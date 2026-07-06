@@ -91,35 +91,6 @@ export const viewportInset = style({
   paddingRight: tokenVars.spacing.md,
 });
 
-export const popup = style([
-  baseSprinkles({
-    position: "relative",
-    display: "flex",
-    direction: "column",
-    width: "full",
-    backgroundColor: "surface",
-    color: "primary",
-  }),
-  style({
-    maxHeight: "100%",
-    minHeight: 0,
-    minWidth: 0,
-    borderStyle: "solid",
-    borderColor: semanticVars.border.default,
-    outline: "none",
-    willChange: "transform",
-    transitionProperty: "transform, box-shadow, height, background-color, margin, padding",
-    transitionDuration: "450ms",
-    transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
-    "@media": {
-      "(prefers-reduced-motion: reduce)": {
-        transitionProperty: "none",
-        transitionDuration: "0ms",
-      },
-    },
-  }),
-]);
-
 export const popupDefault = style({
   boxShadow: tokenVars.shadow.lg,
 });
@@ -135,7 +106,6 @@ export const popupInset = style({
   borderRadius: "none",
   "@media": {
     "(min-width: 640px)": {
-      borderWidth: tokenVars.borderWidth.thin,
       borderRadius: tokenVars.borderRadius.xl,
     },
   },
@@ -143,13 +113,11 @@ export const popupInset = style({
 
 export const popupBottom = style({
   gridRowStart: 2,
-  borderTopWidth: tokenVars.borderWidth.thin,
   borderTopLeftRadius: tokenVars.borderRadius.xl,
   borderTopRightRadius: tokenVars.borderRadius.xl,
 });
 
 export const popupTop = style({
-  borderBottomWidth: tokenVars.borderWidth.thin,
   borderBottomLeftRadius: tokenVars.borderRadius.xl,
   borderBottomRightRadius: tokenVars.borderRadius.xl,
 });
@@ -157,7 +125,6 @@ export const popupTop = style({
 export const popupLeft = style({
   width: "calc(100% - 48px)",
   maxWidth: "28rem",
-  borderRightWidth: tokenVars.borderWidth.thin,
   borderTopRightRadius: tokenVars.borderRadius.xl,
   borderBottomRightRadius: tokenVars.borderRadius.xl,
 });
@@ -165,7 +132,6 @@ export const popupLeft = style({
 export const popupRight = style({
   width: "calc(100% - 48px)",
   maxWidth: "28rem",
-  borderLeftWidth: tokenVars.borderWidth.thin,
   borderTopLeftRadius: tokenVars.borderRadius.xl,
   borderBottomLeftRadius: tokenVars.borderRadius.xl,
 });
@@ -207,6 +173,7 @@ export const description = style([
 
 export const panel = baseSprinkles({
   padding: "lg",
+  borderWidth: "none",
 });
 
 export const bar = style({

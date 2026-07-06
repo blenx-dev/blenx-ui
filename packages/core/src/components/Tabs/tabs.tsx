@@ -84,6 +84,7 @@ export function TabsList({ className, ...props }: TabsListProps) {
     border: "none",
     outline: "none",
     backgroundColor: "transparent",
+    zIndex: "0",
     ...props,
   });
 

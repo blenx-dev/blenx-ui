@@ -1,6 +1,7 @@
 import {
   Button,
   Menu,
+  MenuGroup,
   MenuGroupLabel,
   MenuItem,
   MenuPopup,
@@ -24,10 +25,12 @@ export function DefaultStory() {
           <MenuShortcut>⌘K</MenuShortcut>
         </MenuItem>
         <MenuSeparator />
-        <MenuGroupLabel>Account</MenuGroupLabel>
-        <MenuItem variant="destructive" onSelect={() => {}}>
-          Delete account
-        </MenuItem>
+        <MenuGroup>
+          <MenuGroupLabel>Account</MenuGroupLabel>
+          <MenuItem variant="destructive" onSelect={() => {}}>
+            Delete account
+          </MenuItem>
+        </MenuGroup>
       </MenuPopup>
     </Menu>
   );

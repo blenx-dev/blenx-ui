@@ -112,4 +112,14 @@ export type {
   MenuSeparatorProps,
   MenuShortcutProps,
 };
-export { Menu, MenuGroupLabel, MenuItem, MenuPopup, MenuSeparator, MenuShortcut, MenuTrigger };
+const MenuGroup = MenuPrimitive.Group;
+export {
+  Menu,
+  MenuGroupLabel,
+  MenuItem,
+  MenuPopup,
+  MenuSeparator,
+  MenuShortcut,
+  MenuTrigger,
+  MenuGroup,
+};

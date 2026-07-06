@@ -78,7 +78,7 @@ export function LeftStory() {
           </Button>
         }
       />
-      <DrawerPopup showCloseButton showBar>
+      <DrawerPopup showCloseButton>
         <DrawerHeader>
           <DrawerTitle>Profile</DrawerTitle>
           <DrawerDescription>Manage your personal information.</DrawerDescription>
@@ -116,7 +116,7 @@ export function BottomStory() {
           </Button>
         }
       />
-      <DrawerPopup showCloseButton showBar>
+      <DrawerPopup showCloseButton>
         <DrawerHeader>
           <DrawerTitle>Shopping Cart</DrawerTitle>
           <DrawerDescription>Review your items before checkout.</DrawerDescription>
@@ -154,7 +154,7 @@ export function TopStory() {
           </Button>
         }
       />
-      <DrawerPopup showCloseButton showBar>
+      <DrawerPopup showCloseButton>
         <DrawerHeader>
           <DrawerTitle>Notifications</DrawerTitle>
           <DrawerDescription>Stay up to date with what matters.</DrawerDescription>
@@ -196,7 +196,7 @@ export function WithMenuStory() {
           </Button>
         }
       />
-      <DrawerPopup showCloseButton showBar>
+      <DrawerPopup showCloseButton>
         <DrawerHeader>
           <DrawerTitle>Preferences</DrawerTitle>
           <DrawerDescription>Fine-tune your experience.</DrawerDescription>
@@ -254,7 +254,7 @@ export function InsetStory() {
           </Button>
         }
       />
-      <DrawerPopup showCloseButton showBar variant="inset">
+      <DrawerPopup showCloseButton variant="inset">
         <DrawerHeader>
           <DrawerTitle>Alerts</DrawerTitle>
           <DrawerDescription>Inset drawer with rounded corners.</DrawerDescription>

@@ -11,7 +11,7 @@ import { CloseButton } from "../CloseButton";
 import { Box } from "../Box/box";
 import {
   backdrop,
-  drawerPopup,
+  dialogPopup,
   viewport,
   viewportShellBottomStickOnMobile,
   popupBottomStickOnMobile,
@@ -79,7 +79,7 @@ function AlertDialogPopup({
       <AlertDialogBackdrop />
       <AlertDialogViewport bottomStickOnMobile={bottomStickOnMobile}>
         <AlertDialogPrimitive.Popup
-          className={clsx(drawerPopup, bottomStickOnMobile && popupBottomStickOnMobile, className)}
+          className={clsx(dialogPopup, bottomStickOnMobile && popupBottomStickOnMobile, className)}
           data-slot="alert-dialog-popup"
           {...props}
         >
