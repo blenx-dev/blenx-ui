@@ -95,6 +95,7 @@ function PopoverDescription(props: PopoverPrimitive.Description.Props): React.Re
   );
 }
 
+/** @deprecated Use individual named exports (e.g. `Popover`, `PopoverTrigger`, `PopoverPopup`) instead. */
 export const PopoverCompound = {
   Root: Popover,
   Trigger: PopoverTrigger,

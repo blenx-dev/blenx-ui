@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Text } from "../Text";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
-import { alertVariants } from "./alert.css";
+import { alertBase, alertVariants } from "./alert.css";
 import clsx from "clsx";
 import { HStack, VStack } from "../Stack/stack";
 import { Box } from "../Box/box";
@@ -21,12 +21,12 @@ function Alert({ variant = "info", icon, title, description, children, className
       align={description ? "start" : "center"}
       gap="xs"
       p="sm"
-      className={clsx(alertVariants({ variant }), className)}
+      className={clsx(alertBase, alertVariants({ variant }), className)}
     >
       <Box p={"xxs"}>{icon}</Box>
       <VStack gap="xxs">
         {title ? (
-          <Text variant="h6" padding="none" margin="none" color={variant}>
+          <Text variant="h6" padding="none" margin="none">
             {title}
           </Text>
         ) : null}

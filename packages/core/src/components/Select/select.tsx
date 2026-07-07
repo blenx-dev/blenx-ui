@@ -145,6 +145,7 @@ export function SelectWrapper({ label, error, children }: SelectWrapperProps) {
 
 // ─── Compound component namespace ─────────────────────────────────────────────
 
+/** @deprecated Use individual named exports (e.g. `SelectRoot`, `SelectTrigger`, `SelectPopup`) instead. */
 export const Select = {
   Root: SelectRoot,
   Label: SelectLabel,

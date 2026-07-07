@@ -32,7 +32,6 @@ export function applyBaseSprinkles<T = Record<string, unknown>>(
       htmlProps[key] = value;
     }
   }
-  sprinkleProps.borderRadius = sprinkleProps.borderRadius || "default";
   return [baseSprinkles(sprinkleProps), htmlProps as T];
 }
 export function applyGridSprinkles(
