@@ -78,6 +78,7 @@ export type {
   AccordionItemProps,
   AccordionRootProps,
 };
+/** @deprecated Use individual named exports (e.g. `AccordionRoot`, `AccordionItem`, `AccordionTrigger`) instead. */
 export const Accordion = {
   Root: AccordionRoot,
   Item: AccordionItem,

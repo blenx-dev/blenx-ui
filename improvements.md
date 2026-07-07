@@ -61,6 +61,7 @@ Across components, styling (solid/outline/soft) and color (primary/danger/etc.) 
   ```
 - **Impact**: Every container using base sprinkles (including `<Box>`, `<HStack>`, and `<VStack>`) will implicitly receive a default border radius (e.g., `4px` or `6px`) unless the user explicitly sets `borderRadius="none"`. Layout boxes should not default to rounded corners.
 - **Suggestion**: Move default border-radius assignments to individual component styles (like `Button.css.ts` or `Input.css.ts`) rather than forcing it inside the global utility helper.
+- **Status**: ✅ Fixed in [ve-style.utils.ts](file:///Users/prashanthkumar/Developer/blenx-repo/packages/core/src/utils/ve-style.utils.ts#L35) — line removed.
 
 ### 2.4. Composable vs. Monolithic Components
 
@@ -91,6 +92,7 @@ boxShadow: `0 0 0 3px ${semanticVars.color.danger}`,
   ```ts
   boxShadow: `0 0 0 3px ${semanticVars.color.danger.default}`,
   ```
+- **Status**: ✅ Fixed in [input.css.ts](file:///Users/prashanthkumar/Developer/blenx-repo/packages/core/src/components/Input/input.css.ts#L44)
 
 ### 3.2. Dead CSS Rule in Badge Styles
 
@@ -103,6 +105,7 @@ soft: {
 ```
 
 - **Bug**: `var(--badge-bg)` is never set in this stylesheet or inherited, and the soft styling is actually overridden by compound variants on lines 72-78. This entry is dead code.
+- **Status**: ✅ Fixed in [badge.css.ts](file:///Users/prashanthkumar/Developer/blenx-repo/packages/core/src/components/Badge/badge.css.ts) — dead `soft` variant body removed.
 
 ### 3.3. Violation of Named-Export Rules (Namespace Objects)
 
@@ -115,8 +118,13 @@ The codebase includes rule configurations in `AGENTS.md`:
   - [PopoverCompound](file:///Users/prashanthkumar/Developer/blenx-repo/packages/core/src/components/Popover/popover.tsx#L98)
   - [Accordion](file:///Users/prashanthkumar/Developer/blenx-repo/packages/core/src/components/Accordion/accordion.tsx#L81)
 - **Fix**: Deprecate/remove these namespaces and expose them only as individual named exports.
+- **Status**: ⚠️ `@deprecated` JSDoc added to all three namespace objects. Consumers still widely use them (78+ Accordion usages, 24+ Select usages, 2 PopoverCompound usages) — removal should be a separate breaking-change PR.
 
 ### 3.4. Align Components with the `Palette / Intent Color Pattern`
 
 - **Current State**: `Alert`, `Progress`, and `Spinner` do not leverage the shared `pallete-styles.css.ts` configuration, referencing `semanticVars.color.*` directly or hardcoding background variables.
 - **Fix**: Migrate these components to the `Palette / Intent Color Pattern` using `pallete-styles.css.ts` so they support the standard palette variables (`primary`, `neutral`, `success`, `danger`, `warning`, `info`, `mono`, `link`).
+- **Status**:
+  - `Alert`: ✅ Refactored to use `createVar()` scoped CSS vars with `vars` in recipe variants (mirrors palette pattern locally). The Alert's `bg`/`fg`/`border` mappings differ from Button/Toggle (tinted bg vs solid fill), so it uses its own scoped vars rather than the shared `paletteVars`.
+  - `Progress`: ⏳ The `indicator` uses `backgroundColor: "primary"` (sprinkles value → `semanticVars.color.primary.default`). Acceptable for a progress bar — no interactive states needed.
+  - `Spinner`: ⏳ No palette references — pure animation. Minimal impact.

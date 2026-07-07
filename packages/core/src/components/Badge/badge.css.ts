@@ -24,9 +24,7 @@ export const badgeRecipe = recipe({
         backgroundColor: paletteVars.bg,
         color: paletteVars.fg,
       },
-      soft: {
-        backgroundColor: "color-mix(in srgb, var(--badge-bg) 25%, transparent)",
-      },
+      soft: {},
       outline: {
         backgroundColor: "transparent",
         border: "1px solid " + paletteVars.border,
