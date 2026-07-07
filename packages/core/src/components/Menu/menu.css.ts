@@ -12,12 +12,12 @@ export const trigger = style([
     borderWidth: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
-  }),
-  style({
     appearance: "none",
-    border: "none",
     outline: "none",
     fontFamily: "inherit",
+  }),
+  style({
+    border: "none",
     fontSize: "inherit",
     color: "inherit",
     transition: "background-color 0.15s ease, box-shadow 0.15s ease",
@@ -42,12 +42,12 @@ export const popup = style([
     borderWidth: "thin",
     borderStyle: "solid",
     boxShadow: "xl",
+    outline: "none",
   }),
   style({
     borderColor: semanticVars.border.subtle,
     zIndex: 1000,
     minWidth: 224,
-    outline: "none",
   }),
 ]);
 
@@ -62,16 +62,16 @@ export const item = style([
     fontWeight: "medium",
     backgroundColor: "transparent",
     cursor: "pointer",
+    textDecoration: "none",
+    textAlign: "left",
+    appearance: "none",
+    outline: "none",
   }),
   style({
     minHeight: 24,
     padding: `${tokenVars.spacing.xs} ${tokenVars.spacing.sm}`,
     lineHeight: 1.2,
-    textDecoration: "none",
-    textAlign: "left",
     border: "none",
-    appearance: "none",
-    outline: "none",
     transition: "background-color 0.15s ease, color 0.15s ease",
     selectors: {
       "&:hover": {
@@ -124,10 +124,10 @@ export const groupLabel = style([
     color: "secondary",
     fontWeight: "semibold",
     letterSpacing: "wide",
+    textTransform: "uppercase",
   }),
   style({
     padding: `${tokenVars.spacing.sm} ${tokenVars.spacing.md} ${tokenVars.spacing.xs}`,
-    textTransform: "uppercase",
   }),
 ]);
 

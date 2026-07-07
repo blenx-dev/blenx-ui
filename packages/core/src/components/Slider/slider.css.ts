@@ -2,18 +2,18 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const disabled = style({
+export const disabled = baseSprinkles({
   pointerEvents: "none",
-  opacity: 0.64,
+  opacity: "0.64",
 });
 
 export const control = style([
   baseSprinkles({
     display: "flex",
+    userSelect: "none",
   }),
   style({
     touchAction: "none",
-    userSelect: "none",
   }),
 ]);
 
@@ -42,9 +42,9 @@ export const track = style([
     position: "relative",
     grow: 1,
     radius: "full",
+    userSelect: "none",
   }),
   style({
-    userSelect: "none",
     backgroundColor: semanticVars.border.default,
   }),
 ]);
@@ -66,10 +66,9 @@ export const indicator = style([
   baseSprinkles({
     radius: "full",
     backgroundColor: "primary",
-  }),
-  style({
     userSelect: "none",
   }),
+  style({}),
 ]);
 
 export const thumb = style([
@@ -81,11 +80,11 @@ export const thumb = style([
     borderWidth: "thin",
     borderStyle: "solid",
     boxShadow: "sm",
+    userSelect: "none",
+    outline: "none",
   }),
   style({
-    userSelect: "none",
     borderColor: semanticVars.border.default,
-    outline: "none",
     transitionProperty: "box-shadow, transform",
     transitionDuration: "150ms",
     width: 16,

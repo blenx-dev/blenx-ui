@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { baseSprinkles } from "../../utils/sprinkles";
 
 const spanEntries: Record<number, { gridColumn: string }> = {};
 for (let i = 1; i <= 12; i++) {
@@ -6,6 +6,6 @@ for (let i = 1; i <= 12; i++) {
 }
 export const gridSpanVariants = spanEntries;
 
-export const gridItem = style({
-  minWidth: 0,
+export const gridItem = baseSprinkles({
+  minWidth: "0",
 });

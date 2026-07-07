@@ -25,14 +25,14 @@ export const trigger = style([
     borderWidth: "thin",
     borderStyle: "solid",
     cursor: "pointer",
+    fontFamily: "inherit",
+    outline: "none",
   }),
   style({
     paddingLeft: tokenVars.spacing.md,
     paddingRight: tokenVars.spacing.sm,
     lineHeight: "1.5",
-    fontFamily: "inherit",
     borderColor: semanticVars.border.default,
-    outline: "none",
     transition: "border-color 0.15s ease, box-shadow 0.15s ease",
     selectors: {
       "&:hover": {
@@ -92,13 +92,13 @@ export const popup = style([
     borderWidth: "thin",
     borderStyle: "solid",
     boxShadow: "lg",
+    outline: "none",
   }),
   style({
     maxHeight: 300,
     borderColor: semanticVars.border.default,
     minWidth: "var(--anchor-width)",
     maxWidth: "var(--available-width)",
-    outline: "none",
     selectors: {
       "&:focus-visible": {
         outline: "none",
@@ -119,11 +119,11 @@ export const item = style([
     fontSize: "sm",
     color: "primary",
     cursor: "pointer",
+    userSelect: "none",
   }),
   style({
     minHeight: 32,
     lineHeight: "1.4",
-    userSelect: "none",
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,

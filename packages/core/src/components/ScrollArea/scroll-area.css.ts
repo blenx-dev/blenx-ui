@@ -6,20 +6,19 @@ export const root = style([
   baseSprinkles({
     height: "full",
     width: "full",
+    minHeight: "0",
   }),
-  style({
-    minHeight: 0,
-  }),
+  style({}),
 ]);
 
 export const viewport = style([
   baseSprinkles({
     height: "full",
     radius: "default",
+    minWidth: "0",
+    outline: "none",
   }),
   style({
-    minWidth: 0,
-    outline: "none",
     overscrollBehaviorY: "contain",
     overscrollBehaviorX: "contain",
     selectors: {

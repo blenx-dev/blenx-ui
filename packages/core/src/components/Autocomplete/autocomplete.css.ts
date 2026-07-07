@@ -2,16 +2,12 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles.css";
 
-export const inputGroup = style([
-  baseSprinkles({
-    position: "relative",
-    width: "full",
-    color: "primary",
-  }),
-  style({
-    minWidth: 0,
-  }),
-]);
+export const inputGroup = baseSprinkles({
+  position: "relative",
+  width: "full",
+  color: "primary",
+  minWidth: "0",
+});
 
 export const inputSize = style({
   vars: {
@@ -41,12 +37,12 @@ export const startAddon = style([
     display: "flex",
     align: "center",
     zIndex: "1",
+    pointerEvents: "none",
+    opacity: "0.8",
   }),
   style({
-    pointerEvents: "none",
     insetBlock: 0,
     insetInlineStart: tokenVars.borderWidth.thin,
-    opacity: 0.8,
   }),
 ]);
 
@@ -69,12 +65,13 @@ export const adornment = style([
     radius: "md",
     borderColor: "transparent",
     flexShrink: 0,
+    opacity: "0.8",
+    outline: "none",
   }),
   style({
     top: "50%",
     transform: "translateY(-50%)",
-    opacity: 0.8,
-    outline: "none",
+
     transitionProperty: "color, background-color, box-shadow, opacity",
     transitionDuration: "150ms",
   }),
@@ -98,7 +95,7 @@ export const adornmentEndDefault = style({
   insetInlineEnd: tokenVars.spacing["0.5"],
 });
 
-export const positioner = style({
+export const positioner = baseSprinkles({
   outline: "none",
 });
 
@@ -164,10 +161,9 @@ export const empty = style([
     padding: "sm",
     fontSize: "sm",
     color: "secondary",
-  }),
-  style({
     textAlign: "center",
   }),
+  style({}),
 ]);
 
 export const list = baseSprinkles({
@@ -193,10 +189,10 @@ export const item = style([
     radius: "md",
     fontSize: "md",
     cursor: "default",
-  }),
-  style({
     userSelect: "none",
     outline: "none",
+  }),
+  style({
     minHeight: "32px",
   }),
 ]);

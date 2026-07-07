@@ -33,13 +33,13 @@ export const swipeAreaRight = style([
 export const backdrop = style([
   baseSprinkles({
     position: "fixed",
+    backdropFilter: "blur4px",
   }),
   style({
     inset: 0,
   }),
   style({
     backgroundColor: "rgba(0, 0, 0, 0.32)",
-    backdropFilter: "blur(4px)",
     transitionProperty: "opacity",
     transitionDuration: "450ms",
     transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
@@ -224,12 +224,12 @@ export const menuItem = style([
     px: "sm",
     backgroundColor: "transparent",
     cursor: "default",
+    textAlign: "left",
+    outline: "none",
   }),
   style({
     minHeight: "36px",
     border: "none",
-    textAlign: "left",
-    outline: "none",
   }),
 ]);
 
@@ -278,11 +278,15 @@ export const menuTrigger = style([
   }),
 ]);
 
-export const menuTriggerIcon = style({
-  marginLeft: "auto",
-  marginRight: "-2px",
-  opacity: 0.8,
-});
+export const menuTriggerIcon = style([
+  baseSprinkles({
+    opacity: "0.8",
+  }),
+  style({
+    marginLeft: "auto",
+    marginRight: "-2px",
+  }),
+]);
 
 export const menuCheckbox = style([
   baseSprinkles({

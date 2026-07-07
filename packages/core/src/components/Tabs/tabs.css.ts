@@ -105,16 +105,20 @@ export const tabSegmentedActive = style([
 ]);
 
 export const tab = style([
-  baseSprinkles({ borderBottomStyle: "solid", cursor: "pointer" }),
-  style({
-    minHeight: 36,
+  baseSprinkles({
+    borderBottomStyle: "solid",
+    cursor: "pointer",
     appearance: "none",
     outline: "none",
-    border: "none",
-    borderBottomColor: semanticVars.border.default,
     textDecoration: "none",
     whiteSpace: "nowrap",
     userSelect: "none",
+    fontFamily: "body",
+  }),
+  style({
+    minHeight: 36,
+    border: "none",
+    borderBottomColor: semanticVars.border.default,
     font: "inherit",
     selectors: {
       "&:hover": {
@@ -126,7 +130,6 @@ export const tab = style([
         color: semanticVars.color.primary.text,
       },
     },
-    fontFamily: tokenVars.font.body,
     WebkitTapHighlightColor: "transparent",
     transition: `color ${tokenVars.duration.normal} ${tokenVars.easing.standard}, background-color ${tokenVars.duration.normal} ${tokenVars.easing.standard}, box-shadow ${tokenVars.duration.normal} ${tokenVars.easing.standard}`,
   }),
@@ -200,14 +203,10 @@ export const tabUnderline = style([
   }),
 ]);
 
-export const indicator = style([
-  baseSprinkles({
-    position: "absolute",
-  }),
-  style({
-    pointerEvents: "none",
-  }),
-]);
+export const indicator = baseSprinkles({
+  position: "absolute",
+  pointerEvents: "none",
+});
 
 export const indicatorDefault = style({
   display: "none",

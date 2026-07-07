@@ -28,11 +28,11 @@ export const base = style([
     lineHeight: "tight",
     fontWeight: "medium",
     cursor: "pointer",
-  }),
-  style({
     whiteSpace: "nowrap",
     userSelect: "none",
     outline: "none",
+  }),
+  style({
     transition: "box-shadow 0.15s ease",
     selectors: {
       "&:focus-visible": {

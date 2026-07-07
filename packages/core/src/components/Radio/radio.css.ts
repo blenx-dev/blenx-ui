@@ -13,12 +13,12 @@ export const root = style([
     backgroundColor: "canvas",
     borderWidth: "thin",
     borderStyle: "solid",
+    outline: "none",
   }),
   style({
     width: 18,
     height: 18,
     borderColor: semanticVars.border.default,
-    outline: "none",
     transitionProperty: "box-shadow",
     transitionDuration: "150ms",
     selectors: {
@@ -37,7 +37,7 @@ export const root = style([
 
 export const rootDisabled = style([
   baseSprinkles({ cursor: "not-allowed" }),
-  style({ opacity: 0.64 }),
+  baseSprinkles({ opacity: "0.64" }),
 ]);
 
 export const group = baseSprinkles({

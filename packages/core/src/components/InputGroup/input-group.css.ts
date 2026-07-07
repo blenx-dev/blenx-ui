@@ -52,9 +52,9 @@ export const addon = style([
     color: "secondary",
     fontSize: "sm",
     cursor: "text",
+    userSelect: "none",
   }),
   style({
-    userSelect: "none",
     selectors: {
       "&:has(:last-child[data-slot='badge'])": {
         marginInlineStart: 0,
@@ -114,9 +114,9 @@ export const text = style([
     align: "center",
     gap: "sm",
     color: "secondary",
+    whiteSpace: "nowrap",
   }),
   style({
-    whiteSpace: "nowrap",
     lineHeight: 1,
   }),
 ]);
@@ -138,11 +138,11 @@ export const input = style([
     paddingLeft: "8",
     paddingRight: "8",
     borderWidth: "none",
+    minWidth: "0",
+    outline: "none",
   }),
   style({
-    minWidth: 0,
     border: "none",
-    outline: "none",
     backgroundColor: "inherit",
     lineHeight: 1.5,
     selectors: {
@@ -168,11 +168,11 @@ export const textarea = style([
     paddingLeft: "10",
     paddingRight: "10",
     borderWidth: "none",
+    minWidth: "0",
+    outline: "none",
   }),
   style({
-    minWidth: 0,
     border: "none",
-    outline: "none",
     backgroundColor: "transparent",
     resize: "none",
     selectors: {

@@ -41,9 +41,11 @@ export const tableContainer = style([
 ]);
 
 export const table = style([
-  baseSprinkles({ width: "full" }),
-  style({
+  baseSprinkles({
+    width: "full",
     borderCollapse: "collapse",
+  }),
+  style({
     tableLayout: "auto",
   }),
 ]);
@@ -73,17 +75,17 @@ export const th = style([
     px: "12",
     fontWeight: "semibold",
     color: "secondary",
+    textAlign: "left",
+    textTransform: "uppercase",
+    whiteSpace: "nowrap",
+    userSelect: "none",
   }),
   style({
     fontSize: "12px",
-    textAlign: "left",
-    textTransform: "uppercase",
     letterSpacing: "0.05em",
     borderBottomWidth: 1,
     borderBottomStyle: "solid",
     borderBottomColor: semanticVars.border.default,
-    whiteSpace: "nowrap",
-    userSelect: "none",
   }),
 ]);
 
@@ -122,15 +124,13 @@ export const td = style([
     py: "10",
     px: "12",
     fontSize: "sm",
+    textOverflow: "ellipsis",
     color: "primary",
-  }),
-  style({
-    borderBottomWidth: 1,
-    borderBottomStyle: "solid",
-    borderBottomColor: semanticVars.border.subtle,
     whiteSpace: "nowrap",
     overflow: "hidden",
-    textOverflow: "ellipsis",
+    borderBottomStyle: "solid",
+    borderBottomWidth: "thin",
+    borderBottomColor: "subtle",
   }),
 ]);
 
@@ -170,12 +170,10 @@ export const loadingWrapper = baseSprinkles({
   width: "full",
 });
 
-export const loadingTable = style([
-  baseSprinkles({ width: "full" }),
-  style({
-    borderCollapse: "collapse",
-  }),
-]);
+export const loadingTable = baseSprinkles({
+  width: "full",
+  borderCollapse: "collapse",
+});
 
 export const headerCell = style([
   baseSprinkles({
@@ -288,8 +286,8 @@ export const emptyContainer = style([
   }),
 ]);
 
-export const iconWrap = style({
-  opacity: 0.5,
+export const iconWrap = baseSprinkles({
+  opacity: "0.5",
 });
 
 export const message = style([
@@ -299,7 +297,6 @@ export const message = style([
   }),
   style({
     lineHeight: 1.5,
-    textAlign: "center",
     margin: 0,
   }),
 ]);
@@ -325,11 +322,11 @@ export const errorContainer = style([
 export const errorMessage = style([
   baseSprinkles({
     fontSize: "sm",
+    textAlign: "center",
   }),
   style({
     color: semanticVars.color.danger.text,
     lineHeight: 1.5,
-    textAlign: "center",
     margin: 0,
   }),
 ]);
@@ -391,15 +388,11 @@ export const controls = baseSprinkles({
   gap: "sm",
 });
 
-export const range = style([
-  baseSprinkles({
-    color: "secondary",
-    fontSize: "sm",
-  }),
-  style({
-    whiteSpace: "nowrap",
-  }),
-]);
+export const range = baseSprinkles({
+  color: "secondary",
+  fontSize: "sm",
+  whiteSpace: "nowrap",
+});
 
 export const buttonGroup = baseSprinkles({
   display: "flex",

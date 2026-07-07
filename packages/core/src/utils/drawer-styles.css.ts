@@ -5,11 +5,11 @@ import { baseSprinkles } from "../utils/sprinkles";
 export const backdrop = style([
   baseSprinkles({
     position: "fixed",
+    backdropFilter: "blur4px",
   }),
   style({
     inset: 0,
     backgroundColor: "rgba(0, 0, 0, 0.32)",
-    backdropFilter: "blur(4px)",
     transitionProperty: "transform, opacity",
     transitionDuration: "200ms",
     opacity: "calc(.32 + var(--nested-dialogs) * .18)",
@@ -39,12 +39,12 @@ export const drawerPopup = style([
     color: "primary",
     px: "md",
     borderWidth: "none",
+    minHeight: "0",
+    minWidth: "0",
+    outline: "none",
   }),
   style({
     maxHeight: "100%",
-    minHeight: 0,
-    minWidth: 0,
-    outline: "none",
     willChange: "transform",
     transitionProperty: "transform, box-shadow, height, background-color, margin, padding",
     transitionDuration: "450ms",
@@ -69,11 +69,12 @@ export const dialogPopup = style([
     color: "primary",
     borderWidth: "none",
     boxShadow: "lg",
+    minHeight: "0",
+    outline: "none",
   }),
   style({
     gridRowStart: 2,
     maxWidth: "28rem",
-    minHeight: 0,
     transformOrigin: "center",
     borderStyle: "solid",
     translate: `0 calc(var(--nested-dialogs) * 1rem)`,
@@ -82,7 +83,6 @@ export const dialogPopup = style([
     transitionProperty: "opacity, translate, scale",
     transitionDuration: "200ms",
     transitionTimingFunction: "ease-in-out",
-    outline: "none",
     willChange: "transform",
     "::before": {
       content: '""',

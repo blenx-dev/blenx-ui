@@ -19,7 +19,7 @@ export const positioner = style([
   baseSprinkles({
     zIndex: "popover",
   }),
-  style({
+  baseSprinkles({
     outline: "none",
   }),
 ]);
@@ -32,13 +32,13 @@ export const popup = style([
     borderWidth: "thin",
     borderStyle: "solid",
     boxShadow: "lg",
+    outline: "none",
   }),
   style({
     minWidth: 160,
     width: "max(var(--anchor-width), 240px)",
     maxWidth: "calc(100vw - 16px)",
     borderColor: semanticVars.border.default,
-    outline: "none",
     transformOrigin: "var(--transform-origin)",
     transitionProperty: "opacity, scale",
     transitionDuration: "150ms",

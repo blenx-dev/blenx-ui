@@ -14,9 +14,9 @@ export const root = style([
     overflow: "hidden",
     shrink: 0,
     borderWidth: "thin",
+    outline: "none",
   }),
   style({
-    outline: "none",
     border: "none",
   }),
 ]);
@@ -27,10 +27,10 @@ export const image = style([
     height: "full",
     display: "block",
     borderWidth: "thin",
+    outline: "none",
   }),
   style({
     objectFit: "cover",
-    outline: "none",
     border: "none",
   }),
 ]);
@@ -46,10 +46,10 @@ export const fallback = style([
     color: "secondary",
     borderWidth: "none",
     fontWeight: "semibold",
+    outline: "none",
   }),
   style({
     fontSize: 12,
-    outline: "none",
     border: "none",
     lineHeight: 1,
   }),

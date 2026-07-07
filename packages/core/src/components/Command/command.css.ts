@@ -15,10 +15,9 @@ export const root = style([
     borderStyle: "solid",
     borderColor: "default",
     boxShadow: "lg",
-  }),
-  style({
     outline: "none",
   }),
+  style({}),
 ]);
 
 export const inputWrapper = style([
@@ -48,12 +47,12 @@ export const input = style([
     fontSize: "sm",
     color: "primary",
     backgroundColor: "transparent",
+    outline: "none",
+    fontFamily: "inherit",
   }),
   style({
     height: 44,
     border: "none",
-    outline: "none",
-    fontFamily: "inherit",
     selectors: {
       "&::placeholder": {
         color: semanticVars.text.disabled,
@@ -97,12 +96,13 @@ export const item = style([
     fontSize: "sm",
     color: "primary",
     cursor: "pointer",
+    userSelect: "none",
+    outline: "none",
   }),
   style({
     minHeight: 32,
     lineHeight: "1.4",
-    userSelect: "none",
-    outline: "none",
+
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,
@@ -147,8 +147,7 @@ export const empty = style([
     py: "lg",
     fontSize: "sm",
     color: "secondary",
-  }),
-  style({
     textAlign: "center",
   }),
+  style({}),
 ]);

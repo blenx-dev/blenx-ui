@@ -33,8 +33,8 @@ export const item = style([
   },
 ]);
 
-export const itemDisabled = style({
-  opacity: 0.5,
+export const itemDisabled = baseSprinkles({
+  opacity: "0.5",
 });
 
 export const trigger = style([
@@ -52,15 +52,15 @@ export const trigger = style([
     borderWidth: "thin",
     backgroundColor: "transparent",
     cursor: "pointer",
+    appearance: "none",
+    fontFamily: "inherit",
+    textAlign: "left",
+    outline: "none",
   }),
   style({
     paddingInlineEnd: tokenVars.spacing.xxs,
     border: "none",
-    appearance: "none",
-    fontFamily: "inherit",
-    textAlign: "left",
     WebkitTapHighlightColor: "transparent",
-    outline: "none",
     outlineOffset: "2px",
     transitionProperty: "background-color",
     transitionDuration: tokenVars.duration.fast,

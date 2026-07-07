@@ -14,11 +14,11 @@ export const root = style([
     borderStyle: "solid",
     borderWidth: "thin",
     borderColor: "default",
+    outline: "none",
   }),
   style({
     width: 18,
     height: 18,
-    outline: "none",
     transitionProperty: "box-shadow",
     transitionDuration: "150ms",
     selectors: {
@@ -37,7 +37,7 @@ export const root = style([
 
 export const rootDisabled = style([
   baseSprinkles({ cursor: "not-allowed" }),
-  style({ opacity: 0.64 }),
+  baseSprinkles({ opacity: "0.64" }),
 ]);
 
 export const group = baseSprinkles({

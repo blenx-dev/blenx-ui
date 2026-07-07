@@ -23,10 +23,10 @@ export const inputStyle = style([
     lineHeight: "normal",
     borderWidth: "thin",
     borderStyle: "solid",
+    outline: "none",
   }),
   style({
     borderColor: semanticVars.border.default,
-    outline: "none",
     selectors: {
       "&::placeholder": {
         color: semanticVars.text.disabled,

@@ -4,7 +4,7 @@ import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const variantRecipe = recipe({
-  base: { textDecoration: "none" },
+  base: baseSprinkles({ textDecoration: "none" }),
   variants: {
     variant: {
       default: baseSprinkles({

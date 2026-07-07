@@ -19,10 +19,14 @@ export const rootVertical = baseSprinkles({
   direction: "column",
 });
 
-export const rootDisabled = style({
-  pointerEvents: "none",
-  opacity: 0.6,
-});
+export const rootDisabled = style([
+  baseSprinkles({
+    pointerEvents: "none",
+  }),
+  style({
+    opacity: 0.6,
+  }),
+]);
 
 export const panel = style([
   baseSprinkles({
@@ -41,12 +45,12 @@ export const handle = style([
     align: "center",
     justify: "center",
     shrink: 0,
+    outline: "none",
   }),
   style({
     backgroundColor: semanticVars.border.subtle,
     transitionProperty: "background-color",
     transitionDuration: tokenVars.duration.fast,
-    outline: "none",
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.border.default,

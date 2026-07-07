@@ -55,9 +55,9 @@ export const label = style([
     color: "secondary",
     fontSize: "xs",
     fontWeight: "medium",
+    whiteSpace: "nowrap",
   }),
   style({
     lineHeight: 1.2,
-    whiteSpace: "nowrap",
   }),
 ]);

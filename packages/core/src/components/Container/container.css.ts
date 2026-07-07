@@ -2,9 +2,9 @@ import { recipe } from "@vanilla-extract/recipes";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const containerRecipe = recipe({
-  base: {
-    minWidth: 0,
-  },
+  base: baseSprinkles({
+    minWidth: "0",
+  }),
   variants: {
     size: {
       xxs: { width: "min(240px, 100%)" },

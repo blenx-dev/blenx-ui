@@ -12,11 +12,11 @@ export const shell = style([
     color: "primary",
     borderWidth: "thin",
     borderStyle: "solid",
+    outline: "none",
   }),
   style({
     borderColor: semanticVars.border.default,
     boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-    outline: "none",
     transitionProperty: "box-shadow, border-color",
     transitionDuration: "150ms",
     selectors: {
@@ -45,6 +45,7 @@ export const textarea = style([
     radius: "inherit",
     fontSize: "sm",
     borderWidth: "none",
+    outline: "none",
   }),
   style({
     fieldSizing: "content",
@@ -54,7 +55,6 @@ export const textarea = style([
     paddingLeft: "calc(12px - 1px)",
     paddingRight: "calc(12px - 1px)",
     lineHeight: 1.5,
-    outline: "none",
     resize: "none",
   }),
 ]);

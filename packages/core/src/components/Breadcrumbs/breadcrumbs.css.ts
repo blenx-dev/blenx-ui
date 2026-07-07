@@ -39,10 +39,9 @@ export const item = baseSprinkles({
 });
 
 export const link = style([
-  baseSprinkles({ cursor: "pointer" }),
+  baseSprinkles({ cursor: "pointer", textDecoration: "none" }),
   style({
     color: "inherit",
-    textDecoration: "none",
     transitionProperty: "color",
     transitionDuration: "150ms",
     transitionTimingFunction: "ease",
@@ -72,7 +71,7 @@ export const ellipsis = baseSprinkles({
 });
 
 export const srOnly = style([
-  baseSprinkles({ borderWidth: "none" }),
+  baseSprinkles({ borderWidth: "none", whiteSpace: "nowrap" }),
   style({
     position: "absolute",
     width: 1,
@@ -81,6 +80,5 @@ export const srOnly = style([
     margin: -1,
     overflow: "hidden",
     clip: "rect(0, 0, 0, 0)",
-    whiteSpace: "nowrap",
   }),
 ]);

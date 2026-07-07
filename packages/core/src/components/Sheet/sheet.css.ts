@@ -5,11 +5,11 @@ import { baseSprinkles } from "../../utils/sprinkles";
 export const backdrop = style([
   baseSprinkles({
     position: "fixed",
+    backdropFilter: "blur4px",
   }),
   style({
     inset: 0,
     backgroundColor: "rgba(0, 0, 0, 0.32)",
-    backdropFilter: "blur(4px)",
     transitionProperty: "opacity",
     transitionDuration: "200ms",
     "@media": {
@@ -74,13 +74,13 @@ export const popup = style([
     color: "primary",
     boxShadow: "lg",
     borderStyle: "solid",
+    minHeight: "0",
+    minWidth: "0",
+    outline: "none",
   }),
   style({
     maxHeight: "100svh%",
-    minHeight: 0,
-    minWidth: 0,
     borderColor: semanticVars.border.default,
-    outline: "none",
     willChange: "translate",
     transitionProperty: "opacity, translate",
     transitionDuration: "200ms",

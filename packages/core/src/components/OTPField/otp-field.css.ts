@@ -10,23 +10,27 @@ export const root = baseSprinkles({
 });
 
 export const input = recipe({
-  base: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    borderRadius: tokenVars.borderRadius.default,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: semanticVars.border.default,
-    backgroundColor: semanticVars.background.default,
-    color: semanticVars.text.primary,
-    outline: "none",
-    caretColor: semanticVars.color.primary.default,
-    transition: "box-shadow 0.15s ease, border-color 0.15s ease",
-    padding: 0,
-    margin: 0,
-  },
+  base: [
+    baseSprinkles({
+      align: "center",
+      justify: "center",
+      textAlign: "center",
+      outline: "none",
+    }),
+    style({
+      display: "flex",
+      borderRadius: tokenVars.borderRadius.default,
+      borderWidth: 1,
+      borderStyle: "solid",
+      borderColor: semanticVars.border.default,
+      backgroundColor: semanticVars.background.default,
+      color: semanticVars.text.primary,
+      caretColor: semanticVars.color.primary.default,
+      transition: "box-shadow 0.15s ease, border-color 0.15s ease",
+      padding: 0,
+      margin: 0,
+    }),
+  ],
   variants: {
     size: {
       default: {

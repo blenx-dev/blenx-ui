@@ -6,12 +6,7 @@ const scrollMarginTop = style({
   scrollMarginTop: "80px",
 });
 export const textVariants = recipe({
-  base: [
-    baseSprinkles({ lineHeight: "normal", margin: "0" }),
-    style({
-      textDecoration: "none",
-    }),
-  ],
+  base: baseSprinkles({ lineHeight: "normal", margin: "0", textDecoration: "none" }),
   variants: {
     variant: {
       h1: [
@@ -70,9 +65,9 @@ export const textVariants = recipe({
       code: [baseSprinkles({ backgroundColor: "subtle", margin: "0", radius: "sm" })],
     },
     textAlign: {
-      left: { textAlign: "left" },
-      center: { textAlign: "center" },
-      right: { textAlign: "right" },
+      left: baseSprinkles({ textAlign: "left" }),
+      center: baseSprinkles({ textAlign: "center" }),
+      right: baseSprinkles({ textAlign: "right" }),
     },
     weight: {
       regular: baseSprinkles({ fontWeight: "regular" }),
@@ -81,10 +76,10 @@ export const textVariants = recipe({
       bold: baseSprinkles({ fontWeight: "bold" }),
     },
     transform: {
-      uppercase: { textTransform: "uppercase" },
-      capitalize: { textTransform: "capitalize" },
-      none: { textTransform: "none" },
-      lowercase: { textTransform: "lowercase" },
+      uppercase: baseSprinkles({ textTransform: "uppercase" }),
+      capitalize: baseSprinkles({ textTransform: "capitalize" }),
+      none: baseSprinkles({ textTransform: "none" }),
+      lowercase: baseSprinkles({ textTransform: "lowercase" }),
     },
   },
 });

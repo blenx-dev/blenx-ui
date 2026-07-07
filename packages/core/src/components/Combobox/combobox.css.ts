@@ -7,9 +7,7 @@ export const inputGroup = style([
     position: "relative",
     width: "full",
     color: "primary",
-  }),
-  style({
-    minWidth: 0,
+    minWidth: "0",
   }),
 ]);
 
@@ -34,12 +32,12 @@ export const startAddon = style([
     display: "flex",
     align: "center",
     zIndex: "1",
+    pointerEvents: "none",
+    opacity: "0.8",
   }),
   style({
-    pointerEvents: "none",
     insetBlock: 0,
     insetInlineStart: tokenVars.borderWidth.thin,
-    opacity: 0.8,
   }),
 ]);
 
@@ -62,12 +60,12 @@ export const adornment = style([
     borderStyle: "solid",
     borderColor: "transparent",
     flexShrink: 0,
+    opacity: "0.8",
+    outline: "none",
   }),
   style({
     top: "50%",
     transform: "translateY(-50%)",
-    opacity: 0.8,
-    outline: "none",
     transitionProperty: "color, background-color, box-shadow, opacity",
     transitionDuration: "150ms",
   }),
@@ -91,7 +89,7 @@ export const adornmentEndDefault = style({
   insetInlineEnd: tokenVars.spacing["0.5"],
 });
 
-export const positioner = style({
+export const positioner = baseSprinkles({
   outline: "none",
 });
 
@@ -171,8 +169,6 @@ export const empty = style([
     padding: "sm",
     fontSize: "md",
     color: "secondary",
-  }),
-  style({
     textAlign: "center",
   }),
 ]);
@@ -235,13 +231,14 @@ export const item = style([
     radius: "sm",
     fontSize: "md",
     cursor: "default",
+    userSelect: "none",
+    outline: "none",
   }),
   style({
     gridTemplateColumns: "1rem 1fr",
     columnGap: tokenVars.spacing.sm,
     minHeight: "32px",
-    userSelect: "none",
-    outline: "none",
+
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,
@@ -288,13 +285,13 @@ export const chips = style([
     borderWidth: "thin",
     borderStyle: "solid",
     borderColor: "default",
+    minWidth: "0",
+    outline: "none",
   }),
   style({
-    minWidth: 0,
     minHeight: "36px",
     padding: "calc(4px - 1px)",
     boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
-    outline: "none",
     transitionProperty: "border-color, box-shadow",
     transitionDuration: "150ms",
     selectors: {
@@ -329,9 +326,7 @@ export const chipsStartAddon = style([
     shrink: 0,
     align: "center",
     paddingLeft: "sm",
-  }),
-  style({
-    opacity: 0.8,
+    opacity: "0.8",
   }),
 ]);
 
@@ -345,11 +340,11 @@ export const chipsInput = style([
     color: "primary",
     backgroundColor: "transparent",
     borderWidth: "none",
+    outline: "none",
   }),
   style({
     flex: "1 1 0%",
     minWidth: "3rem",
-    outline: "none",
     paddingBlock: "6px",
     paddingInlineStart: tokenVars.spacing.xs,
     paddingInlineEnd: tokenVars.spacing.xs,
@@ -379,10 +374,10 @@ export const chip = style([
     px: "sm",
     fontSize: "sm",
     fontWeight: "medium",
+    outline: "none",
   }),
   style({
     lineHeight: 1.2,
-    outline: "none",
   }),
 ]);
 
@@ -393,10 +388,10 @@ export const chipRemove = style([
     shrink: 0,
     px: "xs",
     cursor: "pointer",
+    opacity: "0.8",
   }),
   style({
     height: "100%",
-    opacity: 0.8,
     selectors: {
       "&:hover": {
         opacity: 1,

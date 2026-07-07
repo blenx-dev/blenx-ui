@@ -28,9 +28,9 @@ export const variant = recipe({
       fontWeight: "medium",
       borderWidth: "thin",
       cursor: "pointer",
+      textDecoration: "none",
     }),
     style({
-      textDecoration: "none",
       transition: "all 0.2s ease",
       selectors: {
         "&:disabled": {

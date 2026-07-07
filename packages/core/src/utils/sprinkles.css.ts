@@ -40,6 +40,7 @@ const borderProperties = defineProperties({
     borderBottomLeftRadius: borderRadiusVals,
     borderTopWidth: borderWidthVals,
     borderBottomWidth: borderWidthVals,
+    borderCollapse: ["collapse"],
     borderLeftWidth: borderWidthVals,
     borderRightWidth: borderWidthVals,
     borderStyle: ["solid"],
@@ -51,7 +52,13 @@ const borderProperties = defineProperties({
     borderTopColor: {
       subtle: backgroundColors.subtle,
     },
+    borderBottomColor: {
+      subtle: backgroundColors.subtle,
+    },
     cursor: ["pointer", "not-allowed", "text", "default", "col-resize", "row-resize"],
+    outline: ["none"],
+    appearance: ["none"],
+    backdropFilter: { blur4px: "blur(4px)" },
   },
   shorthands: {
     radius: [
@@ -91,6 +98,8 @@ const layoutProperties = defineProperties({
       screen: "100svh",
       none: "none",
     },
+    minWidth: { "0": 0 },
+    minHeight: { "0": 0 },
   },
 });
 
@@ -103,6 +112,13 @@ const colorProperties = defineProperties({
       md: tokenVars.shadow.md,
       lg: tokenVars.shadow.lg,
       xl: tokenVars.shadow.xl,
+    },
+    opacity: {
+      "0": 0,
+      "0.5": 0.5,
+      "0.64": 0.64,
+      "0.8": 0.8,
+      "1": 1,
     },
   },
 });
@@ -148,6 +164,8 @@ const positionProperties = defineProperties({
     left: spacing,
     right: spacing,
     overflow: ["scroll", "visible", "hidden", "auto"],
+    userSelect: ["none"],
+    pointerEvents: ["none"],
   },
 });
 
@@ -271,6 +289,20 @@ const fontProperties = defineProperties({
       normal: tokenVars.lineHeight.normal,
       relaxed: tokenVars.lineHeight.relaxed,
       loose: tokenVars.lineHeight.loose,
+    },
+    whiteSpace: ["nowrap"],
+    textAlign: { left: "left", center: "center", right: "right" },
+    textTransform: {
+      uppercase: "uppercase",
+      capitalize: "capitalize",
+      lowercase: "lowercase",
+      none: "none",
+    },
+    textOverflow: ["ellipsis"],
+    textDecoration: { none: "none" },
+    fontFamily: {
+      inherit: "inherit",
+      body: tokenVars.font.body,
     },
   },
 });

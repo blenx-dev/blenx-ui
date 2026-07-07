@@ -1,5 +1,5 @@
-import { style } from "@vanilla-extract/css";
+import { baseSprinkles } from "../../utils/sprinkles";
 
-export const baseBox = style({
-  minWidth: 0,
+export const baseBox = baseSprinkles({
+  minWidth: "0",
 });
