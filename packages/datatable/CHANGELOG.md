@@ -1,5 +1,14 @@
 # @blenx-dev/datatable
 
+## 0.3.2
+
+### Patch Changes
+
+- ae8f184: core: update style extraction
+- Updated dependencies [ae8f184]
+  - @blenx-dev/core@0.3.2
+  - @blenx-dev/theme@0.3.2
+
 ## 1.0.0
 
 ### Minor Changes

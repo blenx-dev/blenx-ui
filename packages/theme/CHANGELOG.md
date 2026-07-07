@@ -1,5 +1,11 @@
 # @blenx-dev/theme
 
+## 0.3.2
+
+### Patch Changes
+
+- ae8f184: core: update style extraction
+
 ## 1.0.0
 
 ### Minor Changes
