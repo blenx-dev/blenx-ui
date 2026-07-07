@@ -3,22 +3,29 @@
 import { Field as FieldPrimitive } from "@base-ui/react/field";
 import clsx from "clsx";
 import type React from "react";
-import { field, label, item, description, error } from "./field.css";
+import { label, item, description, error } from "./field.css";
+import { applyBaseSprinkles } from "../../utils/ve-style.utils";
+import type { BaseSprinkles } from "../../utils/sprinkles.css";
 
 export function Field({
   className,
   style,
   ...props
-}: FieldPrimitive.Root.Props & {
-  className?: string;
-  style?: React.CSSProperties;
-}): React.ReactElement {
+}: FieldPrimitive.Root.Props & BaseSprinkles): React.ReactElement {
+  const [baseStyles, otherProps] = applyBaseSprinkles({
+    display: "flex",
+    direction: "column",
+    align: "start",
+    gap: "2",
+    flex: 1,
+    ...props,
+  });
   return (
     <FieldPrimitive.Root
-      className={clsx(field, className)}
+      className={clsx(baseStyles, className)}
       style={style}
       data-slot="field"
-      {...props}
+      {...otherProps}
     />
   );
 }
@@ -27,10 +34,7 @@ export function FieldLabel({
   className,
   style,
   ...props
-}: FieldPrimitive.Label.Props & {
-  className?: string;
-  style?: React.CSSProperties;
-}): React.ReactElement {
+}: FieldPrimitive.Label.Props): React.ReactElement {
   return (
     <FieldPrimitive.Label
       className={clsx(label, className)}
@@ -45,10 +49,7 @@ export function FieldItem({
   className,
   style,
   ...props
-}: FieldPrimitive.Item.Props & {
-  className?: string;
-  style?: React.CSSProperties;
-}): React.ReactElement {
+}: FieldPrimitive.Item.Props): React.ReactElement {
   return (
     <FieldPrimitive.Item
       className={clsx(item, className)}
@@ -63,10 +64,7 @@ export function FieldDescription({
   className,
   style,
   ...props
-}: FieldPrimitive.Description.Props & {
-  className?: string;
-  style?: React.CSSProperties;
-}): React.ReactElement {
+}: FieldPrimitive.Description.Props): React.ReactElement {
   return (
     <FieldPrimitive.Description
       className={clsx(description, className)}
@@ -81,10 +79,7 @@ function FieldError({
   className,
   style,
   ...props
-}: FieldPrimitive.Error.Props & {
-  className?: string;
-  style?: React.CSSProperties;
-}): React.ReactElement {
+}: FieldPrimitive.Error.Props): React.ReactElement {
   return (
     <FieldPrimitive.Error
       className={clsx(error, className)}
