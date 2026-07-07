@@ -1,14 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const field = baseSprinkles({
-  display: "flex",
-  direction: "column",
-  align: "start",
-  gap: "2",
-  flex: 1,
-});
-
 export const label = style([
   baseSprinkles({
     display: "inline-flex",
