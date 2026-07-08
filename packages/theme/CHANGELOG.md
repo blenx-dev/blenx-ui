@@ -1,5 +1,11 @@
 # @blenx-dev/theme
 
+## 0.3.4
+
+### Patch Changes
+
+- a1c0ffe: Fix theme exports
+
 ## 0.3.2
 
 ### Patch Changes

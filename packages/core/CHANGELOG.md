@@ -1,5 +1,12 @@
 # @blenx-dev/core
 
+## 0.3.4
+
+### Patch Changes
+
+- Updated dependencies [a1c0ffe]
+  - @blenx-dev/theme@0.3.4
+
 ## 0.3.3
 
 ### Patch Changes
