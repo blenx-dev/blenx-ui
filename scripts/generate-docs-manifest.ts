@@ -242,8 +242,8 @@ function generateSharedRegistry(): void {
       type: "registry:lib",
     },
     {
-      source: "packages/theme/src/tokens.css.ts",
-      target: "@lib/theme/tokens.css.ts",
+      source: "packages/theme/src/theme.css.ts",
+      target: "@lib/theme/theme.css.ts",
       type: "registry:lib",
     },
     {

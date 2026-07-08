@@ -12,9 +12,9 @@
       "types": "./src/contract.css.ts",
       "default": "./src/contract.css.ts"
     },
-    "./tokens": {
-      "types": "./src/tokens.css.ts",
-      "default": "./src/tokens.css.ts"
+    "./theme": {
+      "types": "./src/theme.css.ts",
+      "default": "./src/theme.css.ts"
     },
     "./reset": {
       "types": "./src/reset.css.ts",
