@@ -237,7 +237,7 @@ export const item = style([
   style({
     gridTemplateColumns: "1rem 1fr",
     columnGap: tokenVars.spacing.sm,
-    minHeight: "32px",
+    minHeight: "36px",
 
     selectors: {
       "&:hover": {
@@ -250,6 +250,14 @@ export const item = style([
       "&[data-highlighted]": {
         backgroundColor: semanticVars.background.subtle,
         color: semanticVars.text.primary,
+      },
+      "&[data-selected]": {
+        backgroundColor: semanticVars.color.primary.bg,
+        color: semanticVars.color.primary.default,
+        fontWeight: "500",
+      },
+      "&[data-selected]:hover": {
+        backgroundColor: `color-mix(in srgb, ${semanticVars.color.primary.default} 15%, transparent)`,
       },
     },
   }),

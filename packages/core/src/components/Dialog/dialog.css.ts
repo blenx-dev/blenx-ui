@@ -13,7 +13,8 @@ export const footer = baseSprinkles({
 export const footerDefault = style([
   baseSprinkles({
     backgroundColor: "subtle",
-    py: "md",
+    py: "lg",
+    px: "lg",
     borderTopWidth: "thin",
     borderTopStyle: "solid",
     borderTopColor: "subtle",
@@ -23,6 +24,7 @@ export const footerDefault = style([
 export const footerBare = baseSprinkles({
   paddingTop: "lg",
   paddingBottom: "lg",
+  px: "lg",
 });
 
 export const title = style([

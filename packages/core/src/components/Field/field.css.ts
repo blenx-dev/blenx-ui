@@ -15,12 +15,14 @@ export const item = baseSprinkles({
 
 export const description = baseSprinkles({
   color: "secondary",
-  fontSize: "xs",
+  fontSize: "sm",
   lineHeight: "normal",
+  paddingTop: "xxs",
 });
 
 export const error = baseSprinkles({
   color: "error",
-  fontSize: "xs",
+  fontSize: "sm",
   lineHeight: "normal",
+  paddingTop: "xxs",
 });

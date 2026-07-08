@@ -38,10 +38,14 @@ export const inputStyle = style([
       "&:focus-visible": {
         borderColor: semanticVars.border.strong,
         boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
+        outlineOffset: "2px",
       },
       "&:focus-visible[aria-invalid='true']": {
         borderColor: semanticVars.color.danger.default,
         boxShadow: `0 0 0 2px ${semanticVars.color.danger.default}`,
+      },
+      "&[aria-invalid='true']": {
+        borderColor: semanticVars.color.danger.default,
       },
     },
   }),

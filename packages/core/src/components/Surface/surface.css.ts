@@ -40,6 +40,14 @@ export const variantRecipe = recipe({
               outline: `2px solid ${semanticVars.focus.ring}`,
               outlineOffset: "2px",
             },
+            "&:active": {
+              backgroundColor: semanticVars.background.default,
+            },
+            "&[data-selected]": {
+              backgroundColor: semanticVars.color.primary.bg,
+              outline: `2px solid ${semanticVars.color.primary.default}`,
+              outlineOffset: "1px",
+            },
           },
         }),
       ],

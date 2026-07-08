@@ -12,7 +12,7 @@ export const root = style([
   }),
   style({
     width: tokenVars.spacing.xxl,
-    height: tokenVars.spacing.lg,
+    height: tokenVars.spacing.xl,
     transitionProperty: "background-color",
     transitionDuration: "150ms",
     selectors: {
@@ -20,6 +20,10 @@ export const root = style([
         outlineWidth: 2,
         outlineStyle: "solid",
         outlineColor: semanticVars.border.strong,
+        outlineOffset: "2px",
+      },
+      "&:hover:not([data-disabled])": {
+        backgroundColor: semanticVars.border.strong,
       },
     },
   }),
@@ -37,8 +41,8 @@ export const thumb = style([
     backgroundColor: "subtle",
   }),
   style({
-    width: tokenVars.spacing.lg,
-    height: tokenVars.spacing.lg,
+    width: tokenVars.spacing.xl,
+    height: tokenVars.spacing.xl,
   }),
   style({
     transitionProperty: "transform, background-color",
@@ -52,6 +56,6 @@ export const thumbChecked = style([
     backgroundColor: "primary",
   }),
   style({
-    transform: `translateX(${tokenVars.spacing["lg"]})`,
+    transform: `translateX(${tokenVars.spacing.xl})`,
   }),
 ]);

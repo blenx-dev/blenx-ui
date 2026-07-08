@@ -2,15 +2,22 @@ import { baseSprinkles } from "../../utils/sprinkles";
 
 export const footerDefault = baseSprinkles({
   backgroundColor: "subtle",
-  py: "md",
+  py: "lg",
+  px: "lg",
   borderTopWidth: "thin",
   borderTopStyle: "solid",
   borderTopColor: "subtle",
+  display: "flex",
+  gap: "sm",
+  justify: "end",
 });
 
 export const footerBare = baseSprinkles({
-  paddingTop: "md",
+  paddingTop: "lg",
   paddingBottom: "lg",
+  display: "flex",
+  gap: "sm",
+  justify: "end",
 });
 
 export const title = baseSprinkles({
@@ -27,6 +34,5 @@ export const description = baseSprinkles({
 });
 
 export const panel = baseSprinkles({
-  padding: "md",
-  py: "xxs",
+  padding: "lg",
 });

@@ -70,8 +70,8 @@ export const item = style([
     paddingX: "sm",
   }),
   style({
-    minHeight: 24,
-    lineHeight: 1.2,
+    minHeight: 32,
+    lineHeight: 1.4,
     border: "none",
     transition: "background-color 0.15s ease, color 0.15s ease",
     selectors: {
@@ -94,6 +94,7 @@ export const item = style([
 export const itemDestructive = style([
   baseSprinkles({
     color: "error",
+    fontWeight: "medium",
   }),
   style({
     selectors: {
@@ -104,10 +105,11 @@ export const itemDestructive = style([
       "&:focus-visible": {
         backgroundColor: semanticVars.color.danger.bg,
         color: semanticVars.color.danger.default,
-        boxShadow: `0 0 0 2px ${semanticVars.color.danger} inset`,
+        boxShadow: `0 0 0 2px ${semanticVars.color.danger.default} inset`,
       },
       "&:active": {
-        backgroundColor: semanticVars.color.danger.bg,
+        backgroundColor: semanticVars.color.danger.bgActive,
+        color: semanticVars.color.danger.default,
       },
     },
   }),

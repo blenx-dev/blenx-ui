@@ -3,6 +3,8 @@ import { baseSprinkles } from "../../utils/sprinkles.css";
 import {
   dangerPalette,
   infoPalette,
+  linkPalette,
+  monoPalette,
   neutralPalette,
   paletteVars,
   primaryPalette,
@@ -44,6 +46,8 @@ export const badgeRecipe = recipe({
       warning: warningPalette,
       danger: dangerPalette,
       info: infoPalette,
+      mono: monoPalette,
+      link: linkPalette,
     },
   },
   compoundVariants: [

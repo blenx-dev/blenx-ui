@@ -68,7 +68,10 @@ export const indicator = style([
     backgroundColor: "primary",
     userSelect: "none",
   }),
-  style({}),
+  style({
+    transitionProperty: "background-color",
+    transitionDuration: "150ms",
+  }),
 ]);
 
 export const thumb = style([
@@ -85,13 +88,17 @@ export const thumb = style([
   }),
   style({
     borderColor: semanticVars.border.default,
-    transitionProperty: "box-shadow, transform",
+    transitionProperty: "box-shadow, transform, background-color",
     transitionDuration: "150ms",
-    width: 16,
-    height: 16,
+    width: 20,
+    height: 20,
     selectors: {
-      "&:has(:focus-visible)": {
+      "&:focus-visible": {
         boxShadow: `0 0 0 3px ${semanticVars.focus.ring}`,
+        borderColor: semanticVars.color.primary.default,
+      },
+      "&:hover": {
+        borderColor: semanticVars.color.primary.default,
       },
     },
   }),

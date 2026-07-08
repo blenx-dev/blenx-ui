@@ -5,6 +5,7 @@ import { baseSprinkles } from "../../utils/sprinkles";
 export const groupBase = baseSprinkles({
   display: "inline-flex",
   position: "relative",
+  gap: "0",
 });
 
 export const groupHorizontal = baseSprinkles({
@@ -14,7 +15,7 @@ export const groupHorizontal = baseSprinkles({
 
 export const groupVertical = baseSprinkles({
   direction: "column",
-  align: "center",
+  align: "stretch",
 });
 
 export const outlineItemHorizontal = style({

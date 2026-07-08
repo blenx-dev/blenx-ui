@@ -117,23 +117,27 @@ export const item = style([
     lineHeight: "normal",
   }),
   style({
-    minHeight: 32,
+    minHeight: 36,
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,
       },
       "&[data-highlighted]": {
         backgroundColor: semanticVars.background.subtle,
+        color: semanticVars.text.primary,
       },
       "&[data-selected]": {
         backgroundColor: semanticVars.color.primary.default,
         color: semanticVars.color.primary.fg,
+        fontWeight: "500",
       },
       "&[data-selected]:hover": {
-        backgroundColor: semanticVars.color.primary.default,
+        backgroundColor: semanticVars.color.primary.hover,
+        color: semanticVars.color.primary.fg,
       },
       "&[data-selected][data-highlighted]": {
-        backgroundColor: semanticVars.color.primary.default,
+        backgroundColor: semanticVars.color.primary.hover,
+        color: semanticVars.color.primary.fg,
       },
       "&[data-disabled]": {
         color: semanticVars.text.disabled,

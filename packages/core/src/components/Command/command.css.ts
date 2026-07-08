@@ -100,8 +100,8 @@ export const item = style([
     outline: "none",
   }),
   style({
-    minHeight: 32,
-    lineHeight: "1.4",
+    minHeight: 36,
+    lineHeight: "1.5",
 
     selectors: {
       "&:hover": {
@@ -109,6 +109,10 @@ export const item = style([
       },
       "&:focus-visible": {
         boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
+      },
+      "&[data-selected]": {
+        backgroundColor: semanticVars.color.primary.bg,
+        color: semanticVars.color.primary.default,
       },
     },
   }),

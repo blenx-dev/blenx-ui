@@ -34,7 +34,9 @@ export const variant = recipe({
       textDecoration: "none",
     }),
     style({
-      transition: `background-color ${tokenVars.duration.fast} ${tokenVars.easing.standard}, color ${tokenVars.duration.fast} ${tokenVars.easing.standard}, box-shadow ${tokenVars.duration.fast} ${tokenVars.easing.standard}`,
+      transitionProperty: "background-color, color, box-shadow",
+      transitionDuration: tokenVars.duration.fast,
+      transitionTimingFunction: tokenVars.easing.standard,
     }),
     disabled,
   ],
@@ -65,6 +67,10 @@ export const variant = recipe({
             "&:hover:not(:disabled)": {
               backgroundColor: paletteVars.hoverBg,
             },
+            "&:active:not(:disabled)": {
+              backgroundColor: paletteVars.activeBg,
+              color: paletteVars.activeFg,
+            },
           },
         },
       ],
@@ -76,6 +82,9 @@ export const variant = recipe({
           "&:hover:not(:disabled)": {
             backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 40%, transparent)`,
           },
+          "&:active:not(:disabled)": {
+            backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 60%, transparent)`,
+          },
         },
       },
       outline: {
@@ -86,6 +95,9 @@ export const variant = recipe({
           "&:hover:not(:disabled)": {
             backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 20%, transparent)`,
             borderColor: paletteVars.border,
+          },
+          "&:active:not(:disabled)": {
+            backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 40%, transparent)`,
           },
         },
       },
@@ -100,6 +112,9 @@ export const variant = recipe({
             "&:hover:not(:disabled)": {
               backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 20%, transparent)`,
             },
+            "&:active:not(:disabled)": {
+              backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 40%, transparent)`,
+            },
           },
         },
       ],
@@ -113,6 +128,10 @@ export const variant = recipe({
           selectors: {
             "&:hover:not(:disabled)": {
               textDecoration: "underline",
+            },
+            "&:active:not(:disabled)": {
+              textDecoration: "underline",
+              opacity: 0.8,
             },
           },
         },

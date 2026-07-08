@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles.css";
 
 export const inputGroup = baseSprinkles({
@@ -189,6 +189,20 @@ export const item = style([
     outline: "none",
   }),
   style({
-    minHeight: "32px",
+    minHeight: "36px",
+    transition: "background-color 0.15s ease",
+    selectors: {
+      "&:hover": {
+        backgroundColor: semanticVars.background.subtle,
+      },
+      "&[data-highlighted]": {
+        backgroundColor: semanticVars.background.subtle,
+        color: semanticVars.text.primary,
+      },
+      "&[data-disabled]": {
+        opacity: 0.5,
+        cursor: "default",
+      },
+    },
   }),
 ]);

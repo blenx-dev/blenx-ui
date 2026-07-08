@@ -41,9 +41,9 @@ export const trigger = style([
   baseSprinkles({
     display: "flex",
     align: "center",
-    gap: "xxs",
+    gap: "sm",
     width: "full",
-    padding: "xs",
+    padding: "sm",
     fontSize: "sm",
     color: "primary",
     borderRadius: "none",
@@ -58,7 +58,7 @@ export const trigger = style([
     outline: "none",
   }),
   style({
-    paddingInlineEnd: tokenVars.spacing.xxs,
+    paddingInlineEnd: tokenVars.spacing.sm,
     border: "none",
     WebkitTapHighlightColor: "transparent",
     outlineOffset: "2px",
@@ -69,20 +69,24 @@ export const trigger = style([
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,
       },
+      "&[data-panel-open]": {
+        backgroundColor: semanticVars.background.subtle,
+      },
       "&:focus-visible": {
         outline: `2px solid ${semanticVars.focus.ring}`,
+        outlineOffset: "2px",
       },
-      // First accordion item
-      [`${item}:first-child &`]: {
-        borderTopLeftRadius: tokenVars.borderRadius.md,
-        borderTopRightRadius: tokenVars.borderRadius.md,
-      },
+      // // First accordion item
+      // [`${item}:first-child &`]: {
+      //   borderTopLeftRadius: tokenVars.borderRadius.md,
+      //   borderTopRightRadius: tokenVars.borderRadius.md,
+      // },
 
-      // Last accordion item
-      [`${item}:last-child &`]: {
-        borderBottomLeftRadius: tokenVars.borderRadius.md,
-        borderBottomRightRadius: tokenVars.borderRadius.md,
-      },
+      // // Last accordion item
+      // [`${item}:last-child &`]: {
+      //   borderBottomLeftRadius: tokenVars.borderRadius.md,
+      //   borderBottomRightRadius: tokenVars.borderRadius.md,
+      // },
     },
   }),
 ]);
@@ -108,7 +112,7 @@ export const triggerIcon = style([
 export const panel = style([
   baseSprinkles({
     overflow: "hidden",
-    padding: "xs",
+    padding: "sm",
   }),
   style({
     transitionProperty: "grid-template-rows, opacity",

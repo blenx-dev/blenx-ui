@@ -94,10 +94,13 @@ export const toggleRecipes = recipe({
 export const pressed = {
   default: style({
     backgroundColor: paletteVars.activeBg,
+    color: paletteVars.activeFg,
+    borderColor: paletteVars.border,
   }),
   outline: style({
     outlineWidth: tokenVars.borderWidth.thin,
     backgroundColor: paletteVars.activeBg,
+    color: paletteVars.activeFg,
     borderColor: paletteVars.border,
   }),
 };

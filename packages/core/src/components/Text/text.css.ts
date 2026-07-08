@@ -66,15 +66,13 @@ export const textVariants = recipe({
       body3: [baseSprinkles({ fontSize: "xs", fontWeight: "regular", margin: "0" })],
       body4: [
         baseSprinkles({
-          fontSize: "xxs",
+          fontSize: "xs",
           fontWeight: "medium",
-          letterSpacing: "wide",
+          letterSpacing: "normal",
           margin: "0",
         }),
       ],
-      caption: [
-        baseSprinkles({ fontSize: "xs", fontWeight: "medium", letterSpacing: "wide", margin: "0" }),
-      ],
+      caption: [baseSprinkles({ fontSize: "xs", fontWeight: "medium", margin: "0" })],
       p: [baseSprinkles({ fontSize: "md", margin: "0", fontWeight: "regular" })],
       code: [baseSprinkles({ backgroundColor: "subtle", margin: "0", radius: "sm" })],
     },

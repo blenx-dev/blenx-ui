@@ -6,7 +6,7 @@ import { baseSprinkles } from "../../utils/sprinkles";
 export const root = baseSprinkles({
   display: "flex",
   align: "center",
-  gap: "xs",
+  gap: "sm",
 });
 
 export const input = recipe({
@@ -29,6 +29,16 @@ export const input = recipe({
     style({
       caretColor: semanticVars.color.primary.default,
       transition: "box-shadow 0.15s ease, border-color 0.15s ease",
+      selectors: {
+        "&:focus-visible": {
+          borderColor: semanticVars.color.primary.default,
+          boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
+        },
+        "&[data-complete]": {
+          borderColor: semanticVars.color.success.default,
+          boxShadow: `0 0 0 2px ${semanticVars.color.success.default}`,
+        },
+      },
     }),
   ],
   variants: {

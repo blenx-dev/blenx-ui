@@ -55,7 +55,7 @@ export const textarea = style([
     paddingLeft: "calc(12px - 1px)",
     paddingRight: "calc(12px - 1px)",
     lineHeight: 1.5,
-    resize: "none",
+    resize: "vertical",
   }),
 ]);
 

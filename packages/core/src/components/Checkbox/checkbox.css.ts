@@ -19,17 +19,15 @@ export const root = style([
   style({
     width: 18,
     height: 18,
-    transitionProperty: "box-shadow",
+    transitionProperty: "box-shadow, background-color, border-color",
     transitionDuration: "150ms",
     selectors: {
       "&:focus-visible": {
         boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
       },
-    },
-    "@media": {
-      "screen and (min-width: 640px)": {
-        width: 16,
-        height: 16,
+      "&[data-checked]": {
+        backgroundColor: semanticVars.color.primary.default,
+        borderColor: semanticVars.color.primary.default,
       },
     },
   }),
@@ -69,10 +67,4 @@ export const indicatorIndeterminate = baseSprinkles({
 export const icon = style({
   width: 14,
   height: 14,
-  "@media": {
-    "screen and (min-width: 640px)": {
-      width: 12,
-      height: 12,
-    },
-  },
 });

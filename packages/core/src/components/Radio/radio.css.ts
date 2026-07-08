@@ -19,17 +19,14 @@ export const root = style([
   style({
     width: 18,
     height: 18,
-    transitionProperty: "box-shadow",
+    transitionProperty: "box-shadow, background-color, border-color",
     transitionDuration: "150ms",
     selectors: {
       "&:focus-visible": {
         boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
       },
-    },
-    "@media": {
-      "screen and (min-width: 640px)": {
-        width: 16,
-        height: 16,
+      "&[data-checked]": {
+        borderColor: semanticVars.color.primary.default,
       },
     },
   }),
@@ -70,11 +67,5 @@ export const dot = style([
   style({
     width: 8,
     height: 8,
-    "@media": {
-      "screen and (min-width: 640px)": {
-        width: 6,
-        height: 6,
-      },
-    },
   }),
 ]);

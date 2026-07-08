@@ -10,21 +10,24 @@ export const root = baseSprinkles({
 
 export const head = baseSprinkles({
   backgroundColor: "subtle",
+  borderBottomWidth: "thin",
+  borderBottomStyle: "solid",
+  borderBottomColor: "subtle",
 });
 
 export const header = style([
   baseSprinkles({
-    py: "sm",
+    py: "md",
     px: "md",
-    fontSize: "md",
-    color: "secondary",
+    fontSize: "sm",
+    color: "primary",
     borderBottomWidth: "thin",
-    fontWeight: "semibold",
+    fontWeight: "medium",
     borderBottomStyle: "solid",
   }),
   style({
-    letterSpacing: "0.05em",
     borderBottomColor: semanticVars.border.default,
+    textTransform: "none",
   }),
 ]);
 
@@ -38,9 +41,9 @@ export const row = style({
 });
 
 export const cell = baseSprinkles({
-  py: "sm",
+  py: "md",
   px: "md",
-  fontSize: "md",
+  fontSize: "sm",
   borderBottomWidth: "thin",
   borderBottomStyle: "solid",
   borderBottomColor: "subtle",

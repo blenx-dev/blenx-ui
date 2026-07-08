@@ -4,6 +4,6 @@ export const fieldWrapper = baseSprinkles({
   display: "flex",
   direction: "column",
   align: "start",
-  gap: "xs",
+  gap: "sm",
   width: "full",
 });

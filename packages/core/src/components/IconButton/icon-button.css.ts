@@ -1,8 +1,14 @@
 import { style } from "@vanilla-extract/css";
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/theme/contract";
 
 export const base = style({
-  width: tokenVars.spacing["10"],
-  height: tokenVars.spacing["10"],
-  maxWidth: tokenVars.spacing["10"],
+  width: "44px",
+  height: "44px",
+  maxWidth: "44px",
+  minWidth: "44px",
+  selectors: {
+    "&:focus-visible": {
+      boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
+    },
+  },
 });
