@@ -49,7 +49,7 @@ const actions = useMyStore((s) => s.actions)
 - Theme is defined via Vanilla Extract contract (`packages/theme/src/contract.css.ts`) with `createThemeContract()`.
 - Two themes are created with `createTheme` in `packages/theme/src/light-theme.css.ts`: a light theme and a dark theme variant.
 - App-level themes are in `apps/web/src/lib/app-theme.css.ts` (`lightTheme` / `darkTheme` class names).
-- Design token primitives (spacing, font-sizes, radii, etc.) live in `packages/theme/src/tokens.css.ts`.
+- Design token primitives (spacing, font-sizes, radii, etc.) live in `packages/theme/src/theme.css.ts`.
 - Theme mode is managed by zustand store (scoped store pattern via `zustand-utils/createContext`).
 - An inline `<script>` in `<head>` sets `color-scheme` on `<html>` from localStorage before any rendering.
 - A `<meta name="color-scheme" content="dark light">` tag is included in the document head.

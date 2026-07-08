@@ -56,16 +56,18 @@ export const variant = recipe({
       lg: baseSprinkles({ fontSize: "lg", py: "md", px: "lg" }),
     },
     variant: {
-      solid: {
-        backgroundColor: paletteVars.bg,
-        borderColor: paletteVars.border,
-        color: paletteVars.fg,
-        selectors: {
-          "&:hover:not(:disabled)": {
-            backgroundColor: paletteVars.hoverBg,
+      solid: [
+        {
+          backgroundColor: paletteVars.bg,
+          borderColor: paletteVars.border,
+          color: paletteVars.fg,
+          selectors: {
+            "&:hover:not(:disabled)": {
+              backgroundColor: paletteVars.hoverBg,
+            },
           },
         },
-      },
+      ],
       soft: {
         backgroundColor: `color-mix(in srgb, ${paletteVars.hoverBg} 20%, transparent)`,
         color: paletteVars.fg,
@@ -87,26 +89,34 @@ export const variant = recipe({
           },
         },
       },
-      ghost: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: paletteVars.fg,
-        selectors: {
-          "&:hover:not(:disabled)": {
-            backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 20%, transparent)`,
+      ghost: [
+        baseSprinkles({
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+        }),
+        {
+          color: paletteVars.fg,
+          selectors: {
+            "&:hover:not(:disabled)": {
+              backgroundColor: `color-mix(in srgb, ${paletteVars.bg} 20%, transparent)`,
+            },
           },
         },
-      },
-      link: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: paletteVars.fg,
-        selectors: {
-          "&:hover:not(:disabled)": {
-            textDecoration: "underline",
+      ],
+      link: [
+        baseSprinkles({
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+        }),
+        {
+          color: paletteVars.fg,
+          selectors: {
+            "&:hover:not(:disabled)": {
+              textDecoration: "underline",
+            },
           },
         },
-      },
+      ],
     },
   },
 });

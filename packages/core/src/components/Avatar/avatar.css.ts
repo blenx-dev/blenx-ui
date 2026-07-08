@@ -47,11 +47,11 @@ export const fallback = style([
     borderWidth: "none",
     fontWeight: "semibold",
     outline: "none",
+    fontSize: "xs",
+    lineHeight: "normal",
   }),
   style({
-    fontSize: 12,
     border: "none",
-    lineHeight: 1,
   }),
 ]);
 
@@ -63,16 +63,6 @@ export const avatarRecipes = recipe({
       lg: { width: tokenVars.spacing.xxl, height: tokenVars.spacing.xxl },
       xl: { width: tokenVars.spacing.xxxl, height: tokenVars.spacing.xxxl },
       hero: { width: tokenVars.spacing.titanic, height: tokenVars.spacing.titanic },
-    },
-    radius: {
-      none: { borderRadius: 0 },
-      xs: { borderRadius: tokenVars.borderRadius.xs },
-      small: { borderRadius: tokenVars.borderRadius.sm },
-      medium: { borderRadius: tokenVars.borderRadius.md },
-      large: { borderRadius: tokenVars.borderRadius.lg },
-      xlarge: { borderRadius: tokenVars.borderRadius.xl },
-      xxlarge: { borderRadius: tokenVars.borderRadius.xxl },
-      full: { borderRadius: tokenVars.borderRadius.full },
     },
   },
 });

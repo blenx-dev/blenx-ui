@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useMemo } from "react";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
-import { tokenVarsDefaults } from "@blenx-dev/theme/tokens";
+import { tokenVarsDefaults } from "@blenx-dev/theme/theme";
 import { useThemeBuilder } from "./theme-builder-context";
 
 type LeafVarEntry = [cssVarName: string, fullPath: string];

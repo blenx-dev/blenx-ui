@@ -29,8 +29,30 @@ export function WithImageStory() {
     </Stack>
   );
 }
+export function WithRadius() {
+  return (
+    <Stack gap="md" direction="row" align="center">
+      <Avatar size="lg" radius="full">
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg" radius="xl">
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>{" "}
+      <Avatar size="lg" radius="lg">
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>{" "}
+      <Avatar size="lg" radius="md">
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>{" "}
+      <Avatar size="lg" radius="sm">
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+    </Stack>
+  );
+}
 
 export const demos = [
   { name: "Default", component: AvatarDemo },
   { name: "With Image", component: WithImageStory },
+  { name: "With Radius", component: WithRadius },
 ];

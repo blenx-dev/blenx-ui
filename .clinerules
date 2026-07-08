@@ -14,7 +14,7 @@
 
 ## Design Tokens
 
-- Design primitives (spacing, font-sizes, radii, border-widths, durations, easings, z-index) are plain const objects in `tokens.css.ts`.
+- Design primitives (spacing, font-sizes, radii, border-widths, durations, easings, z-index) are plain const objects in `theme.css.ts`.
 - These are not themeable at runtime and remain consistent across themes.
 
 ## Styles

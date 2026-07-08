@@ -24,7 +24,7 @@ Blenx organizes theming in three layers: **contract**, **tokens**, and **themes*
 
 ```
 contract.css.ts    →   createThemeContract (variable names only, the "API")
-tokens.css.ts      →   design token primitives (raw values: spacing, fonts, shadows)
+theme.css.ts       →   design token primitives (raw values: spacing, fonts, shadows)
 light-theme.css.ts →   createTheme (maps values to contract variables for light/dark modes)
 ```
 
@@ -66,10 +66,10 @@ The nested keys become CSS custom property names (`--text-primary`, `--color-pri
 
 ### The Tokens
 
-Design tokens (`tokens.css.ts`) are raw primitive values: colors, spacing, font sizes, radii, shadows, etc. They are plain `const` objects, not CSS. Tokens serve as the source of truth for raw values but are never referenced directly in component styles—they are consumed by theme definitions.
+Design tokens (`theme.css.ts`) are raw primitive values: colors, spacing, font sizes, radii, shadows, etc. They are plain `const` objects, not CSS. Tokens serve as the source of truth for raw values but are never referenced directly in component styles—they are consumed by theme definitions.
 
 ```tsx
-// tokens.css.ts
+// theme.css.ts
 export const borderRadius = {
   small: "4px",
   medium: "8px",
@@ -151,7 +151,7 @@ The dark theme inverts these relationships. Components never detect dark mode—
 
 ## Typography Scale
 
-The `tokenVars` contract defines `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, and `font` as CSS custom properties. Default values live in `tokenVarsDefaults` from `@blenx-dev/theme/tokens`. Individual themes reference these in `createTheme`:
+The `tokenVars` contract defines `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, and `font` as CSS custom properties. Default values live in `tokenVarsDefaults` from `@blenx-dev/theme/theme`. Individual themes reference these in `createTheme`:
 
 ```tsx
 createTheme(tokenVars, {
