@@ -335,8 +335,8 @@ export function VariantsStory() {
   return (
     <HStack gap="md" align="center">
       <Badge>Default</Badge>
-      <Badge variant="primary">Primary</Badge>
-      <Badge variant="secondary">Secondary</Badge>
+      <Badge palette="primary">Primary</Badge>
+      <Badge palette="secondary">Secondary</Badge>
     </HStack>
   );
 }

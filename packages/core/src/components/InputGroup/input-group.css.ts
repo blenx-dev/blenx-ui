@@ -22,15 +22,15 @@ export const group = style([
     transitionDuration: "150ms",
     selectors: {
       "&:focus-within": {
-        borderColor: semanticVars.border.strong,
-        boxShadow: `0 0 0 2px ${semanticVars.border.strong}`,
+        borderColor: semanticVars.border.default,
+        boxShadow: `0 0 0 2px ${semanticVars.border.default}`,
       },
       "&:has([aria-invalid='true'])": {
         borderColor: semanticVars.color.danger.default,
       },
       "&:has([aria-invalid='true']:focus-visible)": {
         borderColor: semanticVars.color.danger.default,
-        boxShadow: `0 0 0 2px ${semanticVars.color.danger}`,
+        boxShadow: `0 0 0 2px ${semanticVars.color.danger.bgHover}`,
       },
       "&:has(:disabled)": {
         opacity: 0.64,
@@ -65,9 +65,7 @@ export const addon = style([
 
 export const addonInlineStart = style([
   baseSprinkles({
-    paddingTop: "0",
-    paddingBottom: "0",
-    paddingLeft: "8",
+    paddingLeft: "4",
     paddingRight: "4",
   }),
   style({ alignSelf: "center" }),
@@ -89,10 +87,10 @@ export const addonInlineEnd = style([
 export const addonBlockStart = style([
   baseSprinkles({
     width: "full",
+    display: "flex",
     justify: "start",
-    paddingTop: "4",
-    paddingLeft: "4",
-    paddingRight: "4",
+    paddingY: "xs",
+    paddingX: "4",
   }),
   style({ order: -1 }),
 ]);
@@ -101,9 +99,8 @@ export const addonBlockEnd = style([
   baseSprinkles({
     width: "full",
     justify: "start",
-    paddingBottom: "4",
-    paddingLeft: "4",
-    paddingRight: "4",
+    display: "flex",
+    paddingX: "4",
   }),
   style({ order: 1 }),
 ]);
@@ -133,10 +130,6 @@ export const input = style([
     fontSize: "sm",
     width: "full",
     height: "full",
-    paddingTop: "8",
-    paddingBottom: "6",
-    paddingLeft: "8",
-    paddingRight: "8",
     borderWidth: "none",
     minWidth: "0",
     outline: "none",
@@ -163,8 +156,6 @@ export const textarea = style([
     color: "primary",
     fontSize: "sm",
     width: "full",
-    paddingTop: "8",
-    paddingBottom: "8",
     paddingLeft: "10",
     paddingRight: "10",
     borderWidth: "none",

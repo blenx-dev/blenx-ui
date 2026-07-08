@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute, notFound } from "@tanstack/react-router";
 import { allComponents } from "content-collections";
 import { MDXContent } from "@content-collections/mdx/react";
 import { Badge, Box, HStack, Separator, Text } from "@blenx-dev/core";
@@ -58,8 +58,9 @@ function ComponentDoc() {
           {doc.description}
         </Text>
       </Box>
-
-      <AiActionsBar componentTitle={doc.title} aiUrl={aiUrl} />
+      <ClientOnly>
+        <AiActionsBar componentTitle={doc.title} aiUrl={aiUrl} />
+      </ClientOnly>
 
       <MDXContent code={doc.mdx} components={mdxComponents} />
 
