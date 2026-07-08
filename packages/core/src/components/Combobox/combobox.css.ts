@@ -139,10 +139,10 @@ export const separator = style([
   baseSprinkles({
     marginY: "xs",
     mx: "sm",
+    backgroundColor: "canvas",
   }),
   style({
     height: "1px",
-    backgroundColor: semanticVars.border.default,
     selectors: {
       "&:last-child": {
         display: "none",

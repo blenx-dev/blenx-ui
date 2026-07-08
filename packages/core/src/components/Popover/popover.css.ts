@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css";
-import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const backdrop = style([
@@ -9,20 +8,14 @@ export const backdrop = style([
   }),
   style({
     inset: 0,
-  }),
-  style({
     backgroundColor: "rgba(0, 0, 0, 0.32)",
   }),
 ]);
 
-export const positioner = style([
-  baseSprinkles({
-    zIndex: "popover",
-  }),
-  baseSprinkles({
-    outline: "none",
-  }),
-]);
+export const positioner = baseSprinkles({
+  zIndex: "popover",
+  outline: "none",
+});
 
 export const popup = style([
   baseSprinkles({
@@ -33,12 +26,12 @@ export const popup = style([
     borderStyle: "solid",
     boxShadow: "lg",
     outline: "none",
+    borderColor: "default",
   }),
   style({
     minWidth: 160,
     width: "max(var(--anchor-width), 240px)",
     maxWidth: "calc(100vw - 16px)",
-    borderColor: semanticVars.border.default,
     transformOrigin: "var(--transform-origin)",
     transitionProperty: "opacity, scale",
     transitionDuration: "150ms",
@@ -74,10 +67,10 @@ export const arrowFill = style([
     height: "full",
     borderWidth: "thin",
     borderStyle: "solid",
+    borderColor: "default",
+    borderRadius: "xxs",
   }),
   style({
-    borderColor: semanticVars.border.default,
-    borderRadius: 2,
     transform: "rotate(45deg)",
   }),
 ]);

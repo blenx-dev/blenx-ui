@@ -161,10 +161,10 @@ export const textarea = style([
     borderWidth: "none",
     minWidth: "0",
     outline: "none",
+    backgroundColor: "transparent",
   }),
   style({
     border: "none",
-    backgroundColor: "transparent",
     resize: "none",
     selectors: {
       "&::placeholder": {

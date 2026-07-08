@@ -1,18 +1,18 @@
 "use client";
 
-import clsx from "clsx";
 import type { BoxProps } from "../Box/box";
 import { Box } from "../Box/box";
-import * as styles from "./aspect-ratio.css";
 
 type AspectRatioProps = BoxProps & {
   ratio?: number;
 };
 
-export function AspectRatio({ ratio = 16 / 9, className, style, ...boxProps }: AspectRatioProps) {
+export function AspectRatio({ ratio = 16 / 9, style, ...boxProps }: AspectRatioProps) {
   return (
     <Box
-      className={clsx(styles.root, className)}
+      position="relative"
+      overflow="hidden"
+      maxWidth={"full"}
       style={{ aspectRatio: `${ratio}`, ...style }}
       {...boxProps}
     />

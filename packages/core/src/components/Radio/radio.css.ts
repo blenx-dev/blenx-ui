@@ -14,11 +14,11 @@ export const root = style([
     borderWidth: "thin",
     borderStyle: "solid",
     outline: "none",
+    borderColor: "default",
   }),
   style({
     width: 18,
     height: 18,
-    borderColor: semanticVars.border.default,
     transitionProperty: "box-shadow",
     transitionDuration: "150ms",
     selectors: {
@@ -35,10 +35,7 @@ export const root = style([
   }),
 ]);
 
-export const rootDisabled = style([
-  baseSprinkles({ cursor: "not-allowed" }),
-  baseSprinkles({ opacity: "0.64" }),
-]);
+export const rootDisabled = baseSprinkles({ cursor: "not-allowed", opacity: "0.64" });
 
 export const group = baseSprinkles({
   display: "flex",
@@ -53,12 +50,10 @@ export const indicator = style([
     align: "center",
     justify: "center",
     radius: "full",
-  }),
-  style({
-    top: -1,
-    left: -1,
-    right: -1,
-    bottom: -1,
+    top: "-1",
+    left: "-1",
+    right: "-1",
+    bottom: "-1",
   }),
 ]);
 
@@ -70,11 +65,11 @@ export const indicatorChecked = baseSprinkles({
 export const dot = style([
   baseSprinkles({
     radius: "full",
+    backgroundColor: "primary",
   }),
   style({
     width: 8,
     height: 8,
-    backgroundColor: semanticVars.color.primary.fg,
     "@media": {
       "screen and (min-width: 640px)": {
         width: 6,

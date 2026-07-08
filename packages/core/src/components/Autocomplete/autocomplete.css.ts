@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles.css";
 
 export const inputGroup = baseSprinkles({
@@ -141,10 +141,10 @@ export const separator = style([
   baseSprinkles({
     marginY: "xs",
     mx: "sm",
+    backgroundColor: "default",
   }),
   style({
     height: "1px",
-    backgroundColor: semanticVars.border.default,
   }),
 ]);
 
@@ -156,16 +156,12 @@ export const groupLabel = baseSprinkles({
   color: "secondary",
 });
 
-export const empty = style([
-  baseSprinkles({
-    padding: "sm",
-    fontSize: "sm",
-    color: "secondary",
-    textAlign: "center",
-  }),
-  style({}),
-]);
-
+export const empty = baseSprinkles({
+  padding: "sm",
+  fontSize: "sm",
+  color: "secondary",
+  textAlign: "center",
+});
 export const list = baseSprinkles({
   padding: "xs",
 });

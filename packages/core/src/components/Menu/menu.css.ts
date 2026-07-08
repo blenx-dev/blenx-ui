@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const trigger = style([
@@ -15,11 +15,11 @@ export const trigger = style([
     appearance: "none",
     outline: "none",
     fontFamily: "inherit",
+    fontSize: "inherit",
+    color: "inherit",
   }),
   style({
     border: "none",
-    fontSize: "inherit",
-    color: "inherit",
     transition: "background-color 0.15s ease, box-shadow 0.15s ease",
     selectors: {
       "&:focus-visible": {
@@ -66,10 +66,11 @@ export const item = style([
     textAlign: "left",
     appearance: "none",
     outline: "none",
+    paddingY: "xs",
+    paddingX: "sm",
   }),
   style({
     minHeight: 24,
-    padding: `${tokenVars.spacing.xs} ${tokenVars.spacing.sm}`,
     lineHeight: 1.2,
     border: "none",
     transition: "background-color 0.15s ease, color 0.15s ease",
@@ -125,9 +126,10 @@ export const groupLabel = style([
     fontWeight: "semibold",
     letterSpacing: "wide",
     textTransform: "uppercase",
-  }),
-  style({
-    padding: `${tokenVars.spacing.sm} ${tokenVars.spacing.md} ${tokenVars.spacing.xs}`,
+    paddingTop: "sm",
+    paddingBottom: "md",
+    paddingLeft: "md",
+    paddingRight: "md",
   }),
 ]);
 

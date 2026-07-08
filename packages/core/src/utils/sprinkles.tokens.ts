@@ -21,7 +21,14 @@ export const spacing = {
   "40": tokenVars.spacing["40"],
   "48": tokenVars.spacing["48"],
 };
-
+export const spacingValues = {
+  ...spacing,
+  auto: "auto",
+};
+export const positionValues = {
+  ...spacing,
+  "-1": -1,
+};
 export const containerWidths = {
   xxs: "240px",
   xs: "320px",
@@ -53,6 +60,7 @@ export const colors = {
   success: semanticVars.color.success.default,
   warning: semanticVars.color.warning.default,
   info: semanticVars.color.info.default,
+  inherit: "inherit",
 } as const;
 export const backgroundColors = {
   primary: semanticVars.color.primary.default,

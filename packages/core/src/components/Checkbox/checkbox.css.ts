@@ -35,10 +35,7 @@ export const root = style([
   }),
 ]);
 
-export const rootDisabled = style([
-  baseSprinkles({ cursor: "not-allowed" }),
-  baseSprinkles({ opacity: "0.64" }),
-]);
+export const rootDisabled = baseSprinkles({ cursor: "not-allowed", opacity: "0.64" });
 
 export const group = baseSprinkles({
   display: "flex",
@@ -47,31 +44,23 @@ export const group = baseSprinkles({
   gap: "sm",
 });
 
-export const indicator = style([
-  baseSprinkles({
-    position: "absolute",
-    display: "flex",
-    align: "center",
-    justify: "center",
-    radius: "sm",
-  }),
-  style({
-    top: -1,
-    left: -1,
-    right: -1,
-    bottom: -1,
-    color: semanticVars.color.primary.fg,
-  }),
-]);
+export const indicator = baseSprinkles({
+  position: "absolute",
+  display: "flex",
+  align: "center",
+  justify: "center",
+  radius: "sm",
+  top: "-1",
+  left: "-1",
+  right: "-1",
+  bottom: "-1",
+  color: "primary",
+});
 
-export const indicatorChecked = style([
-  baseSprinkles({
-    backgroundColor: "primary",
-  }),
-  style({
-    color: semanticVars.color.primary.fg,
-  }),
-]);
+export const indicatorChecked = baseSprinkles({
+  backgroundColor: "primary",
+  color: "primary",
+});
 
 export const indicatorIndeterminate = baseSprinkles({
   color: "primary",

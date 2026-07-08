@@ -1,17 +1,12 @@
-import { style } from "@vanilla-extract/css";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const label = style([
-  baseSprinkles({
-    display: "inline-flex",
-    align: "center",
-    fontSize: "md",
-    fontWeight: "regular",
-  }),
-  style({
-    color: "inherit",
-  }),
-]);
+export const label = baseSprinkles({
+  display: "inline-flex",
+  align: "center",
+  fontSize: "md",
+  fontWeight: "regular",
+  color: "inherit",
+});
 
 export const item = baseSprinkles({
   display: "flex",

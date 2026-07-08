@@ -2,17 +2,13 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const root = style([
-  baseSprinkles({
-    display: "flex",
-    align: "center",
-    color: "secondary",
-  }),
-  style({
-    gap: "4px",
-    fontSize: 14,
-  }),
-]);
+export const root = baseSprinkles({
+  display: "flex",
+  align: "center",
+  color: "secondary",
+  gap: "xs",
+  fontSize: "sm",
+});
 
 export const list = style([
   baseSprinkles({
@@ -39,9 +35,12 @@ export const item = baseSprinkles({
 });
 
 export const link = style([
-  baseSprinkles({ cursor: "pointer", textDecoration: "none" }),
-  style({
+  baseSprinkles({
+    cursor: "pointer",
+    textDecoration: "none",
     color: "inherit",
+  }),
+  style({
     transitionProperty: "color",
     transitionDuration: "150ms",
     transitionTimingFunction: "ease",
@@ -53,12 +52,10 @@ export const link = style([
   }),
 ]);
 
-export const page = style([
-  baseSprinkles({
-    color: "primary",
-    fontWeight: "regular",
-  }),
-]);
+export const page = baseSprinkles({
+  color: "primary",
+  fontWeight: "regular",
+});
 
 export const separator = baseSprinkles({
   display: "inline-flex",
@@ -71,14 +68,17 @@ export const ellipsis = baseSprinkles({
 });
 
 export const srOnly = style([
-  baseSprinkles({ borderWidth: "none", whiteSpace: "nowrap" }),
-  style({
+  baseSprinkles({
+    borderWidth: "none",
+    whiteSpace: "nowrap",
     position: "absolute",
+    padding: "0",
+    overflow: "hidden",
+  }),
+  style({
     width: 1,
     height: 1,
-    padding: 0,
     margin: -1,
-    overflow: "hidden",
     clip: "rect(0, 0, 0, 0)",
   }),
 ]);

@@ -1,18 +1,12 @@
-import { style } from "@vanilla-extract/css";
-import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const footerDefault = style([
-  baseSprinkles({
-    backgroundColor: "subtle",
-    py: "md",
-    borderTopWidth: "thin",
-    borderTopStyle: "solid",
-  }),
-  style({
-    borderTopColor: semanticVars.border.subtle,
-  }),
-]);
+export const footerDefault = baseSprinkles({
+  backgroundColor: "subtle",
+  py: "md",
+  borderTopWidth: "thin",
+  borderTopStyle: "solid",
+  borderTopColor: "subtle",
+});
 
 export const footerBare = baseSprinkles({
   paddingTop: "md",

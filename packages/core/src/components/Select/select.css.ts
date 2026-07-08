@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const label = baseSprinkles({
@@ -27,12 +27,12 @@ export const trigger = style([
     cursor: "pointer",
     fontFamily: "inherit",
     outline: "none",
+    paddingLeft: "md",
+    paddingRight: "sm",
+    lineHeight: "normal",
+    borderColor: "default",
   }),
   style({
-    paddingLeft: tokenVars.spacing.md,
-    paddingRight: tokenVars.spacing.sm,
-    lineHeight: "1.5",
-    borderColor: semanticVars.border.default,
     transition: "border-color 0.15s ease, box-shadow 0.15s ease",
     selectors: {
       "&:hover": {
@@ -53,25 +53,19 @@ export const trigger = style([
   }),
 ]);
 
-export const triggerSm = style([
-  baseSprinkles({
-    py: "xs",
-    px: "sm",
-  }),
-  style({
-    paddingRight: tokenVars.spacing.xs,
-    fontSize: 14,
-  }),
-]);
+export const triggerSm = baseSprinkles({
+  py: "xs",
+  px: "sm",
+  paddingRight: "xs",
+  fontSize: "sm",
+});
 
 export const triggerLg = style([
   baseSprinkles({
     py: "md",
     px: "lg",
-  }),
-  style({
-    paddingRight: tokenVars.spacing.md,
-    fontSize: 16,
+    paddingRight: "md",
+    fontSize: "md",
   }),
 ]);
 
@@ -93,10 +87,10 @@ export const popup = style([
     borderStyle: "solid",
     boxShadow: "lg",
     outline: "none",
+    borderColor: "default",
   }),
   style({
     maxHeight: 300,
-    borderColor: semanticVars.border.default,
     minWidth: "var(--anchor-width)",
     maxWidth: "var(--available-width)",
     selectors: {
@@ -120,10 +114,10 @@ export const item = style([
     color: "primary",
     cursor: "pointer",
     userSelect: "none",
+    lineHeight: "normal",
   }),
   style({
     minHeight: 32,
-    lineHeight: "1.4",
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.background.subtle,
@@ -166,10 +160,10 @@ export const itemIndicator = style([
 export const separator = style([
   baseSprinkles({
     my: "xs",
+    backgroundColor: "subtle",
   }),
   style({
     height: 1,
-    backgroundColor: semanticVars.border.subtle,
   }),
 ]);
 

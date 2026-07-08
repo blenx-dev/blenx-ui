@@ -19,10 +19,10 @@ export const containerRecipe = recipe({
       full: { maxWidth: "100%", width: "100%" },
     },
     centered: {
-      true: {
+      true: baseSprinkles({
         marginLeft: "auto",
         marginRight: "auto",
-      },
+      }),
     },
 
     contentCentered: {

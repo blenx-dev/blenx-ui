@@ -2,14 +2,11 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
 
-export const root = style([
-  baseSprinkles({
-    height: "full",
-    width: "full",
-    minHeight: "0",
-  }),
-  style({}),
-]);
+export const root = baseSprinkles({
+  height: "full",
+  width: "full",
+  minHeight: "0",
+});
 
 export const viewport = style([
   baseSprinkles({
@@ -50,9 +47,9 @@ export const scrollbar = style([
   baseSprinkles({
     display: "flex",
     margin: "xs",
+    opacity: "0",
   }),
   style({
-    opacity: 0,
     transitionProperty: "opacity",
     transitionDuration: "300ms",
     transitionTimingFunction: "ease",
