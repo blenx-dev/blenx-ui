@@ -10,9 +10,9 @@ import {
   InputGroupTextarea,
 } from "@blenx-dev/core";
 
-export function DefaultStory() {
+export function InputGroupDemo() {
   return (
-    <VStack gap="md">
+    <VStack>
       <Text variant="h4">With icon and button</Text>
       <InputGroup>
         <InputGroupAddon align="inline-start">
@@ -20,7 +20,7 @@ export function DefaultStory() {
         </InputGroupAddon>
         <InputGroupInput placeholder="Search..." />
         <InputGroupAddon align="inline-end">
-          <Button size="sm" variant="ghost">
+          <Button size="xs" variant="ghost">
             Go
           </Button>
         </InputGroupAddon>
@@ -31,7 +31,7 @@ export function DefaultStory() {
         </InputGroupAddon>
         <InputGroupTextarea placeholder="Search..." />
         <InputGroupAddon align="block-end">
-          <Button size="sm" variant="ghost">
+          <Button size="sm" variant="ghost" grow={1}>
             Go
           </Button>
         </InputGroupAddon>
@@ -50,4 +50,4 @@ export function DefaultStory() {
   );
 }
 
-export const demos = [{ name: "Input group", component: DefaultStory }];
+export const demos = [{ name: "Input group", component: InputGroupDemo }];

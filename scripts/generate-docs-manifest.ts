@@ -6,6 +6,7 @@ import { basename, dirname, join, relative } from "path";
 // =====================
 const CORE_SRC_DIR = "packages/core/src";
 const UI_COMPONENTS_DIR = join(CORE_SRC_DIR, "components");
+const UI_DEMOS_DIR = "apps/web/src/views/demos";
 const BLOCK_COMPONENTS_DIR = "apps/web/src/components";
 const WEB_PUBLIC_DIR = "apps/web/public";
 const WEB_SRC_DIR = "apps/web/src";
@@ -371,6 +372,18 @@ function findRegistryName(compDir: string): string | null {
   return meta?.name ?? null;
 }
 
+function kebabCase(str: string): string {
+  return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+}
+
+/**
+ * Map of UI component directory names to their view demo directory names
+ * when the standard transformations (lowercase, kebab-case) don't match.
+ */
+const COMP_DIR_TO_DEMO_DIR: Record<string, string> = {
+  Breadcrumbs: "breadcrumb",
+};
+
 function findUIClientDemoFiles(): Array<{
   name: string;
   importPath: string;
@@ -382,17 +395,45 @@ function findUIClientDemoFiles(): Array<{
   for (const entry of uiCompDirs) {
     if (!entry.isDirectory()) continue;
     const dirPath = join(UI_COMPONENTS_DIR, entry.name);
-    const demoFiles = findComponentFiles(dirPath, /\.demo\.tsx$/);
-    if (demoFiles.length === 0) continue;
 
     const metaPath = join(dirPath, "registry-meta.json");
     const meta = readJson<RegistryMetaJson>(metaPath);
     const registryName = meta?.name ?? entry.name.toLowerCase();
 
-    const demoFileName = basename(demoFiles[0]).replace(/\.tsx$/, "");
-    const importPath = `${UI_COMPONENT_EXPORT_PACKAGE}${entry.name}/${demoFileName}`;
+    // Check for demo file in the component package directory first
+    const pkgDemoFiles = findComponentFiles(dirPath, /\.demo\.tsx$/);
+    if (pkgDemoFiles.length > 0) {
+      const demoFileName = basename(pkgDemoFiles[0]).replace(/\.tsx$/, "");
+      const importPath = `${UI_COMPONENT_EXPORT_PACKAGE}${entry.name}/${demoFileName}`;
+      results.push({ name: registryName, importPath, compDir: dirPath });
+      continue;
+    }
 
-    results.push({ name: registryName, importPath, compDir: dirPath });
+    // Derive candidate view demo directory names
+    const demoDirCandidates = [
+      COMP_DIR_TO_DEMO_DIR[entry.name], // Manual override
+      registryName, // meta.name (e.g., "scroll-area", "breadcrumbs")
+      kebabCase(entry.name), // CamelCase → kebab-case (e.g., "toggle-group")
+      entry.name.toLowerCase(), // simple lowercase (e.g., "togglegroup")
+    ].filter(Boolean) as string[];
+
+    // Use Set to remove duplicates while preserving order
+    const seen = new Set<string>();
+    for (const candidate of demoDirCandidates) {
+      if (seen.has(candidate)) continue;
+      seen.add(candidate);
+
+      const viewDemoDir = join(UI_DEMOS_DIR, candidate);
+      if (existsSync(viewDemoDir)) {
+        const viewDemoFiles = findComponentFiles(viewDemoDir, /\.demo\.tsx$/);
+        if (viewDemoFiles.length > 0) {
+          const demoFileName = basename(viewDemoFiles[0]).replace(/\.tsx$/, "");
+          const importPath = `@/views/demos/${candidate}/${demoFileName}`;
+          results.push({ name: registryName, importPath, compDir: dirPath });
+          break;
+        }
+      }
+    }
   }
 
   return results;
