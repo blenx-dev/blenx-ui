@@ -14,6 +14,7 @@ export function ColorSwatch({ color, size = 16, style, className }: Props) {
         height: size,
         backgroundColor: color,
         borderRadius: 4,
+        border: "1px solid rgba(0, 0, 0, 0.12)",
         ...style,
       }}
     />

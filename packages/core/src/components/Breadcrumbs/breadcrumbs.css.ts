@@ -52,10 +52,16 @@ export const link = style([
   }),
 ]);
 
-export const page = baseSprinkles({
-  color: "primary",
-  fontWeight: "regular",
-});
+export const page = style([
+  baseSprinkles({
+    color: "primary",
+    fontWeight: "semibold",
+  }),
+  style({
+    textDecoration: "underline",
+    textUnderlineOffset: "2px",
+  }),
+]);
 
 export const separator = baseSprinkles({
   display: "inline-flex",

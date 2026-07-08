@@ -22,8 +22,8 @@ export const group = style([
     transitionDuration: "150ms",
     selectors: {
       "&:focus-within": {
-        borderColor: semanticVars.border.default,
-        boxShadow: `0 0 0 2px ${semanticVars.border.default}`,
+        borderColor: semanticVars.border.strong,
+        boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
       },
       "&:has([aria-invalid='true'])": {
         borderColor: semanticVars.color.danger.default,

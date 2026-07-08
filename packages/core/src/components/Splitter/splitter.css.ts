@@ -49,14 +49,16 @@ export const handle = style([
   }),
   style({
     backgroundColor: semanticVars.border.subtle,
-    transitionProperty: "background-color",
+    transitionProperty: "background-color, opacity",
     transitionDuration: tokenVars.duration.fast,
     selectors: {
       "&:hover": {
         backgroundColor: semanticVars.border.default,
+        opacity: 0.8,
       },
       "&:focus-visible": {
         backgroundColor: semanticVars.color.primary.default,
+        outline: "none",
       },
     },
   }),

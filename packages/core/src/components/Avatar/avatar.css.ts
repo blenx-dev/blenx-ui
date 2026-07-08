@@ -47,7 +47,7 @@ export const fallback = style([
     borderWidth: "none",
     fontWeight: "semibold",
     outline: "none",
-    fontSize: "xs",
+    fontSize: "sm",
     lineHeight: "normal",
   }),
   style({

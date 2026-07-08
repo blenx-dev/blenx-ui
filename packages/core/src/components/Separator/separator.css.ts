@@ -17,7 +17,7 @@ export const separator = recipe({
   },
   defaultVariants: {
     orientation: "horizontal",
-    tone: "strong",
+    tone: "subtle",
   },
 });
 

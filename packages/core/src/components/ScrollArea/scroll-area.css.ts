@@ -76,9 +76,20 @@ export const scrollbarVertical = style({
   width: "6px",
 });
 
-export const thumb = baseSprinkles({
-  position: "relative",
-  grow: 1,
-  radius: "default",
-  backgroundColor: "subtle",
-});
+export const thumb = style([
+  baseSprinkles({
+    position: "relative",
+    grow: 1,
+    radius: "full",
+    backgroundColor: "subtle",
+  }),
+  style({
+    transitionProperty: "background-color, opacity",
+    transitionDuration: "200ms",
+    selectors: {
+      "&:hover": {
+        backgroundColor: semanticVars.border.default,
+      },
+    },
+  }),
+]);

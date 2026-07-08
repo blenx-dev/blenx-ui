@@ -19,7 +19,7 @@ export const positioner = baseSprinkles({
 
 export const popup = style([
   baseSprinkles({
-    padding: "sm",
+    padding: "md",
     backgroundColor: "surface",
     radius: "lg",
     borderWidth: "thin",

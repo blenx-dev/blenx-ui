@@ -57,11 +57,16 @@ export const tabGhost = style([
   }),
 ]);
 
-export const tabGhostActive = baseSprinkles({
-  backgroundColor: "subtle",
-  color: "primary",
-  fontWeight: "semibold",
-});
+export const tabGhostActive = style([
+  baseSprinkles({
+    backgroundColor: "subtle",
+    color: "primary",
+    fontWeight: "semibold",
+  }),
+  style({
+    boxShadow: `0 0 0 1px ${semanticVars.border.subtle}`,
+  }),
+]);
 
 export const listSegmented = style([
   baseSprinkles({
@@ -101,6 +106,7 @@ export const tabSegmentedActive = style([
   }),
   style({
     color: semanticVars.color.primary.fg,
+    boxShadow: `0 1px 3px rgba(0, 0, 0, 0.08)`,
   }),
 ]);
 
@@ -128,6 +134,9 @@ export const tab = style([
       "&:active": {
         backgroundColor: semanticVars.surface.overlay,
         color: semanticVars.color.primary.text,
+      },
+      "&:focus-visible": {
+        boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
       },
     },
     WebkitTapHighlightColor: "transparent",
@@ -194,10 +203,10 @@ export const tabUnderline = style([
       "&[data-active]": {
         fontWeight: tokenVars.fontWeight.semibold,
         borderBottomStyle: "solid",
-
-        borderBottomColor: semanticVars.text.primary,
+        borderBottomWidth: 2,
+        borderBottomColor: semanticVars.color.primary.default,
         backgroundColor: semanticVars.background.subtle,
-        color: semanticVars.color.primary.text,
+        color: semanticVars.color.primary.default,
       },
     },
   }),

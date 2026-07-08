@@ -18,7 +18,7 @@ export const track = style([
     backgroundColor: "secondary",
   }),
   style({
-    height: 6,
+    height: 8,
   }),
 ]);
 
