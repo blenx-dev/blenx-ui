@@ -9,12 +9,13 @@ const BASE_SPRINKLE_PROPERTIES = baseSprinkles.properties;
 type BasePropKeys = keyof BaseSprinkles;
 type GridPropKeys = keyof GridSprinkles;
 const GRID_SPRINKLE_PROPERTIES = gridSprinkles.properties;
-export function applyBaseSprinkles<T = Record<string, unknown>>(
-  props: Record<string, unknown>,
-): [string, T] {
+const isBaseSprinklePropery = (key: any): key is BasePropKeys => {
+  return BASE_SPRINKLE_PROPERTIES.has(key);
+};
+export function applyBaseSprinkles<T extends Record<PropertyKey, any>>(props: T): [string, T] {
   const sprinkleProps: BaseSprinkles = {};
-  const htmlProps: Record<string, unknown> = {};
-  for (const [key, value] of Object.entries(props) as [BasePropKeys, any][]) {
+  const htmlProps: Partial<T> = {};
+  for (const [key, value] of Object.entries(props)) {
     if (key === "fullWidth") {
       if (props[key]) {
         sprinkleProps.width = "full";
@@ -26,10 +27,10 @@ export function applyBaseSprinkles<T = Record<string, unknown>>(
       }
     } else if (key === "fullHeight") {
       continue;
-    } else if (BASE_SPRINKLE_PROPERTIES.has(key)) {
-      sprinkleProps[key as BasePropKeys] = value;
+    } else if (isBaseSprinklePropery(key)) {
+      sprinkleProps[key] = value;
     } else {
-      htmlProps[key] = value;
+      (htmlProps as Record<string, unknown>)[key] = value;
     }
   }
   return [baseSprinkles(sprinkleProps), htmlProps as T];

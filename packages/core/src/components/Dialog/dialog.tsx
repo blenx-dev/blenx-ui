@@ -182,13 +182,15 @@ export function DialogDescription(
   props: DialogPrimitive.Description.Props & BaseSprinkles,
 ): React.ReactElement {
   const [boxProps, restProps] = applyBaseSprinkles(props);
-  return (
-    <DialogPrimitive.Description
-      className={clsx(description, boxProps)}
-      data-slot="dialog-description"
-      {...restProps}
-    />
-  );
+  return useRender({
+    defaultTagName: "p",
+    props: {
+      className: clsx(description, boxProps),
+      "data-slot": "dialog-description",
+      ...restProps,
+    } as never,
+    render: undefined,
+  });
 }
 
 function DialogPanel({

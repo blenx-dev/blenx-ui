@@ -1,7 +1,8 @@
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { tokenVars } from "@blenx-dev/theme/contract";
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import {
   backgroundColors,
+  borderColors,
   colors,
   containerWidths,
   positionValues,
@@ -50,13 +51,13 @@ const borderProperties = defineProperties({
     borderBottomStyle: ["solid"],
     borderLeftStyle: ["solid"],
     borderRightStyle: ["solid"],
-    borderColor: backgroundColors,
+    borderColor: borderColors,
     borderTopColor: {
-      subtle: backgroundColors.subtle,
+      subtle: borderColors.subtle,
     },
     borderBottomColor: {
-      subtle: backgroundColors.subtle,
-      default: semanticVars.background.default,
+      subtle: borderColors.subtle,
+      default: borderColors.default,
     },
     cursor: ["pointer", "not-allowed", "text", "default", "col-resize", "row-resize"],
     outline: ["none"],

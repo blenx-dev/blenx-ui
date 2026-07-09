@@ -63,8 +63,8 @@ export const colors = {
   inherit: "inherit",
 } as const;
 export const backgroundColors = {
-  primary: semanticVars.color.primary.default,
-  secondary: semanticVars.color.secondary.default,
+  primary: semanticVars.color.primary.bg,
+  secondary: semanticVars.color.secondary.bg,
   surface: semanticVars.surface.default,
   canvas: semanticVars.background.default,
   subtle: semanticVars.background.subtle,
@@ -74,6 +74,19 @@ export const backgroundColors = {
   success: semanticVars.color.success.bg,
   warning: semanticVars.color.warning.bg,
   info: semanticVars.color.info.bg,
+};
+export const borderColors = {
+  default: semanticVars.border.default,
+  subtle: semanticVars.border.subtle,
+  strong: semanticVars.border.strong,
+  transparent: "transparent",
+  error: semanticVars.color.danger.border,
+  success: semanticVars.color.success.border,
+  warning: semanticVars.color.warning.border,
+  info: semanticVars.color.info.border,
+  primary: semanticVars.color.primary.border,
+  secondary: semanticVars.color.secondary.border,
+  neutral: semanticVars.color.neutral.border,
 };
 export const responsiveConditions = {
   base: {},
