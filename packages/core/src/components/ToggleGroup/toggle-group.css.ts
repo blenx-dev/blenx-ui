@@ -8,6 +8,29 @@ export const groupBase = baseSprinkles({
   gap: "0",
 });
 
+export const groupDefault = style([
+  baseSprinkles({
+    backgroundColor: "subtle",
+    borderColor: "subtle",
+    borderWidth: "thin",
+    borderStyle: "solid",
+    padding: "xxs",
+    radius: "md",
+  }),
+  style({
+    gap: tokenVars.spacing.xxs,
+  }),
+]);
+
+export const trayItem = baseSprinkles({
+  backgroundColor: "transparent",
+  borderColor: "transparent",
+});
+
+export const outlineGroupItem = baseSprinkles({
+  backgroundColor: "subtle",
+});
+
 export const groupHorizontal = baseSprinkles({
   direction: "row",
   align: "center",

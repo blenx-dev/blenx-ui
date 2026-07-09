@@ -1,7 +1,7 @@
 {
   "$schema": "https://blenx-ui.vercel.app/docs/docs-meta.schema.json",
   "title": "Toggle",
-  "description": "A two-state toggle button with variant and size presets. Built on Base UI Toggle.",
+  "description": "A compact two-state toggle for standalone on/off or pressed state. Use this for independent state controls (e.g. bold/italic toolbar buttons). The lightest member of the Toggle family.",
   "category": "Forms",
   "status": "stable",
   "keywords": ["toggle", "button", "on/off", "pressed", "toggle button"],

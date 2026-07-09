@@ -13,10 +13,13 @@ import {
 } from "../Toggle/toggle";
 import {
   groupBase,
+  groupDefault,
   groupHorizontal,
   groupVertical,
+  outlineGroupItem,
   outlineItemHorizontal,
   outlineItemVertical,
+  trayItem,
 } from "./toggle-group.css";
 
 type ToggleGroupVariant = ToggleProps["variant"];
@@ -45,6 +48,7 @@ export function ToggleGroup({
   ...props
 }: ToggleGroupProps): React.ReactElement {
   const isHorizontal = orientation === "horizontal";
+  const isDefault = variant === "default";
 
   const contextValue = React.useMemo(
     () => ({ variant, size, orientation }),
@@ -53,7 +57,12 @@ export function ToggleGroup({
 
   return (
     <ToggleGroupPrimitive
-      className={clsx(groupBase, isHorizontal ? groupHorizontal : groupVertical, className)}
+      className={clsx(
+        groupBase,
+        isHorizontal ? groupHorizontal : groupVertical,
+        isDefault && groupDefault,
+        className,
+      )}
       style={style}
       data-slot="toggle-group"
       data-variant={variant}
@@ -85,11 +94,14 @@ export function ToggleGroupItem({
   const resolvedSize = size ?? context?.size ?? "default";
   const orientation = context?.orientation ?? "horizontal";
   const isOutline = resolvedVariant === "outline";
+  const isDefault = resolvedVariant === "default";
 
   return (
     <ToggleComponent
       className={clsx(
         isOutline && (orientation === "horizontal" ? outlineItemHorizontal : outlineItemVertical),
+        isOutline && outlineGroupItem,
+        isDefault && trayItem,
         className,
       )}
       style={style}

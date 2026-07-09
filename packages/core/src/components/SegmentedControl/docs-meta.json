@@ -1,7 +1,7 @@
 {
   "$schema": "https://blenx-ui.vercel.app/docs/docs-meta.schema.json",
   "title": "Segmented Control",
-  "description": "A convenience wrapper around ToggleGroup providing a single-select segmented control with options array.",
+  "description": "A polished single-select segmented control wrapping ToggleGroup. The most refined member of the Toggle family — use this for mode-switching where the selected choice must be unmistakable.",
   "category": "Forms",
   "status": "stable",
   "keywords": ["segmented", "control", "toggle", "segment", "button group"],

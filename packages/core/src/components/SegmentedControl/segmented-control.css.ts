@@ -37,13 +37,6 @@ export const segment = style([
     fontWeight: "medium",
     color: "secondary",
     backgroundColor: "transparent",
-    borderWidth: "thin",
-    borderStyle: "solid",
-    borderColor: "transparent",
-    cursor: "pointer",
-    whiteSpace: "nowrap",
-    userSelect: "none",
-    outline: "none",
   }),
   style({
     minHeight: tokenVars.spacing.xl,

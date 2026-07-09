@@ -62,5 +62,5 @@
       "target": "@components/data-table/use-infinite-scroll.ts"
     }
   ],
-  "dependencies": ["@phosphor-icons/react", "@tanstack/react-table"]
+  "dependencies": ["@tanstack/react-table"]
 }

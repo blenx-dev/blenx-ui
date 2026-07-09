@@ -33,8 +33,11 @@ export const base = style([
     outline: "none",
   }),
   style({
-    transition: "box-shadow 0.15s ease",
+    transition: "background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease",
     selectors: {
+      "&:hover:not(:disabled)": {
+        backgroundColor: paletteVars.hoverBg,
+      },
       "&:focus-visible": {
         boxShadow: `0 0 0 2px ${semanticVars.focus.ring}`,
       },
@@ -69,14 +72,14 @@ export const toggleRecipes = recipe({
     },
     variant: {
       default: {
-        borderColor: paletteVars.border,
+        borderColor: semanticVars.border.subtle,
         color: paletteVars.fg,
-        backgroundColor: paletteVars.bg,
+        backgroundColor: "transparent",
       },
       outline: {
         borderColor: paletteVars.border,
         color: paletteVars.fg,
-        backgroundColor: paletteVars.bg,
+        backgroundColor: "transparent",
       },
     },
     palette: {
@@ -93,14 +96,15 @@ export const toggleRecipes = recipe({
 
 export const pressed = {
   default: style({
-    backgroundColor: paletteVars.activeBg,
-    color: paletteVars.activeFg,
-    borderColor: paletteVars.border,
+    backgroundColor: semanticVars.surface.raised,
+    color: semanticVars.text.primary,
+    borderColor: semanticVars.border.default,
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.12)",
   }),
   outline: style({
-    outlineWidth: tokenVars.borderWidth.thin,
-    backgroundColor: paletteVars.activeBg,
-    color: paletteVars.activeFg,
-    borderColor: paletteVars.border,
+    backgroundColor: semanticVars.surface.raised,
+    color: semanticVars.text.primary,
+    borderColor: semanticVars.border.default,
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.12)",
   }),
 };
