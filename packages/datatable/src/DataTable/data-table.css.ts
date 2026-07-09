@@ -71,7 +71,7 @@ export const headRow = baseSprinkles({
 
 export const th = baseSprinkles({
   py: "10",
-  px: "12",
+  px: "xxl",
   fontWeight: "semibold",
   color: "secondary",
   textAlign: "left",
@@ -95,8 +95,8 @@ export const thSm = style([
 ]);
 
 export const thLg = baseSprinkles({
-  py: "12",
-  px: "16",
+  py: "xxl",
+  px: "xxxl",
   fontSize: "sm",
 });
 
@@ -112,7 +112,7 @@ export const thContent = baseSprinkles({
 
 export const td = baseSprinkles({
   py: "10",
-  px: "12",
+  px: "xxl",
   fontSize: "sm",
   textOverflow: "ellipsis",
   color: "primary",
@@ -128,8 +128,8 @@ export const tdSm = baseSprinkles({
 });
 
 export const tdLg = baseSprinkles({
-  py: "12",
-  px: "16",
+  py: "xxl",
+  px: "xxxl",
 });
 
 export const tr = style({
@@ -163,8 +163,8 @@ export const loadingTable = baseSprinkles({
 });
 
 export const headerCell = baseSprinkles({
-  py: "12",
-  px: "16",
+  py: "xxl",
+  px: "xxxl",
   borderBottomColor: "default",
   borderBottomStyle: "solid",
   borderBottomWidth: "thin",
@@ -181,8 +181,8 @@ export const skeletonBar = style({
 
 export const cell = style([
   baseSprinkles({
-    py: "12",
-    px: "16",
+    py: "xxl",
+    px: "xxxl",
   }),
   style({
     borderBottomColor: semanticVars.border.subtle,
@@ -195,7 +195,7 @@ export const loadingFooter = baseSprinkles({
   display: "flex",
   justify: "center",
   align: "center",
-  p: "16",
+  p: "xxl",
   gap: "8",
 });
 
@@ -264,7 +264,7 @@ export const emptyContainer = baseSprinkles({
   justify: "center",
   py: "xxxl",
   px: "md",
-  gap: "12",
+  gap: "lg",
 });
 
 export const iconWrap = baseSprinkles({
@@ -290,13 +290,13 @@ export const errorContainer = baseSprinkles({
   justify: "center",
   py: "xxxl",
   px: "md",
-  gap: "12",
+  gap: "lg",
 });
 
 export const errorMessage = baseSprinkles({
   fontSize: "sm",
   textAlign: "center",
-  color: "error",
+  color: "danger",
   lineHeight: "normal",
   margin: "0",
 });
@@ -373,7 +373,7 @@ export const buttonGroup = baseSprinkles({
 export const pageWrap = baseSprinkles({
   display: "flex",
   align: "center",
-  gap: "2",
+  gap: "xs",
 });
 
 export const ellipsis = baseSprinkles({

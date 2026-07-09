@@ -37,7 +37,7 @@ export function TextColors() {
       <Text variant="body1" color="warning">
         Warning color
       </Text>
-      <Text variant="body1" color="error">
+      <Text variant="body1" color="danger">
         Error color
       </Text>
     </VStack>

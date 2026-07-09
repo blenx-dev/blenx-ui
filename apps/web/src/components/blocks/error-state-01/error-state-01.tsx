@@ -31,11 +31,11 @@ export function ErrorState01({ icon, title, message, error, onRetry, secondaryAc
   return (
     <VStack align="center" gap="md" paddingY="huge" role="alert" aria-live="assertive">
       {icon && (
-        <Icon padding="sm" backgroundColor="error" color="error" radius="full">
+        <Icon padding="sm" backgroundColor="danger" color="danger" radius="full">
           {icon}
         </Icon>
       )}
-      <Text variant="h3" align="center" color="error">
+      <Text variant="h3" align="center" color="danger">
         {title}
       </Text>
       {message && (

@@ -2,12 +2,24 @@ import { style } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles.css";
 
-export const inputGroup = baseSprinkles({
-  position: "relative",
-  width: "full",
-  color: "primary",
-  minWidth: "0",
-});
+export const inputGroup = style([
+  baseSprinkles({
+    position: "relative",
+    width: "full",
+    color: "primary",
+    minWidth: "0",
+  }),
+  style({
+    selectors: {
+      "&:has(*)": {
+        width: "fit-content",
+      },
+      "&[disabled]": {
+        cursor: "not-allowed",
+      },
+    },
+  }),
+]);
 
 export const inputSize = style({
   vars: {

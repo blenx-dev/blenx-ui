@@ -22,11 +22,15 @@ export function applyBaseSprinkles<T extends Record<PropertyKey, any>>(props: T)
       }
     } else if (key === "withBorder") {
       if (props[key]) {
-        sprinkleProps.borderRadius = sprinkleProps.borderRadius || "default";
         sprinkleProps.borderColor = sprinkleProps.borderColor || "default";
+        sprinkleProps.borderStyle = sprinkleProps.borderStyle || "solid";
       }
     } else if (key === "fullHeight") {
       continue;
+    } else if (key === "palette" && value) {
+      sprinkleProps.borderColor = sprinkleProps.borderColor || value || "default";
+      sprinkleProps.backgroundColor = sprinkleProps.backgroundColor || value || "default";
+      sprinkleProps.color = sprinkleProps.color || value || "default";
     } else if (isBaseSprinklePropery(key)) {
       sprinkleProps[key] = value;
     } else {

@@ -63,11 +63,11 @@ export const inputLg = baseSprinkles({
   fontSize: "xl",
 });
 export const inputError = baseSprinkles({
-  borderColor: "error",
+  borderColor: "danger",
 });
 
 export const error = baseSprinkles({
-  color: "error",
+  color: "danger",
   fontSize: "sm",
   lineHeight: "normal",
 });

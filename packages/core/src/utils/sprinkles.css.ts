@@ -1,4 +1,5 @@
 import { tokenVars } from "@blenx-dev/theme/contract";
+import type { ThemeColors } from "@blenx-dev/theme";
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import {
   backgroundColors,
@@ -331,4 +332,5 @@ export type BaseSprinkles = Parameters<typeof baseSprinkles>[0] & {
   fullWidth?: boolean;
   fullHeight?: boolean;
   withBorder?: boolean;
+  palette?: keyof ThemeColors;
 };

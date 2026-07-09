@@ -8,6 +8,8 @@ export function AlertDemo() {
         palette="info"
         icon={<InfoIcon width={20} />}
         title="Info"
+        radius="xl"
+        withBorder
         description="This is an info alert"
       />
       <Alert
@@ -23,13 +25,14 @@ export function AlertDemo() {
         description="This is a warning alert"
       />
       <Alert
-        palette="error"
+        palette="danger"
         icon={<SkullIcon width={20} />}
         title="Error"
+        withBorder
         description="This is an error alert"
       />
-      <Alert palette="error" icon={<SkullIcon width={20} />}>
-        GOne
+      <Alert palette="danger" icon={<SkullIcon width={20} />}>
+        This is another error alert
       </Alert>
     </VStack>
   );

@@ -28,7 +28,7 @@ export class PreviewErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <VStack padding="lg" gap="md" align="center">
-          <Text variant="h3" color="error">
+          <Text variant="h3" color="danger">
             Preview Error
           </Text>
           <Text variant="body2" color="secondary">

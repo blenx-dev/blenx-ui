@@ -1,12 +1,9 @@
 import type { ReactNode } from "react";
 import { Text } from "../Text";
-import type { RecipeVariants } from "@vanilla-extract/recipes";
-import { alertBase, alertVariants } from "./alert.css";
-import clsx from "clsx";
-import { HStack, VStack } from "../Stack/stack";
+import { HStack, VStack, type HStackProps } from "../Stack/stack";
 import { Box } from "../Box/box";
 
-type Props = RecipeVariants<typeof alertVariants> & {
+type Props = HStackProps & {
   icon?: ReactNode;
   title?: string;
   description?: string;
@@ -15,14 +12,9 @@ type Props = RecipeVariants<typeof alertVariants> & {
   className?: string;
 };
 
-function Alert({ palette = "info", icon, title, description, children, className }: Props) {
+function Alert({ palette = "info", icon, title, description, children, ...props }: Props) {
   return (
-    <HStack
-      align={description ? "start" : "center"}
-      gap="sm"
-      p="md"
-      className={clsx(alertBase, alertVariants({ palette }), className)}
-    >
+    <HStack align={description ? "start" : "center"} gap="sm" p="md" palette={palette} {...props}>
       <Box p={"xs"}>{icon}</Box>
       <VStack gap="xs">
         {title ? (

@@ -44,7 +44,7 @@ export function IconDemo() {
           <Icon>
             <SendIcon />
           </Icon>
-          <Icon color="error">
+          <Icon color="danger">
             <XIcon />
           </Icon>
           <Icon color="success">
@@ -65,7 +65,7 @@ export function IconDemo() {
           <Icon backgroundColor="primary" color="primary" radius="sm">
             <InfoIcon />
           </Icon>
-          <Icon backgroundColor="error" color="error" radius="sm">
+          <Icon backgroundColor="danger" color="danger" radius="sm">
             <XIcon />
           </Icon>
           <Icon backgroundColor="success" color="success" radius="sm">

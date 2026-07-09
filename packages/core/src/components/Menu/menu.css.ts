@@ -93,7 +93,7 @@ export const item = style([
 
 export const itemDestructive = style([
   baseSprinkles({
-    color: "error",
+    color: "danger",
     fontWeight: "medium",
   }),
   style({

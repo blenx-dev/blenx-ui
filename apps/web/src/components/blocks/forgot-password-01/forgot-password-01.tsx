@@ -91,7 +91,7 @@ export function ForgotPassword01({
                     error={error}
                   />
                   {error && (
-                    <Text variant="caption" color="error">
+                    <Text variant="caption" color="danger">
                       {error}
                     </Text>
                   )}

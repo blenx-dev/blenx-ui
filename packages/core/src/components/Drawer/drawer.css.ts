@@ -234,7 +234,7 @@ export const menuItem = style([
 ]);
 
 export const menuItemDestructive = baseSprinkles({
-  color: "error",
+  color: "danger",
 });
 
 export const separator = style([

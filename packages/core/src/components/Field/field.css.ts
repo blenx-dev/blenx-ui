@@ -21,7 +21,7 @@ export const description = baseSprinkles({
 });
 
 export const error = baseSprinkles({
-  color: "error",
+  color: "danger",
   fontSize: "sm",
   lineHeight: "normal",
   paddingTop: "xxs",

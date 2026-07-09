@@ -160,7 +160,7 @@ export function Profile01({
         </Card>
 
         <VStack withBorder padding="md">
-          <Text variant="h5" color="error">
+          <Text variant="h5" color="danger">
             Danger Zone
           </Text>
           <Text variant="body2">

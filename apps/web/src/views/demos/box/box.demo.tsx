@@ -22,7 +22,7 @@ export function BoxDemo() {
             Warning pill
           </Text>
         </Box>
-        <Box padding="sm" backgroundColor="error" radius="xs" flex={1}>
+        <Box padding="sm" backgroundColor="danger" radius="xs" flex={1}>
           <Text variant="body2" color="inverse">
             Error
           </Text>
