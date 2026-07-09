@@ -17,12 +17,14 @@ export function SegmentedControl<T extends string>({
   onValueChange,
   options,
   variant = "outline",
+  tray = true,
+  palette = "neutral",
   className,
   ...props
 }: SegmentedControlProps<T>) {
   return (
     <ToggleGroup
-      className={clsx(segmentedControl, className)}
+      className={clsx(tray && segmentedControl, className)}
       value={[value]}
       onValueChange={(values) => {
         if (values.length === 0) {
@@ -31,10 +33,17 @@ export function SegmentedControl<T extends string>({
         onValueChange(values[0] as T);
       }}
       variant={variant}
+      tray={tray}
+      palette={palette}
       {...props}
     >
       {options.map((option) => (
-        <ToggleGroupItem key={option.value} value={option.value} className={segment}>
+        <ToggleGroupItem
+          key={option.value}
+          value={option.value}
+          className={segment}
+          palette={palette}
+        >
           {option.label}
         </ToggleGroupItem>
       ))}

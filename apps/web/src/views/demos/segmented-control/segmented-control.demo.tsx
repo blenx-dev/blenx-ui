@@ -116,9 +116,95 @@ export function VerticalStory() {
   );
 }
 
+const palettes = [
+  "primary",
+  "secondary",
+  "neutral",
+  "success",
+  "warning",
+  "danger",
+  "info",
+] as const;
+
+export function PaletteStory() {
+  const [value, setValue] = useState("day");
+
+  return (
+    <VStack gap="md">
+      {palettes.map((p) => (
+        <VStack key={p} gap="xs">
+          <Text variant="body2" color="secondary">
+            {p}
+          </Text>
+          <SegmentedControl
+            palette={p}
+            value={value}
+            onValueChange={setValue}
+            options={[
+              { value: "day", label: "Day" },
+              { value: "week", label: "Week" },
+              { value: "month", label: "Month" },
+            ]}
+          />
+        </VStack>
+      ))}
+    </VStack>
+  );
+}
+
+export function PaletteDefaultVariantStory() {
+  const [value, setValue] = useState("sm");
+
+  return (
+    <VStack gap="md">
+      {palettes.map((p) => (
+        <VStack key={p} gap="xs">
+          <Text variant="body2" color="secondary">
+            {p}
+          </Text>
+          <SegmentedControl
+            palette={p}
+            variant="default"
+            value={value}
+            onValueChange={setValue}
+            options={[
+              { value: "sm", label: "Small" },
+              { value: "md", label: "Medium" },
+              { value: "lg", label: "Large" },
+            ]}
+          />
+        </VStack>
+      ))}
+    </VStack>
+  );
+}
+
+export function NoTrayStory() {
+  const [value, setValue] = useState("day");
+
+  return (
+    <VStack gap="md">
+      <Text>Selected: {value}</Text>
+      <SegmentedControl
+        value={value}
+        onValueChange={setValue}
+        tray={false}
+        options={[
+          { value: "day", label: "Day" },
+          { value: "week", label: "Week" },
+          { value: "month", label: "Month" },
+        ]}
+      />
+    </VStack>
+  );
+}
+
 export const demos = [
   { name: "Outline", component: SegmentedControlDemo },
   { name: "Default Variant", component: DefaultVariantStory },
   { name: "Sizes", component: SizesStory },
   { name: "Vertical", component: VerticalStory },
+  { name: "Palette", component: PaletteStory },
+  { name: "Palette (default)", component: PaletteDefaultVariantStory },
+  { name: "No Tray", component: NoTrayStory },
 ];

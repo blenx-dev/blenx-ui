@@ -18,11 +18,10 @@ function CodeFrame({ title, language, files, activeIndex, onActiveIndexChange }:
   return (
     <Surface variant="default" position="relative" borderTopWidth="thin">
       {hasFiles || title ? (
-        <HStack align="center" justify="between" px={"xs"} borderRadiusBottom="none">
-          <Box display="flex" alignItems="center" borderRadiusTop="none">
+        <HStack align="center" justify="between">
+          <Box display="flex" alignItems="center">
             {hasFiles ? (
               <SegmentedControl
-                variant="default"
                 value={String(activeIndex ?? 0)}
                 onValueChange={(value) => {
                   onActiveIndexChange?.(Number(value));

@@ -42,6 +42,8 @@ export function DocsToc({ items }: DocsTocProps) {
               <HStack render={<li />} key={item.slug} justify="between" align="center">
                 <Text
                   color={isActive ? "primary" : "secondary"}
+                  size={isActive ? "md" : "sm"}
+                  weight={isActive ? "medium" : "regular"}
                   render={
                     <a
                       href={`#${item.slug}`}

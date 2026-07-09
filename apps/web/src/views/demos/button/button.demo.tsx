@@ -1,5 +1,5 @@
 import { ChevronRightIcon, PlayIcon } from "@blenx-dev/core/icons";
-import { HStack, Stack, VStack, Text, Button } from "@blenx-dev/core";
+import { HStack, VStack, Text, Button } from "@blenx-dev/core";
 export function ButtonDemoSolids() {
   return (
     <HStack wrap>
@@ -48,7 +48,7 @@ export function ButtonDemoStates() {
 export function ButtonDemo() {
   return (
     <VStack gap="md">
-      <Stack gap="sm">
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">Variant + Intent</Text>
         <HStack wrap>
           <Button variant="solid" intent="primary">
@@ -70,9 +70,8 @@ export function ButtonDemo() {
             Solid Info
           </Button>
         </HStack>
-      </Stack>
-
-      <Stack gap="sm">
+      </VStack>
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">Outline + Intents</Text>
         <HStack wrap>
           <Button variant="outline" intent="primary">
@@ -85,9 +84,9 @@ export function ButtonDemo() {
             Outline Success
           </Button>
         </HStack>
-      </Stack>
+      </VStack>
 
-      <Stack gap="sm">
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">Ghost + Intents</Text>
         <HStack wrap>
           <Button variant="ghost" intent="primary">
@@ -100,9 +99,9 @@ export function ButtonDemo() {
             Ghost Neutral
           </Button>
         </HStack>
-      </Stack>
+      </VStack>
 
-      <Stack gap="sm">
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">Soft + Intents</Text>
         <HStack wrap>
           <Button variant="soft" intent="warning">
@@ -115,9 +114,9 @@ export function ButtonDemo() {
             Soft Danger
           </Button>
         </HStack>
-      </Stack>
+      </VStack>
 
-      <Stack gap="sm">
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">Link + Intents</Text>
         <HStack wrap>
           <Button variant="link" intent="primary">
@@ -130,18 +129,18 @@ export function ButtonDemo() {
             Link Danger
           </Button>
         </HStack>
-      </Stack>
+      </VStack>
 
-      <Stack gap="sm">
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">Sizes</Text>
         <HStack wrap>
           <Button size="sm">Small</Button>
           <Button size="md">Medium</Button>
           <Button size="lg">Large</Button>
         </HStack>
-      </Stack>
+      </VStack>
 
-      <Stack gap="sm">
+      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
         <Text variant="h6">With Icons</Text>
         <HStack wrap>
           <Button>
@@ -153,7 +152,7 @@ export function ButtonDemo() {
             <ChevronRightIcon />
           </Button>
         </HStack>
-      </Stack>
+      </VStack>
     </VStack>
   );
 }

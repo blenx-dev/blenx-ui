@@ -1,24 +1,31 @@
-import { style } from "@vanilla-extract/css";
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { createVar, style } from "@vanilla-extract/css";
 import { baseSprinkles } from "../../utils/sprinkles";
+import { paletteVars } from "../../utils/pallete-styles.css";
 
-export const groupBase = baseSprinkles({
-  display: "inline-flex",
-  position: "relative",
-  gap: "0",
-});
+export const trayRadiusVar = createVar();
+export const trayPaddingVar = createVar();
+export const itemGapVar = createVar();
+
+export const groupBase = style([
+  baseSprinkles({
+    display: "inline-flex",
+    position: "relative",
+  }),
+  style({
+    gap: itemGapVar,
+  }),
+]);
 
 export const groupDefault = style([
   baseSprinkles({
-    backgroundColor: "subtle",
-    borderColor: "subtle",
     borderWidth: "thin",
     borderStyle: "solid",
-    padding: "xxs",
-    radius: "md",
   }),
   style({
-    gap: tokenVars.spacing.xxs,
+    padding: trayPaddingVar,
+    borderRadius: trayRadiusVar,
+    backgroundColor: paletteVars.activeBg,
+    borderColor: paletteVars.border,
   }),
 ]);
 
@@ -44,12 +51,12 @@ export const groupVertical = baseSprinkles({
 export const outlineItemHorizontal = style({
   selectors: {
     "&:first-child": {
-      borderStartStartRadius: tokenVars.borderRadius.md,
-      borderEndStartRadius: tokenVars.borderRadius.md,
+      borderStartStartRadius: trayRadiusVar,
+      borderEndStartRadius: trayRadiusVar,
     },
     "&:last-child": {
-      borderStartEndRadius: tokenVars.borderRadius.md,
-      borderEndEndRadius: tokenVars.borderRadius.md,
+      borderStartEndRadius: trayRadiusVar,
+      borderEndEndRadius: trayRadiusVar,
     },
     "&:not(:first-child)": {
       borderInlineStartWidth: 0,
@@ -70,12 +77,12 @@ export const outlineItemHorizontal = style({
 export const outlineItemVertical = style({
   selectors: {
     "&:first-child": {
-      borderStartStartRadius: tokenVars.borderRadius.md,
-      borderStartEndRadius: tokenVars.borderRadius.md,
+      borderStartStartRadius: trayRadiusVar,
+      borderStartEndRadius: trayRadiusVar,
     },
     "&:last-child": {
-      borderEndStartRadius: tokenVars.borderRadius.md,
-      borderEndEndRadius: tokenVars.borderRadius.md,
+      borderEndStartRadius: trayRadiusVar,
+      borderEndEndRadius: trayRadiusVar,
     },
     "&:not(:first-child)": {
       borderBlockStartWidth: 0,

@@ -12,23 +12,69 @@ import {
   type ToggleSize,
 } from "../Toggle/toggle";
 import {
+  dangerPalette,
+  infoPalette,
+  neutralPalette,
+  primaryPalette,
+  successPalette,
+  warningPalette,
+} from "../../utils/pallete-styles.css";
+import {
   groupBase,
   groupDefault,
   groupHorizontal,
   groupVertical,
+  itemGapVar,
   outlineGroupItem,
   outlineItemHorizontal,
   outlineItemVertical,
   trayItem,
+  trayPaddingVar,
+  trayRadiusVar,
 } from "./toggle-group.css";
+
+import { tokenVars } from "@blenx-dev/theme/contract";
 
 type ToggleGroupVariant = ToggleProps["variant"];
 type ToggleGroupSize = ToggleSize;
+type ToggleGroupPalette = NonNullable<ToggleProps["palette"]>;
+type ToggleGroupRadius = "none" | "sm" | "md" | "lg" | "xl" | "full";
+type ToggleGroupSpacing = "none" | "xxs" | "xs" | "sm" | "md" | "lg";
+
+const radiusVarMap: Record<ToggleGroupRadius, string> = {
+  none: "0",
+  sm: tokenVars.borderRadius.sm,
+  md: tokenVars.borderRadius.md,
+  lg: tokenVars.borderRadius.lg,
+  xl: tokenVars.borderRadius.xl,
+  full: "9999px",
+};
+
+const spacingVarMap: Record<ToggleGroupSpacing, string> = {
+  none: tokenVars.spacing.none,
+  xxs: tokenVars.spacing.xxs,
+  xs: tokenVars.spacing.xs,
+  sm: tokenVars.spacing.sm,
+  md: tokenVars.spacing.md,
+  lg: tokenVars.spacing.lg,
+};
+
+const paletteClasses: Record<ToggleGroupPalette, string> = {
+  primary: primaryPalette,
+  secondary: neutralPalette,
+  neutral: neutralPalette,
+  success: successPalette,
+  warning: warningPalette,
+  danger: dangerPalette,
+  info: infoPalette,
+};
 
 type ToggleGroupContextValue = {
   variant: ToggleGroupVariant;
   size: ToggleGroupSize;
   orientation: "horizontal" | "vertical";
+  tray: boolean;
+  palette: ToggleGroupPalette;
 };
 
 export const ToggleGroupContext = React.createContext<ToggleGroupContextValue | null>(null);
@@ -36,6 +82,11 @@ export const ToggleGroupContext = React.createContext<ToggleGroupContextValue | 
 export type ToggleGroupProps = ToggleGroupPrimitive.Props & {
   variant?: ToggleGroupVariant;
   size?: ToggleGroupSize;
+  tray?: boolean;
+  palette?: ToggleGroupPalette;
+  radius?: ToggleGroupRadius;
+  padding?: ToggleGroupSpacing;
+  gap?: ToggleGroupSpacing;
 };
 
 export function ToggleGroup({
@@ -44,6 +95,11 @@ export function ToggleGroup({
   variant = "default",
   size = "default",
   orientation = "horizontal",
+  tray = true,
+  palette = "neutral",
+  radius = "md",
+  padding = "xxs",
+  gap: gapProp = "xxs",
   children,
   ...props
 }: ToggleGroupProps): React.ReactElement {
@@ -51,8 +107,8 @@ export function ToggleGroup({
   const isDefault = variant === "default";
 
   const contextValue = React.useMemo(
-    () => ({ variant, size, orientation }),
-    [variant, size, orientation],
+    () => ({ variant, size, orientation, tray, palette }),
+    [variant, size, orientation, tray, palette],
   );
 
   return (
@@ -60,13 +116,20 @@ export function ToggleGroup({
       className={clsx(
         groupBase,
         isHorizontal ? groupHorizontal : groupVertical,
-        isDefault && groupDefault,
+        isDefault && tray && groupDefault,
+        paletteClasses[palette],
         className,
       )}
-      style={style}
+      style={{
+        [trayRadiusVar]: radiusVarMap[radius],
+        [trayPaddingVar]: spacingVarMap[padding],
+        [itemGapVar]: spacingVarMap[gapProp],
+        ...style,
+      }}
       data-slot="toggle-group"
       data-variant={variant}
       data-size={size}
+      data-palette={palette}
       orientation={orientation}
       {...props}
     >
@@ -81,10 +144,12 @@ export function ToggleGroupItem({
   children,
   variant,
   size,
+  palette,
   ...props
 }: ToggleComponentProps & {
   variant?: ToggleGroupVariant;
   size?: ToggleGroupSize;
+  palette?: ToggleGroupPalette;
   className?: string;
   style?: React.CSSProperties;
 }): React.ReactElement {
@@ -92,7 +157,9 @@ export function ToggleGroupItem({
 
   const resolvedVariant = variant ?? context?.variant ?? "default";
   const resolvedSize = size ?? context?.size ?? "default";
+  const resolvedPalette = palette ?? context?.palette ?? "neutral";
   const orientation = context?.orientation ?? "horizontal";
+  const hasTray = context?.tray ?? true;
   const isOutline = resolvedVariant === "outline";
   const isDefault = resolvedVariant === "default";
 
@@ -101,12 +168,13 @@ export function ToggleGroupItem({
       className={clsx(
         isOutline && (orientation === "horizontal" ? outlineItemHorizontal : outlineItemVertical),
         isOutline && outlineGroupItem,
-        isDefault && trayItem,
+        isDefault && hasTray && trayItem,
         className,
       )}
       style={style}
       data-size={resolvedSize}
       data-variant={resolvedVariant}
+      palette={resolvedPalette}
       size={resolvedSize}
       variant={resolvedVariant}
       {...props}

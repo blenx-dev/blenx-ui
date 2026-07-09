@@ -69,7 +69,7 @@ function Installation({ registryName }: InstallationProps) {
         <>
           <Separator />
           <VStack gap="xs" maxWidth={"viewport"}>
-            <DocsH3>Manual Installation</DocsH3>
+            <DocsH3>Manual</DocsH3>
             <Text variant="body2" color="secondary">
               Copy the source files into your project:
             </Text>

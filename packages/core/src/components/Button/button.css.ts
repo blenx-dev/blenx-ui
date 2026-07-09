@@ -53,7 +53,7 @@ export const variant = recipe({
     size: {
       xs: baseSprinkles({ fontSize: "sm", py: "xxs", px: "xs" }),
       sm: baseSprinkles({ fontSize: "sm", py: "xs", px: "sm" }),
-      icon: baseSprinkles({ py: "xs", px: "xs" }),
+      icon: baseSprinkles({ py: "xxs", px: "xxs" }),
       md: baseSprinkles({ fontSize: "md", py: "sm", px: "md" }),
       lg: baseSprinkles({ fontSize: "lg", py: "md", px: "lg" }),
     },

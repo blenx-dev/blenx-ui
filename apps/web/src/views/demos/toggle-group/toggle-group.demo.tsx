@@ -112,10 +112,80 @@ export function WithSeparatorStory() {
   );
 }
 
+const palettes = [
+  "primary",
+  "secondary",
+  "neutral",
+  "success",
+  "warning",
+  "danger",
+  "info",
+] as const;
+
+export function PaletteStory() {
+  const [value, setValue] = useState<string[]>(["a"]);
+
+  return (
+    <VStack gap="md">
+      {palettes.map((p) => (
+        <VStack key={p} gap="xs">
+          <Text variant="body2" color="secondary">
+            {p}
+          </Text>
+          <ToggleGroup palette={p} value={value} onValueChange={setValue}>
+            <ToggleGroupItem value="a">A</ToggleGroupItem>
+            <ToggleGroupItem value="b">B</ToggleGroupItem>
+            <ToggleGroupItem value="c">C</ToggleGroupItem>
+          </ToggleGroup>
+        </VStack>
+      ))}
+    </VStack>
+  );
+}
+
+export function PaletteOutlineStory() {
+  const [value, setValue] = useState<string[]>(["a"]);
+
+  return (
+    <VStack gap="md">
+      {palettes.map((p) => (
+        <VStack key={p} gap="xs">
+          <Text variant="body2" color="secondary">
+            {p}
+          </Text>
+          <ToggleGroup palette={p} variant="outline" value={value} onValueChange={setValue}>
+            <ToggleGroupItem value="a">A</ToggleGroupItem>
+            <ToggleGroupItem value="b">B</ToggleGroupItem>
+            <ToggleGroupItem value="c">C</ToggleGroupItem>
+          </ToggleGroup>
+        </VStack>
+      ))}
+    </VStack>
+  );
+}
+
+export function NoTrayStory() {
+  const [value, setValue] = useState<string[]>(["a"]);
+
+  return (
+    <VStack gap="md">
+      <Text>Selected: {value.join(", ") || "none"}</Text>
+      <ToggleGroup value={value} onValueChange={setValue} tray={false}>
+        <ToggleGroupItem value="a">Option A</ToggleGroupItem>
+        <ToggleGroupItem value="b">Option B</ToggleGroupItem>
+        <ToggleGroupItem value="c">Option C</ToggleGroupItem>
+      </ToggleGroup>
+    </VStack>
+  );
+}
+
 export const demos = [
   { name: "Default (tray)", component: DefaultStory },
   { name: "Outline", component: OutlineStory },
   { name: "Vertical", component: VerticalStory },
   { name: "Sizes", component: SizesStory },
   { name: "With Separator", component: WithSeparatorStory },
+  { name: "Palette", component: PaletteStory },
+  { name: "Palette (outline)", component: PaletteOutlineStory },
+  { name: "No Tray", component: NoTrayStory },
 ];

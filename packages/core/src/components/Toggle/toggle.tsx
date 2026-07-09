@@ -4,11 +4,14 @@ import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import clsx from "clsx";
 import { base, pressed, toggleRecipes } from "./toggle.css";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
+import type { BaseSprinkles } from "../../utils/sprinkles.css";
+import { applyBaseSprinkles } from "../../utils/ve-style.utils";
 export type ToggleSize = "default" | "sm" | "lg";
 export type ToggleVariants = RecipeVariants<typeof toggleRecipes>;
 
 export type ToggleProps = TogglePrimitive.Props &
-  ToggleVariants & {
+  ToggleVariants &
+  Omit<BaseSprinkles, "palette"> & {
     size?: ToggleSize;
   };
 
@@ -20,11 +23,13 @@ export function Toggle({
   palette,
   ...props
 }: ToggleProps) {
+  const [sprinkleClass, htmlProps] = applyBaseSprinkles(props);
+
   return (
     <TogglePrimitive
       data-slot="toggle"
       data-palette={palette}
-      {...props}
+      {...(htmlProps as Record<string, unknown>)}
       render={(renderProps, state) => {
         return (
           <button
@@ -33,6 +38,7 @@ export function Toggle({
               base,
               toggleRecipes({ size, variant, palette }),
               state.pressed && pressed[variant],
+              sprinkleClass,
               className,
             )}
           >

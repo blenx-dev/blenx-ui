@@ -4,7 +4,7 @@ import { baseBox } from "./box.css";
 import type { BaseSprinkles } from "../../utils/sprinkles.css";
 import { applyBaseSprinkles } from "../../utils/ve-style.utils";
 
-type BoxProps = useRender.ComponentProps<"div"> & BaseSprinkles;
+type BoxProps = useRender.ComponentProps<"div"> & Omit<BaseSprinkles, "pallete">;
 
 function Box({ render, className, ...props }: BoxProps) {
   const [styleProps, htmlProps] = applyBaseSprinkles(props);

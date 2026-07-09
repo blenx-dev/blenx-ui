@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
+import { paletteVars } from "../../utils/pallete-styles.css";
 
 export const segmentedControl = style([
   baseSprinkles({
@@ -9,14 +10,14 @@ export const segmentedControl = style([
     gap: "xxs",
     padding: "xxs",
     radius: "xl",
-    backgroundColor: "subtle",
     borderWidth: "thin",
     borderStyle: "solid",
-    borderColor: "subtle",
     width: "fit",
     maxWidth: "full",
   }),
   style({
+    backgroundColor: paletteVars.activeBg,
+    borderColor: paletteVars.border,
     boxShadow: "0 1px 2px rgba(15, 23, 42, 0.04)",
     scrollSnapType: "x proximity",
     WebkitOverflowScrolling: "touch",
