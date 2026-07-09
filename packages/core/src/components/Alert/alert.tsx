@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { Text } from "../Text";
 import { HStack, VStack, type HStackProps } from "../Stack/stack";
 import { Box } from "../Box/box";
+import clsx from "clsx";
+import { paletteMap } from "../../utils/pallete-styles.css";
 
 type Props = HStackProps & {
   icon?: ReactNode;
@@ -14,7 +16,13 @@ type Props = HStackProps & {
 
 function Alert({ palette = "info", icon, title, description, children, ...props }: Props) {
   return (
-    <HStack align={description ? "start" : "center"} gap="sm" p="md" palette={palette} {...props}>
+    <HStack
+      align={description ? "start" : "center"}
+      gap="sm"
+      p="md"
+      className={clsx(paletteMap[palette])}
+      {...props}
+    >
       <Box p={"xs"}>{icon}</Box>
       <VStack gap="xs">
         {title ? (

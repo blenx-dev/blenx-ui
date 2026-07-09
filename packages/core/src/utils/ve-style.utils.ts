@@ -37,6 +37,9 @@ export function applyBaseSprinkles<T extends Record<PropertyKey, any>>(props: T)
       (htmlProps as Record<string, unknown>)[key] = value;
     }
   }
+  sprinkleProps.borderColor = sprinkleProps.borderColor || "default";
+  sprinkleProps.backgroundColor = sprinkleProps.backgroundColor || "default";
+  sprinkleProps.color = sprinkleProps.color || "default";
   return [baseSprinkles(sprinkleProps), htmlProps as T];
 }
 export function applyGridSprinkles(

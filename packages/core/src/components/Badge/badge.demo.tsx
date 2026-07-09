@@ -7,6 +7,12 @@ export function VariantsStory() {
       <Badge>Default</Badge>
       <Badge palette="primary">Primary</Badge>
       <Badge palette="secondary">Secondary</Badge>
+      <Badge palette="success">success</Badge>
+      <Badge palette="warning">warning</Badge>
+      <Badge palette="danger">danger</Badge>
+      <Badge palette="info">info</Badge>
     </HStack>
   );
 }
+
+export const demos = [{ name: "Variants", component: VariantsStory }];

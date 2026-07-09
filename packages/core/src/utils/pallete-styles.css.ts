@@ -1,3 +1,4 @@
+import type { ThemeColors } from "@blenx-dev/theme";
 import { semanticVars } from "@blenx-dev/theme/contract";
 import { createVar, style } from "@vanilla-extract/css";
 
@@ -38,7 +39,7 @@ export const neutralPalette = style({
     [paletteVars.bg]: semanticVars.surface.default,
     [paletteVars.fg]: semanticVars.text.primary,
     [paletteVars.hoverBg]: semanticVars.background.subtle,
-    [paletteVars.activeBg]: semanticVars.background.subtle,
+    [paletteVars.activeBg]: semanticVars.background.default,
     [paletteVars.activeFg]: semanticVars.text.primary,
     [paletteVars.hoverFg]: semanticVars.color.primary.bgHover,
     [paletteVars.border]: semanticVars.border.default,
@@ -86,7 +87,7 @@ export const dangerPalette = style({
     [paletteVars.activeBg]: semanticVars.color.danger.bg,
     [paletteVars.activeFg]: semanticVars.text.primary,
     [paletteVars.hoverFg]: semanticVars.color.danger.bgHover,
-    [paletteVars.border]: semanticVars.color.danger.active,
+    [paletteVars.border]: semanticVars.color.danger.border,
     [paletteVars.selectedBg]: semanticVars.color.danger.default,
     [paletteVars.selectedFg]: semanticVars.text.primary,
     [paletteVars.focusRing]: semanticVars.color.danger.active,
@@ -101,7 +102,7 @@ export const infoPalette = style({
     [paletteVars.activeBg]: semanticVars.color.info.bg,
     [paletteVars.activeFg]: semanticVars.text.primary,
     [paletteVars.hoverFg]: semanticVars.color.info.bgHover,
-    [paletteVars.border]: semanticVars.color.info.active,
+    [paletteVars.border]: semanticVars.color.info.border,
     [paletteVars.selectedBg]: semanticVars.color.info.default,
     [paletteVars.selectedFg]: semanticVars.text.primary,
     [paletteVars.focusRing]: semanticVars.color.info.active,
@@ -136,3 +137,26 @@ export const linkPalette = style({
     [paletteVars.focusRing]: semanticVars.color.info.active,
   },
 });
+export const secondaryPalette = style({
+  vars: {
+    [paletteVars.bg]: semanticVars.color.secondary.default,
+    [paletteVars.fg]: semanticVars.color.secondary.textActive,
+    [paletteVars.hoverBg]: semanticVars.color.secondary.hover,
+    [paletteVars.activeBg]: semanticVars.color.secondary.bg,
+    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.hoverFg]: semanticVars.color.secondary.bgHover,
+    [paletteVars.border]: semanticVars.color.secondary.active,
+    [paletteVars.selectedBg]: semanticVars.color.secondary.default,
+    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.focusRing]: semanticVars.color.secondary.active,
+  },
+});
+export const paletteMap: Record<keyof ThemeColors, string> = {
+  primary: primaryPalette,
+  neutral: neutralPalette,
+  secondary: secondaryPalette,
+  success: successPalette,
+  warning: warningPalette,
+  danger: dangerPalette,
+  info: infoPalette,
+};

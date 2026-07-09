@@ -46,7 +46,6 @@ function DocDemoRenderer({ registryName }: DocDemoRendererProps) {
         default: () => <AllDemos demos={demos} />,
       };
     }
-
     return {
       default: () => <Text>Demo not found</Text>,
     };

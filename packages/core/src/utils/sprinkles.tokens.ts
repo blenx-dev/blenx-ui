@@ -1,4 +1,5 @@
 import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { paletteVars } from "./pallete-styles.css";
 
 export const spacing = {
   none: "0",
@@ -50,7 +51,7 @@ export const containerWidths = {
 
 export const colors = {
   primary: semanticVars.text.primary,
-  default: "currentColor",
+  default: paletteVars.fg,
   transparent: "transparent",
   secondary: semanticVars.text.secondary,
   disabled: semanticVars.text.disabled,
@@ -68,7 +69,8 @@ export const backgroundColors = {
   surface: semanticVars.surface.default,
   canvas: semanticVars.background.default,
   subtle: semanticVars.background.subtle,
-  default: "inherit",
+  default: paletteVars.bg,
+  inherit: "inherit",
   transparent: "transparent",
   danger: semanticVars.color.danger.bg,
   success: semanticVars.color.success.bg,
@@ -76,7 +78,8 @@ export const backgroundColors = {
   info: semanticVars.color.info.bg,
 };
 export const borderColors = {
-  default: semanticVars.border.default,
+  inherit: "inherit",
+  default: paletteVars.border,
   subtle: semanticVars.border.subtle,
   strong: semanticVars.border.strong,
   transparent: "transparent",
