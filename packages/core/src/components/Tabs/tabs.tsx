@@ -81,7 +81,6 @@ export function TabsList({ className, ...props }: TabsListProps) {
     borderRadius: "none",
     position: "relative",
     overflow: "hidden",
-    border: "none",
     outline: "none",
     backgroundColor: "transparent",
     zIndex: "0",

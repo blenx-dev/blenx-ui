@@ -98,7 +98,7 @@ export const ExampleDashboard = memo(() => (
             {kpi.value}
           </Text>
           <Text
-            color={kpi.up ? "success" : "error"}
+            color={kpi.up ? "success" : "danger"}
             display="flex"
             align="center"
             gap="xxs"

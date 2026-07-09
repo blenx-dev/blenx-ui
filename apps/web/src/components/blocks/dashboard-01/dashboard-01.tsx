@@ -134,7 +134,7 @@ export function Dashboard01({
                   {kpi.value}
                 </Text>
                 {kpi.trend && (
-                  <Text size="sm" color={kpi.trend === "up" ? "success" : "error"}>
+                  <Text size="sm" color={kpi.trend === "up" ? "success" : "danger"}>
                     {kpi.trend === "up" ? "↑" : "↓"} {kpi.trendValue}
                   </Text>
                 )}

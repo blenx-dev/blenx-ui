@@ -170,7 +170,7 @@ export function Signup01({
           </VStack>
 
           {socialProviders && socialProviders.length > 0 && (
-            <VStack gap="sm" py={"2"}>
+            <VStack gap="sm" py={"xs"}>
               <Separator label="Or sign up with" />
               <HStack gap="sm" justify="between" fullWidth>
                 {socialProviders.map((provider) => (

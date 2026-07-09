@@ -94,7 +94,7 @@ export function VerifyEmail01({
               </OTPField>
 
               {error && (
-                <Alert palette="error" icon="">
+                <Alert palette="danger" icon="">
                   {error}
                 </Alert>
               )}

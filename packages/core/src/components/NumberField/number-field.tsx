@@ -28,7 +28,11 @@ export function NumberField({
   const fieldValid = error ? (false as const) : undefined;
 
   return (
-    <FieldPrimitive.Root valid={fieldValid} className={clsx(fieldWrapper, className)} style={style}>
+    <FieldPrimitive.Root
+      invalid={fieldValid}
+      className={clsx(fieldWrapper, className)}
+      style={style}
+    >
       <FieldLabel>{label}</FieldLabel>
       <Input error={error} type="number" min={min} max={max} step={step} {...props} />
       {description && <FieldDescription>{description}</FieldDescription>}

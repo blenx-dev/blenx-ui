@@ -23,7 +23,11 @@ export function TextareaField({
   const fieldValid = error ? (false as const) : undefined;
 
   return (
-    <FieldPrimitive.Root valid={fieldValid} className={clsx(fieldWrapper, className)} style={style}>
+    <FieldPrimitive.Root
+      invalid={fieldValid}
+      className={clsx(fieldWrapper, className)}
+      style={style}
+    >
       <FieldLabel>{label}</FieldLabel>
       <Textarea {...props} />
       {description && <FieldDescription>{description}</FieldDescription>}

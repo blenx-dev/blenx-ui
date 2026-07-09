@@ -3,7 +3,7 @@ import { badgeRecipe } from "./badge.css";
 import { Box, type BoxProps } from "../Box/box";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 
-type Props = BoxProps & RecipeVariants<typeof badgeRecipe>;
+type Props = Omit<BoxProps, "palette"> & RecipeVariants<typeof badgeRecipe>;
 
 export function Badge({
   variant = "solid",
