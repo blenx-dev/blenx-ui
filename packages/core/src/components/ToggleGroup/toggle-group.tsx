@@ -33,7 +33,7 @@ import {
   trayRadiusVar,
 } from "./toggle-group.css";
 
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { tokenVars } from "../../theme/contract.css";
 
 type ToggleGroupVariant = ToggleProps["variant"];
 type ToggleGroupSize = ToggleSize;

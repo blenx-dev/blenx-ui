@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { tokenVars } from "../../theme/contract.css";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const root = baseSprinkles({

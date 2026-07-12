@@ -1,6 +1,10 @@
 import { createTheme, globalStyle } from "@vanilla-extract/css";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
-import { createBlenxTheme, mergeWithDefaultTokens, genPaletteFromRadix } from "@blenx-dev/theme";
+import { semanticVars, tokenVars } from "@blenx-dev/core/theme/contract";
+import {
+  createBlenxTheme,
+  mergeWithDefaultTokens,
+  genPaletteFromRadix,
+} from "@blenx-dev/core/theme";
 import {
   blue,
   blueA,

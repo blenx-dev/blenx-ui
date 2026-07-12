@@ -151,7 +151,7 @@ The dark theme inverts these relationships. Components never detect dark mode—
 
 ## Typography Scale
 
-The `tokenVars` contract defines `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, and `font` as CSS custom properties. Default values live in `tokenVarsDefaults` from `@blenx-dev/theme/theme`. Individual themes reference these in `createTheme`:
+The `tokenVars` contract defines `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, and `font` as CSS custom properties. Default values live in `tokenVarsDefaults` from `@blenx-dev/core/theme/theme`. Individual themes reference these in `createTheme`:
 
 ```tsx
 createTheme(tokenVars, {
@@ -190,7 +190,7 @@ Components reference the contract inside `style()` calls:
 
 ```tsx
 import { style } from "@vanilla-extract/css";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/core/theme/contract";
 
 export const root = style({
   backgroundColor: semanticVars.surface.default,
@@ -217,7 +217,7 @@ To add a brand theme:
 ```tsx
 // my-brand-theme.css.ts
 import { createTheme } from "@vanilla-extract/css";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/core/theme/contract";
 
 export const brandTheme = createTheme(semanticVars, {
   background: { default: "#faf9f6", subtle: "#f0ede6" },
@@ -263,4 +263,4 @@ You can scope themes by applying the theme class to any container element. Theme
 - **Putting component-specific values in the contract.** If only one component needs a token, keep it local. The contract is for shared design language, not per-component quirks.
 - **Mutating theme objects.** `createTheme` output is statically extracted at build time. Do not programmatically merge or override theme objects at runtime—vanilla-extract does not support it.
 - **Forgetting to apply the theme class.** Contract variables without an active theme class produce empty string values. Your app root must add the theme class to the document element.
-- **Semantic vs token contracts.** Use `semanticVars` for named color tokens (background, surface, text, border, color roles) and `tokenVars` for design tokens (spacing, fonts, shadows, radii, durations). The two contracts serve different purposes and are imported from the same module: `@blenx-dev/theme/contract`.
+- **Semantic vs token contracts.** Use `semanticVars` for named color tokens (background, surface, text, border, color roles) and `tokenVars` for design tokens (spacing, fonts, shadows, radii, durations). The two contracts serve different purposes and are imported from the same module: `@blenx-dev/core/theme/contract`.

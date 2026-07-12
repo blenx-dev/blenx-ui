@@ -3,7 +3,7 @@ import { allBlocks, allBlockGroups } from "content-collections";
 import { MDXContent } from "@content-collections/mdx/react";
 import { Box, Separator, Text, VStack } from "@blenx-dev/core";
 import { mdxComponents } from "@/views/docs/MdxComponents";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/core/theme/contract";
 
 export const Route = createFileRoute("/docs/blocks/$group/$variant")({
   beforeLoad: ({ params }) => {

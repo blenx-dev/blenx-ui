@@ -10,7 +10,7 @@ import {
 import { Header, ThemeEffect } from "@/components/header";
 import { Container, Separator } from "@blenx-dev/core";
 import appCss from "@/app.css?url";
-import "@blenx-dev/theme/reset";
+import "@blenx-dev/core/theme/reset";
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import { tokenThemeClass } from "@/lib/app-theme.css";

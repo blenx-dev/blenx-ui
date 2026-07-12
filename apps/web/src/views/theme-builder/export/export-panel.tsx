@@ -47,7 +47,7 @@ export function ExportPanel() {
       }
     }
 
-    return `import { createBlenxThemeFromRadix } from "@blenx-dev/theme";
+    return `import { createBlenxThemeFromRadix } from "@blenx-dev/core/theme";
 
 export const { themeClass:lightClass } = createBlenxThemeFromRadix({
   semantic: {

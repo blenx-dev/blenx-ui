@@ -71,7 +71,14 @@ export function ButtonDemo() {
           </Button>
         </HStack>
       </VStack>
-      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
+      <VStack
+        gap="xxs"
+        withBorder
+        borderRadius="md"
+        p="md"
+        borderWidth="thin"
+        borderColor="secondary"
+      >
         <Text variant="h6">Outline + Intents</Text>
         <HStack wrap>
           <Button variant="outline" intent="primary">
@@ -86,7 +93,14 @@ export function ButtonDemo() {
         </HStack>
       </VStack>
 
-      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
+      <VStack
+        gap="xxs"
+        withBorder
+        borderRadius="md"
+        p="md"
+        borderWidth="thin"
+        borderColor="secondary"
+      >
         <Text variant="h6">Ghost + Intents</Text>
         <HStack wrap>
           <Button variant="ghost" intent="primary">
@@ -101,7 +115,14 @@ export function ButtonDemo() {
         </HStack>
       </VStack>
 
-      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
+      <VStack
+        gap="xxs"
+        withBorder
+        borderRadius="md"
+        p="md"
+        borderWidth="thin"
+        borderColor="secondary"
+      >
         <Text variant="h6">Soft + Intents</Text>
         <HStack wrap>
           <Button variant="soft" intent="warning">
@@ -116,7 +137,14 @@ export function ButtonDemo() {
         </HStack>
       </VStack>
 
-      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
+      <VStack
+        gap="xxs"
+        withBorder
+        borderRadius="md"
+        p="md"
+        borderWidth="thin"
+        borderColor="secondary"
+      >
         <Text variant="h6">Link + Intents</Text>
         <HStack wrap>
           <Button variant="link" intent="primary">
@@ -131,7 +159,14 @@ export function ButtonDemo() {
         </HStack>
       </VStack>
 
-      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
+      <VStack
+        gap="xxs"
+        withBorder
+        borderRadius="md"
+        p="md"
+        borderWidth="thin"
+        borderColor="secondary"
+      >
         <Text variant="h6">Sizes</Text>
         <HStack wrap>
           <Button size="sm">Small</Button>
@@ -140,7 +175,14 @@ export function ButtonDemo() {
         </HStack>
       </VStack>
 
-      <VStack gap="xxs" withBorder borderRadius="md" p="md" borderWidth="thin">
+      <VStack
+        gap="xxs"
+        withBorder
+        borderRadius="md"
+        p="md"
+        borderWidth="thin"
+        borderColor="secondary"
+      >
         <Text variant="h6">With Icons</Text>
         <HStack wrap>
           <Button>

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
 import { baseSprinkles } from "../../utils/sprinkles";
+import { semanticVars, tokenVars } from "../../theme/contract.css";
 
 export const rootVertical = style({});
 

@@ -1,4 +1,4 @@
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "../../theme/contract.css";
 import { style } from "@vanilla-extract/css";
 
 export const focusRing = style({

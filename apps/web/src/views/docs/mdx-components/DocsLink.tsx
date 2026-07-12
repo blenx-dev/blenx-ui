@@ -1,5 +1,5 @@
 import type React from "react";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/core/theme/contract";
 
 interface DocsLinkProps {
   href?: string;

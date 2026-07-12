@@ -15,30 +15,37 @@ const isBaseSprinklePropery = (key: any): key is BasePropKeys => {
 export function applyBaseSprinkles<T extends Record<PropertyKey, any>>(props: T): [string, T] {
   const sprinkleProps: BaseSprinkles = {};
   const htmlProps: Partial<T> = {};
+  const otherKeysToProcess = [];
+
   for (const [key, value] of Object.entries(props)) {
     if (key === "fullWidth") {
       if (props[key]) {
-        sprinkleProps.width = "full";
+        otherKeysToProcess.push(key);
       }
-    } else if (key === "withBorder") {
-      if (props[key]) {
-        sprinkleProps.borderColor = sprinkleProps.borderColor || "default";
-        sprinkleProps.borderStyle = sprinkleProps.borderStyle || "solid";
-      }
+    } else if (key === "withBorder" && value) {
+      otherKeysToProcess.push(key);
     } else if (key === "fullHeight") {
       continue;
     } else if (key === "palette" && value) {
-      sprinkleProps.borderColor = sprinkleProps.borderColor || value || "default";
-      sprinkleProps.backgroundColor = sprinkleProps.backgroundColor || value || "default";
-      sprinkleProps.color = sprinkleProps.color || value || "default";
+      otherKeysToProcess.push(key);
     } else if (isBaseSprinklePropery(key)) {
       sprinkleProps[key] = value;
     } else {
       (htmlProps as Record<string, unknown>)[key] = value;
     }
   }
-  sprinkleProps.borderColor = sprinkleProps.borderColor || "default";
-  sprinkleProps.color = sprinkleProps.color || "default";
+  for (const key of otherKeysToProcess) {
+    if (key === "fullWidth") {
+      if (props[key]) {
+        sprinkleProps.width = "full";
+      }
+    } else if (key === "withBorder") {
+      console.log("key", key);
+      sprinkleProps.borderStyle = sprinkleProps.borderStyle || "solid";
+      sprinkleProps.borderWidth = sprinkleProps.borderWidth || "thin";
+      sprinkleProps.borderColor = sprinkleProps.borderColor || "secondary";
+    }
+  }
   return [baseSprinkles(sprinkleProps), htmlProps as T];
 }
 export function applyGridSprinkles(

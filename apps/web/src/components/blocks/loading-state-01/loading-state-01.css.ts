@@ -1,6 +1,6 @@
 /* ── Loading Skeleton ── */
 
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/core/theme/contract";
 import { keyframes, style } from "@vanilla-extract/css";
 
 export const shimmerKeyframes = keyframes({

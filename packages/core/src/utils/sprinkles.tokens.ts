@@ -1,4 +1,4 @@
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "../../theme/contract.css";
 import { paletteVars } from "./pallete-styles.css";
 
 export const spacing = {

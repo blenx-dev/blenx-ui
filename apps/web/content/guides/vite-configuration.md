@@ -20,7 +20,7 @@ Because of this, Vite must process Blenx UI as application source rather than as
 ## Install
 
 ```bash
-pnpm add @blenx-dev/core @blenx-dev/theme
+pnpm add @blenx-dev/core @blenx-dev/core/theme
 ```
 
 ## Configure Vite

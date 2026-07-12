@@ -1,5 +1,5 @@
-import { tokenVars } from "@blenx-dev/theme/contract";
-import type { ThemeColors } from "@blenx-dev/theme";
+import { tokenVars } from "../../theme/contract.css";
+import type { ThemeColors } from "../../theme";
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import {
   backgroundColors,

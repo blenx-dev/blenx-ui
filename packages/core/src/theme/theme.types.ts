@@ -48,6 +48,7 @@ export interface ThemeColors {
   warning: ColorPair;
   danger: ColorPair;
   info: ColorPair;
+  mono?: ColorPair;
 }
 
 export interface ThemeConfig {

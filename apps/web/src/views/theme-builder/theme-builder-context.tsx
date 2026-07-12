@@ -1,4 +1,4 @@
-import type { SemanticTokens } from "@blenx-dev/theme";
+import type { SemanticTokens } from "@blenx-dev/core/theme";
 import { create } from "zustand";
 import { createContext } from "zustand-utils";
 

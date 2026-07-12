@@ -46,10 +46,10 @@ const actions = useMyStore((s) => s.actions)
 
 ## Theme System
 
-- Theme is defined via Vanilla Extract contract (`packages/theme/src/contract.css.ts`) with `createThemeContract()`.
-- Two themes are created with `createTheme` in `packages/theme/src/light-theme.css.ts`: a light theme and a dark theme variant.
+- Theme is defined via Vanilla Extract contract (`packages/core/src/theme/contract.css.ts`) with `createThemeContract()`.
+- Two themes are created with `createTheme` in `apps/web/src/lib/app-theme.css.ts`: a light theme and a dark theme variant.
 - App-level themes are in `apps/web/src/lib/app-theme.css.ts` (`lightTheme` / `darkTheme` class names).
-- Design token primitives (spacing, font-sizes, radii, etc.) live in `packages/theme/src/theme.css.ts`.
+- Design token primitives (spacing, font-sizes, radii, etc.) live in `packages/core/src/theme/theme.css.ts`.
 - Theme mode is managed by zustand store (scoped store pattern via `zustand-utils/createContext`).
 - An inline `<script>` in `<head>` sets `color-scheme` on `<html>` from localStorage before any rendering.
 - A `<meta name="color-scheme" content="dark light">` tag is included in the document head.
@@ -73,7 +73,7 @@ Theme-driven color support (`palette`, `intent`) uses scoped CSS vars defined in
 
 **Available palette classes** (all export from `packages/core/src/utils/pallete-styles.css.ts`):
 
-- `paletteVars` — scoped CSS vars (`bg`, `fg`, `border`, `hoverBg`, `hoverFg`, `activeBg`, `activeFg`, `focusRing`, `selectedBg`, `selectedFg`)
+- `paletteVars` — scoped CSS vars (`bg`, `fg`, `border`, `hoverBg`, `hoverFg`, `activeBg`, `focusRing`, `selectedBg`, `selectedFg`)
 - `primaryPalette`, `neutralPalette`, `successPalette`, `warningPalette`, `dangerPalette`, `infoPalette`, `monoPalette`, `linkPalette` — each assigns `semanticVars.color.*` tokens to `paletteVars`
 
 **Adding palette support to a component:**

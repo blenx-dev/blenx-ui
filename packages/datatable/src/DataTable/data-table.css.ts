@@ -1,5 +1,5 @@
 import { style, keyframes } from "@vanilla-extract/css";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/core/theme/contract";
 import { baseSprinkles } from "@blenx-dev/core";
 
 const pulse = keyframes({

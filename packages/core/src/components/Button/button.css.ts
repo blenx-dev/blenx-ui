@@ -1,18 +1,9 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { tokenVars } from "@blenx-dev/theme/contract";
+import { tokenVars } from "../../theme/contract.css";
 import { baseSprinkles } from "../../utils/sprinkles";
 import { focusRing, disabled } from "../../utils/interaction-styles.css";
-import {
-  dangerPalette,
-  infoPalette,
-  monoPalette,
-  neutralPalette,
-  paletteVars,
-  primaryPalette,
-  successPalette,
-  warningPalette,
-} from "../../utils/pallete-styles.css";
+import { paletteVars } from "../../utils/pallete-styles.css";
 
 export const variant = recipe({
   base: [
@@ -41,15 +32,6 @@ export const variant = recipe({
     disabled,
   ],
   variants: {
-    intent: {
-      primary: primaryPalette,
-      neutral: neutralPalette,
-      success: successPalette,
-      warning: warningPalette,
-      danger: dangerPalette,
-      info: infoPalette,
-      mono: monoPalette,
-    },
     size: {
       xs: baseSprinkles({ fontSize: "sm", py: "xxs", px: "xs" }),
       sm: baseSprinkles({ fontSize: "sm", py: "xs", px: "sm" }),

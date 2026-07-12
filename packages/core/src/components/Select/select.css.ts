@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "../../theme/contract.css";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const label = baseSprinkles({

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { allBlogs } from "content-collections";
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/core/theme/contract";
 import { Box, Container, HStack, Text, VStack } from "@blenx-dev/core";
 
 export const Route = createFileRoute("/blog/")({

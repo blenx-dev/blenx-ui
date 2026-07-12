@@ -1,5 +1,5 @@
-import type { ThemeColors } from "@blenx-dev/theme";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import type { ThemeColors } from "../../theme";
+import { semanticVars } from "../../theme/contract.css";
 import { createVar, style } from "@vanilla-extract/css";
 
 export const paletteVars = {
@@ -52,14 +52,14 @@ export const neutralPalette = style({
 export const successPalette = style({
   vars: {
     [paletteVars.bg]: semanticVars.color.success.default,
-    [paletteVars.fg]: semanticVars.color.success.textActive,
+    [paletteVars.fg]: semanticVars.color.success.fg,
     [paletteVars.hoverBg]: semanticVars.color.success.hover,
     [paletteVars.activeBg]: semanticVars.color.success.bg,
-    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.activeFg]: semanticVars.color.success.textActive,
     [paletteVars.hoverFg]: semanticVars.color.success.bgHover,
     [paletteVars.border]: semanticVars.color.success.active,
     [paletteVars.selectedBg]: semanticVars.color.success.default,
-    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.selectedFg]: semanticVars.color.success.textActive,
     [paletteVars.focusRing]: semanticVars.color.success.active,
   },
 });
@@ -67,14 +67,14 @@ export const successPalette = style({
 export const warningPalette = style({
   vars: {
     [paletteVars.bg]: semanticVars.color.warning.default,
-    [paletteVars.fg]: semanticVars.color.warning.textActive,
+    [paletteVars.fg]: semanticVars.color.warning.fg,
     [paletteVars.hoverBg]: semanticVars.color.warning.hover,
     [paletteVars.activeBg]: semanticVars.color.warning.bg,
-    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.activeFg]: semanticVars.color.warning.textActive,
     [paletteVars.hoverFg]: semanticVars.color.warning.bgHover,
     [paletteVars.border]: semanticVars.color.warning.active,
     [paletteVars.selectedBg]: semanticVars.color.warning.default,
-    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.selectedFg]: semanticVars.color.warning.textActive,
     [paletteVars.focusRing]: semanticVars.color.warning.active,
   },
 });
@@ -82,14 +82,14 @@ export const warningPalette = style({
 export const dangerPalette = style({
   vars: {
     [paletteVars.bg]: semanticVars.color.danger.default,
-    [paletteVars.fg]: semanticVars.color.danger.textActive,
+    [paletteVars.fg]: semanticVars.color.danger.fg,
     [paletteVars.hoverBg]: semanticVars.color.danger.hover,
     [paletteVars.activeBg]: semanticVars.color.danger.bg,
-    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.activeFg]: semanticVars.color.danger.fg,
     [paletteVars.hoverFg]: semanticVars.color.danger.bgHover,
     [paletteVars.border]: semanticVars.color.danger.border,
     [paletteVars.selectedBg]: semanticVars.color.danger.default,
-    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.selectedFg]: semanticVars.color.danger.fg,
     [paletteVars.focusRing]: semanticVars.color.danger.active,
   },
 });
@@ -97,14 +97,14 @@ export const dangerPalette = style({
 export const infoPalette = style({
   vars: {
     [paletteVars.bg]: semanticVars.color.info.default,
-    [paletteVars.fg]: semanticVars.color.info.textActive,
+    [paletteVars.fg]: semanticVars.color.info.fg,
     [paletteVars.hoverBg]: semanticVars.color.info.hover,
     [paletteVars.activeBg]: semanticVars.color.info.bg,
-    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.activeFg]: semanticVars.color.info.textActive,
     [paletteVars.hoverFg]: semanticVars.color.info.bgHover,
     [paletteVars.border]: semanticVars.color.info.border,
     [paletteVars.selectedBg]: semanticVars.color.info.default,
-    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.selectedFg]: semanticVars.color.info.textActive,
     [paletteVars.focusRing]: semanticVars.color.info.active,
   },
 });
@@ -126,28 +126,28 @@ export const monoPalette = style({
 export const linkPalette = style({
   vars: {
     [paletteVars.bg]: semanticVars.color.info.default,
-    [paletteVars.fg]: semanticVars.color.info.textActive,
+    [paletteVars.fg]: semanticVars.color.info.fg,
     [paletteVars.hoverBg]: semanticVars.color.info.hover,
     [paletteVars.activeBg]: semanticVars.color.info.bg,
-    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.activeFg]: semanticVars.color.info.textActive,
     [paletteVars.hoverFg]: semanticVars.color.info.bgHover,
     [paletteVars.border]: semanticVars.color.info.active,
     [paletteVars.selectedBg]: semanticVars.color.info.default,
-    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.selectedFg]: semanticVars.color.info.textActive,
     [paletteVars.focusRing]: semanticVars.color.info.active,
   },
 });
 export const secondaryPalette = style({
   vars: {
     [paletteVars.bg]: semanticVars.color.secondary.default,
-    [paletteVars.fg]: semanticVars.color.secondary.textActive,
+    [paletteVars.fg]: semanticVars.color.secondary.fg,
     [paletteVars.hoverBg]: semanticVars.color.secondary.hover,
     [paletteVars.activeBg]: semanticVars.color.secondary.bg,
-    [paletteVars.activeFg]: semanticVars.text.primary,
+    [paletteVars.activeFg]: semanticVars.color.secondary.textActive,
     [paletteVars.hoverFg]: semanticVars.color.secondary.bgHover,
     [paletteVars.border]: semanticVars.color.secondary.active,
     [paletteVars.selectedBg]: semanticVars.color.secondary.default,
-    [paletteVars.selectedFg]: semanticVars.text.primary,
+    [paletteVars.selectedFg]: semanticVars.color.secondary.textActive,
     [paletteVars.focusRing]: semanticVars.color.secondary.active,
   },
 });
@@ -159,4 +159,5 @@ export const paletteMap: Record<keyof ThemeColors, string> = {
   warning: warningPalette,
   danger: dangerPalette,
   info: infoPalette,
+  mono: monoPalette,
 };

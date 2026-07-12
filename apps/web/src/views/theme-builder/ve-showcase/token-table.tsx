@@ -11,7 +11,7 @@ import {
   TableCell,
   Text,
 } from "@blenx-dev/core";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "@blenx-dev/core/theme/contract";
 import { useThemeBuilder } from "../theme-builder-context";
 
 interface TokenRow {

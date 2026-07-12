@@ -5,6 +5,7 @@ import { variant as variantRecipe } from "./button.css";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import type { BaseSprinkles } from "../../utils/sprinkles.css";
 import { applyBaseSprinkles } from "../../utils/ve-style.utils";
+import { paletteMap } from "../../utils/pallete-styles.css";
 
 type ButtonVariants = RecipeVariants<typeof variantRecipe>;
 
@@ -14,12 +15,13 @@ type ButtonProps = ButtonPrimitive.Props &
     disabled?: boolean;
     loading?: boolean;
     fullWidth?: boolean;
+    intent?: BaseSprinkles["palette"];
   };
 
 function Button({
   children,
   variant = "solid",
-  intent,
+  intent = "primary",
   size = "sm",
   disabled: disabledProp,
   loading,
@@ -30,8 +32,9 @@ function Button({
   const resolvedVariant = intent === "mono" ? "soft" : variant;
   const [boxProps, restProps] = applyBaseSprinkles(props);
   const rootCls = clsx(
+    paletteMap[intent],
     boxProps,
-    variantRecipe({ variant: resolvedVariant, intent: intent ?? "primary", size }),
+    variantRecipe({ variant: resolvedVariant, size }),
     className,
   );
 

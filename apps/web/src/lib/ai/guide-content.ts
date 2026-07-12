@@ -4,10 +4,9 @@ Blenx UI is a React component library built with Vanilla Extract, Base UI, and P
 
 ## Packages
 
-The library is split into three packages:
+The library is split into two packages:
 
-- **\`@blenx-dev/theme\`** — design tokens (colors, spacing, typography, shadows, etc.) as a Vanilla Extract contract + theme implementations.
-- **\`@blenx-dev/core\`** — 45+ primitive components (Button, Text, Box, Dialog, Menu, etc.), the \`baseSprinkles\` atomic CSS utility system, and palette/intent color patterns.
+- **\`@blenx-dev/core\`** — design tokens, theme contracts, 45+ primitive components (Button, Text, Box, Dialog, Menu, etc.), the \`baseSprinkles\` atomic CSS utility system, and palette/intent color patterns.
 - **\`@blenx-dev/datatable\`** — data table component built on \`@tanstack/react-table\` using \`@blenx-dev/core\` components.
 
 ## Import Conventions
@@ -23,7 +22,7 @@ import { Dialog } from "@blenx-dev/core/components/Dialog";
 import { Star, Gear } from "@phosphor-icons/react";
 
 // Theme tokens (for .css.ts files):
-import { semanticVars, tokenVars } from "@blenx-dev/theme/contract";
+import { semanticVars, tokenVars } from "@blenx-dev/core/theme/contract";
 
 // Sprinkles (for .css.ts files):
 import { baseSprinkles } from "@blenx-dev/core";

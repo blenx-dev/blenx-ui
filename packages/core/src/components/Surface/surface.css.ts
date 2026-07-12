@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { semanticVars } from "@blenx-dev/theme/contract";
+import { semanticVars } from "../../theme/contract.css";
 import { baseSprinkles } from "../../utils/sprinkles";
 
 export const variantRecipe = recipe({
