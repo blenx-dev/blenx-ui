@@ -11,14 +11,7 @@ import {
   type ToggleProps,
   type ToggleSize,
 } from "../Toggle/toggle";
-import {
-  dangerPalette,
-  infoPalette,
-  neutralPalette,
-  primaryPalette,
-  successPalette,
-  warningPalette,
-} from "../../utils/pallete-styles.css";
+import { paletteMap } from "../../utils/pallete-styles.css";
 import {
   groupBase,
   groupDefault,
@@ -57,16 +50,6 @@ const spacingVarMap: Record<ToggleGroupSpacing, string> = {
   sm: tokenVars.spacing.sm,
   md: tokenVars.spacing.md,
   lg: tokenVars.spacing.lg,
-};
-
-const paletteClasses: Record<ToggleGroupPalette, string> = {
-  primary: primaryPalette,
-  secondary: neutralPalette,
-  neutral: neutralPalette,
-  success: successPalette,
-  warning: warningPalette,
-  danger: dangerPalette,
-  info: infoPalette,
 };
 
 type ToggleGroupContextValue = {
@@ -117,7 +100,7 @@ export function ToggleGroup({
         groupBase,
         isHorizontal ? groupHorizontal : groupVertical,
         isDefault && tray && groupDefault,
-        paletteClasses[palette],
+        paletteMap[palette],
         className,
       )}
       style={{

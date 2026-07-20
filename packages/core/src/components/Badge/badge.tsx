@@ -4,7 +4,7 @@ import { Box, type BoxProps } from "../Box/box";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { paletteMap } from "../../utils/pallete-styles.css";
 
-type Props = BoxProps & RecipeVariants<typeof badgeRecipe>;
+export type BadgeProps = BoxProps & RecipeVariants<typeof badgeRecipe>;
 
 export function Badge({
   variant = "solid",
@@ -12,7 +12,7 @@ export function Badge({
   className,
   style,
   ...props
-}: Props) {
+}: BadgeProps) {
   return (
     <Box
       className={clsx(paletteMap[palette], badgeRecipe({ variant }), className)}

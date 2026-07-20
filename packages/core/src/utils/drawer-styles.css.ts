@@ -1,4 +1,4 @@
-import { tokenVars } from "../../theme/contract.css";
+import { tokenVars } from "../theme/contract.css";
 import { style } from "@vanilla-extract/css";
 import { baseSprinkles } from "../utils/sprinkles";
 

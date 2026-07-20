@@ -60,7 +60,7 @@ export function TableDemo() {
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.role}</TableCell>
               <TableCell>
-                <Badge palette={user.status === "active" ? "primary" : "default"}>
+                <Badge palette={user.status === "active" ? "primary" : "neutral"}>
                   {user.status}
                 </Badge>
               </TableCell>

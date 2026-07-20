@@ -1,4 +1,4 @@
-import { Badge } from "@blenx-dev/core/Badge";
+import { Badge, BadgeProps } from "@blenx-dev/core/Badge";
 import { Button } from "@blenx-dev/core/Button";
 import { Card, CardBody, CardTitle } from "@blenx-dev/core/Card";
 import { Surface } from "@blenx-dev/core/Surface";
@@ -95,9 +95,9 @@ const defaultActions = [
   { label: "Invite Users", handleClick: () => {} },
 ];
 
-const statusVariant: Record<string, "primary" | "default" | "danger"> = {
+const statusVariant: Record<string, BadgeProps["palette"]> = {
   completed: "primary",
-  pending: "default",
+  pending: "neutral",
   failed: "danger",
 };
 
@@ -176,7 +176,7 @@ export function Dashboard01({
                     <TableCell>{row.event}</TableCell>
                     <TableCell>{row.user}</TableCell>
                     <TableCell>
-                      <Badge palette={statusVariant[row.status] ?? "default"}>{row.status}</Badge>
+                      <Badge palette={statusVariant[row.status] ?? "neutral"}>{row.status}</Badge>
                     </TableCell>
                     <TableCell>{row.date}</TableCell>
                   </TableRow>

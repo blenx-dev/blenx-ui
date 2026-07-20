@@ -56,9 +56,9 @@ export const page = style([
   baseSprinkles({
     color: "primary",
     fontWeight: "semibold",
+    textDecoration: "underline",
   }),
   style({
-    textDecoration: "underline",
     textUnderlineOffset: "2px",
   }),
 ]);

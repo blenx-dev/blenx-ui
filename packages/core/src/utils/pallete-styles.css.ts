@@ -1,5 +1,5 @@
-import type { ThemeColors } from "../../theme";
-import { semanticVars } from "../../theme/contract.css";
+import type { ThemeColors } from "../theme";
+import { semanticVars } from "../theme/contract.css";
 import { createVar, style } from "@vanilla-extract/css";
 
 export const paletteVars = {

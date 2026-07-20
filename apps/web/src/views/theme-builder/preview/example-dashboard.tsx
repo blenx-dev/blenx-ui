@@ -139,7 +139,7 @@ export const ExampleDashboard = memo(() => (
                         ? "primary"
                         : row.status === "Failed"
                           ? "secondary"
-                          : "default"
+                          : "neutral"
                     }
                   >
                     {row.status}

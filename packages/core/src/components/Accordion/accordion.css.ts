@@ -23,15 +23,11 @@ export const rootVertical = style([
   },
 ]);
 
-export const item = style([
-  baseSprinkles({
-    borderBottomWidth: "thin",
-    borderBottomStyle: "solid",
-  }),
-  {
-    borderBottomColor: semanticVars.border.default,
-  },
-]);
+export const item = baseSprinkles({
+  borderBottomWidth: "thin",
+  borderBottomStyle: "solid",
+  borderBottomColor: "default",
+});
 
 export const itemDisabled = baseSprinkles({
   opacity: "0.5",

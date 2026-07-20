@@ -1,5 +1,5 @@
-import { tokenVars } from "../../theme/contract.css";
-import type { ThemeColors } from "../../theme";
+import { tokenVars } from "../theme/contract.css";
+import type { ThemeColors } from "../theme";
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import {
   backgroundColors,
@@ -305,7 +305,7 @@ const fontProperties = defineProperties({
       none: "none",
     },
     textOverflow: ["ellipsis"],
-    textDecoration: { none: "none" },
+    textDecoration: { none: "none", underline: "underline" },
     fontFamily: {
       inherit: "inherit",
       body: tokenVars.font.body,
